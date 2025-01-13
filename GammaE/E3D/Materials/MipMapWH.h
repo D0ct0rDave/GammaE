@@ -2,7 +2,6 @@
 #ifndef MipMapWHH
 #define MipMapWHH
 //---------------------------------------------------------------------------
-#include <Tex.h>
 #include "MipMapObj.h"
 //---------------------------------------------------------------------------
 #define E3D_MIPMAP_WAREHOUSE_MAX_MIPMAPS    256
@@ -25,7 +24,7 @@ public:
                 
         static void InvalidateWarehouse();
 
-        static TMipMapObj *AllocMipMap(char *MipMapName,unsigned int TX,unsigned int TY,PixelFormat PixelFormat,unsigned int NumLODS);
+        // static TMipMapObj *AllocMipMap(char *MipMapName,unsigned int TX,unsigned int TY, PixelFormat PixelFormat,unsigned int NumLODS);
         static void FreeMipMapEntry(TMipMapObj *MipMap);
         static TMipMapObj *LoadMipMap(char *Filename,unsigned int NumLODS);
 private:

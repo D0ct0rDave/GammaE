@@ -87,6 +87,32 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Misc\Console\ConsoleIO.h" />
+    <ClInclude Include="..\Misc\GammaE_Misc.h" />
+    <ClInclude Include="..\Misc\ParseUtils\ParseUtils.h" />
+    <ClInclude Include="..\Misc\TAD\CCircularArray.h" />
+    <ClInclude Include="..\Misc\TAD\CDynArray.h" />
+    <ClInclude Include="..\Misc\TAD\CHashTable.h" />
+    <ClInclude Include="..\Misc\TAD\CLookupArray.h" />
+    <ClInclude Include="..\Misc\TAD\CLookupEntry.h" />
+    <ClInclude Include="..\Misc\TAD\CStArray.h" />
+    <ClInclude Include="..\Misc\Timing\CChrono.h" />
+    <ClInclude Include="..\Misc\Timming\Chronos.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Misc\Console\ConsoleIO.cpp" />
+    <ClCompile Include="..\Misc\GammaE_Misc.cpp" />
+    <ClCompile Include="..\Misc\ParseUtils\ParseUtils.cpp" />
+    <ClCompile Include="..\Misc\TAD\CCircularArray.cpp" />
+    <ClCompile Include="..\Misc\TAD\CDynArray.cpp" />
+    <ClCompile Include="..\Misc\TAD\CHashTable.cpp" />
+    <ClCompile Include="..\Misc\TAD\CLookupArray.cpp" />
+    <ClCompile Include="..\Misc\TAD\CLookupEntry.cpp" />
+    <ClCompile Include="..\Misc\TAD\CStArray.cpp" />
+    <ClCompile Include="..\Misc\Timing\CChrono.cpp" />
+    <ClCompile Include="..\Misc\Timming\Chronos.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

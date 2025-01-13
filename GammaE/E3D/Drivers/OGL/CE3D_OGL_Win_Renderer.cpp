@@ -15,7 +15,7 @@
 #include "Misc/GammaE_Misc.h"
 
 #include "CE3D_OGL_Win_Renderer.h"
-
+#include <tex.h>
 #include <gl/gl.h>
 #include <gl/glu.h>
 #include <gl/glext.h>

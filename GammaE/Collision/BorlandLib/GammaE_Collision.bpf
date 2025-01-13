@@ -1,0 +1,67 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+USEUNIT("..\COL_Testers\COL_DynamicTest\CCOL_DT_Box.cpp");
+USE("..\COL_Testers\COL_DynamicTest\CCOL_DT_Box.h", File);
+USEUNIT("..\COL_Testers\COL_DynamicTest\CCOL_DT_ColTester.cpp");
+USE("..\COL_Testers\COL_DynamicTest\CCOL_DT_ColTester.h", File);
+USEUNIT("..\COL_Testers\COL_DynamicTest\CCOL_DT_Point.cpp");
+USE("..\COL_Testers\COL_DynamicTest\CCOL_DT_Point.h", File);
+USEUNIT("..\COL_Testers\COL_DynamicTest\CCOL_DT_Sphere.cpp");
+USE("..\COL_Testers\COL_DynamicTest\CCOL_DT_Sphere.h", File);
+USEUNIT("..\COL_Testers\COL_DynamicTest\CCOL_DT_Tri.cpp");
+USE("..\COL_Testers\COL_DynamicTest\CCOL_DT_Tri.h", File);
+USEUNIT("..\COL_Testers\COL_SceneTest\CCOL_Mesh_ColTester.cpp");
+USE("..\COL_Testers\COL_SceneTest\CCOL_Mesh.h", File);
+USEUNIT("..\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MeshTester.cpp");
+USE("..\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MeshTester.h", File);
+USEUNIT("..\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_CommonMesh.cpp");
+USE("..\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_CommonMesh.h", File);
+USEUNIT("..\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_TerrainMesh.cpp");
+USE("..\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_TerrainMesh.h", File);
+USEUNIT("..\COL_Testers\COL_StaticTest\CCOL_ST_Box.cpp");
+USE("..\COL_Testers\COL_StaticTest\CCOL_ST_Box.h", File);
+USEUNIT("..\COL_Testers\COL_StaticTest\CCOL_ST_ColTester.cpp");
+USE("..\COL_Testers\COL_StaticTest\CCOL_ST_ColTester.h", File);
+USEUNIT("..\COL_Testers\COL_StaticTest\CCOL_ST_Point.cpp");
+USE("..\COL_Testers\COL_StaticTest\CCOL_ST_Point.h", File);
+USEUNIT("..\COL_Testers\COL_StaticTest\CCOL_ST_Sphere.cpp");
+USE("..\COL_Testers\COL_StaticTest\CCOL_ST_Sphere.h", File);
+USEUNIT("..\COL_Testers\COL_StaticTest\CCOL_ST_Tris.cpp");
+USE("..\COL_Testers\COL_StaticTest\CCOL_ST_Tris.h", File);
+USEUNIT("..\COL_TriList\CCOL_Scn_TriListGen.cpp");
+USE("..\COL_TriList\CCOL_Scn_TriListGen.h", File);
+USEUNIT("..\COL_TriList\CCOL_TriList.cpp");
+USE("..\COL_TriList\CCOL_TriList.h", File);
+USEUNIT("..\COL_TriList\CCOL_TriListGen.cpp");
+USE("..\COL_TriList\CCOL_TriListGen.h", File);
+USEUNIT("..\COL_TriList\CCOL_TRN_TriListGen.cpp");
+USE("..\COL_TriList\CCOL_TRN_TriListGen.h", File);
+USEUNIT("..\Collider\CCOL_CollidedMeshes.cpp");
+USE("..\Collider\CCOL_CollidedMeshes.h", File);
+USEUNIT("..\Collider\CCOL_Collider.cpp");
+USE("..\Collider\CCOL_Collider.h", File);
+USEUNIT("..\Collider\CCOL_Stack.cpp");
+USE("..\Collider\CCOL_Stack.h", File);
+USEUNIT("..\Collider\CCOL_StackCollisionElem.cpp");
+USE("..\Collider\CCOL_StackCollisionElem.h", File);
+USEUNIT("..\Collider\eCOL_ColliderType.cpp");
+USE("..\Collider\eCOL_ColliderType.h", File);
+USEUNIT("..\Collider\eCOL_TestType.cpp");
+USE("..\Collider\eCOL_TestType.h", File);
+USEUNIT("..\CollisionSystem\CCOL_CollisionSystem.cpp");
+USE("..\CollisionSystem\CCOL_CollisionSystem.h", File);
+USEUNIT("..\CollisionSystem\CCOL_ColState.cpp");
+USE("..\CollisionSystem\CCOL_ColState.h", File);
+USEUNIT("..\CollisionSystem\CCOL_CSysEntry.cpp");
+USE("..\CollisionSystem\CCOL_CSysEntry.h", File);
+USEUNIT("..\CollisionUtils\CCOL_TriList_BVRayTest.cpp");
+USE("..\CollisionUtils\CCOL_TriList_BVRayTest.h", File);
+USEUNIT("..\GammaE_Collision.cpp");
+USE("..\GammaE_Collision.h", File);
+//---------------------------------------------------------------------------
+#define Library
+
+// To add a file to the library use the Project menu 'Add to Project'.
+

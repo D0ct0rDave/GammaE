@@ -15,11 +15,15 @@
 //## end module%3C6D9C350076.additionalIncludes
 
 //## begin module%3C6D9C350076.includes preserve=yes
+// #include "Color.h"
 //## end module%3C6D9C350076.includes
 
 // GammaE_E3D
 #include "E3D\GammaE_E3D.h"
 //## begin module%3C6D9C350076.additionalDeclarations preserve=yes
+struct Texture;
+struct MipMap;
+struct TFColor;
 //## end module%3C6D9C350076.additionalDeclarations
 
 

@@ -1,13 +1,9 @@
 -- Premake5.lua
-workspace "GammaE_Math"
-    configurations { "Debug", "Release" }
-    location "build" -- Where generated files (like Visual Studio solutions) will be stored
-    architecture "x86_64"
-
-project "Math"
-
+project_name = "Math"
 caller_script_directory = os.getcwd();
-dofile(caller_script_directory .. "/../common.lua")
+
+workspace("GammaE_" .. project_name)
+	dofile(caller_script_directory .. "/../common.lua")
 
 -- Install rules (using a post-build step for example purposes)
 postbuildcommands {

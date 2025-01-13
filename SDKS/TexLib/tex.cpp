@@ -1,5 +1,31 @@
 #include "tex.h"
+// ----------------------------------------------------------------------------
+PixelFormat GetPixelFormatFromChannels(int channels)
+{
+	switch (channels)
+	{
+		case 1:	return PixelFormat::GRAY8;
+		case 3:	return PixelFormat::RGB24
+		case 4:	return PixelFormat::ARGB32;
+	}
 
+	return PixelFormat::ARGB32;
+}
+// ----------------------------------------------------------------------------
+Texture* poCreateTexture(int width, int height, int numChannels)
+{
+	Texture* tex = new Texture();
+
+	tex->channels = 3;
+	tex->width = TEX_SIZE;
+	tex->height = TEX_SIZE;
+	tex->palette = NULL;
+	tex->data = (unsigned char*)malloc(tex->height * tex->width * tex->channels);
+	tex->pixelFormat = GetPixelFormatFromChannels(tex->channels);
+	
+	return tex;
+}
+// ----------------------------------------------------------------------------
 Texture* poLoadTexture(char* _szFilename)
 {
 	Texture* tex = new Texture();
@@ -9,10 +35,11 @@ Texture* poLoadTexture(char* _szFilename)
 		delete Tex;
 	}
 	tex->palette = NULL;
-	
+	tex->pixelFormat = GetPixelFormatFromChannels(tex->channels);
+
 	return tex;
 }
-
+// ----------------------------------------------------------------------------
 Texture* poCreateTextureCopy(Texture* _poTex)
 {
 	Texture* tex = new Texture();
@@ -39,7 +66,7 @@ Texture* poCreateTextureCopy(Texture* _poTex)
 
 	return tex;
 }
-
+// ----------------------------------------------------------------------------
 MipMap* poCreateMipMapFromTexture(Texture* _poTex)
 {
 	MipMap* mipMap = new MipMap();
@@ -49,7 +76,16 @@ MipMap* poCreateMipMapFromTexture(Texture* _poTex)
 
 	return mipMap;
 }
+// ----------------------------------------------------------------------------
+MipMap* poCreateMipMap(int width, int height, int numChannels)
+{
+	Texture* texture = poCreateTexture(width, height, numChannels);
+	MipMap* mipMap = poCreateMipMapFromTexture(texture);
+	DestroyTexture(texture);
 
+	return mipMap;
+}
+// ----------------------------------------------------------------------------
 MipMap* poCreateMipMapCopy(MipMap* _poMipMap)
 {
 	MipMap* mipMap = new MipMap();
@@ -60,7 +96,21 @@ MipMap* poCreateMipMapCopy(MipMap* _poMipMap)
 
 	return mipMap;
 }
-
+// ----------------------------------------------------------------------------
+MipMap* poLoadTextureAsMipmap(char* _szFilename)
+{
+	Texture* texture = poLoadTexture(_szFilename);
+	if (texture == NULL)
+	{
+		return NULL;
+	}
+	
+	MipMap* mipmap = poCreateMipMapFromTexture(texture);
+	DestroyTexture(texture);
+	
+	return mipmap;
+}
+// ----------------------------------------------------------------------------
 void DestroyTexture(Texture* _poTex)
 {
 	free(_poTex->data);
@@ -72,7 +122,7 @@ void DestroyTexture(Texture* _poTex)
 
 	delete _poTex;
 }
-
+// ----------------------------------------------------------------------------
 void DestroyMipMap(MipMap* _poMipMap)
 {
 	for (int cLod = 0;cLod < _poMipMap->lods.size(); cLod++)
@@ -82,3 +132,4 @@ void DestroyMipMap(MipMap* _poMipMap)
 
 	delete _poMipMap;
 }
+// ----------------------------------------------------------------------------

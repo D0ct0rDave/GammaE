@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.05.03"/>
+    <PROJECT value="..\..\Borland\GammaE_TerrainData.lib"/>
+    <OBJFILES value="..\..\Borland\TexSet.obj ..\..\Borland\CHFSector.obj 
+      ..\..\Borland\CLMSector.obj ..\..\Borland\CSector.obj 
+      ..\..\Borland\CTexSector.obj ..\..\Borland\CTMSector.obj 
+      ..\..\Borland\CHFSector_FN.obj ..\..\Borland\CLMSector_Gray.obj 
+      ..\..\Borland\CLMSector_Pal.obj ..\..\Borland\CLMSector_RGB24.obj 
+      ..\..\Borland\CHeightField.obj ..\..\Borland\CLightMap.obj 
+      ..\..\Borland\CSectorMatrix.obj ..\..\Borland\CTexMap.obj 
+      ..\..\Borland\CTMSector_8_16.obj ..\..\Borland\CColor.obj 
+      ..\..\Borland\CHeight.obj ..\..\Borland\CLightElem.obj 
+      ..\..\Borland\CSectElem.obj ..\..\Borland\CTile.obj 
+      ..\..\Borland\CSectorLoaderManager.obj ..\..\Borland\CSLM_HFieldSect.obj 
+      ..\..\Borland\CSLM_LMapSect.obj ..\..\Borland\CSLM_TexSect.obj 
+      ..\..\Borland\CSLM_TMapSect.obj"/>
+    <RESFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES)"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value=""/>
+    <PACKAGES value=""/>
+    <PATHCPP value=".;..\TexSet;..\Sector;..\Sector\HeightField;..\Sector\LightMap;..\Sector\SectorMatrix;..\Sector\TexMap;..\SectElem;..\Sector\SectorMatrix\CSectorLoaderManager"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <LINKER value="TLib"/>
+    <USERDEFINES value="_DEBUG"/>
+    <SYSDEFINES value="NO_STRICT"/>
+    <MAINSOURCE value="GammaE_TerrainData.bpf"/>
+    <INCLUDEPATH value="..\Sector\SectorMatrix\CSectorLoaderManager;..\SectElem;..\Sector\TexMap;..\Sector\SectorMatrix;..\Sector\LightMap;..\Sector\HeightField;..\Sector;..\TexSet;$(BCB)\include;$(BCB)\include\vcl;..\..\..\libs\FileLib\Src;..\..\..\Libs\TexLib\Src;..;..\.."/>
+    <LIBPATH value="..\Sector\SectorMatrix\CSectorLoaderManager;..\SectElem;..\Sector\TexMap;..\Sector\SectorMatrix;..\Sector\LightMap;..\Sector\HeightField;..\Sector;..\TexSet;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <WARNINGS value="-w-par"/>
+    <LISTFILE value=""/>
+  </MACROS>
+  <OPTIONS>
+    <CFLAG1 value="-Od -Vx -Ve -X- -a4 -5 -b -k -y -v -vi- -c -tW -tWM"/>
+    <PFLAGS value="-N2..\..\Borland -N0..\..\Borland -$YD -$W -$O- -v -JPHNE -M"/>
+    <AFLAGS value="/mx /w2 /zd"/>
+    <LFLAGS value="-l&quot;I:\Projects\GammaE\Borland\&quot; "/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="$(OBJFILES)"/>
+    <ALLLIB value=""/>
+  </LINKER>
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=3082
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=15
+Item0=..\Sector\SectorMatrix\CSectorLoaderManager;..\SectElem;..\Sector\TexMap;..\Sector\SectorMatrix;..\Sector\LightMap;..\Sector\HeightField;..\Sector;..\TexSet;$(BCB)\include;$(BCB)\include\vcl;..\..\..\libs\FileLib\Src;..\..\..\Libs\TexLib\Src;..;..\..
+Item1=..\Sector\SectorMatrix\CSectorLoaderManager;..\SectElem;..\Sector\TexMap;..\Sector\SectorMatrix;..\Sector\LightMap;..\Sector\HeightField;..\Sector;..\TexSet;$(BCB)\include;$(BCB)\include\vcl;..\..\..\libs\FileLib\Src;..\..\..\Libs\TexLib\Src;..\..\TerrainData;..\..\..\GammaE
+Item2=..\SectElem;..\Sector\TexMap;..\Sector\SectorMatrix;..\Sector\LightMap;..\Sector\HeightField;..\Sector;..\TexSet;$(BCB)\include;$(BCB)\include\vcl;..\..\..\libs\FileLib\Src;..\..\..\Libs\TexLib\Src;..;..\..
+Item3=..\SectElem;..\Sector\TexMap;..\Sector\SectorMatrix;..\Sector\LightMap;..\Sector\HeightField;..\Sector;..\TexSet;$(BCB)\include;$(BCB)\include\vcl;..\..\..\libs\FileLib\Src;..\..\..\Libs\TexLib\Src;..\..\TerrainData;..\..\..\GammaE
+Item4=..\SectElem;..\Sector\TexMap;..\Sector\SectorMatrix;..\Sector\LightMap;..\Sector\HeightField;..\Sector;..\TexSet;$(BCB)\include;$(BCB)\include\vcl;..\..\..\FileLib\Src;..\..\..\TexLib\Src;..\..\TerrainData;..\..\..\GammaE
+Item5=..\SectElem;..\Sector\TexMap;..\Sector\SectorMatrix;..\Sector\LightMap;..\Sector\HeightField;..\Sector;..\TexSet;$(BCB)\include;$(BCB)\include\vcl;..\..\..\FileLib\Src;..\..\..\TexLib\Src;..;..\..\
+Item6=..\SectElem;..\Sector\TexMap;..\Sector\SectorMatrix;..\Sector\LightMap;..\Sector\HeightField;..\Sector;..\TexSet;$(BCB)\include;$(BCB)\include\vcl;..\..\..\FileLib\Src;..\..\..\TexLib\Src;..
+Item7=..\SectElem;..\Sector\TexMap;..\Sector\SectorMatrix;..\Sector\LightMap;..\Sector\HeightField;..\Sector;..\TexSet;$(BCB)\include;$(BCB)\include\vcl;..\..\..\FileLib\Src;..\..\..\TexLib\Src;..\..\TerrainData;..\
+Item8=..\SectElem;..\Sector\TexMap;..\Sector\SectorMatrix;..\Sector\LightMap;..\Sector\HeightField;..\Sector;..\TexSet;$(BCB)\include;$(BCB)\include\vcl;..\..\..\FileLib\Src;..\..\..\TexLib\Src;..\..\TerrainData
+Item9=..\SectElem;..\Sector\TexMap;..\Sector\SectorMatrix;..\Sector\LightMap;..\Sector\HeightField;..\Sector;..\TexSet;$(BCB)\include;$(BCB)\include\vcl;..\..\..\FileLib\Src;..\..\..\TexLib\Src;..\
+Item10=..\SectElem;..\Sector\TexMap;..\Sector\SectorMatrix;..\Sector\LightMap;..\Sector\HeightField;..\Sector;..\TexSet;$(BCB)\include;$(BCB)\include\vcl;..\..\..\FileLib\Src;..\..\..\TexLib\Src
+Item11=..\SectElem;..\Sector\TexMap;..\Sector\SectorMatrix;..\Sector\LightMap;..\Sector\HeightField;..\Sector;..\TexSet;$(BCB)\include;$(BCB)\include\vcl;..\..\..\FileLib\Src;..\..\..\TexLib\Src;.\
+Item12=..\SectElem;..\Sector\TexMap;..\Sector\SectorMatrix;..\Sector\LightMap;..\Sector\HeightField;..\Sector;..\TexSet;$(BCB)\include;$(BCB)\include\vcl;..\..\..\FileLib\Src
+Item13=..\SectElem;..\Sector\TexMap;..\Sector\SectorMatrix;..\Sector\LightMap;..\Sector\HeightField;..\Sector;..\TexSet;$(BCB)\include;$(BCB)\include\vcl;E:\Projects\FileLib\Src
+Item14=..\SectElem;..\Sector\TexMap;..\Sector\SectorMatrix;..\Sector\LightMap;..\Sector\HeightField;..\Sector;..\TexSet;$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=2
+Item0=..\Sector\SectorMatrix\CSectorLoaderManager;..\SectElem;..\Sector\TexMap;..\Sector\SectorMatrix;..\Sector\LightMap;..\Sector\HeightField;..\Sector;..\TexSet;$(BCB)\lib\obj;$(BCB)\lib
+Item1=..\SectElem;..\Sector\TexMap;..\Sector\SectorMatrix;..\Sector\LightMap;..\Sector\HeightField;..\Sector;..\TexSet;$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=1
+Item0=_DEBUG
+
+[HistoryLists\hlIntOutputDir]
+Count=3
+Item0=..\..\Borland
+Item1=I:\Projects\GammaE\Borland\
+Item2=output
+
+[HistoryLists\hlFinalOutputDir]
+Count=2
+Item0=..\..\Borland\
+Item1=I:\Projects\GammaE\Borland\
+
+[HistoryLists\hIBPIOutputDir]
+Count=1
+Item0=I:\Projects\GammaE\Borland\
+
+[HistoryLists\hlTlibPageSize]
+Count=1
+Item0=0x0010
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+  </IDEOPTIONS>
+</PROJECT>

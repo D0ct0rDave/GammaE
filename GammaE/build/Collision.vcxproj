@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B11A655C-1D85-19D3-66C3-CA78D26CF727}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Collision</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(ProjectDir)\lib\Debug\</OutDir>
+    <IntDir>$(ProjectDir)\obj\Debug\</IntDir>
+    <TargetName>Collision</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(ProjectDir)\lib\Release\</OutDir>
+    <IntDir>$(ProjectDir)\obj\Release\</IntDir>
+    <TargetName>Collision</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_NULL=0;_MBCS;WIN32;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Collision;$(ProjectDir)..\..;;$(ProjectDir)..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_NULL=0;_MBCS;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Collision;$(ProjectDir)..\..;;$(ProjectDir)..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Collision\COL_Testers\COL_DynamicTest\CCOL_DT_Box.h" />
+    <ClInclude Include="..\Collision\COL_Testers\COL_DynamicTest\CCOL_DT_ColTester.h" />
+    <ClInclude Include="..\Collision\COL_Testers\COL_DynamicTest\CCOL_DT_Point.h" />
+    <ClInclude Include="..\Collision\COL_Testers\COL_DynamicTest\CCOL_DT_Sphere.h" />
+    <ClInclude Include="..\Collision\COL_Testers\COL_DynamicTest\CCOL_DT_Tri.h" />
+    <ClInclude Include="..\Collision\COL_Testers\COL_SceneTest\CCOL_Mesh.h" />
+    <ClInclude Include="..\Collision\COL_Testers\COL_SceneTest\CCOL_Scn_ColTester.h" />
+    <ClInclude Include="..\Collision\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_CommonMesh.h" />
+    <ClInclude Include="..\Collision\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_TerrainMesh.h" />
+    <ClInclude Include="..\Collision\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MeshTester.h" />
+    <ClInclude Include="..\Collision\COL_Testers\COL_StaticTest\CCOL_ST_Box.h" />
+    <ClInclude Include="..\Collision\COL_Testers\COL_StaticTest\CCOL_ST_ColTester.h" />
+    <ClInclude Include="..\Collision\COL_Testers\COL_StaticTest\CCOL_ST_Point.h" />
+    <ClInclude Include="..\Collision\COL_Testers\COL_StaticTest\CCOL_ST_Sphere.h" />
+    <ClInclude Include="..\Collision\COL_Testers\COL_StaticTest\CCOL_ST_Tris.h" />
+    <ClInclude Include="..\Collision\COL_TriList\CCOL_Scn_TriListGen.h" />
+    <ClInclude Include="..\Collision\COL_TriList\CCOL_TRN_TriListGen.h" />
+    <ClInclude Include="..\Collision\COL_TriList\CCOL_TriList.h" />
+    <ClInclude Include="..\Collision\COL_TriList\CCOL_TriListGen.h" />
+    <ClInclude Include="..\Collision\COL_TriList\CCOL_Triangle.h" />
+    <ClInclude Include="..\Collision\Collider\CCOL_CollidedMeshes.h" />
+    <ClInclude Include="..\Collision\Collider\CCOL_Collider.h" />
+    <ClInclude Include="..\Collision\Collider\CCOL_Stack.h" />
+    <ClInclude Include="..\Collision\Collider\CCOL_StackCollisionElem.h" />
+    <ClInclude Include="..\Collision\Collider\eCOL_ColliderType.h" />
+    <ClInclude Include="..\Collision\Collider\eCOL_TestType.h" />
+    <ClInclude Include="..\Collision\CollisionSystem\CCOL_CSysEntry.h" />
+    <ClInclude Include="..\Collision\CollisionSystem\CCOL_ColState.h" />
+    <ClInclude Include="..\Collision\CollisionSystem\CCOL_CollisionSystem.h" />
+    <ClInclude Include="..\Collision\CollisionUtils\CCOL_TriList_BVRayTest.h" />
+    <ClInclude Include="..\Collision\GammaE_Collision.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Collision\COL_Testers\COL_DynamicTest\CCOL_DT_Box.cpp" />
+    <ClCompile Include="..\Collision\COL_Testers\COL_DynamicTest\CCOL_DT_ColTester.cpp" />
+    <ClCompile Include="..\Collision\COL_Testers\COL_DynamicTest\CCOL_DT_Point.cpp" />
+    <ClCompile Include="..\Collision\COL_Testers\COL_DynamicTest\CCOL_DT_Sphere.cpp" />
+    <ClCompile Include="..\Collision\COL_Testers\COL_DynamicTest\CCOL_DT_Tri.cpp" />
+    <ClCompile Include="..\Collision\COL_Testers\COL_SceneTest\CCOL_Mesh.cpp" />
+    <ClCompile Include="..\Collision\COL_Testers\COL_SceneTest\CCOL_Scn_ColTester.cpp" />
+    <ClCompile Include="..\Collision\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_CommonMesh.cpp" />
+    <ClCompile Include="..\Collision\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_TerrainMesh.cpp" />
+    <ClCompile Include="..\Collision\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MeshTester.cpp" />
+    <ClCompile Include="..\Collision\COL_Testers\COL_StaticTest\CCOL_ST_Box.cpp" />
+    <ClCompile Include="..\Collision\COL_Testers\COL_StaticTest\CCOL_ST_ColTester.cpp" />
+    <ClCompile Include="..\Collision\COL_Testers\COL_StaticTest\CCOL_ST_Point.cpp" />
+    <ClCompile Include="..\Collision\COL_Testers\COL_StaticTest\CCOL_ST_Sphere.cpp" />
+    <ClCompile Include="..\Collision\COL_Testers\COL_StaticTest\CCOL_ST_Tris.cpp" />
+    <ClCompile Include="..\Collision\COL_TriList\CCOL_Scn_TriListGen.cpp" />
+    <ClCompile Include="..\Collision\COL_TriList\CCOL_TRN_TriListGen.cpp" />
+    <ClCompile Include="..\Collision\COL_TriList\CCOL_TriList.cpp" />
+    <ClCompile Include="..\Collision\COL_TriList\CCOL_TriListGen.cpp" />
+    <ClCompile Include="..\Collision\COL_TriList\CCOL_Triangle.cpp" />
+    <ClCompile Include="..\Collision\Collider\CCOL_CollidedMeshes.cpp" />
+    <ClCompile Include="..\Collision\Collider\CCOL_Collider.cpp" />
+    <ClCompile Include="..\Collision\Collider\CCOL_Stack.cpp" />
+    <ClCompile Include="..\Collision\Collider\CCOL_StackCollisionElem.cpp" />
+    <ClCompile Include="..\Collision\Collider\eCOL_ColliderType.cpp" />
+    <ClCompile Include="..\Collision\Collider\eCOL_TestType.cpp" />
+    <ClCompile Include="..\Collision\CollisionSystem\CCOL_CSysEntry.cpp" />
+    <ClCompile Include="..\Collision\CollisionSystem\CCOL_ColState.cpp" />
+    <ClCompile Include="..\Collision\CollisionSystem\CCOL_CollisionSystem.cpp" />
+    <ClCompile Include="..\Collision\CollisionUtils\CCOL_TriList_BVRayTest.cpp" />
+    <ClCompile Include="..\Collision\GammaE_Collision.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

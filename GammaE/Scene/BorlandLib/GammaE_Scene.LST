@@ -1,0 +1,160 @@
+Publics by module
+
+ASE_ModelParser	size = 20321
+
+ASE_Tokens	size = 830
+	_MaterialList_TokenTable          _Mesh_TokenTable
+	_SceneTokenTable                  _Scene_TokenTable
+	_TokenTable                     
+
+C3DLoader	size = 19062
+
+C3DSaver	size = 19056
+
+CBillboard	size = 22245
+
+CBillboard_AxisAlign	size = 48267
+
+CBillboard_ScrAlign	size = 48159
+
+CBillboard_WorldAlign	size = 23067
+
+CFont   	size = 758
+
+CHeadUpDisplay	size = 49115
+
+CLoader3DS	size = 36206
+
+CLoaderBSP2	size = 48061
+
+CLoaderGEM	size = 53008
+
+CLoaderMD2	size = 43006
+
+CLoaderMD3	size = 47847
+
+CObject3D	size = 42682
+
+CObject3D_AnimCfg	size = 47933
+
+CObject3D_AnimCfgGen	size = 19322
+
+CObject3D_AnimCfgMgr	size = 25465
+
+CObject3D_AnimGen	size = 19589
+
+CObject3D_AnimMesh	size = 31668
+
+CObject3D_AnimNode	size = 26057
+
+CObject3D_AnimTransf	size = 48172
+
+CObject3D_BSPNode	size = 47926
+
+CObject3D_Camera	size = 47396
+
+CObject3D_CompiledLeaf	size = 44917
+
+CObject3D_Leaf	size = 44879
+
+CObject3D_Mux	size = 25592
+
+CObject3D_Node	size = 27136
+
+CObject3D_Transf	size = 81153
+
+CParticleSystem	size = 56334
+	_pCurrentVXs                    
+
+CParticleSystem_Coolant	size = 31156
+
+CParticleSystem_Generic	size = 30145
+
+CParticleSystem_Generic_Stretch	size = 33412
+
+CParticleSystem_Sparks	size = 31218
+
+CSaverGEM	size = 51238
+
+CTransMatrix	size = 814
+
+MD2LightNormals	size = 2049
+	_avertexnormals                 
+
+SCNUt_AdjTri	size = 4605
+
+SCNUt_AdjTriList	size = 3858
+
+SCNUt_AdjTriListBuilder	size = 27262
+
+SCNUt_AnimMesh_NormalComputer	size = 29279
+	_glbAnimMesh_NormalGenerator    
+
+SCNUt_BSPBuilder	size = 39761
+	_iRecursionLevels               
+
+SCNUt_ComputeBoundingBox	size = 12437
+
+SCNUt_CoplanarRemover	size = 29913
+
+SCNUt_Edge	size = 840
+
+SCNUt_EdgeBuilder	size = 26651
+
+SCNUt_EdgeList	size = 5453
+
+SCNUt_ExtendedTri	size = 8440
+
+SCNUt_MaterialTable	size = 10589
+
+SCNUt_Mesh2TriScene	size = 29869
+
+SCNUt_MeshCompacter	size = 23894
+
+SCNUt_MeshGenerator	size = 23045
+
+SCNUt_OctreeBuilder	size = 35614
+
+SCNUt_PlanarMapper	size = 17725
+
+SCNUt_SceneBuilder	size = 33473
+
+SCNUt_SceneCompiler	size = 52257
+
+SCNUt_Scn2TriScnBuilder	size = 39542
+
+SCNUt_Stripifier	size = 27392
+
+SCNUt_TransformTriScene	size = 16550
+
+SCNUt_TriScene	size = 12151
+
+SCNUt_TriSceneAccumulator	size = 13487
+
+SCNUt_TriSceneClassifier	size = 17214
+
+SCNUt_TriSceneLoader	size = 15310
+
+SCNUt_TriSceneSeparator	size = 15429
+
+SCNUt_TriSceneSplitter	size = 23586
+
+SCNUt_TriUtils	size = 11820
+
+SCNUt_Triangle	size = 8273
+
+SCNUt_VisibilityTester	size = 20533
+
+SCNUt_ePolyState	size = 26
+
+ScnUt_ShaderAssigner	size = 29646
+
+T3DS_Chunk	size = 868
+
+TFrameAnimation	size = 986
+
+THUDObjPosEntry	size = 926
+
+cParticleSystem_Generic_Quad	size = 33295
+
+e3DObjectTypeID	size = 26

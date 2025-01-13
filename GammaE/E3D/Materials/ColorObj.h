@@ -2,7 +2,7 @@
 #ifndef ColorObjH
 #define ColorObjH
 //---------------------------------------------------------------------------
-#include <tex.h>
+#include "Color.h"
 //---------------------------------------------------------------------------
 class TColorObj{
     public:
@@ -13,7 +13,7 @@ class TColorObj{
                 TFColor Color();
                 void SetColor(float r,float g,float b,float a);
     private:
-                TFColor ResColor;
+        TFColor ResColor;
 
 };
 //---------------------------------------------------------------------------

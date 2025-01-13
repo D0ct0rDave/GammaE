@@ -12,7 +12,11 @@
 
 //## begin module%3C604EBE02A5.includes preserve=yes
 #include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+
 #include "Memory/GammaE_Mem.h"
+
 //## end module%3C604EBE02A5.includes
 
 // CE3D_ShaderInsts

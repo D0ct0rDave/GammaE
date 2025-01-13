@@ -1,0 +1,199 @@
+//## begin module%3AA256E702CB.cm preserve=no
+//	  %X% %Q% %Z% %W%
+//## end module%3AA256E702CB.cm
+
+//## begin module%3AA256E702CB.cp preserve=no
+//## end module%3AA256E702CB.cp
+
+//## Module: CObject3D_AnimatedMesh%3AA256E702CB; Pseudo Package body
+//## Source file: i:\Projects\GammaE\Scene\Animation\CObject3D_AnimatedMesh.cpp
+
+//## begin module%3AA256E702CB.additionalIncludes preserve=no
+//## end module%3AA256E702CB.additionalIncludes
+
+//## begin module%3AA256E702CB.includes preserve=yes
+#include <assert.h>
+#include <math.h>
+//## end module%3AA256E702CB.includes
+
+// CObject3D_AnimatedMesh
+#include "Scene\Animation\CObject3D_AnimatedMesh.h"
+//## begin module%3AA256E702CB.additionalDeclarations preserve=yes
+//## end module%3AA256E702CB.additionalDeclarations
+
+
+// Class CObject3D_AnimatedMesh 
+
+
+
+
+
+
+
+CObject3D_AnimatedMesh::CObject3D_AnimatedMesh()
+  //## begin CObject3D_AnimatedMesh::CObject3D_AnimatedMesh%.hasinit preserve=no
+      : Frames(NULL), NumFrames(0), FrameAnims(NULL), NumAnimFrames(0), CurrentFrameAnim(0), CurrentTime(0)
+  //## end CObject3D_AnimatedMesh::CObject3D_AnimatedMesh%.hasinit
+  //## begin CObject3D_AnimatedMesh::CObject3D_AnimatedMesh%.initialization preserve=yes
+  //## end CObject3D_AnimatedMesh::CObject3D_AnimatedMesh%.initialization
+{
+  //## begin CObject3D_AnimatedMesh::CObject3D_AnimatedMesh%.body preserve=yes
+  //## end CObject3D_AnimatedMesh::CObject3D_AnimatedMesh%.body
+}
+
+
+CObject3D_AnimatedMesh::~CObject3D_AnimatedMesh()
+{
+  //## begin CObject3D_AnimatedMesh::~CObject3D_AnimatedMesh%.body preserve=yes
+	Clear();
+  //## end CObject3D_AnimatedMesh::~CObject3D_AnimatedMesh%.body
+}
+
+
+
+//## Other Operations (implementation)
+void CObject3D_AnimatedMesh::Clear ()
+{
+  //## begin CObject3D_AnimatedMesh::Clear%986154964.body preserve=yes
+	
+	// Erase previous Info
+	if (Frames    ) delete []Frames;
+	if (FrameAnims) delete []FrameAnims;
+  //## end CObject3D_AnimatedMesh::Clear%986154964.body
+}
+
+CMesh * CObject3D_AnimatedMesh::poGetMesh ()
+{
+  //## begin CObject3D_AnimatedMesh::poGetMesh%983822075.body preserve=yes
+	assert ( FrameAnims );
+
+	unsigned int		iCurrFrame;
+	unsigned int		iNextFrame;
+	unsigned int		iRealFrame;
+
+	float				fFactor;
+	float				fFrameAnimTime;
+	float				fFrame;
+	
+	// Tiempo total desde la primera llamada a GetMesh
+	CurrentTime += RenderState.GetRenderer()->REStats.DTime;
+
+	// Tiempo transcurrido dentro de la actual animación
+	fFrameAnimTime = fmod(CurrentTime,FrameAnims[CurrentFrameAnim].TotalTime);
+
+	// Frame que toca relativo al frame inicial de la animación
+	fFrame     = fFrameAnimTime / FrameAnims[CurrentFrameAnim].FrameTime;
+	iCurrFrame = (int) fFrame;
+	
+	// Factor de cercanía hacia el siguiente frame: (->1 muy cerca de siguiente frame)
+	fFactor    = fFrame - iCurrFrame;
+
+	// Frame real dentro de la tabla de frames	
+	iRealFrame = FrameAnims[CurrentFrameAnim].InitialFrame + iCurrFrame;
+
+	// Setup next frame
+	if (iRealFrame >= FrameAnims[CurrentFrameAnim].FinalFrame)
+	{
+		iNextFrame = FrameAnims[CurrentFrameAnim ].InitialFrame;
+	}
+	else
+		iNextFrame = iRealFrame+1;
+
+	// Generate the new mesh an return it
+	InterpolateFrames(Frames[iRealFrame ],Frames[iNextFrame],fFactor);
+
+	// Set the current bbox Low accuracy
+	BVol	   = Frames[iRealFrame]->GetBoundVol();
+	Mesh->BVol = Frames[iRealFrame]->GetBoundVol();
+	
+	return(Mesh);
+  //## end CObject3D_AnimatedMesh::poGetMesh%983822075.body
+}
+
+void CObject3D_AnimatedMesh::CreateFrames (int _NumFrames, int _NumVertexs)
+{
+  //## begin CObject3D_AnimatedMesh::CreateFrames%985725081.body preserve=yes
+	int cFrame;
+
+	// Frames    = (CMesh* *)malloc(sizeof(CMesh *)*_NumFrames);
+	Frames    = new CMesh *[_NumFrames];
+	NumFrames = _NumFrames;
+
+	// Create the array of frames
+	for (cFrame=0;cFrame<NumFrames;cFrame++)
+	{
+		Frames[cFrame] = new CMesh();
+		Frames[cFrame]->Init(_NumVertexs,0,E3D_MESH_TRIS,MESH_FIELD_VERTEXS);
+	}
+  //## end CObject3D_AnimatedMesh::CreateFrames%985725081.body
+}
+
+void CObject3D_AnimatedMesh::CreateFrameAnims (int iNumFrameAnims)
+{
+  //## begin CObject3D_AnimatedMesh::CreateFrameAnims%985977419.body preserve=yes
+	NumAnimFrames = iNumFrameAnims;
+	FrameAnims    = new TFrameAnimation[iNumFrameAnims];
+  //## end CObject3D_AnimatedMesh::CreateFrameAnims%985977419.body
+}
+
+void CObject3D_AnimatedMesh::SetupFrameAnim (int FrameAnim, int InitialFrame, int FinalFrame, float FrameAnimTime)
+{
+  //## begin CObject3D_AnimatedMesh::SetupFrameAnim%985977420.body preserve=yes
+	
+	FrameAnims[FrameAnim].InitialFrame = InitialFrame;
+	FrameAnims[FrameAnim].FinalFrame   = FinalFrame;
+	FrameAnims[FrameAnim].TotalTime    = FrameAnimTime;
+	
+	if (FinalFrame > InitialFrame)
+		FrameAnims[FrameAnim].FrameTime = FrameAnimTime / (FinalFrame - InitialFrame + 1);
+	else
+		FrameAnims[FrameAnim].FrameTime = 10000000; // x/0	infinite
+  //## end CObject3D_AnimatedMesh::SetupFrameAnim%985977420.body
+}
+
+void CObject3D_AnimatedMesh::SetFrameAnim (int iFrameAnim)
+{
+  //## begin CObject3D_AnimatedMesh::SetFrameAnim%985977421.body preserve=yes
+	CurrentFrameAnim = iFrameAnim;
+	CurrentTime		 = 0;
+  //## end CObject3D_AnimatedMesh::SetFrameAnim%985977421.body
+}
+
+void CObject3D_AnimatedMesh::InterpolateFrames (CMesh *IFrame, CMesh *FFrame, float fFactor)
+{
+  //## begin CObject3D_AnimatedMesh::InterpolateFrames%985978727.body preserve=yes
+
+	unsigned int cVert;
+	for (cVert=0;cVert<Mesh->usNumVerts;cVert++)
+	{
+		Mesh->VXs[cVert].Interpolate(IFrame->VXs[cVert],FFrame->VXs[cVert],fFactor);
+		
+		// Mesh->VNormals[cVert].Interpolate(IFrame->VNormals[cVert],FFrame->VNormals[cVert],fFactor);
+	}
+  //## end CObject3D_AnimatedMesh::InterpolateFrames%985978727.body
+}
+
+void CObject3D_AnimatedMesh::poComputeBoundVol ()
+{
+  //## begin CObject3D_AnimatedMesh::poComputeBoundVol%986334610.body preserve=yes
+	int cFrame;
+	for (cFrame=0;cFrame<NumFrames;cFrame++)
+		Frames[cFrame]->ComputeBoundVol();
+
+	BVol = Frames[0]->GetBoundVol();
+  //## end CObject3D_AnimatedMesh::poComputeBoundVol%986334610.body
+}
+
+CMesh * CObject3D_AnimatedMesh::poGetFrame (int iFrame)
+{
+  //## begin CObject3D_AnimatedMesh::poGetFrame%995721546.body preserve=yes
+	return ( Frames[iFrame] );
+  //## end CObject3D_AnimatedMesh::poGetFrame%995721546.body
+}
+
+// Additional Declarations
+  //## begin CObject3D_AnimatedMesh%3AA256E702CB.declarations preserve=yes
+  //## end CObject3D_AnimatedMesh%3AA256E702CB.declarations
+
+//## begin module%3AA256E702CB.epilog preserve=yes
+//## end module%3AA256E702CB.epilog

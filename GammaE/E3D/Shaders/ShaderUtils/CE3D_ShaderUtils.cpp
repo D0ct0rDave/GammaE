@@ -12,6 +12,8 @@
 
 //## begin module%3C6D9C350076.includes preserve=yes
 #include "Memory/GammaE_Mem.h"
+#include "tex.h"
+#include "Color.h"
 //## end module%3C6D9C350076.includes
 
 // CE3D_ShaderUtils

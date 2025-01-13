@@ -48,7 +48,7 @@
 #include "E3D/BoundingVolume/CBoundingVolume.h"
 #include "E3D/BoundingVolume/GraphBoundVol/CGraphBV_Manager.h"
 #include "E3D/BoundingVolume/GraphBoundVol/GraphBVUtils/CGraphBV_FileIO.h"
-
+#include "Color.h"
 //---------------------------------------------------------------------------
 // Geometry
 //---------------------------------------------------------------------------

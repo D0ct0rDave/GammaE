@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.05.03"/>
+    <PROJECT value="GammaE_Collision.lib"/>
+    <OBJFILES value="..\COL_Testers\COL_DynamicTest\CCOL_DT_Box.obj 
+      ..\COL_Testers\COL_DynamicTest\CCOL_DT_ColTester.obj 
+      ..\COL_Testers\COL_DynamicTest\CCOL_DT_Point.obj 
+      ..\COL_Testers\COL_DynamicTest\CCOL_DT_Sphere.obj 
+      ..\COL_Testers\COL_DynamicTest\CCOL_DT_Tri.obj 
+      ..\COL_Testers\COL_SceneTest\CCOL_Mesh_ColTester.obj 
+      ..\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MeshTester.obj 
+      ..\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_CommonMesh.obj 
+      ..\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_TerrainMesh.obj 
+      ..\COL_Testers\COL_StaticTest\CCOL_ST_Box.obj 
+      ..\COL_Testers\COL_StaticTest\CCOL_ST_ColTester.obj 
+      ..\COL_Testers\COL_StaticTest\CCOL_ST_Point.obj 
+      ..\COL_Testers\COL_StaticTest\CCOL_ST_Sphere.obj 
+      ..\COL_Testers\COL_StaticTest\CCOL_ST_Tris.obj 
+      ..\COL_TriList\CCOL_Scn_TriListGen.obj ..\COL_TriList\CCOL_TriList.obj 
+      ..\COL_TriList\CCOL_TriListGen.obj ..\COL_TriList\CCOL_TRN_TriListGen.obj 
+      ..\Collider\CCOL_CollidedMeshes.obj ..\Collider\CCOL_Collider.obj 
+      ..\Collider\CCOL_Stack.obj ..\Collider\CCOL_StackCollisionElem.obj 
+      ..\Collider\eCOL_ColliderType.obj ..\Collider\eCOL_TestType.obj 
+      ..\CollisionSystem\CCOL_CollisionSystem.obj 
+      ..\CollisionSystem\CCOL_ColState.obj ..\CollisionSystem\CCOL_CSysEntry.obj 
+      ..\CollisionUtils\CCOL_TriList_BVRayTest.obj ..\GammaE_Collision.obj"/>
+    <RESFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES)"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value=""/>
+    <PACKAGES value=""/>
+    <PATHCPP value=".;..\COL_Testers\COL_DynamicTest;..\COL_Testers\COL_SceneTest;..\COL_Testers\COL_SceneTest\COL_MeshTest;..\COL_Testers\COL_StaticTest;..\COL_TriList;..\Collider;..\CollisionSystem;..\CollisionUtils;.."/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <LINKER value="TLib"/>
+    <USERDEFINES value="_DEBUG"/>
+    <SYSDEFINES value="_RTLDLL;NO_STRICT"/>
+    <MAINSOURCE value="GammaE_Collision.bpf"/>
+    <INCLUDEPATH value="..\;..;..\CollisionUtils;..\CollisionSystem;..\Collider;..\COL_TriList;..\COL_Testers\COL_StaticTest;..\COL_Testers\COL_SceneTest\COL_MeshTest;..\COL_Testers\COL_SceneTest;..\COL_Testers\COL_DynamicTest;$(BCB)\include;$(BCB)\include\vcl"/>
+    <LIBPATH value="..\;..;..\CollisionUtils;..\CollisionSystem;..\Collider;..\COL_TriList;..\COL_Testers\COL_StaticTest;..\COL_Testers\COL_SceneTest\COL_MeshTest;..\COL_Testers\COL_SceneTest;..\COL_Testers\COL_DynamicTest;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <WARNINGS value="-w-par"/>
+    <LISTFILE value=""/>
+  </MACROS>
+  <OPTIONS>
+    <CFLAG1 value="-Od -H=$(BCB)\lib\vcl50.csm -Hc -Vx -Ve -X- -r- -a8 -b- -k -y -v -vi- -c 
+      -tW -tWM"/>
+    <PFLAGS value="-$YD -$W -$O- -v -JPHNE -M"/>
+    <AFLAGS value="/mx /w2 /zd"/>
+    <LFLAGS value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="$(OBJFILES)"/>
+    <ALLLIB value=""/>
+  </LINKER>
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=3082
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+  </IDEOPTIONS>
+</PROJECT>

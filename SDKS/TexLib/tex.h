@@ -3,11 +3,6 @@
 
 #include <vector>
 
-typedef struct TFColor
-{
-	float r,g,b,a;
-}TFColor;
-
 enum PixelFormat
 {
     ARGB32,
@@ -15,14 +10,14 @@ enum PixelFormat
     GRAY8,
     PALETTE
 };
-typedef struct
+
+struct Palette
 {
     unsigned char* data;
     unsigned int numColors;
-}
-Palette;
+};
 
-typedef struct
+struct Texture
 {
     unsigned char* data;
     unsigned int width;
@@ -30,17 +25,20 @@ typedef struct
     unsigned int channels;
     PixelFormat pixelFormat;
     Palette* palette;
-}Texture;
+};
 
-typedef struct MipMap 
+struct MipMap
 {
     std::vector<Texture*> lods;
 };
 
+Texture* poCreateTexture(int width, int height, int numChannels);
 Texture* poLoadTexture(char* _szFilename);
 Texture* poCreateTextureCopy(Texture* _poTex);
 void DestroyTexture(Texture* _poTex);
 
+MipMap* poCreateMipMap(int width, int height, int numChannels);
+MipMap* poLoadTextureAsMipmap(char* _szFilename);
 MipMap* poCreateMipMapFromTexture(Texture* _poTex);
 MipMap* poCreateMipMapCopy(MipMap* _poMipMap);
 void DestroyMipMap(MipMap* _poMipMap);

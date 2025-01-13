@@ -9,8 +9,6 @@
 
 #include "Chronos.h"
 //---------------------------------------------------------------------------
-
-#ifdef WIN32
 LARGE_INTEGER liChronoFrequency;
 double		   dChronoFrequency;
 
@@ -21,8 +19,6 @@ LARGE_INTEGER liChronoCurrentTime;
 double		   dChronoCurrentTime;
 
 double		   dChronoEllapsedTime;
-#endif
-
 //---------------------------------------------------------------------------
 void Chrono_StartChrono()
 {
@@ -45,8 +41,6 @@ double Chrono_EllapsedTime()
 		
 		return(dChronoEllapsedTime);
 	}
-#else
-	return 0.0;
 #endif
 }
 //---------------------------------------------------------------------------
@@ -60,8 +54,6 @@ double Chrono_GetCurrentTime()
 	dChronoStartTime = (double)liChronoStartTime.QuadPart;
 		
 	return(dChronoStartTime/dChronoFrequency);
-#else
-	return 0.0;
 #endif
 }
 //---------------------------------------------------------------------------

@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Console">
+      <UniqueIdentifier>{389F3134-A47E-B0CF-AD96-3BA619F51631}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ParseUtils">
+      <UniqueIdentifier>{31B5B857-1D6D-FAA4-8674-D300724B9595}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TAD">
+      <UniqueIdentifier>{DE20880B-4A2A-887C-D3A5-9E7C3FAE937C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Timing">
+      <UniqueIdentifier>{0DF979D3-F99A-A4A9-E255-B8FDCE962BFA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Timming">
+      <UniqueIdentifier>{3A38BB42-A617-3ADE-AF2F-C5B41B8EA03F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Misc\Console\ConsoleIO.h">
+      <Filter>Console</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Misc\GammaE_Misc.h" />
+    <ClInclude Include="..\Misc\ParseUtils\ParseUtils.h">
+      <Filter>ParseUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Misc\TAD\CCircularArray.h">
+      <Filter>TAD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Misc\TAD\CDynArray.h">
+      <Filter>TAD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Misc\TAD\CHashTable.h">
+      <Filter>TAD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Misc\TAD\CLookupArray.h">
+      <Filter>TAD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Misc\TAD\CLookupEntry.h">
+      <Filter>TAD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Misc\TAD\CStArray.h">
+      <Filter>TAD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Misc\Timing\CChrono.h">
+      <Filter>Timing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Misc\Timming\Chronos.h">
+      <Filter>Timming</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Misc\Console\ConsoleIO.cpp">
+      <Filter>Console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Misc\GammaE_Misc.cpp" />
+    <ClCompile Include="..\Misc\ParseUtils\ParseUtils.cpp">
+      <Filter>ParseUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Misc\TAD\CCircularArray.cpp">
+      <Filter>TAD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Misc\TAD\CDynArray.cpp">
+      <Filter>TAD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Misc\TAD\CHashTable.cpp">
+      <Filter>TAD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Misc\TAD\CLookupArray.cpp">
+      <Filter>TAD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Misc\TAD\CLookupEntry.cpp">
+      <Filter>TAD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Misc\TAD\CStArray.cpp">
+      <Filter>TAD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Misc\Timing\CChrono.cpp">
+      <Filter>Timing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Misc\Timming\Chronos.cpp">
+      <Filter>Timming</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -74,12 +74,11 @@ TMMWH_MipMapEntry *TMipMapWarehouse::FindMipMap(TMipMapObj *MipMap)
     return(NULL);
 }
 //---------------------------------------------------------------------------
-
+/*
 TMipMapObj *TMipMapWarehouse::AllocMipMap(char *MipMapName,unsigned int TX,unsigned int TY,PixelFormat PixelFormat,unsigned int NumLODS)
 {
     assert(false, "AllocMipMap method called!");
 
-    /*
     TMMWH_MipMapEntry* MMEntry;
 
     MMEntry = FindMipMapEntry(MipMapName);
@@ -96,10 +95,10 @@ TMipMapObj *TMipMapWarehouse::AllocMipMap(char *MipMapName,unsigned int TX,unsig
     MMEntry->Valid     = true;
 
     return(&MMEntry->MMData);
-    */
 
     return NULL;
 }
+*/
 //---------------------------------------------------------------------------
 
 void TMipMapWarehouse::FreeMipMapEntry(TMipMapObj* MipMap)

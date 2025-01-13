@@ -1,5 +1,10 @@
 -- Premake5.lua
-	
+	configurations { "Debug", "Release" }
+    location "build" -- Where generated files (like Visual Studio solutions) will be stored
+    architecture "x86_64"
+
+project(project_name)
+
     kind "StaticLib" -- Change to "SharedLib" for a shared library
     language "C++"
     cppdialect "C++17"
@@ -33,8 +38,7 @@
     -- Exclude certain directories (e.g., build, CMakeFiles)
     removefiles {
         sourceRoot .. "/build/**",
-        sourceRoot .. "/CMakeFiles/**",
-		sourceRoot .. "/../**"
+        sourceRoot .. "/CMakeFiles/**"
     }
 
     -- Add include directories (sourceRoot is included by default)
