@@ -416,3 +416,5 @@ CMakeCache.txt
 ./SDKS/libsnd-0.0.26/Win32/LibSndFile/lib/*
 ./SDKS/libsnd-0.0.26/Win32/LibSndFile/obj/*
 ./SDKS/libsnd-0.0.26/Win32/LibSndFile/.vs/*
+./SDKS/libsnd-0.0.26/Win32/LibSndFile/*.user
+./SDKS/libsnd-0.0.26/Win32/LibSndFile/*.opt
