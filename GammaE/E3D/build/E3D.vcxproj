@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{41DF870B-ADE8-877C-3664-9E7CA26C937C}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>E3D</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(ProjectDir)\lib\Debug\</OutDir>
+    <IntDir>$(ProjectDir)\obj\Debug\</IntDir>
+    <TargetName>E3D</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(ProjectDir)\lib\Release\</OutDir>
+    <IntDir>$(ProjectDir)\obj\Release\</IntDir>
+    <TargetName>E3D</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_NULL=0;_MBCS;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..;$(ProjectDir)..\..\..\sdks\OpenGL;;$(ProjectDir)..\..\..\sdks\FileLib\src;;$(ProjectDir)..\..\..\sdks\TexLib;;$(ProjectDir)..\..;$(ProjectDir)..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_NULL=0;_MBCS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..;$(ProjectDir)..\..\..\sdks\OpenGL;;$(ProjectDir)..\..\..\sdks\FileLib\src;;$(ProjectDir)..\..\..\sdks\TexLib;;$(ProjectDir)..\..;$(ProjectDir)..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\BoundingVolume\CBoundingBox.h" />
+    <ClInclude Include="..\BoundingVolume\CBoundingCylinder.h" />
+    <ClInclude Include="..\BoundingVolume\CBoundingSphere.h" />
+    <ClInclude Include="..\BoundingVolume\CBoundingVolume.h" />
+    <ClInclude Include="..\BoundingVolume\GraphBoundVol\CGraphBV.h" />
+    <ClInclude Include="..\BoundingVolume\GraphBoundVol\CGraphBV_Box.h" />
+    <ClInclude Include="..\BoundingVolume\GraphBoundVol\CGraphBV_Cylinder.h" />
+    <ClInclude Include="..\BoundingVolume\GraphBoundVol\CGraphBV_Manager.h" />
+    <ClInclude Include="..\BoundingVolume\GraphBoundVol\CGraphBV_Point.h" />
+    <ClInclude Include="..\BoundingVolume\GraphBoundVol\CGraphBV_Sphere.h" />
+    <ClInclude Include="..\BoundingVolume\GraphBoundVol\GraphBVUtils\CGraphBV_FileIO.h" />
+    <ClInclude Include="..\BoundingVolume\GraphBoundVol\eGraphBV_TypeID.h" />
+    <ClInclude Include="..\CE3D_RenderState.h" />
+    <ClInclude Include="..\CE3D_RenderStats.h" />
+    <ClInclude Include="..\CE3D_Renderer.h" />
+    <ClInclude Include="..\CompiledMesh\CCompiledMesh.h" />
+    <ClInclude Include="..\Drivers\OGL\CE3D_OGL_Renderer.h" />
+    <ClInclude Include="..\Drivers\OGL\CE3D_OGL_Win_Renderer.h" />
+    <ClInclude Include="..\Drivers\OGL\ShaderRenderOGL\CE3D_ShaderRenderer_OGL.h" />
+    <ClInclude Include="..\E3D_REStats.h" />
+    <ClInclude Include="..\GammaE_E3D.h" />
+    <ClInclude Include="..\Light\CE3D_Light.h" />
+    <ClInclude Include="..\Materials\ColorObj.h" />
+    <ClInclude Include="..\Materials\MipMapObj.h" />
+    <ClInclude Include="..\Materials\MipMapWH.h" />
+    <ClInclude Include="..\Materials\TexObj.h" />
+    <ClInclude Include="..\Materials\TexObjWH.h" />
+    <ClInclude Include="..\Mesh\CMesh.h" />
+    <ClInclude Include="..\Mesh\CMesh_Box.h" />
+    <ClInclude Include="..\Mesh\CMesh_Cross.h" />
+    <ClInclude Include="..\Mesh\CMesh_Rect.h" />
+    <ClInclude Include="..\Mesh\CMesh_Sphere.h" />
+    <ClInclude Include="..\Mesh\MeshUtils\MESHUt_BuildNIMesh.h" />
+    <ClInclude Include="..\Mesh\MeshUtils\NormalGen.h" />
+    <ClInclude Include="..\Mesh\MeshUtils\TexCoordGen.h" />
+    <ClInclude Include="..\Mesh\MeshUtils\TransformMesh.h" />
+    <ClInclude Include="..\MeshDB\CDefferredMeshDB.h" />
+    <ClInclude Include="..\MeshDB\TDefferredMeshEntry.h" />
+    <ClInclude Include="..\MeshDB\eE3D_MeshType.h" />
+    <ClInclude Include="..\RenderVars\CE3D_RenderVars.h" />
+    <ClInclude Include="..\Shaders\CE3D_Shader.h" />
+    <ClInclude Include="..\Shaders\CE3D_ShaderExtDB.h" />
+    <ClInclude Include="..\Shaders\ShaderDefWarehouse\CE3D_ShDefWH_Entry.h" />
+    <ClInclude Include="..\Shaders\ShaderDefWarehouse\CE3D_ShaderDefWH.h" />
+    <ClInclude Include="..\Shaders\ShaderInstructions\CE3D_ShIns_BlendOp.h" />
+    <ClInclude Include="..\Shaders\ShaderInstructions\CE3D_ShIns_Color.h" />
+    <ClInclude Include="..\Shaders\ShaderInstructions\CE3D_ShIns_Extension.h" />
+    <ClInclude Include="..\Shaders\ShaderInstructions\CE3D_ShIns_GeoOp.h" />
+    <ClInclude Include="..\Shaders\ShaderInstructions\CE3D_ShIns_SetTMU.h" />
+    <ClInclude Include="..\Shaders\ShaderInstructions\CE3D_ShIns_TexOp.h" />
+    <ClInclude Include="..\Shaders\ShaderInstructions\CE3D_ShIns_Texture.h" />
+    <ClInclude Include="..\Shaders\ShaderInstructions\CE3D_ShIns_Wireframe.h" />
+    <ClInclude Include="..\Shaders\ShaderInstructions\CE3D_ShaderInstruction.h" />
+    <ClInclude Include="..\Shaders\ShaderInstructions\CE3D_ShaderInsts.h" />
+    <ClInclude Include="..\Shaders\ShaderInstructions\eShInsBlendOp_TypeID.h" />
+    <ClInclude Include="..\Shaders\ShaderInstructions\eShInsGeoOp_TypeID.h" />
+    <ClInclude Include="..\Shaders\ShaderInstructions\eShInsTexOp_TypeID.h" />
+    <ClInclude Include="..\Shaders\ShaderInstructions\eShaderInstruction_TypeID.h" />
+    <ClInclude Include="..\Shaders\ShaderParser\CE3D_ShaderParser.h" />
+    <ClInclude Include="..\Shaders\ShaderUtils\CE3D_ShaderUtils.h" />
+    <ClInclude Include="..\Shaders\ShaderWarehouse\CE3D_ShWH_Entry.h" />
+    <ClInclude Include="..\Shaders\ShaderWarehouse\CE3D_ShaderWH.h" />
+    <ClInclude Include="..\Viewing\Camera\CE3D_Camera.h" />
+    <ClInclude Include="..\Viewing\Frustum\CE3D_Frustum.h" />
+    <ClInclude Include="..\Viewing\Projector\CE3D_Projector.h" />
+    <ClInclude Include="..\Viewing\Projector\eE3D_ProjectorType.h" />
+    <ClInclude Include="..\Viewing\Viewport\CE3D_Viewport.h" />
+    <ClInclude Include="..\eE3D_ChannelMask.h" />
+    <ClInclude Include="..\eE3D_FogMode.h" />
+    <ClInclude Include="..\eE3D_RenderBuffer_Type.h" />
+    <ClInclude Include="..\eE3D_StencilAction.h" />
+    <ClInclude Include="..\eE3D_StencilFunc.h" />
+    <ClInclude Include="..\eE3D_ZTestFunc.h" />
+    <ClInclude Include="..\eE3D_ZWrite.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\BoundingVolume\CBoundingBox.cpp" />
+    <ClCompile Include="..\BoundingVolume\CBoundingCylinder.cpp" />
+    <ClCompile Include="..\BoundingVolume\CBoundingSphere.cpp" />
+    <ClCompile Include="..\BoundingVolume\CBoundingVolume.cpp" />
+    <ClCompile Include="..\BoundingVolume\GraphBoundVol\CGraphBV.cpp" />
+    <ClCompile Include="..\BoundingVolume\GraphBoundVol\CGraphBV_Box.cpp" />
+    <ClCompile Include="..\BoundingVolume\GraphBoundVol\CGraphBV_Cylinder.cpp" />
+    <ClCompile Include="..\BoundingVolume\GraphBoundVol\CGraphBV_Manager.cpp" />
+    <ClCompile Include="..\BoundingVolume\GraphBoundVol\CGraphBV_Point.cpp" />
+    <ClCompile Include="..\BoundingVolume\GraphBoundVol\CGraphBV_Sphere.cpp" />
+    <ClCompile Include="..\BoundingVolume\GraphBoundVol\GraphBVUtils\CGraphBV_FileIO.cpp" />
+    <ClCompile Include="..\BoundingVolume\GraphBoundVol\eGraphBV_TypeID.cpp" />
+    <ClCompile Include="..\CE3D_RenderState.cpp" />
+    <ClCompile Include="..\CE3D_RenderStats.cpp" />
+    <ClCompile Include="..\CE3D_Renderer.cpp" />
+    <ClCompile Include="..\CompiledMesh\CCompiledMesh.cpp" />
+    <ClCompile Include="..\Drivers\OGL\CE3D_OGL_Renderer.cpp" />
+    <ClCompile Include="..\Drivers\OGL\CE3D_OGL_Win_Renderer.cpp" />
+    <ClCompile Include="..\Drivers\OGL\ShaderRenderOGL\CE3D_ShaderRenderer_OGL.cpp" />
+    <ClCompile Include="..\GammaE_E3D.cpp" />
+    <ClCompile Include="..\Light\CE3D_Light.cpp" />
+    <ClCompile Include="..\Materials\ColorObj.cpp" />
+    <ClCompile Include="..\Materials\MipMapObj.cpp" />
+    <ClCompile Include="..\Materials\MipMapWH.cpp" />
+    <ClCompile Include="..\Materials\TexObj.cpp" />
+    <ClCompile Include="..\Materials\TexObjWH.cpp" />
+    <ClCompile Include="..\Mesh\CMesh.cpp" />
+    <ClCompile Include="..\Mesh\CMesh_Box.cpp" />
+    <ClCompile Include="..\Mesh\CMesh_Cross.cpp" />
+    <ClCompile Include="..\Mesh\CMesh_Rect.cpp" />
+    <ClCompile Include="..\Mesh\CMesh_Sphere.cpp" />
+    <ClCompile Include="..\Mesh\MeshUtils\MESHUt_BuildNIMesh.cpp" />
+    <ClCompile Include="..\Mesh\MeshUtils\NormalGen.cpp" />
+    <ClCompile Include="..\Mesh\MeshUtils\TexCoordGen.cpp" />
+    <ClCompile Include="..\Mesh\MeshUtils\TransformMesh.cpp" />
+    <ClCompile Include="..\MeshDB\CDefferredMeshDB.cpp" />
+    <ClCompile Include="..\MeshDB\TDefferredMeshEntry.cpp" />
+    <ClCompile Include="..\MeshDB\eE3D_MeshType.cpp" />
+    <ClCompile Include="..\RenderVars\CE3D_RenderVars.cpp" />
+    <ClCompile Include="..\Shaders\CE3D_Shader.cpp" />
+    <ClCompile Include="..\Shaders\CE3D_ShaderExtDB.cpp" />
+    <ClCompile Include="..\Shaders\ShaderDefWarehouse\CE3D_ShDefWH_Entry.cpp" />
+    <ClCompile Include="..\Shaders\ShaderDefWarehouse\CE3D_ShaderDefWH.cpp" />
+    <ClCompile Include="..\Shaders\ShaderInstructions\CE3D_ShIns_BlendOp.cpp" />
+    <ClCompile Include="..\Shaders\ShaderInstructions\CE3D_ShIns_Color.cpp" />
+    <ClCompile Include="..\Shaders\ShaderInstructions\CE3D_ShIns_Extension.cpp" />
+    <ClCompile Include="..\Shaders\ShaderInstructions\CE3D_ShIns_GeoOp.cpp" />
+    <ClCompile Include="..\Shaders\ShaderInstructions\CE3D_ShIns_SetTMU.cpp" />
+    <ClCompile Include="..\Shaders\ShaderInstructions\CE3D_ShIns_TexOp.cpp" />
+    <ClCompile Include="..\Shaders\ShaderInstructions\CE3D_ShIns_Texture.cpp" />
+    <ClCompile Include="..\Shaders\ShaderInstructions\CE3D_ShIns_Wireframe.cpp" />
+    <ClCompile Include="..\Shaders\ShaderInstructions\CE3D_ShaderInstruction.cpp" />
+    <ClCompile Include="..\Shaders\ShaderInstructions\CE3D_ShaderInsts.cpp" />
+    <ClCompile Include="..\Shaders\ShaderInstructions\eShInsBlendOp_TypeID.cpp" />
+    <ClCompile Include="..\Shaders\ShaderInstructions\eShInsGeoOp_TypeID.cpp" />
+    <ClCompile Include="..\Shaders\ShaderInstructions\eShInsTexOp_TypeID.cpp" />
+    <ClCompile Include="..\Shaders\ShaderInstructions\eShaderInstruction_TypeID.cpp" />
+    <ClCompile Include="..\Shaders\ShaderParser\CE3D_ShaderParser.cpp" />
+    <ClCompile Include="..\Shaders\ShaderUtils\CE3D_ShaderUtils.cpp" />
+    <ClCompile Include="..\Shaders\ShaderWarehouse\CE3D_ShWH_Entry.cpp" />
+    <ClCompile Include="..\Shaders\ShaderWarehouse\CE3D_ShaderWH.cpp" />
+    <ClCompile Include="..\Viewing\Camera\CE3D_Camera.cpp" />
+    <ClCompile Include="..\Viewing\Frustum\CE3D_Frustum.cpp" />
+    <ClCompile Include="..\Viewing\Projector\CE3D_Projector.cpp" />
+    <ClCompile Include="..\Viewing\Projector\eE3D_ProjectorType.cpp" />
+    <ClCompile Include="..\Viewing\Viewport\CE3D_Viewport.cpp" />
+    <ClCompile Include="..\eE3D_ChannelMask.cpp" />
+    <ClCompile Include="..\eE3D_FogMode.cpp" />
+    <ClCompile Include="..\eE3D_RenderBuffer_Type.cpp" />
+    <ClCompile Include="..\eE3D_StencilAction.cpp" />
+    <ClCompile Include="..\eE3D_StencilFunc.cpp" />
+    <ClCompile Include="..\eE3D_ZTestFunc.cpp" />
+    <ClCompile Include="..\eE3D_ZWrite.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
