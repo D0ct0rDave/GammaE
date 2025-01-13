@@ -410,3 +410,8 @@ CMakeCache.txt
 
 #old visual studio project files
 *.vcproj
+
+#whitelist libsnd directory
+!./SDKS/libsnd-0.0.26/Win32
+./SDKS/libsnd-0.0.26/Win32/LibSndFile/lib/*
+./SDKS/libsnd-0.0.26/Win32/LibSndFile/obj/*
