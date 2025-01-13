@@ -1,11 +1,11 @@
 -- Premake5.lua
 
-workspace "GammaE_E3D"
+workspace "GammaE_Memory"
     configurations { "Debug", "Release" }
     location "build" -- Where generated files (like Visual Studio solutions) will be stored
     architecture "x86_64"
 
-project "E3D"
+project "Memory"
     kind "StaticLib" -- Change to "SharedLib" for a shared library
     language "C++"
     cppdialect "C++17"
@@ -20,7 +20,7 @@ project "E3D"
 		"_NULL=0",
 		"_MBCS" 
 	}
- 
+
     -- Recursively include all .cpp and .h files from the sourceRoot directory
     files {
         sourceRoot .. "/**.cpp",
@@ -37,9 +37,6 @@ project "E3D"
     -- Add include directories (sourceRoot is included by default)
     includedirs {
         sourceRoot,
-		"$(ProjectDir)../../../sdks/OpenGL;",
-		"$(ProjectDir)../../../sdks/FileLib/src;",
-		"$(ProjectDir)../../../sdks/TexLib;",
 		"$(ProjectDir)../..;$(ProjectDir).."
     }
 
