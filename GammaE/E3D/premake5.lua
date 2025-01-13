@@ -11,7 +11,8 @@ project "E3D"
     cppdialect "C++17"
     targetdir "$(ProjectDir)/lib/%{cfg.buildcfg}" -- Output directory for binaries
     objdir "$(ProjectDir)/obj/%{cfg.buildcfg}" -- Output directory for intermediate files
-
+	characterset("ASCII")
+	
     -- Specify the root directory of the library
     local sourceRoot = os.getcwd()
 

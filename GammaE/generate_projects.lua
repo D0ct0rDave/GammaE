@@ -10,13 +10,13 @@ workspace "GammaE"
 
     -- Define the root directory containing all libraries
     local frameworkRoot = os.getcwd()
-	
-	-- List of directories to exclude from recursion
+    
+    -- List of directories to exclude from recursion
     local excludeDirs = { 
-		"build" 
-	}
+        "build" 
+    }
 
-	-- Helper function to check if a directory should be excluded
+    -- Helper function to check if a directory should be excluded
     local function isExcluded(dir)
         for _, exclude in ipairs(excludeDirs) do
             if dir:find(exclude) then
@@ -25,8 +25,8 @@ workspace "GammaE"
         end
         return false
     end
-	   
-	-- Step 1: Recursively locate and include all premake5.lua files in subdirectories
+       
+    -- Step 1: Recursively locate and include all premake5.lua files in subdirectories
     local function includeLibraries(rootDir)
         local entries = os.matchdirs(rootDir .. "/*") -- Find all subdirectories
         for _, entry in ipairs(entries) do
@@ -35,8 +35,8 @@ workspace "GammaE"
                     print("Including library: " .. entry)
                     include(entry)
 
-					--[[
-					print("Adding library project to workspace: " .. entry)
+                    --[[
+                    print("Adding library project to workspace: " .. entry)
                     project(entry:match("([^/\\]+)$")) -- Use the directory name as the project name
                         location("build")
                         kind "StaticLib" -- Default to StaticLib; can be overridden in individual premake5.lua files
@@ -47,16 +47,16 @@ workspace "GammaE"
                         includedirs {
                             entry
                         }
-					]]
+                    ]]
 
-				else
-					-- Recurse into subdirectories to locate premake5.lua
+                else
+                    -- Recurse into subdirectories to locate premake5.lua
                     includeLibraries(entry)
                 end
             end
         end
     end
-	
-	includeLibraries(frameworkRoot)
+    
+    includeLibraries(frameworkRoot)
 
 -- Additional settings for the workspace can go here

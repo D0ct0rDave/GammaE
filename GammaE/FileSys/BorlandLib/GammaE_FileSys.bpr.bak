@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.05.03"/>
+    <PROJECT value="..\..\Borland\GammaE_FileSys.lib"/>
+    <OBJFILES value="..\..\Borland\FILEMgr.obj ..\..\Borland\CFile.obj 
+      ..\..\Borland\eFile_SeekMode.obj ..\..\Borland\CFileSys_MgrMultiPAK.obj 
+      ..\..\Borland\CFileSys_MgrMultiZIP.obj ..\..\Borland\CFileSys_MgrPAK.obj 
+      ..\..\Borland\CFileSys_MgrZIP.obj ..\..\Borland\CFileSys_Manager.obj 
+      ..\..\Borland\CFileUtils.obj ..\..\Borland\FileSys_Common.obj 
+      ..\..\Borland\COSFile.obj ..\..\Borland\COSFileW32.obj 
+      ..\..\Borland\eFileOS_SeekMode.obj ..\..\Borland\eOSF_SeekMode.obj"/>
+    <RESFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES)"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value=""/>
+    <PACKAGES value=""/>
+    <PATHCPP value=".;..\File;..\FileManager;..\FileUtils;..\Misc;..\OSFile"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <LINKER value="TLib"/>
+    <USERDEFINES value="_DEBUG;WIN32"/>
+    <SYSDEFINES value="_RTLDLL;NO_STRICT"/>
+    <MAINSOURCE value="GammaE_FileSys.bpf"/>
+    <INCLUDEPATH value="..;..\..;..\OSFile;..\Misc;..\FileUtils;..\FileManager;..\File;$(BCB)\include;$(BCB)\include\vcl"/>
+    <LIBPATH value="..;..\OSFile;..\Misc;..\FileUtils;..\FileManager;..\File;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <WARNINGS value="-w-par"/>
+    <LISTFILE value=""/>
+  </MACROS>
+  <OPTIONS>
+    <CFLAG1 value="-Od -H=$(BCB)\lib\vcl50.csm -Hc -Vx -Ve -X- -r- -a8 -b- -k -y -v -vi- -c 
+      -tW -tWM"/>
+    <PFLAGS value="-N2..\..\Borland -N0..\..\Borland -$YD -$W -$O- -v -JPHNE -M"/>
+    <AFLAGS value="/mx /w2 /zd"/>
+    <LFLAGS value="-l&quot;I:\Projects\GammaE\Borland\&quot; "/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="$(OBJFILES)"/>
+    <ALLLIB value=""/>
+  </LINKER>
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=3082
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=4
+Item0=..;..\..;..\OSFile;..\Misc;..\FileUtils;..\FileManager;..\File;$(BCB)\include;$(BCB)\include\vcl
+Item1=..;..\OSFile;..\Misc;..\FileUtils;..\FileManager;..\File;$(BCB)\include;$(BCB)\include\vcl;..\..
+Item2=..;..\OSFile;..\Misc;..\FileUtils;..\FileManager;..\File;$(BCB)\include;$(BCB)\include\vcl;..\..\
+Item3=..;..\OSFile;..\Misc;..\FileUtils;..\FileManager;..\File;$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=1
+Item0=..;..\OSFile;..\Misc;..\FileUtils;..\FileManager;..\File;$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=6
+Item0=_DEBUG;WIN32
+Item1=_DEBUG,WIN32 
+Item2=WIN32 ,_DEBUG
+Item3=WIN32,_DEBUG
+Item4=_DEBUG,WIN32
+Item5=_DEBUG
+
+[HistoryLists\hlIntOutputDir]
+Count=2
+Item0=..\..\Borland
+Item1=I:\Projects\GammaE\Borland\
+
+[HistoryLists\hlFinalOutputDir]
+Count=2
+Item0=..\..\Borland\
+Item1=I:\Projects\GammaE\Borland\
+
+[HistoryLists\hIBPIOutputDir]
+Count=1
+Item0=I:\Projects\GammaE\Borland\
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+  </IDEOPTIONS>
+</PROJECT>

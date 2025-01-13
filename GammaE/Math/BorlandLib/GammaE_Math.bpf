@@ -1,0 +1,41 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+USEUNIT("..\MATH_Evaluator\GammaE_Math_Evaluators.cpp");
+USEUNIT("..\MATH_Evaluator\CEval_Const.cpp");
+USEUNIT("..\MATH_Evaluator\CEval_Cos.cpp");
+USEUNIT("..\MATH_Evaluator\CEval_Dist.cpp");
+USEUNIT("..\MATH_Evaluator\CEval_Dst_X.cpp");
+USEUNIT("..\MATH_Evaluator\CEval_Dst_Y.cpp");
+USEUNIT("..\MATH_Evaluator\CEval_Dst_Z.cpp");
+USEUNIT("..\MATH_Evaluator\CEval_Mult.cpp");
+USEUNIT("..\MATH_Evaluator\CEval_Periodic.cpp");
+USEUNIT("..\MATH_Evaluator\CEval_Pitch.cpp");
+USEUNIT("..\MATH_Evaluator\CEval_Roll.cpp");
+USEUNIT("..\MATH_Evaluator\CEval_SawTooth.cpp");
+USEUNIT("..\MATH_Evaluator\CEval_Sin.cpp");
+USEUNIT("..\MATH_Evaluator\CEval_Square.cpp");
+USEUNIT("..\MATH_Evaluator\CEval_Sum.cpp");
+USEUNIT("..\MATH_Evaluator\CEval_Time.cpp");
+USEUNIT("..\MATH_Evaluator\CEval_Triangle.cpp");
+USEUNIT("..\MATH_Evaluator\CEval_Yaw.cpp");
+USEUNIT("..\MATH_Evaluator\CEvaluator.cpp");
+USEUNIT("..\MATH_Evaluator\CEval_Binary.cpp");
+USEUNIT("..\MATH_Matrix\CMatrix4x4.cpp");
+USEUNIT("..\MATH_Other\MATH_Common.cpp");
+USEUNIT("..\MATH_Other\MATH_Utils.cpp");
+USEUNIT("..\MATH_Plane\CPlane.cpp");
+USEUNIT("..\MATH_Quaternion\CQuaternion.cpp");
+USEUNIT("..\MATH_Ray\CRay.cpp");
+USEUNIT("..\MATH_Triangle\CTriangle.cpp");
+USEUNIT("..\MATH_Vector\CVect2.cpp");
+USEUNIT("..\MATH_Vector\CVect3.cpp");
+USEUNIT("..\MATH_Vector\CVect4.cpp");
+USEUNIT("..\MMath.cpp");
+USEUNIT("..\MATH_Segment\CSegment.cpp");
+//---------------------------------------------------------------------------
+#define Library
+
+// To add a file to the library use the Project menu 'Add to Project'.
+
