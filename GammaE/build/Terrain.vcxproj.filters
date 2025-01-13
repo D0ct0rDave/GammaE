@@ -13,6 +13,9 @@
     <Filter Include="TerrainScene\SceneLoaders">
       <UniqueIdentifier>{6FE16FA0-DBA3-A32A-2454-32B790557C08}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TerrainScene\SceneLoaders\DEFFile">
+      <UniqueIdentifier>{2DEF52F9-995D-A878-E246-63784EF49D14}</UniqueIdentifier>
+    </Filter>
     <Filter Include="TerrainScene\SceneLoaders\EnvPars">
       <UniqueIdentifier>{7DA05AA9-E90E-B028-32F8-6A289EA5A5C4}</UniqueIdentifier>
     </Filter>
@@ -42,6 +45,9 @@
     </ClInclude>
     <ClInclude Include="..\Terrain\TerrainScene\CTerrainSector.h">
       <Filter>TerrainScene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Terrain\TerrainScene\SceneLoaders\DEFFile\DEFFile.h">
+      <Filter>TerrainScene\SceneLoaders\DEFFile</Filter>
     </ClInclude>
     <ClInclude Include="..\Terrain\TerrainScene\SceneLoaders\DEFSceneLoader.h">
       <Filter>TerrainScene\SceneLoaders</Filter>
@@ -80,6 +86,9 @@
     </ClCompile>
     <ClCompile Include="..\Terrain\TerrainScene\CTerrainSector.cpp">
       <Filter>TerrainScene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Terrain\TerrainScene\SceneLoaders\DEFFile\DEFFile.cpp">
+      <Filter>TerrainScene\SceneLoaders\DEFFile</Filter>
     </ClCompile>
     <ClCompile Include="..\Terrain\TerrainScene\SceneLoaders\DEFSceneLoader.cpp">
       <Filter>TerrainScene\SceneLoaders</Filter>

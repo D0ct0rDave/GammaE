@@ -41,6 +41,8 @@ double Chrono_EllapsedTime()
 		
 		return(dChronoEllapsedTime);
 	}
+#else
+	return 0.0;
 #endif
 }
 //---------------------------------------------------------------------------
@@ -54,6 +56,8 @@ double Chrono_GetCurrentTime()
 	dChronoStartTime = (double)liChronoStartTime.QuadPart;
 		
 	return(dChronoStartTime/dChronoFrequency);
+#else
+	return 0.0;
 #endif
 }
 //---------------------------------------------------------------------------

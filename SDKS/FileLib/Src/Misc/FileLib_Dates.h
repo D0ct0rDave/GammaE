@@ -11,11 +11,11 @@ typedef struct{
     unsigned char   Hour;
     unsigned char   Min;
     unsigned short  Sec;
-}tdstDate;
+}TDate;
 
-void GetDate            (tdstDate *Date);
+void GetDate            (TDate*Date);
 void GetDateString      (char *StrDate);
-void ConvertDateToString(tdstDate *Date, char *StrDate);
+void ConvertDateToString(TDate*Date, char *StrDate);
 //---------------------------------------------------------------------------
 #endif
  

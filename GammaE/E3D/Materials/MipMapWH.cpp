@@ -87,7 +87,7 @@ TMipMapObj *TMipMapWarehouse::AllocMipMap(char *MipMapName,unsigned int TX,unsig
     MMEntry = FindFreeMipMapEntry();
     if (! MMEntry) return(NULL);
 
-    if (! MipMap_fn_iAllocateMipMap(&MMEntry->MMData.MipMap,TX,TY,PixelFormat,NumLODS))
+    if (! AllocateMipMap(&MMEntry->MMData.MipMap,TX,TY,PixelFormat,NumLODS))
         return(NULL);
 
     strcpy(MMEntry->MipMapName,MipMapName);

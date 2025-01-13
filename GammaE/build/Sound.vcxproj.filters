@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Sound">
+      <UniqueIdentifier>{4ED01B0E-BAE4-43BF-8366-E71EEF3940F0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sound\SampleUtils">
+      <UniqueIdentifier>{50103E98-BC26-3C2E-059E-C74F71F30CB6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SoundRender">
+      <UniqueIdentifier>{CE099F82-3ABF-1778-C3B3-114F2F680E7C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SoundRender\SoundDrivers">
+      <UniqueIdentifier>{A5685775-918D-A6F5-BAD8-8B85A65CA513}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SoundRender\SoundDrivers\SndDrv_DirectSound">
+      <UniqueIdentifier>{A89739A5-14FD-CC2B-9DD5-6E04093AC29A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SoundRender\SoundMixer">
+      <UniqueIdentifier>{4B24517D-371E-7ACF-208B-10E00C24E03B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\SoundSystem\GammaE_SoundSystem.h" />
+    <ClInclude Include="..\SoundSystem\Sound\CSample.h">
+      <Filter>Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SoundSystem\Sound\CSampleWH.h">
+      <Filter>Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SoundSystem\Sound\CSound.h">
+      <Filter>Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SoundSystem\Sound\CSoundLayer.h">
+      <Filter>Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SoundSystem\Sound\CSoundWH.h">
+      <Filter>Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SoundSystem\Sound\CSoundWH_Elem.h">
+      <Filter>Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SoundSystem\Sound\SampleUtils\SampleUtils.h">
+      <Filter>Sound\SampleUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SoundSystem\SoundRender\CSoundEmiter.h">
+      <Filter>SoundRender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SoundSystem\SoundRender\CSoundEntity.h">
+      <Filter>SoundRender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SoundSystem\SoundRender\CSoundReceiver.h">
+      <Filter>SoundRender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SoundSystem\SoundRender\CSoundRenderer.h">
+      <Filter>SoundRender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SoundSystem\SoundRender\SoundDrivers\SndDrv_DirectSound\CSoundRenderer_DSound.h">
+      <Filter>SoundRender\SoundDrivers\SndDrv_DirectSound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SoundSystem\SoundRender\SoundMixer\CSoundMixPars.h">
+      <Filter>SoundRender\SoundMixer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SoundSystem\SoundRender\SoundMixer\CSoundMixer.h">
+      <Filter>SoundRender\SoundMixer</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\SoundSystem\Sound\CSample.cpp">
+      <Filter>Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SoundSystem\Sound\CSampleWH.cpp">
+      <Filter>Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SoundSystem\Sound\CSound.cpp">
+      <Filter>Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SoundSystem\Sound\CSoundLayer.cpp">
+      <Filter>Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SoundSystem\Sound\CSoundWH.cpp">
+      <Filter>Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SoundSystem\Sound\CSoundWH_Elem.cpp">
+      <Filter>Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SoundSystem\Sound\SampleUtils\SampleUtils.cpp">
+      <Filter>Sound\SampleUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SoundSystem\SoundRender\CSoundEmiter.cpp">
+      <Filter>SoundRender</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SoundSystem\SoundRender\CSoundEntity.cpp">
+      <Filter>SoundRender</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SoundSystem\SoundRender\CSoundReceiver.cpp">
+      <Filter>SoundRender</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SoundSystem\SoundRender\CSoundRenderer.cpp">
+      <Filter>SoundRender</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SoundSystem\SoundRender\SoundDrivers\SndDrv_DirectSound\CSoundRenderer_DSound.cpp">
+      <Filter>SoundRender\SoundDrivers\SndDrv_DirectSound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SoundSystem\SoundRender\SoundMixer\CSoundMixPars.cpp">
+      <Filter>SoundRender\SoundMixer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SoundSystem\SoundRender\SoundMixer\CSoundMixer.cpp">
+      <Filter>SoundRender\SoundMixer</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

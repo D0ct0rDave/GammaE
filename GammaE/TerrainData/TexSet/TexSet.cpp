@@ -322,9 +322,10 @@ int TTexSet::LoadWithHandler(FILE *fd)
             if (ulRIFF_ObjectID == MIPMAP_OBJ_IDENTIFIER)
             {
                 // Read mipmap
+                .
                 if (! LoadMipMapWithHandler(&MipMap,fd))
                 {
-                    ERROR_SetError("TEXSET-LD12",TEX_fn_ErrorDescription());
+                    ERROR_SetError("TEXSET-LD12",LoadMipMapErrorDescription());
                     return(RES_OP_ERROR);
                 }
                 else

@@ -12,7 +12,7 @@
 #define         MAX_CARS_DATE           128
 
 //---------------------------------------------------------------------------
-void GetDate(tdstDate *Date)
+void GetDate(TDate*Date)
 {
     // Changed to make compatible with MS Visual C++
 	
@@ -41,13 +41,14 @@ void GetDateString(char *StrDate)
     ConvertDateToString(&Date,StrDate);
 }
 //---------------------------------------------------------------------------
-void ConvertDateToString(tdstDate *Date, char *StrDate)
+void ConvertDateToString(TDate*Date, char *StrDate)
 {
     sprintf(StrDate,
             "%d/%d/%d (%d:%d:%d)",
             Date->Day,
             Date->Month,
-            Date->Year,                                                         Date->Hour,
+            Date->Year,
+            Date->Hour,
             Date->Min,
             Date->Sec);
 }

@@ -121,8 +121,8 @@ void TERSceneLoader::LoadData (FILE *fd)
 
 	// skip (for the moment) project data	
 	fseek(fd,80,SEEK_CUR);					// skip name
-	fseek(fd,sizeof(tdstDate),SEEK_CUR);	// skip creation date
-	fseek(fd,sizeof(tdstDate),SEEK_CUR);	// skip modification date
+	fseek(fd,sizeof(TDate),SEEK_CUR);	// skip creation date
+	fseek(fd,sizeof(TDate),SEEK_CUR);	// skip modification date
 
 	// ------------------------
 	// Heightfield data

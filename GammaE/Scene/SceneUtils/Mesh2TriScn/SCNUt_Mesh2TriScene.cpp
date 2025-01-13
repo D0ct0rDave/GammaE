@@ -393,6 +393,7 @@ SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromIndexedTriFanMesh (CMesh& _roM
 		}
 	}
 
+	return(poTriScn);
   //## end SCNUt_Mesh2TriScene::Generate_FromIndexedTriFanMesh%1009552651.body
 }
 
