@@ -1,0 +1,2621 @@
+
+(object Petal
+    version    	42
+    _written   	"Rose 4.5.8163.3"
+    charSet    	0)
+
+(object Class_Category "SoundSystem"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    quid       	"3B76DBB70251"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class_Category "Sound"
+	    quid       	"3B76DE2401DB"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class "CSample"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\SoundSystem\\Sound\\CSample.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\SoundSystem\\Sound\\CSample.cpp"))
+		    quid       	"3B76DE5D02B0"
+		    operations 	(list Operations
+			(object Operation "Init"
+			    quid       	"3BBA14EE0230"
+			    parameters 	(list Parameters
+				(object Parameter "_iChannels"
+				    type       	"int")
+				(object Parameter "_iBits"
+				    type       	"int")
+				(object Parameter "_iSRate"
+				    type       	"int")
+				(object Parameter "_fTime"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1002050842)
+			(object Operation "Init"
+			    quid       	"3C82299C031B"
+			    parameters 	(list Parameters
+				(object Parameter "_iChannels"
+				    type       	"int")
+				(object Parameter "_iBits"
+				    type       	"int")
+				(object Parameter "_iSRate"
+				    type       	"int")
+				(object Parameter "_iSamples"
+				    type       	"int"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1015160466))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "pData"
+			    quid       	"3B76DE77039D"
+			    type       	"void *"
+			    initv      	"NULL"
+			    exportControl 	"Public")
+			(object ClassAttribute "iChannels"
+			    quid       	"3BBA0BEC020C"
+			    type       	"int"
+			    initv      	"0"
+			    exportControl 	"Public")
+			(object ClassAttribute "iBits"
+			    quid       	"3BBA0BF10187"
+			    type       	"int"
+			    initv      	"0"
+			    exportControl 	"Public")
+			(object ClassAttribute "iSRate"
+			    quid       	"3BBA0BF403E4"
+			    type       	"int"
+			    initv      	"0"
+			    exportControl 	"Public")
+			(object ClassAttribute "iSamples"
+			    quid       	"3BBA0C0A03E5"
+			    type       	"int"
+			    initv      	"0"
+			    exportControl 	"Public")
+			(object ClassAttribute "iHandle"
+			    quid       	"3BB77FB9039B"
+			    type       	"int"
+			    initv      	"-1"
+			    exportControl 	"Public"))
+		    language   	"C++")
+		(object Class "CSoundWH"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\SoundSystem\\Sound\\CSoundWH.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\SoundSystem\\Sound\\CSoundWH.cpp"))
+		    quid       	"3B76DEFB00B8"
+		    used_nodes 	(list uses_relationship_list
+			(object Uses_Relationship
+			    quid       	"3BB64FD1034E"
+			    supplier   	"Logical View::SoundSystem::Sound::CSampleWH"
+			    quidu      	"3B76DF1100F6"))
+		    operations 	(list Operations
+			(object Operation "Init"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3BB6453B0383"
+			    parameters 	(list Parameters
+				(object Parameter "_iMaxSounds"
+				    type       	"int"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1001802585)
+			(object Operation "Invalidate"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3BB645420148"
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1001802586)
+			(object Operation "iAddSound"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3BB64547031C"
+			    parameters 	(list Parameters
+				(object Parameter "_poSound"
+				    type       	"CSound *")
+				(object Parameter "_szSndName"
+				    type       	"char *"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1001802587)
+			(object Operation "poGetSound"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3BB64561036A"
+			    parameters 	(list Parameters
+				(object Parameter "_szName"
+				    type       	"char*"))
+			    result     	"CSound *"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1001802588)
+			(object Operation "poGetSound"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3BB6456D03B7"
+			    parameters 	(list Parameters
+				(object Parameter "_iIdx"
+				    type       	"int"))
+			    result     	"CSound *"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1001802589)
+			(object Operation "iLoadSound"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3BB64FDA0102"
+			    parameters 	(list Parameters
+				(object Parameter "_szFilename"
+				    type       	"char *"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1001802596))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "iNumSounds"
+			    quid       	"3BB645250115"
+			    type       	"int"
+			    initv      	"0"
+			    static     	TRUE)
+			(object ClassAttribute "iMaxSounds"
+			    quid       	"3BB6452A0036"
+			    type       	"int"
+			    initv      	"0"
+			    static     	TRUE))
+		    language   	"C++")
+		(object Class "CSampleWH"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\SoundSystem\\Sound\\CSampleWH.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\SoundSystem\\Sound\\CSampleWH.cpp"))
+		    quid       	"3B76DF1100F6"
+		    used_nodes 	(list uses_relationship_list
+			(object Uses_Relationship
+			    quid       	"3BB65502025F"
+			    supplier   	"Logical View::SoundSystem::Sound::CSample"
+			    quidu      	"3B76DE5D02B0"))
+		    operations 	(list Operations
+			(object Operation "Init"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3BB645CE02A8"
+			    parameters 	(list Parameters
+				(object Parameter "_iMaxSamples"
+				    type       	"int"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1001802581)
+			(object Operation "Invalidate"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3BB645D900F5"
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1001802582)
+			(object Operation "iAddSample"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3BB645DD0322"
+			    parameters 	(list Parameters
+				(object Parameter "_poSample"
+				    type       	"CSample *"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1001802583)
+			(object Operation "poGetSample"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3BB645EE02F4"
+			    parameters 	(list Parameters
+				(object Parameter "_iIdx"
+				    type       	"int"))
+			    result     	"CSample *"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1001802584)
+			(object Operation "iLoadSample"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3BB790240313"
+			    parameters 	(list Parameters
+				(object Parameter "_szFilename"
+				    type       	"char *"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1001881740)
+			(object Operation "SetForcedParams"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3C7F7F2E02D0"
+			    parameters 	(list Parameters
+				(object Parameter "_iFSRate"
+				    type       	"int")
+				(object Parameter "_iForcedBits"
+				    type       	"int"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1014979368))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "iNumSamples"
+			    quid       	"3BB645B60236"
+			    type       	"int"
+			    initv      	"0"
+			    static     	TRUE)
+			(object ClassAttribute "iMaxSamples"
+			    quid       	"3BB645BB00DE"
+			    type       	"int"
+			    initv      	"0"
+			    static     	TRUE)
+			(object ClassAttribute "poSample"
+			    quid       	"3BB654A503D7"
+			    type       	"CSample* *"
+			    initv      	"NULL"
+			    static     	TRUE)
+			(object ClassAttribute "iForcedSRate"
+			    quid       	"3C7F7F07032E"
+			    type       	"int"
+			    initv      	"22050"
+			    static     	TRUE)
+			(object ClassAttribute "iForcedBits"
+			    quid       	"3C7F7F100038"
+			    type       	"int"
+			    initv      	"16"
+			    static     	TRUE))
+		    language   	"C++")
+		(object Class "CSound"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\SoundSystem\\Sound\\CSound.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\SoundSystem\\Sound\\CSound.cpp"))
+		    quid       	"3B76DF3D0334"
+		    operations 	(list Operations
+			(object Operation "iAddLayer"
+			    quid       	"3BB644550300"
+			    parameters 	(list Parameters
+				(object Parameter "_roSLayer"
+				    type       	"CSoundLayer&"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1001802578)
+			(object Operation "iAddLayer"
+			    quid       	"3C7FA68D0310"
+			    parameters 	(list Parameters
+				(object Parameter "_bLoop"
+				    type       	"bool")
+				(object Parameter "_poSample"
+				    type       	"CSample*"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1014992647))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "iNumLayers"
+			    quid       	"3BB6444503A8"
+			    type       	"int"
+			    initv      	"0"
+			    exportControl 	"Public"))
+		    language   	"C++")
+		(object Class "CSoundLayer"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\SoundSystem\\Sound\\CSoundLayer.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\SoundSystem\\Sound\\CSoundLayer.cpp"))
+		    quid       	"3BB6430003E6"
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "bLoop"
+			    quid       	"3BB8E21400E9"
+			    type       	"bool"
+			    exportControl 	"Public"))
+		    language   	"C++")
+		(object Class "CSoundWH_Elem"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\SoundSystem\\Sound\\CSoundWH_Elem.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\SoundSystem\\Sound\\CSoundWH_Elem.cpp"))
+		    quid       	"3BB6466C0378"
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "szSoundName"
+			    quid       	"3BB6468101B5"
+			    type       	"char[256]"
+			    exportControl 	"Public"))
+		    language   	"C++")
+		(object Association "$UNNAMED$0"
+		    quid       	"3BB643DE0088"
+		    roles      	(list role_list
+			(object Role "$UNNAMED$1"
+			    attributes 	(list Attribute_Set)
+			    quid       	"3BB643DE01AB"
+			    supplier   	"Logical View::SoundSystem::Sound::CSoundLayer"
+			    quidu      	"3BB6430003E6"
+			    exportControl 	"Protected"
+			    is_aggregate 	TRUE)
+			(object Role "poSample"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"InitialValue"
+				    value      	(value Text "NULL"))
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateGetOperation"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateSetOperation"
+				    value      	FALSE))
+			    quid       	"3BB643DE01AC"
+			    label      	"poSample"
+			    supplier   	"Logical View::SoundSystem::Sound::CSample"
+			    quidu      	"3B76DE5D02B0"
+			    Containment 	"By Reference"
+			    is_navigable 	TRUE)))
+		(object Association "$UNNAMED$2"
+		    quid       	"3BB646E10023"
+		    roles      	(list role_list
+			(object Role "$UNNAMED$3"
+			    quid       	"3BB646E1013B"
+			    supplier   	"Logical View::SoundSystem::Sound::CSoundWH"
+			    quidu      	"3B76DEFB00B8"
+			    is_aggregate 	TRUE)
+			(object Role "poSndElem"
+			    quid       	"3BB646E10145"
+			    label      	"poSndElem"
+			    supplier   	"Logical View::SoundSystem::Sound::CSoundWH_Elem"
+			    quidu      	"3BB6466C0378"
+			    Containment 	"By Reference"
+			    is_navigable 	TRUE
+			    static     	TRUE)))
+		(object Association "$UNNAMED$4"
+		    quid       	"3BB646F600FF"
+		    roles      	(list role_list
+			(object Role "$UNNAMED$5"
+			    quid       	"3BB646F601C8"
+			    supplier   	"Logical View::SoundSystem::Sound::CSoundWH_Elem"
+			    quidu      	"3BB6466C0378"
+			    is_aggregate 	TRUE)
+			(object Role "poSound"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"InitialValue"
+				    value      	(value Text "NULL"))
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateGetOperation"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateSetOperation"
+				    value      	FALSE))
+			    quid       	"3BB646F601D2"
+			    label      	"poSound"
+			    supplier   	"Logical View::SoundSystem::Sound::CSound"
+			    quidu      	"3B76DF3D0334"
+			    Containment 	"By Reference"
+			    is_navigable 	TRUE)))
+		(object Association "$UNNAMED$6"
+		    quid       	"3C7F5D430202"
+		    roles      	(list role_list
+			(object Role "$UNNAMED$7"
+			    quid       	"3C7F5D4303D9"
+			    supplier   	"Logical View::SoundSystem::Sound::CSound"
+			    quidu      	"3B76DF3D0334"
+			    is_aggregate 	TRUE)
+			(object Role "poSLayer"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"InitialValue"
+				    value      	(value Text "NULL"))
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateGetOperation"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateSetOperation"
+				    value      	FALSE))
+			    quid       	"3C7F5D4303E3"
+			    label      	"poSLayer"
+			    supplier   	"Logical View::SoundSystem::Sound::CSoundLayer"
+			    quidu      	"3BB6430003E6"
+			    Containment 	"By Reference"
+			    is_navigable 	TRUE))))
+	    logical_presentations 	(list unit_reference_list
+		(object ClassDiagram "Main"
+		    quid       	"3B76DE26029D"
+		    title      	"Main"
+		    zoom       	100
+		    max_height 	28350
+		    max_width  	21600
+		    origin_x   	0
+		    origin_y   	0
+		    items      	(list diagram_item_list
+			(object NoteView @1
+			    location   	(2592, 208)
+			    label      	(object ItemLabel
+				Parent_View 	@1
+				location   	(2454, 143)
+				nlines     	2
+				max_width  	240
+				label      	"Similar to material")
+			    line_color 	32896
+			    width      	300
+			    height     	143)
+			(object NoteView @2
+			    location   	(1152, 1440)
+			    label      	(object ItemLabel
+				Parent_View 	@2
+				location   	(995, 1343)
+				nlines     	4
+				max_width  	278
+				label      	"Similar to texture object")
+			    line_color 	32896
+			    width      	338
+			    height     	206)
+			(object ClassView "Class" "Logical View::SoundSystem::Sound::CSampleWH" @3
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(400, 1024)
+			    label      	(object ItemLabel
+				Parent_View 	@3
+				location   	(67, 693)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	666
+				justify    	0
+				label      	"CSampleWH")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3B76DF1100F6"
+			    compartment 	(object Compartment
+				Parent_View 	@3
+				location   	(67, 753)
+				icon_style 	"Icon"
+				fill_color 	16777215
+				anchor     	2
+				nlines     	12
+				max_width  	671)
+			    width      	684
+			    height     	686
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object NoteView @4
+			    location   	(336, 1648)
+			    label      	(object ItemLabel
+				Parent_View 	@4
+				location   	(61, 1501)
+				nlines     	7
+				max_width  	515
+				label      	
+|Sound data base clases:
+|
+|These clases are the base for the sound rendering system
+				)
+			    line_color 	32896
+			    width      	575
+			    height     	306)
+			(object ClassView "Class" "Logical View::SoundSystem::Sound::CSoundWH" @5
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(368, 320)
+			    label      	(object ItemLabel
+				Parent_View 	@5
+				location   	(132, 64)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	472
+				justify    	0
+				label      	"CSoundWH")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3B76DEFB00B8"
+			    compartment 	(object Compartment
+				Parent_View 	@5
+				location   	(132, 124)
+				icon_style 	"Icon"
+				fill_color 	16777215
+				anchor     	2
+				nlines     	9
+				max_width  	478)
+			    width      	490
+			    height     	536
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object UsesView "" @6
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3BB64FD1034E"
+			    client     	@5
+			    supplier   	@3
+			    line_style 	3
+			    origin_attachment 	(406, 588)
+			    terminal_attachment 	(406, 681))
+			(object ClassView "Class" "Logical View::SoundSystem::Sound::CSoundWH_Elem" @7
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(1216, 160)
+			    label      	(object ItemLabel
+				Parent_View 	@7
+				location   	(954, 79)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	524
+				justify    	0
+				label      	"CSoundWH_Elem")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3BB6466C0378"
+			    compartment 	(object Compartment
+				Parent_View 	@7
+				location   	(954, 139)
+				icon_style 	"Icon"
+				fill_color 	16777215
+				anchor     	2
+				nlines     	2
+				max_width  	531)
+			    width      	542
+			    height     	186
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object AssociationViewNew "$UNNAMED$2" @8
+			    location   	(779, 162)
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3BB646E10023"
+			    roleview_list 	(list RoleViews
+				(object RoleView "$UNNAMED$3" @9
+				    Parent_View 	@8
+				    location   	(11, -638)
+				    label      	(object SegLabel @10
+					Parent_View 	@9
+					location   	(749, 44)
+					hidden     	TRUE
+					anchor     	1
+					anchor_loc 	1
+					nlines     	1
+					max_width  	60
+					justify    	0
+					label      	""
+					pctDist    	0.186567
+					height     	119
+					orientation 	1)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3BB646E1013B"
+				    client     	@8
+				    supplier   	@5
+				    line_style 	3
+				    origin_attachment 	(779, 162)
+				    terminal_attachment 	(613, 162))
+				(object RoleView "poSndElem" @11
+				    Parent_View 	@8
+				    location   	(11, -638)
+				    label      	(object SegLabel @12
+					Parent_View 	@11
+					location   	(779, 128)
+					anchor     	1
+					anchor_loc 	1
+					nlines     	1
+					max_width  	240
+					justify    	0
+					label      	"+$poSndElem"
+					pctDist    	0.000000
+					height     	34
+					orientation 	0)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3BB646E10145"
+				    client     	@8
+				    supplier   	@7
+				    line_style 	3
+				    origin_attachment 	(779, 162)
+				    terminal_attachment 	(945, 162))))
+			(object ClassView "Class" "Logical View::SoundSystem::Sound::CSample" @13
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(1200, 1008)
+			    label      	(object ItemLabel
+				Parent_View 	@13
+				location   	(978, 752)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	444
+				justify    	0
+				label      	"CSample")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3B76DE5D02B0"
+			    compartment 	(object Compartment
+				Parent_View 	@13
+				location   	(978, 812)
+				icon_style 	"Icon"
+				fill_color 	16777215
+				anchor     	2
+				nlines     	9
+				max_width  	450)
+			    width      	462
+			    height     	536
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object UsesView "" @14
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3BB65502025F"
+			    client     	@3
+			    supplier   	@13
+			    line_style 	3
+			    origin_attachment 	(742, 912)
+			    terminal_attachment 	(969, 912))
+			(object ClassView "Class" "Logical View::SoundSystem::Sound::CSound" @15
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(2032, 176)
+			    label      	(object ItemLabel
+				Parent_View 	@15
+				location   	(1821, 45)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	422
+				justify    	0
+				label      	"CSound")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3B76DF3D0334"
+			    compartment 	(object Compartment
+				Parent_View 	@15
+				location   	(1821, 105)
+				icon_style 	"Icon"
+				fill_color 	16777215
+				anchor     	2
+				nlines     	4
+				max_width  	428)
+			    width      	440
+			    height     	286
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object AttachView "" @16
+			    stereotype 	TRUE
+			    line_color 	32896
+			    client     	@1
+			    supplier   	@15
+			    line_style 	3
+			    origin_attachment 	(2441, 162)
+			    terminal_attachment 	(2252, 162))
+			(object AssociationViewNew "$UNNAMED$4" @17
+			    location   	(1649, 147)
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3BB646F600FF"
+			    roleview_list 	(list RoleViews
+				(object RoleView "$UNNAMED$5" @18
+				    Parent_View 	@17
+				    location   	(865, -1165)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3BB646F601C8"
+				    client     	@17
+				    supplier   	@7
+				    line_style 	3
+				    origin_attachment 	(1649, 147)
+				    terminal_attachment 	(1487, 147))
+				(object RoleView "poSound" @19
+				    Parent_View 	@17
+				    location   	(865, -1165)
+				    label      	(object SegLabel @20
+					Parent_View 	@19
+					location   	(1640, 109)
+					anchor     	1
+					anchor_loc 	1
+					nlines     	1
+					max_width  	192
+					justify    	0
+					label      	"+poSound"
+					pctDist    	-0.055215
+					height     	38
+					orientation 	0)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3BB646F601D2"
+				    client     	@17
+				    supplier   	@15
+				    line_style 	3
+				    origin_attachment 	(1649, 147)
+				    terminal_attachment 	(1812, 147))))
+			(object ClassView "Class" "Logical View::SoundSystem::Sound::CSoundLayer" @21
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(1968, 896)
+			    label      	(object ItemLabel
+				Parent_View 	@21
+				location   	(1815, 824)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	307
+				justify    	0
+				label      	"CSoundLayer")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3BB6430003E6"
+			    compartment 	(object Compartment
+				Parent_View 	@21
+				location   	(1815, 884)
+				icon_style 	"Icon"
+				fill_color 	16777215
+				anchor     	2
+				nlines     	2
+				max_width  	281)
+			    width      	325
+			    height     	169
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object AssociationViewNew "$UNNAMED$0" @22
+			    location   	(1618, 875)
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3BB643DE0088"
+			    roleview_list 	(list RoleViews
+				(object RoleView "$UNNAMED$1" @23
+				    Parent_View 	@22
+				    location   	(-46, 251)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3BB643DE01AB"
+				    client     	@22
+				    supplier   	@21
+				    line_style 	3
+				    origin_attachment 	(1618, 875)
+				    terminal_attachment 	(1806, 875))
+				(object RoleView "poSample" @24
+				    Parent_View 	@22
+				    location   	(-46, 251)
+				    label      	(object SegLabel @25
+					Parent_View 	@24
+					location   	(1618, 851)
+					anchor     	1
+					anchor_loc 	1
+					nlines     	1
+					max_width  	204
+					justify    	0
+					label      	"+poSample"
+					pctDist    	0.000000
+					height     	25
+					orientation 	1)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3BB643DE01AC"
+				    client     	@22
+				    supplier   	@13
+				    line_style 	3
+				    origin_attachment 	(1618, 875)
+				    terminal_attachment 	(1431, 875))))
+			(object AssociationViewNew "$UNNAMED$6" @26
+			    location   	(1943, 565)
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C7F5D430202"
+			    roleview_list 	(list RoleViews
+				(object RoleView "$UNNAMED$7" @27
+				    Parent_View 	@26
+				    location   	(-249, -427)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C7F5D4303D9"
+				    client     	@26
+				    supplier   	@15
+				    line_style 	3
+				    origin_attachment 	(1943, 565)
+				    terminal_attachment 	(1943, 319))
+				(object RoleView "poSLayer" @28
+				    Parent_View 	@26
+				    location   	(-249, -427)
+				    label      	(object SegLabel @29
+					Parent_View 	@28
+					location   	(2055, 592)
+					anchor     	1
+					anchor_loc 	1
+					nlines     	1
+					max_width  	204
+					justify    	0
+					label      	"+poSLayer"
+					pctDist    	0.110092
+					height     	112
+					orientation 	0)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C7F5D4303E3"
+				    client     	@26
+				    supplier   	@21
+				    line_style 	3
+				    origin_attachment 	(1943, 565)
+				    terminal_attachment 	(1943, 812))))
+			(object AttachView "" @30
+			    stereotype 	TRUE
+			    line_color 	32896
+			    client     	@13
+			    supplier   	@2
+			    line_style 	3
+			    origin_attachment 	(1136, 1276)
+			    terminal_attachment 	(1136, 1336))))))
+	(object Class_Category "SoundRender"
+	    quid       	"3B76FFA20393"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class "CSoundRenderer"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\SoundSystem\\SoundRender\\CSoundRenderer.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\SoundSystem\\SoundRender\\CSoundRenderer.cpp"))
+		    quid       	"3B76FFB6017F"
+		    used_nodes 	(list uses_relationship_list
+			(object Uses_Relationship
+			    quid       	"3C7F8E7900E6"
+			    supplier   	"Logical View::SoundSystem::SoundRender::CSoundReceiver"
+			    quidu      	"3B76DDEF02D0")
+			(object Uses_Relationship
+			    quid       	"3D0A506E0369"
+			    supplier   	"Logical View::SoundSystem::SoundRender::CSoundEmiter"
+			    quidu      	"3C7F8CFC012E"))
+		    operations 	(list Operations
+			(object Operation "Init"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 202)))
+			    quid       	"3B76FFD0003C"
+			    parameters 	(list Parameters
+				(object Parameter "_HndDeviceContext"
+				    type       	"void *")
+				(object Parameter "_iSndBits"
+				    type       	"int")
+				(object Parameter "_iSndSRate"
+				    type       	"int")
+				(object Parameter "_iMaxEmiters"
+				    type       	"int"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1001802590)
+			(object Operation "Render"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 202)))
+			    quid       	"3B76FFDA02CB"
+			    parameters 	(list Parameters
+				(object Parameter "_fDelta"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1001802591)
+			(object Operation "poAddEmiter"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 201)))
+			    quid       	"3BB64D520024"
+			    parameters 	(list Parameters
+				(object Parameter "_poSound"
+				    type       	"CSound*")
+				(object Parameter "_roPos"
+				    type       	"CVect3&")
+				(object Parameter "_fVol"
+				    type       	"float"))
+			    result     	"CSoundEmiter *"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1001802592)
+			(object Operation "poAddOmniEmiter"
+			    quid       	"3D0A502C0332"
+			    parameters 	(list Parameters
+				(object Parameter "_poSound"
+				    type       	"CSound*")
+				(object Parameter "_fVol"
+				    type       	"float"))
+			    result     	"CSoundEmiter *"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1024078849)
+			(object Operation "SetReceiver"
+			    quid       	"3BB64D8A02CD"
+			    parameters 	(list Parameters
+				(object Parameter "_poReceiver"
+				    type       	"CSoundReceiver*"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1001802594)
+			(object Operation "poGetReceiver"
+			    quid       	"3BB656A60367"
+			    result     	"CSoundReceiver *"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1001802601))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "iMaxEmiters"
+			    quid       	"3BB64E0C018A"
+			    type       	"int"
+			    initv      	"0"
+			    exportControl 	"Protected")
+			(object ClassAttribute "poReceiver"
+			    quid       	"3BB6568C0107"
+			    type       	"CSoundReceiver *"
+			    initv      	"NULL"
+			    exportControl 	"Protected")
+			(object ClassAttribute "oEmiters"
+			    quid       	"3D0A4DE600AA"
+			    type       	"CCircularArray <CSoundEmiter>"
+			    exportControl 	"Protected"))
+		    language   	"C++")
+		(object Class "CSoundReceiver"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\SoundSystem\\SoundRender\\CSoundReceiver.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\SoundSystem\\SoundRender\\CSoundReceiver.cpp"))
+		    quid       	"3B76DDEF02D0"
+		    superclasses 	(list inheritance_relationship_list
+			(object Inheritance_Relationship
+			    quid       	"3C7F8EC4031E"
+			    supplier   	"Logical View::SoundSystem::SoundRender::CSoundEntity"
+			    quidu      	"3C7F8EC1036A"))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "Dir"
+			    quid       	"3BB64C92030D"
+			    type       	"CVect3"
+			    exportControl 	"Public")
+			(object ClassAttribute "Up"
+			    quid       	"3BBA2F6C005B"
+			    type       	"CVect3"
+			    exportControl 	"Public")
+			(object ClassAttribute "Side"
+			    quid       	"3C828B1900DE"
+			    type       	"CVect3"
+			    exportControl 	"Public")
+			(object ClassAttribute "fSensitivity"
+			    quid       	"3BB7102F00F2"
+			    type       	"float"
+			    exportControl 	"Public"))
+		    language   	"C++")
+		(object Class "CSoundEmiter"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\SoundSystem\\SoundRender\\CSoundEmiter.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\SoundSystem\\SoundRender\\CSoundEmiter.cpp"))
+		    quid       	"3C7F8CFC012E"
+		    superclasses 	(list inheritance_relationship_list
+			(object Inheritance_Relationship
+			    quid       	"3C7F8EC60303"
+			    supplier   	"Logical View::SoundSystem::SoundRender::CSoundEntity"
+			    quidu      	"3C7F8EC1036A"))
+		    operations 	(list Operations
+			(object Operation "Unlock"
+			    quid       	"3C8246B602B9"
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1015169087))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "fRadius"
+			    quid       	"3C7F8CFC0130"
+			    type       	"float"
+			    exportControl 	"Public")
+			(object ClassAttribute "fVol"
+			    quid       	"3C7F8CFC0132"
+			    type       	"float"
+			    exportControl 	"Public")
+			(object ClassAttribute "iType"
+			    quid       	"3C7F8E56026C"
+			    type       	"int"
+			    exportControl 	"Public")
+			(object ClassAttribute "Dir"
+			    quid       	"3C828B350264"
+			    type       	"CVect3"
+			    exportControl 	"Public"))
+		    language   	"C++")
+		(object Class "CSoundEntity"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\SoundSystem\\SoundRender\\CSoundEntity.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\SoundSystem\\SoundRender\\CSoundEntity.cpp"))
+		    quid       	"3C7F8EC1036A"
+		    used_nodes 	(list uses_relationship_list
+			(object Uses_Relationship
+			    quid       	"3C7F9161035C"
+			    supplier   	"Logical View::Math::GammaE_Math"
+			    quidu      	"3BD8A07F039B"))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "Pos"
+			    quid       	"3C7F8EC1036B"
+			    type       	"CVect3"
+			    exportControl 	"Public")
+			(object ClassAttribute "Speed"
+			    quid       	"3C7F8EC1036C"
+			    type       	"CVect3"
+			    exportControl 	"Public"))
+		    language   	"C++")
+		(object Association "$UNNAMED$8"
+		    quid       	"3C7F90B90148"
+		    roles      	(list role_list
+			(object Role "$UNNAMED$9"
+			    quid       	"3C7F90B9026A"
+			    supplier   	"Logical View::SoundSystem::SoundRender::CSoundEmiter"
+			    quidu      	"3C7F8CFC012E"
+			    is_aggregate 	TRUE)
+			(object Role "oSMP"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateGetOperation"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateSetOperation"
+				    value      	FALSE))
+			    quid       	"3C7F90B9026B"
+			    label      	"oSMP"
+			    supplier   	"Logical View::SoundSystem::SoundRender::SoundMixer::CSoundMixPars"
+			    quidu      	"3C7F8F990248"
+			    Containment 	"By Value"
+			    is_navigable 	TRUE)))
+		(object Class_Category "SoundDrivers"
+		    quid       	"3BB64E7F004F"
+		    exportControl 	"Public"
+		    logical_models 	(list unit_reference_list
+			(object Class_Category "SndDrv_SDL"
+			    quid       	"3BB700A202BE"
+			    exportControl 	"Public"
+			    logical_models 	(list unit_reference_list
+				(object Class "CSoundRenderer_SDL"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Traversal"
+					    name       	"CodeFile"
+					    value      	"$ROSECPP_SOURCE\\SoundSystem\\SoundRender\\SoundDrivers\\SndDrv_SDL\\CSoundRenderer_SDL.h")
+					(object Attribute
+					    tool       	"Traversal"
+					    name       	"BodyFile"
+					    value      	"$ROSECPP_SOURCE\\SoundSystem\\SoundRender\\SoundDrivers\\SndDrv_SDL\\CSoundRenderer_SDL.cpp"))
+				    quid       	"3BB64E8602A8"
+				    superclasses 	(list inheritance_relationship_list
+					(object Inheritance_Relationship
+					    quid       	"3BB64ECC01E0"
+					    supplier   	"Logical View::SoundSystem::SoundRender::CSoundRenderer"
+					    quidu      	"3B76FFB6017F"))
+				    operations 	(list Operations
+					(object Operation "Init"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"cg"
+						    name       	"OperationKind"
+						    value      	("OperationKindSet" 201)))
+					    quid       	"3BB65633009B"
+					    parameters 	(list Parameters
+						(object Parameter "_HndDeviceContext"
+						    type       	"void *")
+						(object Parameter "_iSndBits"
+						    type       	"int")
+						(object Parameter "_iSndSRate"
+						    type       	"int")
+						(object Parameter "_iMaxEmiters"
+						    type       	"int"))
+					    result     	"int"
+					    concurrency 	"Sequential"
+					    opExportControl 	"Public"
+					    uid        	1001802598)
+					(object Operation "Render"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"cg"
+						    name       	"OperationKind"
+						    value      	("OperationKindSet" 201)))
+					    quid       	"3BB6563300B9"
+					    parameters 	(list Parameters
+						(object Parameter "_fDelta"
+						    type       	"float"))
+					    result     	"void"
+					    concurrency 	"Sequential"
+					    opExportControl 	"Public"
+					    uid        	1001802599))
+				    language   	"C++"))
+			    logical_presentations 	(list unit_reference_list
+				(object ClassDiagram "Main"
+				    quid       	"3BB700A8006E"
+				    title      	"Main"
+				    zoom       	100
+				    max_height 	28350
+				    max_width  	21600
+				    origin_x   	0
+				    origin_y   	0
+				    items      	(list diagram_item_list
+					(object ClassView "Class" "Logical View::SoundSystem::SoundRender::SoundDrivers::SndDrv_SDL::CSoundRenderer_SDL" @31
+					    ShowCompartmentStereotypes 	TRUE
+					    IncludeAttribute 	TRUE
+					    IncludeOperation 	TRUE
+					    location   	(1216, 1104)
+					    label      	(object ItemLabel
+						Parent_View 	@31
+						location   	(998, 998)
+						fill_color 	4227327
+						nlines     	1
+						max_width  	436
+						justify    	0
+						label      	"CSoundRenderer_SDL")
+					    icon_style 	"Icon"
+					    line_color 	32896
+					    fill_color 	4227327
+					    quidu      	"3BB64E8602A8"
+					    width      	454
+					    height     	236
+					    annotation 	8
+					    autoResize 	TRUE)
+					(object ClassView "Class" "Logical View::SoundSystem::SoundRender::CSoundRenderer" @32
+					    ShowCompartmentStereotypes 	TRUE
+					    IncludeAttribute 	TRUE
+					    IncludeOperation 	TRUE
+					    location   	(1216, 336)
+					    label      	(object ItemLabel
+						Parent_View 	@32
+						location   	(846, 7)
+						fill_color 	4227327
+						nlines     	1
+						max_width  	740
+						justify    	0
+						label      	"CSoundRenderer")
+					    icon_style 	"Icon"
+					    line_color 	32896
+					    fill_color 	4227327
+					    quidu      	"3B76FFB6017F"
+					    width      	758
+					    height     	682
+					    annotation 	8
+					    autoResize 	TRUE)
+					(object InheritView "" @33
+					    stereotype 	TRUE
+					    line_color 	32896
+					    quidu      	"3BB64ECC01E0"
+					    client     	@31
+					    supplier   	@32
+					    line_style 	0)))))
+			(object Class_Category "SndDrv_DirectSound"
+			    quid       	"3BB700BA01B4"
+			    exportControl 	"Public"
+			    logical_models 	(list unit_reference_list
+				(object Class "CSoundRenderer_DSound"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Traversal"
+					    name       	"CodeFile"
+					    value      	"$ROSECPP_SOURCE\\SoundSystem\\SoundRender\\SoundDrivers\\SndDrv_DirectSound\\CSoundRenderer_DSound.h")
+					(object Attribute
+					    tool       	"Traversal"
+					    name       	"BodyFile"
+					    value      	"$ROSECPP_SOURCE\\SoundSystem\\SoundRender\\SoundDrivers\\SndDrv_DirectSound\\CSoundRenderer_DSound.cpp"))
+				    quid       	"3BB700C50336"
+				    superclasses 	(list inheritance_relationship_list
+					(object Inheritance_Relationship
+					    quid       	"3BB700D30188"
+					    supplier   	"Logical View::SoundSystem::SoundRender::CSoundRenderer"
+					    quidu      	"3B76FFB6017F"))
+				    used_nodes 	(list uses_relationship_list
+					(object Uses_Relationship
+					    quid       	"3C7F910A01F9"
+					    supplier   	"Logical View::SoundSystem::SoundRender::SoundMixer::CSoundMixer"
+					    quidu      	"3C7F7DF20222"))
+				    operations 	(list Operations
+					(object Operation "Init"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"cg"
+						    name       	"OperationKind"
+						    value      	("OperationKindSet" 201)))
+					    quid       	"3BB700D703A0"
+					    parameters 	(list Parameters
+						(object Parameter "_HndDeviceContext"
+						    type       	"void *")
+						(object Parameter "_iSndBits"
+						    type       	"int")
+						(object Parameter "_iSndSRate"
+						    type       	"int")
+						(object Parameter "_iMaxEmiters"
+						    type       	"int"))
+					    result     	"int"
+					    concurrency 	"Sequential"
+					    opExportControl 	"Public"
+					    uid        	1001849070)
+					(object Operation "Finish"
+					    quid       	"3C7F759200C0"
+					    result     	"void"
+					    concurrency 	"Sequential"
+					    opExportControl 	"Public"
+					    uid        	1014979367)
+					(object Operation "iLoadDirectSound"
+					    quid       	"3C80D83600D6"
+					    result     	"int"
+					    concurrency 	"Sequential"
+					    opExportControl 	"Public"
+					    uid        	1015076948)
+					(object Operation "iUnloadDirectSound"
+					    quid       	"3C80D83D0267"
+					    result     	"int"
+					    concurrency 	"Sequential"
+					    opExportControl 	"Public"
+					    uid        	1015076949)
+					(object Operation "iCreateBuffers"
+					    quid       	"3C80D84303CE"
+					    result     	"int"
+					    concurrency 	"Sequential"
+					    opExportControl 	"Public"
+					    uid        	1015076950)
+					(object Operation "Render"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"cg"
+						    name       	"OperationKind"
+						    value      	("OperationKindSet" 201)))
+					    quid       	"3BB700D703AB"
+					    parameters 	(list Parameters
+						(object Parameter "_fDelta"
+						    type       	"float"))
+					    result     	"void"
+					    concurrency 	"Sequential"
+					    opExportControl 	"Public"
+					    uid        	1001849071)
+					(object Operation "TransferData"
+					    quid       	"3C821E9501B3"
+					    parameters 	(list Parameters
+						(object Parameter "_uiSamples"
+						    type       	"unsigned int"))
+					    result     	"void"
+					    concurrency 	"Sequential"
+					    opExportControl 	"Public"
+					    uid        	1015160465)
+					(object Operation "bComputeVolumeFactors"
+					    quid       	"3C828B6A00A8"
+					    parameters 	(list Parameters
+						(object Parameter "_poEmiter"
+						    type       	"CSoundEmiter*"))
+					    result     	"bool"
+					    concurrency 	"Sequential"
+					    opExportControl 	"Public"
+					    uid        	1015188291))
+				    class_attributes 	(list class_attribute_list
+					(object ClassAttribute "iNumChannels"
+					    quid       	"3BB8E2CD013F"
+					    type       	"int")
+					(object ClassAttribute "iSndRate"
+					    quid       	"3BB8E2DE0035"
+					    type       	"int")
+					(object ClassAttribute "iSndBits"
+					    quid       	"3BB8E2E20117"
+					    type       	"int"))
+				    language   	"C++"))
+			    logical_presentations 	(list unit_reference_list
+				(object ClassDiagram "Main"
+				    quid       	"3BB700BF0284"
+				    title      	"Main"
+				    zoom       	100
+				    max_height 	28350
+				    max_width  	21600
+				    origin_x   	0
+				    origin_y   	0
+				    items      	(list diagram_item_list
+					(object ClassView "Class" "Logical View::SoundSystem::SoundRender::CSoundRenderer" @34
+					    ShowCompartmentStereotypes 	TRUE
+					    location   	(560, 128)
+					    label      	(object ItemLabel
+						Parent_View 	@34
+						location   	(388, 53)
+						fill_color 	4227327
+						nlines     	1
+						max_width  	344
+						justify    	0
+						label      	"CSoundRenderer")
+					    icon_style 	"Icon"
+					    line_color 	32896
+					    fill_color 	4227327
+					    quidu      	"3B76FFB6017F"
+					    width      	362
+					    height     	174
+					    annotation 	8
+					    autoResize 	TRUE)
+					(object ClassView "Class" "Logical View::SoundSystem::SoundRender::SoundMixer::CSoundMixer" @35
+					    ShowCompartmentStereotypes 	TRUE
+					    location   	(1200, 560)
+					    label      	(object ItemLabel
+						Parent_View 	@35
+						location   	(1062, 485)
+						fill_color 	4227327
+						nlines     	1
+						max_width  	276
+						justify    	0
+						label      	"CSoundMixer")
+					    icon_style 	"Icon"
+					    line_color 	32896
+					    fill_color 	4227327
+					    quidu      	"3C7F7DF20222"
+					    width      	294
+					    height     	174
+					    annotation 	8
+					    autoResize 	TRUE)
+					(object ClassView "Class" "Logical View::SoundSystem::SoundRender::SoundDrivers::SndDrv_DirectSound::CSoundRenderer_DSound" @36
+					    ShowCompartmentStereotypes 	TRUE
+					    IncludeAttribute 	TRUE
+					    IncludeOperation 	TRUE
+					    location   	(544, 704)
+					    label      	(object ItemLabel
+						Parent_View 	@36
+						location   	(276, 373)
+						fill_color 	4227327
+						nlines     	1
+						max_width  	536
+						justify    	0
+						label      	"CSoundRenderer_DSound")
+					    icon_style 	"Icon"
+					    line_color 	32896
+					    fill_color 	4227327
+					    quidu      	"3BB700C50336"
+					    width      	554
+					    height     	686
+					    annotation 	8
+					    autoResize 	TRUE)
+					(object InheritView "" @37
+					    stereotype 	TRUE
+					    line_color 	32896
+					    quidu      	"3BB700D30188"
+					    client     	@36
+					    supplier   	@34
+					    line_style 	3
+					    origin_attachment 	(578, 361)
+					    terminal_attachment 	(578, 215))
+					(object UsesView "" @38
+					    stereotype 	TRUE
+					    line_color 	32896
+					    quidu      	"3C7F910A01F9"
+					    client     	@36
+					    supplier   	@35
+					    line_style 	3
+					    origin_attachment 	(821, 581)
+					    terminal_attachment 	(1053, 581))))))
+			(object Class_Category "SndDrv_BASS"
+			    quid       	"3BB724A303E0"
+			    exportControl 	"Public"
+			    logical_models 	(list unit_reference_list
+				(object Class "CSoundRenderer_Bass"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Traversal"
+					    name       	"CodeFile"
+					    value      	"$ROSECPP_SOURCE\\SoundSystem\\SoundRender\\SoundDrivers\\SndDrv_BASS\\CSoundRenderer_Bass.h")
+					(object Attribute
+					    tool       	"Traversal"
+					    name       	"BodyFile"
+					    value      	"$ROSECPP_SOURCE\\SoundSystem\\SoundRender\\SoundDrivers\\SndDrv_BASS\\CSoundRenderer_Bass.cpp"))
+				    quid       	"3BB72506003F"
+				    superclasses 	(list inheritance_relationship_list
+					(object Inheritance_Relationship
+					    quid       	"3BB7250F0287"
+					    supplier   	"Logical View::SoundSystem::SoundRender::CSoundRenderer"
+					    quidu      	"3B76FFB6017F"))
+				    used_nodes 	(list uses_relationship_list
+					(object Uses_Relationship
+					    quid       	"3BB78055020F"
+					    supplier   	"Logical View::SoundSystem::SoundRender::SoundDrivers::SndDrv_BASS::CSR_Bass_Emiter"
+					    quidu      	"3BB77FF400B1"))
+				    operations 	(list Operations
+					(object Operation "Init"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"cg"
+						    name       	"OperationKind"
+						    value      	("OperationKindSet" 201)))
+					    quid       	"3BB7251902F0"
+					    parameters 	(list Parameters
+						(object Parameter "_HndDeviceContext"
+						    type       	"void *")
+						(object Parameter "_iSndBits"
+						    type       	"int")
+						(object Parameter "_iSndSRate"
+						    type       	"int")
+						(object Parameter "_iMaxEmiters"
+						    type       	"int"))
+					    result     	"int"
+					    concurrency 	"Sequential"
+					    opExportControl 	"Public"
+					    uid        	1001853003)
+					(object Operation "Render"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"cg"
+						    name       	"OperationKind"
+						    value      	("OperationKindSet" 201)))
+					    quid       	"3BB725190304"
+					    parameters 	(list Parameters
+						(object Parameter "_fDelta"
+						    type       	"float"))
+					    result     	"void"
+					    concurrency 	"Sequential"
+					    opExportControl 	"Public"
+					    uid        	1001853004)
+					(object Operation "ProcessEmiters"
+					    quid       	"3BB780E90063"
+					    result     	"void"
+					    concurrency 	"Sequential"
+					    opExportControl 	"Public"
+					    uid        	1001881732)
+					(object Operation "UploadSample"
+					    quid       	"3BB785E70011"
+					    parameters 	(list Parameters
+						(object Parameter "_pSample"
+						    type       	"CSample *"))
+					    result     	"void"
+					    concurrency 	"Sequential"
+					    opExportControl 	"Public"
+					    uid        	1001881734)
+					(object Operation "UpdateBassEmiter_Layers"
+					    quid       	"3BB7872903A3"
+					    parameters 	(list Parameters
+						(object Parameter "_pBEmiter"
+						    type       	"CSR_Bass_Emiter *"))
+					    result     	"void"
+					    concurrency 	"Sequential"
+					    opExportControl 	"Public"
+					    uid        	1001881735)
+					(object Operation "UpdateBassEmiter_3D"
+					    quid       	"3BB78A650335"
+					    parameters 	(list Parameters
+						(object Parameter "_pBEmiter"
+						    type       	"CSR_Bass_Emiter *"))
+					    result     	"void"
+					    concurrency 	"Sequential"
+					    opExportControl 	"Public"
+					    uid        	1001881736)
+					(object Operation "iAddEmiter"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"cg"
+						    name       	"OperationKind"
+						    value      	("OperationKindSet" 201)))
+					    quid       	"3BB78F56035C"
+					    parameters 	(list Parameters
+						(object Parameter "_pEmiter"
+						    type       	"CSoundEmiter *"))
+					    result     	"int"
+					    concurrency 	"Sequential"
+					    opExportControl 	"Public"
+					    uid        	1001881737)
+					(object Operation "RemoveEmiter"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"cg"
+						    name       	"OperationKind"
+						    value      	("OperationKindSet" 201)))
+					    quid       	"3BB78F560370"
+					    parameters 	(list Parameters
+						(object Parameter "_iIdx"
+						    type       	"int"))
+					    result     	"void"
+					    concurrency 	"Sequential"
+					    opExportControl 	"Public"
+					    uid        	1001881738)
+					(object Operation "UnlockEmiter"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"cg"
+						    name       	"OperationKind"
+						    value      	("OperationKindSet" 201)))
+					    quid       	"3BB78F56037B"
+					    parameters 	(list Parameters
+						(object Parameter "_iIdx"
+						    type       	"int"))
+					    result     	"void"
+					    concurrency 	"Sequential"
+					    opExportControl 	"Public"
+					    uid        	1001881739))
+				    class_attributes 	(list class_attribute_list
+					(object ClassAttribute "pBassEmiter"
+					    quid       	"3BB72B8A0048"
+					    type       	"CSR_Bass_Emiter*"
+					    initv      	"NULL")
+					(object ClassAttribute "iMaxChannels"
+					    quid       	"3BB72B9502C5"
+					    type       	"int"
+					    initv      	"0")
+					(object ClassAttribute "iNumChannels"
+					    quid       	"3BB72E0000A8"
+					    type       	"int"
+					    initv      	"0"))
+				    language   	"C++")
+				(object Class "CSR_Bass_Channel"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Traversal"
+					    name       	"CodeFile"
+					    value      	"$ROSECPP_SOURCE\\SoundSystem\\SoundRender\\SoundDrivers\\SndDrv_BASS\\CSR_Bass_Channel.h")
+					(object Attribute
+					    tool       	"Traversal"
+					    name       	"BodyFile"
+					    value      	"$ROSECPP_SOURCE\\SoundSystem\\SoundRender\\SoundDrivers\\SndDrv_BASS\\CSR_Bass_Channel.cpp"))
+				    quid       	"3BB72B3D019C"
+				    class_attributes 	(list class_attribute_list
+					(object ClassAttribute "iChannel"
+					    quid       	"3BB72B5D03BE"
+					    type       	"int"
+					    initv      	"-1"
+					    exportControl 	"Public")
+					(object ClassAttribute "Vel"
+					    quid       	"3BB72B620159"
+					    type       	"BASS_3DVECTOR"
+					    exportControl 	"Public")
+					(object ClassAttribute "Pos"
+					    quid       	"3BB72B7E00F5"
+					    type       	"BASS_3DVECTOR"
+					    exportControl 	"Public")
+					(object ClassAttribute "iDir"
+					    quid       	"3BB72B8101B7"
+					    type       	"int"
+					    initv      	"0"
+					    exportControl 	"Public"))
+				    language   	"C++")
+				(object Class "CSR_Bass_Emiter"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Traversal"
+					    name       	"CodeFile"
+					    value      	"$ROSECPP_SOURCE\\SoundSystem\\SoundRender\\SoundDrivers\\SndDrv_BASS\\CSR_Bass_Emiter.h")
+					(object Attribute
+					    tool       	"Traversal"
+					    name       	"BodyFile"
+					    value      	"$ROSECPP_SOURCE\\SoundSystem\\SoundRender\\SoundDrivers\\SndDrv_BASS\\CSR_Bass_Emiter.cpp"))
+				    quid       	"3BB77FF400B1"
+				    class_attributes 	(list class_attribute_list
+					(object ClassAttribute "pEmiter"
+					    quid       	"3BB780170129"
+					    type       	"CSoundEmiter *"
+					    exportControl 	"Public")
+					(object ClassAttribute "iCurCh"
+					    quid       	"3BB7803200BA"
+					    type       	"HCHANNEL"
+					    exportControl 	"Public")
+					(object ClassAttribute "iCurSmpLayer"
+					    quid       	"3BB78037025C"
+					    type       	"int"
+					    exportControl 	"Public")
+					(object ClassAttribute "bUnlock"
+					    quid       	"3BB78B9602DA"
+					    type       	"bool"
+					    exportControl 	"Public"))
+				    language   	"C++"))
+			    logical_presentations 	(list unit_reference_list
+				(object ClassDiagram "Main"
+				    quid       	"3BB724F900A5"
+				    title      	"Main"
+				    zoom       	100
+				    max_height 	28350
+				    max_width  	21600
+				    origin_x   	303
+				    origin_y   	0
+				    items      	(list diagram_item_list
+					(object ClassView "Class" "Logical View::SoundSystem::SoundRender::CSoundRenderer" @39
+					    ShowCompartmentStereotypes 	TRUE
+					    IncludeAttribute 	TRUE
+					    IncludeOperation 	TRUE
+					    location   	(944, 480)
+					    label      	(object ItemLabel
+						Parent_View 	@39
+						location   	(563, 175)
+						fill_color 	4227327
+						nlines     	1
+						max_width  	762
+						justify    	0
+						label      	"CSoundRenderer")
+					    icon_style 	"Icon"
+					    line_color 	32896
+					    fill_color 	4227327
+					    quidu      	"3B76FFB6017F"
+					    width      	780
+					    height     	634
+					    annotation 	8
+					    autoResize 	TRUE)
+					(object ClassView "Class" "Logical View::SoundSystem::SoundRender::SoundDrivers::SndDrv_BASS::CSoundRenderer_Bass" @40
+					    ShowCompartmentStereotypes 	TRUE
+					    IncludeAttribute 	TRUE
+					    IncludeOperation 	TRUE
+					    location   	(944, 1392)
+					    label      	(object ItemLabel
+						Parent_View 	@40
+						location   	(528, 1036)
+						fill_color 	4227327
+						nlines     	1
+						max_width  	832
+						justify    	0
+						label      	"CSoundRenderer_Bass")
+					    icon_style 	"Icon"
+					    line_color 	32896
+					    fill_color 	4227327
+					    quidu      	"3BB72506003F"
+					    width      	850
+					    height     	736
+					    annotation 	8
+					    autoResize 	TRUE)
+					(object InheritView "" @41
+					    stereotype 	TRUE
+					    line_color 	32896
+					    quidu      	"3BB7250F0287"
+					    client     	@40
+					    supplier   	@39
+					    line_style 	0)
+					(object ClassView "Class" "Logical View::SoundSystem::SoundRender::SoundDrivers::SndDrv_BASS::CSR_Bass_Emiter" @42
+					    ShowCompartmentStereotypes 	TRUE
+					    IncludeAttribute 	TRUE
+					    IncludeOperation 	TRUE
+					    ShowOperationSignature 	TRUE
+					    location   	(2144, 1392)
+					    label      	(object ItemLabel
+						Parent_View 	@42
+						location   	(1817, 1266)
+						fill_color 	4227327
+						nlines     	1
+						max_width  	654
+						justify    	0
+						label      	"CSR_Bass_Emiter")
+					    icon_style 	"Icon"
+					    line_color 	32896
+					    fill_color 	4227327
+					    quidu      	"3BB77FF400B1"
+					    width      	672
+					    height     	276
+					    annotation 	8
+					    autoResize 	TRUE)
+					(object UsesView "" @43
+					    stereotype 	TRUE
+					    line_color 	32896
+					    quidu      	"3BB78055020F"
+					    client     	@40
+					    supplier   	@42
+					    line_style 	0))))))
+		    logical_presentations 	(list unit_reference_list
+			(object ClassDiagram "Main"
+			    quid       	"3BB64E85004D"
+			    title      	"Main"
+			    zoom       	100
+			    max_height 	28350
+			    max_width  	21600
+			    origin_x   	0
+			    origin_y   	0
+			    items      	(list diagram_item_list
+				(object CategoryView "Logical View::SoundSystem::SoundRender::SoundDrivers::SndDrv_SDL" @44
+				    location   	(240, 224)
+				    label      	(object ItemLabel
+					Parent_View 	@44
+					location   	(96, 140)
+					fill_color 	4227327
+					nlines     	2
+					max_width  	288
+					justify    	0
+					label      	"SndDrv_SDL")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	4227327
+				    quidu      	"3BB700A202BE"
+				    width      	300
+				    height     	180)
+				(object CategoryView "Logical View::SoundSystem::SoundRender::SoundDrivers::SndDrv_DirectSound" @45
+				    location   	(576, 224)
+				    label      	(object ItemLabel
+					Parent_View 	@45
+					location   	(426, 140)
+					fill_color 	4227327
+					nlines     	2
+					max_width  	300
+					justify    	0
+					label      	"SndDrv_DirectSound")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	4227327
+				    quidu      	"3BB700BA01B4"
+				    width      	312
+				    height     	180)
+				(object CategoryView "Logical View::SoundSystem::SoundRender::SoundDrivers::SndDrv_BASS" @46
+				    location   	(240, 480)
+				    label      	(object ItemLabel
+					Parent_View 	@46
+					location   	(96, 396)
+					fill_color 	4227327
+					nlines     	2
+					max_width  	288
+					justify    	0
+					label      	"SndDrv_BASS")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	4227327
+				    quidu      	"3BB724A303E0"
+				    width      	300
+				    height     	180)))))
+		(object Class_Category "SoundMixer"
+		    quid       	"3C7F7DE30126"
+		    exportControl 	"Public"
+		    logical_models 	(list unit_reference_list
+			(object Class "CSoundMixer"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"CodeFile"
+				    value      	"$ROSECPP_SOURCE\\SoundSystem\\SoundRender\\SoundMixer\\CSoundMixer.h")
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"BodyFile"
+				    value      	"$ROSECPP_SOURCE\\SoundSystem\\SoundRender\\SoundMixer\\CSoundMixer.cpp"))
+			    quid       	"3C7F7DF20222"
+			    used_nodes 	(list uses_relationship_list
+				(object Uses_Relationship
+				    quid       	"3C7F901F031D"
+				    supplier   	"Logical View::SoundSystem::SoundRender::SoundMixer::CSoundMixPars"
+				    quidu      	"3C7F8F990248"))
+			    operations 	(list Operations
+				(object Operation "Clear"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C7F7E010287"
+				    result     	"void"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1014979369)
+				(object Operation "SetupBuffer"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C7F7ECD01FE"
+				    parameters 	(list Parameters
+					(object Parameter "_fSeconds"
+					    type       	"float")
+					(object Parameter "_iSRate"
+					    type       	"unsigned int")
+					(object Parameter "_iBits"
+					    type       	"int"))
+				    result     	"void"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1014979371)
+				(object Operation "Mix"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C7F7E470350"
+				    parameters 	(list Parameters
+					(object Parameter "_roSMP"
+					    type       	"CSoundMixPars&")
+					(object Parameter "_uiSamples"
+					    type       	"unsigned int"))
+				    result     	"void"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1014979370)
+				(object Operation "Mix16M"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C7F80070246"
+				    parameters 	(list Parameters
+					(object Parameter "_roSMP"
+					    type       	"CSoundMixPars&")
+					(object Parameter "uiSamples"
+					    type       	"unsigned int")
+					(object Parameter "_uiCurDSmpPos"
+					    type       	"unsigned int"))
+				    result     	"void"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1014979372)
+				(object Operation "Mix16S"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C7F801B0064"
+				    parameters 	(list Parameters
+					(object Parameter "_roSMP"
+					    type       	"CSoundMixPars&")
+					(object Parameter "uiSamples"
+					    type       	"unsigned int")
+					(object Parameter "_uiCurDSmpPos"
+					    type       	"unsigned int"))
+				    result     	"void"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1014979373)
+				(object Operation "Mix8M"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C7F801D0306"
+				    parameters 	(list Parameters
+					(object Parameter "_roSMP"
+					    type       	"CSoundMixPars&")
+					(object Parameter "uiSamples"
+					    type       	"unsigned int")
+					(object Parameter "_uiCurDSmpPos"
+					    type       	"unsigned int"))
+				    result     	"void"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1014979374)
+				(object Operation "Mix8S"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C7F8020031E"
+				    parameters 	(list Parameters
+					(object Parameter "_roSMP"
+					    type       	"CSoundMixPars&")
+					(object Parameter "uiSamples"
+					    type       	"unsigned int")
+					(object Parameter "_uiCurDSmpPos"
+					    type       	"unsigned int"))
+				    result     	"void"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1014979375)
+				(object Operation "pGetBuffer"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C821E7800B7"
+				    result     	"void*"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1015160464)
+				(object Operation "uiGetBufferSize"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C823C53038F"
+				    result     	"unsigned int"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1015168104))
+			    class_attributes 	(list class_attribute_list
+				(object ClassAttribute "pBuffer"
+				    quid       	"3C7F7E0B0047"
+				    type       	"void *"
+				    initv      	"NULL"
+				    static     	TRUE)
+				(object ClassAttribute "pi32bBuffer"
+				    quid       	"3D0CA81B005D"
+				    type       	"int *"
+				    initv      	"NULL"
+				    static     	TRUE)
+				(object ClassAttribute "uiBuffSize"
+				    quid       	"3C7F7E1B0307"
+				    type       	"unsigned int"
+				    initv      	"0"
+				    static     	TRUE)
+				(object ClassAttribute "uiBuffSamples"
+				    quid       	"3C82223001C4"
+				    type       	"unsigned int"
+				    initv      	"0"
+				    static     	TRUE)
+				(object ClassAttribute "iSRate"
+				    quid       	"3C7F99A10179"
+				    type       	"int"
+				    initv      	"0"
+				    static     	TRUE)
+				(object ClassAttribute "iBits"
+				    quid       	"3C7F9A530160"
+				    type       	"int"
+				    initv      	"0"
+				    static     	TRUE)
+				(object ClassAttribute "bPostProcess"
+				    quid       	"3D0CA872027F"
+				    type       	"bool"
+				    initv      	"false"
+				    static     	TRUE))
+			    language   	"C++")
+			(object Class "CSoundMixPars"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"CodeFile"
+				    value      	"$ROSECPP_SOURCE\\SoundSystem\\SoundRender\\SoundMixer\\CSoundMixPars.h")
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"BodyFile"
+				    value      	"$ROSECPP_SOURCE\\SoundSystem\\SoundRender\\SoundMixer\\CSoundMixPars.cpp")
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateEmptyRegions"
+				    value      	("GenerateEmptyRegionSet" 0)))
+			    quid       	"3C7F8F990248"
+			    class_attributes 	(list class_attribute_list
+				(object ClassAttribute "fLVol"
+				    quid       	"3C7F8FDC0154"
+				    type       	"float"
+				    initv      	"1.0f"
+				    exportControl 	"Public")
+				(object ClassAttribute "fRVol"
+				    quid       	"3C7F8FE502C0"
+				    type       	"float"
+				    initv      	"1.0f"
+				    exportControl 	"Public")
+				(object ClassAttribute "iSPos"
+				    quid       	"3C7F900B00A8"
+				    type       	"int"
+				    initv      	"0"
+				    exportControl 	"Public")
+				(object ClassAttribute "iCLayer"
+				    quid       	"3C7F9012002F"
+				    type       	"int"
+				    initv      	"0"
+				    exportControl 	"Public")
+				(object ClassAttribute "bLUnlock"
+				    quid       	"3C7F91D402F4"
+				    type       	"bool"
+				    initv      	"false"
+				    exportControl 	"Public")
+				(object ClassAttribute "bEnd"
+				    quid       	"3C7FA0E90350"
+				    type       	"bool"
+				    initv      	"false"
+				    exportControl 	"Public"))
+			    language   	"C++")
+			(object Association "$UNNAMED$10"
+			    quid       	"3C7F8E400102"
+			    roles      	(list role_list
+				(object Role "$UNNAMED$11"
+				    quid       	"3C7F8E4001FC"
+				    supplier   	"Logical View::SoundSystem::SoundRender::SoundMixer::CSoundMixer"
+				    quidu      	"3C7F7DF20222"
+				    is_aggregate 	TRUE)
+				(object Role "poRec"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"GenerateGetOperation"
+					    value      	FALSE)
+					(object Attribute
+					    tool       	"cg"
+					    name       	"GenerateSetOperation"
+					    value      	FALSE))
+				    quid       	"3C7F8E4001FD"
+				    label      	"poRec"
+				    supplier   	"Logical View::SoundSystem::SoundRender::CSoundReceiver"
+				    quidu      	"3B76DDEF02D0"
+				    Containment 	"By Reference"
+				    is_navigable 	TRUE
+				    static     	TRUE)))
+			(object Association "$UNNAMED$12"
+			    quid       	"3C7F8FBF0379"
+			    roles      	(list role_list
+				(object Role "$UNNAMED$13"
+				    quid       	"3C7F8FC0010E"
+				    supplier   	"Logical View::SoundSystem::SoundRender::SoundMixer::CSoundMixPars"
+				    quidu      	"3C7F8F990248"
+				    is_aggregate 	TRUE)
+				(object Role "poSound"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"GenerateGetOperation"
+					    value      	FALSE)
+					(object Attribute
+					    tool       	"cg"
+					    name       	"GenerateSetOperation"
+					    value      	FALSE))
+				    quid       	"3C7F8FC00118"
+				    label      	"poSound"
+				    supplier   	"Logical View::SoundSystem::Sound::CSound"
+				    quidu      	"3B76DF3D0334"
+				    Containment 	"By Reference"
+				    is_navigable 	TRUE))))
+		    logical_presentations 	(list unit_reference_list
+			(object ClassDiagram "Main"
+			    quid       	"3C7F7DF00247"
+			    title      	"Main"
+			    zoom       	100
+			    max_height 	28350
+			    max_width  	21600
+			    origin_x   	0
+			    origin_y   	0
+			    items      	(list diagram_item_list
+				(object ClassView "Class" "Logical View::SoundSystem::SoundRender::SoundMixer::CSoundMixer" @47
+				    ShowCompartmentStereotypes 	TRUE
+				    IncludeAttribute 	TRUE
+				    IncludeOperation 	TRUE
+				    location   	(496, 672)
+				    label      	(object ItemLabel
+					Parent_View 	@47
+					location   	(158, 216)
+					fill_color 	4227327
+					nlines     	1
+					max_width  	676
+					justify    	0
+					label      	"CSoundMixer")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	4227327
+				    quidu      	"3C7F7DF20222"
+				    compartment 	(object Compartment
+					Parent_View 	@47
+					location   	(158, 276)
+					icon_style 	"Icon"
+					fill_color 	16777215
+					anchor     	2
+					nlines     	17
+					max_width  	672)
+				    width      	694
+				    height     	936
+				    annotation 	8
+				    autoResize 	TRUE)
+				(object ClassView "Class" "Logical View::SoundSystem::SoundRender::SoundMixer::CSoundMixPars" @48
+				    ShowCompartmentStereotypes 	TRUE
+				    IncludeAttribute 	TRUE
+				    IncludeOperation 	TRUE
+				    location   	(1216, 672)
+				    label      	(object ItemLabel
+					Parent_View 	@48
+					location   	(981, 466)
+					fill_color 	4227327
+					nlines     	1
+					max_width  	470
+					justify    	0
+					label      	"CSoundMixPars")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	4227327
+				    quidu      	"3C7F8F990248"
+				    compartment 	(object Compartment
+					Parent_View 	@48
+					location   	(981, 526)
+					icon_style 	"Icon"
+					fill_color 	16777215
+					anchor     	2
+					nlines     	7
+					max_width  	475)
+				    width      	488
+				    height     	436
+				    annotation 	8
+				    autoResize 	TRUE)
+				(object ClassView "Class" "Logical View::SoundSystem::Sound::CSound" @49
+				    ShowCompartmentStereotypes 	TRUE
+				    location   	(1824, 656)
+				    label      	(object ItemLabel
+					Parent_View 	@49
+					location   	(1727, 581)
+					fill_color 	4227327
+					nlines     	1
+					max_width  	194
+					justify    	0
+					label      	"CSound")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	4227327
+				    quidu      	"3B76DF3D0334"
+				    width      	212
+				    height     	174
+				    annotation 	8
+				    autoResize 	TRUE)
+				(object AssociationViewNew "$UNNAMED$12" @50
+				    location   	(1589, 656)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C7F8FBF0379"
+				    roleview_list 	(list RoleViews
+					(object RoleView "$UNNAMED$13" @51
+					    Parent_View 	@50
+					    location   	(-347, 432)
+					    stereotype 	TRUE
+					    line_color 	32896
+					    quidu      	"3C7F8FC0010E"
+					    client     	@50
+					    supplier   	@48
+					    line_style 	3
+					    origin_attachment 	(1589, 656)
+					    terminal_attachment 	(1460, 656))
+					(object RoleView "poSound" @52
+					    Parent_View 	@50
+					    location   	(-347, 432)
+					    label      	(object SegLabel @53
+						Parent_View 	@52
+						location   	(1594, 622)
+						anchor     	1
+						anchor_loc 	1
+						nlines     	1
+						max_width  	192
+						justify    	0
+						label      	"+poSound"
+						pctDist    	0.048780
+						height     	35
+						orientation 	0)
+					    stereotype 	TRUE
+					    line_color 	32896
+					    quidu      	"3C7F8FC00118"
+					    client     	@50
+					    supplier   	@49
+					    line_style 	3
+					    origin_attachment 	(1589, 656)
+					    terminal_attachment 	(1718, 656))))
+				(object UsesView "" @54
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C7F901F031D"
+				    client     	@47
+				    supplier   	@48
+				    line_style 	3
+				    origin_attachment 	(843, 681)
+				    terminal_attachment 	(972, 681)))))))
+	    logical_presentations 	(list unit_reference_list
+		(object ClassDiagram "Main"
+		    quid       	"3B76FFB403D5"
+		    title      	"Main"
+		    zoom       	100
+		    max_height 	28350
+		    max_width  	21600
+		    origin_x   	0
+		    origin_y   	0
+		    items      	(list diagram_item_list
+			(object ClassView "Class" "Logical View::SoundSystem::SoundRender::CSoundReceiver" @55
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(784, 688)
+			    label      	(object ItemLabel
+				Parent_View 	@55
+				location   	(604, 532)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	360
+				justify    	0
+				label      	"CSoundReceiver")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3B76DDEF02D0"
+			    compartment 	(object Compartment
+				Parent_View 	@55
+				location   	(604, 592)
+				icon_style 	"Icon"
+				fill_color 	16777215
+				anchor     	2
+				nlines     	5
+				max_width  	365)
+			    width      	378
+			    height     	336
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object CategoryView "Logical View::SoundSystem::SoundRender::SoundDrivers" @56
+			    location   	(240, 224)
+			    label      	(object ItemLabel
+				Parent_View 	@56
+				location   	(96, 140)
+				fill_color 	4227327
+				nlines     	2
+				max_width  	288
+				justify    	0
+				label      	"SoundDrivers")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3BB64E7F004F"
+			    width      	300
+			    height     	180)
+			(object CategoryView "Logical View::SoundSystem::SoundRender::SoundMixer" @57
+			    location   	(240, 512)
+			    label      	(object ItemLabel
+				Parent_View 	@57
+				location   	(96, 428)
+				fill_color 	4227327
+				nlines     	2
+				max_width  	288
+				justify    	0
+				label      	"SoundMixer")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3C7F7DE30126"
+			    width      	300
+			    height     	180)
+			(object ClassView "Class" "Logical View::SoundSystem::SoundRender::CSoundEntity" @58
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(1168, 208)
+			    label      	(object ItemLabel
+				Parent_View 	@58
+				location   	(998, 102)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	340
+				justify    	0
+				label      	"CSoundEntity")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3C7F8EC1036A"
+			    compartment 	(object Compartment
+				Parent_View 	@58
+				location   	(998, 162)
+				icon_style 	"Icon"
+				fill_color 	16777215
+				anchor     	2
+				nlines     	3
+				max_width  	346)
+			    width      	358
+			    height     	236
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object InheritTreeView "" @59
+			    location   	(1154, 453)
+			    line_color 	32896
+			    fill_color 	4227327
+			    supplier   	@58
+			    vertices   	(list Points
+				(1154, 453)
+				(1154, 326)))
+			(object InheritView "" @60
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C7F8EC4031E"
+			    client     	@55
+			    supplier   	@58
+			    line_style 	3
+			    origin_attachment 	(864, 520)
+			    terminal_attachment 	(864, 453)
+			    drawSupplier 	@59)
+			(object ClassView "Class" "Logical View::Math::GammaE_Math" @61
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(1696, 208)
+			    label      	(object ItemLabel
+				Parent_View 	@61
+				location   	(1536, 133)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	320
+				justify    	0
+				label      	"GammaE_Math")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3BD8A07F039B"
+			    width      	338
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object UsesView "" @62
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C7F9161035C"
+			    client     	@58
+			    supplier   	@61
+			    line_style 	3
+			    origin_attachment 	(1347, 200)
+			    terminal_attachment 	(1527, 200))
+			(object ClassView "Class" "Logical View::SoundSystem::SoundRender::CSoundEmiter" @63
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(1456, 704)
+			    label      	(object ItemLabel
+				Parent_View 	@63
+				location   	(1301, 523)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	310
+				justify    	0
+				label      	"CSoundEmiter")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3C7F8CFC012E"
+			    compartment 	(object Compartment
+				Parent_View 	@63
+				location   	(1301, 583)
+				icon_style 	"Icon"
+				fill_color 	16777215
+				anchor     	2
+				nlines     	6
+				max_width  	315)
+			    width      	328
+			    height     	386
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object InheritView "" @64
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C7F8EC60303"
+			    client     	@63
+			    supplier   	@58
+			    line_style 	3
+			    origin_attachment 	(1456, 511)
+			    terminal_attachment 	(1456, 453)
+			    drawSupplier 	@59)
+			(object ClassView "Class" "Logical View::SoundSystem::SoundRender::SoundMixer::CSoundMixPars" @65
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(2160, 704)
+			    label      	(object ItemLabel
+				Parent_View 	@65
+				location   	(1925, 475)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	470
+				justify    	0
+				label      	"CSoundMixPars")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3C7F8F990248"
+			    compartment 	(object Compartment
+				Parent_View 	@65
+				location   	(1925, 583)
+				icon_style 	"Icon"
+				fill_color 	16777215
+				anchor     	2
+				nlines     	7
+				max_width  	475)
+			    width      	488
+			    height     	482
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object AssociationViewNew "$UNNAMED$8" @66
+			    location   	(1767, 704)
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C7F90B90148"
+			    roleview_list 	(list RoleViews
+				(object RoleView "$UNNAMED$9" @67
+				    Parent_View 	@66
+				    location   	(-201, -144)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C7F90B9026A"
+				    client     	@66
+				    supplier   	@63
+				    line_style 	0)
+				(object RoleView "oSMP" @68
+				    Parent_View 	@66
+				    location   	(-201, -144)
+				    label      	(object SegLabel @69
+					Parent_View 	@68
+					location   	(1778, 666)
+					anchor     	1
+					anchor_loc 	1
+					nlines     	1
+					max_width  	144
+					justify    	0
+					label      	"+oSMP"
+					pctDist    	0.081833
+					height     	39
+					orientation 	0)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C7F90B9026B"
+				    client     	@66
+				    supplier   	@65
+				    line_style 	0)))
+			(object ClassView "Class" "Logical View::SoundSystem::SoundRender::CSoundRenderer" @70
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(1056, 1424)
+			    label      	(object ItemLabel
+				Parent_View 	@70
+				location   	(636, 1143)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	840
+				justify    	0
+				label      	"CSoundRenderer")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3B76FFB6017F"
+			    compartment 	(object Compartment
+				Parent_View 	@70
+				location   	(636, 1203)
+				icon_style 	"Icon"
+				fill_color 	16777215
+				anchor     	2
+				nlines     	10
+				max_width  	846)
+			    width      	858
+			    height     	586
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object UsesView "" @71
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C7F8E7900E6"
+			    client     	@70
+			    supplier   	@55
+			    line_style 	0)
+			(object UsesView "" @72
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3D0A506E0369"
+			    client     	@70
+			    supplier   	@63
+			    line_style 	0))))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"3B76DBBC00DB"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object CategoryView "Logical View::SoundSystem::Sound" @73
+		    location   	(224, 208)
+		    label      	(object ItemLabel
+			Parent_View 	@73
+			location   	(80, 124)
+			fill_color 	4227327
+			nlines     	2
+			max_width  	288
+			justify    	0
+			label      	"Sound")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	4227327
+		    quidu      	"3B76DE2401DB"
+		    width      	300
+		    height     	180)
+		(object CategoryView "Logical View::SoundSystem::SoundRender" @74
+		    location   	(224, 528)
+		    label      	(object ItemLabel
+			Parent_View 	@74
+			location   	(80, 444)
+			fill_color 	4227327
+			nlines     	2
+			max_width  	288
+			justify    	0
+			label      	"SoundRender")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	4227327
+		    quidu      	"3B76FFA20393"
+		    width      	300
+		    height     	180)))))

@@ -1,0 +1,1220 @@
+
+(object Petal
+    version    	42
+    _written   	"Rose 4.5.8163.3"
+    charSet    	0)
+
+(object Class_Category "Misc"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    quid       	"3B74641600DB"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "GammaE_Misc"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"cg"
+		    name       	"cg_style"
+		    value      	"No code")
+		(object Attribute
+		    tool       	"Traversal"
+		    name       	"CodeFile"
+		    value      	"$ROSECPP_SOURCE\\Misc\\GammaE_Misc.h")
+		(object Attribute
+		    tool       	"Traversal"
+		    name       	"BodyFile"
+		    value      	"$ROSECPP_SOURCE\\Misc\\GammaE_Misc.cpp"))
+	    quid       	"3BDC90DB00CC"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    quid       	"3BDC911202FC"
+		    supplier   	"Logical View::Misc::TAD::CHashTable"
+		    quidu      	"3BD351ED02AC")
+		(object Uses_Relationship
+		    quid       	"3BDC911602BB"
+		    supplier   	"Logical View::Misc::TAD::CLookupArray"
+		    quidu      	"3BD353840026")
+		(object Uses_Relationship
+		    quid       	"3BDC91180264"
+		    supplier   	"Logical View::Misc::Timing::CChrono"
+		    quidu      	"3B74642B00BD")
+		(object Uses_Relationship
+		    quid       	"3CB49924018D"
+		    supplier   	"Logical View::Misc::TAD::CDynArray"
+		    quidu      	"3CB48FE80075")
+		(object Uses_Relationship
+		    quid       	"3CE3DD1303BD"
+		    supplier   	"Logical View::Misc::TAD::CStArray"
+		    quidu      	"3CE3D89303B7")
+		(object Uses_Relationship
+		    quid       	"3D0A3FDA0081"
+		    supplier   	"Logical View::Misc::TAD::CCircularArray"
+		    quidu      	"3D0A27300141"))
+	    language   	"C++")
+	(object Class_Category "Timing"
+	    quid       	"3B74642101C7"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class "CChrono"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Misc\\Timing\\CChrono.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Misc\\Timing\\CChrono.cpp"))
+		    quid       	"3B74642B00BD"
+		    operations 	(list Operations
+			(object Operation "Reset"
+			    quid       	"3B7464350357"
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	997612244)
+			(object Operation "Start"
+			    quid       	"3B74643B0070"
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	997612245)
+			(object Operation "Stop"
+			    quid       	"3B746445009D"
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	997612246)
+			(object Operation "ElapsedTime"
+			    quid       	"3B765BD4022C"
+			    result     	"double"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	997612247))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "dStartTime"
+			    quid       	"3B765B940234"
+			    type       	"double"
+			    initv      	"0"
+			    exportControl 	"Protected")
+			(object ClassAttribute "dChronoFrequency"
+			    quid       	"3B765BAF021F"
+			    type       	"double"
+			    initv      	"1"
+			    exportControl 	"Protected")
+			(object ClassAttribute "dElapsedTime"
+			    quid       	"3B765BD901CF"
+			    type       	"double"
+			    initv      	"0"
+			    exportControl 	"Protected")
+			(object ClassAttribute "bActive"
+			    quid       	"3B765D850315"
+			    type       	"bool"
+			    initv      	"false"
+			    exportControl 	"Protected"))
+		    language   	"C++"))
+	    logical_presentations 	(list unit_reference_list
+		(object ClassDiagram "Main"
+		    quid       	"3B7464270306"
+		    title      	"Main"
+		    zoom       	100
+		    max_height 	28350
+		    max_width  	21600
+		    origin_x   	0
+		    origin_y   	0
+		    items      	(list diagram_item_list
+			(object ClassView "Class" "Logical View::Misc::Timing::CChrono" @1
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(1104, 416)
+			    label      	(object ItemLabel
+				Parent_View 	@1
+				location   	(714, 203)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	781
+				justify    	0
+				label      	"CChrono")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	12632256
+			    quidu      	"3B74642B00BD"
+			    width      	799
+			    height     	450
+			    annotation 	8
+			    autoResize 	TRUE)))))
+	(object Class_Category "TAD"
+	    quid       	"3BD2D0650185"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class "CHashTable"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Misc\\TAD\\CHashTable.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Misc\\TAD\\CHashTable.cpp"))
+		    quid       	"3BD351ED02AC"
+		    operations 	(list Operations
+			(object Operation "Init"
+			    quid       	"3BD3522702D7"
+			    parameters 	(list Parameters
+				(object Parameter "_iRows"
+				    type       	"int")
+				(object Parameter "_iCols"
+				    type       	"int"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1003698088)
+			(object Operation "AddVar"
+			    quid       	"3BD3522003B3"
+			    parameters 	(list Parameters
+				(object Parameter "_szString"
+				    type       	"char *")
+				(object Parameter "_pValue"
+				    type       	"void *"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1003698089)
+			(object Operation "pGetVar"
+			    quid       	"3BD3522E027D"
+			    parameters 	(list Parameters
+				(object Parameter "_szString"
+				    type       	"char *"))
+			    result     	"void *"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1003698090)
+			(object Operation "iGetIndex"
+			    quid       	"3BD353200127"
+			    parameters 	(list Parameters
+				(object Parameter "_szString"
+				    type       	"char *"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Private"
+			    uid        	1003698092))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "iNumCols"
+			    quid       	"3BD357920119"
+			    type       	"int"
+			    initv      	"0"))
+		    language   	"C++")
+		(object Class "CLookupEntry"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Misc\\TAD\\CLookupEntry.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Misc\\TAD\\CLookupEntry.cpp"))
+		    quid       	"3BD352610028"
+		    operations 	(list Operations
+			(object Operation "Init"
+			    quid       	"3BD354CE0374"
+			    parameters 	(list Parameters
+				(object Parameter "_szString"
+				    type       	"char *")
+				(object Parameter "_pValue"
+				    type       	"void *"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1003698096))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "szString"
+			    quid       	"3BD3526C0055"
+			    type       	"char*"
+			    initv      	"NULL"
+			    exportControl 	"Public")
+			(object ClassAttribute "pValue"
+			    quid       	"3BD352790130"
+			    type       	"void *"
+			    initv      	"NULL"
+			    exportControl 	"Public"))
+		    language   	"C++")
+		(object Class "CLookupArray"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Misc\\TAD\\CLookupArray.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Misc\\TAD\\CLookupArray.cpp"))
+		    quid       	"3BD353840026"
+		    operations 	(list Operations
+			(object Operation "Init"
+			    quid       	"3BD353C40078"
+			    parameters 	(list Parameters
+				(object Parameter "_iMaxElems"
+				    type       	"int"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1003698093)
+			(object Operation "AddVar"
+			    quid       	"3BD353D102DA"
+			    parameters 	(list Parameters
+				(object Parameter "_szString"
+				    type       	"char*")
+				(object Parameter "_pValue"
+				    type       	"void *"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1003698094)
+			(object Operation "pGetVar"
+			    quid       	"3BD353F400B3"
+			    parameters 	(list Parameters
+				(object Parameter "_szString"
+				    type       	"char*"))
+			    result     	"void *"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1003698095))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "iNumElems"
+			    quid       	"3BD35399038D"
+			    type       	"int"
+			    initv      	"0"
+			    exportControl 	"Public")
+			(object ClassAttribute "iMaxElems"
+			    quid       	"3BD354400275"
+			    type       	"int"
+			    initv      	"0"
+			    exportControl 	"Public"))
+		    language   	"C++")
+		(object Parameterized_Class "CDynArray"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Misc\\TAD\\CDynArray.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Misc\\TAD\\CDynArray.cpp")
+			(object Attribute
+			    tool       	"cg"
+			    name       	"GenerateSubscriptOperation"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"cg"
+			    name       	"SubscriptResultType"
+			    value      	"T&")
+			(object Attribute
+			    tool       	"cg"
+			    name       	"InlineSubscriptOperation"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"cg"
+			    name       	"InlineDefaultConstructor"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"cg"
+			    name       	"InlineDestructor"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"cg"
+			    name       	"cg_style"
+			    value      	"No code"))
+		    quid       	"3CB48FE80075"
+		    operations 	(list Operations
+			(object Operation "iAdd"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB4900A0164"
+			    parameters 	(list Parameters
+				(object Parameter "_roElem"
+				    type       	"const T&"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018461824)
+			(object Operation "Clear"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB490150265"
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018461825)
+			(object Operation "Del"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB4901F0088"
+			    parameters 	(list Parameters
+				(object Parameter "_iElemIdx"
+				    type       	"int"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018461826)
+			(object Operation "iNumElems"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB490300191"
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018461827)
+			(object Operation "SetReallocFactor"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB4903F02FB"
+			    parameters 	(list Parameters
+				(object Parameter "_iRealloc"
+				    type       	"int"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018461828)
+			(object Operation "poBuff"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB4969E00DA"
+			    result     	"T *"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018461829))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "m_poElems"
+			    quid       	"3CB48FF103AD"
+			    type       	"T*"
+			    initv      	"NULL")
+			(object ClassAttribute "m_iNumElems"
+			    quid       	"3CB48FF8033F"
+			    type       	"int"
+			    initv      	"0")
+			(object ClassAttribute "m_iMaxElems"
+			    quid       	"3CB48FFE01D5"
+			    type       	"int"
+			    initv      	"0")
+			(object ClassAttribute "m_iRealloc"
+			    quid       	"3CB49005012B"
+			    type       	"int"
+			    initv      	"10"))
+		    language   	"C++"
+		    space      	"T"
+		    parameters 	(list Parameters
+			(object Parameter "T"
+			    type       	"class")))
+		(object Parameterized_Class "CStArray"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"cg"
+			    name       	"InlineDefaultConstructor"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"cg"
+			    name       	"InlineDestructor"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"cg"
+			    name       	"GenerateSubscriptOperation"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"cg"
+			    name       	"SubscriptResultType"
+			    value      	"T&")
+			(object Attribute
+			    tool       	"cg"
+			    name       	"InlineSubscriptOperation"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Misc\\TAD\\CStArray.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Misc\\TAD\\CStArray.cpp"))
+		    quid       	"3CE3D89303B7"
+		    operations 	(list Operations
+			(object Operation "iAdd"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CE3D9220182"
+			    parameters 	(list Parameters
+				(object Parameter "_roElem"
+				    type       	"const T&"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1021565335)
+			(object Operation "Clear"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CE3D928028F"
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1021565336)
+			(object Operation "Del"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CE3D92F02E9"
+			    parameters 	(list Parameters
+				(object Parameter "_iElemIdx"
+				    type       	"int"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1021565337)
+			(object Operation "iNumElems"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CE3D93400A1"
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1021565338)
+			(object Operation "iMaxElems"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CE3DBD2009B"
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1021565342)
+			(object Operation "poBuff"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CE3D9380256"
+			    result     	"T *"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1021565339)
+			(object Operation "Init"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CE3D9A8027F"
+			    parameters 	(list Parameters
+				(object Parameter "_iMaxElems"
+				    type       	"int"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1021565340)
+			(object Operation "CStArray"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CE3DB5100A9"
+			    parameters 	(list Parameters
+				(object Parameter "_iMaxElems"
+				    type       	"int"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1021565341))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "m_poElems"
+			    quid       	"3CE3D8C303DE"
+			    type       	"T*"
+			    initv      	"NULL")
+			(object ClassAttribute "m_iNumElems"
+			    quid       	"3CE3D8CD0374"
+			    type       	"int"
+			    initv      	"0")
+			(object ClassAttribute "m_iMaxElems"
+			    quid       	"3CE3D8D20032"
+			    type       	"int"
+			    initv      	"0"))
+		    language   	"C++"
+		    space      	"T"
+		    parameters 	(list Parameters
+			(object Parameter "T"
+			    type       	"class")))
+		(object Parameterized_Class "CCircularArray"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"cg"
+			    name       	"InlineDefaultConstructor"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"cg"
+			    name       	"InlineDestructor"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Misc\\TAD\\CCircularArray.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Misc\\TAD\\CCircularArray.cpp"))
+		    quid       	"3D0A27300141"
+		    operations 	(list Operations
+			(object Operation "iAdd"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3D0A278500FD"
+			    parameters 	(list Parameters
+				(object Parameter "_roElem"
+				    type       	"const T&"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1024078844)
+			(object Operation "Clear"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3D0A278900EE"
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1024078845)
+			(object Operation "Del"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3D0A278C0201"
+			    parameters 	(list Parameters
+				(object Parameter "_iElemIdx"
+				    type       	"int"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1024078846)
+			(object Operation "iNumElems"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3D0A27920214"
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1024078847)
+			(object Operation "Init"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3D0A27E802B8"
+			    parameters 	(list Parameters
+				(object Parameter "_iMaxElems"
+				    type       	"int"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1024078848)
+			(object Operation "CCircularArray"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3D0A27D403D1"
+			    parameters 	(list Parameters
+				(object Parameter "_iMaxElems"
+				    type       	"int"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1024078843)
+			(object Operation "iMaxElems"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3D0A554E0101"
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1024078850)
+			(object Operation "poElem"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3D0A7B4702D1"
+			    parameters 	(list Parameters
+				(object Parameter "_iIdx"
+				    type       	"int"))
+			    result     	"T*"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1024097113))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "m_poElems"
+			    quid       	"3D0A2743024C"
+			    type       	"T*"
+			    initv      	"NULL")
+			(object ClassAttribute "m_bFree"
+			    quid       	"3D0A274502C7"
+			    type       	"bool *"
+			    initv      	"NULL")
+			(object ClassAttribute "m_iHdrPos"
+			    quid       	"3D0A27620139"
+			    type       	"int"
+			    initv      	"-1")
+			(object ClassAttribute "m_iNumElems"
+			    quid       	"3D0A27B40028"
+			    type       	"int"
+			    initv      	"0")
+			(object ClassAttribute "m_iMaxElems"
+			    quid       	"3D0A33F30275"
+			    type       	"int"
+			    initv      	"0"))
+		    language   	"C++"
+		    space      	"T"
+		    parameters 	(list Parameters
+			(object Parameter "T"
+			    type       	"class")))
+		(object Association "$UNNAMED$0"
+		    quid       	"3BD353A50196"
+		    roles      	(list role_list
+			(object Role "$UNNAMED$1"
+			    quid       	"3BD353A60061"
+			    supplier   	"Logical View::Misc::TAD::CLookupArray"
+			    quidu      	"3BD353840026"
+			    exportControl 	"Protected"
+			    is_aggregate 	TRUE)
+			(object Role "Elems"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"InitialValue"
+				    value      	(value Text "NULL")))
+			    quid       	"3BD353A6006B"
+			    label      	"Elems"
+			    supplier   	"Logical View::Misc::TAD::CLookupEntry"
+			    quidu      	"3BD352610028"
+			    Containment 	"By Reference"
+			    exportControl 	"Protected"
+			    is_navigable 	TRUE)))
+		(object Association "$UNNAMED$2"
+		    quid       	"3BD354570083"
+		    roles      	(list role_list
+			(object Role "$UNNAMED$3"
+			    quid       	"3BD354570142"
+			    supplier   	"Logical View::Misc::TAD::CHashTable"
+			    quidu      	"3BD351ED02AC"
+			    exportControl 	"Protected"
+			    is_aggregate 	TRUE)
+			(object Role "Elems"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"InitialValue"
+				    value      	(value Text "NULL")))
+			    quid       	"3BD354570143"
+			    label      	"Elems"
+			    supplier   	"Logical View::Misc::TAD::CLookupArray"
+			    quidu      	"3BD353840026"
+			    Containment 	"By Reference"
+			    exportControl 	"Protected"
+			    is_navigable 	TRUE))))
+	    logical_presentations 	(list unit_reference_list
+		(object ClassDiagram "Main"
+		    quid       	"3BD351EB032B"
+		    title      	"Main"
+		    zoom       	100
+		    max_height 	28350
+		    max_width  	21600
+		    origin_x   	0
+		    origin_y   	0
+		    items      	(list diagram_item_list
+			(object ClassView "Class" "Logical View::Misc::TAD::CLookupEntry" @2
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    location   	(1808, 272)
+			    label      	(object ItemLabel
+				Parent_View 	@2
+				location   	(1566, 141)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	484
+				justify    	0
+				label      	"CLookupEntry")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	12632256
+			    quidu      	"3BD352610028"
+			    compartment 	(object Compartment
+				Parent_View 	@2
+				location   	(1566, 201)
+				icon_style 	"Icon"
+				fill_color 	4227327
+				anchor     	2
+				nlines     	2
+				max_width  	0
+				compartmentItems 	(list Compartment
+				    "+ Init()"))
+			    width      	502
+			    height     	286
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Misc::TAD::CHashTable" @3
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(320, 272)
+			    label      	(object ItemLabel
+				Parent_View 	@3
+				location   	(129, 91)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	382
+				justify    	0
+				label      	"CHashTable")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	12632256
+			    quidu      	"3BD351ED02AC"
+			    width      	400
+			    height     	386
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Misc::TAD::CLookupArray" @4
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(1056, 272)
+			    label      	(object ItemLabel
+				Parent_View 	@4
+				location   	(848, 91)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	416
+				justify    	0
+				label      	"CLookupArray")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	12632256
+			    quidu      	"3BD353840026"
+			    width      	434
+			    height     	386
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object AssociationViewNew "$UNNAMED$0" @5
+			    location   	(1415, 253)
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3BD353A50196"
+			    roleview_list 	(list RoleViews
+				(object RoleView "$UNNAMED$1" @6
+				    Parent_View 	@5
+				    location   	(-553, -35)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3BD353A60061"
+				    client     	@5
+				    supplier   	@4
+				    line_style 	3
+				    origin_attachment 	(1415, 253)
+				    terminal_attachment 	(1273, 253))
+				(object RoleView "Elems" @7
+				    Parent_View 	@5
+				    location   	(-553, -35)
+				    label      	(object SegLabel @8
+					Parent_View 	@7
+					location   	(1413, 210)
+					anchor     	1
+					anchor_loc 	1
+					nlines     	1
+					max_width  	156
+					justify    	0
+					label      	"#Elems"
+					pctDist    	-0.014286
+					height     	44
+					orientation 	0)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3BD353A6006B"
+				    client     	@5
+				    supplier   	@2
+				    line_style 	3
+				    origin_attachment 	(1415, 253)
+				    terminal_attachment 	(1557, 253))))
+			(object AssociationViewNew "$UNNAMED$2" @9
+			    location   	(679, 259)
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3BD354570083"
+			    roleview_list 	(list RoleViews
+				(object RoleView "$UNNAMED$3" @10
+				    Parent_View 	@9
+				    location   	(-745, -541)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3BD354570142"
+				    client     	@9
+				    supplier   	@3
+				    line_style 	3
+				    origin_attachment 	(679, 259)
+				    terminal_attachment 	(520, 259))
+				(object RoleView "Elems" @11
+				    Parent_View 	@9
+				    location   	(-745, -541)
+				    label      	(object SegLabel @12
+					Parent_View 	@11
+					location   	(683, 225)
+					anchor     	1
+					anchor_loc 	1
+					nlines     	1
+					max_width  	156
+					justify    	0
+					label      	"#Elems"
+					pctDist    	0.024987
+					height     	35
+					orientation 	0)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3BD354570143"
+				    client     	@9
+				    supplier   	@4
+				    line_style 	3
+				    origin_attachment 	(679, 259)
+				    terminal_attachment 	(839, 259))))
+			(object ClassView "ParameterizedClass" "Logical View::Misc::TAD::CDynArray" @13
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(1120, 944)
+			    label      	(object ItemLabel
+				Parent_View 	@13
+				location   	(873, 664)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	494
+				justify    	0
+				label      	"CDynArray")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3CB48FE80075"
+			    width      	512
+			    height     	660
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "ParameterizedClass" "Logical View::Misc::TAD::CStArray" @14
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(416, 912)
+			    label      	(object ItemLabel
+				Parent_View 	@14
+				location   	(169, 607)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	494
+				justify    	0
+				label      	"CStArray")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3CE3D89303B7"
+			    width      	512
+			    height     	710
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "ParameterizedClass" "Logical View::Misc::TAD::CCircularArray" @15
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(1856, 912)
+			    label      	(object ItemLabel
+				Parent_View 	@15
+				location   	(1604, 556)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	504
+				justify    	0
+				label      	"CCircularArray")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3D0A27300141"
+			    width      	522
+			    height     	812
+			    annotation 	8
+			    autoResize 	TRUE))))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"3B74641F0251"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object CategoryView "Logical View::Misc::Timing" @16
+		    location   	(256, 176)
+		    label      	(object ItemLabel
+			Parent_View 	@16
+			location   	(112, 92)
+			fill_color 	4227327
+			nlines     	2
+			max_width  	288
+			justify    	0
+			label      	"Timing")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	12632256
+		    quidu      	"3B74642101C7"
+		    width      	300
+		    height     	180)
+		(object CategoryView "Logical View::Misc::TAD" @17
+		    location   	(240, 448)
+		    label      	(object ItemLabel
+			Parent_View 	@17
+			location   	(96, 364)
+			fill_color 	4227327
+			nlines     	2
+			max_width  	288
+			justify    	0
+			label      	"TAD")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	12632256
+		    quidu      	"3BD2D0650185"
+		    width      	300
+		    height     	180)
+		(object ClassView "Class" "Logical View::Misc::GammaE_Misc" @18
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1264, 880)
+		    label      	(object ItemLabel
+			Parent_View 	@18
+			location   	(1104, 829)
+			fill_color 	4227327
+			nlines     	1
+			max_width  	320
+			justify    	0
+			label      	"GammaE_Misc")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	12632256
+		    quidu      	"3BDC90DB00CC"
+		    width      	338
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Misc::Timing::CChrono" @19
+		    ShowCompartmentStereotypes 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1024, 240)
+		    label      	(object ItemLabel
+			Parent_View 	@19
+			location   	(922, 165)
+			fill_color 	4227327
+			nlines     	1
+			max_width  	204
+			justify    	0
+			label      	"CChrono")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	12632256
+		    quidu      	"3B74642B00BD"
+		    width      	222
+		    height     	174
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Misc::TAD::CHashTable" @20
+		    ShowCompartmentStereotypes 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1424, 224)
+		    label      	(object ItemLabel
+			Parent_View 	@20
+			location   	(1297, 149)
+			fill_color 	4227327
+			nlines     	1
+			max_width  	254
+			justify    	0
+			label      	"CHashTable")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	12632256
+		    quidu      	"3BD351ED02AC"
+		    width      	272
+		    height     	174
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Misc::TAD::CLookupArray" @21
+		    ShowCompartmentStereotypes 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1664, 432)
+		    label      	(object ItemLabel
+			Parent_View 	@21
+			location   	(1520, 357)
+			fill_color 	4227327
+			nlines     	1
+			max_width  	288
+			justify    	0
+			label      	"CLookupArray")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	12632256
+		    quidu      	"3BD353840026"
+		    width      	306
+		    height     	174
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "ParameterizedClass" "Logical View::Misc::TAD::CDynArray" @22
+		    ShowCompartmentStereotypes 	TRUE
+		    location   	(736, 512)
+		    label      	(object ItemLabel
+			Parent_View 	@22
+			location   	(620, 458)
+			fill_color 	4227327
+			nlines     	1
+			max_width  	232
+			justify    	0
+			label      	"CDynArray")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	4227327
+		    quidu      	"3CB48FE80075"
+		    width      	250
+		    height     	208
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "ParameterizedClass" "Logical View::Misc::TAD::CStArray" @23
+		    ShowCompartmentStereotypes 	TRUE
+		    location   	(720, 816)
+		    label      	(object ItemLabel
+			Parent_View 	@23
+			location   	(623, 762)
+			fill_color 	4227327
+			nlines     	1
+			max_width  	194
+			justify    	0
+			label      	"CStArray")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	4227327
+		    quidu      	"3CE3D89303B7"
+		    width      	212
+		    height     	208
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "ParameterizedClass" "Logical View::Misc::TAD::CCircularArray" @24
+		    ShowCompartmentStereotypes 	TRUE
+		    location   	(752, 1104)
+		    label      	(object ItemLabel
+			Parent_View 	@24
+			location   	(606, 1050)
+			fill_color 	4227327
+			nlines     	1
+			max_width  	292
+			justify    	0
+			label      	"CCircularArray")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	4227327
+		    quidu      	"3D0A27300141"
+		    width      	310
+		    height     	208
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @25
+		    stereotype 	TRUE
+		    line_color 	32896
+		    quidu      	"3BDC911202FC"
+		    client     	@18
+		    supplier   	@20
+		    line_style 	0)
+		(object UsesView "" @26
+		    stereotype 	TRUE
+		    line_color 	32896
+		    quidu      	"3BDC911602BB"
+		    client     	@18
+		    supplier   	@21
+		    line_style 	0)
+		(object UsesView "" @27
+		    stereotype 	TRUE
+		    line_color 	32896
+		    quidu      	"3BDC91180264"
+		    client     	@18
+		    supplier   	@19
+		    line_style 	0)
+		(object UsesView "" @28
+		    stereotype 	TRUE
+		    line_color 	32896
+		    quidu      	"3CB49924018D"
+		    client     	@18
+		    supplier   	@22
+		    line_style 	0)
+		(object UsesView "" @29
+		    stereotype 	TRUE
+		    line_color 	32896
+		    quidu      	"3CE3DD1303BD"
+		    client     	@18
+		    supplier   	@23
+		    line_style 	0)
+		(object UsesView "" @30
+		    stereotype 	TRUE
+		    line_color 	32896
+		    quidu      	"3D0A3FDA0081"
+		    client     	@18
+		    supplier   	@24
+		    line_style 	0)))))

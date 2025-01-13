@@ -1,0 +1,4955 @@
+
+(object Petal
+    version    	42
+    _written   	"Rose 4.5.8163.3"
+    charSet    	0)
+
+(object Class_Category "Math"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    quid       	"3A9AD9290262"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "GammaE_Math"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"Traversal"
+		    name       	"CodeFile"
+		    value      	"$ROSECPP_SOURCE\\Math\\GammaE_Math.h")
+		(object Attribute
+		    tool       	"Traversal"
+		    name       	"BodyFile"
+		    value      	"$ROSECPP_SOURCE\\Math\\GammaE_Math.cpp"))
+	    quid       	"3BD8A07F039B"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    quid       	"3BD8A0A00280"
+		    supplier   	"Logical View::Math::MATH_Evaluator::GammaE_Math_Evaluators"
+		    quidu      	"3B7FDF4803C6")
+		(object Uses_Relationship
+		    quid       	"3BD8A0A20283"
+		    supplier   	"Logical View::Math::MATH_Quaternion::CQuaternion"
+		    quidu      	"3B9E7C9F013E")
+		(object Uses_Relationship
+		    quid       	"3BD8A0A403DA"
+		    supplier   	"Logical View::Math::MATH_Vector::CVect2"
+		    quidu      	"3A9AD9B10118")
+		(object Uses_Relationship
+		    quid       	"3BD8A0A602ED"
+		    supplier   	"Logical View::Math::MATH_Vector::CVect4"
+		    quidu      	"3A9AD9B7032A")
+		(object Uses_Relationship
+		    quid       	"3BD8A0A900A2"
+		    supplier   	"Logical View::Math::MATH_Matrix::CMatrix4x4"
+		    quidu      	"3A9AD9BC021C")
+		(object Uses_Relationship
+		    quid       	"3BD8A0AB0005"
+		    supplier   	"Logical View::Math::MATH_Vector::CVect3"
+		    quidu      	"3A9AD9AC01F4")
+		(object Uses_Relationship
+		    quid       	"3BD8A0AD0275"
+		    supplier   	"Logical View::Math::MATH_Plane::CPlane"
+		    quidu      	"3A9AD9D4032A")
+		(object Uses_Relationship
+		    quid       	"3BD8A0B002AB"
+		    supplier   	"Logical View::Math::MATH_Ray::CRay"
+		    quidu      	"3B7FCEBC0085")
+		(object Uses_Relationship
+		    quid       	"3C080D81010D"
+		    supplier   	"Logical View::Math::MATH_Other::MATH_Utils"
+		    quidu      	"3C080D120063")
+		(object Uses_Relationship
+		    quid       	"3C275F07031C"
+		    supplier   	"Logical View::Math::MATH_Triangle::CTriangle"
+		    quidu      	"3C1E70900364")
+		(object Uses_Relationship
+		    quid       	"3C275F20008D"
+		    supplier   	"Logical View::Math::MATH_Other::MATH_Common"
+		    quidu      	"3C0C21B2015B")
+		(object Uses_Relationship
+		    quid       	"3CC5D5E70255"
+		    supplier   	"Logical View::Math::MATH_Segment::CSegment"
+		    quidu      	"3CC5D588008C"))
+	    language   	"C++")
+	(object Class_Category "MATH_Evaluator"
+	    quid       	"3B7FD0D4034D"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class "CEval_Const"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Const.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Const.cpp"))
+		    quid       	"3B7FD0D90336"
+		    superclasses 	(list inheritance_relationship_list
+			(object Inheritance_Relationship
+			    quid       	"3B7FD0D90337"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEvaluator"
+			    quidu      	"3B7FD0D9033C"))
+		    operations 	(list Operations
+			(object Operation "GetValue"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 201))
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3B7FD0D90338"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231888))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "Constant"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateGetOperation"
+				    value      	TRUE)
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateSetOperation"
+				    value      	TRUE))
+			    quid       	"3B7FD0D9033B"
+			    type       	"float"
+			    initv      	"0"
+			    exportControl 	"Public"))
+		    language   	"C++")
+		(object Class "CEval_Time"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Time.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Time.cpp"))
+		    quid       	"3B7FD0D90345"
+		    superclasses 	(list inheritance_relationship_list
+			(object Inheritance_Relationship
+			    quid       	"3B7FD0D90344"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEvaluator"
+			    quidu      	"3B7FD0D9033C"))
+		    operations 	(list Operations
+			(object Operation "GetValue"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 200)))
+			    quid       	"3B7FD0D90346"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231898))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "dStartTime"
+			    quid       	"3B7FD76E0018"
+			    type       	"double"))
+		    language   	"C++")
+		(object Class "CEval_Dist"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Dist.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Dist.cpp"))
+		    quid       	"3B7FD0D90349"
+		    superclasses 	(list inheritance_relationship_list
+			(object Inheritance_Relationship
+			    quid       	"3B7FD0D90348"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEvaluator"
+			    quidu      	"3B7FD0D9033C"))
+		    used_nodes 	(list uses_relationship_list
+			(object Uses_Relationship
+			    quid       	"3B7FD25200F3"
+			    supplier   	"Logical View::Math::MATH_Vector::CVect3"
+			    quidu      	"3A9AD9AC01F4"))
+		    operations 	(list Operations
+			(object Operation "GetValue"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 201)))
+			    quid       	"3B7FD0D9034A"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231896)
+			(object Operation "SetPoint"
+			    quid       	"3B7FD0D9034B"
+			    parameters 	(list Parameters
+				(object Parameter "Point"
+				    type       	"CVect3*"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231897))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "Pos"
+			    quid       	"3B7FD24A000C"
+			    type       	"CVect3 *"))
+		    language   	"C++")
+		(object Class "CEvaluator"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEvaluator.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEvaluator.cpp"))
+		    quid       	"3B7FD0D9033C"
+		    operations 	(list Operations
+			(object Operation "GetValue"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 202)))
+			    quid       	"3B7FD0D9033D"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231887))
+		    language   	"C++")
+		(object Class "CEval_Dst_X"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Dst_X.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Dst_X.cpp"))
+		    quid       	"3B7FD0D9033F"
+		    superclasses 	(list inheritance_relationship_list
+			(object Inheritance_Relationship
+			    quid       	"3B7FD0D9033E"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEvaluator"
+			    quidu      	"3B7FD0D9033C"))
+		    operations 	(list Operations
+			(object Operation "GetValue"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 201)))
+			    quid       	"3B7FD0D90340"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231885)
+			(object Operation "SetX"
+			    quid       	"3B7FD0D90341"
+			    parameters 	(list Parameters
+				(object Parameter "X"
+				    type       	"float"))
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231886))
+		    language   	"C++")
+		(object Class "CEval_Dst_Y"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Dst_Y.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Dst_Y.cpp"))
+		    quid       	"3B7FD0D9034F"
+		    superclasses 	(list inheritance_relationship_list
+			(object Inheritance_Relationship
+			    quid       	"3B7FD0D9034E"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEvaluator"
+			    quidu      	"3B7FD0D9033C"))
+		    operations 	(list Operations
+			(object Operation "GetValue"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 201)))
+			    quid       	"3B7FD0D90350"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231894)
+			(object Operation "SetY"
+			    quid       	"3B7FD0D90351"
+			    parameters 	(list Parameters
+				(object Parameter "Y"
+				    type       	"float"))
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231895))
+		    language   	"C++")
+		(object Class "CEval_Dst_Z"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Dst_Z.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Dst_Z.cpp"))
+		    quid       	"3B7FD0D90355"
+		    superclasses 	(list inheritance_relationship_list
+			(object Inheritance_Relationship
+			    quid       	"3B7FD0D90354"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEvaluator"
+			    quidu      	"3B7FD0D9033C"))
+		    operations 	(list Operations
+			(object Operation "GetValue"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 201)))
+			    quid       	"3B7FD0D90356"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231892)
+			(object Operation "SetZ"
+			    quid       	"3B7FD0D90357"
+			    parameters 	(list Parameters
+				(object Parameter "Z"
+				    type       	"float"))
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231893))
+		    language   	"C++")
+		(object Class "CEval_Roll"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Roll.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Roll.cpp"))
+		    quid       	"3B7FD0D9035B"
+		    superclasses 	(list inheritance_relationship_list
+			(object Inheritance_Relationship
+			    quid       	"3B7FD0D9035A"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEvaluator"
+			    quidu      	"3B7FD0D9033C"))
+		    operations 	(list Operations
+			(object Operation "GetValue"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 201)))
+			    quid       	"3B7FD0D9035C"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231891))
+		    language   	"C++")
+		(object Class "CEval_Pitch"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Pitch.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Pitch.cpp"))
+		    quid       	"3B7FD0D9035F"
+		    superclasses 	(list inheritance_relationship_list
+			(object Inheritance_Relationship
+			    quid       	"3B7FD0D9035E"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEvaluator"
+			    quidu      	"3B7FD0D9033C"))
+		    operations 	(list Operations
+			(object Operation "GetValue"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 201)))
+			    quid       	"3B7FD0D90360"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231890))
+		    language   	"C++")
+		(object Class "CEval_Yaw"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Yaw.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Yaw.cpp"))
+		    quid       	"3B7FD0D90363"
+		    superclasses 	(list inheritance_relationship_list
+			(object Inheritance_Relationship
+			    quid       	"3B7FD0D90362"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEvaluator"
+			    quidu      	"3B7FD0D9033C"))
+		    operations 	(list Operations
+			(object Operation "GetValue"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 200)))
+			    quid       	"3B7FD0D90364"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231910))
+		    language   	"C++")
+		(object Class "CEval_Periodic"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Periodic.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Periodic.cpp"))
+		    quid       	"3B7FD0D90380"
+		    superclasses 	(list inheritance_relationship_list
+			(object Inheritance_Relationship
+			    quid       	"3B7FD0D9037F"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEvaluator"
+			    quidu      	"3B7FD0D9033C"))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "Amplitude"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateGetOperation"
+				    value      	TRUE)
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateSetOperation"
+				    value      	TRUE))
+			    quid       	"3B7FD0D90387"
+			    type       	"CEvaluator *"
+			    initv      	"NULL"
+			    exportControl 	"Public")
+			(object ClassAttribute "Phase"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateGetOperation"
+				    value      	TRUE)
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateSetOperation"
+				    value      	TRUE))
+			    quid       	"3B7FD0D90388"
+			    type       	"CEvaluator *"
+			    initv      	"NULL"
+			    exportControl 	"Public")
+			(object ClassAttribute "FreqMult"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateGetOperation"
+				    value      	TRUE)
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateSetOperation"
+				    value      	TRUE))
+			    quid       	"3B7FD0D90389"
+			    type       	"CEvaluator *"
+			    initv      	"NULL"
+			    exportControl 	"Public"))
+		    language   	"C++")
+		(object Class "CEval_Cos"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Cos.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Cos.cpp"))
+		    quid       	"3B7FD0D9039F"
+		    superclasses 	(list inheritance_relationship_list
+			(object Inheritance_Relationship
+			    quid       	"3B7FD0D9039E"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEval_Periodic"
+			    quidu      	"3B7FD0D90380"))
+		    operations 	(list Operations
+			(object Operation "GetValue"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 201))
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3B7FD0D903A0"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231919))
+		    language   	"C++")
+		(object Class "CEval_Square"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Square.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Square.cpp"))
+		    quid       	"3B7FD0D90395"
+		    superclasses 	(list inheritance_relationship_list
+			(object Inheritance_Relationship
+			    quid       	"3B7FD0D90394"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEval_Periodic"
+			    quidu      	"3B7FD0D90380"))
+		    operations 	(list Operations
+			(object Operation "GetValue"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 201))
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3B7FD0D90396"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231923))
+		    language   	"C++")
+		(object Class "CEval_SawTooth"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_SawTooth.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_SawTooth.cpp"))
+		    quid       	"3B7FD0D903B3"
+		    superclasses 	(list inheritance_relationship_list
+			(object Inheritance_Relationship
+			    quid       	"3B7FD0D903B2"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEval_Periodic"
+			    quidu      	"3B7FD0D90380"))
+		    operations 	(list Operations
+			(object Operation "GetValue"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 201))
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3B7FD0D903B4"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231911))
+		    language   	"C++")
+		(object Class "CEval_Triangle"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Triangle.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Triangle.cpp"))
+		    quid       	"3B7FD0D903A9"
+		    superclasses 	(list inheritance_relationship_list
+			(object Inheritance_Relationship
+			    quid       	"3B7FD0D903A8"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEval_Periodic"
+			    quidu      	"3B7FD0D90380"))
+		    operations 	(list Operations
+			(object Operation "GetValue"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 201))
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3B7FD0D903AA"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231915))
+		    language   	"C++")
+		(object Class "CEval_Sin"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Sin.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Sin.cpp"))
+		    quid       	"3B7FD0D9038B"
+		    superclasses 	(list inheritance_relationship_list
+			(object Inheritance_Relationship
+			    quid       	"3B7FD0D9038A"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEval_Periodic"
+			    quidu      	"3B7FD0D90380"))
+		    operations 	(list Operations
+			(object Operation "GetValue"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 201))
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3B7FD1EE0059"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231927))
+		    language   	"C++")
+		(object Class "CEval_Binary"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Binary.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Binary.cpp"))
+		    quid       	"3B7FD0D90367"
+		    superclasses 	(list inheritance_relationship_list
+			(object Inheritance_Relationship
+			    quid       	"3B7FD0D90366"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEvaluator"
+			    quidu      	"3B7FD0D9033C"))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "OperandA"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateGetOperation"
+				    value      	TRUE)
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateSetOperation"
+				    value      	TRUE)
+				(object Attribute
+				    tool       	"cg"
+				    name       	"DataMemberVisibility"
+				    value      	("DataMemberVisibilitySet" 211)))
+			    quid       	"3B7FD0D9036C"
+			    type       	"CEvaluator *"
+			    initv      	"NULL"
+			    exportControl 	"Public")
+			(object ClassAttribute "OperandB"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateGetOperation"
+				    value      	TRUE)
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateSetOperation"
+				    value      	TRUE))
+			    quid       	"3B7FD0D9036D"
+			    type       	"CEvaluator *"
+			    initv      	"NULL"
+			    exportControl 	"Public"))
+		    language   	"C++")
+		(object Class "CEval_Mult"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Mult.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Mult.cpp"))
+		    quid       	"3B7FD0D9036F"
+		    superclasses 	(list inheritance_relationship_list
+			(object Inheritance_Relationship
+			    quid       	"3B7FD0D9036E"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEval_Binary"
+			    quidu      	"3B7FD0D90367"))
+		    operations 	(list Operations
+			(object Operation "GetValue"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 201))
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3B7FD0D90370"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231905))
+		    language   	"C++")
+		(object Class "CEval_Sum"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Sum.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\CEval_Sum.cpp"))
+		    quid       	"3B7FD0D90377"
+		    superclasses 	(list inheritance_relationship_list
+			(object Inheritance_Relationship
+			    quid       	"3B7FD0D90376"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEval_Binary"
+			    quidu      	"3B7FD0D90367"))
+		    operations 	(list Operations
+			(object Operation "GetValue"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 201))
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3B7FD0D90378"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231902))
+		    language   	"C++")
+		(object Class "GammaE_Math_Evaluators"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\GammaE_Math_Evaluators.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Evaluator\\GammaE_Math_Evaluators.cpp"))
+		    quid       	"3B7FDF4803C6"
+		    used_nodes 	(list uses_relationship_list
+			(object Uses_Relationship
+			    quid       	"3B7FDF58021A"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEval_Mult"
+			    quidu      	"3B7FD0D9036F")
+			(object Uses_Relationship
+			    quid       	"3B7FDF5A0014"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEval_Sum"
+			    quidu      	"3B7FD0D90377")
+			(object Uses_Relationship
+			    quid       	"3B7FDF5B028C"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEval_Cos"
+			    quidu      	"3B7FD0D9039F")
+			(object Uses_Relationship
+			    quid       	"3B7FDF5D020D"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEval_SawTooth"
+			    quidu      	"3B7FD0D903B3")
+			(object Uses_Relationship
+			    quid       	"3B7FDF6000F9"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEval_Sin"
+			    quidu      	"3B7FD0D9038B")
+			(object Uses_Relationship
+			    quid       	"3B7FDF6103AD"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEval_Square"
+			    quidu      	"3B7FD0D90395")
+			(object Uses_Relationship
+			    quid       	"3B7FDF670320"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEval_Const"
+			    quidu      	"3B7FD0D90336")
+			(object Uses_Relationship
+			    quid       	"3B7FDF6A0252"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEval_Dist"
+			    quidu      	"3B7FD0D90349")
+			(object Uses_Relationship
+			    quid       	"3B7FDF6C02AF"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEval_Triangle"
+			    quidu      	"3B7FD0D903A9")
+			(object Uses_Relationship
+			    quid       	"3B7FDF6E03B6"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEval_Time"
+			    quidu      	"3B7FD0D90345")
+			(object Uses_Relationship
+			    quid       	"3B7FDF7203A8"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEval_Dst_X"
+			    quidu      	"3B7FD0D9033F")
+			(object Uses_Relationship
+			    quid       	"3B7FDF7403A1"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEval_Dst_Y"
+			    quidu      	"3B7FD0D9034F")
+			(object Uses_Relationship
+			    quid       	"3B7FDF770233"
+			    supplier   	"Logical View::Math::MATH_Evaluator::CEval_Dst_Z"
+			    quidu      	"3B7FD0D90355"))
+		    language   	"C++"))
+	    logical_presentations 	(list unit_reference_list
+		(object ClassDiagram "Main"
+		    quid       	"3B7FD0D9010F"
+		    title      	"Main"
+		    zoom       	100
+		    max_height 	28350
+		    max_width  	21600
+		    origin_x   	1057
+		    origin_y   	0
+		    items      	(list diagram_item_list
+			(object ClassView "Class" "Logical View::Math::MATH_Evaluator::CEval_Const" @1
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(1808, 896)
+			    label      	(object ItemLabel
+				Parent_View 	@1
+				location   	(1608, 790)
+				fill_color 	13434879
+				nlines     	1
+				max_width  	400
+				justify    	0
+				label      	"CEval_Const")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	4227327
+			    quidu      	"3B7FD0D90336"
+			    width      	418
+			    height     	236
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::MATH_Evaluator::CEval_Time" @2
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(2704, 848)
+			    label      	(object ItemLabel
+				Parent_View 	@2
+				location   	(2501, 742)
+				fill_color 	13434879
+				nlines     	1
+				max_width  	406
+				justify    	0
+				label      	"CEval_Time")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	4227327
+			    quidu      	"3B7FD0D90345"
+			    width      	424
+			    height     	236
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::MATH_Evaluator::CEval_Dist" @3
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(2272, 864)
+			    label      	(object ItemLabel
+				Parent_View 	@3
+				location   	(2109, 733)
+				fill_color 	13434879
+				nlines     	1
+				max_width  	326
+				justify    	0
+				label      	"CEval_Dist")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	4227327
+			    quidu      	"3B7FD0D90349"
+			    width      	344
+			    height     	286
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::MATH_Evaluator::CEvaluator" @4
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(3024, 336)
+			    label      	(object ItemLabel
+				Parent_View 	@4
+				location   	(2900, 255)
+				fill_color 	13434879
+				nlines     	1
+				max_width  	248
+				justify    	0
+				label      	"CEvaluator")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	4227327
+			    quidu      	"3B7FD0D9033C"
+			    width      	266
+			    height     	186
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::MATH_Evaluator::CEval_Dst_X" @5
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(3200, 864)
+			    label      	(object ItemLabel
+				Parent_View 	@5
+				location   	(3071, 758)
+				fill_color 	13434879
+				nlines     	1
+				max_width  	258
+				justify    	0
+				label      	"CEval_Dst_X")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	4227327
+			    quidu      	"3B7FD0D9033F"
+			    width      	276
+			    height     	236
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::MATH_Evaluator::CEval_Dst_Y" @6
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(3632, 864)
+			    label      	(object ItemLabel
+				Parent_View 	@6
+				location   	(3496, 758)
+				fill_color 	13434879
+				nlines     	1
+				max_width  	272
+				justify    	0
+				label      	"CEval_Dst_Y")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	4227327
+			    quidu      	"3B7FD0D9034F"
+			    width      	290
+			    height     	236
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::MATH_Evaluator::CEval_Dst_Z" @7
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(4064, 864)
+			    label      	(object ItemLabel
+				Parent_View 	@7
+				location   	(3935, 758)
+				fill_color 	13434879
+				nlines     	1
+				max_width  	258
+				justify    	0
+				label      	"CEval_Dst_Z")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	4227327
+			    quidu      	"3B7FD0D90355"
+			    width      	276
+			    height     	236
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::MATH_Evaluator::CEval_Periodic" @8
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(1184, 992)
+			    label      	(object ItemLabel
+				Parent_View 	@8
+				location   	(863, 861)
+				fill_color 	13434879
+				nlines     	1
+				max_width  	642
+				justify    	0
+				label      	"CEval_Periodic")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	4227327
+			    quidu      	"3B7FD0D90380"
+			    width      	660
+			    height     	286
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::MATH_Evaluator::CEval_Cos" @9
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(1024, 1648)
+			    label      	(object ItemLabel
+				Parent_View 	@9
+				location   	(900, 1567)
+				fill_color 	13434879
+				nlines     	1
+				max_width  	248
+				justify    	0
+				label      	"CEval_Cos")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	4227327
+			    quidu      	"3B7FD0D9039F"
+			    width      	266
+			    height     	186
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::MATH_Evaluator::CEval_Square" @10
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(2496, 1648)
+			    label      	(object ItemLabel
+				Parent_View 	@10
+				location   	(2351, 1567)
+				fill_color 	13434879
+				nlines     	1
+				max_width  	290
+				justify    	0
+				label      	"CEval_Square")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	4227327
+			    quidu      	"3B7FD0D90395"
+			    width      	308
+			    height     	186
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::MATH_Evaluator::CEval_SawTooth" @11
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(1520, 1648)
+			    label      	(object ItemLabel
+				Parent_View 	@11
+				location   	(1355, 1567)
+				fill_color 	13434879
+				nlines     	1
+				max_width  	330
+				justify    	0
+				label      	"CEval_SawTooth")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	4227327
+			    quidu      	"3B7FD0D903B3"
+			    width      	348
+			    height     	186
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::MATH_Evaluator::CEval_Triangle" @12
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(2992, 1648)
+			    label      	(object ItemLabel
+				Parent_View 	@12
+				location   	(2843, 1567)
+				fill_color 	13434879
+				nlines     	1
+				max_width  	298
+				justify    	0
+				label      	"CEval_Triangle")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	4227327
+			    quidu      	"3B7FD0D903A9"
+			    width      	316
+			    height     	186
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::MATH_Evaluator::CEval_Sin" @13
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(2000, 1648)
+			    label      	(object ItemLabel
+				Parent_View 	@13
+				location   	(1877, 1567)
+				fill_color 	13434879
+				nlines     	1
+				max_width  	246
+				justify    	0
+				label      	"CEval_Sin")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	4227327
+			    quidu      	"3B7FD0D9038B"
+			    width      	264
+			    height     	186
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::MATH_Evaluator::CEval_Binary" @14
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(384, 976)
+			    label      	(object ItemLabel
+				Parent_View 	@14
+				location   	(63, 870)
+				fill_color 	13434879
+				nlines     	1
+				max_width  	642
+				justify    	0
+				label      	"CEval_Binary")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	4227327
+			    quidu      	"3B7FD0D90367"
+			    width      	660
+			    height     	236
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::MATH_Evaluator::CEval_Mult" @15
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(176, 1552)
+			    label      	(object ItemLabel
+				Parent_View 	@15
+				location   	(52, 1471)
+				fill_color 	13434879
+				nlines     	1
+				max_width  	248
+				justify    	0
+				label      	"CEval_Mult")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	4227327
+			    quidu      	"3B7FD0D9036F"
+			    width      	266
+			    height     	186
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::MATH_Evaluator::CEval_Sum" @16
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(608, 1552)
+			    label      	(object ItemLabel
+				Parent_View 	@16
+				location   	(484, 1471)
+				fill_color 	13434879
+				nlines     	1
+				max_width  	248
+				justify    	0
+				label      	"CEval_Sum")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	4227327
+			    quidu      	"3B7FD0D90377"
+			    width      	266
+			    height     	186
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object InheritTreeView "" @17
+			    location   	(1184, 1299)
+			    line_color 	3342489
+			    fill_color 	13434879
+			    supplier   	@8
+			    vertices   	(list Points
+				(1184, 1299)
+				(1184, 1135)))
+			(object InheritView "" @18
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3B7FD0D9039E"
+			    client     	@9
+			    supplier   	@8
+			    line_style 	3
+			    origin_attachment 	(950, 1555)
+			    terminal_attachment 	(950, 1299)
+			    drawSupplier 	@17)
+			(object InheritView "" @19
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3B7FD0D90394"
+			    client     	@10
+			    supplier   	@8
+			    line_style 	3
+			    origin_attachment 	(2420, 1555)
+			    terminal_attachment 	(2420, 1299)
+			    drawSupplier 	@17)
+			(object InheritView "" @20
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3B7FD0D903B2"
+			    client     	@11
+			    supplier   	@8
+			    line_style 	3
+			    origin_attachment 	(1441, 1555)
+			    terminal_attachment 	(1441, 1299)
+			    drawSupplier 	@17)
+			(object InheritView "" @21
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3B7FD0D903A8"
+			    client     	@12
+			    supplier   	@8
+			    line_style 	3
+			    origin_attachment 	(2916, 1555)
+			    terminal_attachment 	(2916, 1299)
+			    drawSupplier 	@17)
+			(object InheritView "" @22
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3B7FD0D9038A"
+			    client     	@13
+			    supplier   	@8
+			    line_style 	3
+			    origin_attachment 	(1924, 1555)
+			    terminal_attachment 	(1924, 1299)
+			    drawSupplier 	@17)
+			(object InheritTreeView "" @23
+			    location   	(385, 1290)
+			    line_color 	3342489
+			    fill_color 	13434879
+			    supplier   	@14
+			    vertices   	(list Points
+				(385, 1290)
+				(385, 1094)))
+			(object InheritView "" @24
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3B7FD0D9036E"
+			    client     	@15
+			    supplier   	@14
+			    line_style 	3
+			    origin_attachment 	(106, 1459)
+			    terminal_attachment 	(106, 1290)
+			    drawSupplier 	@23)
+			(object InheritView "" @25
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3B7FD0D90376"
+			    client     	@16
+			    supplier   	@14
+			    line_style 	3
+			    origin_attachment 	(528, 1459)
+			    terminal_attachment 	(528, 1290)
+			    drawSupplier 	@23)
+			(object ClassView "Class" "Logical View::Math::MATH_Vector::CVect3" @26
+			    ShowCompartmentStereotypes 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(2272, 1152)
+			    label      	(object ItemLabel
+				Parent_View 	@26
+				location   	(2120, 1077)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	304
+				justify    	0
+				label      	"CVect3")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3A9AD9AC01F4"
+			    width      	322
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object UsesView "" @27
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3B7FD25200F3"
+			    client     	@3
+			    supplier   	@26
+			    line_style 	0)
+			(object ClassView "Class" "Logical View::Math::MATH_Evaluator::GammaE_Math_Evaluators" @28
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(2032, 2336)
+			    label      	(object ItemLabel
+				Parent_View 	@28
+				location   	(1743, 2296)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	578
+				justify    	0
+				label      	"GammaE_Math_Evaluators")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3B7FDF4803C6"
+			    width      	596
+			    height     	104
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object UsesView "" @29
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3B7FDF58021A"
+			    client     	@28
+			    supplier   	@15
+			    line_style 	0)
+			(object UsesView "" @30
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3B7FDF5A0014"
+			    client     	@28
+			    supplier   	@16
+			    line_style 	0)
+			(object UsesView "" @31
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3B7FDF5B028C"
+			    client     	@28
+			    supplier   	@9
+			    line_style 	0)
+			(object UsesView "" @32
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3B7FDF5D020D"
+			    client     	@28
+			    supplier   	@11
+			    line_style 	0)
+			(object UsesView "" @33
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3B7FDF6000F9"
+			    client     	@28
+			    supplier   	@13
+			    line_style 	0)
+			(object UsesView "" @34
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3B7FDF6103AD"
+			    client     	@28
+			    supplier   	@10
+			    line_style 	0)
+			(object UsesView "" @35
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3B7FDF670320"
+			    client     	@28
+			    supplier   	@1
+			    line_style 	0)
+			(object UsesView "" @36
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3B7FDF6A0252"
+			    client     	@28
+			    supplier   	@3
+			    line_style 	0)
+			(object UsesView "" @37
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3B7FDF6C02AF"
+			    client     	@28
+			    supplier   	@12
+			    line_style 	0)
+			(object UsesView "" @38
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3B7FDF6E03B6"
+			    client     	@28
+			    supplier   	@2
+			    line_style 	0)
+			(object UsesView "" @39
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3B7FDF7203A8"
+			    client     	@28
+			    supplier   	@5
+			    line_style 	0)
+			(object UsesView "" @40
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3B7FDF7403A1"
+			    client     	@28
+			    supplier   	@6
+			    line_style 	0)
+			(object UsesView "" @41
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3B7FDF770233"
+			    client     	@28
+			    supplier   	@7
+			    line_style 	0)
+			(object InheritTreeView "" @42
+			    location   	(3024, 542)
+			    line_color 	3342489
+			    fill_color 	13434879
+			    supplier   	@4
+			    vertices   	(list Points
+				(3024, 542)
+				(3024, 429)))
+			(object InheritView "" @43
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3B7FD0D9033E"
+			    client     	@5
+			    supplier   	@4
+			    line_style 	3
+			    origin_attachment 	(3194, 746)
+			    terminal_attachment 	(3194, 542)
+			    drawSupplier 	@42)
+			(object InheritView "" @44
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3B7FD0D90337"
+			    client     	@1
+			    supplier   	@4
+			    line_style 	3
+			    origin_attachment 	(1712, 778)
+			    terminal_attachment 	(1712, 542)
+			    drawSupplier 	@42)
+			(object InheritView "" @45
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3B7FD0D90344"
+			    client     	@2
+			    supplier   	@4
+			    line_style 	3
+			    origin_attachment 	(2687, 730)
+			    terminal_attachment 	(2687, 542)
+			    drawSupplier 	@42)
+			(object InheritView "" @46
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3B7FD0D90348"
+			    client     	@3
+			    supplier   	@4
+			    line_style 	3
+			    origin_attachment 	(2197, 721)
+			    terminal_attachment 	(2197, 542)
+			    drawSupplier 	@42)
+			(object InheritView "" @47
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3B7FD0D9034E"
+			    client     	@6
+			    supplier   	@4
+			    line_style 	3
+			    origin_attachment 	(3555, 746)
+			    terminal_attachment 	(3555, 542)
+			    drawSupplier 	@42)
+			(object InheritView "" @48
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3B7FD0D90354"
+			    client     	@7
+			    supplier   	@4
+			    line_style 	3
+			    origin_attachment 	(3988, 746)
+			    terminal_attachment 	(3988, 542)
+			    drawSupplier 	@42)
+			(object InheritView "" @49
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3B7FD0D90366"
+			    client     	@14
+			    supplier   	@4
+			    line_style 	3
+			    origin_attachment 	(163, 858)
+			    terminal_attachment 	(163, 542)
+			    drawSupplier 	@42)
+			(object InheritView "" @50
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3B7FD0D9037F"
+			    client     	@8
+			    supplier   	@4
+			    line_style 	3
+			    origin_attachment 	(1015, 849)
+			    terminal_attachment 	(1015, 542)
+			    drawSupplier 	@42)))))
+	(object Class_Category "MATH_Plane"
+	    quid       	"3C275CF3003C"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class "CPlane"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Plane\\CPlane.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Plane\\CPlane.cpp")
+			(object Attribute
+			    tool       	"cg"
+			    name       	"DestructorKind"
+			    value      	("ThreeKindSet" 200))
+			(object Attribute
+			    tool       	"cg"
+			    name       	"GenerateDestructor"
+			    value      	FALSE))
+		    quid       	"3A9AD9D4032A"
+		    used_nodes 	(list uses_relationship_list
+			(object Uses_Relationship
+			    quid       	"3B7FDB1002D2"
+			    supplier   	"Logical View::Math::MATH_Vector::CVect3"
+			    quidu      	"3A9AD9AC01F4")
+			(object Uses_Relationship
+			    quid       	"3C056833033F"
+			    supplier   	"Logical View::Math::MATH_Matrix::CMatrix4x4"
+			    quidu      	"3A9AD9BC021C")
+			(object Uses_Relationship
+			    quid       	"3C96745A03E4"
+			    supplier   	"Logical View::Math::MATH_Other::MATH_Common"
+			    quidu      	"3C0C21B2015B"))
+		    operations 	(list Operations
+			(object Operation "SetNormal"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3B7FD9EC0246"
+			    parameters 	(list Parameters
+				(object Parameter "_Normal"
+				    type       	"CVect3&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231928)
+			(object Operation "SetD"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3B7FD9F301CE"
+			    parameters 	(list Parameters
+				(object Parameter "_D"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231929)
+			(object Operation "SetOrigin"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3B7FD9FE0378"
+			    parameters 	(list Parameters
+				(object Parameter "_Origin"
+				    type       	"CVect3&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231930)
+			(object Operation "GenerateFromVectors"
+			    quid       	"3B7FDA110109"
+			    parameters 	(list Parameters
+				(object Parameter "VDir1"
+				    type       	"CVect3")
+				(object Parameter "VDir2"
+				    type       	"CVect3")
+				(object Parameter "VOrigin"
+				    type       	"CVect3"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231931)
+			(object Operation "GenerateFromPoints"
+			    quid       	"3B7FDA4D00C9"
+			    parameters 	(list Parameters
+				(object Parameter "a"
+				    type       	"CVect3&")
+				(object Parameter "b"
+				    type       	"CVect3&")
+				(object Parameter "c"
+				    type       	"CVect3&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231932)
+			(object Operation "GeneratePlaneFromFields"
+			    quid       	"3B7FDA620029"
+			    parameters 	(list Parameters
+				(object Parameter "VOrigin"
+				    type       	"CVect3&")
+				(object Parameter "VNormal"
+				    type       	"CVect3&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231933)
+			(object Operation "GetDistanceToPoint"
+			    quid       	"3B7FDA870221"
+			    parameters 	(list Parameters
+				(object Parameter "Point"
+				    type       	"CVect3&"))
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231934)
+			(object Operation "Coplanar"
+			    quid       	"3B7FDA9901B9"
+			    parameters 	(list Parameters
+				(object Parameter "Plane"
+				    type       	"CPlane&"))
+			    result     	"bool"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231935)
+			(object Operation "Normal"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3B7FDAA80279"
+			    result     	"CVect3 &"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231936)
+			(object Operation "Origin"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3B7FDAAC00BC"
+			    result     	"CVect3 &"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231937)
+			(object Operation "D"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3B7FDAB30333"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231938)
+			(object Operation "Transform"
+			    quid       	"3C05681D035C"
+			    parameters 	(list Parameters
+				(object Parameter "_Transf"
+				    type       	"CMatrix4x4&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1006987067)
+			(object Operation "ProjectPoint"
+			    quid       	"3C101C5700BD"
+			    parameters 	(list Parameters
+				(object Parameter "_Point"
+				    type       	"CVect3&"))
+			    result     	"CVect3"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1007685158)
+			(object Operation "iPlaneType"
+			    quid       	"3C7585C1034E"
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1014330411))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "PlaneD"
+			    quid       	"3B7FD99F0354"
+			    type       	"float"
+			    initv      	"0")
+			(object ClassAttribute "PlaneOrigin"
+			    quid       	"3B7FD9B702FE"
+			    type       	"CVect3")
+			(object ClassAttribute "PlaneNormal"
+			    quid       	"3B7FD9C700EE"
+			    type       	"CVect3"))
+		    language   	"C++"))
+	    logical_presentations 	(list unit_reference_list
+		(object ClassDiagram "Main"
+		    quid       	"3C275D840134"
+		    title      	"Main"
+		    zoom       	100
+		    max_height 	28350
+		    max_width  	21600
+		    origin_x   	0
+		    origin_y   	0
+		    items      	(list diagram_item_list
+			(object ClassView "Class" "Logical View::Math::MATH_Plane::CPlane" @51
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(960, 1008)
+			    label      	(object ItemLabel
+				Parent_View 	@51
+				location   	(218, 527)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	1484
+				justify    	0
+				label      	"CPlane")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3A9AD9D4032A"
+			    width      	1502
+			    height     	986
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::MATH_Matrix::CMatrix4x4" @52
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(800, 96)
+			    label      	(object ItemLabel
+				Parent_View 	@52
+				location   	(650, 21)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	300
+				justify    	0
+				label      	"CMatrix4x4")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3A9AD9BC021C"
+			    width      	318
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object UsesView "" @53
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C056833033F"
+			    client     	@51
+			    supplier   	@52
+			    line_style 	0)
+			(object ClassView "Class" "Logical View::Math::MATH_Vector::CVect3" @54
+			    ShowCompartmentStereotypes 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(1568, 80)
+			    label      	(object ItemLabel
+				Parent_View 	@54
+				location   	(1416, 5)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	304
+				justify    	0
+				label      	"CVect3")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3A9AD9AC01F4"
+			    width      	322
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object UsesView "" @55
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3B7FDB1002D2"
+			    client     	@51
+			    supplier   	@54
+			    line_style 	0)
+			(object ClassView "Class" "Logical View::Math::MATH_Other::MATH_Common" @56
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    location   	(400, 96)
+			    label      	(object ItemLabel
+				Parent_View 	@56
+				location   	(238, 21)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	324
+				justify    	0
+				label      	"MATH_Common")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3C0C21B2015B"
+			    width      	342
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object UsesView "" @57
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C96745A03E4"
+			    client     	@51
+			    supplier   	@56
+			    line_style 	0)))))
+	(object Class_Category "MATH_Ray"
+	    quid       	"3C275D0200F1"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class "CRay"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Ray\\CRay.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Ray\\CRay.cpp")
+			(object Attribute
+			    tool       	"cg"
+			    name       	"GenerateDestructor"
+			    value      	FALSE))
+		    quid       	"3B7FCEBC0085"
+		    used_nodes 	(list uses_relationship_list
+			(object Uses_Relationship
+			    quid       	"3B7FD02F0101"
+			    supplier   	"Logical View::Math::MATH_Vector::CVect3"
+			    quidu      	"3A9AD9AC01F4")
+			(object Uses_Relationship
+			    quid       	"3C2763F201E6"
+			    supplier   	"Logical View::Math::MATH_Other::MATH_Common"
+			    quidu      	"3C0C21B2015B"))
+		    operations 	(list Operations
+			(object Operation "InitFromFields"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3B7FCF0402EC"
+			    parameters 	(list Parameters
+				(object Parameter "_Origin"
+				    type       	"CVect3&")
+				(object Parameter "_Dir"
+				    type       	"CVect3&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231879)
+			(object Operation "InitFromPoints"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3B7FCF1A01CB"
+			    parameters 	(list Parameters
+				(object Parameter "_Origin"
+				    type       	"CVect3&")
+				(object Parameter "_End"
+				    type       	"CVect3&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	998231880)
+			(object Operation "ProjectPoint"
+			    quid       	"3C101C6E0337"
+			    parameters 	(list Parameters
+				(object Parameter "_Point"
+				    type       	"CVect3&"))
+			    result     	"CVect3"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1007685159)
+			(object Operation "GetDistanceToPoint"
+			    quid       	"3C101CA6014D"
+			    parameters 	(list Parameters
+				(object Parameter "_Point"
+				    type       	"CVect3&"))
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1007685160)
+			(object Operation "GetSqDistanceToPoint"
+			    quid       	"3C21229A02D5"
+			    parameters 	(list Parameters
+				(object Parameter "_Point"
+				    type       	"CVect3&"))
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1008804496)
+			(object Operation "GetPerpendicular"
+			    quid       	"3C21235803DC"
+			    parameters 	(list Parameters
+				(object Parameter "_Point"
+				    type       	"CVect3&"))
+			    result     	"CVect3"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1008804497))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "Origin"
+			    quid       	"3B7FCEDA01A1"
+			    type       	"CVect3"
+			    exportControl 	"Public")
+			(object ClassAttribute "Dir"
+			    quid       	"3B7FCEE803B4"
+			    type       	"CVect3"
+			    exportControl 	"Public"))
+		    language   	"C++"))
+	    logical_presentations 	(list unit_reference_list
+		(object ClassDiagram "Main"
+		    quid       	"3C275DF00144"
+		    title      	"Main"
+		    zoom       	100
+		    max_height 	28350
+		    max_width  	21600
+		    origin_x   	0
+		    origin_y   	0
+		    items      	(list diagram_item_list
+			(object ClassView "Class" "Logical View::Math::MATH_Ray::CRay" @58
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(752, 784)
+			    label      	(object ItemLabel
+				Parent_View 	@58
+				location   	(206, 528)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	1092
+				justify    	0
+				label      	"CRay")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3B7FCEBC0085"
+			    width      	1110
+			    height     	536
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::MATH_Vector::CVect3" @59
+			    ShowCompartmentStereotypes 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(896, 192)
+			    label      	(object ItemLabel
+				Parent_View 	@59
+				location   	(744, 117)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	304
+				justify    	0
+				label      	"CVect3")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3A9AD9AC01F4"
+			    width      	322
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object UsesView "" @60
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3B7FD02F0101"
+			    client     	@58
+			    supplier   	@59
+			    line_style 	0)
+			(object ClassView "Class" "Logical View::Math::MATH_Other::MATH_Common" @61
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(544, 192)
+			    label      	(object ItemLabel
+				Parent_View 	@61
+				location   	(381, 117)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	326
+				justify    	0
+				label      	"MATH_Common")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3C0C21B2015B"
+			    width      	344
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object UsesView "" @62
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C2763F201E6"
+			    client     	@58
+			    supplier   	@61
+			    line_style 	0)))))
+	(object Class_Category "MATH_Vector"
+	    quid       	"3C275D080385"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class "CVect4"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Vector\\CVect4.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Vector\\CVect4.cpp")
+			(object Attribute
+			    tool       	"cg"
+			    name       	"GenerateDestructor"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"cg"
+			    name       	"GenerateCopyConstructor"
+			    value      	("GenerateSet" 206)))
+		    quid       	"3A9AD9B7032A"
+		    used_nodes 	(list uses_relationship_list
+			(object Uses_Relationship
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"BodyReferenceOnly"
+				    value      	TRUE))
+			    quid       	"3C2C97260038"
+			    supplier   	"Logical View::Math::MATH_Other::MATH_Common"
+			    quidu      	"3C0C21B2015B"))
+		    operations 	(list Operations
+			(object Operation "V4"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C910E0202"
+			    parameters 	(list Parameters
+				(object Parameter "_fV0"
+				    type       	"float")
+				(object Parameter "_fV1"
+				    type       	"float")
+				(object Parameter "_fV2"
+				    type       	"float")
+				(object Parameter "_fV3"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552659)
+			(object Operation "CVect4"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CCD146C0193"
+			    parameters 	(list Parameters
+				(object Parameter "_fV0"
+				    type       	"float")
+				(object Parameter "_fV1"
+				    type       	"float")
+				(object Parameter "_fV2"
+				    type       	"float")
+				(object Parameter "_fV3"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1020067942)
+			(object Operation "Assign"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C913001A7"
+			    parameters 	(list Parameters
+				(object Parameter "_roV"
+				    type       	"CVect4&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552660)
+			(object Operation "Add"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C91470240"
+			    parameters 	(list Parameters
+				(object Parameter "_roV"
+				    type       	"CVect4&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552661)
+			(object Operation "Add"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C915102E5"
+			    parameters 	(list Parameters
+				(object Parameter "_fX"
+				    type       	"float")
+				(object Parameter "_fY"
+				    type       	"float")
+				(object Parameter "_fZ"
+				    type       	"float")
+				(object Parameter "_fW"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552662)
+			(object Operation "Sub"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C916500BD"
+			    parameters 	(list Parameters
+				(object Parameter "_roV"
+				    type       	"CVect4&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552663)
+			(object Operation "Sub"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C916E02FA"
+			    parameters 	(list Parameters
+				(object Parameter "_fX"
+				    type       	"float")
+				(object Parameter "_fY"
+				    type       	"float")
+				(object Parameter "_fZ"
+				    type       	"float")
+				(object Parameter "_fW"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552664)
+			(object Operation "Interpolate"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C917B026D"
+			    parameters 	(list Parameters
+				(object Parameter "_roA"
+				    type       	"CVect4&")
+				(object Parameter "_roB"
+				    type       	"CVect4&")
+				(object Parameter "_fFact"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552665)
+			(object Operation "X"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C919A028F"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552666)
+			(object Operation "Y"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C919D0370"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552667)
+			(object Operation "Z"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C91A1029A"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552668)
+			(object Operation "W"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C91A40208"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552669))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "v"
+			    quid       	"3C2C90EC025D"
+			    type       	"float[4]"
+			    exportControl 	"Public"))
+		    language   	"C++")
+		(object Class "CVect3"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Vector\\CVect3.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Vector\\CVect3.cpp")
+			(object Attribute
+			    tool       	"cg"
+			    name       	"InlineDefaultConstructor"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"cg"
+			    name       	"GenerateDestructor"
+			    value      	FALSE))
+		    quid       	"3A9AD9AC01F4"
+		    used_nodes 	(list uses_relationship_list
+			(object Uses_Relationship
+			    quid       	"3CB5CCBE0346"
+			    supplier   	"Logical View::Math::MATH_Other::MATH_Common"
+			    quidu      	"3C0C21B2015B"))
+		    operations 	(list Operations
+			(object Operation "CVect3"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CAFB02E4"
+			    parameters 	(list Parameters
+				(object Parameter "_fX"
+				    type       	"float")
+				(object Parameter "_fY"
+				    type       	"float")
+				(object Parameter "_fZ"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547492)
+			(object Operation "V3"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CB0D0362"
+			    parameters 	(list Parameters
+				(object Parameter "_fX"
+				    type       	"float")
+				(object Parameter "_fY"
+				    type       	"float")
+				(object Parameter "_fZ"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547493)
+			(object Operation "Point"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CB1801D7"
+			    parameters 	(list Parameters
+				(object Parameter "_fAzimut"
+				    type       	"float")
+				(object Parameter "_fElevation"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547494)
+			(object Operation "Assign"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CB3E0073"
+			    parameters 	(list Parameters
+				(object Parameter "_roV"
+				    type       	"CVect3&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547495)
+			(object Operation "CrossProd"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CB4C02D6"
+			    parameters 	(list Parameters
+				(object Parameter "_roV1"
+				    type       	"CVect3&")
+				(object Parameter "_roV2"
+				    type       	"CVect3&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547496)
+			(object Operation "Normal"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CB77033C"
+			    parameters 	(list Parameters
+				(object Parameter "_roA"
+				    type       	"CVect3&")
+				(object Parameter "_roB"
+				    type       	"CVect3&")
+				(object Parameter "_roC"
+				    type       	"CVect3&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547497)
+			(object Operation "Orthogonal"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CB9602AA"
+			    parameters 	(list Parameters
+				(object Parameter "_roV"
+				    type       	"CVect3&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547498)
+			(object Operation "LineEq"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CBA70381"
+			    parameters 	(list Parameters
+				(object Parameter "_roPos"
+				    type       	"CVect3&")
+				(object Parameter "_roDir"
+				    type       	"CVect3&")
+				(object Parameter "_fU"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547499)
+			(object Operation "X"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CBC20109"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547500)
+			(object Operation "Y"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CBC70160"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547501)
+			(object Operation "Z"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CBCA0088"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547502)
+			(object Operation "SetX"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CBD1010B"
+			    parameters 	(list Parameters
+				(object Parameter "_fX"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547503)
+			(object Operation "SetY"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CBE60382"
+			    parameters 	(list Parameters
+				(object Parameter "_fY"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547504)
+			(object Operation "SetZ"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CBED0300"
+			    parameters 	(list Parameters
+				(object Parameter "_fZ"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547505)
+			(object Operation "Add"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CC0202E2"
+			    parameters 	(list Parameters
+				(object Parameter "_roV"
+				    type       	"CVect3&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547506)
+			(object Operation "Sub"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CC0F01C8"
+			    parameters 	(list Parameters
+				(object Parameter "_roV"
+				    type       	"CVect3&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547507)
+			(object Operation "Mult"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CC12037B"
+			    parameters 	(list Parameters
+				(object Parameter "_roV"
+				    type       	"CVect3&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547508)
+			(object Operation "Scale"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CC16029A"
+			    parameters 	(list Parameters
+				(object Parameter "_fFactor"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547509)
+			(object Operation "Add"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CC1F037A"
+			    parameters 	(list Parameters
+				(object Parameter "_fX"
+				    type       	"float")
+				(object Parameter "_fY"
+				    type       	"float")
+				(object Parameter "_fZ"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547510)
+			(object Operation "Sub"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CC2B0010"
+			    parameters 	(list Parameters
+				(object Parameter "_fX"
+				    type       	"float")
+				(object Parameter "_fY"
+				    type       	"float")
+				(object Parameter "_fZ"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547511)
+			(object Operation "Mult"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CC2F00AC"
+			    parameters 	(list Parameters
+				(object Parameter "_fX"
+				    type       	"float")
+				(object Parameter "_fY"
+				    type       	"float")
+				(object Parameter "_fZ"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547512)
+			(object Operation "DotProd"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CC320060"
+			    parameters 	(list Parameters
+				(object Parameter "_roV"
+				    type       	"CVect3&"))
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547513)
+			(object Operation "Module"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CC5801F5"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547514)
+			(object Operation "SqModule"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CC5D0315"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547515)
+			(object Operation "Normalize"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CC630006"
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547516)
+			(object Operation "Interpolate"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CC660155"
+			    parameters 	(list Parameters
+				(object Parameter "_roA"
+				    type       	"CVect3&")
+				(object Parameter "_roB"
+				    type       	"CVect3&")
+				(object Parameter "_fFact"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547517)
+			(object Operation "Distance"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CC840220"
+			    parameters 	(list Parameters
+				(object Parameter "_roPnt"
+				    type       	"CVect3&"))
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547518)
+			(object Operation "SqDistance"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CC90005B"
+			    parameters 	(list Parameters
+				(object Parameter "_roPnt"
+				    type       	"CVect3&"))
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547519)
+			(object Operation "Inside"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CC92037F"
+			    parameters 	(list Parameters
+				(object Parameter "_roMax"
+				    type       	"CVect3&")
+				(object Parameter "_roMin"
+				    type       	"CVect3&"))
+			    result     	"bool"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547520)
+			(object Operation "Equal"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CCA70181"
+			    parameters 	(list Parameters
+				(object Parameter "_roV"
+				    type       	"CVect3&"))
+			    result     	"bool"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547521)
+			(object Operation "iGetGreaterAxis"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CB5CD050104"
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018547522))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "v"
+			    quid       	"3CB5CCB402F2"
+			    type       	"float[3]"
+			    exportControl 	"Public"))
+		    language   	"C++")
+		(object Class "CVect2"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"cg"
+			    name       	"cg_style"
+			    value      	"No code")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Vector\\CVect2.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Vector\\CVect2.cpp")
+			(object Attribute
+			    tool       	"cg"
+			    name       	"GenerateDestructor"
+			    value      	FALSE))
+		    quid       	"3A9AD9B10118"
+		    used_nodes 	(list uses_relationship_list
+			(object Uses_Relationship
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"BodyReferenceOnly"
+				    value      	TRUE))
+			    quid       	"3C2C97290001"
+			    supplier   	"Logical View::Math::MATH_Other::MATH_Common"
+			    quidu      	"3C0C21B2015B"))
+		    operations 	(list Operations
+			(object Operation "V2"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C93BE0021"
+			    parameters 	(list Parameters
+				(object Parameter "_fV0"
+				    type       	"float")
+				(object Parameter "_fV1"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552670)
+			(object Operation "CVect2"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CCD147C0010"
+			    parameters 	(list Parameters
+				(object Parameter "_fV0"
+				    type       	"float")
+				(object Parameter "_fV1"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1020067941)
+			(object Operation "Assign"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C990A00A3"
+			    parameters 	(list Parameters
+				(object Parameter "_roV"
+				    type       	"CVect2&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552693)
+			(object Operation "SetU"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C93EC0063"
+			    parameters 	(list Parameters
+				(object Parameter "_fU"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552671)
+			(object Operation "SetV"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C93F103C7"
+			    parameters 	(list Parameters
+				(object Parameter "_fV"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552672)
+			(object Operation "U"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C93FA0199"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552673)
+			(object Operation "V"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C93FF0150"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552674)
+			(object Operation "X"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C94030138"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552675)
+			(object Operation "Y"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C940502AE"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552676)
+			(object Operation "Add"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C940C01C7"
+			    parameters 	(list Parameters
+				(object Parameter "_roV"
+				    type       	"CVect2&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552677)
+			(object Operation "Add"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C941A0087"
+			    parameters 	(list Parameters
+				(object Parameter "_fX"
+				    type       	"float")
+				(object Parameter "_fY"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552678)
+			(object Operation "Sub"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C94290133"
+			    parameters 	(list Parameters
+				(object Parameter "_roV"
+				    type       	"CVect2&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552679)
+			(object Operation "Sub"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C94320230"
+			    parameters 	(list Parameters
+				(object Parameter "_fX"
+				    type       	"float")
+				(object Parameter "_fY"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552680)
+			(object Operation "Mult"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C943E0057"
+			    parameters 	(list Parameters
+				(object Parameter "_roV"
+				    type       	"CVect2&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552681)
+			(object Operation "Mult"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C94480033"
+			    parameters 	(list Parameters
+				(object Parameter "_fX"
+				    type       	"float")
+				(object Parameter "_fY"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552682)
+			(object Operation "Scale"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C9452025E"
+			    parameters 	(list Parameters
+				(object Parameter "_fScale"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552683)
+			(object Operation "DotProd"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C945C00DC"
+			    parameters 	(list Parameters
+				(object Parameter "_roV"
+				    type       	"CVect2&"))
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552684)
+			(object Operation "Module"
+			    quid       	"3C2C9469030C"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552685)
+			(object Operation "SqModule"
+			    quid       	"3C2C946D02D5"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552686)
+			(object Operation "Normalize"
+			    quid       	"3C2C947200AC"
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552687)
+			(object Operation "Interpolate"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2C948203BC"
+			    parameters 	(list Parameters
+				(object Parameter "_roA"
+				    type       	"CVect2&")
+				(object Parameter "_roB"
+				    type       	"CVect2&")
+				(object Parameter "_fFact"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552688)
+			(object Operation "Distance"
+			    quid       	"3C2C949E01D1"
+			    parameters 	(list Parameters
+				(object Parameter "_roV"
+				    type       	"CVect2&"))
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552689)
+			(object Operation "SqDistance"
+			    quid       	"3C2C94A5022B"
+			    parameters 	(list Parameters
+				(object Parameter "_roV"
+				    type       	"CVect2&"))
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552690)
+			(object Operation "Inside"
+			    quid       	"3C2C94B800E8"
+			    parameters 	(list Parameters
+				(object Parameter "_roMax"
+				    type       	"CVect2&")
+				(object Parameter "_roMin"
+				    type       	"CVect2&"))
+			    result     	"bool"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552691)
+			(object Operation "Equal"
+			    quid       	"3C2C94D000ED"
+			    parameters 	(list Parameters
+				(object Parameter "_roV"
+				    type       	"CVect2&"))
+			    result     	"bool"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009552692))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "v"
+			    quid       	"3C2C93B70229"
+			    type       	"float[2]"
+			    exportControl 	"Public"))
+		    language   	"C++"))
+	    logical_presentations 	(list unit_reference_list
+		(object ClassDiagram "Main"
+		    quid       	"3C275E3600D6"
+		    title      	"Main"
+		    zoom       	100
+		    max_height 	28350
+		    max_width  	21600
+		    origin_x   	0
+		    origin_y   	417
+		    items      	(list diagram_item_list
+			(object ClassView "Class" "Logical View::Math::MATH_Vector::CVect4" @63
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(1200, 784)
+			    label      	(object ItemLabel
+				Parent_View 	@63
+				location   	(1068, 403)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	264
+				justify    	0
+				label      	"CVect4")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3A9AD9B7032A"
+			    width      	282
+			    height     	786
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::MATH_Vector::CVect3" @64
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(816, 1264)
+			    label      	(object ItemLabel
+				Parent_View 	@64
+				location   	(631, 408)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	370
+				justify    	0
+				label      	"CVect3")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3A9AD9AC01F4"
+			    width      	388
+			    height     	1736
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::MATH_Vector::CVect2" @65
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(416, 1120)
+			    label      	(object ItemLabel
+				Parent_View 	@65
+				location   	(273, 414)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	286
+				justify    	0
+				label      	"CVect2")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3A9AD9B10118"
+			    width      	304
+			    height     	1436
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::MATH_Other::MATH_Common" @66
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(800, 224)
+			    label      	(object ItemLabel
+				Parent_View 	@66
+				location   	(637, 149)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	326
+				justify    	0
+				label      	"MATH_Common")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3C0C21B2015B"
+			    width      	344
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object UsesView "" @67
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C2C97290001"
+			    client     	@65
+			    supplier   	@66
+			    vertices   	(list Points
+				(310, 402)
+				(310, 312)
+				(628, 312))
+			    line_style 	3
+			    origin_attachment 	(310, 402)
+			    terminal_attachment 	(628, 312))
+			(object UsesView "" @68
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C2C97260038"
+			    client     	@63
+			    supplier   	@66
+			    vertices   	(list Points
+				(1231, 391)
+				(1231, 312)
+				(972, 312))
+			    line_style 	3
+			    origin_attachment 	(1231, 391)
+			    terminal_attachment 	(972, 312))
+			(object UsesView "" @69
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3CB5CCBE0346"
+			    client     	@64
+			    supplier   	@66
+			    line_style 	3
+			    origin_attachment 	(794, 396)
+			    terminal_attachment 	(794, 311))))))
+	(object Class_Category "MATH_Triangle"
+	    quid       	"3C275D160104"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class "CTriangle"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Triangle\\CTriangle.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Triangle\\CTriangle.cpp")
+			(object Attribute
+			    tool       	"cg"
+			    name       	"GenerateDestructor"
+			    value      	FALSE))
+		    quid       	"3C1E70900364"
+		    used_nodes 	(list uses_relationship_list
+			(object Uses_Relationship
+			    quid       	"3C1E78DA0008"
+			    supplier   	"Logical View::Math::MATH_Vector::CVect3"
+			    quidu      	"3A9AD9AC01F4"))
+		    operations 	(list Operations
+			(object Operation "Init"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C1E70AF01BA"
+			    parameters 	(list Parameters
+				(object Parameter "_pVXs"
+				    type       	"CVect3*"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1008626802)
+			(object Operation "Init"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C1E70B70374"
+			    parameters 	(list Parameters
+				(object Parameter "_pVXs"
+				    type       	"CVect3*")
+				(object Parameter "_Normal"
+				    type       	"CVect3&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1008626803)
+			(object Operation "ComputeSegs"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C275D36016E"
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009213639)
+			(object Operation "ComputeAxis"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2904B703D6"
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009321152)
+			(object Operation "ComputeAll"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2905F7014B"
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009321153))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "Normal"
+			    quid       	"3C1E709A011A"
+			    type       	"CVect3"
+			    exportControl 	"Public")
+			(object ClassAttribute "VXs"
+			    quid       	"3C1E70A302FD"
+			    type       	"CVect3 *"
+			    initv      	"NULL"
+			    exportControl 	"Public")
+			(object ClassAttribute "bSelfData"
+			    quid       	"3C1E71800297"
+			    type       	"bool"
+			    exportControl 	"Protected")
+			(object ClassAttribute "s0"
+			    quid       	"3C275D1B0147"
+			    type       	"CVect3"
+			    exportControl 	"Public")
+			(object ClassAttribute "s1"
+			    quid       	"3C275D2201AC"
+			    type       	"CVect3"
+			    exportControl 	"Public")
+			(object ClassAttribute "s2"
+			    quid       	"3C275D2500B6"
+			    type       	"CVect3"
+			    exportControl 	"Public")
+			(object ClassAttribute "e1"
+			    quid       	"3C2904AB0325"
+			    type       	"CVect3"
+			    exportControl 	"Public")
+			(object ClassAttribute "e2"
+			    quid       	"3C2904B0019B"
+			    type       	"CVect3"
+			    exportControl 	"Public"))
+		    language   	"C++"))
+	    logical_presentations 	(list unit_reference_list
+		(object ClassDiagram "Main"
+		    quid       	"3C275E4B02CB"
+		    title      	"Main"
+		    zoom       	100
+		    max_height 	28350
+		    max_width  	21600
+		    origin_x   	0
+		    origin_y   	0
+		    items      	(list diagram_item_list
+			(object ClassView "Class" "Logical View::Math::MATH_Triangle::CTriangle" @70
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(736, 848)
+			    label      	(object ItemLabel
+				Parent_View 	@70
+				location   	(279, 467)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	914
+				justify    	0
+				label      	"CTriangle")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3C1E70900364"
+			    width      	932
+			    height     	786
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::MATH_Vector::CVect3" @71
+			    ShowCompartmentStereotypes 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(720, 128)
+			    label      	(object ItemLabel
+				Parent_View 	@71
+				location   	(568, 53)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	304
+				justify    	0
+				label      	"CVect3")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3A9AD9AC01F4"
+			    width      	322
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object UsesView "" @72
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C1E78DA0008"
+			    client     	@70
+			    supplier   	@71
+			    line_style 	0)))))
+	(object Class_Category "MATH_Matrix"
+	    quid       	"3C275D620352"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class "CMatrix4x4"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Matrix\\CMatrix4x4.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Matrix\\CMatrix4x4.cpp"))
+		    quid       	"3A9AD9BC021C"
+		    operations 	(list Operations
+			(object Operation "LoadIdentity"
+			    quid       	"3C27623C01BE"
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1016492839)
+			(object Operation "LoadFromAxis"
+			    quid       	"3C2762420325"
+			    parameters 	(list Parameters
+				(object Parameter "e1"
+				    type       	"CVect3&")
+				(object Parameter "e2"
+				    type       	"CVect3&")
+				(object Parameter "e3"
+				    type       	"CVect3&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1016492840)
+			(object Operation "Translate"
+			    quid       	"3C276265009A"
+			    parameters 	(list Parameters
+				(object Parameter "T"
+				    type       	"CVect3&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1016492841)
+			(object Operation "Translate"
+			    quid       	"3C27627302CB"
+			    parameters 	(list Parameters
+				(object Parameter "Axis"
+				    type       	"char")
+				(object Parameter "Value"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1016492842)
+			(object Operation "Translate"
+			    quid       	"3C27628E0298"
+			    parameters 	(list Parameters
+				(object Parameter "x"
+				    type       	"float")
+				(object Parameter "y"
+				    type       	"float")
+				(object Parameter "z"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1016492843)
+			(object Operation "Scale"
+			    quid       	"3C2762AB0127"
+			    parameters 	(list Parameters
+				(object Parameter "S"
+				    type       	"CVect3&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1016492844)
+			(object Operation "Scale"
+			    quid       	"3C2762B903E4"
+			    parameters 	(list Parameters
+				(object Parameter "Axis"
+				    type       	"char")
+				(object Parameter "Value"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1016492845)
+			(object Operation "Scale"
+			    quid       	"3C2762C403B8"
+			    parameters 	(list Parameters
+				(object Parameter "x"
+				    type       	"float")
+				(object Parameter "y"
+				    type       	"float")
+				(object Parameter "z"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1016492846))
+		    language   	"C++"))
+	    logical_presentations 	(list unit_reference_list
+		(object ClassDiagram "Main"
+		    quid       	"3C275E260137"
+		    title      	"Main"
+		    zoom       	100
+		    max_height 	28350
+		    max_width  	21600
+		    origin_x   	0
+		    origin_y   	0
+		    items      	(list diagram_item_list
+			(object ClassView "Class" "Logical View::Math::MATH_Matrix::CMatrix4x4" @73
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(768, 416)
+			    label      	(object ItemLabel
+				Parent_View 	@73
+				location   	(154, 160)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	1228
+				justify    	0
+				label      	"CMatrix4x4")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3A9AD9BC021C"
+			    compartment 	(object Compartment
+				Parent_View 	@73
+				location   	(154, 220)
+				icon_style 	"Icon"
+				fill_color 	16777215
+				anchor     	2
+				nlines     	9
+				max_width  	1234)
+			    width      	1246
+			    height     	536
+			    annotation 	8
+			    autoResize 	TRUE)))))
+	(object Class_Category "MATH_Other"
+	    quid       	"3C275D6F02F7"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class "MATH_Common"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Other\\MATH_Common.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Other\\MATH_Common.cpp"))
+		    quid       	"3C0C21B2015B"
+		    operations 	(list Operations
+			(object Operation "fRand"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3C0C21BF01C8"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1007421153)
+			(object Operation "fSqrt"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3C1FB8A6001A"
+			    parameters 	(list Parameters
+				(object Parameter "_fValue"
+				    type       	"float"))
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1008711892)
+			(object Operation "fAbs"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203))
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2922620174"
+			    parameters 	(list Parameters
+				(object Parameter "_fValue"
+				    type       	"float"))
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009321159)
+			(object Operation "fSign"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203))
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2A52DC0329"
+			    parameters 	(list Parameters
+				(object Parameter "_fValue"
+				    type       	"float"))
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009406730)
+			(object Operation "bInRange"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203))
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2A631D0065"
+			    parameters 	(list Parameters
+				(object Parameter "_fValue"
+				    type       	"float")
+				(object Parameter "_fMin"
+				    type       	"float")
+				(object Parameter "_fMax"
+				    type       	"float"))
+			    result     	"bool"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009406731)
+			(object Operation "bEqualF"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203))
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CE4D5ED0253"
+			    parameters 	(list Parameters
+				(object Parameter "_fA"
+				    type       	"float")
+				(object Parameter "_fB"
+				    type       	"float")
+				(object Parameter "_fEpsilon"
+				    type       	"float"))
+			    result     	"bool"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1021629965))
+		    language   	"C++")
+		(object Class "MATH_Utils"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Other\\MATH_Utils.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Other\\MATH_Utils.cpp"))
+		    quid       	"3C080D120063"
+		    used_nodes 	(list uses_relationship_list
+			(object Uses_Relationship
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"BodyReferenceOnly"
+				    value      	TRUE))
+			    quid       	"3C1FE820027D"
+			    supplier   	"Logical View::Math::MATH_Other::MATH_Common"
+			    quidu      	"3C0C21B2015B")
+			(object Uses_Relationship
+			    quid       	"3C275FA000FF"
+			    supplier   	"Logical View::Math::MATH_Vector::CVect3"
+			    quidu      	"3A9AD9AC01F4")
+			(object Uses_Relationship
+			    quid       	"3C275FA1027D"
+			    supplier   	"Logical View::Math::MATH_Triangle::CTriangle"
+			    quidu      	"3C1E70900364")
+			(object Uses_Relationship
+			    quid       	"3C275FA30244"
+			    supplier   	"Logical View::Math::MATH_Plane::CPlane"
+			    quidu      	"3A9AD9D4032A")
+			(object Uses_Relationship
+			    quid       	"3C275FA50016"
+			    supplier   	"Logical View::Math::MATH_Ray::CRay"
+			    quidu      	"3B7FCEBC0085")
+			(object Uses_Relationship
+			    quid       	"3CC5D80401A9"
+			    supplier   	"Logical View::Math::MATH_Segment::CSegment"
+			    quidu      	"3CC5D588008C"))
+		    operations 	(list Operations
+			(object Operation "GetPNVertexs"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3C080D3F03CF"
+			    parameters 	(list Parameters
+				(object Parameter "_Maxs"
+				    type       	"CVect3&")
+				(object Parameter "_Mins"
+				    type       	"CVect3&")
+				(object Parameter "_Plane"
+				    type       	"CPlane&")
+				(object Parameter "P"
+				    type       	"CVect3&")
+				(object Parameter "N"
+				    type       	"CVect3&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1007160407)
+			(object Operation "iTestBoxPlane"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3C080D220098"
+			    parameters 	(list Parameters
+				(object Parameter "_Maxs"
+				    type       	"CVect3&")
+				(object Parameter "_Mins"
+				    type       	"CVect3&")
+				(object Parameter "_Plane"
+				    type       	"CPlane&"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1007160406)
+			(object Operation "iTestSpherePlane"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3C080D6803E2"
+			    parameters 	(list Parameters
+				(object Parameter "_Center"
+				    type       	"CVect3&")
+				(object Parameter "_fRadius"
+				    type       	"float")
+				(object Parameter "_Plane"
+				    type       	"CPlane&"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1007160408)
+			(object Operation "iTestPointPlane"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3C4DAB6F00F2"
+			    parameters 	(list Parameters
+				(object Parameter "_roPoint"
+				    type       	"CVect3&")
+				(object Parameter "_roPlane"
+				    type       	"CPlane&"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1011722643)
+			(object Operation "fTriPointDistance"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3C14052A00E2"
+			    parameters 	(list Parameters
+				(object Parameter "_Tri"
+				    type       	"CTriangle&")
+				(object Parameter "_Point"
+				    type       	"CVect3&"))
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1007945050)
+			(object Operation "fTriPointSqDistance"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3C140867017A"
+			    parameters 	(list Parameters
+				(object Parameter "_Tri"
+				    type       	"CTriangle&")
+				(object Parameter "_Point"
+				    type       	"CVect3&"))
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1007945052)
+			(object Operation "oNearestTriPoint"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3CC5B8AA0380"
+			    parameters 	(list Parameters
+				(object Parameter "_roPoint"
+				    type       	"CVect3&")
+				(object Parameter "_roTri"
+				    type       	"CTriangle&"))
+			    result     	"CVect3"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1019590874)
+			(object Operation "GetMaxMins"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203))
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C140777039C"
+			    parameters 	(list Parameters
+				(object Parameter "a"
+				    type       	"float")
+				(object Parameter "b"
+				    type       	"float")
+				(object Parameter "c"
+				    type       	"float")
+				(object Parameter "Max"
+				    type       	"float &")
+				(object Parameter "Min"
+				    type       	"float&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1007945051)
+			(object Operation "iTestRayTriIntersection"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3C1E701100FF"
+			    parameters 	(list Parameters
+				(object Parameter "_Ray"
+				    type       	"CRay&")
+				(object Parameter "_Tri"
+				    type       	"CTriangle&"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1008626800)
+			(object Operation "iTestRayTriIntersection"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3C1691C502F6"
+			    parameters 	(list Parameters
+				(object Parameter "_Ray"
+				    type       	"CRay&")
+				(object Parameter "_Tri"
+				    type       	"CTriangle&")
+				(object Parameter "_Point"
+				    type       	"CVect3&"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1008112115)
+			(object Operation "iTestSegTriIntersection"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3C1EAB160046"
+			    parameters 	(list Parameters
+				(object Parameter "_Ray"
+				    type       	"CRay&")
+				(object Parameter "_Tri"
+				    type       	"CTriangle&"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1008626805)
+			(object Operation "iTestSegTriIntersection"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3C1EAB0501AA"
+			    parameters 	(list Parameters
+				(object Parameter "_Ray"
+				    type       	"CRay&")
+				(object Parameter "_Tri"
+				    type       	"CTriangle&")
+				(object Parameter "_Point"
+				    type       	"CVect3&"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1008626806)
+			(object Operation "fGetT"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3C4F552D00A7"
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1011825874)
+			(object Operation "iPointInsideTriangle"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3C1E703D0333"
+			    parameters 	(list Parameters
+				(object Parameter "_Tri"
+				    type       	"CTriangle&")
+				(object Parameter "_Point"
+				    type       	"CVect3&")
+				(object Parameter "_PPoint"
+				    type       	"CVect3&"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1008626801)
+			(object Operation "iPointInsideTriangle"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3C1E6F5A019C"
+			    parameters 	(list Parameters
+				(object Parameter "_Tri"
+				    type       	"CTriangle&")
+				(object Parameter "_Point"
+				    type       	"CVect3&"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1008626799)
+			(object Operation "iTest3PlaneIntersection"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3C7957D003DC"
+			    parameters 	(list Parameters
+				(object Parameter "_roPlane0"
+				    type       	"CPlane&")
+				(object Parameter "_roPlane1"
+				    type       	"CPlane&")
+				(object Parameter "_roPlane2"
+				    type       	"CPlane&")
+				(object Parameter "_roPoint"
+				    type       	"CVect3&"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1014585363)
+			(object Operation "iTest2PlaneIntersection"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3C79581A03D8"
+			    parameters 	(list Parameters
+				(object Parameter "_roPlane0"
+				    type       	"CPlane&")
+				(object Parameter "_roPlane1"
+				    type       	"CPlane&")
+				(object Parameter "_roRay"
+				    type       	"CRay&"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1014585364)
+			(object Operation "iTestRayAABBIntersection"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3C83F65A01F8"
+			    parameters 	(list Parameters
+				(object Parameter "_roRay"
+				    type       	"CRay&")
+				(object Parameter "_roMaxs"
+				    type       	"CVect3&")
+				(object Parameter "_roMins"
+				    type       	"CVect3&"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1015279069))
+		    language   	"C++"))
+	    logical_presentations 	(list unit_reference_list
+		(object ClassDiagram "Main"
+		    quid       	"3C275D770320"
+		    title      	"Main"
+		    zoom       	100
+		    max_height 	28350
+		    max_width  	21600
+		    origin_x   	78
+		    origin_y   	0
+		    items      	(list diagram_item_list
+			(object ClassView "Class" "Logical View::Math::MATH_Other::MATH_Utils" @74
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(1168, 1072)
+			    label      	(object ItemLabel
+				Parent_View 	@74
+				location   	(888, 566)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	560
+				justify    	0
+				label      	"MATH_Utils")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3C080D120063"
+			    width      	578
+			    height     	1036
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::MATH_Other::MATH_Common" @75
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(320, 224)
+			    label      	(object ItemLabel
+				Parent_View 	@75
+				location   	(157, 18)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	326
+				justify    	0
+				label      	"MATH_Common")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3C0C21B2015B"
+			    width      	344
+			    height     	436
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object UsesView "" @76
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C1FE820027D"
+			    client     	@74
+			    supplier   	@75
+			    line_style 	0)
+			(object ClassView "Class" "Logical View::Math::MATH_Triangle::CTriangle" @77
+			    ShowCompartmentStereotypes 	TRUE
+			    location   	(1360, 144)
+			    label      	(object ItemLabel
+				Parent_View 	@77
+				location   	(1193, 69)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	334
+				justify    	0
+				label      	"CTriangle")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3C1E70900364"
+			    width      	352
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::MATH_Vector::CVect3" @78
+			    ShowCompartmentStereotypes 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(336, 1072)
+			    label      	(object ItemLabel
+				Parent_View 	@78
+				location   	(184, 997)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	304
+				justify    	0
+				label      	"CVect3")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3A9AD9AC01F4"
+			    width      	322
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::MATH_Plane::CPlane" @79
+			    ShowCompartmentStereotypes 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(1712, 144)
+			    label      	(object ItemLabel
+				Parent_View 	@79
+				location   	(1563, 69)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	298
+				justify    	0
+				label      	"CPlane")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3A9AD9D4032A"
+			    width      	316
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::MATH_Ray::CRay" @80
+			    ShowCompartmentStereotypes 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(2032, 144)
+			    label      	(object ItemLabel
+				Parent_View 	@80
+				location   	(1899, 69)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	266
+				justify    	0
+				label      	"CRay")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3B7FCEBC0085"
+			    width      	284
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object UsesView "" @81
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C275FA000FF"
+			    client     	@74
+			    supplier   	@78
+			    line_style 	0)
+			(object UsesView "" @82
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C275FA1027D"
+			    client     	@74
+			    supplier   	@77
+			    line_style 	0)
+			(object UsesView "" @83
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C275FA30244"
+			    client     	@74
+			    supplier   	@79
+			    line_style 	0)
+			(object UsesView "" @84
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C275FA50016"
+			    client     	@74
+			    supplier   	@80
+			    line_style 	0)
+			(object ClassView "Class" "Logical View::Math::MATH_Segment::CSegment" @85
+			    ShowCompartmentStereotypes 	TRUE
+			    location   	(992, 144)
+			    label      	(object ItemLabel
+				Parent_View 	@85
+				location   	(820, 69)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	344
+				justify    	0
+				label      	"CSegment")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3CC5D588008C"
+			    width      	362
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object UsesView "" @86
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3CC5D80401A9"
+			    client     	@74
+			    supplier   	@85
+			    line_style 	0)))))
+	(object Class_Category "MATH_Quaternion"
+	    quid       	"3C275DC303C0"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class "CQuaternion"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Quaternion\\CQuaternion.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Quaternion\\CQuaternion.cpp")
+			(object Attribute
+			    tool       	"cg"
+			    name       	"DestructorKind"
+			    value      	("ThreeKindSet" 200))
+			(object Attribute
+			    tool       	"cg"
+			    name       	"GenerateDestructor"
+			    value      	FALSE))
+		    quid       	"3B9E7C9F013E"
+		    used_nodes 	(list uses_relationship_list
+			(object Uses_Relationship
+			    quid       	"3C275E70036F"
+			    supplier   	"Logical View::Math::MATH_Matrix::CMatrix4x4"
+			    quidu      	"3A9AD9BC021C")
+			(object Uses_Relationship
+			    quid       	"3C275E820035"
+			    supplier   	"Logical View::Math::MATH_Other::MATH_Common"
+			    quidu      	"3C0C21B2015B"))
+		    operations 	(list Operations
+			(object Operation "Slerp"
+			    quid       	"3B9E7CC4029F"
+			    parameters 	(list Parameters
+				(object Parameter "_Src"
+				    type       	"CQuaternion&")
+				(object Parameter "_Dst"
+				    type       	"CQuaternion&")
+				(object Parameter "_fFactor"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1000239577)
+			(object Operation "ToMatrix"
+			    quid       	"3B9E7CEA0163"
+			    result     	"CMatrix4x4 &"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1000239578)
+			(object Operation "FromMatrix"
+			    quid       	"3B9E7D03006F"
+			    parameters 	(list Parameters
+				(object Parameter "_Matrix"
+				    type       	"CMatrix4x4 &"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1000239579))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "quat"
+			    quid       	"3B9E7CA502C3"
+			    type       	"float[4]"))
+		    language   	"C++"))
+	    logical_presentations 	(list unit_reference_list
+		(object ClassDiagram "Main"
+		    quid       	"3C275E6303D4"
+		    title      	"Main"
+		    zoom       	100
+		    max_height 	28350
+		    max_width  	21600
+		    origin_x   	0
+		    origin_y   	0
+		    items      	(list diagram_item_list
+			(object ClassView "Class" "Logical View::Math::MATH_Quaternion::CQuaternion" @87
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(1216, 608)
+			    label      	(object ItemLabel
+				Parent_View 	@87
+				location   	(548, 452)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	1336
+				justify    	0
+				label      	"CQuaternion")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3B9E7C9F013E"
+			    width      	1354
+			    height     	336
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::MATH_Matrix::CMatrix4x4" @88
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(1376, 288)
+			    label      	(object ItemLabel
+				Parent_View 	@88
+				location   	(1226, 213)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	300
+				justify    	0
+				label      	"CMatrix4x4")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3A9AD9BC021C"
+			    width      	318
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object UsesView "" @89
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C275E70036F"
+			    client     	@87
+			    supplier   	@88
+			    line_style 	0)
+			(object ClassView "Class" "Logical View::Math::MATH_Other::MATH_Common" @90
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(1008, 288)
+			    label      	(object ItemLabel
+				Parent_View 	@90
+				location   	(845, 213)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	326
+				justify    	0
+				label      	"MATH_Common")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3C0C21B2015B"
+			    width      	344
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object UsesView "" @91
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C275E820035"
+			    client     	@87
+			    supplier   	@90
+			    line_style 	0)))))
+	(object Class_Category "MATH_Segment"
+	    quid       	"3CC5D57C00A3"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class "CSegment"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Segment\\CSegment.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Math\\MATH_Segment\\CSegment.cpp")
+			(object Attribute
+			    tool       	"cg"
+			    name       	"GenerateDestructor"
+			    value      	FALSE))
+		    quid       	"3CC5D588008C"
+		    used_nodes 	(list uses_relationship_list
+			(object Uses_Relationship
+			    quid       	"3CC5D5D4013F"
+			    supplier   	"Logical View::Math::MATH_Vector::CVect3"
+			    quidu      	"3A9AD9AC01F4"))
+		    operations 	(list Operations
+			(object Operation "Init"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3CC5D5A9021A"
+			    parameters 	(list Parameters
+				(object Parameter "_roIni"
+				    type       	"CVect3&")
+				(object Parameter "_roEnd"
+				    type       	"CVect3&"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1019598321)
+			(object Operation "ProjectPoint"
+			    quid       	"3CC5D5B902D1"
+			    parameters 	(list Parameters
+				(object Parameter "_roPoint"
+				    type       	"CVect3&"))
+			    result     	"CVect3"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1019598322))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "oIni"
+			    quid       	"3CC5D59E01D8"
+			    type       	"CVect3")
+			(object ClassAttribute "oEnd"
+			    quid       	"3CC5D5A50070"
+			    type       	"CVect3"))
+		    language   	"C++"))
+	    logical_presentations 	(list unit_reference_list
+		(object ClassDiagram "Main"
+		    quid       	"3CC5D58603A0"
+		    title      	"Main"
+		    zoom       	100
+		    max_height 	28350
+		    max_width  	21600
+		    origin_x   	0
+		    origin_y   	0
+		    items      	(list diagram_item_list
+			(object ClassView "Class" "Logical View::Math::MATH_Segment::CSegment" @92
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(688, 544)
+			    label      	(object ItemLabel
+				Parent_View 	@92
+				location   	(528, 388)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	320
+				justify    	0
+				label      	"CSegment")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3CC5D588008C"
+			    width      	338
+			    height     	336
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::MATH_Vector::CVect3" @93
+			    ShowCompartmentStereotypes 	TRUE
+			    location   	(688, 112)
+			    label      	(object ItemLabel
+				Parent_View 	@93
+				location   	(536, 37)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	304
+				justify    	0
+				label      	"CVect3")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3A9AD9AC01F4"
+			    width      	322
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object UsesView "" @94
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3CC5D5D4013F"
+			    client     	@92
+			    supplier   	@93
+			    line_style 	0))))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"3A9AD9410078"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Math::MATH_Vector::CVect3" @95
+		    ShowCompartmentStereotypes 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1424, 80)
+		    label      	(object ItemLabel
+			Parent_View 	@95
+			location   	(1272, 5)
+			fill_color 	4227327
+			nlines     	1
+			max_width  	304
+			justify    	0
+			label      	"CVect3")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	4227327
+		    quidu      	"3A9AD9AC01F4"
+		    width      	322
+		    height     	174
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object CategoryView "Logical View::Math::MATH_Evaluator" @96
+		    location   	(160, 1600)
+		    label      	(object ItemLabel
+			Parent_View 	@96
+			location   	(16, 1516)
+			fill_color 	4227327
+			nlines     	2
+			max_width  	288
+			justify    	0
+			label      	"MATH_Evaluator")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	4227327
+		    quidu      	"3B7FD0D4034D"
+		    width      	300
+		    height     	180)
+		(object ClassView "Class" "Logical View::Math::MATH_Evaluator::GammaE_Math_Evaluators" @97
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1440, 1440)
+		    label      	(object ItemLabel
+			Parent_View 	@97
+			location   	(1151, 1377)
+			fill_color 	4227327
+			nlines     	1
+			max_width  	578
+			justify    	0
+			label      	"GammaE_Math_Evaluators")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	4227327
+		    quidu      	"3B7FDF4803C6"
+		    width      	596
+		    height     	150
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Math::MATH_Quaternion::CQuaternion" @98
+		    ShowCompartmentStereotypes 	TRUE
+		    location   	(2048, 432)
+		    label      	(object ItemLabel
+			Parent_View 	@98
+			location   	(1861, 357)
+			fill_color 	4227327
+			nlines     	1
+			max_width  	374
+			justify    	0
+			label      	"CQuaternion")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	4227327
+		    quidu      	"3B9E7C9F013E"
+		    width      	392
+		    height     	174
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object CategoryView "Logical View::Math::MATH_Plane" @99
+		    location   	(160, 1120)
+		    label      	(object ItemLabel
+			Parent_View 	@99
+			location   	(16, 1036)
+			fill_color 	4227327
+			nlines     	2
+			max_width  	288
+			justify    	0
+			label      	"MATH_Plane")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	4227327
+		    quidu      	"3C275CF3003C"
+		    width      	300
+		    height     	180)
+		(object CategoryView "Logical View::Math::MATH_Ray" @100
+		    location   	(160, 880)
+		    label      	(object ItemLabel
+			Parent_View 	@100
+			location   	(16, 796)
+			fill_color 	4227327
+			nlines     	2
+			max_width  	288
+			justify    	0
+			label      	"MATH_Ray")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	4227327
+		    quidu      	"3C275D0200F1"
+		    width      	300
+		    height     	180)
+		(object CategoryView "Logical View::Math::MATH_Vector" @101
+		    location   	(160, 160)
+		    label      	(object ItemLabel
+			Parent_View 	@101
+			location   	(16, 76)
+			fill_color 	4227327
+			nlines     	2
+			max_width  	288
+			justify    	0
+			label      	"MATH_Vector")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	4227327
+		    quidu      	"3C275D080385"
+		    width      	300
+		    height     	180)
+		(object CategoryView "Logical View::Math::MATH_Triangle" @102
+		    location   	(160, 1360)
+		    label      	(object ItemLabel
+			Parent_View 	@102
+			location   	(16, 1276)
+			fill_color 	4227327
+			nlines     	2
+			max_width  	288
+			justify    	0
+			label      	"MATH_Triangle")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	4227327
+		    quidu      	"3C275D160104"
+		    width      	300
+		    height     	180)
+		(object CategoryView "Logical View::Math::MATH_Matrix" @103
+		    location   	(160, 400)
+		    label      	(object ItemLabel
+			Parent_View 	@103
+			location   	(16, 316)
+			fill_color 	4227327
+			nlines     	2
+			max_width  	288
+			justify    	0
+			label      	"MATH_Matrix")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	4227327
+		    quidu      	"3C275D620352"
+		    width      	300
+		    height     	180)
+		(object CategoryView "Logical View::Math::MATH_Other" @104
+		    location   	(160, 1840)
+		    label      	(object ItemLabel
+			Parent_View 	@104
+			location   	(16, 1756)
+			fill_color 	4227327
+			nlines     	2
+			max_width  	288
+			justify    	0
+			label      	"MATH_Other")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	4227327
+		    quidu      	"3C275D6F02F7"
+		    width      	300
+		    height     	180)
+		(object CategoryView "Logical View::Math::MATH_Quaternion" @105
+		    location   	(160, 640)
+		    label      	(object ItemLabel
+			Parent_View 	@105
+			location   	(16, 556)
+			fill_color 	4227327
+			nlines     	2
+			max_width  	288
+			justify    	0
+			label      	"MATH_Quaternion")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	4227327
+		    quidu      	"3C275DC303C0"
+		    width      	300
+		    height     	180)
+		(object ClassView "Class" "Logical View::Math::MATH_Vector::CVect4" @106
+		    ShowCompartmentStereotypes 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1728, 240)
+		    label      	(object ItemLabel
+			Parent_View 	@106
+			location   	(1576, 165)
+			fill_color 	4227327
+			nlines     	1
+			max_width  	304
+			justify    	0
+			label      	"CVect4")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	4227327
+		    quidu      	"3A9AD9B7032A"
+		    width      	322
+		    height     	174
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Math::MATH_Vector::CVect2" @107
+		    ShowCompartmentStereotypes 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1152, 240)
+		    label      	(object ItemLabel
+			Parent_View 	@107
+			location   	(1000, 165)
+			fill_color 	4227327
+			nlines     	1
+			max_width  	304
+			justify    	0
+			label      	"CVect2")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	4227327
+		    quidu      	"3A9AD9B10118"
+		    width      	322
+		    height     	174
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Math::MATH_Matrix::CMatrix4x4" @108
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(848, 432)
+		    label      	(object ItemLabel
+			Parent_View 	@108
+			location   	(698, 357)
+			fill_color 	4227327
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"CMatrix4x4")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	4227327
+		    quidu      	"3A9AD9BC021C"
+		    width      	318
+		    height     	174
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Math::MATH_Ray::CRay" @109
+		    ShowCompartmentStereotypes 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2112, 848)
+		    label      	(object ItemLabel
+			Parent_View 	@109
+			location   	(1979, 773)
+			fill_color 	4227327
+			nlines     	1
+			max_width  	266
+			justify    	0
+			label      	"CRay")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	4227327
+		    quidu      	"3B7FCEBC0085"
+		    width      	284
+		    height     	174
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Math::MATH_Plane::CPlane" @110
+		    ShowCompartmentStereotypes 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2016, 1072)
+		    label      	(object ItemLabel
+			Parent_View 	@110
+			location   	(1867, 997)
+			fill_color 	4227327
+			nlines     	1
+			max_width  	298
+			justify    	0
+			label      	"CPlane")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	4227327
+		    quidu      	"3A9AD9D4032A"
+		    width      	316
+		    height     	174
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Math::MATH_Triangle::CTriangle" @111
+		    ShowCompartmentStereotypes 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1872, 1264)
+		    label      	(object ItemLabel
+			Parent_View 	@111
+			location   	(1705, 1189)
+			fill_color 	4227327
+			nlines     	1
+			max_width  	334
+			justify    	0
+			label      	"CTriangle")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	4227327
+		    quidu      	"3C1E70900364"
+		    width      	352
+		    height     	174
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Math::MATH_Other::MATH_Common" @112
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(816, 704)
+		    label      	(object ItemLabel
+			Parent_View 	@112
+			location   	(653, 629)
+			fill_color 	4227327
+			nlines     	1
+			max_width  	326
+			justify    	0
+			label      	"MATH_Common")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	4227327
+		    quidu      	"3C0C21B2015B"
+		    width      	344
+		    height     	174
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Math::MATH_Other::MATH_Utils" @113
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(880, 912)
+		    label      	(object ItemLabel
+			Parent_View 	@113
+			location   	(735, 837)
+			fill_color 	4227327
+			nlines     	1
+			max_width  	290
+			justify    	0
+			label      	"MATH_Utils")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	4227327
+		    quidu      	"3C080D120063"
+		    width      	308
+		    height     	174
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object CategoryView "Logical View::Math::MATH_Segment" @114
+		    location   	(160, 2080)
+		    label      	(object ItemLabel
+			Parent_View 	@114
+			location   	(16, 1996)
+			fill_color 	4227327
+			nlines     	2
+			max_width  	288
+			justify    	0
+			label      	"MATH_Segment")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	4227327
+		    quidu      	"3CC5D57C00A3"
+		    width      	300
+		    height     	180)
+		(object ClassView "Class" "Logical View::Math::MATH_Segment::CSegment" @115
+		    ShowCompartmentStereotypes 	TRUE
+		    location   	(960, 1184)
+		    label      	(object ItemLabel
+			Parent_View 	@115
+			location   	(788, 1109)
+			fill_color 	4227327
+			nlines     	1
+			max_width  	344
+			justify    	0
+			label      	"CSegment")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	4227327
+		    quidu      	"3CC5D588008C"
+		    width      	362
+		    height     	174
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Math::GammaE_Math" @116
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1440, 704)
+		    label      	(object ItemLabel
+			Parent_View 	@116
+			location   	(1286, 664)
+			fill_color 	4227327
+			nlines     	1
+			max_width  	308
+			justify    	0
+			label      	"GammaE_Math")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	4227327
+		    quidu      	"3BD8A07F039B"
+		    width      	326
+		    height     	104
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @117
+		    stereotype 	TRUE
+		    line_color 	32896
+		    quidu      	"3BD8A0A00280"
+		    client     	@116
+		    supplier   	@97
+		    line_style 	0)
+		(object UsesView "" @118
+		    stereotype 	TRUE
+		    line_color 	32896
+		    quidu      	"3BD8A0A20283"
+		    client     	@116
+		    supplier   	@98
+		    line_style 	0)
+		(object UsesView "" @119
+		    stereotype 	TRUE
+		    line_color 	32896
+		    quidu      	"3BD8A0AB0005"
+		    client     	@116
+		    supplier   	@95
+		    line_style 	0)
+		(object UsesView "" @120
+		    stereotype 	TRUE
+		    line_color 	32896
+		    quidu      	"3BD8A0A602ED"
+		    client     	@116
+		    supplier   	@106
+		    line_style 	0)
+		(object UsesView "" @121
+		    stereotype 	TRUE
+		    line_color 	32896
+		    quidu      	"3BD8A0A403DA"
+		    client     	@116
+		    supplier   	@107
+		    line_style 	0)
+		(object UsesView "" @122
+		    stereotype 	TRUE
+		    line_color 	32896
+		    quidu      	"3BD8A0A900A2"
+		    client     	@116
+		    supplier   	@108
+		    line_style 	0)
+		(object UsesView "" @123
+		    stereotype 	TRUE
+		    line_color 	32896
+		    quidu      	"3BD8A0B002AB"
+		    client     	@116
+		    supplier   	@109
+		    line_style 	0)
+		(object UsesView "" @124
+		    stereotype 	TRUE
+		    line_color 	32896
+		    quidu      	"3BD8A0AD0275"
+		    client     	@116
+		    supplier   	@110
+		    line_style 	0)
+		(object UsesView "" @125
+		    stereotype 	TRUE
+		    line_color 	32896
+		    quidu      	"3C275F07031C"
+		    client     	@116
+		    supplier   	@111
+		    line_style 	0)
+		(object UsesView "" @126
+		    stereotype 	TRUE
+		    line_color 	32896
+		    quidu      	"3C275F20008D"
+		    client     	@116
+		    supplier   	@112
+		    line_style 	0)
+		(object UsesView "" @127
+		    stereotype 	TRUE
+		    line_color 	32896
+		    quidu      	"3C080D81010D"
+		    client     	@116
+		    supplier   	@113
+		    line_style 	0)
+		(object UsesView "" @128
+		    stereotype 	TRUE
+		    line_color 	32896
+		    quidu      	"3CC5D5E70255"
+		    client     	@116
+		    supplier   	@115
+		    line_style 	0)))))

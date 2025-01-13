@@ -1,0 +1,5295 @@
+
+(object Petal
+    version    	42
+    _written   	"Rose 4.5.8163.3"
+    charSet    	0)
+
+(object Class_Category "Collision"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    quid       	"3B5DE9EC02B2"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"3C06B97800F7"
+	    supplier   	"Logical View::Scene"
+	    quidu      	"3AA2567D00C8"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "GammaE_Collision"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"Traversal"
+		    name       	"CodeFile"
+		    value      	"$ROSECPP_SOURCE\\Collision\\GammaE_Collision.h")
+		(object Attribute
+		    tool       	"Traversal"
+		    name       	"BodyFile"
+		    value      	"$ROSECPP_SOURCE\\Collision\\GammaE_Collision.cpp"))
+	    quid       	"3B5DFBBE03CA"
+	    language   	"C++")
+	(object Class_Category "Collider"
+	    quid       	"3B686E2401AE"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class "CCOL_Collider"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Collision\\Collider\\CCOL_Collider.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Collision\\Collider\\CCOL_Collider.cpp"))
+		    quid       	"3C06B92E0385"
+		    used_nodes 	(list uses_relationship_list
+			(object Uses_Relationship
+			    quid       	"3C06C11E02AB"
+			    supplier   	"Logical View::Math::GammaE_Math"
+			    quidu      	"3BD8A07F039B"))
+		    operations 	(list Operations
+			(object Operation "Init"
+			    quid       	"3C1BFAFD02EF"
+			    parameters 	(list Parameters
+				(object Parameter "_iUserID"
+				    type       	"int")
+				(object Parameter "_poTLGen"
+				    type       	"CCOL_TriListGen*")
+				(object Parameter "_poMTester"
+				    type       	"CCOL_MeshTester*")
+				(object Parameter "_eCType"
+				    type       	"eCOL_ColliderType")
+				(object Parameter "_eStTest"
+				    type       	"eCOL_TestType")
+				(object Parameter "_eDynTest"
+				    type       	"eCOL_TestType")
+				(object Parameter "_poGrObj"
+				    type       	"CObject3D*")
+				(object Parameter "_iMaxTris"
+				    type       	"int")
+				(object Parameter "_iColStackSize"
+				    type       	"int"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1008463031)
+			(object Operation "Reset"
+			    quid       	"3C1D0E1D0377"
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1008534192))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "OldPos"
+			    quid       	"3C0D590C02E1"
+			    type       	"CVect3"
+			    exportControl 	"Public")
+			(object ClassAttribute "Pos"
+			    quid       	"3C06B93A0210"
+			    type       	"CVect3"
+			    exportControl 	"Public")
+			(object ClassAttribute "Speed"
+			    quid       	"3C06B93E025C"
+			    type       	"CVect3"
+			    exportControl 	"Public")
+			(object ClassAttribute "UserID"
+			    quid       	"3C06B94B03CD"
+			    type       	"int"
+			    initv      	"-1"
+			    exportControl 	"Public")
+			(object ClassAttribute "ColID"
+			    quid       	"3C06B95100D2"
+			    type       	"int"
+			    initv      	"-1"
+			    exportControl 	"Public")
+			(object ClassAttribute "GrObj"
+			    quid       	"3C06B98F0335"
+			    type       	"CObject3D *"
+			    initv      	"NULL"
+			    exportControl 	"Public"))
+		    language   	"C++")
+		(object Class "eCOL_ColliderType"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"cg"
+			    name       	"ClassKey"
+			    value      	"enum")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Collision\\Collider\\eCOL_ColliderType.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Collision\\Collider\\eCOL_ColliderType.cpp")
+			(object Attribute
+			    tool       	"cg"
+			    name       	"ImplementationType"
+			    value      	(value Text 
+|enum
+|{
+|    eCOL_CT_None,    // 0
+|    eCOL_CT_Dynamic,    // 1
+|    eCOL_CT_Static,    // 2
+|    eCOL_CT_NumColliderTypes     // 3
+|}
+			    )))
+		    quid       	"3C06B9F303A6"
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "eCOL_CT_None"
+			    quid       	"3C06BA5F00DB"
+			    exportControl 	"Public")
+			(object ClassAttribute "eCOL_CT_Dynamic"
+			    quid       	"3C0B8C1C0177"
+			    exportControl 	"Public")
+			(object ClassAttribute "eCOL_CT_Static"
+			    quid       	"3C0B8C2B002E"
+			    exportControl 	"Public")
+			(object ClassAttribute "eCOL_CT_NumColliderTypes"
+			    quid       	"3C1B112E001E"
+			    exportControl 	"Public"))
+		    language   	"C++")
+		(object Class "CCOL_Stack"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Collision\\Collider\\CCOL_Stack.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Collision\\Collider\\CCOL_Stack.cpp"))
+		    quid       	"3B6F1B0E0226"
+		    operations 	(list Operations
+			(object Operation "Init"
+			    quid       	"3B6F1B32038E"
+			    parameters 	(list Parameters
+				(object Parameter "_iMaxColisions"
+				    type       	"int"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	999639509)
+			(object Operation "Reset"
+			    quid       	"3B6F1C43030C"
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	999639510)
+			(object Operation "AddCollision"
+			    quid       	"3B6F1C460276"
+			    parameters 	(list Parameters
+				(object Parameter "_poCObj"
+				    type       	"void *")
+				(object Parameter "_fFrameFact"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	999639511)
+			(object Operation "GetNumCollisions"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C06C5640163"
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1007074377))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "iNumCollisions"
+			    quid       	"3B6F1B1B030C"
+			    type       	"int"
+			    initv      	"0")
+			(object ClassAttribute "iMaxCollisions"
+			    quid       	"3B6F1B2B00A0"
+			    type       	"int"
+			    initv      	"0"))
+		    language   	"C++")
+		(object Class "CCOL_StackCollisionElem"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Collision\\Collider\\CCOL_StackCollisionElem.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Collision\\Collider\\CCOL_StackCollisionElem.cpp")
+			(object Attribute
+			    tool       	"cg"
+			    name       	"GenerateDefaultConstructor"
+			    value      	("GenerateSet" 206)))
+		    quid       	"3B6F0E9B0226"
+		    used_nodes 	(list uses_relationship_list
+			(object Uses_Relationship
+			    quid       	"3C23E456031F"
+			    supplier   	"Logical View::Math::GammaE_Math"
+			    quidu      	"3BD8A07F039B"))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "fFrameFact"
+			    quid       	"3C4F3ED802B9"
+			    type       	"float"
+			    initv      	"0.0f"
+			    exportControl 	"Public")
+			(object ClassAttribute "poCObj"
+			    quid       	"3CE2E7090144"
+			    type       	"void *"
+			    initv      	"NULL"
+			    exportControl 	"Public"))
+		    language   	"C++")
+		(object Class "eCOL_TestType"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"cg"
+			    name       	"ClassKey"
+			    value      	"enum")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Collision\\Collider\\eCOL_TestType.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Collision\\Collider\\eCOL_TestType.cpp")
+			(object Attribute
+			    tool       	"cg"
+			    name       	"ImplementationType"
+			    value      	(value Text 
+|enum
+|{
+|    eCOL_TT_None,    // 0
+|    eCOL_TT_BV,    // 1
+|    eCOL_TT_Tris,    // 2
+|    eCOL_TT_NumTestTypes     // 3
+|}
+			    )))
+		    quid       	"3C1B0F65031A"
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "eCOL_TT_None"
+			    quid       	"3C1B0F7D00A7"
+			    exportControl 	"Public")
+			(object ClassAttribute "eCOL_TT_BV"
+			    quid       	"3C1B111202B3"
+			    exportControl 	"Public")
+			(object ClassAttribute "eCOL_TT_Tris"
+			    quid       	"3C1B10A0009C"
+			    exportControl 	"Public")
+			(object ClassAttribute "eCOL_TT_NumTestTypes"
+			    quid       	"3C1B1123009A"
+			    exportControl 	"Public"))
+		    language   	"C++")
+		(object Association "$UNNAMED$0"
+		    quid       	"3C0C19AD0181"
+		    roles      	(list role_list
+			(object Role "$UNNAMED$1"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GetSetByReference"
+				    value      	TRUE))
+			    quid       	"3C0C19AD027B"
+			    supplier   	"Logical View::Collision::Collider::CCOL_Collider"
+			    quidu      	"3C06B92E0385"
+			    exportControl 	"Protected"
+			    is_aggregate 	TRUE)
+			(object Role "ColStack"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GetSetByReference"
+				    value      	TRUE)
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateGetOperation"
+				    value      	TRUE))
+			    quid       	"3C0C19AD0285"
+			    label      	"ColStack"
+			    supplier   	"Logical View::Collision::Collider::CCOL_Stack"
+			    quidu      	"3B6F1B0E0226"
+			    Containment 	"By Value"
+			    is_navigable 	TRUE)))
+		(object Association "$UNNAMED$2"
+		    quid       	"3C0C19BE0121"
+		    roles      	(list role_list
+			(object Role "$UNNAMED$3"
+			    quid       	"3C0C19BE01EA"
+			    supplier   	"Logical View::Collision::Collider::CCOL_Stack"
+			    quidu      	"3B6F1B0E0226"
+			    is_aggregate 	TRUE)
+			(object Role "Collided"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"InitialValue"
+				    value      	(value Text "NULL"))
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateGetOperation"
+				    value      	TRUE))
+			    quid       	"3C0C19BE01EB"
+			    label      	"Collided"
+			    supplier   	"Logical View::Collision::Collider::CCOL_StackCollisionElem"
+			    quidu      	"3B6F0E9B0226"
+			    Containment 	"By Reference"
+			    is_navigable 	TRUE)))
+		(object Association "$UNNAMED$4"
+		    quid       	"3C1B129401B3"
+		    roles      	(list role_list
+			(object Role "$UNNAMED$5"
+			    quid       	"3C1B129402A4"
+			    supplier   	"Logical View::Collision::Collider::CCOL_Collider"
+			    quidu      	"3C06B92E0385"
+			    exportControl 	"Protected"
+			    is_aggregate 	TRUE)
+			(object Role "ColType"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"InitialValue"
+				    value      	(value Text "eCOL_CT_None"))
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateGetOperation"
+				    value      	TRUE)
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateSetOperation"
+				    value      	TRUE))
+			    quid       	"3C1B129402AE"
+			    label      	"ColType"
+			    supplier   	"Logical View::Collision::Collider::eCOL_ColliderType"
+			    quidu      	"3C06B9F303A6"
+			    Containment 	"By Value"
+			    is_navigable 	TRUE)))
+		(object Association "$UNNAMED$6"
+		    quid       	"3C1B1295038B"
+		    roles      	(list role_list
+			(object Role "$UNNAMED$7"
+			    quid       	"3C1B12960062"
+			    supplier   	"Logical View::Collision::Collider::CCOL_Collider"
+			    quidu      	"3C06B92E0385"
+			    exportControl 	"Protected"
+			    is_aggregate 	TRUE)
+			(object Role "StTest"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"InitialValue"
+				    value      	(value Text "eCOL_TT_None"))
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateGetOperation"
+				    value      	TRUE))
+			    quid       	"3C1B1296006C"
+			    label      	"StTest"
+			    supplier   	"Logical View::Collision::Collider::eCOL_TestType"
+			    quidu      	"3C1B0F65031A"
+			    Containment 	"By Value"
+			    is_navigable 	TRUE)))
+		(object Association "$UNNAMED$8"
+		    quid       	"3C294E5C0064"
+		    roles      	(list role_list
+			(object Role "$UNNAMED$9"
+			    quid       	"3C294E5C0141"
+			    supplier   	"Logical View::Collision::Collider::CCOL_Collider"
+			    quidu      	"3C06B92E0385"
+			    exportControl 	"Protected"
+			    is_aggregate 	TRUE)
+			(object Role "MeshTester"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateGetOperation"
+				    value      	TRUE))
+			    quid       	"3C294E5C014B"
+			    label      	"MeshTester"
+			    supplier   	"Logical View::Collision::COL_Testers::COL_SceneTest::COL_MeshTest::CCOL_MeshTester"
+			    quidu      	"3C294D5D01F8"
+			    Containment 	"By Reference"
+			    is_navigable 	TRUE)))
+		(object Association "$UNNAMED$10"
+		    quid       	"3CCA944700F0"
+		    roles      	(list role_list
+			(object Role "$UNNAMED$11"
+			    quid       	"3CCA94470352"
+			    supplier   	"Logical View::Collision::Collider::CCOL_Collider"
+			    quidu      	"3C06B92E0385"
+			    is_aggregate 	TRUE)
+			(object Role "DynTest"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"InitialValue"
+				    value      	(value Text "eCOL_TT_None"))
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateGetOperation"
+				    value      	TRUE))
+			    quid       	"3CCA9447035C"
+			    label      	"DynTest"
+			    supplier   	"Logical View::Collision::Collider::eCOL_TestType"
+			    quidu      	"3C1B0F65031A"
+			    Containment 	"By Value"
+			    is_navigable 	TRUE)))
+		(object Association "$UNNAMED$12"
+		    quid       	"3C1D022802A3"
+		    roles      	(list role_list
+			(object Role "$UNNAMED$13"
+			    quid       	"3C1D0228036B"
+			    supplier   	"Logical View::Collision::Collider::CCOL_Collider"
+			    quidu      	"3C06B92E0385"
+			    Containment 	"By Reference"
+			    exportControl 	"Protected"
+			    is_aggregate 	TRUE)
+			(object Role "TriList"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GetSetByReference"
+				    value      	TRUE)
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateQualifiedSetOperation"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateGetOperation"
+				    value      	TRUE))
+			    quid       	"3C1D02280375"
+			    label      	"TriList"
+			    supplier   	"Logical View::Collision::COL_TriList::CCOL_TriList"
+			    quidu      	"3C1D01EF00DE"
+			    Containment 	"By Value"
+			    is_navigable 	TRUE)))
+		(object Association "$UNNAMED$14"
+		    quid       	"3C1BEE4B02EB"
+		    roles      	(list role_list
+			(object Role "$UNNAMED$15"
+			    quid       	"3C1BEE4B03BE"
+			    supplier   	"Logical View::Collision::Collider::CCOL_Collider"
+			    quidu      	"3C06B92E0385"
+			    exportControl 	"Protected"
+			    is_aggregate 	TRUE)
+			(object Role "TriListGen"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"InitialValue"
+				    value      	(value Text "NULL"))
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateGetOperation"
+				    value      	TRUE))
+			    quid       	"3C1BEE4B03C8"
+			    label      	"TriListGen"
+			    supplier   	"Logical View::Collision::COL_TriList::CCOL_TriListGen"
+			    quidu      	"3C1BEC41027D"
+			    Containment 	"By Reference"
+			    is_navigable 	TRUE))))
+	    logical_presentations 	(list unit_reference_list
+		(object ClassDiagram "Main"
+		    quid       	"3B686E2C0122"
+		    title      	"Main"
+		    zoom       	100
+		    max_height 	28350
+		    max_width  	21600
+		    origin_x   	251
+		    origin_y   	0
+		    items      	(list diagram_item_list
+			(object NoteView @1
+			    location   	(1328, 1744)
+			    label      	(object ItemLabel
+				Parent_View 	@1
+				location   	(1081, 1635)
+				nlines     	4
+				max_width  	459
+				label      	"El stack de objetos es la lista de objetos que han colisionado con el objeto en el frame actual")
+			    line_color 	32896
+			    width      	519
+			    height     	231)
+			(object ClassView "Class" "Logical View::Math::GammaE_Math" @2
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(1328, 112)
+			    label      	(object ItemLabel
+				Parent_View 	@2
+				location   	(1168, 37)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	320
+				justify    	0
+				label      	"GammaE_Math")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3BD8A07F039B"
+			    width      	338
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Collision::Collider::CCOL_StackCollisionElem" @3
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(2144, 1280)
+			    label      	(object ItemLabel
+				Parent_View 	@3
+				location   	(1882, 1174)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	524
+				justify    	0
+				label      	"CCOL_StackCollisionElem")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	13421568
+			    quidu      	"3B6F0E9B0226"
+			    width      	542
+			    height     	236
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Collision::Collider::CCOL_Stack" @4
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(1312, 1280)
+			    label      	(object ItemLabel
+				Parent_View 	@4
+				location   	(1075, 1074)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	474
+				justify    	0
+				label      	"CCOL_Stack")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	13421568
+			    quidu      	"3B6F1B0E0226"
+			    width      	492
+			    height     	436
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object AssociationViewNew "$UNNAMED$2" @5
+			    location   	(1715, 1278)
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C0C19BE0121"
+			    roleview_list 	(list RoleViews
+				(object RoleView "$UNNAMED$3" @6
+				    Parent_View 	@5
+				    location   	(-45, 110)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C0C19BE01EA"
+				    client     	@5
+				    supplier   	@4
+				    line_style 	3
+				    origin_attachment 	(1715, 1278)
+				    terminal_attachment 	(1558, 1278))
+				(object RoleView "Collided" @7
+				    Parent_View 	@5
+				    location   	(-45, 110)
+				    label      	(object SegLabel @8
+					Parent_View 	@7
+					location   	(1721, 1244)
+					anchor     	1
+					anchor_loc 	1
+					nlines     	1
+					max_width  	168
+					justify    	0
+					label      	"+Collided"
+					pctDist    	0.044776
+					height     	35
+					orientation 	0)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C0C19BE01EB"
+				    client     	@5
+				    supplier   	@3
+				    line_style 	3
+				    origin_attachment 	(1715, 1278)
+				    terminal_attachment 	(1873, 1278))))
+			(object AttachView "" @9
+			    stereotype 	TRUE
+			    line_color 	32896
+			    client     	@1
+			    supplier   	@4
+			    line_style 	3
+			    origin_attachment 	(1324, 1628)
+			    terminal_attachment 	(1324, 1498))
+			(object ClassView "Class" "Logical View::Collision::Collider::eCOL_ColliderType" @10
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(2432, 416)
+			    label      	(object ItemLabel
+				Parent_View 	@10
+				location   	(2143, 260)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	578
+				justify    	0
+				label      	"eCOL_ColliderType")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	13421568
+			    quidu      	"3C06B9F303A6"
+			    width      	596
+			    height     	336
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Collision::COL_Testers::COL_SceneTest::COL_MeshTest::CCOL_MeshTester" @11
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(592, 192)
+			    label      	(object ItemLabel
+				Parent_View 	@11
+				location   	(402, 117)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	380
+				justify    	0
+				label      	"CCOL_MeshTester")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3C294D5D01F8"
+			    width      	398
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Collision::Collider::eCOL_TestType" @12
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(2400, 784)
+			    label      	(object ItemLabel
+				Parent_View 	@12
+				location   	(2143, 628)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	514
+				justify    	0
+				label      	"eCOL_TestType")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	13421568
+			    quidu      	"3C1B0F65031A"
+			    width      	532
+			    height     	336
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Collision::COL_TriList::CCOL_TriList" @13
+			    ShowCompartmentStereotypes 	TRUE
+			    location   	(272, 592)
+			    label      	(object ItemLabel
+				Parent_View 	@13
+				location   	(136, 517)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	272
+				justify    	0
+				label      	"CCOL_TriList")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	13421568
+			    quidu      	"3C1D01EF00DE"
+			    width      	290
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Collision::Collider::CCOL_Collider" @14
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(1312, 624)
+			    label      	(object ItemLabel
+				Parent_View 	@14
+				location   	(1026, 368)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	572
+				justify    	0
+				label      	"CCOL_Collider")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	13421568
+			    quidu      	"3C06B92E0385"
+			    width      	590
+			    height     	536
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object AssociationViewNew "$UNNAMED$0" @15
+			    location   	(1320, 977)
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C0C19AD0181"
+			    roleview_list 	(list RoleViews
+				(object RoleView "$UNNAMED$1" @16
+				    Parent_View 	@15
+				    location   	(616, -191)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C0C19AD027B"
+				    client     	@15
+				    supplier   	@14
+				    line_style 	3
+				    origin_attachment 	(1320, 977)
+				    terminal_attachment 	(1320, 892))
+				(object RoleView "ColStack" @17
+				    Parent_View 	@15
+				    location   	(616, -191)
+				    label      	(object SegLabel @18
+					Parent_View 	@17
+					location   	(1425, 993)
+					anchor     	1
+					anchor_loc 	1
+					nlines     	1
+					max_width  	228
+					justify    	0
+					label      	"+ColStack"
+					pctDist    	0.191781
+					height     	105
+					orientation 	0)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C0C19AD0285"
+				    client     	@15
+				    supplier   	@4
+				    line_style 	3
+				    origin_attachment 	(1320, 977)
+				    terminal_attachment 	(1320, 1062))))
+			(object AssociationViewNew "$UNNAMED$4" @19
+			    location   	(1870, 503)
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C1B129401B3"
+			    roleview_list 	(list RoleViews
+				(object RoleView "$UNNAMED$5" @20
+				    Parent_View 	@19
+				    location   	(30, 167)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C1B129402A4"
+				    client     	@19
+				    supplier   	@14
+				    line_style 	3
+				    origin_attachment 	(1870, 503)
+				    terminal_attachment 	(1607, 503))
+				(object RoleView "ColType" @21
+				    Parent_View 	@19
+				    location   	(30, 167)
+				    label      	(object SegLabel @22
+					Parent_View 	@21
+					location   	(1852, 470)
+					anchor     	1
+					anchor_loc 	1
+					nlines     	1
+					max_width  	204
+					justify    	0
+					label      	"+ColType"
+					pctDist    	-0.071161
+					height     	34
+					orientation 	0)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C1B129402AE"
+				    client     	@19
+				    supplier   	@10
+				    line_style 	3
+				    origin_attachment 	(1870, 503)
+				    terminal_attachment 	(2134, 503))))
+			(object AssociationViewNew "$UNNAMED$8" @23
+			    location   	(695, 487)
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C294E5C0064"
+			    roleview_list 	(list RoleViews
+				(object RoleView "$UNNAMED$9" @24
+				    Parent_View 	@23
+				    location   	(167, 327)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C294E5C0141"
+				    client     	@23
+				    supplier   	@14
+				    line_style 	3
+				    origin_attachment 	(695, 487)
+				    terminal_attachment 	(1017, 487))
+				(object RoleView "MeshTester" @25
+				    Parent_View 	@23
+				    location   	(167, 327)
+				    label      	(object SegLabel @26
+					Parent_View 	@25
+					location   	(821, 448)
+					anchor     	1
+					anchor_loc 	1
+					nlines     	1
+					max_width  	240
+					justify    	0
+					label      	"+MeshTester"
+					pctDist    	-1.120879
+					height     	40
+					orientation 	1)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C294E5C014B"
+				    client     	@23
+				    supplier   	@11
+				    vertices   	(list Points
+					(695, 487)
+					(582, 487)
+					(582, 279))
+				    line_style 	3
+				    origin_attachment 	(695, 487)
+				    terminal_attachment 	(582, 279))))
+			(object AssociationViewNew "$UNNAMED$6" @27
+			    location   	(1870, 709)
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C1B1295038B"
+			    roleview_list 	(list RoleViews
+				(object RoleView "$UNNAMED$7" @28
+				    Parent_View 	@27
+				    location   	(30, -11)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C1B12960062"
+				    client     	@27
+				    supplier   	@14
+				    line_style 	3
+				    origin_attachment 	(1870, 709)
+				    terminal_attachment 	(1607, 709))
+				(object RoleView "StTest" @29
+				    Parent_View 	@27
+				    location   	(30, -11)
+				    label      	(object SegLabel @30
+					Parent_View 	@29
+					location   	(1845, 675)
+					anchor     	1
+					anchor_loc 	1
+					nlines     	1
+					max_width  	144
+					justify    	0
+					label      	"+StTest"
+					pctDist    	-0.095833
+					height     	35
+					orientation 	0)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C1B1296006C"
+				    client     	@27
+				    supplier   	@12
+				    line_style 	3
+				    origin_attachment 	(1870, 709)
+				    terminal_attachment 	(2134, 709))))
+			(object AssociationViewNew "$UNNAMED$10" @31
+			    location   	(1870, 822)
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3CCA944700F0"
+			    roleview_list 	(list RoleViews
+				(object RoleView "$UNNAMED$11" @32
+				    Parent_View 	@31
+				    location   	(-530, -10)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3CCA94470352"
+				    client     	@31
+				    supplier   	@14
+				    line_style 	3
+				    origin_attachment 	(1870, 822)
+				    terminal_attachment 	(1607, 822))
+				(object RoleView "DynTest" @33
+				    Parent_View 	@31
+				    location   	(-530, -10)
+				    label      	(object SegLabel @34
+					Parent_View 	@33
+					location   	(1858, 786)
+					anchor     	1
+					anchor_loc 	1
+					nlines     	1
+					max_width  	180
+					justify    	0
+					label      	"+DynTest"
+					pctDist    	-0.049242
+					height     	37
+					orientation 	0)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3CCA9447035C"
+				    client     	@31
+				    supplier   	@12
+				    line_style 	3
+				    origin_attachment 	(1870, 822)
+				    terminal_attachment 	(2134, 822))))
+			(object UsesView "" @35
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C06C11E02AB"
+			    client     	@14
+			    supplier   	@2
+			    line_style 	3
+			    origin_attachment 	(1326, 356)
+			    terminal_attachment 	(1326, 199))
+			(object AssociationViewNew "$UNNAMED$12" @36
+			    location   	(717, 612)
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C1D022802A3"
+			    roleview_list 	(list RoleViews
+				(object RoleView "$UNNAMED$13" @37
+				    Parent_View 	@36
+				    location   	(285, -380)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C1D0228036B"
+				    client     	@36
+				    supplier   	@14
+				    line_style 	3
+				    origin_attachment 	(717, 612)
+				    terminal_attachment 	(1017, 612))
+				(object RoleView "TriList" @38
+				    Parent_View 	@36
+				    location   	(285, -380)
+				    label      	(object SegLabel @39
+					Parent_View 	@38
+					location   	(773, 574)
+					anchor     	1
+					anchor_loc 	1
+					nlines     	1
+					max_width  	204
+					justify    	0
+					label      	"+TriList"
+					pctDist    	-0.186667
+					height     	39
+					orientation 	1)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C1D02280375"
+				    client     	@36
+				    supplier   	@13
+				    line_style 	3
+				    origin_attachment 	(717, 612)
+				    terminal_attachment 	(417, 612))))
+			(object ClassView "Class" "Logical View::Collision::COL_TriList::CCOL_TriListGen" @40
+			    ShowCompartmentStereotypes 	TRUE
+			    location   	(592, 1008)
+			    label      	(object ItemLabel
+				Parent_View 	@40
+				location   	(419, 933)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	346
+				justify    	0
+				label      	"CCOL_TriListGen")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	13421568
+			    quidu      	"3C1BEC41027D"
+			    width      	364
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object AssociationViewNew "$UNNAMED$14" @41
+			    location   	(708, 744)
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C1BEE4B02EB"
+			    roleview_list 	(list RoleViews
+				(object RoleView "$UNNAMED$15" @42
+				    Parent_View 	@41
+				    location   	(484, 248)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C1BEE4B03BE"
+				    client     	@41
+				    supplier   	@14
+				    line_style 	3
+				    origin_attachment 	(708, 744)
+				    terminal_attachment 	(1017, 744))
+				(object RoleView "TriListGen" @43
+				    Parent_View 	@41
+				    location   	(484, 248)
+				    label      	(object SegLabel @44
+					Parent_View 	@43
+					location   	(803, 707)
+					anchor     	1
+					anchor_loc 	1
+					nlines     	1
+					max_width  	276
+					justify    	0
+					label      	"+TriListGen"
+					pctDist    	-0.725191
+					height     	38
+					orientation 	1)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C1BEE4B03C8"
+				    client     	@41
+				    supplier   	@40
+				    vertices   	(list Points
+					(708, 744)
+					(576, 744)
+					(576, 921))
+				    line_style 	3
+				    origin_attachment 	(708, 744)
+				    terminal_attachment 	(576, 921))))
+			(object UsesView "" @45
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C23E456031F"
+			    client     	@3
+			    supplier   	@2
+			    vertices   	(list Points
+				(2415, 1272)
+				(2807, 1272)
+				(2807, 112)
+				(1497, 112))
+			    line_style 	3
+			    origin_attachment 	(2415, 1272)
+			    terminal_attachment 	(1497, 112))))))
+	(object Class_Category "CollisionSystem"
+	    quid       	"3B6F1B480370"
+	    visible_categories 	(list visibility_relationship_list
+		(object Visibility_Relationship
+		    quid       	"3C1FC37D0179"
+		    supplier   	"Logical View::Collision::Collider"
+		    quidu      	"3B686E2401AE")
+		(object Visibility_Relationship
+		    quid       	"3C1FC38203BB"
+		    supplier   	"Logical View::Collision::CollisionUtils"
+		    quidu      	"3B686EE501EA")
+		(object Visibility_Relationship
+		    quid       	"3C1FC3840242"
+		    supplier   	"Logical View::Collision::COL_Testers"
+		    quidu      	"3C081CF10048")
+		(object Visibility_Relationship
+		    quid       	"3C1FC3870282"
+		    supplier   	"Logical View::Collision::COL_TriList"
+		    quidu      	"3C1BEBCD00BD"))
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class "CCOL_CollisionSystem"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Collision\\CollisionSystem\\CCOL_CollisionSystem.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Collision\\CollisionSystem\\CCOL_CollisionSystem.cpp"))
+		    quid       	"3B6F1A7F02E4"
+		    used_nodes 	(list uses_relationship_list
+			(object Uses_Relationship
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"BodyReferenceOnly"
+				    value      	TRUE))
+			    quid       	"3C0A34E3026A"
+			    supplier   	"Logical View::Collision::COL_Testers::COL_SceneTest::CCOL_Scn_ColTester"
+			    quidu      	"3C081B0A0386")
+			(object Uses_Relationship
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"BodyReferenceOnly"
+				    value      	TRUE))
+			    quid       	"3C1D2761020F"
+			    supplier   	"Logical View::Collision::COL_Testers::COL_StaticTest::CCOL_ST_Tris"
+			    quidu      	"3C0D5B9F007B")
+			(object Uses_Relationship
+			    quid       	"3C292F2C0028"
+			    supplier   	"Logical View::Collision::COL_Testers::COL_DynamicTest::CCOL_DT_Tri"
+			    quidu      	"3C291C7D0387")
+			(object Uses_Relationship
+			    quid       	"3C292FB30343"
+			    supplier   	"Logical View::Collision::COL_Testers::COL_DynamicTest::CCOL_DT_ColTester"
+			    quidu      	"3C1FBC350287")
+			(object Uses_Relationship
+			    quid       	"3C2932FA00C9"
+			    supplier   	"Logical View::Collision::COL_Testers::COL_SceneTest::COL_MeshTest::CCOL_MT_CommonMesh"
+			    quidu      	"3C29310E01C5")
+			(object Uses_Relationship
+			    quid       	"3C2936440228"
+			    supplier   	"Logical View::Collision::CollisionSystem::CCOL_ColState"
+			    quidu      	"3C2935B60274"))
+		    operations 	(list Operations
+			(object Operation "Init"
+			    quid       	"3B6F1A9B0136"
+			    parameters 	(list Parameters
+				(object Parameter "_iMaxColliders"
+				    type       	"int"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	999639512)
+			(object Operation "Reset"
+			    quid       	"3CB4B6F7008D"
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1018461840)
+			(object Operation "iAddObject"
+			    quid       	"3C06BB7A0114"
+			    parameters 	(list Parameters
+				(object Parameter "_poColObj"
+				    type       	"CCOL_Collider*"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1007074374)
+			(object Operation "CheckCollisions"
+			    quid       	"3B6F1C0C02E4"
+			    parameters 	(list Parameters
+				(object Parameter "_fDelta"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	999639513)
+			(object Operation "bCheckCollision"
+			    quid       	"3C0AA872010F"
+			    parameters 	(list Parameters
+				(object Parameter "_Src"
+				    type       	"CCOL_Collider&")
+				(object Parameter "_fDelta"
+				    type       	"float"))
+			    result     	"bool"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1007327354)
+			(object Operation "bTestBroadCD"
+			    quid       	"3C1FED520226"
+			    parameters 	(list Parameters
+				(object Parameter "_Src"
+				    type       	"CCOL_Collider&")
+				(object Parameter "_Dst"
+				    type       	"CCOL_Collider&"))
+			    result     	"bool"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Protected"
+			    uid        	1008711905)
+			(object Operation "bTestNarrowCD"
+			    quid       	"3C1C03930335"
+			    parameters 	(list Parameters
+				(object Parameter "_Src"
+				    type       	"CCOL_Collider&")
+				(object Parameter "_Dst"
+				    type       	"CCOL_Collider&"))
+			    result     	"bool"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Protected"
+			    uid        	1008463032))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "iMaxColliders"
+			    quid       	"3B6F1AD00064"
+			    type       	"int"
+			    initv      	"0"
+			    exportControl 	"Protected")
+			(object ClassAttribute "iNumColliders"
+			    quid       	"3B6F1AD60320"
+			    type       	"int"
+			    initv      	"0"
+			    exportControl 	"Protected"))
+		    language   	"C++")
+		(object Class "CCOL_CSysEntry"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Collision\\CollisionSystem\\CCOL_CSysEntry.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Collision\\CollisionSystem\\CCOL_CSysEntry.cpp"))
+		    quid       	"3C0C1B8A014B"
+		    operations 	(list Operations
+			(object Operation "Reset"
+			    quid       	"3C0C1D17021E"
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1007421152))
+		    language   	"C++")
+		(object Class "CCOL_ColState"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Collision\\CollisionSystem\\CCOL_ColState.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Collision\\CollisionSystem\\CCOL_ColState.cpp"))
+		    quid       	"3C2935B60274"
+		    used_nodes 	(list uses_relationship_list
+			(object Uses_Relationship
+			    quid       	"3C293D3B03BC"
+			    supplier   	"Logical View::Math::GammaE_Math"
+			    quidu      	"3BD8A07F039B"))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "SrcIPos"
+			    quid       	"3C2935BC0088"
+			    type       	"CVect3"
+			    exportControl 	"Public"
+			    static     	TRUE)
+			(object ClassAttribute "SrcFPos"
+			    quid       	"3C2935C10388"
+			    type       	"CVect3"
+			    exportControl 	"Public"
+			    static     	TRUE)
+			(object ClassAttribute "DstIPos"
+			    quid       	"3C2935CD015E"
+			    type       	"CVect3"
+			    exportControl 	"Public"
+			    static     	TRUE)
+			(object ClassAttribute "DstFPos"
+			    quid       	"3C2935D1034F"
+			    type       	"CVect3"
+			    exportControl 	"Public"
+			    static     	TRUE)
+			(object ClassAttribute "SrcSp"
+			    quid       	"3C2935D60111"
+			    type       	"CVect3"
+			    exportControl 	"Public"
+			    static     	TRUE)
+			(object ClassAttribute "DstSp"
+			    quid       	"3C2935DF01FA"
+			    type       	"CVect3"
+			    exportControl 	"Public"
+			    static     	TRUE)
+			(object ClassAttribute "DSSp"
+			    quid       	"3C2935E80167"
+			    type       	"CVect3"
+			    exportControl 	"Public"
+			    static     	TRUE)
+			(object ClassAttribute "fDeltaT"
+			    quid       	"3C4DEE3701F1"
+			    type       	"float"
+			    exportControl 	"Public"
+			    static     	TRUE)
+			(object ClassAttribute "fMinColTime"
+			    quid       	"3CC715EF02FA"
+			    type       	"float"
+			    exportControl 	"Public"
+			    static     	TRUE))
+		    language   	"C++")
+		(object Association "$UNNAMED$16"
+		    quid       	"3C0C1B96026B"
+		    roles      	(list role_list
+			(object Role "$UNNAMED$17"
+			    quid       	"3C0C1B97023A"
+			    supplier   	"Logical View::Collision::CollisionSystem::CCOL_CSysEntry"
+			    quidu      	"3C0C1B8A014B"
+			    exportControl 	"Protected"
+			    is_aggregate 	TRUE)
+			(object Role "ColObj"
+			    quid       	"3C0C1B97023B"
+			    label      	"ColObj"
+			    supplier   	"Logical View::Collision::Collider::CCOL_Collider"
+			    quidu      	"3C06B92E0385"
+			    Containment 	"By Reference"
+			    is_navigable 	TRUE)))
+		(object Association "$UNNAMED$18"
+		    quid       	"3C0C1BD1017F"
+		    roles      	(list role_list
+			(object Role "$UNNAMED$19"
+			    quid       	"3C0C1BD102CA"
+			    supplier   	"Logical View::Collision::CollisionSystem::CCOL_CollisionSystem"
+			    quidu      	"3B6F1A7F02E4"
+			    exportControl 	"Protected"
+			    is_aggregate 	TRUE)
+			(object Role "poColliders"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"InitialValue"
+				    value      	(value Text "NULL"))
+				(object Attribute
+				    tool       	"cg"
+				    name       	"ContainerClass"
+				    value      	"$targetClass**"))
+			    quid       	"3C0C1BD102D4"
+			    label      	"poColliders"
+			    supplier   	"Logical View::Collision::Collider::CCOL_Collider"
+			    quidu      	"3C06B92E0385"
+			    Containment 	"By Reference"
+			    is_navigable 	TRUE))))
+	    logical_presentations 	(list unit_reference_list
+		(object ClassDiagram "Main"
+		    quid       	"3B6F1B4E00D2"
+		    title      	"Main"
+		    zoom       	100
+		    max_height 	28350
+		    max_width  	21600
+		    origin_x   	0
+		    origin_y   	0
+		    items      	(list diagram_item_list
+			(object ClassView "Class" "Logical View::Collision::COL_Testers::COL_SceneTest::CCOL_Scn_ColTester" @46
+			    ShowCompartmentStereotypes 	TRUE
+			    location   	(1408, 128)
+			    label      	(object ItemLabel
+				Parent_View 	@46
+				location   	(1192, 53)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	432
+				justify    	0
+				label      	"CCOL_Scn_ColTester")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	13421568
+			    quidu      	"3C081B0A0386"
+			    width      	450
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Collision::COL_Testers::COL_StaticTest::CCOL_ST_Tris" @47
+			    ShowCompartmentStereotypes 	TRUE
+			    location   	(1424, 336)
+			    label      	(object ItemLabel
+				Parent_View 	@47
+				location   	(1260, 261)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	328
+				justify    	0
+				label      	"CCOL_ST_Tris")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	13421568
+			    quidu      	"3C0D5B9F007B"
+			    width      	346
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Collision::COL_Testers::COL_SceneTest::COL_MeshTest::CCOL_MT_CommonMesh" @48
+			    ShowCompartmentStereotypes 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(1424, 544)
+			    label      	(object ItemLabel
+				Parent_View 	@48
+				location   	(1171, 469)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	506
+				justify    	0
+				label      	"CCOL_MT_CommonMesh")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3C29310E01C5"
+			    width      	524
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Collision::CollisionSystem::CCOL_ColState" @49
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(352, 1424)
+			    label      	(object ItemLabel
+				Parent_View 	@49
+				location   	(141, 1143)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	422
+				justify    	0
+				label      	"CCOL_ColState")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3C2935B60274"
+			    compartment 	(object Compartment
+				Parent_View 	@49
+				location   	(141, 1203)
+				icon_style 	"Icon"
+				fill_color 	16777215
+				anchor     	2
+				nlines     	10
+				max_width  	428)
+			    width      	440
+			    height     	586
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::GammaE_Math" @50
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(352, 1968)
+			    label      	(object ItemLabel
+				Parent_View 	@50
+				location   	(192, 1893)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	320
+				justify    	0
+				label      	"GammaE_Math")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3BD8A07F039B"
+			    width      	338
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object UsesView "" @51
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C293D3B03BC"
+			    client     	@49
+			    supplier   	@50
+			    line_style 	0)
+			(object ClassView "Class" "Logical View::Collision::CollisionSystem::CCOL_CollisionSystem" @52
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(352, 656)
+			    label      	(object ItemLabel
+				Parent_View 	@52
+				location   	(124, 375)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	456
+				justify    	0
+				label      	"CCOL_CollisionSystem")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	13421568
+			    quidu      	"3B6F1A7F02E4"
+			    compartment 	(object Compartment
+				Parent_View 	@52
+				location   	(124, 435)
+				icon_style 	"Icon"
+				fill_color 	16777215
+				anchor     	2
+				nlines     	10
+				max_width  	462)
+			    width      	474
+			    height     	586
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object UsesView "" @53
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C0A34E3026A"
+			    client     	@52
+			    supplier   	@46
+			    line_style 	0)
+			(object UsesView "" @54
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C1D2761020F"
+			    client     	@52
+			    supplier   	@47
+			    line_style 	0)
+			(object UsesView "" @55
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C2932FA00C9"
+			    client     	@52
+			    supplier   	@48
+			    line_style 	0)
+			(object UsesView "" @56
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C2936440228"
+			    client     	@52
+			    supplier   	@49
+			    line_style 	0)
+			(object ClassView "Class" "Logical View::Collision::Collider::CCOL_Collider" @57
+			    ShowCompartmentStereotypes 	TRUE
+			    location   	(1424, 832)
+			    label      	(object ItemLabel
+				Parent_View 	@57
+				location   	(1272, 757)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	304
+				justify    	0
+				label      	"CCOL_Collider")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	13421568
+			    quidu      	"3C06B92E0385"
+			    width      	322
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object AssociationViewNew "$UNNAMED$18" @58
+			    location   	(926, 828)
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C0C1BD1017F"
+			    roleview_list 	(list RoleViews
+				(object RoleView "$UNNAMED$19" @59
+				    Parent_View 	@58
+				    location   	(-178, -484)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C0C1BD102CA"
+				    client     	@58
+				    supplier   	@52
+				    line_style 	3
+				    origin_attachment 	(926, 828)
+				    terminal_attachment 	(589, 828))
+				(object RoleView "poColliders" @60
+				    Parent_View 	@58
+				    location   	(-178, -484)
+				    label      	(object SegLabel @61
+					Parent_View 	@60
+					location   	(926, 803)
+					anchor     	1
+					anchor_loc 	1
+					nlines     	1
+					max_width  	228
+					justify    	0
+					label      	"+poColliders"
+					pctDist    	0.000000
+					height     	25
+					orientation 	0)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C0C1BD102D4"
+				    client     	@58
+				    supplier   	@57
+				    line_style 	3
+				    origin_attachment 	(926, 828)
+				    terminal_attachment 	(1263, 828))))))))
+	(object Class_Category "CollisionUtils"
+	    quid       	"3B686EE501EA"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class "CCOL_TriList_BVRayTest"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Collision\\CollisionUtils\\CCOL_TriList_BVRayTest.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Collision\\CollisionUtils\\CCOL_TriList_BVRayTest.cpp"))
+		    quid       	"3C16A0340259"
+		    used_nodes 	(list uses_relationship_list
+			(object Uses_Relationship
+			    quid       	"3C2943820092"
+			    supplier   	"Logical View::Collision::COL_TriList::CCOL_TriList"
+			    quidu      	"3C1D01EF00DE")
+			(object Uses_Relationship
+			    quid       	"3C1D26EF002A"
+			    supplier   	"Logical View::E3D::GammaE_E3D"
+			    quidu      	"3C1BF3280328")
+			(object Uses_Relationship
+			    quid       	"3C16A126022F"
+			    supplier   	"Logical View::Math::GammaE_Math"
+			    quidu      	"3BD8A07F039B"))
+		    operations 	(list Operations
+			(object Operation "Test"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3C16A05A00EB"
+			    parameters 	(list Parameters
+				(object Parameter "_Center"
+				    type       	"CVect3&")
+				(object Parameter "_TriList"
+				    type       	"CCOL_TriList&")
+				(object Parameter "_iRayMask"
+				    type       	"int")
+				(object Parameter "_pa6fDists"
+				    type       	"float*")
+				(object Parameter "_pa6iTris"
+				    type       	"int*"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1008112117)
+			(object Operation "fGetRayTriListMinDist"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3C16A6860378"
+			    parameters 	(list Parameters
+				(object Parameter "_Ray"
+				    type       	"CRay&")
+				(object Parameter "_TriList"
+				    type       	"CCOL_TriList&")
+				(object Parameter "_Point"
+				    type       	"CVect3&")
+				(object Parameter "_iIdx"
+				    type       	"int&"))
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Protected"
+			    uid        	1008112120))
+		    language   	"C++"))
+	    logical_presentations 	(list unit_reference_list
+		(object ClassDiagram "Main"
+		    quid       	"3B686EEC0212"
+		    title      	"Main"
+		    zoom       	100
+		    max_height 	28350
+		    max_width  	21600
+		    origin_x   	0
+		    origin_y   	0
+		    items      	(list diagram_item_list
+			(object ClassView "Class" "Logical View::Collision::CollisionUtils::CCOL_TriList_BVRayTest" @62
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(608, 720)
+			    label      	(object ItemLabel
+				Parent_View 	@62
+				location   	(358, 614)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	500
+				justify    	0
+				label      	"CCOL_TriList_BVRayTest")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	13421568
+			    quidu      	"3C16A0340259"
+			    width      	518
+			    height     	236
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Math::GammaE_Math" @63
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(736, 304)
+			    label      	(object ItemLabel
+				Parent_View 	@63
+				location   	(582, 241)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	308
+				justify    	0
+				label      	"GammaE_Math")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3BD8A07F039B"
+			    width      	326
+			    height     	150
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::E3D::GammaE_E3D" @64
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(400, 304)
+			    label      	(object ItemLabel
+				Parent_View 	@64
+				location   	(260, 241)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	280
+				justify    	0
+				label      	"GammaE_E3D")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	12503208
+			    quidu      	"3C1BF3280328"
+			    width      	298
+			    height     	150
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Collision::COL_TriList::CCOL_TriList" @65
+			    ShowCompartmentStereotypes 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(1328, 720)
+			    label      	(object ItemLabel
+				Parent_View 	@65
+				location   	(1192, 645)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	272
+				justify    	0
+				label      	"CCOL_TriList")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3C1D01EF00DE"
+			    width      	290
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object UsesView "" @66
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C2943820092"
+			    client     	@62
+			    supplier   	@65
+			    line_style 	0)
+			(object UsesView "" @67
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C1D26EF002A"
+			    client     	@62
+			    supplier   	@64
+			    line_style 	3
+			    origin_attachment 	(403, 602)
+			    terminal_attachment 	(403, 379))
+			(object UsesView "" @68
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C16A126022F"
+			    client     	@62
+			    supplier   	@63
+			    line_style 	3
+			    origin_attachment 	(737, 602)
+			    terminal_attachment 	(737, 379))))))
+	(object Class_Category "COL_TriList"
+	    quid       	"3C1BEBCD00BD"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class "CCOL_TRN_TriListGen"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Collision\\COL_TriList\\CCOL_TRN_TriListGen.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Collision\\COL_TriList\\CCOL_TRN_TriListGen.cpp"))
+		    quid       	"3B5DED78033E"
+		    superclasses 	(list inheritance_relationship_list
+			(object Inheritance_Relationship
+			    quid       	"3C1BEC900367"
+			    supplier   	"Logical View::Collision::COL_TriList::CCOL_TriListGen"
+			    quidu      	"3C1BEC41027D"))
+		    used_nodes 	(list uses_relationship_list
+			(object Uses_Relationship
+			    quid       	"3B5DF60300FA"
+			    supplier   	"Logical View::TerrainData::GammaE_TerrainData"
+			    quidu      	"3B01A2F300F0")
+			(object Uses_Relationship
+			    quid       	"3C06CDC8013A"
+			    supplier   	"Logical View::Math::GammaE_Math"
+			    quidu      	"3BD8A07F039B"))
+		    operations 	(list Operations
+			(object Operation "GetHeight"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3B5DEDE30294"
+			    parameters 	(list Parameters
+				(object Parameter "fX"
+				    type       	"float")
+				(object Parameter "fY"
+				    type       	"float"))
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	996008335)
+			(object Operation "GetHeight"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3B5DF40402D0"
+			    parameters 	(list Parameters
+				(object Parameter "iX"
+				    type       	"int")
+				(object Parameter "iY"
+				    type       	"int"))
+			    result     	"float"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	996008338)
+			(object Operation "Init"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3B5DEF94005A"
+			    parameters 	(list Parameters
+				(object Parameter "_iSecsPerRow"
+				    type       	"int")
+				(object Parameter "_iSecsPerCol"
+				    type       	"int")
+				(object Parameter "_iSectorRes"
+				    type       	"int")
+				(object Parameter "_fSectorSize"
+				    type       	"float"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	996008336)
+			(object Operation "SetSector"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 203)))
+			    quid       	"3B5DEFBD0186"
+			    parameters 	(list Parameters
+				(object Parameter "iSect"
+				    type       	"int")
+				(object Parameter "HFSect"
+				    type       	"CHFSector *"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	996008337)
+			(object Operation "GetTriList"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 201)))
+			    quid       	"3C1BEE010245"
+			    parameters 	(list Parameters
+				(object Parameter "_roTriList"
+				    type       	"CCOL_TriList&")
+				(object Parameter "_roPos"
+				    type       	"CVect3&")
+				(object Parameter "_fRadius"
+				    type       	"float"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1008463030)
+			(object Operation "GetTrisFromMesh"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 201)))
+			    quid       	"3C1FE08B0114"
+			    parameters 	(list Parameters
+				(object Parameter "_roTriList"
+				    type       	"CCOL_TriList&")
+				(object Parameter "_poMesh"
+				    type       	"CMesh*")
+				(object Parameter "_iMat"
+				    type       	"int")
+				(object Parameter "_roPos"
+				    type       	"CVect3&")
+				(object Parameter "_fRadius"
+				    type       	"float"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1008711904))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "fSectorSize"
+			    quid       	"3B5DEE170190"
+			    type       	"float"
+			    static     	TRUE)
+			(object ClassAttribute "HFs"
+			    quid       	"3B5DEE1F008C"
+			    type       	"CHFSector* *"
+			    initv      	"NULL"
+			    static     	TRUE)
+			(object ClassAttribute "iSecsPerRow"
+			    quid       	"3B5DEE8701F4"
+			    type       	"int"
+			    initv      	"0"
+			    static     	TRUE)
+			(object ClassAttribute "iSecsPerCol"
+			    quid       	"3B5DEE8D0334"
+			    type       	"int"
+			    initv      	"0"
+			    static     	TRUE)
+			(object ClassAttribute "iSectorRes"
+			    quid       	"3B5DF2670046"
+			    type       	"int"
+			    initv      	"0"
+			    static     	TRUE)
+			(object ClassAttribute "fRatio"
+			    quid       	"3B5DF2C20320"
+			    type       	"float"
+			    initv      	"0"
+			    static     	TRUE)
+			(object ClassAttribute "iTWidth"
+			    quid       	"3C0C1061030F"
+			    type       	"int"
+			    initv      	"0"
+			    static     	TRUE)
+			(object ClassAttribute "iTHeight"
+			    quid       	"3C0C106C02C5"
+			    type       	"int"
+			    initv      	"0"
+			    static     	TRUE)
+			(object ClassAttribute "fInvRatio"
+			    quid       	"3C0D6F1C00A7"
+			    type       	"float"
+			    initv      	"0"
+			    static     	TRUE))
+		    language   	"C++")
+		(object Class "CCOL_Scn_TriListGen"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Collision\\COL_TriList\\CCOL_Scn_TriListGen.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Collision\\COL_TriList\\CCOL_Scn_TriListGen.cpp"))
+		    quid       	"3C0ED22E0331"
+		    superclasses 	(list inheritance_relationship_list
+			(object Inheritance_Relationship
+			    quid       	"3C1BEC930018"
+			    supplier   	"Logical View::Collision::COL_TriList::CCOL_TriListGen"
+			    quidu      	"3C1BEC41027D"))
+		    operations 	(list Operations
+			(object Operation "GetTriList"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 201)))
+			    quid       	"3C0ED24301BE"
+			    parameters 	(list Parameters
+				(object Parameter "_roTriList"
+				    type       	"CCOL_TriList&")
+				(object Parameter "_roPos"
+				    type       	"CVect3&")
+				(object Parameter "_fRadius"
+				    type       	"float"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1007604292)
+			(object Operation "GetTrisFromMesh"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 201)))
+			    quid       	"3C1FE0800281"
+			    parameters 	(list Parameters
+				(object Parameter "_roTriList"
+				    type       	"CCOL_TriList&")
+				(object Parameter "_poMesh"
+				    type       	"CMesh*")
+				(object Parameter "_iMat"
+				    type       	"int")
+				(object Parameter "_roPos"
+				    type       	"CVect3&")
+				(object Parameter "_fRadius"
+				    type       	"float"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1008711903))
+		    language   	"C++")
+		(object Class "CCOL_TriList"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Collision\\COL_TriList\\CCOL_TriList.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Collision\\COL_TriList\\CCOL_TriList.cpp"))
+		    quid       	"3C1D01EF00DE"
+		    used_nodes 	(list uses_relationship_list
+			(object Uses_Relationship
+			    quid       	"3C1D05B0000E"
+			    supplier   	"Logical View::Math::GammaE_Math"
+			    quidu      	"3BD8A07F039B"))
+		    operations 	(list Operations
+			(object Operation "Init"
+			    quid       	"3C1D02170208"
+			    parameters 	(list Parameters
+				(object Parameter "_iMaxTris"
+				    type       	"int"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1008534184)
+			(object Operation "Reset"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C1D03120322"
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1008534187)
+			(object Operation "iFreeTris"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C1D05520258"
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1008534188)
+			(object Operation "iAddTri"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C2A84600362"
+			    parameters 	(list Parameters
+				(object Parameter "_poVX"
+				    type       	"CVect3*")
+				(object Parameter "_roVN"
+				    type       	"CVect3&")
+				(object Parameter "_iMat"
+				    type       	"int")
+				(object Parameter "_fFrameFact"
+				    type       	"float"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1009406734)
+			(object Operation "iAddTri"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"Inline"
+				    value      	TRUE))
+			    quid       	"3C1D024901E2"
+			    parameters 	(list Parameters
+				(object Parameter "_roVX0"
+				    type       	"CVect3&")
+				(object Parameter "_roVX1"
+				    type       	"CVect3&")
+				(object Parameter "_roVX2"
+				    type       	"CVect3&")
+				(object Parameter "_roVN"
+				    type       	"CVect3&")
+				(object Parameter "_iMat"
+				    type       	"int")
+				(object Parameter "_fFrameFact"
+				    type       	"float"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1008534186))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "iMaxTris"
+			    quid       	"3C1D02090302"
+			    type       	"int"
+			    initv      	"0"
+			    exportControl 	"Public")
+			(object ClassAttribute "iNumTris"
+			    quid       	"3C1D020F02F7"
+			    type       	"int"
+			    initv      	"0"
+			    exportControl 	"Public")
+			(object ClassAttribute "poVXs"
+			    quid       	"3CCD0FD80292"
+			    type       	"CVect3 *"
+			    initv      	"NULL"
+			    exportControl 	"Public")
+			(object ClassAttribute "poVNs"
+			    quid       	"3CCD0FDE03A9"
+			    type       	"CVect3 *"
+			    initv      	"NULL"
+			    exportControl 	"Public")
+			(object ClassAttribute "piMats"
+			    quid       	"3CCD0FE7004F"
+			    type       	"int *"
+			    initv      	"NULL"
+			    exportControl 	"Public")
+			(object ClassAttribute "pfFrameFacts"
+			    quid       	"3CCD0FEC024B"
+			    type       	"float *"
+			    initv      	"NULL"
+			    exportControl 	"Public"))
+		    language   	"C++")
+		(object Class "CCOL_TriListGen"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"CodeFile"
+			    value      	"$ROSECPP_SOURCE\\Collision\\COL_TriList\\CCOL_TriListGen.h")
+			(object Attribute
+			    tool       	"Traversal"
+			    name       	"BodyFile"
+			    value      	"$ROSECPP_SOURCE\\Collision\\COL_TriList\\CCOL_TriListGen.cpp"))
+		    quid       	"3C1BEC41027D"
+		    used_nodes 	(list uses_relationship_list
+			(object Uses_Relationship
+			    quid       	"3C1BF54103D4"
+			    supplier   	"Logical View::E3D::GammaE_E3D"
+			    quidu      	"3C1BF3280328")
+			(object Uses_Relationship
+			    quid       	"3C1BF22F0207"
+			    supplier   	"Logical View::Math::GammaE_Math"
+			    quidu      	"3BD8A07F039B")
+			(object Uses_Relationship
+			    quid       	"3C1D056E0226"
+			    supplier   	"Logical View::Collision::COL_TriList::CCOL_TriList"
+			    quidu      	"3C1D01EF00DE"))
+		    operations 	(list Operations
+			(object Operation "GetTriList"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 201)))
+			    quid       	"3C1BED3502F6"
+			    parameters 	(list Parameters
+				(object Parameter "_roTriList"
+				    type       	"CCOL_TriList&")
+				(object Parameter "_roPos"
+				    type       	"CVect3&")
+				(object Parameter "_fRadius"
+				    type       	"float"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1008463028)
+			(object Operation "SetMeshes"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 201)))
+			    quid       	"3C1BED5F0256"
+			    parameters 	(list Parameters
+				(object Parameter "_poMeshes"
+				    type       	"CMesh**")
+				(object Parameter "_piMats"
+				    type       	"int*")
+				(object Parameter "_iNumMeshes"
+				    type       	"int"))
+			    result     	"void"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1008463029)
+			(object Operation "GetTrisFromMesh"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"cg"
+				    name       	"OperationKind"
+				    value      	("OperationKindSet" 201)))
+			    quid       	"3C1FE04D016F"
+			    parameters 	(list Parameters
+				(object Parameter "_roTriList"
+				    type       	"CCOL_TriList&")
+				(object Parameter "_poMesh"
+				    type       	"CMesh*")
+				(object Parameter "_iMat"
+				    type       	"int")
+				(object Parameter "_roPos"
+				    type       	"CVect3&")
+				(object Parameter "_fRadius"
+				    type       	"float"))
+			    result     	"int"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	1008711902))
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "poMeshes"
+			    quid       	"3C1BED81016E"
+			    type       	"CMesh* *"
+			    initv      	"NULL"
+			    exportControl 	"Protected"
+			    static     	TRUE)
+			(object ClassAttribute "piMats"
+			    quid       	"3CCD03E702FB"
+			    type       	"int *"
+			    initv      	"NULL"
+			    exportControl 	"Protected"
+			    static     	TRUE)
+			(object ClassAttribute "iNumMeshes"
+			    quid       	"3C1BED8D03D9"
+			    type       	"int"
+			    initv      	"0"
+			    exportControl 	"Protected"
+			    static     	TRUE))
+		    language   	"C++"))
+	    logical_presentations 	(list unit_reference_list
+		(object ClassDiagram "Main"
+		    quid       	"3C1BEC2A00E9"
+		    title      	"Main"
+		    zoom       	100
+		    max_height 	28350
+		    max_width  	21600
+		    origin_x   	0
+		    origin_y   	0
+		    items      	(list diagram_item_list
+			(object ClassView "Class" "Logical View::Collision::COL_TriList::CCOL_TRN_TriListGen" @69
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(1392, 1328)
+			    label      	(object ItemLabel
+				Parent_View 	@69
+				location   	(1095, 897)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	594
+				justify    	0
+				label      	"CCOL_TRN_TriListGen")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	13421568
+			    quidu      	"3B5DED78033E"
+			    compartment 	(object Compartment
+				Parent_View 	@69
+				location   	(1095, 957)
+				icon_style 	"Icon"
+				fill_color 	16777215
+				anchor     	2
+				nlines     	16
+				max_width  	600)
+			    width      	612
+			    height     	886
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Collision::COL_TriList::CCOL_TriListGen" @70
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(1856, 496)
+			    label      	(object ItemLabel
+				Parent_View 	@70
+				location   	(1539, 290)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	634
+				justify    	0
+				label      	"CCOL_TriListGen")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	13421568
+			    quidu      	"3C1BEC41027D"
+			    compartment 	(object Compartment
+				Parent_View 	@70
+				location   	(1539, 350)
+				icon_style 	"Icon"
+				fill_color 	16777215
+				anchor     	2
+				nlines     	7
+				max_width  	640)
+			    width      	652
+			    height     	436
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object InheritTreeView "" @71
+			    location   	(1738, 806)
+			    line_color 	32896
+			    fill_color 	4227327
+			    supplier   	@70
+			    vertices   	(list Points
+				(1738, 806)
+				(1738, 714)))
+			(object InheritView "" @72
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C1BEC900367"
+			    client     	@69
+			    supplier   	@70
+			    line_style 	3
+			    origin_attachment 	(1432, 885)
+			    terminal_attachment 	(1432, 806)
+			    drawSupplier 	@71)
+			(object ClassView "Class" "Logical View::Collision::COL_TriList::CCOL_Scn_TriListGen" @73
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(2064, 992)
+			    label      	(object ItemLabel
+				Parent_View 	@73
+				location   	(1845, 886)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	438
+				justify    	0
+				label      	"CCOL_Scn_TriListGen")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	13421568
+			    quidu      	"3C0ED22E0331"
+			    compartment 	(object Compartment
+				Parent_View 	@73
+				location   	(1845, 946)
+				icon_style 	"Icon"
+				fill_color 	16777215
+				anchor     	2
+				nlines     	3
+				max_width  	409)
+			    width      	456
+			    height     	236
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object InheritView "" @74
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C1BEC930018"
+			    client     	@73
+			    supplier   	@70
+			    line_style 	3
+			    origin_attachment 	(2072, 874)
+			    terminal_attachment 	(2072, 806)
+			    drawSupplier 	@71)
+			(object ClassView "Class" "Logical View::Math::GammaE_Math" @75
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(2576, 336)
+			    label      	(object ItemLabel
+				Parent_View 	@75
+				location   	(2422, 273)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	308
+				justify    	0
+				label      	"GammaE_Math")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	4227327
+			    quidu      	"3BD8A07F039B"
+			    width      	326
+			    height     	150
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object UsesView "" @76
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C1BF22F0207"
+			    client     	@70
+			    supplier   	@75
+			    line_style 	0)
+			(object ClassView "Class" "Logical View::E3D::GammaE_E3D" @77
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(2576, 624)
+			    label      	(object ItemLabel
+				Parent_View 	@77
+				location   	(2424, 549)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	304
+				justify    	0
+				label      	"GammaE_E3D")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	12503208
+			    quidu      	"3C1BF3280328"
+			    width      	322
+			    height     	174
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object UsesView "" @78
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C1BF54103D4"
+			    client     	@70
+			    supplier   	@77
+			    line_style 	0)
+			(object ClassView "Class" "Logical View::Collision::COL_TriList::CCOL_TriList" @79
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(1024, 432)
+			    label      	(object ItemLabel
+				Parent_View 	@79
+				location   	(727, 101)
+				fill_color 	4227327
+				nlines     	1
+				max_width  	594
+				justify    	0
+				label      	"CCOL_TriList")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	13421568
+			    quidu      	"3C1D01EF00DE"
+			    compartment 	(object Compartment
+				Parent_View 	@79
+				location   	(727, 161)
+				icon_style 	"Icon"
+				fill_color 	16777215
+				anchor     	2
+				nlines     	12
+				max_width  	600)
+			    width      	612
+			    height     	686
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object UsesView "" @80
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C1D056E0226"
+			    client     	@70
+			    supplier   	@79
+			    line_style 	3
+			    origin_attachment 	(1530, 478)
+			    terminal_attachment 	(1330, 478))
+			(object UsesView "" @81
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C1D05B0000E"
+			    client     	@79
+			    supplier   	@75
+			    vertices   	(list Points
+				(1087, 89)
+				(1087, 31)
+				(2578, 31)
+				(2578, 261))
+			    line_style 	3
+			    origin_attachment 	(1087, 89)
+			    terminal_attachment 	(2578, 261))))))
+	(object Class_Category "COL_Testers"
+	    quid       	"3C081CF10048"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class_Category "COL_StaticTest"
+		    quid       	"3C1FBE770329"
+		    exportControl 	"Public"
+		    logical_models 	(list unit_reference_list
+			(object Class "CCOL_ST_Box"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"CodeFile"
+				    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_StaticTest\\CCOL_ST_Box.h")
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"BodyFile"
+				    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_StaticTest\\CCOL_ST_Box.cpp"))
+			    quid       	"3C0824C801D4"
+			    used_nodes 	(list uses_relationship_list
+				(object Uses_Relationship
+				    quid       	"3C0828E50337"
+				    supplier   	"Logical View::Math::GammaE_Math"
+				    quidu      	"3BD8A07F039B"))
+			    operations 	(list Operations
+				(object Operation "iTestSphere"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C0826EC0023"
+				    parameters 	(list Parameters
+					(object Parameter "_roSMaxs"
+					    type       	"CVect3&")
+					(object Parameter "_roSMins"
+					    type       	"CVect3&")
+					(object Parameter "_roDCenter"
+					    type       	"CVect3&")
+					(object Parameter "_fDRadius"
+					    type       	"float"))
+				    result     	"int"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1007160421)
+				(object Operation "iTestBox"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C0826EC0037"
+				    parameters 	(list Parameters
+					(object Parameter "_roSMaxs"
+					    type       	"CVect3&")
+					(object Parameter "_roSMins"
+					    type       	"CVect3&")
+					(object Parameter "_roDMaxs"
+					    type       	"CVect3&")
+					(object Parameter "_roDMins"
+					    type       	"CVect3&"))
+				    result     	"int"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1007160422)
+				(object Operation "iTestPoint"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C0826EC004B"
+				    parameters 	(list Parameters
+					(object Parameter "_roSMaxs"
+					    type       	"CVect3&")
+					(object Parameter "_roSMins"
+					    type       	"CVect3&")
+					(object Parameter "_roDPoint"
+					    type       	"CVect3&"))
+				    result     	"int"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1007160423))
+			    language   	"C++")
+			(object Class "CCOL_ST_Sphere"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"CodeFile"
+				    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_StaticTest\\CCOL_ST_Sphere.h")
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"BodyFile"
+				    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_StaticTest\\CCOL_ST_Sphere.cpp"))
+			    quid       	"3C0822A10055"
+			    used_nodes 	(list uses_relationship_list
+				(object Uses_Relationship
+				    quid       	"3C0AA52F0136"
+				    supplier   	"Logical View::Collision::COL_Testers::COL_StaticTest::CCOL_ST_Box"
+				    quidu      	"3C0824C801D4")
+				(object Uses_Relationship
+				    quid       	"3C0828D0008D"
+				    supplier   	"Logical View::Math::GammaE_Math"
+				    quidu      	"3BD8A07F039B"))
+			    operations 	(list Operations
+				(object Operation "iTestSphere"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C0824BD0282"
+				    parameters 	(list Parameters
+					(object Parameter "_roSCenter"
+					    type       	"CVect3&")
+					(object Parameter "_fSRadius"
+					    type       	"float")
+					(object Parameter "_roDCenter"
+					    type       	"CVect3&")
+					(object Parameter "_fDRadius"
+					    type       	"float"))
+				    result     	"int"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1007160418)
+				(object Operation "iTestBox"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C0824BD0296"
+				    parameters 	(list Parameters
+					(object Parameter "_roSCenter"
+					    type       	"CVect3&")
+					(object Parameter "_fSRadius"
+					    type       	"float")
+					(object Parameter "_roDMaxs"
+					    type       	"CVect3&")
+					(object Parameter "_roDMins"
+					    type       	"CVect3&"))
+				    result     	"int"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1007160419)
+				(object Operation "iTestPoint"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C0824BD02AA"
+				    parameters 	(list Parameters
+					(object Parameter "_roSCenter"
+					    type       	"CVect3&")
+					(object Parameter "_fSRadius"
+					    type       	"float")
+					(object Parameter "_roDPoint"
+					    type       	"CVect3&"))
+				    result     	"int"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1007160420))
+			    language   	"C++")
+			(object Class "CCOL_ST_ColTester"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"CodeFile"
+				    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_StaticTest\\CCOL_ST_ColTester.h")
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"BodyFile"
+				    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_StaticTest\\CCOL_ST_ColTester.cpp"))
+			    quid       	"3B7AF1BC01C2"
+			    used_nodes 	(list uses_relationship_list
+				(object Uses_Relationship
+				    quid       	"3C082533011A"
+				    supplier   	"Logical View::Collision::COL_Testers::COL_StaticTest::CCOL_ST_Sphere"
+				    quidu      	"3C0822A10055")
+				(object Uses_Relationship
+				    quid       	"3C0825390317"
+				    supplier   	"Logical View::Collision::COL_Testers::COL_StaticTest::CCOL_ST_Box"
+				    quidu      	"3C0824C801D4")
+				(object Uses_Relationship
+				    quid       	"3C4DE5A00072"
+				    supplier   	"Logical View::Collision::COL_Testers::COL_StaticTest::CCOL_ST_Point"
+				    quidu      	"3C4DE4F802B6")
+				(object Uses_Relationship
+				    quid       	"3C1D26EB02AF"
+				    supplier   	"Logical View::E3D::GammaE_E3D"
+				    quidu      	"3C1BF3280328"))
+			    operations 	(list Operations
+				(object Operation "iTestCollision"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3B7AF3D502E6"
+				    parameters 	(list Parameters
+					(object Parameter "SrcObj"
+					    type       	"CGraphBV *")
+					(object Parameter "DstObj"
+					    type       	"CGraphBV *"))
+				    result     	"int"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	997912317)
+				(object Operation "iTestPlane"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C0823D50293"
+				    parameters 	(list Parameters
+					(object Parameter "_SrcObj"
+					    type       	"CGraphBV *")
+					(object Parameter "Plane"
+					    type       	"CPlane&"))
+				    result     	"int"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1007160414))
+			    language   	"C++")
+			(object Class "CCOL_ST_Tris"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"CodeFile"
+				    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_StaticTest\\CCOL_ST_Tris.h")
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"BodyFile"
+				    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_StaticTest\\CCOL_ST_Tris.cpp"))
+			    quid       	"3C0D5B9F007B"
+			    used_nodes 	(list uses_relationship_list
+				(object Uses_Relationship
+				    quid       	"3C0D5C2D0333"
+				    supplier   	"Logical View::Math::GammaE_Math"
+				    quidu      	"3BD8A07F039B")
+				(object Uses_Relationship
+				    quid       	"3C1D26E402A5"
+				    supplier   	"Logical View::E3D::GammaE_E3D"
+				    quidu      	"3C1BF3280328"))
+			    operations 	(list Operations
+				(object Operation "iTestCollision"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C0D5BB3026F"
+				    parameters 	(list Parameters
+					(object Parameter "_pVXs"
+					    type       	"CVect3*")
+					(object Parameter "_pVNs"
+					    type       	"CVect3*")
+					(object Parameter "_iNumTris"
+					    type       	"int")
+					(object Parameter "_BV"
+					    type       	"CGraphBV*")
+					(object Parameter "_Pos"
+					    type       	"CVect3&"))
+				    result     	"int"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1007508516)
+				(object Operation "iTestCollisionSphere"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C0D5CA8007D"
+				    parameters 	(list Parameters
+					(object Parameter "_fRad"
+					    type       	"float")
+					(object Parameter "_Center"
+					    type       	"CVect3&"))
+				    result     	"int"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1007508517)
+				(object Operation "iTestCollisionBox"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C0D5CF80276"
+				    parameters 	(list Parameters
+					(object Parameter "_Maxs"
+					    type       	"CVect3&")
+					(object Parameter "_Mins"
+					    type       	"CVect3&"))
+				    result     	"int"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1007508518)
+				(object Operation "iTestCollisionRay"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C0D5D00026E"
+				    parameters 	(list Parameters
+					(object Parameter "_Ray"
+					    type       	"CRay&"))
+				    result     	"int"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1007508519)
+				(object Operation "iTestTriangleSphere"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C100DCE00A9"
+				    parameters 	(list Parameters
+					(object Parameter "_pVXs"
+					    type       	"CVect3*")
+					(object Parameter "_fRad"
+					    type       	"float")
+					(object Parameter "_Center"
+					    type       	"CVect3&"))
+				    result     	"int"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1007685155)
+				(object Operation "iTestTriangleBox"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C100DEF0273"
+				    parameters 	(list Parameters
+					(object Parameter "_pVXs"
+					    type       	"CVect3*")
+					(object Parameter "_Maxs"
+					    type       	"CVect3&")
+					(object Parameter "_Mins"
+					    type       	"CVect3&"))
+				    result     	"int"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1007685156)
+				(object Operation "iTestTriangleRay"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C100E01000C"
+				    parameters 	(list Parameters
+					(object Parameter "_pVXs"
+					    type       	"CVect3*")
+					(object Parameter "_Ray"
+					    type       	"CRay&"))
+				    result     	"int"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1007685157))
+			    class_attributes 	(list class_attribute_list
+				(object ClassAttribute "Tri"
+				    quid       	"3C0D5C0D00FC"
+				    type       	"int"
+				    exportControl 	"Public"
+				    static     	TRUE)
+				(object ClassAttribute "pVX"
+				    quid       	"3C0D5CD60390"
+				    type       	"CVect3 *"
+				    initv      	"NULL"
+				    exportControl 	"Protected"
+				    static     	TRUE)
+				(object ClassAttribute "pVN"
+				    quid       	"3C0D5CDE01BB"
+				    type       	"CVect3 *"
+				    initv      	"NULL"
+				    exportControl 	"Protected"
+				    static     	TRUE)
+				(object ClassAttribute "iNumTris"
+				    quid       	"3C0D5CE3032A"
+				    type       	"int"
+				    exportControl 	"Protected"
+				    static     	TRUE)
+				(object ClassAttribute "Pos"
+				    quid       	"3C0D6CFC0131"
+				    type       	"CVect3"
+				    exportControl 	"Protected"
+				    static     	TRUE))
+			    language   	"C++")
+			(object Class "CCOL_ST_Point"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"CodeFile"
+				    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_StaticTest\\CCOL_ST_Point.h")
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"BodyFile"
+				    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_StaticTest\\CCOL_ST_Point.cpp"))
+			    quid       	"3C4DE4F802B6"
+			    used_nodes 	(list uses_relationship_list
+				(object Uses_Relationship
+				    quid       	"3C4DE594018D"
+				    supplier   	"Logical View::Math::GammaE_Math"
+				    quidu      	"3BD8A07F039B"))
+			    operations 	(list Operations
+				(object Operation "iTestSphere"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C4DE511026B"
+				    parameters 	(list Parameters
+					(object Parameter "_roSPoint"
+					    type       	"CVect3&")
+					(object Parameter "_roDCenter"
+					    type       	"CVect3&")
+					(object Parameter "_fDRadius"
+					    type       	"float"))
+				    result     	"int"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1011738050)
+				(object Operation "iTestBox"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C4DE5260009"
+				    parameters 	(list Parameters
+					(object Parameter "_roSPoint"
+					    type       	"CVect3&")
+					(object Parameter "_roDMaxs"
+					    type       	"CVect3&")
+					(object Parameter "_roDMins"
+					    type       	"CVect3&"))
+				    result     	"int"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1011738051)
+				(object Operation "iTestPoint"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C4DE55303E3"
+				    parameters 	(list Parameters
+					(object Parameter "_roSPoint"
+					    type       	"CVect3&")
+					(object Parameter "_roDPoint"
+					    type       	"CVect3&"))
+				    result     	"int"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1011738052))
+			    language   	"C++"))
+		    logical_presentations 	(list unit_reference_list
+			(object ClassDiagram "Main"
+			    quid       	"3C1FBEC3035A"
+			    title      	"Main"
+			    zoom       	100
+			    max_height 	28350
+			    max_width  	21600
+			    origin_x   	0
+			    origin_y   	0
+			    items      	(list diagram_item_list
+				(object ClassView "Class" "Logical View::Collision::COL_Testers::COL_StaticTest::CCOL_ST_Box" @82
+				    ShowCompartmentStereotypes 	TRUE
+				    IncludeAttribute 	TRUE
+				    IncludeOperation 	TRUE
+				    location   	(1472, 1744)
+				    label      	(object ItemLabel
+					Parent_View 	@82
+					location   	(1319, 1613)
+					fill_color 	4227327
+					nlines     	1
+					max_width  	306
+					justify    	0
+					label      	"CCOL_ST_Box")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	13421568
+				    quidu      	"3C0824C801D4"
+				    compartment 	(object Compartment
+					Parent_View 	@82
+					location   	(1319, 1673)
+					icon_style 	"Icon"
+					fill_color 	16777215
+					anchor     	2
+					nlines     	4
+					max_width  	300)
+				    width      	324
+				    height     	286
+				    annotation 	8
+				    autoResize 	TRUE)
+				(object ClassView "Class" "Logical View::Collision::COL_Testers::COL_StaticTest::CCOL_ST_Sphere" @83
+				    ShowCompartmentStereotypes 	TRUE
+				    IncludeAttribute 	TRUE
+				    IncludeOperation 	TRUE
+				    location   	(1488, 1296)
+				    label      	(object ItemLabel
+					Parent_View 	@83
+					location   	(1305, 1165)
+					fill_color 	4227327
+					nlines     	1
+					max_width  	366
+					justify    	0
+					label      	"CCOL_ST_Sphere")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	13421568
+				    quidu      	"3C0822A10055"
+				    compartment 	(object Compartment
+					Parent_View 	@83
+					location   	(1305, 1225)
+					icon_style 	"Icon"
+					fill_color 	16777215
+					anchor     	2
+					nlines     	4
+					max_width  	300)
+				    width      	384
+				    height     	286
+				    annotation 	8
+				    autoResize 	TRUE)
+				(object ClassView "Class" "Logical View::Collision::COL_Testers::COL_StaticTest::CCOL_ST_ColTester" @84
+				    ShowCompartmentStereotypes 	TRUE
+				    IncludeAttribute 	TRUE
+				    IncludeOperation 	TRUE
+				    location   	(640, 1392)
+				    label      	(object ItemLabel
+					Parent_View 	@84
+					location   	(434, 1286)
+					fill_color 	4227327
+					nlines     	1
+					max_width  	412
+					justify    	0
+					label      	"CCOL_ST_ColTester")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	13421568
+				    quidu      	"3B7AF1BC01C2"
+				    compartment 	(object Compartment
+					Parent_View 	@84
+					location   	(434, 1346)
+					icon_style 	"Icon"
+					fill_color 	16777215
+					anchor     	2
+					nlines     	3
+					max_width  	325)
+				    width      	430
+				    height     	236
+				    annotation 	8
+				    autoResize 	TRUE)
+				(object ClassView "Class" "Logical View::Collision::COL_Testers::COL_StaticTest::CCOL_ST_Tris" @85
+				    ShowCompartmentStereotypes 	TRUE
+				    IncludeAttribute 	TRUE
+				    IncludeOperation 	TRUE
+				    location   	(816, 384)
+				    label      	(object ItemLabel
+					Parent_View 	@85
+					location   	(559, 29)
+					fill_color 	4227327
+					nlines     	1
+					max_width  	514
+					justify    	0
+					label      	"CCOL_ST_Tris")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	13421568
+				    quidu      	"3C0D5B9F007B"
+				    compartment 	(object Compartment
+					Parent_View 	@85
+					location   	(559, 89)
+					icon_style 	"Icon"
+					fill_color 	16777215
+					anchor     	2
+					nlines     	13
+					max_width  	521)
+				    width      	532
+				    height     	734
+				    annotation 	8
+				    autoResize 	TRUE)
+				(object ClassView "Class" "Logical View::Collision::COL_Testers::COL_StaticTest::CCOL_ST_Point" @86
+				    ShowCompartmentStereotypes 	TRUE
+				    IncludeAttribute 	TRUE
+				    IncludeOperation 	TRUE
+				    location   	(1472, 2096)
+				    label      	(object ItemLabel
+					Parent_View 	@86
+					location   	(1307, 1965)
+					fill_color 	4227327
+					nlines     	1
+					max_width  	330
+					justify    	0
+					label      	"CCOL_ST_Point")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	4227327
+				    quidu      	"3C4DE4F802B6"
+				    compartment 	(object Compartment
+					Parent_View 	@86
+					location   	(1307, 2025)
+					icon_style 	"Icon"
+					fill_color 	16777215
+					anchor     	2
+					nlines     	4
+					max_width  	300)
+				    width      	348
+				    height     	286
+				    annotation 	8
+				    autoResize 	TRUE)
+				(object UsesView "" @87
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C0AA52F0136"
+				    client     	@83
+				    supplier   	@82
+				    line_style 	3
+				    origin_attachment 	(1501, 1439)
+				    terminal_attachment 	(1501, 1601))
+				(object UsesView "" @88
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C082533011A"
+				    client     	@84
+				    supplier   	@83
+				    line_style 	3
+				    origin_attachment 	(855, 1350)
+				    terminal_attachment 	(1296, 1350))
+				(object UsesView "" @89
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C0825390317"
+				    client     	@84
+				    supplier   	@82
+				    vertices   	(list Points
+					(653, 1510)
+					(653, 1716)
+					(1310, 1716))
+				    line_style 	3
+				    origin_attachment 	(653, 1510)
+				    terminal_attachment 	(1310, 1716))
+				(object UsesView "" @90
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C4DE5A00072"
+				    client     	@84
+				    supplier   	@86
+				    vertices   	(list Points
+					(640, 1510)
+					(640, 2007)
+					(1298, 2007))
+				    line_style 	3
+				    origin_attachment 	(640, 1510)
+				    terminal_attachment 	(1298, 2007))
+				(object ClassView "Class" "Logical View::Math::GammaE_Math" @91
+				    ShowCompartmentStereotypes 	TRUE
+				    IncludeAttribute 	TRUE
+				    IncludeOperation 	TRUE
+				    ShowOperationSignature 	TRUE
+				    location   	(1040, 928)
+				    label      	(object ItemLabel
+					Parent_View 	@91
+					location   	(886, 865)
+					fill_color 	4227327
+					nlines     	1
+					max_width  	308
+					justify    	0
+					label      	"GammaE_Math")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	4227327
+				    quidu      	"3BD8A07F039B"
+				    width      	326
+				    height     	150
+				    annotation 	8
+				    autoResize 	TRUE)
+				(object ClassView "Class" "Logical View::E3D::GammaE_E3D" @92
+				    ShowCompartmentStereotypes 	TRUE
+				    IncludeAttribute 	TRUE
+				    ShowOperationSignature 	TRUE
+				    location   	(672, 928)
+				    label      	(object ItemLabel
+					Parent_View 	@92
+					location   	(520, 853)
+					fill_color 	4227327
+					nlines     	1
+					max_width  	304
+					justify    	0
+					label      	"GammaE_E3D")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	12503208
+				    quidu      	"3C1BF3280328"
+				    width      	322
+				    height     	174
+				    annotation 	8
+				    autoResize 	TRUE)
+				(object UsesView "" @93
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C1D26E402A5"
+				    client     	@85
+				    supplier   	@92
+				    line_style 	0)
+				(object UsesView "" @94
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C1D26EB02AF"
+				    client     	@84
+				    supplier   	@92
+				    line_style 	3
+				    origin_attachment 	(672, 1274)
+				    terminal_attachment 	(672, 1015))
+				(object UsesView "" @95
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C4DE594018D"
+				    client     	@86
+				    supplier   	@91
+				    vertices   	(list Points
+					(1646, 2089)
+					(1877, 2089)
+					(1877, 895)
+					(1203, 895))
+				    line_style 	3
+				    origin_attachment 	(1646, 2089)
+				    terminal_attachment 	(1203, 895))
+				(object UsesView "" @96
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C0D5C2D0333"
+				    client     	@85
+				    supplier   	@91
+				    line_style 	0)
+				(object UsesView "" @97
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C0828D0008D"
+				    client     	@83
+				    supplier   	@91
+				    vertices   	(list Points
+					(1476, 1153)
+					(1476, 971)
+					(1203, 971))
+				    line_style 	3
+				    origin_attachment 	(1476, 1153)
+				    terminal_attachment 	(1203, 971))
+				(object UsesView "" @98
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C0828E50337"
+				    client     	@82
+				    supplier   	@91
+				    vertices   	(list Points
+					(1634, 1711)
+					(1738, 1711)
+					(1738, 933)
+					(1203, 933))
+				    line_style 	3
+				    origin_attachment 	(1634, 1711)
+				    terminal_attachment 	(1203, 933))))))
+		(object Class_Category "COL_DynamicTest"
+		    quid       	"3C1FBE860262"
+		    exportControl 	"Public"
+		    logical_models 	(list unit_reference_list
+			(object Class "CCOL_DT_Box"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"CodeFile"
+				    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_DynamicTest\\CCOL_DT_Box.h")
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"BodyFile"
+				    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_DynamicTest\\CCOL_DT_Box.cpp"))
+			    quid       	"3C1FBD52007E"
+			    used_nodes 	(list uses_relationship_list
+				(object Uses_Relationship
+				    quid       	"3C1FD1710223"
+				    supplier   	"Logical View::Collision::COL_Testers::COL_StaticTest::CCOL_ST_Box"
+				    quidu      	"3C0824C801D4")
+				(object Uses_Relationship
+				    quid       	"3C2936E300E6"
+				    supplier   	"Logical View::Collision::CollisionSystem::CCOL_ColState"
+				    quidu      	"3C2935B60274"))
+			    operations 	(list Operations
+				(object Operation "fTestSphere"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C1FBD6101AC"
+				    parameters 	(list Parameters
+					(object Parameter "_roSMaxs"
+					    type       	"CVect3&")
+					(object Parameter "_roSMins"
+					    type       	"CVect3&")
+					(object Parameter "_roDCenter"
+					    type       	"CVect3&")
+					(object Parameter "_fDRadius"
+					    type       	"float"))
+				    result     	"float"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1008711893)
+				(object Operation "fTestBox"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C1FBD670237"
+				    parameters 	(list Parameters
+					(object Parameter "_roSMaxs"
+					    type       	"CVect3&")
+					(object Parameter "_roSMins"
+					    type       	"CVect3&")
+					(object Parameter "_roDMaxs"
+					    type       	"CVect3&")
+					(object Parameter "_roDMins"
+					    type       	"CVect3&"))
+				    result     	"float"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1008711894)
+				(object Operation "fTestPoint"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C1FBD6B03CE"
+				    parameters 	(list Parameters
+					(object Parameter "_roSMaxs"
+					    type       	"CVect3&")
+					(object Parameter "_roSMins"
+					    type       	"CVect3&")
+					(object Parameter "_roDPoint"
+					    type       	"CVect3&"))
+				    result     	"float"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1008711895))
+			    language   	"C++")
+			(object Class "CCOL_DT_Sphere"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"CodeFile"
+				    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_DynamicTest\\CCOL_DT_Sphere.h")
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"BodyFile"
+				    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_DynamicTest\\CCOL_DT_Sphere.cpp"))
+			    quid       	"3C1FBCC302E6"
+			    used_nodes 	(list uses_relationship_list
+				(object Uses_Relationship
+				    quid       	"3C1FBFD101F0"
+				    supplier   	"Logical View::Collision::COL_Testers::COL_DynamicTest::CCOL_DT_Box"
+				    quidu      	"3C1FBD52007E")
+				(object Uses_Relationship
+				    quid       	"3C2936E10223"
+				    supplier   	"Logical View::Collision::CollisionSystem::CCOL_ColState"
+				    quidu      	"3C2935B60274"))
+			    operations 	(list Operations
+				(object Operation "fTestSphere"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C1FBCD3009A"
+				    parameters 	(list Parameters
+					(object Parameter "_roSCenter"
+					    type       	"CVect3&")
+					(object Parameter "_fSRadius"
+					    type       	"float")
+					(object Parameter "_roDCenter"
+					    type       	"CVect3&")
+					(object Parameter "_fDRadius"
+					    type       	"float"))
+				    result     	"float"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1008711896)
+				(object Operation "fTestBox"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C1FBCD802B4"
+				    parameters 	(list Parameters
+					(object Parameter "_roSCenter"
+					    type       	"CVect3&")
+					(object Parameter "_fSRadius"
+					    type       	"float")
+					(object Parameter "_roDMaxs"
+					    type       	"CVect3&")
+					(object Parameter "_roDMins"
+					    type       	"CVect3&"))
+				    result     	"float"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1008711897)
+				(object Operation "fTestPoint"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C1FBCF202BB"
+				    parameters 	(list Parameters
+					(object Parameter "_roSCenter"
+					    type       	"CVect3&")
+					(object Parameter "_fSRadius"
+					    type       	"float")
+					(object Parameter "_roDPoint"
+					    type       	"CVect3&"))
+				    result     	"float"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1008711898))
+			    language   	"C++")
+			(object Class "CCOL_DT_ColTester"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"CodeFile"
+				    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_DynamicTest\\CCOL_DT_ColTester.h")
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"BodyFile"
+				    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_DynamicTest\\CCOL_DT_ColTester.cpp"))
+			    quid       	"3C1FBC350287"
+			    used_nodes 	(list uses_relationship_list
+				(object Uses_Relationship
+				    quid       	"3C1FBDAD0148"
+				    supplier   	"Logical View::Collision::COL_Testers::COL_DynamicTest::CCOL_DT_Sphere"
+				    quidu      	"3C1FBCC302E6")
+				(object Uses_Relationship
+				    quid       	"3C1FBDAF01C3"
+				    supplier   	"Logical View::Collision::COL_Testers::COL_DynamicTest::CCOL_DT_Box"
+				    quidu      	"3C1FBD52007E")
+				(object Uses_Relationship
+				    quid       	"3C291CFD009C"
+				    supplier   	"Logical View::Collision::COL_Testers::COL_DynamicTest::CCOL_DT_Tri"
+				    quidu      	"3C291C7D0387")
+				(object Uses_Relationship
+				    quid       	"3C2936D80307"
+				    supplier   	"Logical View::Collision::CollisionSystem::CCOL_ColState"
+				    quidu      	"3C2935B60274")
+				(object Uses_Relationship
+				    quid       	"3C4DB16002E4"
+				    supplier   	"Logical View::Collision::COL_Testers::COL_DynamicTest::CCOL_DT_Point"
+				    quidu      	"3C4DB0B60195")
+				(object Uses_Relationship
+				    quid       	"3C1FBE420322"
+				    supplier   	"Logical View::E3D::GammaE_E3D"
+				    quidu      	"3C1BF3280328"))
+			    operations 	(list Operations
+				(object Operation "fTestCollision"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C1FBC5C0049"
+				    parameters 	(list Parameters
+					(object Parameter "SrcObj"
+					    type       	"CGraphBV *")
+					(object Parameter "DstObj"
+					    type       	"CGraphBV *"))
+				    result     	"float"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1008711899)
+				(object Operation "fTestPlane"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C1FBC6F00F0"
+				    parameters 	(list Parameters
+					(object Parameter "_SrcObj"
+					    type       	"CGraphBV *")
+					(object Parameter "Plane"
+					    type       	"CPlane&"))
+				    result     	"float"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1008711900)
+				(object Operation "fTestTriangle"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C291C5501F9"
+				    parameters 	(list Parameters
+					(object Parameter "_SrcObj"
+					    type       	"CGraphBV *")
+					(object Parameter "_Tri"
+					    type       	"CTriangle&"))
+				    result     	"float"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1009321156))
+			    language   	"C++")
+			(object Class "CCOL_DT_Tri"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"CodeFile"
+				    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_DynamicTest\\CCOL_DT_Tri.h")
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"BodyFile"
+				    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_DynamicTest\\CCOL_DT_Tri.cpp"))
+			    quid       	"3C291C7D0387"
+			    used_nodes 	(list uses_relationship_list
+				(object Uses_Relationship
+				    quid       	"3C2936F5020E"
+				    supplier   	"Logical View::Collision::CollisionSystem::CCOL_ColState"
+				    quidu      	"3C2935B60274")
+				(object Uses_Relationship
+				    quid       	"3C2921C6013E"
+				    supplier   	"Logical View::E3D::GammaE_E3D"
+				    quidu      	"3C1BF3280328"))
+			    operations 	(list Operations
+				(object Operation "fTestSphere"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C291C8F004E"
+				    parameters 	(list Parameters
+					(object Parameter "_Sphere"
+					    type       	"CGraphBV_Sphere&")
+					(object Parameter "_Tri"
+					    type       	"CTriangle&"))
+				    result     	"float"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1009321154)
+				(object Operation "fTestBox"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C291CA4035B"
+				    parameters 	(list Parameters
+					(object Parameter "_Box"
+					    type       	"CGraphBV_Box&")
+					(object Parameter "_Tri"
+					    type       	"CTriangle&"))
+				    result     	"float"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1009321155)
+				(object Operation "fTestPoint"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C4E129202CC"
+				    parameters 	(list Parameters
+					(object Parameter "_roPoint"
+					    type       	"CVect3&")
+					(object Parameter "_Tri"
+					    type       	"CTriangle&"))
+				    result     	"float"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1011748897))
+			    language   	"C++")
+			(object Class "CCOL_DT_Point"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"CodeFile"
+				    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_DynamicTest\\CCOL_DT_Point.h")
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"BodyFile"
+				    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_DynamicTest\\CCOL_DT_Point.cpp"))
+			    quid       	"3C4DB0B60195"
+			    used_nodes 	(list uses_relationship_list
+				(object Uses_Relationship
+				    quid       	"3C4DB25100CD"
+				    supplier   	"Logical View::Collision::CollisionSystem::CCOL_ColState"
+				    quidu      	"3C2935B60274")
+				(object Uses_Relationship
+				    quid       	"3C4E0A100161"
+				    supplier   	"Logical View::Collision::COL_Testers::COL_DynamicTest::CCOL_DT_Sphere"
+				    quidu      	"3C1FBCC302E6")
+				(object Uses_Relationship
+				    quid       	"3C4E0A130011"
+				    supplier   	"Logical View::Collision::COL_Testers::COL_DynamicTest::CCOL_DT_Box"
+				    quidu      	"3C1FBD52007E"))
+			    operations 	(list Operations
+				(object Operation "fTestSphere"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C4DB0C503E5"
+				    parameters 	(list Parameters
+					(object Parameter "_roSPoint"
+					    type       	"CVect3&")
+					(object Parameter "_roDCenter"
+					    type       	"CVect3&")
+					(object Parameter "_fDRadius"
+					    type       	"float"))
+				    result     	"float"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1011722644)
+				(object Operation "fTestBox"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C4DB0D1011B"
+				    parameters 	(list Parameters
+					(object Parameter "_roSPoint"
+					    type       	"CVect3&")
+					(object Parameter "_roDMaxs"
+					    type       	"CVect3&")
+					(object Parameter "_roDMins"
+					    type       	"CVect3&"))
+				    result     	"float"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1011722645)
+				(object Operation "fTestPoint"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C4DB0D500C7"
+				    parameters 	(list Parameters
+					(object Parameter "_roSPoint"
+					    type       	"CVect3&")
+					(object Parameter "_fDRadius"
+					    type       	"float")
+					(object Parameter "_roDCenter"
+					    type       	"CVect3&"))
+				    result     	"float"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1011722646))
+			    language   	"C++"))
+		    logical_presentations 	(list unit_reference_list
+			(object ClassDiagram "Main"
+			    quid       	"3C1FBFAB0340"
+			    title      	"Main"
+			    zoom       	100
+			    max_height 	28350
+			    max_width  	21600
+			    origin_x   	109
+			    origin_y   	0
+			    items      	(list diagram_item_list
+				(object ClassView "Class" "Logical View::Collision::COL_Testers::COL_DynamicTest::CCOL_DT_Box" @99
+				    ShowCompartmentStereotypes 	TRUE
+				    IncludeAttribute 	TRUE
+				    IncludeOperation 	TRUE
+				    location   	(1168, 800)
+				    label      	(object ItemLabel
+					Parent_View 	@99
+					location   	(1015, 669)
+					fill_color 	4227327
+					nlines     	1
+					max_width  	306
+					justify    	0
+					label      	"CCOL_DT_Box")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	13421568
+				    quidu      	"3C1FBD52007E"
+				    compartment 	(object Compartment
+					Parent_View 	@99
+					location   	(1015, 729)
+					icon_style 	"Icon"
+					fill_color 	16777215
+					anchor     	2
+					nlines     	4
+					max_width  	300)
+				    width      	324
+				    height     	286
+				    annotation 	8
+				    autoResize 	TRUE)
+				(object ClassView "Class" "Logical View::Collision::COL_Testers::COL_DynamicTest::CCOL_DT_Sphere" @100
+				    ShowCompartmentStereotypes 	TRUE
+				    IncludeAttribute 	TRUE
+				    IncludeOperation 	TRUE
+				    location   	(736, 800)
+				    label      	(object ItemLabel
+					Parent_View 	@100
+					location   	(555, 669)
+					fill_color 	4227327
+					nlines     	1
+					max_width  	362
+					justify    	0
+					label      	"CCOL_DT_Sphere")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	13421568
+				    quidu      	"3C1FBCC302E6"
+				    compartment 	(object Compartment
+					Parent_View 	@100
+					location   	(555, 729)
+					icon_style 	"Icon"
+					fill_color 	16777215
+					anchor     	2
+					nlines     	4
+					max_width  	300)
+				    width      	380
+				    height     	286
+				    annotation 	8
+				    autoResize 	TRUE)
+				(object ClassView "Class" "Logical View::Collision::COL_Testers::COL_DynamicTest::CCOL_DT_ColTester" @101
+				    ShowCompartmentStereotypes 	TRUE
+				    IncludeAttribute 	TRUE
+				    IncludeOperation 	TRUE
+				    location   	(896, 1664)
+				    label      	(object ItemLabel
+					Parent_View 	@101
+					location   	(695, 1533)
+					fill_color 	4227327
+					nlines     	1
+					max_width  	402
+					justify    	0
+					label      	"CCOL_DT_ColTester")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	13421568
+				    quidu      	"3C1FBC350287"
+				    compartment 	(object Compartment
+					Parent_View 	@101
+					location   	(695, 1593)
+					icon_style 	"Icon"
+					fill_color 	16777215
+					anchor     	2
+					nlines     	4
+					max_width  	325)
+				    width      	420
+				    height     	286
+				    annotation 	8
+				    autoResize 	TRUE)
+				(object ClassView "Class" "Logical View::Collision::COL_Testers::COL_StaticTest::CCOL_ST_Box" @102
+				    ShowCompartmentStereotypes 	TRUE
+				    IncludeAttribute 	TRUE
+				    location   	(1744, 816)
+				    label      	(object ItemLabel
+					Parent_View 	@102
+					location   	(1480, 752)
+					fill_color 	4227327
+					nlines     	1
+					max_width  	528
+					justify    	0
+					label      	"CCOL_ST_Box")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	4227327
+				    quidu      	"3C0824C801D4"
+				    width      	546
+				    height     	152
+				    annotation 	8
+				    autoResize 	TRUE)
+				(object ClassView "Class" "Logical View::Collision::COL_Testers::COL_DynamicTest::CCOL_DT_Tri" @103
+				    ShowCompartmentStereotypes 	TRUE
+				    IncludeAttribute 	TRUE
+				    IncludeOperation 	TRUE
+				    location   	(1760, 352)
+				    label      	(object ItemLabel
+					Parent_View 	@103
+					location   	(1613, 221)
+					fill_color 	4227327
+					nlines     	1
+					max_width  	294
+					justify    	0
+					label      	"CCOL_DT_Tri")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	4227327
+				    quidu      	"3C291C7D0387"
+				    compartment 	(object Compartment
+					Parent_View 	@103
+					location   	(1613, 281)
+					icon_style 	"Icon"
+					fill_color 	16777215
+					anchor     	2
+					nlines     	4
+					max_width  	300)
+				    width      	312
+				    height     	286
+				    annotation 	8
+				    autoResize 	TRUE)
+				(object ClassView "Class" "Logical View::Collision::CollisionSystem::CCOL_ColState" @104
+				    ShowCompartmentStereotypes 	TRUE
+				    IncludeOperation 	TRUE
+				    ShowOperationSignature 	TRUE
+				    location   	(976, 352)
+				    label      	(object ItemLabel
+					Parent_View 	@104
+					location   	(810, 277)
+					fill_color 	4227327
+					nlines     	1
+					max_width  	332
+					justify    	0
+					label      	"CCOL_ColState")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	4227327
+				    quidu      	"3C2935B60274"
+				    width      	350
+				    height     	174
+				    annotation 	8
+				    autoResize 	TRUE)
+				(object ClassView "Class" "Logical View::Collision::COL_Testers::COL_DynamicTest::CCOL_DT_Point" @105
+				    ShowCompartmentStereotypes 	TRUE
+				    IncludeAttribute 	TRUE
+				    IncludeOperation 	TRUE
+				    location   	(320, 800)
+				    label      	(object ItemLabel
+					Parent_View 	@105
+					location   	(157, 669)
+					fill_color 	4227327
+					nlines     	1
+					max_width  	326
+					justify    	0
+					label      	"CCOL_DT_Point")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	4227327
+				    quidu      	"3C4DB0B60195"
+				    compartment 	(object Compartment
+					Parent_View 	@105
+					location   	(157, 729)
+					icon_style 	"Icon"
+					fill_color 	16777215
+					anchor     	2
+					nlines     	4
+					max_width  	300)
+				    width      	344
+				    height     	286
+				    annotation 	8
+				    autoResize 	TRUE)
+				(object UsesView "" @106
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C1FD1710223"
+				    client     	@99
+				    supplier   	@102
+				    line_style 	3
+				    origin_attachment 	(1330, 787)
+				    terminal_attachment 	(1471, 787))
+				(object UsesView "" @107
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C2936E300E6"
+				    client     	@99
+				    supplier   	@104
+				    line_style 	0)
+				(object UsesView "" @108
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C1FBFD101F0"
+				    client     	@100
+				    supplier   	@99
+				    line_style 	3
+				    origin_attachment 	(926, 812)
+				    terminal_attachment 	(1006, 812))
+				(object UsesView "" @109
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C2936E10223"
+				    client     	@100
+				    supplier   	@104
+				    line_style 	0)
+				(object UsesView "" @110
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C2936F5020E"
+				    client     	@103
+				    supplier   	@104
+				    line_style 	0)
+				(object UsesView "" @111
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C4DB25100CD"
+				    client     	@105
+				    supplier   	@104
+				    line_style 	0)
+				(object UsesView "" @112
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C4E0A100161"
+				    client     	@105
+				    supplier   	@100
+				    vertices   	(list Points
+					(309, 943)
+					(309, 1022)
+					(743, 1022)
+					(743, 943))
+				    line_style 	3
+				    origin_attachment 	(309, 943)
+				    terminal_attachment 	(743, 943))
+				(object UsesView "" @113
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C4E0A130011"
+				    client     	@105
+				    supplier   	@99
+				    vertices   	(list Points
+					(275, 943)
+					(275, 1075)
+					(1159, 1075)
+					(1159, 943))
+				    line_style 	3
+				    origin_attachment 	(275, 943)
+				    terminal_attachment 	(1159, 943))
+				(object UsesView "" @114
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C1FBDAD0148"
+				    client     	@101
+				    supplier   	@100
+				    line_style 	3
+				    origin_attachment 	(837, 1521)
+				    terminal_attachment 	(837, 943))
+				(object UsesView "" @115
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C1FBDAF01C3"
+				    client     	@101
+				    supplier   	@99
+				    line_style 	0)
+				(object UsesView "" @116
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C291CFD009C"
+				    client     	@101
+				    supplier   	@103
+				    vertices   	(list Points
+					(1106, 1768)
+					(2237, 1768)
+					(2237, 390)
+					(1916, 390))
+				    line_style 	3
+				    origin_attachment 	(1106, 1768)
+				    terminal_attachment 	(1916, 390))
+				(object UsesView "" @117
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C2936D80307"
+				    client     	@101
+				    supplier   	@104
+				    line_style 	3
+				    origin_attachment 	(947, 1521)
+				    terminal_attachment 	(947, 439))
+				(object UsesView "" @118
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C4DB16002E4"
+				    client     	@101
+				    supplier   	@105
+				    line_style 	0)
+				(object ClassView "Class" "Logical View::Math::GammaE_Math" @119
+				    ShowCompartmentStereotypes 	TRUE
+				    IncludeAttribute 	TRUE
+				    IncludeOperation 	TRUE
+				    ShowOperationSignature 	TRUE
+				    location   	(288, 256)
+				    label      	(object ItemLabel
+					Parent_View 	@119
+					location   	(134, 193)
+					fill_color 	4227327
+					nlines     	1
+					max_width  	308
+					justify    	0
+					label      	"GammaE_Math")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	4227327
+				    quidu      	"3BD8A07F039B"
+				    width      	326
+				    height     	150
+				    annotation 	8
+				    autoResize 	TRUE)
+				(object ClassView "Class" "Logical View::E3D::GammaE_E3D" @120
+				    ShowCompartmentStereotypes 	TRUE
+				    IncludeAttribute 	TRUE
+				    IncludeOperation 	TRUE
+				    ShowOperationSignature 	TRUE
+				    location   	(1520, 1520)
+				    label      	(object ItemLabel
+					Parent_View 	@120
+					location   	(1380, 1457)
+					fill_color 	4227327
+					nlines     	1
+					max_width  	280
+					justify    	0
+					label      	"GammaE_E3D")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	12503208
+				    quidu      	"3C1BF3280328"
+				    width      	298
+				    height     	150
+				    annotation 	8
+				    autoResize 	TRUE)
+				(object UsesView "" @121
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C2921C6013E"
+				    client     	@103
+				    supplier   	@120
+				    vertices   	(list Points
+					(1725, 495)
+					(1725, 1537)
+					(1669, 1537))
+				    line_style 	3
+				    origin_attachment 	(1725, 495)
+				    terminal_attachment 	(1669, 1537))
+				(object UsesView "" @122
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C1FBE420322"
+				    client     	@101
+				    supplier   	@120
+				    line_style 	3
+				    origin_attachment 	(1106, 1518)
+				    terminal_attachment 	(1371, 1518))))))
+		(object Class_Category "COL_SceneTest"
+		    quid       	"3C1FC2BD0368"
+		    visible_categories 	(list visibility_relationship_list
+			(object Visibility_Relationship
+			    quid       	"3C1FC3BF01F6"
+			    supplier   	"Logical View::Collision::COL_Testers::COL_StaticTest"
+			    quidu      	"3C1FBE770329")
+			(object Visibility_Relationship
+			    quid       	"3C1FC3C00310"
+			    supplier   	"Logical View::Collision::COL_Testers::COL_DynamicTest"
+			    quidu      	"3C1FBE860262"))
+		    exportControl 	"Public"
+		    logical_models 	(list unit_reference_list
+			(object Class "CCOL_Scn_ColTester"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"CodeFile"
+				    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_SceneTest\\CCOL_Scn_ColTester.h")
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"BodyFile"
+				    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_SceneTest\\CCOL_Scn_ColTester.cpp")
+				(object Attribute
+				    tool       	"cg"
+				    name       	"GenerateDefaultConstructor"
+				    value      	("GenerateSet" 206)))
+			    quid       	"3C081B0A0386"
+			    used_nodes 	(list uses_relationship_list
+				(object Uses_Relationship
+				    quid       	"3C081D26033D"
+				    supplier   	"Logical View::E3D::BoundingVolume::CBoundingSphere"
+				    quidu      	"3B55F49C00F0")
+				(object Uses_Relationship
+				    quid       	"3C082CE30336"
+				    supplier   	"Logical View::Collision::COL_Testers::COL_StaticTest::CCOL_ST_ColTester"
+				    quidu      	"3B7AF1BC01C2")
+				(object Uses_Relationship
+				    quid       	"3C1FC418010E"
+				    supplier   	"Logical View::Collision::COL_Testers::COL_DynamicTest::CCOL_DT_ColTester"
+				    quidu      	"3C1FBC350287")
+				(object Uses_Relationship
+				    quid       	"3C29367F0273"
+				    supplier   	"Logical View::Collision::CollisionSystem::CCOL_ColState"
+				    quidu      	"3C2935B60274"))
+			    operations 	(list Operations
+				(object Operation "iTestObjects"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C081B2C0136"
+				    result     	"int"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1007160409)
+				(object Operation "iTest3DObj_Rec"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C081FC502E8"
+				    parameters 	(list Parameters
+					(object Parameter "_poObj"
+					    type       	"CObject3D *"))
+				    result     	"int"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1007160413)
+				(object Operation "iTest3DObj"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C0ACAEC002A"
+				    parameters 	(list Parameters
+					(object Parameter "_poObj"
+					    type       	"CObject3D*"))
+				    result     	"int"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1007327360)
+				(object Operation "iTest3DObj_Node"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C081C5E01C3"
+				    parameters 	(list Parameters
+					(object Parameter "_poObj"
+					    type       	"CObject3D_Node*"))
+				    result     	"int"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1007160412)
+				(object Operation "iTest3DObj_Transf"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3CB94C0301C7"
+				    parameters 	(list Parameters
+					(object Parameter "_poObj"
+					    type       	"CObject3D_Transf*"))
+				    result     	"int"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1018775601)
+				(object Operation "iTest3DObj_CompiledLeaf"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C51F9D6017C"
+				    parameters 	(list Parameters
+					(object Parameter "_poObj"
+					    type       	"CObject3D_CompiledLeaf*"))
+				    result     	"int"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1012005359)
+				(object Operation "iTest3DObj_Leaf"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C081BE703D4"
+				    parameters 	(list Parameters
+					(object Parameter "_poObj"
+					    type       	"CObject3D_Leaf*"))
+				    result     	"int"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1007160411)
+				(object Operation "iTest3DObj_BSPNode"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"OperationKind"
+					    value      	("OperationKindSet" 203)))
+				    quid       	"3C081BC302CE"
+				    parameters 	(list Parameters
+					(object Parameter "_poObj"
+					    type       	"CObject3D_BSPNode*"))
+				    result     	"int"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1007160410))
+			    class_attributes 	(list class_attribute_list
+				(object ClassAttribute "SGrObj"
+				    quid       	"3C0B94FD011B"
+				    type       	"CObject3D *"
+				    initv      	"NULL"
+				    exportControl 	"Public"
+				    static     	TRUE)
+				(object ClassAttribute "DGrObj"
+				    quid       	"3C0B95080262"
+				    type       	"CObject3D *"
+				    initv      	"NULL"
+				    exportControl 	"Public"
+				    static     	TRUE)
+				(object ClassAttribute "iNumColMeshes"
+				    quid       	"3C1BF0DC00AB"
+				    type       	"int"
+				    initv      	"0"
+				    exportControl 	"Public"
+				    static     	TRUE))
+			    language   	"C++")
+			(object Class "CCOL_Mesh"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"CodeFile"
+				    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_SceneTest\\CCOL_Mesh.h")
+				(object Attribute
+				    tool       	"Traversal"
+				    name       	"BodyFile"
+				    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_SceneTest\\CCOL_Mesh.cpp"))
+			    quid       	"3C1FDD4C028B"
+			    used_nodes 	(list uses_relationship_list
+				(object Uses_Relationship
+				    quid       	"3C1FDE900350"
+				    supplier   	"Logical View::E3D::GammaE_E3D"
+				    quidu      	"3C1BF3280328")
+				(object Uses_Relationship
+				    quid       	"3C1FDE7B02E1"
+				    supplier   	"Logical View::Math::GammaE_Math"
+				    quidu      	"3BD8A07F039B"))
+			    operations 	(list Operations
+				(object Operation "Set"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"cg"
+					    name       	"Inline"
+					    value      	TRUE))
+				    quid       	"3C1FDE2B0083"
+				    parameters 	(list Parameters
+					(object Parameter "_poMesh"
+					    type       	"CMesh*")
+					(object Parameter "_iMat"
+					    type       	"int")
+					(object Parameter "_fFrameFact"
+					    type       	"float"))
+				    result     	"void"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	1008711901))
+			    class_attributes 	(list class_attribute_list
+				(object ClassAttribute "poMesh"
+				    quid       	"3C1FDD59030C"
+				    type       	"CMesh *"
+				    initv      	"NULL"
+				    exportControl 	"Public")
+				(object ClassAttribute "fFrameFact"
+				    quid       	"3C1FDD6B01B4"
+				    type       	"float"
+				    exportControl 	"Public")
+				(object ClassAttribute "iMat"
+				    quid       	"3CCA9B100183"
+				    type       	"int"
+				    initv      	"-1"
+				    exportControl 	"Public"))
+			    language   	"C++")
+			(object Association "$UNNAMED$20"
+			    quid       	"3C1FDD770374"
+			    roles      	(list role_list
+				(object Role "$UNNAMED$21"
+				    quid       	"3C1FDD780022"
+				    supplier   	"Logical View::Collision::COL_Testers::COL_SceneTest::CCOL_Scn_ColTester"
+				    quidu      	"3C081B0A0386"
+				    client_cardinality 	(value cardinality "n")
+				    Containment 	"By Value"
+				    is_aggregate 	TRUE)
+				(object Role "ColMeshes"
+				    quid       	"3C1FDD78002C"
+				    label      	"ColMeshes"
+				    supplier   	"Logical View::Collision::COL_Testers::COL_SceneTest::CCOL_Mesh"
+				    quidu      	"3C1FDD4C028B"
+				    client_cardinality 	(value cardinality "64")
+				    is_navigable 	TRUE
+				    static     	TRUE)))
+			(object Class_Category "COL_MeshTest"
+			    quid       	"3C294D4B0315"
+			    exportControl 	"Public"
+			    logical_models 	(list unit_reference_list
+				(object Class "CCOL_MeshTester"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Traversal"
+					    name       	"CodeFile"
+					    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_SceneTest\\COL_MeshTest\\CCOL_MeshTester.h")
+					(object Attribute
+					    tool       	"Traversal"
+					    name       	"BodyFile"
+					    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_SceneTest\\COL_MeshTest\\CCOL_MeshTester.cpp"))
+				    quid       	"3C294D5D01F8"
+				    used_nodes 	(list uses_relationship_list
+					(object Uses_Relationship
+					    quid       	"3C294F2901BE"
+					    supplier   	"Logical View::E3D::GammaE_E3D"
+					    quidu      	"3C1BF3280328")
+					(object Uses_Relationship
+					    quid       	"3C294DAA02F3"
+					    supplier   	"Logical View::Collision::COL_TriList::CCOL_TriList"
+					    quidu      	"3C1D01EF00DE"))
+				    operations 	(list Operations
+					(object Operation "iTestCollision"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"cg"
+						    name       	"OperationKind"
+						    value      	("OperationKindSet" 201)))
+					    quid       	"3C294D8103D1"
+					    parameters 	(list Parameters
+						(object Parameter "_poMesh"
+						    type       	"CMesh*")
+						(object Parameter "_iMat"
+						    type       	"int")
+						(object Parameter "_poBVol"
+						    type       	"CGraphBV*")
+						(object Parameter "_roTriList"
+						    type       	"CCOL_TriList&"))
+					    result     	"int"
+					    concurrency 	"Sequential"
+					    opExportControl 	"Public"
+					    uid        	1009321163))
+				    language   	"C++")
+				(object Class "CCOL_MT_CommonMesh"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Traversal"
+					    name       	"CodeFile"
+					    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_SceneTest\\COL_MeshTest\\CCOL_MT_CommonMesh.h")
+					(object Attribute
+					    tool       	"Traversal"
+					    name       	"BodyFile"
+					    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_SceneTest\\COL_MeshTest\\CCOL_MT_CommonMesh.cpp"))
+				    quid       	"3C29310E01C5"
+				    superclasses 	(list inheritance_relationship_list
+					(object Inheritance_Relationship
+					    quid       	"3C294D9203CB"
+					    supplier   	"Logical View::Collision::COL_Testers::COL_SceneTest::COL_MeshTest::CCOL_MeshTester"
+					    quidu      	"3C294D5D01F8"))
+				    used_nodes 	(list uses_relationship_list
+					(object Uses_Relationship
+					    quid       	"3C2931E00236"
+					    supplier   	"Logical View::Collision::COL_Testers::COL_DynamicTest::CCOL_DT_ColTester"
+					    quidu      	"3C1FBC350287")
+					(object Uses_Relationship
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"cg"
+						    name       	"BodyReferenceOnly"
+						    value      	TRUE))
+					    quid       	"3C2A543D00D7"
+					    supplier   	"Logical View::Collision::CollisionSystem::CCOL_ColState"
+					    quidu      	"3C2935B60274"))
+				    operations 	(list Operations
+					(object Operation "iTestCollision"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"cg"
+						    name       	"OperationKind"
+						    value      	("OperationKindSet" 201)))
+					    quid       	"3C29313803C5"
+					    parameters 	(list Parameters
+						(object Parameter "_poMesh"
+						    type       	"CMesh*")
+						(object Parameter "_iMat"
+						    type       	"int")
+						(object Parameter "_poBVol"
+						    type       	"CGraphBV*")
+						(object Parameter "_roTriList"
+						    type       	"CCOL_TriList&"))
+					    result     	"int"
+					    concurrency 	"Sequential"
+					    opExportControl 	"Public"
+					    uid        	1009321162))
+				    language   	"C++")
+				(object Class "CCOL_MT_TerrainMesh"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Traversal"
+					    name       	"CodeFile"
+					    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_SceneTest\\COL_MeshTest\\CCOL_MT_TerrainMesh.h")
+					(object Attribute
+					    tool       	"Traversal"
+					    name       	"BodyFile"
+					    value      	"$ROSECPP_SOURCE\\Collision\\COL_Testers\\COL_SceneTest\\COL_MeshTest\\CCOL_MT_TerrainMesh.cpp"))
+				    quid       	"3C294DBE032E"
+				    superclasses 	(list inheritance_relationship_list
+					(object Inheritance_Relationship
+					    quid       	"3C294DC901FD"
+					    supplier   	"Logical View::Collision::COL_Testers::COL_SceneTest::COL_MeshTest::CCOL_MeshTester"
+					    quidu      	"3C294D5D01F8"))
+				    used_nodes 	(list uses_relationship_list
+					(object Uses_Relationship
+					    quid       	"3C29524B0171"
+					    supplier   	"Logical View::TerrainData::GammaE_TerrainData"
+					    quidu      	"3B01A2F300F0")
+					(object Uses_Relationship
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"cg"
+						    name       	"BodyReferenceOnly"
+						    value      	TRUE))
+					    quid       	"3C2A5446030B"
+					    supplier   	"Logical View::Collision::CollisionSystem::CCOL_ColState"
+					    quidu      	"3C2935B60274")
+					(object Uses_Relationship
+					    quid       	"3C2A67310124"
+					    supplier   	"Logical View::Collision::COL_Testers::COL_DynamicTest::CCOL_DT_ColTester"
+					    quidu      	"3C1FBC350287"))
+				    operations 	(list Operations
+					(object Operation "iTestCollision"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"cg"
+						    name       	"OperationKind"
+						    value      	("OperationKindSet" 201)))
+					    quid       	"3C294DCD014F"
+					    parameters 	(list Parameters
+						(object Parameter "_poMesh"
+						    type       	"CMesh*")
+						(object Parameter "_iMat"
+						    type       	"int")
+						(object Parameter "_poBVol"
+						    type       	"CGraphBV*")
+						(object Parameter "_roTriList"
+						    type       	"CCOL_TriList&"))
+					    result     	"int"
+					    concurrency 	"Sequential"
+					    opExportControl 	"Public"
+					    uid        	1009321164)
+					(object Operation "iGetTriangles"
+					    quid       	"3C2953720189"
+					    parameters 	(list Parameters
+						(object Parameter "_iX"
+						    type       	"int")
+						(object Parameter "_iY"
+						    type       	"int")
+						(object Parameter "_iRad"
+						    type       	"int")
+						(object Parameter "_pVXs"
+						    type       	"CVect3*"))
+					    result     	"int"
+					    concurrency 	"Sequential"
+					    opExportControl 	"Public"
+					    uid        	1009321167)
+					(object Operation "GetTriangle"
+					    quid       	"3C2A70660123"
+					    parameters 	(list Parameters
+						(object Parameter "_iX"
+						    type       	"int")
+						(object Parameter "_iY"
+						    type       	"int")
+						(object Parameter "_pa6VXs"
+						    type       	"CVect3*"))
+					    result     	"void"
+					    concurrency 	"Sequential"
+					    opExportControl 	"Public"
+					    uid        	1009406733)
+					(object Operation "GetHeight"
+					    quid       	"3C2951EC0124"
+					    parameters 	(list Parameters
+						(object Parameter "iX"
+						    type       	"int")
+						(object Parameter "iY"
+						    type       	"int"))
+					    result     	"float"
+					    concurrency 	"Sequential"
+					    opExportControl 	"Public"
+					    uid        	1009321166)
+					(object Operation "Init"
+					    quid       	"3C2951B602DF"
+					    parameters 	(list Parameters
+						(object Parameter "_pHF"
+						    type       	"CHeightField*")
+						(object Parameter "_iSectorRes"
+						    type       	"int")
+						(object Parameter "_fSectorSize"
+						    type       	"float"))
+					    result     	"void"
+					    concurrency 	"Sequential"
+					    opExportControl 	"Public"
+					    uid        	1009321165))
+				    class_attributes 	(list class_attribute_list
+					(object ClassAttribute "HF"
+					    quid       	"3C295185019E"
+					    type       	"CHeightField *"
+					    initv      	"NULL")
+					(object ClassAttribute "iSectorRes"
+					    quid       	"3C295198000B"
+					    type       	"int"
+					    initv      	"0")
+					(object ClassAttribute "fRatio"
+					    quid       	"3C29519E0262"
+					    type       	"float"
+					    initv      	"0")
+					(object ClassAttribute "iTWidth"
+					    quid       	"3C2951A2022C"
+					    type       	"int"
+					    initv      	"0")
+					(object ClassAttribute "iTHeight"
+					    quid       	"3C2951A7007A"
+					    type       	"int"
+					    initv      	"0")
+					(object ClassAttribute "fInvRatio"
+					    quid       	"3C2951AC01B8"
+					    type       	"float"
+					    initv      	"0"))
+				    language   	"C++"))
+			    logical_presentations 	(list unit_reference_list
+				(object ClassDiagram "Main"
+				    quid       	"3C294D5B034A"
+				    title      	"Main"
+				    zoom       	100
+				    max_height 	28350
+				    max_width  	21600
+				    origin_x   	70
+				    origin_y   	0
+				    items      	(list diagram_item_list
+					(object ClassView "Class" "Logical View::Collision::COL_Testers::COL_SceneTest::COL_MeshTest::CCOL_MeshTester" @123
+					    ShowCompartmentStereotypes 	TRUE
+					    IncludeAttribute 	TRUE
+					    IncludeOperation 	TRUE
+					    ShowOperationSignature 	TRUE
+					    location   	(1184, 592)
+					    label      	(object ItemLabel
+						Parent_View 	@123
+						location   	(247, 511)
+						fill_color 	4227327
+						nlines     	1
+						max_width  	1874
+						justify    	0
+						label      	"CCOL_MeshTester")
+					    icon_style 	"Icon"
+					    line_color 	32896
+					    fill_color 	4227327
+					    quidu      	"3C294D5D01F8"
+					    compartment 	(object Compartment
+						Parent_View 	@123
+						location   	(247, 571)
+						icon_style 	"Icon"
+						fill_color 	16777215
+						anchor     	2
+						nlines     	2
+						max_width  	1881)
+					    width      	1892
+					    height     	186
+					    annotation 	8
+					    autoResize 	TRUE)
+					(object ClassView "Class" "Logical View::Collision::COL_Testers::COL_SceneTest::COL_MeshTest::CCOL_MT_CommonMesh" @124
+					    ShowCompartmentStereotypes 	TRUE
+					    IncludeAttribute 	TRUE
+					    IncludeOperation 	TRUE
+					    location   	(752, 1056)
+					    label      	(object ItemLabel
+						Parent_View 	@124
+						location   	(498, 975)
+						fill_color 	4227327
+						nlines     	1
+						max_width  	508
+						justify    	0
+						label      	"CCOL_MT_CommonMesh")
+					    icon_style 	"Icon"
+					    line_color 	32896
+					    fill_color 	4227327
+					    quidu      	"3C29310E01C5"
+					    compartment 	(object Compartment
+						Parent_View 	@124
+						location   	(498, 1035)
+						icon_style 	"Icon"
+						fill_color 	16777215
+						anchor     	2
+						nlines     	2
+						max_width  	325)
+					    width      	526
+					    height     	186
+					    annotation 	8
+					    autoResize 	TRUE)
+					(object ClassView "Class" "Logical View::Collision::COL_Testers::COL_SceneTest::COL_MeshTest::CCOL_MT_TerrainMesh" @125
+					    ShowCompartmentStereotypes 	TRUE
+					    IncludeAttribute 	TRUE
+					    IncludeOperation 	TRUE
+					    location   	(1408, 1296)
+					    label      	(object ItemLabel
+						Parent_View 	@125
+						location   	(1131, 965)
+						fill_color 	4227327
+						nlines     	1
+						max_width  	554
+						justify    	0
+						label      	"CCOL_MT_TerrainMesh")
+					    icon_style 	"Icon"
+					    line_color 	32896
+					    fill_color 	4227327
+					    quidu      	"3C294DBE032E"
+					    compartment 	(object Compartment
+						Parent_View 	@125
+						location   	(1131, 1025)
+						icon_style 	"Icon"
+						fill_color 	16777215
+						anchor     	2
+						nlines     	12
+						max_width  	559)
+					    width      	572
+					    height     	686
+					    annotation 	8
+					    autoResize 	TRUE)
+					(object InheritTreeView "" @126
+					    location   	(1128, 775)
+					    line_color 	32896
+					    fill_color 	4227327
+					    supplier   	@123
+					    vertices   	(list Points
+						(1128, 775)
+						(1128, 685)))
+					(object InheritView "" @127
+					    stereotype 	TRUE
+					    line_color 	32896
+					    quidu      	"3C294D9203CB"
+					    client     	@124
+					    supplier   	@123
+					    line_style 	3
+					    origin_attachment 	(687, 963)
+					    terminal_attachment 	(687, 775)
+					    drawSupplier 	@126)
+					(object InheritView "" @128
+					    stereotype 	TRUE
+					    line_color 	32896
+					    quidu      	"3C294DC901FD"
+					    client     	@125
+					    supplier   	@123
+					    line_style 	3
+					    origin_attachment 	(1409, 953)
+					    terminal_attachment 	(1409, 775)
+					    drawSupplier 	@126)
+					(object ClassView "Class" "Logical View::TerrainData::GammaE_TerrainData" @129
+					    ShowCompartmentStereotypes 	TRUE
+					    IncludeAttribute 	TRUE
+					    IncludeOperation 	TRUE
+					    ShowOperationSignature 	TRUE
+					    location   	(2256, 1120)
+					    label      	(object ItemLabel
+						Parent_View 	@129
+						location   	(2038, 1045)
+						fill_color 	4227327
+						nlines     	1
+						max_width  	436
+						justify    	0
+						label      	"GammaE_TerrainData")
+					    icon_style 	"Icon"
+					    line_color 	32896
+					    fill_color 	4227327
+					    quidu      	"3B01A2F300F0"
+					    width      	454
+					    height     	174
+					    annotation 	8
+					    autoResize 	TRUE)
+					(object ClassView "Class" "Logical View::Collision::CollisionSystem::CCOL_ColState" @130
+					    ShowCompartmentStereotypes 	TRUE
+					    IncludeOperation 	TRUE
+					    ShowOperationSignature 	TRUE
+					    location   	(848, 1360)
+					    label      	(object ItemLabel
+						Parent_View 	@130
+						location   	(682, 1285)
+						fill_color 	4227327
+						nlines     	1
+						max_width  	332
+						justify    	0
+						label      	"CCOL_ColState")
+					    icon_style 	"Icon"
+					    line_color 	32896
+					    fill_color 	4227327
+					    quidu      	"3C2935B60274"
+					    width      	350
+					    height     	174
+					    annotation 	8
+					    autoResize 	TRUE)
+					(object UsesView "" @131
+					    stereotype 	TRUE
+					    line_color 	32896
+					    quidu      	"3C2A543D00D7"
+					    client     	@124
+					    supplier   	@130
+					    line_style 	3
+					    origin_attachment 	(816, 1149)
+					    terminal_attachment 	(816, 1273))
+					(object ClassView "Class" "Logical View::Collision::COL_Testers::COL_DynamicTest::CCOL_DT_ColTester" @132
+					    ShowCompartmentStereotypes 	TRUE
+					    ShowOperationSignature 	TRUE
+					    location   	(448, 1360)
+					    label      	(object ItemLabel
+						Parent_View 	@132
+						location   	(247, 1285)
+						fill_color 	4227327
+						nlines     	1
+						max_width  	402
+						justify    	0
+						label      	"CCOL_DT_ColTester")
+					    icon_style 	"Icon"
+					    line_color 	32896
+					    fill_color 	4227327
+					    quidu      	"3C1FBC350287"
+					    width      	420
+					    height     	174
+					    annotation 	8
+					    autoResize 	TRUE)
+					(object UsesView "" @133
+					    stereotype 	TRUE
+					    line_color 	32896
+					    quidu      	"3C2931E00236"
+					    client     	@124
+					    supplier   	@132
+					    line_style 	3
+					    origin_attachment 	(575, 1149)
+					    terminal_attachment 	(575, 1273))
+					(object UsesView "" @134
+					    stereotype 	TRUE
+					    line_color 	32896
+					    quidu      	"3C29524B0171"
+					    client     	@125
+					    supplier   	@129
+					    line_style 	3
+					    origin_attachment 	(1694, 1106)
+					    terminal_attachment 	(2029, 1106))
+					(object UsesView "" @135
+					    stereotype 	TRUE
+					    line_color 	32896
+					    quidu      	"3C2A5446030B"
+					    client     	@125
+					    supplier   	@130
+					    line_style 	3
+					    origin_attachment 	(1122, 1356)
+					    terminal_attachment 	(1023, 1356))
+					(object UsesView "" @136
+					    stereotype 	TRUE
+					    line_color 	32896
+					    quidu      	"3C2A67310124"
+					    client     	@125
+					    supplier   	@132
+					    vertices   	(list Points
+						(1122, 1549)
+						(453, 1549)
+						(453, 1447))
+					    line_style 	3
+					    origin_attachment 	(1122, 1549)
+					    terminal_attachment 	(453, 1447))
+					(object ClassView "Class" "Logical View::E3D::GammaE_E3D" @137
+					    ShowCompartmentStereotypes 	TRUE
+					    IncludeAttribute 	TRUE
+					    IncludeOperation 	TRUE
+					    ShowOperationSignature 	TRUE
+					    location   	(1296, 224)
+					    label      	(object ItemLabel
+						Parent_View 	@137
+						location   	(1144, 149)
+						fill_color 	4227327
+						nlines     	1
+						max_width  	304
+						justify    	0
+						label      	"GammaE_E3D")
+					    icon_style 	"Icon"
+					    line_color 	32896
+					    fill_color 	4227327
+					    quidu      	"3C1BF3280328"
+					    width      	322
+					    height     	174
+					    annotation 	8
+					    autoResize 	TRUE)
+					(object ClassView "Class" "Logical View::Collision::COL_TriList::CCOL_TriList" @138
+					    ShowCompartmentStereotypes 	TRUE
+					    ShowOperationSignature 	TRUE
+					    location   	(976, 224)
+					    label      	(object ItemLabel
+						Parent_View 	@138
+						location   	(840, 149)
+						fill_color 	4227327
+						nlines     	1
+						max_width  	272
+						justify    	0
+						label      	"CCOL_TriList")
+					    icon_style 	"Icon"
+					    line_color 	32896
+					    fill_color 	4227327
+					    quidu      	"3C1D01EF00DE"
+					    width      	290
+					    height     	174
+					    annotation 	8
+					    autoResize 	TRUE)
+					(object UsesView "" @139
+					    stereotype 	TRUE
+					    line_color 	32896
+					    quidu      	"3C294DAA02F3"
+					    client     	@123
+					    supplier   	@138
+					    line_style 	0)
+					(object UsesView "" @140
+					    stereotype 	TRUE
+					    line_color 	32896
+					    quidu      	"3C294F2901BE"
+					    client     	@123
+					    supplier   	@137
+					    line_style 	0))))))
+		    logical_presentations 	(list unit_reference_list
+			(object ClassDiagram "Main"
+			    quid       	"3C1FC2D000DA"
+			    title      	"Main"
+			    zoom       	100
+			    max_height 	28350
+			    max_width  	21600
+			    origin_x   	0
+			    origin_y   	138
+			    items      	(list diagram_item_list
+				(object ClassView "Class" "Logical View::Collision::COL_Testers::COL_StaticTest::CCOL_ST_ColTester" @141
+				    ShowCompartmentStereotypes 	TRUE
+				    location   	(704, 640)
+				    label      	(object ItemLabel
+					Parent_View 	@141
+					location   	(440, 576)
+					fill_color 	4227327
+					nlines     	1
+					max_width  	528
+					justify    	0
+					label      	"CCOL_ST_ColTester")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	13421568
+				    quidu      	"3B7AF1BC01C2"
+				    width      	546
+				    height     	152
+				    annotation 	8
+				    autoResize 	TRUE)
+				(object ClassView "Class" "Logical View::Collision::COL_Testers::COL_DynamicTest::CCOL_DT_ColTester" @142
+				    ShowCompartmentStereotypes 	TRUE
+				    location   	(1232, 640)
+				    label      	(object ItemLabel
+					Parent_View 	@142
+					location   	(1031, 565)
+					fill_color 	4227327
+					nlines     	1
+					max_width  	402
+					justify    	0
+					label      	"CCOL_DT_ColTester")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	4227327
+				    quidu      	"3C1FBC350287"
+				    width      	420
+				    height     	174
+				    annotation 	8
+				    autoResize 	TRUE)
+				(object ClassView "Class" "Logical View::Collision::COL_Testers::COL_SceneTest::CCOL_Scn_ColTester" @143
+				    ShowCompartmentStereotypes 	TRUE
+				    IncludeAttribute 	TRUE
+				    IncludeOperation 	TRUE
+				    location   	(624, 1280)
+				    label      	(object ItemLabel
+					Parent_View 	@143
+					location   	(307, 949)
+					fill_color 	4227327
+					nlines     	1
+					max_width  	634
+					justify    	0
+					label      	"CCOL_Scn_ColTester")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	13421568
+				    quidu      	"3C081B0A0386"
+				    compartment 	(object Compartment
+					Parent_View 	@143
+					location   	(307, 1009)
+					icon_style 	"Icon"
+					fill_color 	16777215
+					anchor     	2
+					nlines     	12
+					max_width  	640)
+				    width      	652
+				    height     	686
+				    annotation 	8
+				    autoResize 	TRUE)
+				(object UsesView "" @144
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C082CE30336"
+				    client     	@143
+				    supplier   	@141
+				    line_style 	3
+				    origin_attachment 	(703, 937)
+				    terminal_attachment 	(703, 716))
+				(object UsesView "" @145
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C1FC418010E"
+				    client     	@143
+				    supplier   	@142
+				    line_style 	0)
+				(object ClassView "Class" "Logical View::Collision::COL_Testers::COL_SceneTest::CCOL_Mesh" @146
+				    ShowCompartmentStereotypes 	TRUE
+				    IncludeAttribute 	TRUE
+				    IncludeOperation 	TRUE
+				    location   	(1744, 1520)
+				    label      	(object ItemLabel
+					Parent_View 	@146
+					location   	(1474, 1364)
+					fill_color 	4227327
+					nlines     	1
+					max_width  	540
+					justify    	0
+					label      	"CCOL_Mesh")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	4227327
+				    quidu      	"3C1FDD4C028B"
+				    compartment 	(object Compartment
+					Parent_View 	@146
+					location   	(1474, 1424)
+					icon_style 	"Icon"
+					fill_color 	16777215
+					anchor     	2
+					nlines     	5
+					max_width  	546)
+				    width      	558
+				    height     	336
+				    annotation 	8
+				    autoResize 	TRUE)
+				(object AssociationViewNew "$UNNAMED$20" @147
+				    location   	(1207, 1454)
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C1FDD770374"
+				    roleview_list 	(list RoleViews
+					(object RoleView "$UNNAMED$21" @148
+					    Parent_View 	@147
+					    location   	(-585, 574)
+					    stereotype 	TRUE
+					    line_color 	32896
+					    quidu      	"3C1FDD780022"
+					    client     	@147
+					    supplier   	@143
+					    line_style 	3
+					    origin_attachment 	(1207, 1454)
+					    terminal_attachment 	(950, 1454)
+					    label      	(object SegLabel @149
+						Parent_View 	@148
+						location   	(977, 1508)
+						anchor     	2
+						anchor_loc 	1
+						nlines     	1
+						max_width  	15
+						justify    	0
+						label      	"*"
+						pctDist    	0.900000
+						height     	54
+						orientation 	0))
+					(object RoleView "ColMeshes" @150
+					    Parent_View 	@147
+					    location   	(-585, 574)
+					    label      	(object SegLabel @151
+						Parent_View 	@150
+						location   	(1176, 1416)
+						anchor     	1
+						anchor_loc 	1
+						nlines     	1
+						max_width  	252
+						justify    	0
+						label      	"+$ColMeshes"
+						pctDist    	-0.123506
+						height     	39
+						orientation 	0)
+					    stereotype 	TRUE
+					    line_color 	32896
+					    quidu      	"3C1FDD78002C"
+					    client     	@147
+					    supplier   	@146
+					    line_style 	3
+					    origin_attachment 	(1207, 1454)
+					    terminal_attachment 	(1465, 1454)
+					    label      	(object SegLabel @152
+						Parent_View 	@150
+						location   	(1417, 1509)
+						anchor     	2
+						anchor_loc 	1
+						nlines     	1
+						max_width  	15
+						justify    	0
+						label      	"64"
+						pctDist    	0.817259
+						height     	55
+						orientation 	1))))
+				(object ClassView "Class" "Logical View::Collision::CollisionSystem::CCOL_ColState" @153
+				    ShowCompartmentStereotypes 	TRUE
+				    IncludeOperation 	TRUE
+				    ShowOperationSignature 	TRUE
+				    location   	(208, 640)
+				    label      	(object ItemLabel
+					Parent_View 	@153
+					location   	(42, 565)
+					fill_color 	4227327
+					nlines     	1
+					max_width  	332
+					justify    	0
+					label      	"CCOL_ColState")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	4227327
+				    quidu      	"3C2935B60274"
+				    width      	350
+				    height     	174
+				    annotation 	8
+				    autoResize 	TRUE)
+				(object UsesView "" @154
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C29367F0273"
+				    client     	@143
+				    supplier   	@153
+				    line_style 	3
+				    origin_attachment 	(316, 937)
+				    terminal_attachment 	(316, 727))
+				(object CategoryView "Logical View::Collision::COL_Testers::COL_SceneTest::COL_MeshTest" @155
+				    location   	(192, 208)
+				    label      	(object ItemLabel
+					Parent_View 	@155
+					location   	(48, 124)
+					fill_color 	4227327
+					nlines     	2
+					max_width  	288
+					justify    	0
+					label      	"COL_MeshTest")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	4227327
+				    quidu      	"3C294D4B0315"
+				    width      	300
+				    height     	180)
+				(object ClassView "Class" "Logical View::Math::GammaE_Math" @156
+				    ShowCompartmentStereotypes 	TRUE
+				    IncludeAttribute 	TRUE
+				    IncludeOperation 	TRUE
+				    ShowOperationSignature 	TRUE
+				    location   	(1936, 1104)
+				    label      	(object ItemLabel
+					Parent_View 	@156
+					location   	(1782, 1041)
+					fill_color 	4227327
+					nlines     	1
+					max_width  	308
+					justify    	0
+					label      	"GammaE_Math")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	4227327
+				    quidu      	"3BD8A07F039B"
+				    width      	326
+				    height     	150
+				    annotation 	8
+				    autoResize 	TRUE)
+				(object ClassView "Class" "Logical View::E3D::GammaE_E3D" @157
+				    ShowCompartmentStereotypes 	TRUE
+				    IncludeAttribute 	TRUE
+				    ShowOperationSignature 	TRUE
+				    location   	(1584, 1104)
+				    label      	(object ItemLabel
+					Parent_View 	@157
+					location   	(1432, 1029)
+					fill_color 	4227327
+					nlines     	1
+					max_width  	304
+					justify    	0
+					label      	"GammaE_E3D")
+				    icon_style 	"Icon"
+				    line_color 	32896
+				    fill_color 	4227327
+				    quidu      	"3C1BF3280328"
+				    width      	322
+				    height     	174
+				    annotation 	8
+				    autoResize 	TRUE)
+				(object UsesView "" @158
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C1FDE900350"
+				    client     	@146
+				    supplier   	@157
+				    line_style 	0)
+				(object UsesView "" @159
+				    stereotype 	TRUE
+				    line_color 	32896
+				    quidu      	"3C1FDE7B02E1"
+				    client     	@146
+				    supplier   	@156
+				    line_style 	0))))))
+	    logical_presentations 	(list unit_reference_list
+		(object ClassDiagram "Main"
+		    quid       	"3C081CFA0091"
+		    title      	"Main"
+		    zoom       	100
+		    max_height 	28350
+		    max_width  	21600
+		    origin_x   	0
+		    origin_y   	0
+		    items      	(list diagram_item_list
+			(object CategoryView "Logical View::Collision::COL_Testers::COL_StaticTest" @160
+			    location   	(416, 368)
+			    label      	(object ItemLabel
+				Parent_View 	@160
+				location   	(269, 284)
+				fill_color 	4227327
+				nlines     	2
+				max_width  	294
+				justify    	0
+				label      	"COL_StaticTest")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	13421568
+			    quidu      	"3C1FBE770329"
+			    width      	306
+			    height     	180)
+			(object CategoryView "Logical View::Collision::COL_Testers::COL_DynamicTest" @161
+			    location   	(912, 352)
+			    label      	(object ItemLabel
+				Parent_View 	@161
+				location   	(765, 268)
+				fill_color 	4227327
+				nlines     	2
+				max_width  	294
+				justify    	0
+				label      	"COL_DynamicTest")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	13421568
+			    quidu      	"3C1FBE860262"
+			    width      	306
+			    height     	180)
+			(object CategoryView "Logical View::Collision::COL_Testers::COL_SceneTest" @162
+			    location   	(672, 784)
+			    label      	(object ItemLabel
+				Parent_View 	@162
+				location   	(528, 700)
+				fill_color 	4227327
+				nlines     	2
+				max_width  	288
+				justify    	0
+				label      	"COL_SceneTest")
+			    icon_style 	"Icon"
+			    line_color 	32896
+			    fill_color 	13421568
+			    quidu      	"3C1FC2BD0368"
+			    width      	300
+			    height     	180)
+			(object ImportView "" @163
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C1FC3BF01F6"
+			    client     	@162
+			    supplier   	@160
+			    line_style 	0)
+			(object ImportView "" @164
+			    stereotype 	TRUE
+			    line_color 	32896
+			    quidu      	"3C1FC3C00310"
+			    client     	@162
+			    supplier   	@161
+			    line_style 	0))))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"3B5DED49028A"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Collision::GammaE_Collision" @165
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(272, 80)
+		    label      	(object ItemLabel
+			Parent_View 	@165
+			location   	(80, 29)
+			fill_color 	4227327
+			nlines     	1
+			max_width  	384
+			justify    	0
+			label      	"GammaE_Collision")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	13421568
+		    quidu      	"3B5DFBBE03CA"
+		    width      	402
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object CategoryView "Logical View::Collision::Collider" @166
+		    location   	(336, 640)
+		    label      	(object ItemLabel
+			Parent_View 	@166
+			location   	(186, 552)
+			fill_color 	4227327
+			nlines     	2
+			max_width  	300
+			justify    	0
+			label      	"Collider")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	13421568
+		    quidu      	"3B686E2401AE"
+		    width      	313
+		    height     	188)
+		(object CategoryView "Logical View::Collision::CollisionUtils" @167
+		    location   	(1264, 384)
+		    label      	(object ItemLabel
+			Parent_View 	@167
+			location   	(1120, 300)
+			fill_color 	4227327
+			nlines     	2
+			max_width  	288
+			justify    	0
+			label      	"CollisionUtils")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	13421568
+		    quidu      	"3B686EE501EA"
+		    width      	300
+		    height     	180)
+		(object CategoryView "Logical View::Collision::CollisionSystem" @168
+		    location   	(784, 640)
+		    label      	(object ItemLabel
+			Parent_View 	@168
+			location   	(640, 556)
+			fill_color 	4227327
+			nlines     	2
+			max_width  	288
+			justify    	0
+			label      	"CollisionSystem")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	13421568
+		    quidu      	"3B6F1B480370"
+		    width      	300
+		    height     	180)
+		(object CategoryView "Logical View::Collision::COL_TriList" @169
+		    location   	(1264, 912)
+		    label      	(object ItemLabel
+			Parent_View 	@169
+			location   	(1120, 828)
+			fill_color 	4227327
+			nlines     	2
+			max_width  	288
+			justify    	0
+			label      	"COL_TriList")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	13421568
+		    quidu      	"3C1BEBCD00BD"
+		    width      	300
+		    height     	180)
+		(object CategoryView "Logical View::Collision::COL_Testers" @170
+		    location   	(1264, 640)
+		    label      	(object ItemLabel
+			Parent_View 	@170
+			location   	(1114, 556)
+			fill_color 	4227327
+			nlines     	2
+			max_width  	300
+			justify    	0
+			label      	"COL_Testers")
+		    icon_style 	"Icon"
+		    line_color 	32896
+		    fill_color 	13421568
+		    quidu      	"3C081CF10048"
+		    width      	312
+		    height     	180)
+		(object ImportView "" @171
+		    stereotype 	TRUE
+		    line_color 	32896
+		    quidu      	"3C1FC37D0179"
+		    client     	@168
+		    supplier   	@166
+		    line_style 	0)
+		(object ImportView "" @172
+		    stereotype 	TRUE
+		    line_color 	32896
+		    quidu      	"3C1FC38203BB"
+		    client     	@168
+		    supplier   	@167
+		    line_style 	0)
+		(object ImportView "" @173
+		    stereotype 	TRUE
+		    line_color 	32896
+		    quidu      	"3C1FC3840242"
+		    client     	@168
+		    supplier   	@170
+		    line_style 	0)
+		(object ImportView "" @174
+		    stereotype 	TRUE
+		    line_color 	32896
+		    quidu      	"3C1FC3870282"
+		    client     	@168
+		    supplier   	@169
+		    line_style 	0)))))
