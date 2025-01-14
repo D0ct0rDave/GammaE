@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Evaluators2">
+      <UniqueIdentifier>{9D3D46A2-09F3-BE97-92E7-B86EFE9BB59B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Filters">
+      <UniqueIdentifier>{5E93FD0C-CA72-7CA8-D38A-077F3FE9E209}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generators">
+      <UniqueIdentifier>{7F09C13D-6BC1-028B-D4C8-DBE6C09F9D7B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HeightField">
+      <UniqueIdentifier>{821E9C34-EED3-142A-77C8-0E01E37C0B2E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{AFF4887C-9B2B-8A0D-4418-7010302E060F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Noise">
+      <UniqueIdentifier>{6323C10D-CF37-E9BE-98B9-8C1E048DE5EF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Processors">
+      <UniqueIdentifier>{9858B181-8410-F3CE-ED17-CC2AD9EE8DBF}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Src\Evaluators2\EV_Composite.h">
+      <Filter>Evaluators2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Evaluators2\EV_Noise.h">
+      <Filter>Evaluators2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Evaluators2\EV_RandomFeaturePoints.h">
+      <Filter>Evaluators2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Evaluators2\EV_fBM.h">
+      <Filter>Evaluators2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Evaluators2\EV_fBM_HeterogeneousMultifractal.h">
+      <Filter>Evaluators2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Evaluators2\EV_fBM_HybridMultifractal.h">
+      <Filter>Evaluators2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Evaluators2\EV_fBM_Monofractal.h">
+      <Filter>Evaluators2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Evaluators2\EV_fBM_Multifractal.h">
+      <Filter>Evaluators2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Evaluators2\EV_fBM_RidgedMultifractal.h">
+      <Filter>Evaluators2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Evaluators2\EV_fBM_Turbulence.h">
+      <Filter>Evaluators2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Evaluators2\Evaluator2D.h">
+      <Filter>Evaluators2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Filters\TexFilters.h">
+      <Filter>Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Generators\PT_Generator.h">
+      <Filter>Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Generators\PT_Generator_Evaluator.h">
+      <Filter>Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Generators\PT_Generator_FaultFormation.h">
+      <Filter>Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Generators\PT_Generator_RndMidPointDisp.h">
+      <Filter>Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\HeightField\PT_HeightField.h">
+      <Filter>HeightField</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\HeightField\PT_HeightField_Matrix.h">
+      <Filter>HeightField</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Math\MMath.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Math\MatrixOps.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Math\Vect2.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Noise\Perlin.h">
+      <Filter>Noise</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Noise\distortnoise.h">
+      <Filter>Noise</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Noise\noise.h">
+      <Filter>Noise</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Processors\PT_Processor.h">
+      <Filter>Processors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Processors\PT_Processor_BasicFuncs.h">
+      <Filter>Processors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Processors\PT_Processor_Convolution.h">
+      <Filter>Processors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\TerrainGeneration.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Src\Evaluators2\EV_Composite.cpp">
+      <Filter>Evaluators2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Evaluators2\EV_Noise.cpp">
+      <Filter>Evaluators2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Evaluators2\EV_RandomFeaturePoints.cpp">
+      <Filter>Evaluators2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Evaluators2\EV_fBM.cpp">
+      <Filter>Evaluators2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Evaluators2\EV_fBM_HeterogeneousMultifractal.cpp">
+      <Filter>Evaluators2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Evaluators2\EV_fBM_HybridMultifractal.cpp">
+      <Filter>Evaluators2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Evaluators2\EV_fBM_Monofractal.cpp">
+      <Filter>Evaluators2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Evaluators2\EV_fBM_Multifractal.cpp">
+      <Filter>Evaluators2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Evaluators2\EV_fBM_RidgedMultifractal.cpp">
+      <Filter>Evaluators2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Evaluators2\EV_fBM_Turbulence.cpp">
+      <Filter>Evaluators2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Evaluators2\Evaluator2D.cpp">
+      <Filter>Evaluators2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Filters\TexFilters.cpp">
+      <Filter>Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Generators\PT_Generator.cpp">
+      <Filter>Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Generators\PT_Generator_Evaluator.cpp">
+      <Filter>Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Generators\PT_Generator_FaultFormation.cpp">
+      <Filter>Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Generators\PT_Generator_RndMidPointDisp.cpp">
+      <Filter>Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\HeightField\PT_HeightField.cpp">
+      <Filter>HeightField</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\HeightField\PT_HeightField_Matrix.cpp">
+      <Filter>HeightField</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Math\MMath.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Math\MatrixOps.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Math\Vect2.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Noise\Perlin.cpp">
+      <Filter>Noise</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Noise\distortnoise.cpp">
+      <Filter>Noise</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Noise\noise.cpp">
+      <Filter>Noise</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Processors\PT_Processor.cpp">
+      <Filter>Processors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Processors\PT_Processor_BasicFuncs.cpp">
+      <Filter>Processors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Processors\PT_Processor_Convolution.cpp">
+      <Filter>Processors</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
