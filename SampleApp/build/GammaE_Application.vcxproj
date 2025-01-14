@@ -67,6 +67,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>TerrainGenerationLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\sdks\TerrainGenerationLib\build\lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -87,13 +89,12 @@
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>TerrainGenerationLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\sdks\TerrainGenerationLib\build\lib\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\ApplicationLoop.h" />
-    <ClInclude Include="..\Game\CBackgroundMgr.h" />
-    <ClInclude Include="..\Game\CGameScene.h" />
-    <ClInclude Include="..\Game\CParticleSystemMgr.h" />
     <ClInclude Include="..\Game\Entities\CBoxEntity.h" />
     <ClInclude Include="..\Game\Entities\CGPEntityType.h" />
     <ClInclude Include="..\Game\Entities\CGPGAnimatedEntity.h" />
@@ -116,14 +117,9 @@
     <ClInclude Include="..\Game\Entities\RTMapEntities\CRTME_Target.h" />
     <ClInclude Include="..\Game\Entities\RTMapEntities\CRTME_Trigger.h" />
     <ClInclude Include="..\Game\Entities\RTMapEntities\CRTMapEntities.h" />
-    <ClInclude Include="..\Game\Entities\Weapons\RocketLauncher\CRocket.h" />
-    <ClInclude Include="..\Game\Entities\Weapons\RocketLauncher\CRocketFact.h" />
-    <ClInclude Include="..\Game\Entities\Weapons\RocketLauncher\CRocketProjectile.h" />
-    <ClInclude Include="..\Game\Entities\Weapons\RocketLauncher\CRocketTrail.h" />
     <ClInclude Include="..\Game\GameInit\CGame_KeyBinder.h" />
     <ClInclude Include="..\Game\GameScene\CBackgroundMgr.h" />
     <ClInclude Include="..\Game\GameScene\CGameScene.h" />
-    <ClInclude Include="..\Game\GameScene\CGraphicEntityMgr.h" />
     <ClInclude Include="..\Game\GameScene\CHUDMgr.h" />
     <ClInclude Include="..\Game\GameScene\CParticleSystemMgr.h" />
     <ClInclude Include="..\Game\GameScene\GameMap\CGMRoomCOLInfo.h" />
@@ -150,64 +146,10 @@
     <ClInclude Include="..\Input\Commands\GammaE_Commands.h" />
     <ClInclude Include="..\Input\Events\GammaE_Event.h" />
     <ClInclude Include="..\ProcTex.h" />
-    <ClInclude Include="..\Tools\DummyEditor\CDummyInstance.h" />
-    <ClInclude Include="..\Tools\DummyEditor\CDummyList.h" />
-    <ClInclude Include="..\Tools\DummyEditor\CDummyRedistributor.h" />
-    <ClInclude Include="..\Tools\DummyEditor\CDummyTypes.h" />
-    <ClInclude Include="..\Tools\DummyEditor\DED_PRECOMPILEDHEADERS.h" />
-    <ClInclude Include="..\Tools\DummyEditor\DummyInfoFile.h" />
-    <ClInclude Include="..\Tools\DummyEditor\GUI.h" />
-    <ClInclude Include="..\Tools\DummyEditor\GUI_SelDumType.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\CGEMapGenerator.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\CQLE_GEPreprocessor.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\MapData\CMapLoader.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\MapData\CMapScene.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\MapData\CMapTriSceneGen.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\MapData\MapBrush\CMapBrush.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\MapData\MapBrush\CMapBrushSide.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_DstPoint.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_Item.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_Light.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_Monster.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_Platform.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_PlayerStart.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_PowerUp.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_Sound.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_SrcPoint.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_Target.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_TargetMultiple.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_TargetType.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_Trigger.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_TriggerMode.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_World.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEntities.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEntity.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEntityClass.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\MapData\MapMath.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\QLEMap\CQLEMapLoader.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\QLEMap\CQLEMapScn.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\QLEMap\CQLEObject.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\QLEMap\eQLE_ObjType.h" />
-    <ClInclude Include="..\Tools\GEMapCompiler\StdAfx.h" />
-    <ClInclude Include="..\Tools\LightMapGen\MapLighting\CLightMapGenerator.h" />
-    <ClInclude Include="..\Tools\LightMapGen\MapLighting\CLightMapGenerator2.h" />
-    <ClInclude Include="..\Tools\LightMapGen\MapLighting\CLightMapGenerator3.h" />
-    <ClInclude Include="..\Tools\LightMapGen\PrecompiledHeaders.h" />
-    <ClInclude Include="..\Tools\MD2toGEM\MD2Convert.h" />
-    <ClInclude Include="..\Tools\MD2toGEM\StdAfx.h" />
-    <ClInclude Include="..\Tools\MaterialEditor\GUI.h" />
-    <ClInclude Include="..\Tools\Octree\GUIMain.h" />
-    <ClInclude Include="..\Tools\Octree\GUINodes.h" />
-    <ClInclude Include="..\Tools\Octree\OCT_PRECOMPILEDHEADERS.h" />
-    <ClInclude Include="..\Tools\Pruebas\StdAfx.h" />
-    <ClInclude Include="..\Tools\ShaderEditor\GUI.h" />
     <ClInclude Include="..\WinEventTranslator.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\ApplicationLoop.cpp" />
-    <ClCompile Include="..\Game\CBackgroundMgr.cpp" />
-    <ClCompile Include="..\Game\CGameScene.cpp" />
-    <ClCompile Include="..\Game\CParticleSystemMgr.cpp" />
     <ClCompile Include="..\Game\Entities\CBoxEntity.cpp" />
     <ClCompile Include="..\Game\Entities\CGPEntityType.cpp" />
     <ClCompile Include="..\Game\Entities\CGPGAnimatedEntity.cpp" />
@@ -230,22 +172,11 @@
     <ClCompile Include="..\Game\Entities\RTMapEntities\CRTME_Target.cpp" />
     <ClCompile Include="..\Game\Entities\RTMapEntities\CRTME_Trigger.cpp" />
     <ClCompile Include="..\Game\Entities\RTMapEntities\CRTMapEntities.cpp" />
-    <ClCompile Include="..\Game\Entities\Weapons\RocketLauncher\CRocket.cpp" />
-    <ClCompile Include="..\Game\Entities\Weapons\RocketLauncher\CRocketFact.cpp" />
-    <ClCompile Include="..\Game\Entities\Weapons\RocketLauncher\CRocketProjectile.cpp" />
-    <ClCompile Include="..\Game\Entities\Weapons\RocketLauncher\CRocketTrail.cpp" />
     <ClCompile Include="..\Game\GameInit\CGame_KeyBinder.cpp" />
-    <ClCompile Include="..\Game\GameScene\CBackgroundMgr.cpp">
-      <ObjectFileName>$(IntDir)\CBackgroundMgr1.obj</ObjectFileName>
-    </ClCompile>
-    <ClCompile Include="..\Game\GameScene\CGameScene.cpp">
-      <ObjectFileName>$(IntDir)\CGameScene1.obj</ObjectFileName>
-    </ClCompile>
-    <ClCompile Include="..\Game\GameScene\CGraphicEntityMgr.cpp" />
+    <ClCompile Include="..\Game\GameScene\CBackgroundMgr.cpp" />
+    <ClCompile Include="..\Game\GameScene\CGameScene.cpp" />
     <ClCompile Include="..\Game\GameScene\CHUDMgr.cpp" />
-    <ClCompile Include="..\Game\GameScene\CParticleSystemMgr.cpp">
-      <ObjectFileName>$(IntDir)\CParticleSystemMgr1.obj</ObjectFileName>
-    </ClCompile>
+    <ClCompile Include="..\Game\GameScene\CParticleSystemMgr.cpp" />
     <ClCompile Include="..\Game\GameScene\GameMap\CGMRoomCOLInfo.cpp" />
     <ClCompile Include="..\Game\GameScene\GameMap\CGameMapLoader.cpp" />
     <ClCompile Include="..\Game\GameScene\GameMap\GEMap\CGEMap.cpp" />
@@ -267,88 +198,21 @@
     <ClCompile Include="..\Input\CommandDispatcher\ClientCmdDispatcher.cpp" />
     <ClCompile Include="..\Input\CommandDispatcher\CmdDispatcher.cpp" />
     <ClCompile Include="..\Input\CommandDispatcher\ServerCmdDispatcher.cpp" />
-    <ClCompile Include="..\Tools\DummyEditor\CDummyInstance.cpp" />
-    <ClCompile Include="..\Tools\DummyEditor\CDummyList.cpp" />
-    <ClCompile Include="..\Tools\DummyEditor\CDummyRedistributor.cpp" />
-    <ClCompile Include="..\Tools\DummyEditor\CDummyTypes.cpp" />
-    <ClCompile Include="..\Tools\DummyEditor\DummyEditor.cpp" />
-    <ClCompile Include="..\Tools\DummyEditor\DummyInfoFile.cpp" />
-    <ClCompile Include="..\Tools\DummyEditor\GUI.cpp" />
-    <ClCompile Include="..\Tools\DummyEditor\GUI_SelDumType.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\CGEMapGenerator.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\CQLE_GEPreprocessor.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\MapCompiler.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\MapData\CMapLoader.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\MapData\CMapScene.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\MapData\CMapTriSceneGen.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\MapData\MapBrush\CMapBrush.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\MapData\MapBrush\CMapBrushSide.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_DstPoint.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_Item.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_Light.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_Monster.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_Platform.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_PlayerStart.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_PowerUp.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_Sound.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_SrcPoint.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_Target.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_TargetMultiple.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_TargetType.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_Trigger.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_TriggerMode.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEnt_World.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEntities.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEntity.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\MapData\MapEntity\CMapEntityClass.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\MapData\MapMath.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\QLEMap\CQLEMapLoader.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\QLEMap\CQLEMapScn.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\QLEMap\CQLEObject.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\QLEMap\eQLE_ObjType.cpp" />
-    <ClCompile Include="..\Tools\GEMapCompiler\StdAfx.cpp" />
-    <ClCompile Include="..\Tools\LightMapGen\LightMapGen.cpp" />
-    <ClCompile Include="..\Tools\LightMapGen\MapLighting\CLightMapGenerator.cpp" />
-    <ClCompile Include="..\Tools\LightMapGen\MapLighting\CLightMapGenerator2.cpp" />
-    <ClCompile Include="..\Tools\LightMapGen\MapLighting\CLightMapGenerator3.cpp" />
-    <ClCompile Include="..\Tools\LightMapGen\main.cpp" />
-    <ClCompile Include="..\Tools\MD2toGEM\MD2Conv.cpp" />
-    <ClCompile Include="..\Tools\MD2toGEM\MD2Convert.cpp" />
-    <ClCompile Include="..\Tools\MD2toGEM\MD2toGEM.cpp" />
-    <ClCompile Include="..\Tools\MD2toGEM\StdAfx.cpp">
-      <ObjectFileName>$(IntDir)\StdAfx1.obj</ObjectFileName>
-    </ClCompile>
-    <ClCompile Include="..\Tools\MaterialEditor\GUI.cpp">
-      <ObjectFileName>$(IntDir)\GUI1.obj</ObjectFileName>
-    </ClCompile>
-    <ClCompile Include="..\Tools\MaterialEditor\MatEdit.cpp" />
-    <ClCompile Include="..\Tools\Octree\GUIMain.cpp" />
-    <ClCompile Include="..\Tools\Octree\GUINodes.cpp" />
-    <ClCompile Include="..\Tools\Octree\GammaE_Octree.cpp" />
-    <ClCompile Include="..\Tools\Pruebas\Pruebas.cpp" />
-    <ClCompile Include="..\Tools\Pruebas\StdAfx.cpp">
-      <ObjectFileName>$(IntDir)\StdAfx2.obj</ObjectFileName>
-    </ClCompile>
-    <ClCompile Include="..\Tools\ShaderEditor\GUI.cpp">
-      <ObjectFileName>$(IntDir)\GUI2.obj</ObjectFileName>
-    </ClCompile>
-    <ClCompile Include="..\Tools\ShaderEditor\ShaderEditor.cpp" />
     <ClCompile Include="..\WinEventTranslator.cpp" />
-    <ClCompile Include="..\main.cpp">
-      <ObjectFileName>$(IntDir)\main1.obj</ObjectFileName>
-    </ClCompile>
+    <ClCompile Include="..\main.cpp" />
     <ClCompile Include="..\proctex.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\History.txt" />
     <None Include="..\OldShaders.txt" />
     <None Include="..\TODO.txt" />
-    <None Include="..\Tools\GEMapCompiler\ReadMe.txt" />
-    <None Include="..\Tools\MD2toGEM\ReadMe.txt" />
-    <None Include="..\Tools\Pruebas\ReadMe.txt" />
-    <None Include="..\base\shaders.txt" />
     <None Include="..\optimization.txt" />
     <None Include="..\shaders.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\GammaE\build\Collision.vcxproj">
+      <Project>{B11A655C-1D85-19D3-66C3-CA78D26CF727}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

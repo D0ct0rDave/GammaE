@@ -55,7 +55,7 @@ class GMapData
       void SetEntities (CMapEntity** _poEntities, int _iNumEntities);
 
       //## Operation: SetMap%1014892583
-      void SetMap (CObject3D_Gen *_poMap);
+      void SetMap (CObject3D *_poMap);
 
     // Data Members for Class Attributes
 
@@ -70,8 +70,8 @@ class GMapData
       //## end GMapData::iNumEntities%3C7E07C10204.attr
 
       //## Attribute: poMap%3C7E07EE0367
-      //## begin GMapData::poMap%3C7E07EE0367.attr preserve=no  public: CObject3D_Gen * {UA} NULL
-      CObject3D_Gen *poMap;
+      //## begin GMapData::poMap%3C7E07EE0367.attr preserve=no  public: CObject3D * {UA} NULL
+      CObject3D *poMap;
       //## end GMapData::poMap%3C7E07EE0367.attr
 
     // Additional Public Declarations

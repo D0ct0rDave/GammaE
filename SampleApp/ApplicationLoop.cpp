@@ -438,17 +438,17 @@ void AppLoop_SetupBsp(char *_szBspFile,char *_szQ2BaseDir)
 	#ifdef _USE_BSP_
 		// -- Creating / Loading
 		CLoaderBSP2		oBSPLoader;		
-		CObject3D_Gen	*poBSPObj;
+		CObject3D	*poBSPObj;
 		
 		CGraphBV_Manager::SetBVMode(eGraphBV_Box);
 		oBSPLoader.SetQ2BaseDir(_szQ2BaseDir);
-		poBSPObj = (CObject3D_Gen*)oBSPLoader.pLoad(_szBspFile);
+		poBSPObj = (CObject3D*)oBSPLoader.pLoad(_szBspFile);
 		
 		SCNUt_SceneCompiler oScnComp;
 		oScnComp.CompileScene(poBSPObj);
 
 		// -- Adding to scene
-		gCamera.AddSceneObject((CObject3D_Gen*)poBSPObj);
+		gCamera.AddSceneObject((CObject3D*)poBSPObj);
 
 		//
 		/*
@@ -458,7 +458,7 @@ void AppLoop_SetupBsp(char *_szBspFile,char *_szQ2BaseDir)
 							&gCOLScn_MCT,
 							eCOL_CT_GraphicStatic,
 							eCOL_TT_NgbTri,
-							(CObject3D_Gen*)poBSPObj,0);
+							(CObject3D*)poBSPObj,0);
 
 		// -- Setting collisions
 		gCollisionSystem.iAddObject( *oBSPCollider );
@@ -473,7 +473,7 @@ void AppLoop_SetupDummies(char *_szDummieScene)
 			
 		// -- Creating / Loading			
 		CLoaderGEM oGEMLoader;
-		poDummyScene = (CObject3D_Gen*)oGEMLoader.pLoad(_szDummieScene);
+		poDummyScene = (CObject3D*)oGEMLoader.pLoad(_szDummieScene);
 		
 		// GameDum_Loader oDumLoader;
 		// poDummyScene  = oDumLoader.pLoad("I:/Projects/GammaE/Dummies.dnf");
@@ -650,11 +650,11 @@ void AppLoop_LoadModels()
 	// Map
 	// ------------------------------------------------
 	CLoaderGEM			oLoader;
-	// CObject3D_Gen		*poNode = (CObject3D_Gen *)oLoader.pLoad("j:/graphics/mapper/cubo.gem");
-	// CObject3D_Gen		*poNode = (CObject3D_Gen *)oLoader.pLoad("j:/graphics/mapper/octree.gem");
-	// CObject3D_Gen		*poNode = (CObject3D_Gen *)oLoader.pLoad("j:/graphics/mapper/cubo_lit.gem");
-	// CObject3D_Gen		*poNode = (CObject3D_Gen *)oLoader.pLoad("i:/projects/gammae/tools/octree/plane.gem");
-	// CObject3D_Gen		*poNode = (CObject3D_Gen *)oLoader.pLoad("i:/projects/gammae/tools/octree/gem/plane_box2.gem");
+	// CObject3D		*poNode = (CObject3D *)oLoader.pLoad("j:/graphics/mapper/cubo.gem");
+	// CObject3D		*poNode = (CObject3D *)oLoader.pLoad("j:/graphics/mapper/octree.gem");
+	// CObject3D		*poNode = (CObject3D *)oLoader.pLoad("j:/graphics/mapper/cubo_lit.gem");
+	// CObject3D		*poNode = (CObject3D *)oLoader.pLoad("i:/projects/gammae/tools/octree/plane.gem");
+	// CObject3D		*poNode = (CObject3D *)oLoader.pLoad("i:/projects/gammae/tools/octree/gem/plane_box2.gem");
 
 	// ------------------------------------------------
 	// Scene engine

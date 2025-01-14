@@ -53,7 +53,7 @@ project "GammaE_Application"
         }
     filter "files:**.h"
         vpaths {
-            ["Header Files"] = "**.h" -- Places all .h files under "Header Files" in the project
+            ["Header Files"] = "**.h" -- Places all .h files under "Header Files" -- in the project
         }
     filter {} -- Clear filter to reset for subsequent rules
 
@@ -61,11 +61,17 @@ project "GammaE_Application"
     filter "configurations:Debug"
         defines { "DEBUG" }
         symbols "On" -- Generate debug symbols
-
+		libdirs
+		{
+			"$(ProjectDir)../../sdks/TerrainGenerationLib/build/lib/Debug",
+		}
     filter "configurations:Release"
         defines { "NDEBUG" }
         optimize "On" -- Enable optimizations
-
+		libdirs
+		{
+			"$(ProjectDir)../../sdks/TerrainGenerationLib/build/lib/Release",
+		}
     filter {} -- Clear filter for general settings
 
     -- List of directories to exclude from recursion
@@ -81,7 +87,12 @@ project "GammaE_Application"
         linux = "makefile",
         macosx = "xcodeproj"
     }
-    
+
+	links 
+	{
+		"TerrainGenerationLib.lib",
+	}
+
 	-- Determine the current platform's project file extension
     local currentPlatform = os.target():lower() -- e.g., "windows", "linux", "macosx"
     local projectExtension = platformProjectExtensions[currentPlatform]
@@ -91,7 +102,8 @@ project "GammaE_Application"
     end
           
     -- Step 2: Include external projects based on generated project files
-    local function includeProjects(rootDir)
+	links {} -- Initialize an empty links table
+	local function includeProjects(rootDir)
 		local projectFileFound = false;
 		-- print("Processing external projects in : " .. rootDir)
         local entries = os.matchdirs(rootDir .. "/*") -- Find all subdirectories
@@ -101,6 +113,7 @@ project "GammaE_Application"
 				projectFileFound = true;
 				local projectName = projectFile:match("([^/\\]+)%..+$") -- Extract project name
 				print("Adding external project: " .. projectFile)
+					links { projectName }
 					externalproject(projectName)
 					location(entry)
 					kind "StaticLib" -- Modify as needed
@@ -116,9 +129,9 @@ project "GammaE_Application"
     end
 
     includeProjects(frameworkRoot)
-
+	
 -- Install rules (using a post-build step for example purposes)
 postbuildcommands {
-    "{MKDIR} %{wks.location}/dist/lib", -- Create output directory
-    "{COPYFILE} %{cfg.targetdir}/MyLibrary.lib %{wks.location}/dist/lib" -- Copy library to the dist directory
+    -- "{MKDIR} %{wks.location}/dist/lib", -- Create output directory
+    -- "{COPYFILE} %{cfg.targetdir}/MyLibrary.lib %{wks.location}/dist/lib" -- Copy library to the dist directory
 }

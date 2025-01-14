@@ -84,7 +84,7 @@ GMapData* GMapLoader::poLoad (CFile& _roFile)
 
 	// Write geometry
 	CLoaderGEM	oGEMLoader;
-	poGMap->poMap = (CObject3D_Gen*)oGEMLoader.pLoad(_roFile);
+	poGMap->poMap = (CObject3D*)oGEMLoader.pLoad(_roFile);
 	
 	return(poGMap);
   //## end GMapLoader::poLoad%1014892587.body
@@ -118,7 +118,7 @@ CMapEnt_Sound* GMapLoader::poLoad_SoundEnt (CFile& _roFile)
 	CMapEnt_Sound *poEnt = mNew CMapEnt_Sound;
 	_roFile.iRead(&poEnt->iType,4);
 	_roFile.iRead(&poEnt->oPos ,sizeof(CVect3));
-	_roFile.iRead(poEnt->oName,16);
+	_roFile.iRead(poEnt->szFileName,16);
 	return(poEnt);
   //## end GMapLoader::poLoad_SoundEnt%1014933243.body
 }

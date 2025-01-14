@@ -17,7 +17,7 @@
 // CGEMap
 #include "Game\GameScene\GameMap\GEMap\CGEMap.h"
 //## begin module%3CA0F7040368.additionalDeclarations preserve=yes
-#include "game/globals/globals.h"
+// #include "game/globals/globals.h"
 //## end module%3CA0F7040368.additionalDeclarations
 
 

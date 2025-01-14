@@ -54,7 +54,7 @@ void GMapData::SetEntities (CMapEntity** _poEntities, int _iNumEntities)
   //## end GMapData::SetEntities%1014892582.body
 }
 
-void GMapData::SetMap (CObject3D_Gen *_poMap)
+void GMapData::SetMap (CObject3D *_poMap)
 {
   //## begin GMapData::SetMap%1014892583.body preserve=yes
 	poMap = _poMap;

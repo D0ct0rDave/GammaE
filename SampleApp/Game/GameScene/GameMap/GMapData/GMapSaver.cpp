@@ -81,7 +81,7 @@ bool GMapSaver::bSave (CFile& _roFile, GMapData* _poGMap)
 bool GMapSaver::bSaveEntity (CFile& _roFile, CMapEntity* _poEntity)
 {
   //## begin GMapSaver::bSaveEntity%1014912985.body preserve=yes
-	CMapEntityClass eClass = _poEntity->GeteClass();
+	CMapEntityClass eClass = _poEntity->eClass;
 	
 	// Write entity type
 	_roFile.iWrite(&eClass,4);
@@ -106,7 +106,7 @@ bool GMapSaver::bSave_SoundEnt (CFile& _roFile, CMapEnt_Sound* _poEnt)
 	_roFile.iWrite(&_poEnt->iType,4);
 	_roFile.iWrite(&_poEnt->oPos ,sizeof(CVect3));
 
-	_roFile.iWrite(&_poEnt->oName,16);
+	_roFile.iWrite(&_poEnt->szFileName,16);
 	return(true);
   //## end GMapSaver::bSave_SoundEnt%1014933237.body
 }

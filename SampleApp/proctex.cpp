@@ -4,7 +4,7 @@
 #include "tex.h"
 #include "Proctex.h"
 #include "E3D/GammaE_E3D.h"
-#include "TerrainGenerationLib.h"
+#include "TerrainGeneration.h"
 
 #define HERTZS		3000.0f
 #define	TEX_SIZE	64
@@ -46,7 +46,7 @@ TProcTex::TProcTex()
 
 TProcTex::~TProcTex()
 {
-	DestroyMipmap(MipMapObj->mipMap);
+	DestroyMipMap(MipMapObj->mipMap);
 }
 
 void TProcTex::UpdateTexture ()

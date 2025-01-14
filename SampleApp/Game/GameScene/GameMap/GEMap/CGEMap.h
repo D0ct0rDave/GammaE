@@ -16,7 +16,7 @@
 
 //## begin module%3CA0F7040368.includes preserve=yes
 #include <vector>
-using namespace std;
+//using namespace std;
 //## end module%3CA0F7040368.includes
 
 // CGEMapRoom
