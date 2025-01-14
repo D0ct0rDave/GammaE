@@ -43,5 +43,7 @@ MipMap* poCreateMipMapFromTexture(Texture* _poTex);
 MipMap* poCreateMipMapCopy(MipMap* _poMipMap);
 void DestroyMipMap(MipMap* _poMipMap);
 
+#include "tex.inl"
+
 #endif
 

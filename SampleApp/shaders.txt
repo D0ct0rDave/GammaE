@@ -1,0 +1,635 @@
+Material magnum.tga
+{
+	Wireframe CabezaBuque
+	{
+		r 1
+		g 0
+		b 0.25
+		a 0.25
+	}		
+}
+
+
+Material J:\Graphics\textures\trees\tree13.tga_
+{
+	Wireframe CabezaCubo
+	{
+		r 1
+		g 0
+		b 0.25
+		a 0.25
+	}		
+}
+
+Material J:\Graphics\textures\trees\tree13.tga
+{
+	BlendOp AlphaThrough
+	Texture J:/Graphics/textures/trees/tree13_256.tga
+	{
+		MagFilter	LINEAR
+		ClampU		CLAMP
+		ClampV		CLAMP
+	}
+
+	BlendOp Add
+	Texture j:/graphics/textures/fonts/font.tga
+	{
+		MagFilter	LINEAR
+		ClampU		CLAMP
+		ClampV		CLAMP
+	}
+}
+
+Material J:\Graphics\textures\trees\tree15.tga
+{
+	BlendOp AlphaThrough
+	Texture J:/Graphics/textures/trees/tree15_256.tga
+	{
+		MagFilter	LINEAR
+	}
+}
+
+Material C:\Downloads\Graphics\textures\tree11.tga_
+{
+	BlendOp AlphaThrough
+	Texture J:/Graphics/textures/trees/tree11_128.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	NEAREST
+		ClampU		WRAP
+		ClampV		WRAP
+	}
+}
+
+Material J:\Graphics\Images\s1\ProcTex_17.tga
+{
+	Texture J:\Graphics\Images\s1\ProcTex_17.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	LINEAR
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+	Wireframe CabezaCubo
+	{
+		r 1
+		g 0
+		b 0.25
+		a 0.25
+	}
+}
+
+Material J:\Graphics\Images\s1\ProcTex_17.tga_
+{
+	Wireframe CabezaCubo
+	{
+		r 1
+		g 0
+		b 0.25
+		a 0.25
+	}	
+}
+
+
+Material models/players/hellchick/hellc.tga
+{	
+	Texture K:/Quake3/baseq3/models/players/hellchick/hellc.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	LINEAR
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material models/players/hellchick/hellc_s.tga
+{	
+	Texture K:/Quake3/baseq3/models/players/hellchick/hellc_s.tga
+	{ 
+		MinFilter	NEAREST
+		MagFilter	LINEAR
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material models/players/hellchick/hellc_c.tga
+{	
+	Texture K:/Quake3/baseq3/models/players/hellchick/hellc_c.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	LINEAR
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material models/players/crash/crash.tga
+{	
+	Texture K:/Quake3/baseq3/models/players/crash/crash.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	LINEAR
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material models/players/crash/crash_t.tga
+{	
+	Texture K:/Quake3/baseq3/models/players/crash/crash_t.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	LINEAR
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material models/players/crash/crash_f.tga
+{	
+	Texture K:/Quake3/baseq3/models/players/crash/crash_t.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	LINEAR
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material models/players/klesk/klesk.tga
+{	
+	Texture K:/Quake3/baseq3/models/players/klesk/klesk.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	LINEAR
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material models/players/klesk/klesk_h.tga
+{	
+	Texture K:/Quake3/baseq3/models/players/klesk/klesk_h.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	LINEAR
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material models/players/visor/visor.TGA
+{	
+	Texture K:/Quake3/baseq3/models/players/visor/visor.TGA
+	{
+		MinFilter	NEAREST
+		MagFilter	LINEAR
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material models/players/slash/slashskate.TGA
+{	
+	BlendOp SuperAlpha
+	Texture K:/Quake3/baseq3/models/players/slash/slashskate.TGA
+	{
+		MinFilter	NEAREST
+		MagFilter	LINEAR
+		ClampU		REPEAT
+		ClampV		REPEAT	
+	}
+}
+
+Material models/players/slash/slash_h.TGA_3
+{	
+	BlendOp		Mult2x
+	Extension	PROCTEX_1
+}
+
+Material models/players/slash/slash_h.TGA_0
+{	
+	Wireframe CabezaCubo
+	{
+		r 1
+		g 0
+		b 0.25
+		a 0.25
+	}
+}
+
+Material models/players/slash/slash_h.TGA
+{	
+	Texture K:/Quake3/baseq3/models/players/slash/naked_h.TGA
+	{
+		MinFilter	NEAREST
+		MagFilter	LINEAR
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material models/players/slash/slash.tga_
+{	        
+	Texture K:/Quake3/baseq3/models/players/slash/naked.TGA
+	{
+		MinFilter	NEAREST
+		MagFilter	LINEAR
+		ClampU		WRAP
+		ClampV		WRAP
+	}		
+}
+
+Material models/players/slash/slash.tga
+{
+	TexOp EnvMap
+	Texture j:/graphics/images/env2.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	NEAREST
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+
+	BlendOp 	Mult2x
+	Extension 	PROCTEX_1
+}
+
+Material models/players/slash/slash.tga_22
+{	
+	TexOp EnvMap
+	Texture j:/graphics/images/env2.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	NEAREST
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+
+	BlendOp Mult2x		
+	Texture K:/Quake3/baseq3/models/players/slash/naked.TGA
+	{
+		MinFilter	NEAREST
+		MagFilter	LINEAR
+		ClampU		WRAP
+		ClampV		WRAP
+	}
+}
+
+Material krilin.pcx
+{	
+	Texture k:/quake2/baseq2/players/krilin/krilin.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	LINEAR
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material players/crakhor/crakhor.pcx
+{	
+	Texture k:/Quake2/baseq2/players/crackwhore/crakhor2.jpg
+	{
+		MinFilter	NEAREST
+		MagFilter	LINEAR
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material layers/amber/amber.pcx
+{	
+	Texture k:/quake2/baseq2/players/sydney/armypants2.jpg
+	{
+		MinFilter	NEAREST
+		MagFilter	LINEAR
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material models/monsters/boss3/jorg/skin.pcx
+{	
+	BlendOp Add
+	TexOp EnvOp
+
+	Texture k:/quake2/baseq2/models/monsters/boss3/jorg/skin.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	LINEAR
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material players/homer/homer.pcx_
+{
+	Texture k:/quake2/baseq2/players/Homer/homer.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	NEAREST
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+
+	BlendOp Mult2x
+	
+	TexOp ReflectMap
+	Texture j:/graphics/images/EdEnv.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	NEAREST
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material players/homer/homer2.pcx
+{
+		Texture k:/quake2/baseq2/players/Homer/homer.tga
+		{
+			MinFilter	NEAREST
+			MagFilter	NEAREST
+			ClampU		REPEAT
+			ClampV		REPEAT
+		}
+
+		BlendOp Add
+		TexOp ReflectMap
+		Texture j:/graphics/images/flare_128.tga
+		{
+			MinFilter	NEAREST
+			MagFilter	NEAREST
+			ClampU		REPEAT
+			ClampV		REPEAT
+		}
+}
+
+Material players/homer/homer2.pcx
+{
+	Texture k:/quake2/baseq2/players/Homer/homer.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	NEAREST
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+	
+	BlendOp Mult2x
+	TexOp ReflectMap
+
+	Texture j:/graphics/images/brick2.tga
+	{
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material players/homer/homer.pcx
+{
+	Texture k:/quake2/baseq2/players/Homer/homer.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	NEAREST
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material models/items/mega_h/skin.pcx
+{
+	Texture k:/quake2/baseq2/models/items/mega_h/skin.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	NEAREST
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+
+
+Material Verde2
+{
+	Texture j:/graphics/images/phazer_tir.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	NEAREST
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+	
+	BlendOp Add
+	Texture j:/graphics/images/phazer_tir.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	NEAREST
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material Verde
+{
+	BlendOp Add
+
+	Texture j:/graphics/images/destello3.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	NEAREST
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material FlareGlow2
+{
+	BlendOp AlphaAdd
+	Texture j:/graphics/images/flare_128.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	LINEAR
+		ClampU		WRAP
+		ClampV		WRAP
+	}
+}
+
+Material FlareGlow
+{
+	BlendOp AlphaAdd
+
+	Texture j:/graphics/images/FlareGlow.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	LINEAR
+		ClampU		WRAP
+		ClampV		WRAP
+	}
+}
+
+Material FlareSpark
+{
+	BlendOp AlphaAdd
+	Texture j:/graphics/images/FlareSpark2.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	LINEAR
+		ClampU		WRAP
+		ClampV		WRAP
+	}
+}
+
+Material Brick
+{
+	Texture j:/graphics/images/brick2.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	NEAREST
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material /e1u1/material1
+{
+	Color Rojo
+	{
+		r 1.0
+		g 0
+		b 0
+		a 0.5
+	}
+
+	BlendOp Add	
+	TexOp EnvMap
+	{
+		Texture j:/graphics/images/destello.tga
+		{
+			MinFilter	NEAREST
+			MagFilter	NEAREST
+			ClampU		REPEAT
+			ClampV		REPEAT
+		}
+	}
+}
+
+Material /e1u1/material2
+{
+	Texture j:/graphics/images/brick.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	LINEAR
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+	
+	BlendOp Add		
+	TexOp EnvMap
+	Texture j:/graphics/images/destello.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	NEAREST
+		ClampU		REPEAT
+		ClampV		REPEAT			
+	}
+}
+
+Material /e1u1/material33
+{
+	Texture j:/graphics/images/brick.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	NEAREST
+		ClampU		REPEAT
+		ClampV		REPEAT	
+	}
+
+	BlendOp Alpha
+	Color AlphaTonto
+	{
+		r 0.7
+		g 0.9
+		b 1	
+		a 0.8
+	}
+}
+
+
+Material /e1u1/material3
+{
+	Texture j:/graphics/images/brick.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	NEAREST
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+	
+	BlendOp Alpha
+
+	TexOp EnvMap
+	Texture j:/graphics/images/destello.tga
+	{
+		ClampU		WRAP
+		ClampV		WRAP
+	}
+}
+
+Material MetalicFloor
+{
+	Texture k:\Quake3\baseq3\q2dm\textures\quake2\e3u1\drag2_3.tga
+	{
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+	
+	BlendOp Add
+	TexOp EnvMap
+	Texture j:/graphics/images/destello.tga
+	{
+		ClampU		WRAP
+		ClampV		WRAP
+	}
+}
+
+Material J:\Graphics\Images\s1\ProcTex_6.tga
+{
+	Texture K:/Quake3/baseq3/models/players/crash/crash.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	NEAREST
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material ConsoleBackground
+{
+	BlendOp Add
+	Extension PROCTEX_1
+}
+
+Material ConsoleBackground_
+{
+	Color VerdeLima
+	{
+		r 0.7
+		g 1.0
+		b 0.0
+		a 0.05
+	}
+}
+
+Material ConsoleFont
+{
+	BlendOp Alpha
+	Texture j:/graphics/textures/fonts/font.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	LINEAR
+		ClampU		WRAP
+		ClampV		WRAP
+	}
+}

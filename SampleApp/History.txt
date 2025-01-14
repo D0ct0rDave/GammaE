@@ -1,0 +1,399 @@
+// -------------------------------------------------------
+// 30-4-2002
+// -------------------------------------------------------
+- Corregidos bugs en sistema de colisiones.
+- Corregido bugs en defferred object DB. Ahora parece que 
+funciona el rendering de defferred objects
+
+// -------------------------------------------------------
+// 29-4-2002
+// -------------------------------------------------------
+- Añadidos objeto CMesh_Sphere.
+- Mejorado el MemoryManager, control de tamaño nulo en 
+alocatamiento,y de retorno de puntero nulo.
+
+// -------------------------------------------------------
+// 16-4-2002
+// -------------------------------------------------------
+- Añadida la instruccion de eSITexOp_Matrix en los shaders,
+util para aplicar matrices especificas en las coordenadas
+de texturas. Probablemente haya que hacer lo mismo para los
+vertices de los objetos.
+- Añadida la funcionalidad de permitir coordenadas de textura
+de 3 componentes, solo cuando el array sea exactamente el mismo
+que el array de vértices. (Util para texturas proyectadas)
+
+// -------------------------------------------------------
+// 15/14-4-2002
+// -------------------------------------------------------
+Creados objetos proyector de textura y shadow caster. Este 
+último se encarga de proyectar sombras en la geometría que
+se le pasa.
+
+// -------------------------------------------------------
+// 13-4-2002
+// -------------------------------------------------------
+- Implementado Flat Rendering, para renderizado óptimo sin
+texturas,iluminacion ni nada.
+- Se han añadido un monton de funciones nuevas para controlar
+el Engine3D. Funciones de stenciling, lectura / escritura de 
+frame buffer, control de la operación del DepthTest. Se ha 
+mejorado el control sobre algunos settings del engine. Por 
+ejemplo para gestionar la niebla, ya no es necesario hacer 
+código del estilo 
+
+		bool RestoreFog = false;
+		if (UsingFog)
+		{	
+			RestoreFog = true
+			DisableFog)
+		}
+		...
+		if (RestoreFog)
+			EnableFog
+- Esto prepara el camino para la implementacion de sombras
+dinámicas, texture projection, y cosas del estilo.
+
+// -------------------------------------------------------
+// 10-4-2002
+// -------------------------------------------------------
+- Dynamic array implementado como template.
+- Qoole ya es útil para generar mapas para GammaE. Carga texturas de disco,
+jpg,tga,wal,mip (32 bit). Genera entidades de GammaE.
+- Compilador para mapas generados con la versión modificada de Qoole.
+- Comenzado un procesador de iluminación con vertex color para mapas
+- Editor de terreno preparado para cargar mallas de triángulos y generar
+terrenos coherentes con geometría externa.
+- Visor de árboles de escena.
+
+
+// -------------------------------------------------------
+// 27-2-2002
+// -------------------------------------------------------
+- Soporte para archivos .MAP de quake,quake2,quake3,HalfLife,
+Sin, etc. Se busca un método de edición de niveles más o menos
+flexible, que reporte poco trabajo de cara a integración con el
+motor. Esto facilita la producción de trabajo gráfico con editores
+de mapas como Qoole, QERadiant, y en general cualquiera que sirva
+para crear mapas de los juegos anteriores. Es interesante que estos
+editores a parte de geometría exporten información de entidades como
+luces, sonido, items, powerups, munición, armas, enemigos, etc, gracias
+a esto podemos utilizarlo como herramienta para emplazar cualquier tipo
+de objetos, tanto gráfico, como físico, lógico, o sonoro dentro de nuestro
+mapa, y por tanto resulta de gran utilidad para el motor en sí.
+El trabajo ha consistido en una correcta importación de los brushes así 
+como triangulación y mapeado.
+
+
+// -------------------------------------------------------
+// 18-2-2002
+// -------------------------------------------------------
+- Restructuración mediana del engine. se dejan de lado los 
+shaders en árbol, y se pasa a shaders en forma de array dinámico.
+- Desaparace el concepto de material para el motor gráfico. Se
+reserva para aplicación: props gráficas,físicas,sonoras...
+
+
+// -------------------------------------------------------
+// 2-2-2002
+// -------------------------------------------------------
+- Añado soporte para texturas con paleta.
+- Soporte ficheros WAL
+- Carga de ficheros BSP de Quake2
+
+// -------------------------------------------------------
+// 25-1-2002
+// -------------------------------------------------------
+- Introduzco el concepto de malla compilada. El objetivo es
+dar soporte para sistemas en los que se "compilan" los datos
+gráficos para aumentar rendimiento. Se han implementado con 
+display lists (PC y PS2). A raíz de una demo en la que aparecia
+un objeto renderizado utilizando varios métodos y en el que se
+veia la clara ventaja de una display list frente a un vertex array, 
+en el caso de datos estáticos. 
+Esto ha hecho necesario introducir cambios en el renderizador,
+el renderizador de materiales, se ha introducido el objeto 
+CompiledMesh, y a nivel de escena el objeto Object3D_CompiledLeaf 
+similar a Object3D_Leaf pero utilizando una compiled mesh en vez
+de una mesh. Tambien se ha introducido una utilidad para compilar
+una escena y sustituir los nodos leaf por CompiledLeaf.
+- Se han arreglado bugs de colisiones, math utils.
+- Se ha introducido el bounding volume del tipo point. Lo que
+significa que ahora en detección de colisiones se pueden utilizar 
+puntos para representar objetos puntuales. Esto implica que 
+el número de posibles combinaciones de tests se ha incrementado,
+(ya esta implementado todo). Tambien repercute a nivel gráfico, 
+porque los Bounding Volumes son utilizados por ejemplo para test de 
+frustum (También implementado el test)
+
+// -------------------------------------------------------
+// 7-1-2001
+// -------------------------------------------------------
+- Implementación de objeto detailer. Se trata de un objeto que
+sirve para hacer detail mapping.
+
+
+// -------------------------------------------------------
+// 18-12-2001
+// -------------------------------------------------------
+- Trabajo en el sistema de deteccion de colisiones y de la
+respuesta a las colisiones.
+- El sistema de colisiones está muy ligado al de la escena.
+La deteccion de colisiones se realiza en varias fases segun
+las necesidades del objeto que se desea testear. En una fase
+cribadora, se seleccionan los objetos de la escena que están
+colisionando con el objeto a testear. Estos se almacenan en el
+stack de colisiones de un objeto tipo collider. Aquí, se almacena
+un identificador del objeto que ha colisionado con el objeto actual,
+y en función del identificador, la aplicación podrá reaccionar 
+de un modo u otro. Por ejemplo, meditante un sistema de identificadores
+de objetos podremos identificar si el jugador ha colisionado
+con el mapa o contra un objeto de tipo proyectil.
+
+- En una posterior fase, despues de la seleccion de los objetos 
+colisionadores, se puede hacer un análisis mediante triangulos proximos.
+Más aun una vez obtenida una lista de triangulos próximos se pueden
+discriminar qué triangulos no están en contacto con el objeto actual.
+
+- Para tener en cuenta las velocidades de los objetos, se hace un
+muestreo adaptativo. esto es, se mira la longitud de la trayectoria
+del objeto, y se divide en segmentos de tamaño Minor(Extent(object)). Si
+en ese periodo la trayectoria de los objetos se ha cruzado, en teoría,
+conseguiremos reproducir al menos, uno de los instantes de la colision.
+
+// -------------------------------------------------------
+// 22-11-2001
+// -------------------------------------------------------
+- Por fin arreglado el frustum culling!!!!!!!!!!! Tanto para esferas
+como para cajas.
+- He trabajado en un exportador de escenas de MAX mediante script.
+Por cada triangulo de la escena se guarda su material,coordenadas,
+UVs,color y Normales. Este es el formato que utiliza el objeto 
+SCNUt_TriScene. Hay un pequeño error en los identificadores de material.
+- Se han creado muchas utilidades para manejar TriScenes. Entre ellas,
+un cargador, un objeto que convierte a Mesh directamente (a parte del
+antiguo compactador), y el triangle splitter, que parte la escena utilizando
+planos.
+- Mejorado el control mediante ratón. Ahora cuando mueves el raton mientras
+apretas el boton, ya no hace el "banking" de la cámara.
+
+
+// -------------------------------------------------------
+// 29-10-2001
+// -------------------------------------------------------
+- Primeras pruebas de reflexiones. 
+- Se han corregido bugs en el código de CPlane
+- Soporte para teclas bindeables. Carga de fichero Config.cfg,
+al mas puro estilo de Quake2.
+- Consola ahora se activa y desactiva mediante accion
+bindeable desde config.cfg
+- Se ha añadido control sobre la escritura en el Zbuffer, además
+del antiguo control sobre el testeo del Zbuffer. 
+- Ahora el viewport utiliza scisoring, con lo que se supone
+asegurado el uso de varios viewports en una misma escena.
+
+// -------------------------------------------------------
+// 26-10-2001
+// -------------------------------------------------------
+- Refactoring gigante del engine3D. Se ha creado el concepto
+de proyector, que junto con la cámara y el viewport, definen
+el modo que se veran las cosas en pantalla. Se han quitado 
+muchas de las clases y factorias que hacían las cosas complicadas
+para crear cámaras. Cosas del estilo del CameraCreator, y los
+drivers para cámaras han desaparecido. Ahora la estructura de
+cámara, el frustum, y lo demas son únicas para todos los drivers.
+- Se supone que con las modificaciones realizadas se podrán 
+implementar sombras y reflexiones proyectadas, espejos y demás.
+Se deberá dar soporte para stencil buffer.
+
+// -------------------------------------------------------
+// 23-10-2001
+// -------------------------------------------------------
+- Extension de los shader para enlazar con código, procedural 
+textures, volumetric fogging, world flares, billboards...
+- Pequeño refactoring del engine 3D. Poco a poco va ligando
+todo. 
+- Primera textura procedural.
+
+// -------------------------------------------------------
+// 1-10-2001
+// -------------------------------------------------------
+- Aprendizaje de DirectSound para el subsistema de sonido.
+- Mejora del control de cámara de la aplicación.
+
+// -------------------------------------------------------
+// 29/30-9-2001
+// -------------------------------------------------------
+- Diseño e implementación del subsistema de sonido. Uso de
+la libreria Bass v1.2. Primeras pruebas se consigue escuchar,
+pero falta el control de la posición y el movimiento 
+emisor-receptor
+
+
+// -------------------------------------------------------
+// 28-9-2001
+// -------------------------------------------------------
+- Mejorada la carga de ficheros 3Ds. Primer Mapa de Quake2 
+cargado Lava Tomb.
+- Soporte para lens flare mediante funciones sobre matrices 
+de projeccion
+- Implementacion de Lens Flare.
+
+
+// -------------------------------------------------------
+// 18-9-2001
+// -------------------------------------------------------
+- Refactoring del objecto Mesh: Las normales de los vértices
+pasan a ser el campo VNs, los colores pasan a VCs. Las normales
+de las caras han desaparecido.
+- Se ha creado un objeto util para generar el array de estado de
+las normales en mallas animadas
+- Añadido al engine 3D nuevo estado. RenderNormals.
+- Se ha completado la implementacion de la generacion de normales
+para las mallas de vértices. Ahora el environment mapping se ve
+correctamente. El Reflection mapping sigue hackeado.
+
+// -------------------------------------------------------
+// 17-9-2001
+// -------------------------------------------------------
+- Comentarios con '//' en shaders.
+
+// -------------------------------------------------------
+// 15-9-2001
+// -------------------------------------------------------
+- Reestructuración de los nodos de animación. Principalmente
+debido a la introduccion de animación por bones. La gestion del
+frame de animación se ha desvinculado del objeto que almacena
+los estados de animación. Estos objetos son 2: Objetos que 
+almacenan frames de mallas de animacion, y los que almacenan matrices
+de transformacion de animación.
+
+- Soporte para carga de ficheros MD3. Ya es posible cargar modelos
+de quake3 con animación incluida.
+
+- Nuevo sistema de referenciación.
+
+- Sistema de particulas mejorado. Ordenacion por Z (qsort).
+
+- Nuevos nodos utiles para la distribución de modelos sobre la escena.
+Nodo Link, y nodo Warehouse. 
+
+- Trabajo sobre el formato "de la casa" de carga y almacenamiento de 
+modelos. Pruebas realizadas con objetos tipo leaf.
+
+
+// -------------------------------------------------------
+// 15-7-2001
+// -------------------------------------------------------
+- Refactorizacion del engine de colisiones. Añadir objetos 
+representables por un rayo, útiles para colisiones entre 
+proyectiles balas y otros objetos representables por un punto 
+en movimiento
+
+// -------------------------------------------------------
+// 14-7-2001
+// -------------------------------------------------------
+- Refactorizacion del engine de colisiones.
+
+// -------------------------------------------------------
+// 13-7-2001
+// -------------------------------------------------------
+- Reestructuración de los sistemas de particulas
+- Corrección de bug en engine de terreno.
+- Mejora de camara de 3ª persona, añadiendo colisión de la 
+  cámara con el terreno, y corrección de posición de la cámara
+  al interponerse el terreno entre camara y personaje
+
+// -------------------------------------------------------
+// 11-7-2001
+// -------------------------------------------------------
+- Diseño del engine de sonido
+
+// -------------------------------------------------------
+// 10-7-2001
+// -------------------------------------------------------
+- Continuación del engine de colisiones
+
+// -------------------------------------------------------
+// 24-7-2001
+// -------------------------------------------------------
+- Integración del engine de terreno. 
+- Editor de terreno es funcional.
+- Corregidos muchos Bugs acerca de la consola y el HUD.
+- Frustum culling. 
+
+// -------------------------------------------------------
+// 8-5-2001
+// -------------------------------------------------------
+- Creación del objeto consola. Consola estilo Quake3, resizeable,
+  con fondo tipo shader y texto tipo shader.
+
+// -------------------------------------------------------
+// 7-5-2001
+// -------------------------------------------------------
+- Bug CHeadUpDisplay corregido, ya salen los objetos donde deben
+-
+
+// -------------------------------------------------------
+// 3-5-2001
+// -------------------------------------------------------
+- Comienzo la integración de las clases para terreno
+
+// -------------------------------------------------------
+// 4-4-2001
+// -------------------------------------------------------
+-Sustituyo los cronos antiguos (GetTickCount) por una implementación
+más precisa mediante QueryPerformanceFrequency y 
+QueryPerformanceCounter
+-Correccion del aspect ratio en las cámaras
+-Continuo el trabajo del Objecto de escena HUD
+
+// -------------------------------------------------------
+// 3-4-2001
+// -------------------------------------------------------
+-Añado soporte para texturas JPG. Utilizo la ijl lib de Intel
+-Inicio soporte de HUD y sistemas de objetos a proyectar en "2D"
+
+// -------------------------------------------------------
+// 2-4-2001
+// -------------------------------------------------------
+-Inicio del trabajo sobre Billboards
+-Trabajo sobre la DefferredObjectWareHouse. 
+-Debug: Sistema de referenciación.
+
+
+// -------------------------------------------------------
+// 1-4-2001
+// -------------------------------------------------------
+-Trabajo en el sistema de referenciacion de objetos. Muchos objetos, 
+muchas instancias poca mem.
+
+-Debugs: de las animaciones por mesh.
+
+
+// -------------------------------------------------------
+// 31-3-2001
+// -------------------------------------------------------
+-Meshes animadas
+-MD2 Loader carga frames ahora.
+
+// -------------------------------------------------------
+// 29-3-2001
+// -------------------------------------------------------
+-MD2 Loader carga de skins y meshes
+-Diseño de Meshes animadas.
+
+...
+...
+...
+
+// -------------------------------------------------------
+// 12-8-2000
+// -------------------------------------------------------
+- Algunos ficheros del proyecto tienen como fecha de última 
+modificación esta fecha. No obstante el proyecto comenzó 
+probablemente varios días atrás. Por ejemplo, el fichero del
+que se ha sacado la fecha se trataba del "optimization.bmp", 
+del que se extrajo el modo actual de trabajo con matrices.
+Otros ficheros de dias posteriores fueron los de manejo de
+objetos textura, etc.
