@@ -13,7 +13,9 @@ workspace "GammaE"
     
     -- List of directories to exclude from recursion
     local excludeDirs = { 
-        "build" 
+        "build",
+		"UML",
+		"Tools"
     }
 
     -- Helper function to check if a directory should be excluded

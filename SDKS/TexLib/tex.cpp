@@ -1,4 +1,6 @@
 #include "tex.h"
+#include "stb_image.h"
+
 // ----------------------------------------------------------------------------
 PixelFormat GetPixelFormatFromChannels(int channels)
 {

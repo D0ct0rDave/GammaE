@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.05.03"/>
+    <PROJECT value="MD2Conv.exe"/>
+    <OBJFILES value="MD2Conv.obj MD2Convert.obj ..\..\Input\CommandBinder\CommandBinder.obj 
+      ..\..\Input\CommandDispatcher\ClientCmdDispatcher.obj 
+      ..\..\Input\CommandDispatcher\CmdDispatcher.obj 
+      ..\..\Input\CommandDispatcher\ServerCmdDispatcher.obj 
+      ..\..\Game\GameInit\CGame_KeyBinder.obj ..\..\WinEventTranslator.obj"/>
+    <RESFILES value="MD2Conv.res"/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES) MD2Convert.dfm"/>
+    <LIBFILES value="..\..\Borland\GammaE_E3D.lib ..\..\Borland\GammaE_FileSys.lib 
+      ..\..\Borland\GammaE_Math.lib ..\..\Borland\GammaE_Mem.lib 
+      ..\..\Borland\GammaE_Misc.lib ..\..\Borland\GammaE_Scene.lib 
+      ..\..\Borland\GammaE_TerrainData.lib 
+      ..\..\..\libs\TexLib\Lib\Borland\TexLIB.lib"/>
+    <LIBRARIES value=""/>
+    <SPARELIBS value="Vcl50.lib"/>
+    <PACKAGES value="Vcl50.bpi Vclx50.bpi PS2Controls.bpi"/>
+    <PATHCPP value=".;..\..\Input\CommandBinder;..\..\Input\CommandDispatcher;..\..\Game\GameInit;..\.."/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="tlink32"/>
+    <USERDEFINES value="_DEBUG;WIN32;_OGL_"/>
+    <SYSDEFINES value="NO_STRICT;USEPACKAGES"/>
+    <MAINSOURCE value="MD2Conv.cpp"/>
+    <INCLUDEPATH value="..\..\Game\GameInit;..\..\Input\CommandDispatcher;..\..\Input\CommandBinder;i:\lenguaje\borland\CBuilder5\Projects\;$(BCB)\include;$(BCB)\include\vcl;I:\Lenguaje\Borland\;..\..\..\libs\TexLib\Src;..\..\..\libs\FileLib\Src;..\..\..\libs\TerrainGenerationLib\Src;..\..\..\libs\MathGLib\Src;..\.."/>
+    <LIBPATH value="..\..;..\..\..\TerrainEditor\TerrainEditor\libs;..\..\Game\GameInit;..\..\Input\CommandDispatcher;..\..\Input\CommandBinder;..\TerrainEditor\TerrainEditor\libs;I:\Lenguaje\Borland\GammaE\Tools\TerrainEditor\TerrainEditor\libs\;i:\lenguaje\borland\CBuilder5\Projects\;I:\Lenguaje\Borland\CBuilder5\TerrainEditor\TerrainEditor\libs\;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <WARNINGS value="-w-par"/>
+  </MACROS>
+  <OPTIONS>
+    <CFLAG1 value="-Od -H=output\DEdPch.csm -Hc -Vx -Ve -X- -r- -a4 -5 -b -k -y -v -vi- -c 
+      -tW -tWM"/>
+    <PFLAGS value="-$YD -$W -$O- -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zd"/>
+    <LFLAGS value="-D&quot;&quot; -aa -Tpe -x -Gn -v"/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0w32.obj $(PACKAGES) sysinit.obj $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cp32mt.lib"/>
+  </LINKER>
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=3082
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=24
+Item0=..\..\Game\GameInit;..\..\Input\CommandDispatcher;..\..\Input\CommandBinder;i:\lenguaje\borland\CBuilder5\Projects\;$(BCB)\include;$(BCB)\include\vcl;I:\Lenguaje\Borland\;..\..\..\libs\TexLib\Src;..\..\..\libs\FileLib\Src;..\..\..\libs\TerrainGenerationLib\Src;..\..\..\libs\MathGLib\Src;..\..
+Item1=i:\lenguaje\borland\CBuilder5\Projects\;$(BCB)\include;$(BCB)\include\vcl;I:\Lenguaje\Borland\;..\..\..\libs\TexLib\Src;..\..\..\libs\FileLib\Src;..\..\..\libs\TerrainGenerationLib\Src;..\..\..\libs\MathGLib\Src;..\..
+Item2=i:\lenguaje\borland\CBuilder5\Projects\;$(BCB)\include;$(BCB)\include\vcl;I:\Lenguaje\Borland\;I:\Projects\libs\TexLib\Src\;I:\Projects\libs\FileLib\Src\;I:\Projects\libs\TerrainGenerationLib\Src\;I:\Projects\libs\MathGLib\Src\;..\..
+Item3=i:\lenguaje\borland\CBuilder5\Projects\;$(BCB)\include;$(BCB)\include\vcl;I:\Lenguaje\Borland\;I:\Lenguaje\libs\TexLib\Src\;I:\Lenguaje\libs\FileLib\Src\;I:\Lenguaje\libs\TerrainGenerationLib\Src\;I:\Lenguaje\libs\MathGLib\Src\;..\..
+Item4=i:\lenguaje\borland\CBuilder5\Projects\;$(BCB)\include;$(BCB)\include\vcl;I:\Lenguaje\Borland\;I:\Lenguaje\libs\TexLib\Src\;I:\Lenguaje\libs\FileLib\Src\;I:\Lenguaje\libs\TerrainGenerationLib\Src\;I:\Lenguaje\libs\MathGLib\Src\;I:\Projects\GammaE
+Item5=i:\lenguaje\borland\CBuilder5\Projects\;$(BCB)\include;$(BCB)\include\vcl;I:\Lenguaje\Borland\;I:\Lenguaje\libs\TexLib\Src\;I:\Lenguaje\libs\FileLib\Src\;I:\Lenguaje\libs\TerrainGenerationLib\Src\;I:\Lenguaje\libs\MathGLib\Src\
+Item6=i:\lenguaje\borland\CBuilder5\Projects\;$(BCB)\include;$(BCB)\include\vcl;I:\Lenguaje\Borland\;I:\Lenguaje\Borland\CBuilder5\TerrainEditor\TerrPrjLib\Src\;I:\Lenguaje\Borland\TerrainData\BorlandLib\;I:\Lenguaje\Borland\TerrainData\;I:\Lenguaje\libs\TexLib\Src\;I:\Lenguaje\libs\FileLib\Src\;I:\Lenguaje\libs\TerrainGenerationLib\Src\;I:\Lenguaje\libs\MathGLib\Src\
+Item7=i:\lenguaje\borland\CBuilder5\Projects\;$(BCB)\include;$(BCB)\include\vcl;..\..;..\TerrainEditor\TerrPrjLib\Src;..\..\TerrainData\BorlandLib;..\..\TerrainData;..\..\..\libs\TexLib\Src;..\..\..\libs\FileLib\Src;..\..\..\libs\TerrainGenerationLib\Src;..\..\..\libs\MathGLib\Src
+Item8=i:\lenguaje\borland\CBuilder5\Projects\;$(BCB)\include;$(BCB)\include\vcl;..\..;..\TerrainEditor\TerrPrjLib\Src;..\..\TerrainData\BorlandLib;..\..\TerrainData;..\..\..\libs\TexLib\Src;..\..\..\libs\FileLib\Src;..\..\..\libs\TerrainGenerationLib\Src;I:\Projects\libs\MathGLib\Src
+Item9=i:\lenguaje\borland\CBuilder5\Projects\;$(BCB)\include;$(BCB)\include\vcl;..\..;..\TerrainEditor\TerrPrjLib\Src;..\..\TerrainData\BorlandLib;..\..\TerrainData;..\..\..\libs\TexLib\Src;..\..\..\libs\FileLib\Src;..\..\..\libs\TerrainGenerationLib\Src
+Item10=i:\lenguaje\borland\CBuilder5\Projects\;$(BCB)\include;$(BCB)\include\vcl;..\..;..\TerrainEditor\TerrPrjLib\Src;..\..\TerrainData\BorlandLib;..\..\TerrainData;..\..\..\libs\TexLib\Src;..\..\..\libs\FileLib\Src
+Item11=i:\lenguaje\borland\CBuilder5\Projects\;$(BCB)\include;$(BCB)\include\vcl;..\..;..\TerrainEditor\TerrPrjLib\Src;..\..\TerrainData\BorlandLib;..\..\TerrainData;..\..\..\libs\TexLib\Src
+Item12=i:\lenguaje\borland\CBuilder5\Projects\;$(BCB)\include;$(BCB)\include\vcl;..\..;..\TerrainEditor\TerrPrjLib\Src;..\..\TerrainData\BorlandLib;..\..\TerrainData;I:\Projects\libs\TexLib\Src
+Item13=i:\lenguaje\borland\CBuilder5\Projects\;$(BCB)\include;$(BCB)\include\vcl;..\..;..\TerrainEditor\TerrPrjLib\Src;..\..\TerrainData\BorlandLib;..\..\TerrainData
+Item14=i:\lenguaje\borland\CBuilder5\Projects\;$(BCB)\include;$(BCB)\include\vcl;..\..;..\TerrainEditor\TerrPrjLib\Src;..\..\TerrainData\BorlandLib
+Item15=i:\lenguaje\borland\CBuilder5\Projects\;$(BCB)\include;$(BCB)\include\vcl;..\..;..\TerrainEditor\TerrPrjLib\Src;I:\Projects\GammaE\TerrainData\BorlandLib
+Item16=i:\lenguaje\borland\CBuilder5\Projects\;$(BCB)\include;$(BCB)\include\vcl;..\..;..\TerrainEditor\TerrPrjLib\Src
+Item17=i:\lenguaje\borland\CBuilder5\Projects\;$(BCB)\include;$(BCB)\include\vcl;..\..;I:\Projects\GammaE\Tools\TerrainEditor\TerrPrjLib\Src
+Item18=i:\lenguaje\borland\CBuilder5\Projects\;$(BCB)\include;$(BCB)\include\vcl;..\..
+Item19=i:\lenguaje\borland\CBuilder5\Projects;$(BCB)\include;$(BCB)\include\vcl;..\..
+Item20=$(BCB)\include;$(BCB)\include\vcl;..\..
+Item21=$(BCB)\include;$(BCB)\include\vcl;..\..\Math
+Item22=$(BCB)\include;$(BCB)\include\vcl;I:\Projects\GammaE\Math
+Item23=$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=6
+Item0=..\..;..\..\..\TerrainEditor\TerrainEditor\libs;..\..\Game\GameInit;..\..\Input\CommandDispatcher;..\..\Input\CommandBinder;..\TerrainEditor\TerrainEditor\libs;I:\Lenguaje\Borland\GammaE\Tools\TerrainEditor\TerrainEditor\libs\;i:\lenguaje\borland\CBuilder5\Projects\;I:\Lenguaje\Borland\CBuilder5\TerrainEditor\TerrainEditor\libs\;$(BCB)\lib\obj;$(BCB)\lib
+Item1=..\TerrainEditor\TerrainEditor\libs;I:\Lenguaje\Borland\GammaE\Tools\TerrainEditor\TerrainEditor\libs\;i:\lenguaje\borland\CBuilder5\Projects\;I:\Lenguaje\Borland\CBuilder5\TerrainEditor\TerrainEditor\libs\;$(BCB)\lib\obj;$(BCB)\lib
+Item2=..\..\GammaE\Tools\TerrainEditor\TerrainEditor\libs;i:\lenguaje\borland\CBuilder5\Projects\;I:\Lenguaje\Borland\CBuilder5\TerrainEditor\TerrainEditor\libs\;$(BCB)\lib\obj;$(BCB)\lib
+Item3=i:\lenguaje\borland\CBuilder5\Projects\;..\TerrainEditor\TerrainEditor\libs;$(BCB)\lib\obj;$(BCB)\lib
+Item4=i:\lenguaje\borland\CBuilder5\Projects;..\TerrainEditor\TerrainEditor\libs;$(BCB)\lib\obj;$(BCB)\lib
+Item5=..\TerrainEditor\TerrainEditor\libs;$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=5
+Item0=_DEBUG;WIN32;_OGL_
+Item1=_DEBUG;WIN32;_BORLANDC_
+Item2=_DEBUG;WIN32
+Item3=_DEBUG
+Item4=_DEBUG;USE_PRECOMPILED_HEADERS
+
+[HistoryLists\hlIntOutputDir]
+Count=2
+Item0=I:\Lenguaje\Borland\CBuilder5\Bin\output\
+Item1=output
+
+[HistoryLists\hIBPIOutputDir]
+Count=2
+Item0=I:\Projects\GammaE\Tools\DummyEditor\output\
+Item1=output
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+  </IDEOPTIONS>
+</PROJECT>

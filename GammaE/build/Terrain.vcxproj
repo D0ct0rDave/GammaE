@@ -95,8 +95,6 @@
     <ClInclude Include="..\Terrain\TerrainMath\NewClass.h" />
     <ClInclude Include="..\Terrain\TerrainScene\CTerrainCircuit.h" />
     <ClInclude Include="..\Terrain\TerrainScene\CTerrainSector.h" />
-    <ClInclude Include="..\Terrain\TerrainScene\SceneLoaders\DEFFile\DEFFile.h" />
-    <ClInclude Include="..\Terrain\TerrainScene\SceneLoaders\DEFSceneLoader.h" />
     <ClInclude Include="..\Terrain\TerrainScene\SceneLoaders\EnvPars\EnvPars.h" />
     <ClInclude Include="..\Terrain\TerrainScene\SceneLoaders\TERScene\TERSceneLoader.h" />
     <ClInclude Include="..\Terrain\TerrainTesselators\CTerrainTesselator.h" />
@@ -110,8 +108,6 @@
     <ClCompile Include="..\Terrain\TerrainMath\NewClass.cpp" />
     <ClCompile Include="..\Terrain\TerrainScene\CTerrainCircuit.cpp" />
     <ClCompile Include="..\Terrain\TerrainScene\CTerrainSector.cpp" />
-    <ClCompile Include="..\Terrain\TerrainScene\SceneLoaders\DEFFile\DEFFile.cpp" />
-    <ClCompile Include="..\Terrain\TerrainScene\SceneLoaders\DEFSceneLoader.cpp" />
     <ClCompile Include="..\Terrain\TerrainScene\SceneLoaders\TERScene\TERSceneLoader.cpp" />
     <ClCompile Include="..\Terrain\TerrainTesselators\CTerrainTesselator.cpp" />
     <ClCompile Include="..\Terrain\TerrainTesselators\CTerrainTesselatorGM.cpp" />

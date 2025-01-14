@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.05.03"/>
+    <PROJECT value="GammaE_Octree.exe"/>
+    <OBJFILES value="GammaE_Octree.obj GUIMain.obj GUINodes.obj"/>
+    <RESFILES value="GammaE_Octree.res"/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES) GUIMain.dfm"/>
+    <LIBFILES value="..\..\..\libs\FileLib\Lib\Borland\FileLib.lib 
+      ..\..\..\libs\TexLib\Lib\Borland\TexLIB.lib ..\..\Borland\GammaE_E3D.lib 
+      ..\..\Borland\GammaE_Math.lib ..\..\Borland\GammaE_Misc.lib 
+      ..\..\Borland\GammaE_FileSys.lib ..\..\Borland\GammaE_Mem.lib 
+      ..\..\Borland\GammaE_Scene.lib"/>
+    <LIBRARIES value="Vcl50.lib"/>
+    <SPARELIBS value="Vcl50.lib"/>
+    <PACKAGES value="Vcl50.bpi Vclx50.bpi PS2Controls.bpi"/>
+    <PATHCPP value=".;"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="tlink32"/>
+    <USERDEFINES value="_DEBUG"/>
+    <SYSDEFINES value="NO_STRICT"/>
+    <MAINSOURCE value="GammaE_Octree.cpp"/>
+    <INCLUDEPATH value="..\..\Scene\SceneUtils;..\..\Scene\SceneUtils\TriScnLoader;..\..\Scene\SceneUtils\TransfTriScn;..\..\Scene\SceneUtils\SplitTriScene;..\..\Scene\SceneUtils\SeparateTriScene;..\..\Scene\SceneUtils\ScnUtils;..\..\Scene\SceneUtils\ScnStripifier;..\..\Scene\SceneUtils\ScnNormalGen;..\..\Scene\SceneUtils\ScnMeshGen;..\..\Scene\SceneUtils\ScnBBoxGen;..\..\Scene\SceneUtils\Scn2TriScnBuilder;..\..\Scene\SceneUtils\SceneCompiler;..\..\Scene\SceneUtils\SceneBuilder;..\..\Scene\SceneUtils\OctreeBuilder;..\..\Scene\SceneUtils\Mesh2TriScn;$(BCB)\include;$(BCB)\include\vcl;..\..;..\..\..\libs\TexLib\Src;..\..\..\libs\FileLib\Src"/>
+    <LIBPATH value="..\..\Scene\SceneUtils;..\..\Scene\SceneUtils\TriScnLoader;..\..\Scene\SceneUtils\TransfTriScn;..\..\Scene\SceneUtils\SplitTriScene;..\..\Scene\SceneUtils\SeparateTriScene;..\..\Scene\SceneUtils\ScnUtils;..\..\Scene\SceneUtils\ScnStripifier;..\..\Scene\SceneUtils\ScnNormalGen;..\..\Scene\SceneUtils\ScnMeshGen;..\..\Scene\SceneUtils\ScnBBoxGen;..\..\Scene\SceneUtils\Scn2TriScnBuilder;..\..\Scene\SceneUtils\SceneCompiler;..\..\Scene\SceneUtils\SceneBuilder;..\..\Scene\SceneUtils\OctreeBuilder;..\..\Scene\SceneUtils\Mesh2TriScn;..\TerrainEditor\TerrainEditor\libs;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <WARNINGS value="-w-par"/>
+  </MACROS>
+  <OPTIONS>
+    <CFLAG1 value="-Od -Vx -Ve -X- -r- -a4 -5 -b -k -y -v -vi- -c -tW -tWM"/>
+    <PFLAGS value="-$YD -$W -$O- -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zd"/>
+    <LFLAGS value="-D&quot;&quot; -c- -aa -Tpe -GD -s -Gn -v"/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0w32.obj sysinit.obj $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cp32mt.lib"/>
+  </LINKER>
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=1
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=3082
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=6
+Item0=..\..\Scene\SceneUtils;..\..\Scene\SceneUtils\TriScnLoader;..\..\Scene\SceneUtils\TransfTriScn;..\..\Scene\SceneUtils\SplitTriScene;..\..\Scene\SceneUtils\SeparateTriScene;..\..\Scene\SceneUtils\ScnUtils;..\..\Scene\SceneUtils\ScnStripifier;..\..\Scene\SceneUtils\ScnNormalGen;..\..\Scene\SceneUtils\ScnMeshGen;..\..\Scene\SceneUtils\ScnBBoxGen;..\..\Scene\SceneUtils\Scn2TriScnBuilder;..\..\Scene\SceneUtils\SceneCompiler;..\..\Scene\SceneUtils\SceneBuilder;..\..\Scene\SceneUtils\OctreeBuilder;..\..\Scene\SceneUtils\Mesh2TriScn;$(BCB)\include;$(BCB)\include\vcl;..\..;..\..\..\libs\TexLib\Src;..\..\..\libs\FileLib\Src
+Item1=$(BCB)\include;$(BCB)\include\vcl;..\..;..\..\..\libs\TexLib\Src;..\..\..\libs\FileLib\Src
+Item2=$(BCB)\include;$(BCB)\include\vcl;..\..;I:\Projects\libs\TexLib\Src;I:\Projects\libs\FileLib\Src
+Item3=$(BCB)\include;$(BCB)\include\vcl;..\..
+Item4=$(BCB)\include;$(BCB)\include\vcl;I:\Projects\GammaE
+Item5=$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=2
+Item0=..\..\Scene\SceneUtils;..\..\Scene\SceneUtils\TriScnLoader;..\..\Scene\SceneUtils\TransfTriScn;..\..\Scene\SceneUtils\SplitTriScene;..\..\Scene\SceneUtils\SeparateTriScene;..\..\Scene\SceneUtils\ScnUtils;..\..\Scene\SceneUtils\ScnStripifier;..\..\Scene\SceneUtils\ScnNormalGen;..\..\Scene\SceneUtils\ScnMeshGen;..\..\Scene\SceneUtils\ScnBBoxGen;..\..\Scene\SceneUtils\Scn2TriScnBuilder;..\..\Scene\SceneUtils\SceneCompiler;..\..\Scene\SceneUtils\SceneBuilder;..\..\Scene\SceneUtils\OctreeBuilder;..\..\Scene\SceneUtils\Mesh2TriScn;..\TerrainEditor\TerrainEditor\libs;$(BCB)\lib\obj;$(BCB)\lib
+Item1=..\TerrainEditor\TerrainEditor\libs;$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=1
+Item0=_DEBUG
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+  </IDEOPTIONS>
+</PROJECT>
