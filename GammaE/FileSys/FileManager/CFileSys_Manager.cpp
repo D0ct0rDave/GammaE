@@ -45,7 +45,7 @@ CFileSys_Manager::~CFileSys_Manager()
 
 
 //## Other Operations (implementation)
-int CFileSys_Manager::iOpenFile (char *_szFilename, char* _szMode)
+HANDLER CFileSys_Manager::iOpenFile (char *_szFilename, char* _szMode)
 {
   //## begin CFileSys_Manager::iOpenFile%1014892600.body preserve=yes
 	OSFILE *poOSFile = mNew OSFILE;	

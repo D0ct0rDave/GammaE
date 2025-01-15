@@ -58,17 +58,17 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_NULL=0;_MBCS;_OGL_;_DSOUND_;WIN32;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..;$(ProjectDir)..\..\GammaE;$(ProjectDir)..\..\sdks\TexLib;$(ProjectDir)..\..\sdks\TerrainGenerationLib\Src;$(ProjectDir)..\..\sdks\FileLib\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..;$(ProjectDir)..\..\GammaE;$(ProjectDir)..\..\sdks\TexLib\src;$(ProjectDir)..\..\sdks\TerrainGenerationLib\Src;$(ProjectDir)..\..\sdks\FileLib\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>TerrainGenerationLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\sdks\TerrainGenerationLib\build\lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>tex.lib;TerrainGenerationLib.lib;opengl32.lib;glu32.lib;libsndfile.lib;Collision.lib;E3D.lib;FileSys.lib;Math.lib;Memory.lib;Misc.lib;Scene.lib;SceneObjects.lib;Sound.lib;Terrain.lib;TerrainData.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\sdks\TexLib\build\lib\Debug;$(ProjectDir)..\..\sdks\TerrainGenerationLib\build\lib\Debug;$(ProjectDir)..\..\sdks\libsndfile-0.0.26\Win32\LibSndFile\lib\Debug;$(ProjectDir)..\..\GammaE\build\lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -76,7 +76,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_NULL=0;_MBCS;_OGL_;_DSOUND_;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..;$(ProjectDir)..\..\GammaE;$(ProjectDir)..\..\sdks\TexLib;$(ProjectDir)..\..\sdks\TerrainGenerationLib\Src;$(ProjectDir)..\..\sdks\FileLib\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..;$(ProjectDir)..\..\GammaE;$(ProjectDir)..\..\sdks\TexLib\src;$(ProjectDir)..\..\sdks\TerrainGenerationLib\Src;$(ProjectDir)..\..\sdks\FileLib\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -86,11 +86,11 @@
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>TerrainGenerationLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\sdks\TerrainGenerationLib\build\lib\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>tex.lib;TerrainGenerationLib.lib;opengl32.lib;glu32.lib;libsndfile.lib;Collision.lib;E3D.lib;FileSys.lib;Math.lib;Memory.lib;Misc.lib;Scene.lib;SceneObjects.lib;Sound.lib;Terrain.lib;TerrainData.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\sdks\TexLib\build\lib\Release;$(ProjectDir)..\..\sdks\TerrainGenerationLib\build\lib\Release;$(ProjectDir)..\..\sdks\libsndfile-0.0.26\Win32\LibSndFile\lib\Release;$(ProjectDir)..\..\GammaE\build\lib\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -127,12 +127,29 @@
     <ClInclude Include="..\Game\GameScene\GameMap\GEMap\CGEMap.h" />
     <ClInclude Include="..\Game\GameScene\GameMap\GEMap\CGEMapConnector.h" />
     <ClInclude Include="..\Game\GameScene\GameMap\GEMap\CGEMapEntityFileIO.h" />
-    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\CGEMapInterpreter.h" />
     <ClInclude Include="..\Game\GameScene\GameMap\GEMap\CGEMapLoader.h" />
     <ClInclude Include="..\Game\GameScene\GameMap\GEMap\CGEMapRoom.h" />
     <ClInclude Include="..\Game\GameScene\GameMap\GEMap\CGEMapSaver.h" />
     <ClInclude Include="..\Game\GameScene\GameMap\GEMap\GEMapFile.h" />
     <ClInclude Include="..\Game\GameScene\GameMap\GEMap\GEMapInterpreter\CGEMapInterpreter.h" />
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_DstPoint.h" />
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Item.h" />
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Light.h" />
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Monster.h" />
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Platform.h" />
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_PlayerStart.h" />
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_PowerUp.h" />
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Sound.h" />
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_SrcPoint.h" />
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Target.h" />
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_TargetMultiple.h" />
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_TargetType.h" />
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Trigger.h" />
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_TriggerMode.h" />
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_World.h" />
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEntities.h" />
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEntity.h" />
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEntityClass.h" />
     <ClInclude Include="..\Game\GameScene\GameMap\GMapData\GMapData.h" />
     <ClInclude Include="..\Game\GameScene\GameMap\GMapData\GMapLoader.h" />
     <ClInclude Include="..\Game\GameScene\GameMap\GMapData\GMapSaver.h" />
@@ -182,13 +199,28 @@
     <ClCompile Include="..\Game\GameScene\GameMap\GEMap\CGEMap.cpp" />
     <ClCompile Include="..\Game\GameScene\GameMap\GEMap\CGEMapConnector.cpp" />
     <ClCompile Include="..\Game\GameScene\GameMap\GEMap\CGEMapEntityFileIO.cpp" />
-    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\CGEMapInterpreter.cpp" />
     <ClCompile Include="..\Game\GameScene\GameMap\GEMap\CGEMapLoader.cpp" />
     <ClCompile Include="..\Game\GameScene\GameMap\GEMap\CGEMapRoom.cpp" />
     <ClCompile Include="..\Game\GameScene\GameMap\GEMap\CGEMapSaver.cpp" />
-    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\GEMapInterpreter\CGEMapInterpreter.cpp">
-      <ObjectFileName>$(IntDir)\CGEMapInterpreter1.obj</ObjectFileName>
-    </ClCompile>
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\GEMapInterpreter\CGEMapInterpreter.cpp" />
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_DstPoint.cpp" />
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Item.cpp" />
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Light.cpp" />
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Monster.cpp" />
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Platform.cpp" />
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_PlayerStart.cpp" />
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_PowerUp.cpp" />
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Sound.cpp" />
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_SrcPoint.cpp" />
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Target.cpp" />
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_TargetMultiple.cpp" />
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_TargetType.cpp" />
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Trigger.cpp" />
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_TriggerMode.cpp" />
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_World.cpp" />
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEntities.cpp" />
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEntity.cpp" />
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEntityClass.cpp" />
     <ClCompile Include="..\Game\GameScene\GameMap\GMapData\GMapData.cpp" />
     <ClCompile Include="..\Game\GameScene\GameMap\GMapData\GMapLoader.cpp" />
     <ClCompile Include="..\Game\GameScene\GameMap\GMapData\GMapSaver.cpp" />
@@ -208,11 +240,6 @@
     <None Include="..\TODO.txt" />
     <None Include="..\optimization.txt" />
     <None Include="..\shaders.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\GammaE\build\Collision.vcxproj">
-      <Project>{B11A655C-1D85-19D3-66C3-CA78D26CF727}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

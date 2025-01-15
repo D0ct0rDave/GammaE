@@ -7,7 +7,7 @@ workspace("GammaE_" .. project_name)
 
 includedirs {
 		"$(ProjectDir)../../SDKS/FileLib/Src;",
-		"$(ProjectDir)../../SDKS/libsndfile-0.0.26/src"
+		"$(ProjectDir)../../SDKS/libsndfile-0.0.26/src"		
 	}
 
 -- Install rules (using a post-build step for example purposes)

@@ -39,6 +39,7 @@
 class CFileSys_Manager 
 {
   //## begin CFileSys_Manager%3C7E0C780187.initialDeclarations preserve=yes
+  using HANDLER = void*;
   //## end CFileSys_Manager%3C7E0C780187.initialDeclarations
 
   public:
@@ -51,25 +52,25 @@ class CFileSys_Manager
 
     //## Other Operations (specified)
       //## Operation: iOpenFile%1014892600
-      virtual int iOpenFile (char *_szFilename, char* _szMode);
+      virtual HANDLER iOpenFile (char *_szFilename, char* _szMode);
 
       //## Operation: CloseFile%1014892601
-      virtual void CloseFile (int _iHandler);
+      virtual void CloseFile (HANDLER _iHandler);
 
       //## Operation: iReadFile%1014892602
-      virtual int iReadFile (int _iHandler, void* _pData, int _iSize);
+      virtual int iReadFile (HANDLER _iHandler, void* _pData, int _iSize);
 
       //## Operation: iWriteFile%1014892603
-      virtual int iWriteFile (int _iHandler, void* _pData, int _iSize);
+      virtual int iWriteFile (HANDLER _iHandler, void* _pData, int _iSize);
 
       //## Operation: iSeekFile%1014892604
-      virtual int iSeekFile (int _iHandler, int _iOffset, eFile_SeekMode _eMode);
+      virtual int iSeekFile (HANDLER _iHandler, int _iOffset, eFile_SeekMode _eMode);
 
       //## Operation: iLengthFile%1014892605
-      virtual int iLengthFile (int _iHandler);
+      virtual int iLengthFile (HANDLER _iHandler);
 
       //## Operation: iPosFile%1014912979
-      virtual int iPosFile (int _iHandler);
+      virtual int iPosFile (HANDLER _iHandler);
 
     // Additional Public Declarations
       //## begin CFileSys_Manager%3C7E0C780187.public preserve=yes

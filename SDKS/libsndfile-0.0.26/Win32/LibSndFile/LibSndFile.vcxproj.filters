@@ -2,10 +2,10 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="G72x">
-      <UniqueIdentifier>{5d4514e6-b553-40f2-97bd-79a0d9fb588b}</UniqueIdentifier>
+      <UniqueIdentifier>{66f9eb99-079d-477c-a57f-3ac2cfe8c041}</UniqueIdentifier>
     </Filter>
     <Filter Include="GSM610">
-      <UniqueIdentifier>{73e70c42-8b3b-426d-a1a7-ec138dde322c}</UniqueIdentifier>
+      <UniqueIdentifier>{1d83ef9c-a705-4491-96f2-fa1071fd1111}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

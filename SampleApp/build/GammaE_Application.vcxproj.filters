@@ -34,6 +34,9 @@
     <Filter Include="Game\GameScene\GameMap\GEMap\GEMapInterpreter">
       <UniqueIdentifier>{63616D74-CFD1-6FED-98F0-E9750420A8EE}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\GameScene\GameMap\GEMap\MapEntity">
+      <UniqueIdentifier>{C05CC17E-ACAE-986E-95CD-D57E81BEB157}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Game\GameScene\GameMap\GMapData">
       <UniqueIdentifier>{0B6A3922-774D-4862-8050-769EECB20EB3}</UniqueIdentifier>
     </Filter>
@@ -157,9 +160,6 @@
     <ClInclude Include="..\Game\GameScene\GameMap\GEMap\CGEMapEntityFileIO.h">
       <Filter>Game\GameScene\GameMap\GEMap</Filter>
     </ClInclude>
-    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\CGEMapInterpreter.h">
-      <Filter>Game\GameScene\GameMap\GEMap</Filter>
-    </ClInclude>
     <ClInclude Include="..\Game\GameScene\GameMap\GEMap\CGEMapLoader.h">
       <Filter>Game\GameScene\GameMap\GEMap</Filter>
     </ClInclude>
@@ -174,6 +174,60 @@
     </ClInclude>
     <ClInclude Include="..\Game\GameScene\GameMap\GEMap\GEMapInterpreter\CGEMapInterpreter.h">
       <Filter>Game\GameScene\GameMap\GEMap\GEMapInterpreter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_DstPoint.h">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Item.h">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Light.h">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Monster.h">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Platform.h">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_PlayerStart.h">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_PowerUp.h">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Sound.h">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_SrcPoint.h">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Target.h">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_TargetMultiple.h">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_TargetType.h">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Trigger.h">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_TriggerMode.h">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_World.h">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEntities.h">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEntity.h">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEntityClass.h">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
     </ClInclude>
     <ClInclude Include="..\Game\GameScene\GameMap\GMapData\GMapData.h">
       <Filter>Game\GameScene\GameMap\GMapData</Filter>
@@ -312,9 +366,6 @@
     <ClCompile Include="..\Game\GameScene\GameMap\GEMap\CGEMapEntityFileIO.cpp">
       <Filter>Game\GameScene\GameMap\GEMap</Filter>
     </ClCompile>
-    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\CGEMapInterpreter.cpp">
-      <Filter>Game\GameScene\GameMap\GEMap</Filter>
-    </ClCompile>
     <ClCompile Include="..\Game\GameScene\GameMap\GEMap\CGEMapLoader.cpp">
       <Filter>Game\GameScene\GameMap\GEMap</Filter>
     </ClCompile>
@@ -326,6 +377,60 @@
     </ClCompile>
     <ClCompile Include="..\Game\GameScene\GameMap\GEMap\GEMapInterpreter\CGEMapInterpreter.cpp">
       <Filter>Game\GameScene\GameMap\GEMap\GEMapInterpreter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_DstPoint.cpp">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Item.cpp">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Light.cpp">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Monster.cpp">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Platform.cpp">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_PlayerStart.cpp">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_PowerUp.cpp">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Sound.cpp">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_SrcPoint.cpp">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Target.cpp">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_TargetMultiple.cpp">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_TargetType.cpp">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_Trigger.cpp">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_TriggerMode.cpp">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEnt_World.cpp">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEntities.cpp">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEntity.cpp">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Game\GameScene\GameMap\GEMap\MapEntity\CMapEntityClass.cpp">
+      <Filter>Game\GameScene\GameMap\GEMap\MapEntity</Filter>
     </ClCompile>
     <ClCompile Include="..\Game\GameScene\GameMap\GMapData\GMapData.cpp">
       <Filter>Game\GameScene\GameMap\GMapData</Filter>

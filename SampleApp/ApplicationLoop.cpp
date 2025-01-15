@@ -645,6 +645,8 @@ void AppLoop_SetupShadowCaster()
 void AppLoop_LoadModels()
 {
 	// E3D_GraphBV_Manager.SetBVMode(0);
+	char szDirectory[1024];
+	GetCurrentDirectory(1024, szDirectory);
 
 	// ------------------------------------------------
 	// Map

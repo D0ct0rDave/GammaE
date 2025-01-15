@@ -4,9 +4,9 @@ workspace "GammaE_Application"
     configurations { "Debug", "Release" }
     location "build" -- Where generated files (like Visual Studio solutions) will be stored
     architecture "x86_64"
-
+	
 project "GammaE_Application"
-    kind "ConsoleApp" -- Change to "SharedLib" for a shared library
+    kind "WindowedApp" -- Change to "SharedLib" for a shared library
     language "C++"
     cppdialect "C++17"
     targetdir "$(ProjectDir)/exe/%{cfg.buildcfg}" -- Output directory for binaries
@@ -17,8 +17,8 @@ project "GammaE_Application"
     local sourceRoot = os.getcwd()
     frameworkRoot = sourceRoot .. "/../GammaE"
 	print("Framework dir: " .. frameworkRoot)
-
-    -- Recursively include all .cpp and .h files from the sourceRoot directory
+  	
+	-- Recursively include all .cpp and .h files from the sourceRoot directory
     files {
         sourceRoot .. "/**.cpp",
         sourceRoot .. "/**.h",
@@ -41,7 +41,7 @@ project "GammaE_Application"
     includedirs {
 		sourceRoot,
 		"$(ProjectDir)../../GammaE",
-		"$(ProjectDir)../../sdks/TexLib",
+		"$(ProjectDir)../../sdks/TexLib/src",
 		"$(ProjectDir)../../sdks/TerrainGenerationLib/Src",
 		"$(ProjectDir)../../sdks/FileLib/src",
     }
@@ -57,20 +57,40 @@ project "GammaE_Application"
         }
     filter {} -- Clear filter to reset for subsequent rules
 
+	-- Library directories common for all configurations
+	libdirs
+	{
+	}
+	
+	links 
+	{
+		"tex.lib",
+		"TerrainGenerationLib.lib",		
+		"opengl32.lib",
+		"glu32.lib",
+		"libsndfile.lib",
+	}
+
     -- Configuration-specific settings
     filter "configurations:Debug"
         defines { "DEBUG" }
         symbols "On" -- Generate debug symbols
 		libdirs
 		{
+			"$(ProjectDir)../../sdks/TexLib/build/lib/Debug",
 			"$(ProjectDir)../../sdks/TerrainGenerationLib/build/lib/Debug",
+			"$(ProjectDir)../../sdks/libsndfile-0.0.26/Win32/LibSndFile/lib/Debug",
+			"$(ProjectDir)../../GammaE/build/lib/Debug",
 		}
     filter "configurations:Release"
         defines { "NDEBUG" }
         optimize "On" -- Enable optimizations
 		libdirs
 		{
+			"$(ProjectDir)../../sdks/TexLib/build/lib/Release",
 			"$(ProjectDir)../../sdks/TerrainGenerationLib/build/lib/Release",
+			"$(ProjectDir)../../sdks/libsndfile-0.0.26/Win32/LibSndFile/lib/Release",
+			"$(ProjectDir)../../GammaE/build/lib/Release",			
 		}
     filter {} -- Clear filter for general settings
 
@@ -80,18 +100,13 @@ project "GammaE_Application"
 		"UML",
 		"Tools"
     }
-	
+
 	-- Define the mapping of platforms to project file extensions
 	local platformProjectExtensions = {
         windows = "vcxproj",
         linux = "makefile",
         macosx = "xcodeproj"
     }
-
-	links 
-	{
-		"TerrainGenerationLib.lib",
-	}
 
 	-- Determine the current platform's project file extension
     local currentPlatform = os.target():lower() -- e.g., "windows", "linux", "macosx"
@@ -100,36 +115,64 @@ project "GammaE_Application"
     if not projectExtension then
         error("Unsupported platform: " .. currentPlatform)
     end
-          
-    -- Step 2: Include external projects based on generated project files
-	links {} -- Initialize an empty links table
-	local function includeProjects(rootDir)
+
+    
+	local function includeLibraries(rootDir)
 		local projectFileFound = false;
-		-- print("Processing external projects in : " .. rootDir)
         local entries = os.matchdirs(rootDir .. "/*") -- Find all subdirectories
         for _, entry in ipairs(entries) do
 			local projectFiles = os.matchfiles(entry .. "/*." .. projectExtension)				
 			for _, projectFile in ipairs(projectFiles) do
 				projectFileFound = true;
 				local projectName = projectFile:match("([^/\\]+)%..+$") -- Extract project name
+
+				print("Adding library: " .. projectFile)
+				links { projectName .. ".lib" }
+			end
+
+			if projectFileFound then break end
+
+			-- Recurse into subdirectories
+			includeLibraries(entry)
+        end
+    end
+	
+	
+	-- Step 2: Include external projects based on generated project files
+	local libraries= {} -- Collect all library names
+	local function includeProjects(rootDir)
+		local projectFileFound = false;
+        local entries = os.matchdirs(rootDir .. "/*") -- Find all subdirectories
+        for _, entry in ipairs(entries) do
+			local projectFiles = os.matchfiles(entry .. "/*." .. projectExtension)				
+			for _, projectFile in ipairs(projectFiles) do
+				projectFileFound = true;
+				local projectName = projectFile:match("([^/\\]+)%..+$") -- Extract project name
+
 				print("Adding external project: " .. projectFile)
-					links { projectName }
-					externalproject(projectName)
+				externalproject(projectName)
 					location(entry)
 					kind "StaticLib" -- Modify as needed
 					language "C++"
-				end
-				if projectFileFound then break end
-				
+			end
+			
 			if projectFileFound then break end
 
 			-- Recurse into subdirectories
 			includeProjects(entry)
         end
     end
-
-    includeProjects(frameworkRoot)
 	
+	
+
+	-- Add the external project to the solution
+	includeLibraries(frameworkRoot)	
+	includeProjects(frameworkRoot)
+
+	-- local lolo = "lole.lib; e333d.lib; adfffe.lib;"
+	-- links { lolo }
+	
+
 -- Install rules (using a post-build step for example purposes)
 postbuildcommands {
     -- "{MKDIR} %{wks.location}/dist/lib", -- Create output directory
