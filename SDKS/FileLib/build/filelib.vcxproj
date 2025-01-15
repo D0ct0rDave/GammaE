@@ -11,10 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{7AABC339-E68A-42D5-EFA2-CDAB5B01A936}</ProjectGuid>
+    <ProjectGuid>{5C0E3DAC-C8ED-BB47-D105-471E3D6422A9}</ProjectGuid>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Terrain</RootNamespace>
+    <RootNamespace>filelib</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -42,13 +42,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(ProjectDir)\lib\Debug\</OutDir>
     <IntDir>$(ProjectDir)\obj\Debug\</IntDir>
-    <TargetName>Terrain</TargetName>
+    <TargetName>filelib</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(ProjectDir)\lib\Release\</OutDir>
     <IntDir>$(ProjectDir)\obj\Release\</IntDir>
-    <TargetName>Terrain</TargetName>
+    <TargetName>filelib</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -56,7 +56,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_NULL=0;_MBCS;WIN32;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Terrain;$(ProjectDir)..\..;;$(ProjectDir)..;$(ProjectDir)..\..\sdks\FileLib\Src;;$(ProjectDir)..\..\sdks\TexLib\src;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\Src;$(ProjectDir)..\..\TexLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -72,7 +72,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_NULL=0;_MBCS;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Terrain;$(ProjectDir)..\..;;$(ProjectDir)..;$(ProjectDir)..\..\sdks\FileLib\Src;;$(ProjectDir)..\..\sdks\TexLib\src;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\Src;$(ProjectDir)..\..\TexLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -88,30 +88,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\Terrain\GammaE_Terrain.h" />
-    <ClInclude Include="..\Terrain\TerrainMaterials\CTileBookmark.h" />
-    <ClInclude Include="..\Terrain\TerrainMath\CLODSelector.h" />
-    <ClInclude Include="..\Terrain\TerrainMath\CLODSelector_Array.h" />
-    <ClInclude Include="..\Terrain\TerrainMath\NewClass.h" />
-    <ClInclude Include="..\Terrain\TerrainScene\CTerrainCircuit.h" />
-    <ClInclude Include="..\Terrain\TerrainScene\CTerrainSector.h" />
-    <ClInclude Include="..\Terrain\TerrainScene\SceneLoaders\EnvPars\EnvPars.h" />
-    <ClInclude Include="..\Terrain\TerrainScene\SceneLoaders\TERScene\TERSceneLoader.h" />
-    <ClInclude Include="..\Terrain\TerrainTesselators\CTerrainTesselator.h" />
-    <ClInclude Include="..\Terrain\TerrainTesselators\CTerrainTesselatorGM.h" />
-    <ClInclude Include="..\Terrain\TerrainTesselators\CTerrainTesselatorTileGM.h" />
+    <ClInclude Include="..\Src\File.h" />
+    <ClInclude Include="..\Src\Misc\FileLib_Callback.h" />
+    <ClInclude Include="..\Src\Misc\FileLib_Dates.h" />
+    <ClInclude Include="..\Src\Misc\FileLib_Errors.h" />
+    <ClInclude Include="..\Src\Misc\FileLib_FileCommon.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Terrain\TerrainMaterials\CTileBookmark.cpp" />
-    <ClCompile Include="..\Terrain\TerrainMath\CLODSelector.cpp" />
-    <ClCompile Include="..\Terrain\TerrainMath\CLODSelector_Array.cpp" />
-    <ClCompile Include="..\Terrain\TerrainMath\NewClass.cpp" />
-    <ClCompile Include="..\Terrain\TerrainScene\CTerrainCircuit.cpp" />
-    <ClCompile Include="..\Terrain\TerrainScene\CTerrainSector.cpp" />
-    <ClCompile Include="..\Terrain\TerrainScene\SceneLoaders\TERScene\TERSceneLoader.cpp" />
-    <ClCompile Include="..\Terrain\TerrainTesselators\CTerrainTesselator.cpp" />
-    <ClCompile Include="..\Terrain\TerrainTesselators\CTerrainTesselatorGM.cpp" />
-    <ClCompile Include="..\Terrain\TerrainTesselators\CTerrainTesselatorTileGM.cpp" />
+    <ClCompile Include="..\Src\Misc\FileLib_Callback.cpp" />
+    <ClCompile Include="..\Src\Misc\FileLib_Dates.cpp" />
+    <ClCompile Include="..\Src\Misc\FileLib_Errors.cpp" />
+    <ClCompile Include="..\Src\Misc\FileLib_FileCommon.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

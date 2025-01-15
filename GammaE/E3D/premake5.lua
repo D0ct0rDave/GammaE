@@ -8,7 +8,7 @@ workspace("GammaE_" .. project_name)
 	includedirs {
 		"$(ProjectDir)../../sdks/OpenGL;",
 		"$(ProjectDir)../../sdks/FileLib/src;",
-		"$(ProjectDir)../../sdks/TexLib;"
+		"$(ProjectDir)../../sdks/TexLib/src;"
 	}
 
 -- Install rules (using a post-build step for example purposes)

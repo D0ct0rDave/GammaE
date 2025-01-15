@@ -44,48 +44,48 @@ CFileSys_MgrZIP::~CFileSys_MgrZIP()
 
 
 //## Other Operations (implementation)
-int CFileSys_MgrZIP::iOpenFile (char *_szFilename, char* _szMode)
+CFileSys_Manager::FileHandler CFileSys_MgrZIP::iOpenFile (char *_szFilename, char* _szMode)
 {
   //## begin CFileSys_MgrZIP::iOpenFile%1014892624.body preserve=yes
   return(0);
   //## end CFileSys_MgrZIP::iOpenFile%1014892624.body
 }
 
-void CFileSys_MgrZIP::CloseFile (int _iHandler)
+void CFileSys_MgrZIP::CloseFile (FileHandler _iHandler)
 {
   //## begin CFileSys_MgrZIP::CloseFile%1014892625.body preserve=yes
   //## end CFileSys_MgrZIP::CloseFile%1014892625.body
 }
 
-int CFileSys_MgrZIP::iReadFile (int _iHandler, void* _pData, int _iSize)
+int CFileSys_MgrZIP::iReadFile (FileHandler _iHandler, void* _pData, int _iSize)
 {
   //## begin CFileSys_MgrZIP::iReadFile%1014892626.body preserve=yes
   return(0);
   //## end CFileSys_MgrZIP::iReadFile%1014892626.body
 }
 
-int CFileSys_MgrZIP::iWriteFile (int _iHandler, void* _pData, int _iSize)
+int CFileSys_MgrZIP::iWriteFile (FileHandler _iHandler, void* _pData, int _iSize)
 {
   //## begin CFileSys_MgrZIP::iWriteFile%1014892627.body preserve=yes
   return(0);
   //## end CFileSys_MgrZIP::iWriteFile%1014892627.body
 }
 
-int CFileSys_MgrZIP::iSeekFile (int _iHandler, int _iOffset, eFile_SeekMode _eMode)
+int CFileSys_MgrZIP::iSeekFile (FileHandler _iHandler, int _iOffset, eFile_SeekMode _eMode)
 {
   //## begin CFileSys_MgrZIP::iSeekFile%1014892628.body preserve=yes
   return(0);
   //## end CFileSys_MgrZIP::iSeekFile%1014892628.body
 }
 
-int CFileSys_MgrZIP::iLengthFile (int _iHandler)
+int CFileSys_MgrZIP::iLengthFile (FileHandler _iHandler)
 {
   //## begin CFileSys_MgrZIP::iLengthFile%1014892629.body preserve=yes
   return(0);
   //## end CFileSys_MgrZIP::iLengthFile%1014892629.body
 }
 
-int CFileSys_MgrZIP::iPosFile (int _iHandler)
+int CFileSys_MgrZIP::iPosFile (FileHandler _iHandler)
 {
   //## begin CFileSys_MgrZIP::iPosFile%1014912977.body preserve=yes
   return(0);

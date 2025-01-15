@@ -542,4 +542,9 @@
     </ClCompile>
     <ClCompile Include="..\Scene\e3DObjectTypeID.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Scene\Animation\CObject3D_AnimatedMesh.cpp_">
+      <Filter>Animation</Filter>
+    </None>
+  </ItemGroup>
 </Project>

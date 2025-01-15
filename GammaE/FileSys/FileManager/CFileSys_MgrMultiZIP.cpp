@@ -43,48 +43,48 @@ CFileSys_MgrMultiZIP::~CFileSys_MgrMultiZIP()
 
 
 //## Other Operations (implementation)
-int CFileSys_MgrMultiZIP::iOpenFile (char *_szFilename, char* _szMode)
+CFileSys_Manager::FileHandler CFileSys_MgrMultiZIP::iOpenFile (char *_szFilename, char* _szMode)
 {
   //## begin CFileSys_MgrMultiZIP::iOpenFile%1014892618.body preserve=yes
   return(0);
   //## end CFileSys_MgrMultiZIP::iOpenFile%1014892618.body
 }
 
-void CFileSys_MgrMultiZIP::CloseFile (int _iHandler)
+void CFileSys_MgrMultiZIP::CloseFile (FileHandler _iHandler)
 {
   //## begin CFileSys_MgrMultiZIP::CloseFile%1014892619.body preserve=yes
   //## end CFileSys_MgrMultiZIP::CloseFile%1014892619.body
 }
 
-int CFileSys_MgrMultiZIP::iReadFile (int _iHandler, void* _pData, int _iSize)
+int CFileSys_MgrMultiZIP::iReadFile (FileHandler _iHandler, void* _pData, int _iSize)
 {
   //## begin CFileSys_MgrMultiZIP::iReadFile%1014892620.body preserve=yes
   return(0);
   //## end CFileSys_MgrMultiZIP::iReadFile%1014892620.body
 }
 
-int CFileSys_MgrMultiZIP::iWriteFile (int _iHandler, void* _pData, int _iSize)
+int CFileSys_MgrMultiZIP::iWriteFile (FileHandler _iHandler, void* _pData, int _iSize)
 {
   //## begin CFileSys_MgrMultiZIP::iWriteFile%1014892621.body preserve=yes
   return(0);
   //## end CFileSys_MgrMultiZIP::iWriteFile%1014892621.body
 }
 
-int CFileSys_MgrMultiZIP::iSeekFile (int _iHandler, int _iOffset, eFile_SeekMode _eMode)
+int CFileSys_MgrMultiZIP::iSeekFile (FileHandler _iHandler, int _iOffset, eFile_SeekMode _eMode)
 {
   //## begin CFileSys_MgrMultiZIP::iSeekFile%1014892622.body preserve=yes
   return(0);
   //## end CFileSys_MgrMultiZIP::iSeekFile%1014892622.body
 }
 
-int CFileSys_MgrMultiZIP::iLengthFile (int _iHandler)
+int CFileSys_MgrMultiZIP::iLengthFile (FileHandler _iHandler)
 {
   //## begin CFileSys_MgrMultiZIP::iLengthFile%1014892623.body preserve=yes
   return(0);
   //## end CFileSys_MgrMultiZIP::iLengthFile%1014892623.body
 }
 
-int CFileSys_MgrMultiZIP::iPosFile (int _iHandler)
+int CFileSys_MgrMultiZIP::iPosFile (FileHandler _iHandler)
 {
   //## begin CFileSys_MgrMultiZIP::iPosFile%1014912976.body preserve=yes
   return(0);

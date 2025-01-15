@@ -37,7 +37,9 @@ Texture* poLoadTexture(char* _szFilename)
 	if (tex->data == NULL)
 	{
 		delete tex;
+		return NULL;
 	}
+
 	tex->palette = NULL;
 	tex->pixelFormat = GetPixelFormatFromChannels(tex->channels);
 

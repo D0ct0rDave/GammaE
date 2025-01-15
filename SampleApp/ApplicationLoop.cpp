@@ -258,9 +258,12 @@ void AppLoop_LoadMaterials()
 	ProcTex_Init();
 	
 	CE3D_ShaderExtDB::AddExtension("PROCTEX_1",ProcTex_Think);
+	
+	char szDirectory[1024];
+	GetCurrentDirectory(1024, szDirectory);
 
 	CE3D_ShaderDefWH::Init(1024);
-	CE3D_ShaderDefWH::iAddShaderFile("Shaders.txt");
+	CE3D_ShaderDefWH::iAddShaderFile("base/Shaders.txt");
 }
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
@@ -645,8 +648,7 @@ void AppLoop_SetupShadowCaster()
 void AppLoop_LoadModels()
 {
 	// E3D_GraphBV_Manager.SetBVMode(0);
-	char szDirectory[1024];
-	GetCurrentDirectory(1024, szDirectory);
+
 
 	// ------------------------------------------------
 	// Map

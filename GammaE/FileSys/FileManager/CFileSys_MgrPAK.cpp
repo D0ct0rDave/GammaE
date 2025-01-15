@@ -44,48 +44,48 @@ CFileSys_MgrPAK::~CFileSys_MgrPAK()
 
 
 //## Other Operations (implementation)
-int CFileSys_MgrPAK::iOpenFile (char *_szFilename, char* _szMode)
+CFileSys_Manager::FileHandler CFileSys_MgrPAK::iOpenFile (char *_szFilename, char* _szMode)
 {
   //## begin CFileSys_MgrPAK::iOpenFile%1014892606.body preserve=yes
   return(0);
   //## end CFileSys_MgrPAK::iOpenFile%1014892606.body
 }
 
-void CFileSys_MgrPAK::CloseFile (int _iHandler)
+void CFileSys_MgrPAK::CloseFile (FileHandler _iHandler)
 {
   //## begin CFileSys_MgrPAK::CloseFile%1014892607.body preserve=yes
   //## end CFileSys_MgrPAK::CloseFile%1014892607.body
 }
 
-int CFileSys_MgrPAK::iReadFile (int _iHandler, void* _pData, int _iSize)
+int CFileSys_MgrPAK::iReadFile (FileHandler _iHandler, void* _pData, int _iSize)
 {
   //## begin CFileSys_MgrPAK::iReadFile%1014892608.body preserve=yes
   return(0);
   //## end CFileSys_MgrPAK::iReadFile%1014892608.body
 }
 
-int CFileSys_MgrPAK::iWriteFile (int _iHandler, void* _pData, int _iSize)
+int CFileSys_MgrPAK::iWriteFile (FileHandler _iHandler, void* _pData, int _iSize)
 {
   //## begin CFileSys_MgrPAK::iWriteFile%1014892609.body preserve=yes
   return(0);
   //## end CFileSys_MgrPAK::iWriteFile%1014892609.body
 }
 
-int CFileSys_MgrPAK::iSeekFile (int _iHandler, int _iOffset, eFile_SeekMode _eMode)
+int CFileSys_MgrPAK::iSeekFile (FileHandler _iHandler, int _iOffset, eFile_SeekMode _eMode)
 {
   //## begin CFileSys_MgrPAK::iSeekFile%1014892610.body preserve=yes
   return(0);
   //## end CFileSys_MgrPAK::iSeekFile%1014892610.body
 }
 
-int CFileSys_MgrPAK::iLengthFile (int _iHandler)
+int CFileSys_MgrPAK::iLengthFile (FileHandler _iHandler)
 {
   //## begin CFileSys_MgrPAK::iLengthFile%1014892611.body preserve=yes
 	return(0);
   //## end CFileSys_MgrPAK::iLengthFile%1014892611.body
 }
 
-int CFileSys_MgrPAK::iPosFile (int _iHandler)
+int CFileSys_MgrPAK::iPosFile (FileHandler _iHandler)
 {
   //## begin CFileSys_MgrPAK::iPosFile%1014912980.body preserve=yes
   return(0);

@@ -45,19 +45,19 @@ CFileSys_Manager::~CFileSys_Manager()
 
 
 //## Other Operations (implementation)
-HANDLER CFileSys_Manager::iOpenFile (char *_szFilename, char* _szMode)
+CFileSys_Manager::FileHandler CFileSys_Manager::iOpenFile (char *_szFilename, char* _szMode)
 {
   //## begin CFileSys_Manager::iOpenFile%1014892600.body preserve=yes
 	OSFILE *poOSFile = mNew OSFILE;	
 	
 	if (poOSFile->iOpenOSF(_szFilename,_szMode))
-		return((int)poOSFile);
+		return((FileHandler)poOSFile);
 	else
 		return(0);
   //## end CFileSys_Manager::iOpenFile%1014892600.body
 }
 
-void CFileSys_Manager::CloseFile (int _iHandler)
+void CFileSys_Manager::CloseFile (FileHandler _iHandler)
 {
   //## begin CFileSys_Manager::CloseFile%1014892601.body preserve=yes
 	assert(_iHandler);
@@ -67,7 +67,7 @@ void CFileSys_Manager::CloseFile (int _iHandler)
   //## end CFileSys_Manager::CloseFile%1014892601.body
 }
 
-int CFileSys_Manager::iReadFile (int _iHandler, void* _pData, int _iSize)
+int CFileSys_Manager::iReadFile (FileHandler _iHandler, void* _pData, int _iSize)
 {
   //## begin CFileSys_Manager::iReadFile%1014892602.body preserve=yes
 	assert(_iHandler);
@@ -76,7 +76,7 @@ int CFileSys_Manager::iReadFile (int _iHandler, void* _pData, int _iSize)
   //## end CFileSys_Manager::iReadFile%1014892602.body
 }
 
-int CFileSys_Manager::iWriteFile (int _iHandler, void* _pData, int _iSize)
+int CFileSys_Manager::iWriteFile (FileHandler _iHandler, void* _pData, int _iSize)
 {
   //## begin CFileSys_Manager::iWriteFile%1014892603.body preserve=yes
 	assert(_iHandler);
@@ -85,7 +85,7 @@ int CFileSys_Manager::iWriteFile (int _iHandler, void* _pData, int _iSize)
   //## end CFileSys_Manager::iWriteFile%1014892603.body
 }
 
-int CFileSys_Manager::iSeekFile (int _iHandler, int _iOffset, eFile_SeekMode _eMode)
+int CFileSys_Manager::iSeekFile (FileHandler _iHandler, int _iOffset, eFile_SeekMode _eMode)
 {
   //## begin CFileSys_Manager::iSeekFile%1014892604.body preserve=yes
 	assert(_iHandler);
@@ -99,7 +99,7 @@ int CFileSys_Manager::iSeekFile (int _iHandler, int _iOffset, eFile_SeekMode _eM
   //## end CFileSys_Manager::iSeekFile%1014892604.body
 }
 
-int CFileSys_Manager::iLengthFile (int _iHandler)
+int CFileSys_Manager::iLengthFile (FileHandler _iHandler)
 {
   //## begin CFileSys_Manager::iLengthFile%1014892605.body preserve=yes
 	assert(_iHandler);
@@ -107,7 +107,7 @@ int CFileSys_Manager::iLengthFile (int _iHandler)
   //## end CFileSys_Manager::iLengthFile%1014892605.body
 }
 
-int CFileSys_Manager::iPosFile (int _iHandler)
+int CFileSys_Manager::iPosFile (FileHandler _iHandler)
 {
   //## begin CFileSys_Manager::iPosFile%1014912979.body preserve=yes
 	assert(_iHandler);

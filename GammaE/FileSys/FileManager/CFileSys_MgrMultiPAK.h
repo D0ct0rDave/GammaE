@@ -48,25 +48,25 @@ class CFileSys_MgrMultiPAK : public CFileSys_Manager  //## Inherits: <unnamed>%3
 
     //## Other Operations (specified)
       //## Operation: iOpenFile%1014892630
-      virtual int iOpenFile (char *_szFilename, char* _szMode);
+      virtual FileHandler iOpenFile (char *_szFilename, char* _szMode);
 
       //## Operation: CloseFile%1014892631
-      virtual void CloseFile (int _iHandler);
+      virtual void CloseFile (FileHandler _iHandler);
 
       //## Operation: iReadFile%1014892632
-      virtual int iReadFile (int _iHandler, void* _pData, int _iSize);
+      virtual int iReadFile (FileHandler _iHandler, void* _pData, int _iSize);
 
       //## Operation: iWriteFile%1014892633
-      virtual int iWriteFile (int _iHandler, void* _pData, int _iSize);
+      virtual int iWriteFile (FileHandler _iHandler, void* _pData, int _iSize);
 
       //## Operation: iSeekFile%1014892634
-      virtual int iSeekFile (int _iHandler, int _iOffset, eFile_SeekMode _eMode);
+      virtual int iSeekFile (FileHandler _iHandler, int _iOffset, eFile_SeekMode _eMode);
 
       //## Operation: iLengthFile%1014892635
-      virtual int iLengthFile (int _iHandler);
+      virtual int iLengthFile (FileHandler _iHandler);
 
       //## Operation: iPosFile%1014912978
-      virtual int iPosFile (int _iHandler);
+      virtual int iPosFile (FileHandler _iHandler);
 
     //## Get and Set Operations for Associations (generated)
 

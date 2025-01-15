@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Misc">
+      <UniqueIdentifier>{9116897C-7D4D-8A0D-263A-70101250060F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Src\File.h" />
+    <ClInclude Include="..\Src\Misc\FileLib_Callback.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Misc\FileLib_Dates.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Misc\FileLib_Errors.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Misc\FileLib_FileCommon.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Src\Misc\FileLib_Callback.cpp">
+      <Filter>Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Misc\FileLib_Dates.cpp">
+      <Filter>Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Misc\FileLib_Errors.cpp">
+      <Filter>Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Misc\FileLib_FileCommon.cpp">
+      <Filter>Misc</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

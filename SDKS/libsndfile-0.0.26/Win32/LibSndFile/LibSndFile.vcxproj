@@ -71,7 +71,10 @@
     <OutDir>$(ProjectDir)lib/$(Configuration)</OutDir>
     <IntDir>$(ProjectDir)obj/$(Configuration)</IntDir>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(ProjectDir)lib/$(Configuration)</OutDir>
+    <IntDir>$(ProjectDir)obj/$(Configuration)</IntDir>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(ProjectDir)lib/$(Configuration)</OutDir>
     <IntDir>$(ProjectDir)obj/$(Configuration)</IntDir>
@@ -87,10 +90,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <PrecompiledHeaderOutputFile>$(SolutionDir)\Debug/LibSndFile.pch</PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>$(SolutionDir)\Debug/</AssemblerListingLocation>
-      <ObjectFileName>$(SolutionDir)\Debug/</ObjectFileName>
-      <ProgramDataBaseFileName>$(SolutionDir)\Debug/</ProgramDataBaseFileName>
+      <PrecompiledHeaderOutputFile>$(PojectDir)\obj/$(Configuration)LibSndFile.pch</PrecompiledHeaderOutputFile>
       <BrowseInformation>true</BrowseInformation>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -113,10 +113,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <PrecompiledHeaderOutputFile>$(SolutionDir)\Debug/LibSndFile.pch</PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>$(SolutionDir)\Debug/</AssemblerListingLocation>
-      <ObjectFileName>$(SolutionDir)\Debug/</ObjectFileName>
-      <ProgramDataBaseFileName>$(SolutionDir)\Debug/</ProgramDataBaseFileName>
+      <PrecompiledHeaderOutputFile>$(PojectDir)\obj/$(Configuration)LibSndFile.pch</PrecompiledHeaderOutputFile>
       <BrowseInformation>true</BrowseInformation>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -141,11 +138,7 @@
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <PrecompiledHeader />
-      <PrecompiledHeaderOutputFile>\projects\GammaE\Release/LibSndFile.pch</PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>\projects\GammaE\Release/</AssemblerListingLocation>
-      <ObjectFileName>\projects\GammaE\Release/</ObjectFileName>
-      <ProgramDataBaseFileName>\projects\GammaE\Release/</ProgramDataBaseFileName>
+      <PrecompiledHeaderOutputFile>$(PojectDir)\obj/$(Configuration)LibSndFile.pch</PrecompiledHeaderOutputFile>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -169,12 +162,7 @@
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <PrecompiledHeaderOutputFile>\projects\GammaE\Release/LibSndFile.pch</PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>\projects\GammaE\Release/</AssemblerListingLocation>
-      <ObjectFileName>\projects\GammaE\Release/</ObjectFileName>
-      <ProgramDataBaseFileName>\projects\GammaE\Release/</ProgramDataBaseFileName>
+      <PrecompiledHeaderOutputFile>$(PojectDir)\obj/$(Configuration)LibSndFile.pch</PrecompiledHeaderOutputFile>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>

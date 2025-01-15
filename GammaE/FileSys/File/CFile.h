@@ -125,8 +125,8 @@ class CFile
 
       //## Attribute: iHandler%3C7E0E010255
       //## begin CFile::iHandler%3C7E0E010255.attr preserve=no  protected: int {UA} 
-      using HANDLER = void*;
-      HANDLER iHandler;
+      using FileHandler = void*;
+      FileHandler iHandler;
       //## end CFile::iHandler%3C7E0E010255.attr
 
     // Additional Protected Declarations

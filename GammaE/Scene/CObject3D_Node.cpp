@@ -71,7 +71,7 @@ void CObject3D_Node::Init (int _iInitialSubObjs)
 
 	/*
 	MaxSubObjects = _MaxSubObjects;
-	SubObj        = mNew CObject3D_Gen *[MaxSubObjects];		
+	SubObj        = mNew CObject3D *[MaxSubObjects];		
 	for (int cObj=0;cObj<MaxSubObjects;cObj++)	SubObj[cObj] = NULL;
 	*/
 
