@@ -1,1 +1,0 @@
-gammae slash.gem

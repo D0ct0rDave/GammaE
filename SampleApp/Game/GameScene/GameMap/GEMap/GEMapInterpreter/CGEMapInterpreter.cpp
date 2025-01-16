@@ -38,13 +38,13 @@ CRTME_Target *poCreateLight(CMapEnt_Light *_poLight)
 	// Create and setup particle system
 	PS->InitPS			(32,true,false);
 	PS->SetPSParams		(true,1.0f,0.05f);
-	PS->PSSpeed.V3		(0,0,30);	
+	PS->PSSpeed.V3		(0,0,1000.0f);	
 	PS->SetColorsFact	(_poLight->Color,oFactColor);
 	PS->SetSizeFact		(4.0f);
 	PS->SetSpeedFact	(12.0f);
 	PS->SetEnergyFact	(0.25f,0.01f);
 
-	CE3D_Shader *poParticleShader = CE3D_ShaderWH::poCreateShader("Verde");
+	CE3D_Shader *poParticleShader = CE3D_ShaderWH::poCreateShader("LightPS");
 	PS->SetShader(poParticleShader);
 
 	// Move the particle system in the map
@@ -144,7 +144,7 @@ void CGEMapInterpreter::Interpret (CGEMap& _roMap)
 				
 				case eMapEnt_PlayerStart:
 				{
-					gCamera.poCam->Pos.Assign(((CMapEnt_PlayerStart*)poEnt)->oPos);
+					// gCamera.poCam->Pos.Assign(((CMapEnt_PlayerStart*)poEnt)->oPos);
 					gPlayer->roColObj().Pos.Assign( ((CMapEnt_PlayerStart*)poEnt)->oPos );
 				}
 				break;

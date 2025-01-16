@@ -4,6 +4,7 @@
 #include "tex.h"
 #include "MipMapWH.h"
 #include <assert.h>
+#include <windows.h>
 
 //---------------------------------------------------------------------------
 #ifndef NULL
@@ -130,6 +131,10 @@ TMipMapObj *TMipMapWarehouse::LoadMipMap(char *Filename,unsigned int NumLODS)
     MMEntry = FindFreeMipMapEntry();
     if (! MMEntry) return(NULL);
     
+
+    char szDirectory[1024];
+    GetCurrentDirectory(1024, szDirectory);
+
     Texture* _poTex = poLoadTexture(Filename);
     if (_poTex == NULL)
     {

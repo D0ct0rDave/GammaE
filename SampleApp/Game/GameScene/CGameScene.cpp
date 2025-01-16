@@ -20,7 +20,7 @@
 // CGameScene
 #include "Game\GameScene\CGameScene.h"
 //## begin module%3B65CB11028A.additionalDeclarations preserve=yes
-#define _USE_SHADOWMAP_
+// #define _USE_SHADOWMAP_
 //## end module%3B65CB11028A.additionalDeclarations
 
 

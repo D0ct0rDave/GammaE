@@ -48,6 +48,7 @@ CObject3D_Node::CObject3D_Node (int _iInitialSubObjs)
   //## end CObject3D_Node::CObject3D_Node%1019380666.initialization
 {
   //## begin CObject3D_Node::CObject3D_Node%1019380666.body preserve=yes
+	CObject3D_Node();
 	Init(_iInitialSubObjs);
   //## end CObject3D_Node::CObject3D_Node%1019380666.body
 }

@@ -1,7 +1,7 @@
 // ----------------------------------------------------------------------------
 // Global module defines
 // ----------------------------------------------------------------------------
-#define GAMMAE_SOUND
+// #define GAMMAE_SOUND
 #define _USE_GEMAP_
 // #define _USE_TERRAIN_
 // #define _USE_MAP_
@@ -13,7 +13,7 @@
 #define _USE_CONSOLE_
 // #define _USE_PARTICLES_
 // #define _USE_DETAILER_
-#define _USE_SHADOWCAST_
+// #define _USE_SHADOWCAST_
 
 // ----------------------------------------------------------------------------
 // Includes necesarios para el programa
@@ -405,11 +405,9 @@ void AppLoop_SetupMap(char *_szMapScene)
 		CLoaderGEM oGEMLoader;		
 		poMapModel = oGEMLoader.pLoad(_szMapScene);
 		poMapModel->ComputeBoundVol();
-		
 
 		/*
 		CGraphBV_Manager::SetBVMode(eGraphBV_Sphere);
-
 		CObject3D_Leaf	*poLeaf  = mNew CObject3D_Leaf;
 		CMesh_Sphere	*poSphere= mNew CMesh_Sphere(32,5.0f);
 		poLeaf->SetMesh(poSphere);
@@ -424,7 +422,10 @@ void AppLoop_SetupMap(char *_szMapScene)
 		gCamera.iAddObject(poMapModel);
 
 		//
-		CCOL_Collider *MapCollider = new CCOL_Collider;
+		
+		CCOL_Collider* MapCollider = new CCOL_Collider;
+		
+		int CGame_ePET_Map = 0;
 		MapCollider->Init(	CGame_ePET_Map,
 							&gCOLScn_TLG,
 							&gCOLScn_MCT,
@@ -486,7 +487,7 @@ void AppLoop_SetupDummies(char *_szDummieScene)
 		oScnComp.CompileScene(poDummyScene);
 */
 		// -- Adding to scene
-		gCamera.AddSceneObject(poDummyScene);
+		gCamera.iAddObject(poDummyScene);
 
 	#endif	
 }
@@ -535,7 +536,7 @@ void AppLoop_SetupLensFlare()
 		pLensFlare->SetupFlareElem(7,0.15  , 1.2 ,ColD,pMatB);
 		
 		// -- Adding to scene 
-		gCamera.AddSceneObject(pLensFlare);
+		gCamera.iAddObject(pLensFlare);
 	#endif
 }
 // ----------------------------------------------------------------------------
@@ -687,7 +688,7 @@ void AppLoop_LoadModels()
 	
 	#ifdef _USE_PLAYERMODEL_
 		// AppLoop_SetupPlayer("massacre/massacre.gem");
-		AppLoop_SetupPlayer("hommer/hommer.gem");
+		AppLoop_SetupPlayer("homer/homer.gem");
 	#endif
 
 	// ------------------------------------------------
@@ -715,8 +716,8 @@ void AppLoop_LoadModels()
 	#endif
 	
 	#ifdef _USE_MAP_
-		// AppLoop_SetupMap("data/maps/Canions/castle2.gem");
-		AppLoop_SetupMap("j:/graphics/mapper/cubo_lit.gem");
+		AppLoop_SetupMap("base/maps/Canions/canions.gem");
+		// AppLoop_SetupMap("j:/graphics/mapper/cubo_lit.gem");
 		// AppLoop_SetupMap("i:/projects/gammae/tools/octree/gem/planebox.gem");
 	#endif
 	
@@ -828,7 +829,7 @@ void AppLoop_DestroyScene()
 void AppLoop_SetupKeyBindings()
 {
 	CGame_KeyBinder KeyBinder;
-	KeyBinder.Init("config.cfg");
+	KeyBinder.Init("base/config.cfg");
 }
 // ----------------------------------------------------------------------------
 void AppLoop_SetupCallbackFuncs()
@@ -887,11 +888,12 @@ void AppLoop_OnCreate(void *uiWinHandler,unsigned int uiWndWidth,unsigned int ui
     // La orientacion de la cámara se determina utilizando 3 vectores
     // que son los ejes locales de la cámara
 	// PerspCam.Pos.V3 ( 4, 10,270);
-	PerspCam.Pos.V3 ( 0.0f,-8.0f,8.0f);
+	PerspCam.Pos.V3 ( 631.0f,-490.0f,-74.0f);
 
     PerspCam.Up.V3  ( 0, 0,   1);
-	PerspCam.Dir.V3 ( 0, 1,   0);	PerspCam.Dir.Normalize();
+	PerspCam.LookAt(CVect3(516.0f, -500.0f, -112.0f));
 	PerspCam.Side.CrossProd(PerspCam.Dir,PerspCam.Up);	
+	PerspCam.Up.CrossProd(PerspCam.Side, PerspCam.Dir);
 
 	PerspPrj.ePrjType = eE3DPrjType_Perspective;
 	PerspPrj.fFOV     = 45.0f;
@@ -1079,9 +1081,11 @@ void AppLoop_OnJump        (unsigned int Enabled,unsigned int Par1,unsigned int 
 
 	if (Enabled)
 	{
+		#ifdef GAMMAE_SOUND
 		static float fRadius = 1000.0f;
 		CSoundEmiter *poEmiter = SndRenderer.poAddEmiter(poSound,gPlayer->roColObj().Pos,0.5f);
 		poEmiter->fRadius = fRadius;
+		#endif
 	}
 
 }

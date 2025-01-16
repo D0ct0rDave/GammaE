@@ -67,12 +67,14 @@ CGameMapLoader::~CGameMapLoader()
 void CGameMapLoader::iLoad (char *_szMap)
 {
   //## begin CGameMapLoader::iLoad%1018461830.body preserve=yes
-  	char szCurDir[1024];
-	getcwd(szCurDir,1024);
-	chdir("base/maps/GameMap");
+  	char szMapFilename[1024];
+	// getcwd(szCurDir,1024);
+	// chdir("base/maps/GameMap");
+
+	sprintf(szMapFilename, "base/maps/GameMap/%s", _szMap);
 
 	// -- Creating / Loading
-	gpGameMap = CGEMapLoader::poLoad( _szMap);
+	gpGameMap = CGEMapLoader::poLoad(szMapFilename);
 	CGEMapInterpreter::Interpret( *gpGameMap );
 
 	// -- Loading terrain if required
@@ -88,7 +90,7 @@ void CGameMapLoader::iLoad (char *_szMap)
 	// -- Setting collisions
 	SetupRoomColliders();
 
-	chdir(szCurDir);
+	// chdir(szCurDir);
   //## end CGameMapLoader::iLoad%1018461830.body
 }
 
