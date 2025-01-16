@@ -250,9 +250,6 @@
     <ClCompile Include="..\Scene\SceneUtils\TriScnLoader\SCNUt_TriSceneLoader.cpp" />
     <ClCompile Include="..\Scene\e3DObjectTypeID.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="..\Scene\Animation\CObject3D_AnimatedMesh.cpp_" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

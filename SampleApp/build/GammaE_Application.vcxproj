@@ -241,41 +241,6 @@
     <None Include="..\optimization.txt" />
     <None Include="..\shaders.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\GammaE\build\Collision.vcxproj">
-      <Project>{b11a655c-1d85-19d3-66c3-ca78d26cf727}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\GammaE\build\E3D.vcxproj">
-      <Project>{41df870b-ade8-877c-3664-9e7ca26c937c}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\GammaE\build\FileSys.vcxproj">
-      <Project>{040ef50c-70ed-73a8-7905-ff7ee563da09}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\GammaE\build\Math.vcxproj">
-      <Project>{aff4887c-9b2b-8a0d-4418-7010302e060f}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\GammaE\build\Memory.vcxproj">
-      <Project>{be94ddc2-aa36-0899-93f1-1bed7f328fe9}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\GammaE\build\Misc.vcxproj">
-      <Project>{9116897c-7d4d-8a0d-263a-70101250060f}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\GammaE\build\Scene.vcxproj">
-      <Project>{b3f7140e-1f0c-3dbf-e88d-e01e546139f0}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\GammaE\build\SceneObjects.vcxproj">
-      <Project>{bd798a53-a9dc-19f8-5262-52ae3ea4e57a}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\GammaE\build\Sound.vcxproj">
-      <Project>{4ed01b0e-bae4-43bf-8366-e71eef3940f0}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\GammaE\build\Terrain.vcxproj">
-      <Project>{7aabc339-e68a-42d5-efa2-cdab5b01a936}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\GammaE\build\TerrainData.vcxproj">
-      <Project>{34ce6782-a083-e077-2978-da4e952cd77b}</Project>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

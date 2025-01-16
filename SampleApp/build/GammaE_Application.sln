@@ -2,28 +2,61 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Collision", "..\..\GammaE\build\Collision.vcxproj", "{B11A655C-1D85-19D3-66C3-CA78D26CF727}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B11A655C-1D85-19D3-66C3-CA78D26CF727} = {B11A655C-1D85-19D3-66C3-CA78D26CF727}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "E3D", "..\..\GammaE\build\E3D.vcxproj", "{41DF870B-ADE8-877C-3664-9E7CA26C937C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{41DF870B-ADE8-877C-3664-9E7CA26C937C} = {41DF870B-ADE8-877C-3664-9E7CA26C937C}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FileSys", "..\..\GammaE\build\FileSys.vcxproj", "{040EF50C-70ED-73A8-7905-FF7EE563DA09}"
+	ProjectSection(ProjectDependencies) = postProject
+		{040EF50C-70ED-73A8-7905-FF7EE563DA09} = {040EF50C-70ED-73A8-7905-FF7EE563DA09}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GammaE_Application", "GammaE_Application.vcxproj", "{806DB689-6C51-77DF-D5B1-7132C1B46161}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Math", "..\..\GammaE\build\Math.vcxproj", "{AFF4887C-9B2B-8A0D-4418-7010302E060F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AFF4887C-9B2B-8A0D-4418-7010302E060F} = {AFF4887C-9B2B-8A0D-4418-7010302E060F}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Memory", "..\..\GammaE\build\Memory.vcxproj", "{BE94DDC2-AA36-0899-93F1-1BED7F328FE9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BE94DDC2-AA36-0899-93F1-1BED7F328FE9} = {BE94DDC2-AA36-0899-93F1-1BED7F328FE9}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Misc", "..\..\GammaE\build\Misc.vcxproj", "{9116897C-7D4D-8A0D-263A-70101250060F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9116897C-7D4D-8A0D-263A-70101250060F} = {9116897C-7D4D-8A0D-263A-70101250060F}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Scene", "..\..\GammaE\build\Scene.vcxproj", "{B3F7140E-1F0C-3DBF-E88D-E01E546139F0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B3F7140E-1F0C-3DBF-E88D-E01E546139F0} = {B3F7140E-1F0C-3DBF-E88D-E01E546139F0}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SceneObjects", "..\..\GammaE\build\SceneObjects.vcxproj", "{BD798A53-A9DC-19F8-5262-52AE3EA4E57A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BD798A53-A9DC-19F8-5262-52AE3EA4E57A} = {BD798A53-A9DC-19F8-5262-52AE3EA4E57A}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sound", "..\..\GammaE\build\Sound.vcxproj", "{4ED01B0E-BAE4-43BF-8366-E71EEF3940F0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4ED01B0E-BAE4-43BF-8366-E71EEF3940F0} = {4ED01B0E-BAE4-43BF-8366-E71EEF3940F0}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Terrain", "..\..\GammaE\build\Terrain.vcxproj", "{7AABC339-E68A-42D5-EFA2-CDAB5B01A936}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7AABC339-E68A-42D5-EFA2-CDAB5B01A936} = {7AABC339-E68A-42D5-EFA2-CDAB5B01A936}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TerrainData", "..\..\GammaE\build\TerrainData.vcxproj", "{34CE6782-A083-E077-2978-DA4E952CD77B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{34CE6782-A083-E077-2978-DA4E952CD77B} = {34CE6782-A083-E077-2978-DA4E952CD77B}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

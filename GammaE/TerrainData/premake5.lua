@@ -7,7 +7,7 @@ workspace("GammaE_" .. project_name)
 
 includedirs {
 		"$(ProjectDir)../../sdks/FileLib/Src;",
-		"$(ProjectDir)../../sdks/TexLib/src	;"
+		"$(ProjectDir)../../sdks/TexLib/src;"
 	}
 
 -- Install rules (using a post-build step for example purposes)
