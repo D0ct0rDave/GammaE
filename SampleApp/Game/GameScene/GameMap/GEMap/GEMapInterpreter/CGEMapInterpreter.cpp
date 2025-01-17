@@ -38,7 +38,7 @@ CRTME_Target *poCreateLight(CMapEnt_Light *_poLight)
 	// Create and setup particle system
 	PS->InitPS			(32,true,false);
 	PS->SetPSParams		(true,1.0f,0.05f);
-	PS->PSSpeed.V3		(0,0,1000.0f);	
+	PS->PSSpeed.V3		(0,0,25.0f);	
 	PS->SetColorsFact	(_poLight->Color,oFactColor);
 	PS->SetSizeFact		(4.0f);
 	PS->SetSpeedFact	(12.0f);

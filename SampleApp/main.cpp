@@ -6,8 +6,8 @@
 
 
 // ----------------------------------------------------------------------------
-#define		WND_WIDTH		640
-#define		WND_HEIGHT		480
+#define		WND_WIDTH		960
+#define		WND_HEIGHT		540
 
 HINSTANCE	WinhInstance;
 HWND		mainhWnd;

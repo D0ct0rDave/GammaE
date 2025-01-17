@@ -67,7 +67,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>tex.lib;TerrainGenerationLib.lib;opengl32.lib;glu32.lib;libsndfile.lib;Collision.lib;E3D.lib;FileSys.lib;Math.lib;Memory.lib;Misc.lib;Scene.lib;SceneObjects.lib;Sound.lib;Terrain.lib;TerrainData.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>tex.lib;TerrainGenerationLib.lib;opengl32.lib;glu32.lib;libsndfile.lib;Collision.lib;E3D.lib;FileSys.lib;Math.lib;Memory.lib;Misc.lib;Scene.lib;SceneObjects.lib;Sound.lib;TerrainData.lib;Terrain.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)..\..\sdks\TexLib\build\lib\Debug;$(ProjectDir)..\..\sdks\TerrainGenerationLib\build\lib\Debug;$(ProjectDir)..\..\sdks\libsndfile-0.0.26\Win32\LibSndFile\lib\Debug;$(ProjectDir)..\..\GammaE\build\lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>

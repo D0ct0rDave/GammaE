@@ -1,7 +1,7 @@
 // ----------------------------------------------------------------------------
 // Global module defines
 // ----------------------------------------------------------------------------
-// #define GAMMAE_SOUND
+#define GAMMAE_SOUND
 #define _USE_GEMAP_
 // #define _USE_TERRAIN_
 // #define _USE_MAP_
@@ -259,9 +259,6 @@ void AppLoop_LoadMaterials()
 	
 	CE3D_ShaderExtDB::AddExtension("PROCTEX_1",ProcTex_Think);
 	
-	char szDirectory[1024];
-	GetCurrentDirectory(1024, szDirectory);
-
 	CE3D_ShaderDefWH::Init(1024);
 	CE3D_ShaderDefWH::iAddShaderFile("base/Shaders.txt");
 }
@@ -871,6 +868,9 @@ void AppLoop_SetupCallbackFuncs()
 // ----------------------------------------------------------------------------
 void AppLoop_OnCreate(void *uiWinHandler,unsigned int uiWndWidth,unsigned int uiWndHeight,char *pszCmdLine)
 {	
+	char szDirectory[1024];
+	GetCurrentDirectory(1024, szDirectory);
+
 	CE3D_ShaderWH::Init(1024);
 
 	szCmdLine   = pszCmdLine;
@@ -888,10 +888,10 @@ void AppLoop_OnCreate(void *uiWinHandler,unsigned int uiWndWidth,unsigned int ui
     // La orientacion de la cámara se determina utilizando 3 vectores
     // que son los ejes locales de la cámara
 	// PerspCam.Pos.V3 ( 4, 10,270);
-	PerspCam.Pos.V3 ( 631.0f,-490.0f,-74.0f);
+	PerspCam.Pos.V3 ( 252.0f,-510.0f,38.0f);
 
     PerspCam.Up.V3  ( 0, 0,   1);
-	PerspCam.LookAt(CVect3(516.0f, -500.0f, -112.0f));
+	PerspCam.LookAt(CVect3(516.0f, -510.0f, 0.0f));
 	PerspCam.Side.CrossProd(PerspCam.Dir,PerspCam.Up);	
 	PerspCam.Up.CrossProd(PerspCam.Side, PerspCam.Dir);
 
