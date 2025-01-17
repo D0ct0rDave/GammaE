@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8CE0D40D-F8F4-FCBE-C176-A01E2D4AF9EF}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Orion</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)\exe\Debug\</OutDir>
+    <IntDir>$(ProjectDir)\obj\Debug\</IntDir>
+    <TargetName>Orion</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)\exe\Release\</OutDir>
+    <IntDir>$(ProjectDir)\obj\Release\</IntDir>
+    <TargetName>Orion</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_NULL=0;_MBCS;_OGL_;_DSOUND_;WIN32;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..;$(ProjectDir)..\..\GammaE;$(ProjectDir)..\..\sdks\TexLib\src;$(ProjectDir)..\..\sdks\TerrainGenerationLib\Src;$(ProjectDir)..\..\sdks\FileLib\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>tex.lib;TerrainGenerationLib.lib;opengl32.lib;glu32.lib;libsndfile.lib;Collision.lib;E3D.lib;FileSys.lib;Math.lib;Memory.lib;Misc.lib;Scene.lib;SceneObjects.lib;Sound.lib;Terrain.lib;TerrainData.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\sdks\TexLib\build\lib\Debug;$(ProjectDir)..\..\sdks\TerrainGenerationLib\build\lib\Debug;$(ProjectDir)..\..\sdks\libsndfile-0.0.26\Win32\LibSndFile\lib\Debug;$(ProjectDir)..\..\GammaE\build\lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_NULL=0;_MBCS;_OGL_;_DSOUND_;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..;$(ProjectDir)..\..\GammaE;$(ProjectDir)..\..\sdks\TexLib\src;$(ProjectDir)..\..\sdks\TerrainGenerationLib\Src;$(ProjectDir)..\..\sdks\FileLib\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>tex.lib;TerrainGenerationLib.lib;opengl32.lib;glu32.lib;libsndfile.lib;Collision.lib;E3D.lib;FileSys.lib;Math.lib;Memory.lib;Misc.lib;Scene.lib;SceneObjects.lib;Sound.lib;Terrain.lib;TerrainData.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\sdks\TexLib\build\lib\Release;$(ProjectDir)..\..\sdks\TerrainGenerationLib\build\lib\Release;$(ProjectDir)..\..\sdks\libsndfile-0.0.26\Win32\LibSndFile\lib\Release;$(ProjectDir)..\..\GammaE\build\lib\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\AppGlobals.h" />
+    <ClInclude Include="..\AppLoop.h" />
+    <ClInclude Include="..\Game\Collision\COrionCollision.h" />
+    <ClInclude Include="..\Game\Collision\CTRNUtils.h" />
+    <ClInclude Include="..\Game\Entities\CGameEntity.h" />
+    <ClInclude Include="..\Game\Entities\CGameEntityList.h" />
+    <ClInclude Include="..\Game\Entities\COrionEnt.h" />
+    <ClInclude Include="..\Game\Entities\CShip.h" />
+    <ClInclude Include="..\Game\Entities\CWorldEntityList.h" />
+    <ClInclude Include="..\Game\Entities\Enemies\CSh25.h" />
+    <ClInclude Include="..\Game\Entities\Enemies\CShPersecutor.h" />
+    <ClInclude Include="..\Game\Entities\Enemies\CShRoller.h" />
+    <ClInclude Include="..\Game\Entities\Enemies\CShSkipper.h" />
+    <ClInclude Include="..\Game\Entities\Enemies\CShipMgr.h" />
+    <ClInclude Include="..\Game\Entities\GameCamera\CGameCamera.h" />
+    <ClInclude Include="..\Game\Entities\GameHUD\CGameHUD.h" />
+    <ClInclude Include="..\Game\Entities\GameHUD\eGameHUDState.h" />
+    <ClInclude Include="..\Game\Entities\Misc\CResourceMgr.h" />
+    <ClInclude Include="..\Game\Entities\Player\CPlayer.h" />
+    <ClInclude Include="..\Game\Entities\PowerUp\CPowerUp.h" />
+    <ClInclude Include="..\Game\Entities\Projectile\CProjectile.h" />
+    <ClInclude Include="..\Game\Entities\World\CWSndPlayer.h" />
+    <ClInclude Include="..\Game\Entities\World\CWorldEnt.h" />
+    <ClInclude Include="..\Game\GameGlobals\GameGlobals.h" />
+    <ClInclude Include="..\Game\GameLoop.h" />
+    <ClInclude Include="..\Game\GameModes\CGMAEnemySpawner.h" />
+    <ClInclude Include="..\Game\GameModes\CGMArcade.h" />
+    <ClInclude Include="..\Game\GameModes\CGameMode.h" />
+    <ClInclude Include="..\Game\GameModes\CMapCFG.h" />
+    <ClInclude Include="..\Game\Scene\CFlareMgr.h" />
+    <ClInclude Include="..\Game\Scene\CGameScene.h" />
+    <ClInclude Include="..\Game\Scene\CHUDMgr.h" />
+    <ClInclude Include="..\Game\Scene\CPSysMgr.h" />
+    <ClInclude Include="..\Game\Scene\CParticleSystemMgr.h" />
+    <ClInclude Include="..\Game\Scene\HUDElems\CHUDIcon.h" />
+    <ClInclude Include="..\Game\Scene\HUDElems\CHUDLabel.h" />
+    <ClInclude Include="..\Game\Scene\LoadScr\CLoadScr.h" />
+    <ClInclude Include="..\Game\Scene\Models\COrionObjBookmark.h" />
+    <ClInclude Include="..\Game\Scene\Models\CShipBookmark.h" />
+    <ClInclude Include="..\Game\Scene\ProcTex.h" />
+    <ClInclude Include="..\Game\Scene\SFX\CTRNShadow.h" />
+    <ClInclude Include="..\Game\Scene\SFX\TRN\CTRNNeighs.h" />
+    <ClInclude Include="..\Input\CGame_KeyBinder.h" />
+    <ClInclude Include="..\Input\CommandBinder\CommandBinder.h" />
+    <ClInclude Include="..\Input\CommandDispatcher\ClientCmdDispatcher.h" />
+    <ClInclude Include="..\Input\CommandDispatcher\CmdDispatcher.h" />
+    <ClInclude Include="..\Input\CommandDispatcher\ServerCmdDispatcher.h" />
+    <ClInclude Include="..\Input\Commands\Orion_Commands.h" />
+    <ClInclude Include="..\Input\Commands\_GammaE_Commands.h" />
+    <ClInclude Include="..\Input\Events\GammaE_Event.h" />
+    <ClInclude Include="..\Input\WinEventTranslator.h" />
+    <ClInclude Include="..\Menu\CMenuTextGrid.h" />
+    <ClInclude Include="..\Menu\MenuGlobals\MenuGlobals.h" />
+    <ClInclude Include="..\Menu\MenuLoop.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\AppGlobals.cpp" />
+    <ClCompile Include="..\AppLoop.cpp" />
+    <ClCompile Include="..\Game\Collision\COrionCollision.cpp" />
+    <ClCompile Include="..\Game\Collision\CTRNUtils.cpp" />
+    <ClCompile Include="..\Game\Entities\CGameEntity.cpp" />
+    <ClCompile Include="..\Game\Entities\CGameEntityList.cpp" />
+    <ClCompile Include="..\Game\Entities\COrionEnt.cpp" />
+    <ClCompile Include="..\Game\Entities\CShip.cpp" />
+    <ClCompile Include="..\Game\Entities\CWorldEntityList.cpp" />
+    <ClCompile Include="..\Game\Entities\Enemies\CSh25.cpp" />
+    <ClCompile Include="..\Game\Entities\Enemies\CShPersecutor.cpp" />
+    <ClCompile Include="..\Game\Entities\Enemies\CShRoller.cpp" />
+    <ClCompile Include="..\Game\Entities\Enemies\CShSkipper.cpp" />
+    <ClCompile Include="..\Game\Entities\Enemies\CShipMgr.cpp" />
+    <ClCompile Include="..\Game\Entities\GameCamera\CGameCamera.cpp" />
+    <ClCompile Include="..\Game\Entities\GameHUD\CGameHUD.cpp" />
+    <ClCompile Include="..\Game\Entities\GameHUD\eGameHUDState.cpp" />
+    <ClCompile Include="..\Game\Entities\Misc\CResourceMgr.cpp" />
+    <ClCompile Include="..\Game\Entities\Player\CPlayer.cpp" />
+    <ClCompile Include="..\Game\Entities\PowerUp\CPowerUp.cpp" />
+    <ClCompile Include="..\Game\Entities\Projectile\CProjectile.cpp" />
+    <ClCompile Include="..\Game\Entities\World\CWSndPlayer.cpp" />
+    <ClCompile Include="..\Game\Entities\World\CWorldEnt.cpp" />
+    <ClCompile Include="..\Game\GameGlobals\GameGlobals.cpp" />
+    <ClCompile Include="..\Game\GameLoop.cpp" />
+    <ClCompile Include="..\Game\GameModes\CGMAEnemySpawner.cpp" />
+    <ClCompile Include="..\Game\GameModes\CGMArcade.cpp" />
+    <ClCompile Include="..\Game\GameModes\CGameMode.cpp" />
+    <ClCompile Include="..\Game\GameModes\CMapCFG.cpp" />
+    <ClCompile Include="..\Game\Scene\CFlareMgr.cpp" />
+    <ClCompile Include="..\Game\Scene\CGameScene.cpp" />
+    <ClCompile Include="..\Game\Scene\CHUDMgr.cpp" />
+    <ClCompile Include="..\Game\Scene\CPSysMgr.cpp" />
+    <ClCompile Include="..\Game\Scene\CParticleSystemMgr.cpp" />
+    <ClCompile Include="..\Game\Scene\HUDElems\CHUDIcon.cpp" />
+    <ClCompile Include="..\Game\Scene\HUDElems\CHUDLabel.cpp" />
+    <ClCompile Include="..\Game\Scene\LoadScr\CLoadScr.cpp" />
+    <ClCompile Include="..\Game\Scene\Models\COrionObjBookmark.cpp" />
+    <ClCompile Include="..\Game\Scene\SFX\CTRNShadow.cpp" />
+    <ClCompile Include="..\Game\Scene\SFX\TRN\CTRNNeighs.cpp" />
+    <ClCompile Include="..\Game\Scene\proctex.cpp" />
+    <ClCompile Include="..\Input\CGame_KeyBinder.cpp" />
+    <ClCompile Include="..\Input\CommandBinder\CommandBinder.cpp" />
+    <ClCompile Include="..\Input\CommandDispatcher\ClientCmdDispatcher.cpp" />
+    <ClCompile Include="..\Input\CommandDispatcher\CmdDispatcher.cpp" />
+    <ClCompile Include="..\Input\CommandDispatcher\ServerCmdDispatcher.cpp" />
+    <ClCompile Include="..\Input\WinEventTranslator.cpp" />
+    <ClCompile Include="..\Menu\CMenuTextGrid.cpp" />
+    <ClCompile Include="..\Menu\MenuLoop.cpp" />
+    <ClCompile Include="..\main.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
