@@ -15,6 +15,7 @@
 //## end module%3BD8A07F039B.additionalIncludes
 
 //## begin module%3BD8A07F039B.includes preserve=yes
+#include "MMath.h"
 //## end module%3BD8A07F039B.includes
 
 // GammaE_Math_Evaluators

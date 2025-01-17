@@ -15,6 +15,7 @@
 //## end module%3CE3D89303B7.additionalIncludes
 
 //## begin module%3CE3D89303B7.includes preserve=yes
+#include <assert.h>
 #include "Memory/GammaE_Mem.h"
 //## end module%3CE3D89303B7.includes
 
