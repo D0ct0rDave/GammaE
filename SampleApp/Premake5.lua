@@ -95,12 +95,20 @@ project "GammaE_Application"
     filter {} -- Clear filter for general settings
 
     -- List of directories to exclude from recursion
-    local excludeDirs = { 
+    local excludePremakesInDirs = { 
         "build",
-		"UML",
-		"Tools"
     }
 
+    -- Helper function to check if a directory should be excluded
+    local function isPremakeInDirExcluded(dir)
+        for _, exclude in ipairs(excludePremakesInDirs) do
+            if dir:find(exclude) then
+                return true
+            end
+        end
+        return false
+    end
+	
 	-- Define the mapping of platforms to project file extensions
 	local platformProjectExtensions = {
         windows = "vcxproj",
@@ -116,58 +124,114 @@ project "GammaE_Application"
         error("Unsupported platform: " .. currentPlatform)
     end
 
-    
+    ------------------------------------------------------------------------------
 	local function includeLibraries(rootDir)
-		local projectFileFound = false;
-        local entries = os.matchdirs(rootDir .. "/*") -- Find all subdirectories
+	    local entries = os.matchdirs(rootDir .. "/*") -- Find all subdirectories
         for _, entry in ipairs(entries) do
 			local projectFiles = os.matchfiles(entry .. "/*." .. projectExtension)				
 			for _, projectFile in ipairs(projectFiles) do
-				projectFileFound = true;
 				local projectName = projectFile:match("([^/\\]+)%..+$") -- Extract project name
 
 				print("Adding library: " .. projectFile)
 				links { projectName .. ".lib" }
 			end
 
-			if projectFileFound then break end
-
 			-- Recurse into subdirectories
 			includeLibraries(entry)
         end
     end
-	
-	
+	------------------------------------------------------------------------------
+	local function extractUuidFromVcxproj(vcxprojPath)
+		-- Open the .vcxproj file for reading
+		local file = io.open(vcxprojPath, "r")
+		if not file then
+			print("Failed to open " .. vcxprojPath)
+			return nil
+		end
+
+		-- Read the contents line by line
+		for line in file:lines() do
+			-- Match the ProjectGuid field and extract the UUID
+			local uuid = line:match("<ProjectGuid>{(.-)}</ProjectGuid>")
+			if uuid then
+				file:close()
+				return uuid
+			end
+		end
+
+		file:close()
+		print("No UUID found in " .. vcxprojPath)
+		return nil
+	end
+	------------------------------------------------------------------------------
 	-- Step 2: Include external projects based on generated project files
 	local libraries= {} -- Collect all library names
 	local function includeProjects(rootDir)
-		local projectFileFound = false;
         local entries = os.matchdirs(rootDir .. "/*") -- Find all subdirectories
         for _, entry in ipairs(entries) do
-			local projectFiles = os.matchfiles(entry .. "/*." .. projectExtension)				
+			local projectFiles = os.matchfiles(entry .. "/*." .. projectExtension)
 			for _, projectFile in ipairs(projectFiles) do
-				projectFileFound = true;
 				local projectName = projectFile:match("([^/\\]+)%..+$") -- Extract project name
+			
+				-- Extract the UUID from the .vcxproj file
+				local extractedUuid = extractUuidFromVcxproj(projectFile)
+				--[[
+				if not extractedUuid then
+					print("Warning: No UUID found for project " .. projectName)
+				else
+					print("UUID for " .. projectName .. ": " .. extractedUuid)
+				end
+				]]
 
 				print("Adding external project: " .. projectFile)
 				externalproject(projectName)
 					location(entry)
 					kind "StaticLib" -- Modify as needed
 					language "C++"
+				
+					--[[if extractedUuid then
+						uuid(extractedUuid) -- Add the extracted UUID
+					end
+					]]
+				
+				dependson { projectName }
 			end
-			
-			if projectFileFound then break end
-
 			-- Recurse into subdirectories
 			includeProjects(entry)
         end
     end
-	
-	
+	------------------------------------------------------------------------------
+	local function includeProjectsAndSetupReferences(rootDir)
+		local entries = os.matchdirs(rootDir .. "/*") -- Find all subdirectories
+		local projectNames = {} -- Store the names of included projects
+		print("matchdirs project: " .. rootDir)
+		for _, entry in ipairs(entries) do
+			if os.isfile(entry .. "/premake5.lua") and not isPremakeInDirExcluded(entry) then
 
+				local projectName = entry:match("([^/\\]+)$") -- Extract project name from directory
+				print("Including project: " .. projectName)
+				include(entry) -- Include the library's premake5.lua to preserve settings
+
+				-- Collect the project name for linking
+				table.insert(projectNames, projectName)
+			end
+
+			-- Recurse into subdirectories
+			includeProjectsAndSetupReferences(entry)
+		end
+
+		return projectNames
+	end
+	------------------------------------------------------------------------------
 	-- Add the external project to the solution
-	includeLibraries(frameworkRoot)	
-	includeProjects(frameworkRoot)
+	print("Framework dir " .. frameworkRoot)
+
+	--	local librariesToLink = includeProjectsAndSetupReferences(frameworkRoot)
+	--	print(table.concat(librariesToLink,", "))
+    --	links(librariesToLink) -- Automatically set up project references
+	
+    includeLibraries(frameworkRoot)	
+    includeProjects(frameworkRoot)
 
 	-- local lolo = "lole.lib; e333d.lib; adfffe.lib;"
 	-- links { lolo }
