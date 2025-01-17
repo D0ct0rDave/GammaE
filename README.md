@@ -12,7 +12,7 @@ I have tried to create a first commit with the work done during the first period
 While I have been working on recovering this code base, I have remembered, looking at the code, that the engine has changed over time, and some projects use one version of the engine and others another. Specifically, the engine was initially implemented using Rational Rose for the design and interaction of classes and systems and this makes the code full of commented code that the application interprets during code generation. In the last iterations this code was removed and the files became much cleaner.
 
 
-## Sample Aplication:
+## Sample Application:
 A sample application added.
 - First of all we'll need to compile all the libraries from the Engine. You can open GammaE.sln and perform a full rebuild.
 - After this open the sample solution file, and build it. 
