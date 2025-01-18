@@ -24,9 +24,9 @@ inline float fBlinkFunc(TBlinkFunc _eFunc,float _fVal)
 	}
 }
 
-inline int iGetIndex(void *_pKey,int _iChild)
+inline unsigned int uiGetIndex(void *_pKey, unsigned int _iChild)
 {
-	return ( ((int)_pKey + _iChild) % MAX_FLARE_COLS );
+	return (unsigned int) ( ((unsigned long long)_pKey + _iChild) % MAX_FLARE_COLS );
 }
 // -----------------------------------------------------------------------------
 CFlareMgr::CFlareMgr()
@@ -184,36 +184,36 @@ void CFlareMgr::Reset()
 // -----------------------------------------------------------------------------
 void CFlareMgr::AddFlare(int _iType,void *_pParent,int _iChildNum,CVect3 &_roWorldPos,CVect3 &_roWorldDir,float _fSize)
 {
-	int iIdx = iGetIndex(_pParent,_iChildNum);
+	unsigned int uiIdx = uiGetIndex(_pParent,_iChildNum);
 	int cI;	
 
 	for (cI=0;cI<FLARES_PER_COL;cI++)
 	{
-		if ((oFlare[iIdx][cI].pParent  == _pParent) &&
-			(oFlare[iIdx][cI].iChildNum== _iChildNum))
+		if ((oFlare[uiIdx][cI].pParent  == _pParent) &&
+			(oFlare[uiIdx][cI].iChildNum== _iChildNum))
 		{
 			// update fields
-			oFlare[iIdx][cI].oPos.Assign(_roWorldPos);
-			oFlare[iIdx][cI].oDir.Assign(_roWorldDir);
-			oFlare[iIdx][cI].iType		= _iType;
-			oFlare[iIdx][cI].fSize		= _fSize;
-			oFlare[iIdx][cI].iStamp     = 1;
+			oFlare[uiIdx][cI].oPos.Assign(_roWorldPos);
+			oFlare[uiIdx][cI].oDir.Assign(_roWorldDir);
+			oFlare[uiIdx][cI].iType		= _iType;
+			oFlare[uiIdx][cI].fSize		= _fSize;
+			oFlare[uiIdx][cI].iStamp     = 1;
 			return;
 		}
-   else if (oFlare[iIdx][cI].pParent == NULL)
+   else if (oFlare[uiIdx][cI].pParent == NULL)
 		{
 			// add new flare
-			oFlare[iIdx][cI].pParent	= _pParent;
-			oFlare[iIdx][cI].iChildNum	= _iChildNum;
-			oFlare[iIdx][cI].iType		= _iType;
-			oFlare[iIdx][cI].fTime		= 0.0f;
-			oFlare[iIdx][cI].fSize		= _fSize;
-			oFlare[iIdx][cI].fFactor	= 0.0f;
-			oFlare[iIdx][cI].eState		= TFS_Off;
-			oFlare[iIdx][cI].oPos.Assign(_roWorldPos);
-			oFlare[iIdx][cI].oDir.Assign(_roWorldDir);
+			oFlare[uiIdx][cI].pParent	= _pParent;
+			oFlare[uiIdx][cI].iChildNum	= _iChildNum;
+			oFlare[uiIdx][cI].iType		= _iType;
+			oFlare[uiIdx][cI].fTime		= 0.0f;
+			oFlare[uiIdx][cI].fSize		= _fSize;
+			oFlare[uiIdx][cI].fFactor	= 0.0f;
+			oFlare[uiIdx][cI].eState		= TFS_Off;
+			oFlare[uiIdx][cI].oPos.Assign(_roWorldPos);
+			oFlare[uiIdx][cI].oDir.Assign(_roWorldDir);
 
-			oFlare[iIdx][cI].iStamp     = 1;
+			oFlare[uiIdx][cI].iStamp     = 1;
 			return;
 		}
 	}

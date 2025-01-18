@@ -14,7 +14,7 @@
 #endif
 
 // ----------------------------------------------------------------------------
-typedef enum eAppState {APPSTATE_NONE,APPSTATE_MENU,APPSTATE_STARTGAME,APPSTATE_GAME,APPSTATE_ENDGAME};
+typedef enum eAppState {APPSTATE_NONE, APPSTATE_STARTMENU, APPSTATE_MENU, APPSTATE_ENDMENU, APPSTATE_STARTGAME,APPSTATE_GAME,APPSTATE_ENDGAME};
 
 // ----------------------------------------------------------------------------
 bool		bFinishApplication = false;
@@ -51,11 +51,8 @@ void AppLoop_OnCreate (void *uiWinHandler,unsigned int uiWndWidth,unsigned int u
 
 	strcpy(gszMapFileName,"base/gamemodes/arcade/missions/warehouse.cfg");
 	// strcpy(gszMapFileName,"base/gamemodes/arcade/missions/vhunt.cfg");
-	AppState = APPSTATE_MENU;
+	AppState = APPSTATE_STARTMENU;
 	// AppState = APPSTATE_STARTGAME;
-	
-	// Init menu
-	MenuLoop_Init();
 }
 
 // ----------------------------------------------------------------------------
@@ -69,43 +66,65 @@ void AppLoop_OnResize (unsigned int uiWndWidth,unsigned int uiWndHeight)
 // ----------------------------------------------------------------------------
 void AppLoop_OnDestroy(void *uiWinHandler)
 {	
-	GameLoop_Destroy();
-	MenuLoop_Destroy();
+	gpoE3DRenderer->Finish();
 }
 // ----------------------------------------------------------------------------
 void AppLoop_OnIdle()
 {
 	switch (AppState)
 	{
-		case APPSTATE_MENU:
-		if (MenuLoop_OnIdle())
+		case APPSTATE_STARTMENU:
 		{
-			if (eMenuState == MENUST_QUIT)
+			// Init menu
+			MenuLoop_Init();
+			AppState = APPSTATE_MENU;
+		}
+		break;
+
+		case APPSTATE_MENU:
+		{
+			if (MenuLoop_OnIdle())
 			{
-				bFinishApplication = true;
-				AppState = APPSTATE_NONE;
-			}
-		else{
-				AppState = APPSTATE_STARTGAME;				
+				if (eMenuState == MENUST_QUIT)
+				{
+					bFinishApplication = true;
+					AppState = APPSTATE_NONE;
+				}
+				else {
+					AppState = APPSTATE_ENDMENU;
+				}
 			}
 		}
 		break;
 
-		case APPSTATE_STARTGAME:			
+		case APPSTATE_ENDMENU:
+		{
+			MenuLoop_Destroy();
+			AppState = APPSTATE_STARTGAME;
+		}
+		break;
+
+		case APPSTATE_STARTGAME:
+		{
 			GameLoop_Init();
 			AppState = APPSTATE_GAME;
+		}
 		break;
 
 		case APPSTATE_GAME:
-		if (GameLoop_OnIdle())
 		{
-			AppState = APPSTATE_ENDGAME;
+			if (GameLoop_OnIdle())
+			{
+				AppState = APPSTATE_ENDGAME;
+			}
 		}
 		break;
 
 		case APPSTATE_ENDGAME:
-			// AppState = APPSTATE_MENU;
-			AppState = APPSTATE_MENU;			
+		{
+			GameLoop_Destroy();
+			AppState = APPSTATE_STARTMENU;
+		}
 		break;
 	}
 }
@@ -119,8 +138,8 @@ void AppLoop_Screenshot(unsigned int Enabled,unsigned int Par1,unsigned int Par2
 		gpoE3DRenderer->ReadBuffer(0,0,guiScrWidth,guiScrHeight,eE3D_RB_Front,(void *)Tex->data);
 		// gpoE3DRenderer->ReadBuffer(0,0,uiScrWidth,uiScrHeight,eE3D_RB_Z,(void *)Tex.data);
 
-		// FlipTexture(&Tex,TEX_FF_FLIPVERTICAL);
-		// SaveTGAFile("Screenshot.tga",&Tex);
+		FlipTextureVertical(Tex);
+		SaveTexture("Screenshot.png",Tex);
 
 		DestroyTexture(Tex);
 	}

@@ -1176,7 +1176,6 @@ void GameLoop_FinishLoad()
 void GameLoop_Destroy()
 {
 	GameLoop_DestroyScene();	
-	gpoE3DRenderer->Finish();	
 }
 // ----------------------------------------------------------------------------
 bool GameLoop_OnIdle()

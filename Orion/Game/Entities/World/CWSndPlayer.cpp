@@ -72,11 +72,14 @@ void CWSndPlayer::Think (float _fDelta)
 
 			if (fProb <= oWSnds[cI].fProb)
 			{
-				goSndRenderer.poAddOmniEmiter(oWSnds[cI].poSnd,oWSnds[cI].fVol);
+				if (oWSnds[cI].poSnd != NULL)
+				{
+					goSndRenderer.poAddOmniEmiter(oWSnds[cI].poSnd,oWSnds[cI].fVol);
 				
-				// Initilialize
-				oWSnds[cI].fTime = oWSnds[cI].fITime;
-				oWSnds[cI].poSnd->poSLayer[0].bLoop = true;
+					// Initilialize
+					oWSnds[cI].fTime = oWSnds[cI].fITime;
+					oWSnds[cI].poSnd->poSLayer[0].bLoop = true;
+				}
 			}
 		}
 	}
