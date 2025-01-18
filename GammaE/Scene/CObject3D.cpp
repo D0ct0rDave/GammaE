@@ -72,7 +72,15 @@ bool CObject3D::bVisible ()
   	if (gpoE3DRenderer->UsingFrustumCulling())
 	{
 		if (! bFrustumTest) return(true);
-		return ( poGetBoundVol()->TestFrustum( gpoE3DRenderer->GetLocalFrustum() ) );
+		CGraphBV* poBV = poGetBoundVol();
+		if (poBV != NULL)
+		{
+			return ( poGetBoundVol()->TestFrustum( gpoE3DRenderer->GetLocalFrustum() ) );
+		}
+		else
+		{
+			return(true);
+		}
 	}
 	else
 		return(true);

@@ -76,7 +76,13 @@ void CE3D_ShaderWH::Invalidate ()
     for (cMatEntry=0;cMatEntry<iMaxShaders;cMatEntry++)
     {
         strcpy(oShaders[cMatEntry].szName,"NULL");
-		mDel (oShaders[cMatEntry].poShader);
+
+        if (oShaders[cMatEntry].poShader != NULL)
+        {
+            mDel(oShaders[cMatEntry].poShader);
+            oShaders[cMatEntry].poShader = NULL;
+        }
+
 		oShaders[cMatEntry].bValid = false;
     }	
   //## end CE3D_ShaderWH::Invalidate%1013633069.body

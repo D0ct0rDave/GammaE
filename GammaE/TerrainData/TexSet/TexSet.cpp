@@ -316,26 +316,23 @@ int TTexSet::LoadWithHandler(FILE *fd)
             fread(&ulRIFF_ObjectID   ,4,1,fd);
             fread(&ulRIFF_BlockLength,4,1,fd);
 
-            assert(false, "Trying to load mipmap data!");
-
-            /*
             if (ulRIFF_ObjectID == MIPMAP_OBJ_IDENTIFIER)
             {
                 // Read mipmap
-                .
-                if (! LoadMipMapWithHandler(&MipMap,fd))
+                MipMap* mipmap = poLoadMipMap(fd);
+
+                if (mipmap == NULL)
                 {
-                    ERROR_SetError("TEXSET-LD12",LoadMipMapErrorDescription());
+                    ERROR_SetError("TEXSET-LD12","Error loading mipmap");
                     return(RES_OP_ERROR);
                 }
                 else
                 {
                     // Set the current mipmap
-                    SetMipMap(usTexNum,&MipMap);
+                    SetMipMap(usTexNum, mipmap);
                 }
             }
             else
-            */
             {
                 // Skip block
                 fseek(fd,ulRIFF_BlockLength,SEEK_CUR);

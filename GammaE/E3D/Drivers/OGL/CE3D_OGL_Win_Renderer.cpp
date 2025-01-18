@@ -1387,6 +1387,8 @@ bool CE3D_OGL_Win_Renderer::UsingFlatRendering ()
 void CE3D_OGL_Win_Renderer::ReadBuffer (int _iX, int _iY, int _iTX, int _iTY, eE3D_RenderBuffer_Type _eBufferType, void* _pData)
 {
   //## begin CE3D_OGL_Win_Renderer::ReadBuffer%1018547529.body preserve=yes
+	return;
+	
 	switch (_eBufferType)
 	{
 		case eE3D_RB_Front:	

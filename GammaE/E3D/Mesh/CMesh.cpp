@@ -42,6 +42,7 @@ CMesh::CMesh()
   //## end CMesh::CMesh%.initialization
 {
   //## begin CMesh::CMesh%.body preserve=yes
+	BVol = NULL;
   //## end CMesh::CMesh%.body
 }
 
