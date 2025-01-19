@@ -1,4 +1,4 @@
-# GammaE
+# GammaE (~2000-2009)
 GammaE 3D Engine
 
 The GammaE project started as a way of putting into practice the knowledge I had acquired over time when I started working in the video game industry back in 2000.
