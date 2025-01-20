@@ -1,6 +1,0 @@
-USEUNIT(".\CNETClient.cpp");
-USEUNIT(".\CNETServer.cpp");
-USEUNIT(".\CNETSystem.cpp");
-USEFILE("vctobpr.log");
-
-#define Library
