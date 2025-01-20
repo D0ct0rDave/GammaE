@@ -1,6 +1,11 @@
+
+if BUILD_LOCATION == "" then
+	BUILD_LOCATION = "build"
+end
+
 -- Premake5.lua
 	configurations { "Debug", "Release" }
-    location "build" -- Where generated files (like Visual Studio solutions) will be stored
+    location(BUILD_LOCATION) -- Where generated files (like Visual Studio solutions) will be stored
     architecture "x86_64"
 
 project(project_name)

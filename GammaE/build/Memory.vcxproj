@@ -11,10 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{9116897C-7D4D-8A0D-263A-70101250060F}</ProjectGuid>
+    <ProjectGuid>{BE94DDC2-AA36-0899-93F1-1BED7F328FE9}</ProjectGuid>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Misc</RootNamespace>
+    <RootNamespace>Memory</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -42,13 +42,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(ProjectDir)\lib\Debug\</OutDir>
     <IntDir>$(ProjectDir)\obj\Debug\</IntDir>
-    <TargetName>Misc</TargetName>
+    <TargetName>Memory</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(ProjectDir)\lib\Release\</OutDir>
     <IntDir>$(ProjectDir)\obj\Release\</IntDir>
-    <TargetName>Misc</TargetName>
+    <TargetName>Memory</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -56,7 +56,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_NULL=0;_MBCS;WIN32;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Misc;$(ProjectDir)..\..;;$(ProjectDir)..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\modules\Memory;$(ProjectDir)..\..;;$(ProjectDir)..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -72,7 +72,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_NULL=0;_MBCS;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Misc;$(ProjectDir)..\..;;$(ProjectDir)..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\modules\Memory;$(ProjectDir)..\..;;$(ProjectDir)..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -88,57 +88,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\Misc\src\GMisc.h" />
-    <ClInclude Include="..\Misc\src\Logging\CGErrorLC.h" />
-    <ClInclude Include="..\Misc\src\Logging\CGLogChannel.h" />
-    <ClInclude Include="..\Misc\src\Logging\CGLogger.h" />
-    <ClInclude Include="..\Misc\src\Logging\CGStandardLC.h" />
-    <ClInclude Include="..\Misc\src\Logging\CGSystemLC.h" />
-    <ClInclude Include="..\Misc\src\Logging\CGWarningLC.h" />
-    <ClInclude Include="..\Misc\src\MiscConst.h" />
-    <ClInclude Include="..\Misc\src\MiscTypes.h" />
-    <ClInclude Include="..\Misc\src\Resource\CGDiskResourceWH.h" />
-    <ClInclude Include="..\Misc\src\Resource\CGReferenceCounter.h" />
-    <ClInclude Include="..\Misc\src\Resource\CGResource.h" />
-    <ClInclude Include="..\Misc\src\Resource\CGResourceWH.h" />
-    <ClInclude Include="..\Misc\src\TAD\CGCircularArray.h" />
-    <ClInclude Include="..\Misc\src\TAD\CGDynArray.h" />
-    <ClInclude Include="..\Misc\src\TAD\CGHashTable.h" />
-    <ClInclude Include="..\Misc\src\TAD\CGLookupArray.h" />
-    <ClInclude Include="..\Misc\src\TAD\CGSingleton.h" />
-    <ClInclude Include="..\Misc\src\TAD\CGStArray.h" />
-    <ClInclude Include="..\Misc\src\Timing\CGChrono.h" />
-    <ClInclude Include="..\Misc\src\Types\CGString.h" />
-    <ClInclude Include="..\Misc\src\Types\CGTextResource.h" />
-    <ClInclude Include="..\Misc\src\Utils\CGConfigFile.h" />
-    <ClInclude Include="..\Misc\src\Utils\CRC.h" />
-    <ClInclude Include="..\Misc\src\Utils\MiscUtils.h" />
-    <ClInclude Include="..\Misc\src\Utils\ParseUtils.h" />
+    <ClInclude Include="..\modules\Memory\src\GMem.h" />
+    <ClInclude Include="..\modules\Memory\src\MMgr.h" />
+    <ClInclude Include="..\modules\Memory\src\MemMgr.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Misc\src\Logging\CGErrorLC.cpp" />
-    <ClCompile Include="..\Misc\src\Logging\CGLogChannel.cpp" />
-    <ClCompile Include="..\Misc\src\Logging\CGLogger.cpp" />
-    <ClCompile Include="..\Misc\src\Logging\CGStandardLC.cpp" />
-    <ClCompile Include="..\Misc\src\Logging\CGSystemLC.cpp" />
-    <ClCompile Include="..\Misc\src\Logging\CGWarningLC.cpp" />
-    <ClCompile Include="..\Misc\src\Resource\CGDiskResourceWH.cpp" />
-    <ClCompile Include="..\Misc\src\Resource\CGReferenceCounter.cpp" />
-    <ClCompile Include="..\Misc\src\Resource\CGResource.cpp" />
-    <ClCompile Include="..\Misc\src\Resource\CGResourceWH.cpp" />
-    <ClCompile Include="..\Misc\src\TAD\CGCircularArray.cpp" />
-    <ClCompile Include="..\Misc\src\TAD\CGDynArray.cpp" />
-    <ClCompile Include="..\Misc\src\TAD\CGHashTable.cpp" />
-    <ClCompile Include="..\Misc\src\TAD\CGLookupArray.cpp" />
-    <ClCompile Include="..\Misc\src\TAD\CGSingleton.cpp" />
-    <ClCompile Include="..\Misc\src\TAD\CGStArray.cpp" />
-    <ClCompile Include="..\Misc\src\Timing\CGChrono.cpp" />
-    <ClCompile Include="..\Misc\src\Types\CGString.cpp" />
-    <ClCompile Include="..\Misc\src\Types\CGTextResource.cpp" />
-    <ClCompile Include="..\Misc\src\Utils\CGConfigFile.cpp" />
-    <ClCompile Include="..\Misc\src\Utils\CRC.cpp" />
-    <ClCompile Include="..\Misc\src\Utils\MiscUtils.cpp" />
-    <ClCompile Include="..\Misc\src\Utils\ParseUtils.cpp" />
+    <ClCompile Include="..\modules\Memory\src\MMgr.cpp" />
+    <ClCompile Include="..\modules\Memory\src\MemMgr.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B11A655C-1D85-19D3-66C3-CA78D26CF727}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Collision</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(ProjectDir)\lib\Debug\</OutDir>
+    <IntDir>$(ProjectDir)\obj\Debug\</IntDir>
+    <TargetName>Collision</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(ProjectDir)\lib\Release\</OutDir>
+    <IntDir>$(ProjectDir)\obj\Release\</IntDir>
+    <TargetName>Collision</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_NULL=0;_MBCS;WIN32;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\modules\AI;..\modules\Collision;..\modules\Game;..\modules\Input;..\modules\Network;..\modules\SceneUtils;..\modules\Sfx;$(ProjectDir)..\..;;$(ProjectDir)..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_NULL=0;_MBCS;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\modules\AI;..\modules\Collision;..\modules\Game;..\modules\Input;..\modules\Network;..\modules\SceneUtils;..\modules\Sfx;$(ProjectDir)..\..;;$(ProjectDir)..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\modules\AI\src\CAI_AStar.h" />
+    <ClInclude Include="..\modules\AI\src\CAI_Cdxastar.h" />
+    <ClInclude Include="..\modules\AI\src\CAI_Map.h" />
+    <ClInclude Include="..\modules\AI\src\CAI_MathFuncs.h" />
+    <ClInclude Include="..\modules\AI\src\GAI.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Box.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_ColTester.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Point.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Sphere.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Tri.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Mesh.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Mesh_ColTester.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Scn_ColTester.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_CommonMesh.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_TerrainMesh.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MeshTester.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_Box.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_ColTester.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_Point.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_Sphere.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_Tris.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_TriList\CCOL_Scn_TriListGen.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_TriList\CCOL_TRN_TriListGen.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_TriList\CCOL_TriList.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_TriList\CCOL_TriListGen.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_TriList\CCOL_Triangle.h" />
+    <ClInclude Include="..\modules\Collision\src\Collider\CCOL_CollidedMeshes.h" />
+    <ClInclude Include="..\modules\Collision\src\Collider\CCOL_Collider.h" />
+    <ClInclude Include="..\modules\Collision\src\Collider\CCOL_Stack.h" />
+    <ClInclude Include="..\modules\Collision\src\Collider\CCOL_StackCollisionElem.h" />
+    <ClInclude Include="..\modules\Collision\src\Collider\eCOL_ColliderType.h" />
+    <ClInclude Include="..\modules\Collision\src\Collider\eCOL_TestType.h" />
+    <ClInclude Include="..\modules\Collision\src\CollisionSystem\CCOL_CSysEntry.h" />
+    <ClInclude Include="..\modules\Collision\src\CollisionSystem\CCOL_ColState.h" />
+    <ClInclude Include="..\modules\Collision\src\CollisionSystem\CCOL_CollisionSystem.h" />
+    <ClInclude Include="..\modules\Collision\src\CollisionUtils\CCOL_TriList_BVRayTest.h" />
+    <ClInclude Include="..\modules\Collision\src\GCollision.h" />
+    <ClInclude Include="..\modules\Game\src\Entities\CGGEntityRenderMgr.h" />
+    <ClInclude Include="..\modules\Game\src\Entities\CGGEntityStateRegistry.h" />
+    <ClInclude Include="..\modules\Game\src\Entities\CGGameEntity.h" />
+    <ClInclude Include="..\modules\Game\src\Entities\CGGameEntityMgr.h" />
+    <ClInclude Include="..\modules\Game\src\Entities\CGLiveGameEntity.h" />
+    <ClInclude Include="..\modules\Game\src\Entities\CommandInterpreter\CGGCICommand.h" />
+    <ClInclude Include="..\modules\Game\src\Entities\CommandInterpreter\CGGCIState.h" />
+    <ClInclude Include="..\modules\Game\src\Entities\CommandInterpreter\CGGCIStdCommands.h" />
+    <ClInclude Include="..\modules\Game\src\Entities\CommandInterpreter\CGGameApplication.h" />
+    <ClInclude Include="..\modules\Game\src\Entities\CommandInterpreter\CGGameCommandInterpreter.h" />
+    <ClInclude Include="..\modules\Game\src\Entities\CommandInterpreter\CGGameConsoleApp.h" />
+    <ClInclude Include="..\modules\Game\src\Entities\CommandInterpreter\ExtendedCI\CGGCIExtendedCommands.h" />
+    <ClInclude Include="..\modules\Game\src\Entities\CommandInterpreter\ExtendedCI\CGGameExtendedCI.h" />
+    <ClInclude Include="..\modules\Game\src\Entities\EntitySpawner\CGGameEntitySpawner.h" />
+    <ClInclude Include="..\modules\Game\src\GGame.h" />
+    <ClInclude Include="..\modules\Game\src\Game\CGGameBase.h" />
+    <ClInclude Include="..\modules\Game\src\Game\CGGameMode.h" />
+    <ClInclude Include="..\modules\Game\src\GameRegistry\CGGameRegistry.h" />
+    <ClInclude Include="..\modules\Game\src\GameRegistry\CGVariableRegistry.h" />
+    <ClInclude Include="..\modules\Game\src\GameRes\Graphic\CGGraphicInstance.h" />
+    <ClInclude Include="..\modules\Game\src\GameRes\Graphic\CGGraphicResource.h" />
+    <ClInclude Include="..\modules\Game\src\GameRes\Graphic\CGGraphicResourceWH.h" />
+    <ClInclude Include="..\modules\Game\src\GameRes\Input\CGInputHandler.h" />
+    <ClInclude Include="..\modules\Game\src\GameRes\Path\CGCurvePath.h" />
+    <ClInclude Include="..\modules\Game\src\GameRes\Path\CGPath.h" />
+    <ClInclude Include="..\modules\Game\src\GameRes\Path\CGPathDefinitionFileWH.h" />
+    <ClInclude Include="..\modules\Game\src\GameRes\Path\CGPathResource.h" />
+    <ClInclude Include="..\modules\Game\src\GameRes\Path\CGPathResourceWH.h" />
+    <ClInclude Include="..\modules\Game\src\GameRes\Path\CGSpiralPath.h" />
+    <ClInclude Include="..\modules\Game\src\GameRes\Script\CGScriptInstance.h" />
+    <ClInclude Include="..\modules\Game\src\GameRes\Script\CGScriptResource.h" />
+    <ClInclude Include="..\modules\Game\src\GameRes\Script\CGScriptResourceWH.h" />
+    <ClInclude Include="..\modules\Game\src\GameRes\Script\CGScriptingSystem.h" />
+    <ClInclude Include="..\modules\Game\src\MessageMgr\CGGameMessageMgr.h" />
+    <ClInclude Include="..\modules\Input\src\Command\CGCommandBinder.h" />
+    <ClInclude Include="..\modules\Input\src\Command\CGCommandBindingLoader.h" />
+    <ClInclude Include="..\modules\Input\src\Command\CGCommandRegistry.h" />
+    <ClInclude Include="..\modules\Input\src\Command\CGInputRegistry.h" />
+    <ClInclude Include="..\modules\Input\src\GInput.h" />
+    <ClInclude Include="..\modules\Network\src\CNETClient.h" />
+    <ClInclude Include="..\modules\Network\src\CNETServer.h" />
+    <ClInclude Include="..\modules\Network\src\CNETSystem.h" />
+    <ClInclude Include="..\modules\Network\src\CNETTimeStampList.h" />
+    <ClInclude Include="..\modules\Network\src\GNetwork.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\AnimScnLoader\SCNUt_AnimSceneLoader.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\BSPBuilder\SCNUt_BSPBuilder.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\GSceneUtils.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\Mesh2TriScn\SCNUt_Mesh2TriScene.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\OctreeBuilder\SCNUt_OctreeBuilder.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\SCNUt_ExtendedTri.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\SCNUt_MaterialTable.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\SCNUt_TriScene.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\SCNUt_TriSceneAccumulator.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\SCNUt_Triangle.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\SCNUt_ePolyState.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\SceneBuilder\SCNUt_SceneBuilder.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\SceneCompiler\SCNUt_SceneCompiler.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\Scn2TriScnBuilder\SCNUt_Scn2TriScnBuilder.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnBBoxGen\SCNUt_ComputeBoundingBox.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnCoplanarRemover\SCNUt_CoplanarRemover.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnMeshGen\SCNUt_MeshGenerator.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnMeshGen\scnut_meshcompacter.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnNormalGen\SCNUt_AnimMesh_NormalComputer.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnPlanarMapper\SCNUt_PlanarMapper.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnShaderAssigner\SCNUt_ShaderAssigner.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_AdjTri.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_AdjTriList.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_AdjTriListBuilder.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_Edge.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_EdgeBuilder.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_EdgeList.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_Stripifier.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnUtils\SCNUt_TriUtils.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnVisibilityTester\SCNUt_VisibilityTester.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\SeparateTriScene\SCNUt_TriSceneSeparator.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\SplitTriScene\SCNUt_TriSceneClassifier.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\SplitTriScene\SCNUt_TriSceneSplitter.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\TTriangle.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\TransfTriScn\SCNUt_TransformTriScene.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\TriScnLoader\SCNUt_TriSceneLoader.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\TriScnSaver\SCNUt_TriSceneSaver.h" />
+    <ClInclude Include="..\modules\Sfx\src\BillBoard\CGBillboard.h" />
+    <ClInclude Include="..\modules\Sfx\src\BillBoard\CGBillboardRenderer.h" />
+    <ClInclude Include="..\modules\Sfx\src\BillBoard\CGBillboard_AxisAlign.h" />
+    <ClInclude Include="..\modules\Sfx\src\BillBoard\CGBillboard_ScrAlign.h" />
+    <ClInclude Include="..\modules\Sfx\src\BillBoard\CGBillboard_WorldAlign.h" />
+    <ClInclude Include="..\modules\Sfx\src\Coronas\CGCorona.h" />
+    <ClInclude Include="..\modules\Sfx\src\Coronas\CGCoronaGenDefFileWH.h" />
+    <ClInclude Include="..\modules\Sfx\src\Coronas\CGCoronaGenStd.h" />
+    <ClInclude Include="..\modules\Sfx\src\Coronas\CGCoronaGenWH.h" />
+    <ClInclude Include="..\modules\Sfx\src\Coronas\CGCoronaGenerator.h" />
+    <ClInclude Include="..\modules\Sfx\src\Coronas\CGCoronaInstance.h" />
+    <ClInclude Include="..\modules\Sfx\src\Coronas\CGCoronaManager.h" />
+    <ClInclude Include="..\modules\Sfx\src\GSfx.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGPSGDefFileWH.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGPSGGeneric.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGPSGGenericQuad.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGPSGGenericQuadCinematic.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGPSGGenericQuadOrbit.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGPSIManager.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGPSysGenWH.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGParticle.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystemGenerator.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystemInstance.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Coolant.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Generic.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Generic_Quad.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Generic_Stretch.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Sparks.h" />
+    <ClInclude Include="..\modules\Sfx\src\SfxObject\CGSFXObjectManager.h" />
+    <ClInclude Include="..\modules\Sfx\src\trail\CGTrail.h" />
+    <ClInclude Include="..\modules\Sfx\src\trail\CGTrailGenDefFileWH.h" />
+    <ClInclude Include="..\modules\Sfx\src\trail\CGTrailGenStd.h" />
+    <ClInclude Include="..\modules\Sfx\src\trail\CGTrailGenWH.h" />
+    <ClInclude Include="..\modules\Sfx\src\trail\CGTrailGenerator.h" />
+    <ClInclude Include="..\modules\Sfx\src\trail\CGTrailInstance.h" />
+    <ClInclude Include="..\modules\Sfx\src\trail\CGTrailManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\modules\AI\src\CAI_AStar.cpp" />
+    <ClCompile Include="..\modules\AI\src\CAI_Cdxastar.cpp" />
+    <ClCompile Include="..\modules\AI\src\CAI_Map.cpp" />
+    <ClCompile Include="..\modules\AI\src\CAI_MathFuncs.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Box.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_ColTester.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Point.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Sphere.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Tri.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Mesh.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Mesh_ColTester.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Scn_ColTester.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_CommonMesh.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_TerrainMesh.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MeshTester.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_Box.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_ColTester.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_Point.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_Sphere.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_Tris.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_TriList\CCOL_Scn_TriListGen.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_TriList\CCOL_TRN_TriListGen.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_TriList\CCOL_TriList.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_TriList\CCOL_TriListGen.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_TriList\CCOL_Triangle.cpp" />
+    <ClCompile Include="..\modules\Collision\src\Collider\CCOL_CollidedMeshes.cpp" />
+    <ClCompile Include="..\modules\Collision\src\Collider\CCOL_Collider.cpp" />
+    <ClCompile Include="..\modules\Collision\src\Collider\CCOL_Stack.cpp" />
+    <ClCompile Include="..\modules\Collision\src\Collider\CCOL_StackCollisionElem.cpp" />
+    <ClCompile Include="..\modules\Collision\src\Collider\eCOL_ColliderType.cpp" />
+    <ClCompile Include="..\modules\Collision\src\Collider\eCOL_TestType.cpp" />
+    <ClCompile Include="..\modules\Collision\src\CollisionSystem\CCOL_CSysEntry.cpp" />
+    <ClCompile Include="..\modules\Collision\src\CollisionSystem\CCOL_ColState.cpp" />
+    <ClCompile Include="..\modules\Collision\src\CollisionSystem\CCOL_CollisionSystem.cpp" />
+    <ClCompile Include="..\modules\Collision\src\CollisionUtils\CCOL_TriList_BVRayTest.cpp" />
+    <ClCompile Include="..\modules\Game\src\Entities\CGGEntityRenderMgr.cpp" />
+    <ClCompile Include="..\modules\Game\src\Entities\CGGEntityStateRegistry.cpp" />
+    <ClCompile Include="..\modules\Game\src\Entities\CGGameEntity.cpp" />
+    <ClCompile Include="..\modules\Game\src\Entities\CGGameEntityMgr.cpp" />
+    <ClCompile Include="..\modules\Game\src\Entities\CGLiveGameEntity.cpp" />
+    <ClCompile Include="..\modules\Game\src\Entities\CommandInterpreter\CGGCICommand.cpp" />
+    <ClCompile Include="..\modules\Game\src\Entities\CommandInterpreter\CGGCIStdCommands.cpp" />
+    <ClCompile Include="..\modules\Game\src\Entities\CommandInterpreter\CGGameApplication.cpp" />
+    <ClCompile Include="..\modules\Game\src\Entities\CommandInterpreter\CGGameCommandInterpreter.cpp" />
+    <ClCompile Include="..\modules\Game\src\Entities\CommandInterpreter\CGGameConsoleApp.cpp" />
+    <ClCompile Include="..\modules\Game\src\Entities\CommandInterpreter\ExtendedCI\CGGCIExtendedCommands.cpp" />
+    <ClCompile Include="..\modules\Game\src\Entities\CommandInterpreter\ExtendedCI\CGGameExtendedCI.cpp" />
+    <ClCompile Include="..\modules\Game\src\Entities\EntitySpawner\CGGameEntitySpawner.cpp" />
+    <ClCompile Include="..\modules\Game\src\Game\CGGameBase.cpp" />
+    <ClCompile Include="..\modules\Game\src\Game\CGGameMode.cpp" />
+    <ClCompile Include="..\modules\Game\src\GameRegistry\CGVariableRegistry.cpp" />
+    <ClCompile Include="..\modules\Game\src\GameRes\Graphic\CGGraphicInstance.cpp" />
+    <ClCompile Include="..\modules\Game\src\GameRes\Graphic\CGGraphicResource.cpp" />
+    <ClCompile Include="..\modules\Game\src\GameRes\Graphic\CGGraphicResourceWH.cpp" />
+    <ClCompile Include="..\modules\Game\src\GameRes\Input\CGInputHandler.cpp" />
+    <ClCompile Include="..\modules\Game\src\GameRes\Path\CGCurvePath.cpp" />
+    <ClCompile Include="..\modules\Game\src\GameRes\Path\CGPath.cpp" />
+    <ClCompile Include="..\modules\Game\src\GameRes\Path\CGPathDefinitionFileWH.cpp" />
+    <ClCompile Include="..\modules\Game\src\GameRes\Path\CGPathResource.cpp" />
+    <ClCompile Include="..\modules\Game\src\GameRes\Path\CGPathResourceWH.cpp" />
+    <ClCompile Include="..\modules\Game\src\GameRes\Path\CGSpiralPath.cpp" />
+    <ClCompile Include="..\modules\Game\src\GameRes\Script\CGScriptBinding.cpp" />
+    <ClCompile Include="..\modules\Game\src\GameRes\Script\CGScriptInstance.cpp" />
+    <ClCompile Include="..\modules\Game\src\GameRes\Script\CGScriptResource.cpp" />
+    <ClCompile Include="..\modules\Game\src\GameRes\Script\CGScriptResourceWH.cpp" />
+    <ClCompile Include="..\modules\Game\src\GameRes\Script\CGScriptingSystem.cpp" />
+    <ClCompile Include="..\modules\Game\src\MessageMgr\CGGameMessageMgr.cpp" />
+    <ClCompile Include="..\modules\Input\src\Command\CGCommandBinder.cpp" />
+    <ClCompile Include="..\modules\Input\src\Command\CGCommandBindingLoader.cpp" />
+    <ClCompile Include="..\modules\Input\src\Command\CGCommandRegistry.cpp" />
+    <ClCompile Include="..\modules\Input\src\Command\CGInputRegistry.cpp" />
+    <ClCompile Include="..\modules\Network\src\CNETClient.cpp" />
+    <ClCompile Include="..\modules\Network\src\CNETServer.cpp" />
+    <ClCompile Include="..\modules\Network\src\CNETSystem.cpp" />
+    <ClCompile Include="..\modules\Network\src\CNETTimeStampList.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\AnimScnLoader\SCNUt_AnimSceneLoader.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\BSPBuilder\SCNUt_BSPBuilder.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\Mesh2TriScn\SCNUt_Mesh2TriScene.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\OctreeBuilder\SCNUt_OctreeBuilder.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\SCNUt_ExtendedTri.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\SCNUt_MaterialTable.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\SCNUt_TriScene.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\SCNUt_TriSceneAccumulator.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\SCNUt_Triangle.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\SCNUt_ePolyState.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\SceneBuilder\SCNUt_SceneBuilder.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\SceneCompiler\SCNUt_SceneCompiler.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\Scn2TriScnBuilder\SCNUt_Scn2TriScnBuilder.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnBBoxGen\SCNUt_ComputeBoundingBox.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnCoplanarRemover\SCNUt_CoplanarRemover.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnMeshGen\SCNUt_MeshCompacter.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnMeshGen\SCNUt_MeshGenerator.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnNormalGen\SCNUt_AnimMesh_NormalComputer.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnPlanarMapper\SCNUt_PlanarMapper.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnShaderAssigner\SCNUt_ShaderAssigner.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_AdjTri.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_AdjTriList.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_AdjTriListBuilder.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_Edge.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_EdgeBuilder.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_EdgeList.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_Stripifier.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnUtils\SCNUt_TriUtils.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnVisibilityTester\SCNUt_VisibilityTester.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\SeparateTriScene\SCNUt_TriSceneSeparator.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\SplitTriScene\SCNUt_TriSceneClassifier.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\SplitTriScene\SCNUt_TriSceneSplitter.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\TransfTriScn\SCNUt_TransformTriScene.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\TriScnLoader\SCNUt_TriSceneLoader.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\TriScnSaver\SCNUt_TriSceneSaver.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\BillBoard\CGBillboard.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\BillBoard\CGBillboardRenderer.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\BillBoard\CGBillboard_AxisAlign.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\BillBoard\CGBillboard_ScrAlign.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\BillBoard\CGBillboard_WorldAlign.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\Coronas\CGCoronaGenDefFileWH.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\Coronas\CGCoronaGenStd.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\Coronas\CGCoronaGenWH.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\Coronas\CGCoronaGenerator.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\Coronas\CGCoronaInstance.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\Coronas\CGCoronaManager.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGPSGDefFileWH.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGPSGGeneric.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGPSGGenericQuad.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGPSGGenericQuadCinematic.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGPSGGenericQuadOrbit.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGPSIManager.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGPSysGenWH.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystemGenerator.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystemInstance.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Coolant.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Generic.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Generic_Stretch.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Sparks.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\SfxObject\CGSFXObjectManager.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\trail\CGTrailGenDefFileWH.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\trail\CGTrailGenStd.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\trail\CGTrailGenWH.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\trail\CGTrailGenerator.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\trail\CGTrailInstance.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\trail\CGTrailManager.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
