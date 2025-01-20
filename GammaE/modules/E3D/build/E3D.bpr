@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="\projects\GammaE\Borland\E3D.lib"/>
+    <OBJFILES value="..\Borland\CE3D_ShaderRenderer_OGL.obj ..\Borland\CE3D_OGL_Renderer.obj 
+      ..\Borland\CE3D_OGL_Win_Renderer.obj ..\Borland\CE3D_Light.obj 
+      ..\Borland\ColorObj.obj ..\Borland\MipMapObj.obj ..\Borland\MipMapWH.obj 
+      ..\Borland\TexObj.obj ..\Borland\TexObjWH.obj 
+      ..\Borland\MESHUt_BuildNIMesh.obj ..\Borland\NormalGen.obj 
+      ..\Borland\TexCoordGen.obj ..\Borland\TransformMesh.obj 
+      ..\Borland\CMesh.obj ..\Borland\CMesh_Box.obj ..\Borland\CMesh_Cross.obj 
+      ..\Borland\CMesh_Rect.obj ..\Borland\CMesh_Sphere.obj 
+      ..\Borland\CE3D_Camera.obj ..\Borland\CE3D_Viewport.obj 
+      ..\Borland\CE3D_Frustum.obj ..\Borland\CE3D_Projector.obj 
+      ..\Borland\eE3D_ProjectorType.obj ..\Borland\CGraphBV_FileIO.obj 
+      ..\Borland\CGraphBV.obj ..\Borland\CGraphBV_Box.obj 
+      ..\Borland\CGraphBV_Cylinder.obj ..\Borland\CGraphBV_Manager.obj 
+      ..\Borland\CGraphBV_Point.obj ..\Borland\CGraphBV_Sphere.obj 
+      ..\Borland\CBoundingBox.obj ..\Borland\CBoundingCylinder.obj 
+      ..\Borland\CBoundingSphere.obj ..\Borland\CBoundingVolume.obj 
+      ..\Borland\CCompiledMesh.obj ..\Borland\CDefferredMeshDB.obj 
+      ..\Borland\eE3D_MeshType.obj ..\Borland\TDefferredMeshEntry.obj 
+      ..\Borland\CE3D_ShaderInstruction.obj ..\Borland\CE3D_ShIns_BlendOp.obj 
+      ..\Borland\CE3D_ShIns_Color.obj ..\Borland\CE3D_ShIns_Extension.obj 
+      ..\Borland\CE3D_ShIns_GeoOp.obj ..\Borland\CE3D_ShIns_SetTMU.obj 
+      ..\Borland\CE3D_ShIns_TexOp.obj ..\Borland\CE3D_ShIns_Texture.obj 
+      ..\Borland\CE3D_ShIns_Wireframe.obj 
+      ..\Borland\eShaderInstruction_TypeID.obj 
+      ..\Borland\eShInsBlendOp_TypeID.obj ..\Borland\eShInsGeoOp_TypeID.obj 
+      ..\Borland\eShInsTexOp_TypeID.obj ..\Borland\CE3D_ShaderParser.obj 
+      ..\Borland\CE3D_ShaderWH.obj ..\Borland\CE3D_ShWH_Entry.obj 
+      ..\Borland\CE3D_ShaderDefWH.obj ..\Borland\CE3D_ShDefWH_Entry.obj 
+      ..\Borland\CE3D_ShaderUtils.obj ..\Borland\CE3D_Shader.obj 
+      ..\Borland\CE3D_ShaderExtDB.obj ..\Borland\CE3D_RenderVars.obj 
+      ..\Borland\CE3D_Renderer.obj ..\Borland\CE3D_RenderState.obj 
+      ..\Borland\CE3D_RenderStats.obj ..\Borland\eE3D_ChannelMask.obj 
+      ..\Borland\eE3D_FogMode.obj ..\Borland\eE3D_RenderBuffer_Type.obj 
+      ..\Borland\eE3D_StencilAction.obj ..\Borland\eE3D_StencilFunc.obj 
+      ..\Borland\eE3D_ZTestFunc.obj ..\Borland\eE3D_ZWrite.obj 
+      ..\Borland\GammaE_E3D.obj"/>
+    <RESFILES value=""/>
+    <IDLFILES value=""/>
+    <IDLGENFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES)"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value=""/>
+    <SPARELIBS value=""/>
+    <PACKAGES value=""/>
+    <PATHCPP value=".;Drivers\OGL\ShaderRenderOGL;Drivers\Ogl;Drivers\Ogl;Light;Materials;Materials;Materials;Materials;Materials;Mesh\MeshUtils;Mesh\MeshUtils;Mesh\MeshUtils;Mesh\MeshUtils;Mesh;Mesh;Mesh;Mesh;Mesh;Viewing\Camera;Viewing\Viewport;Viewing\Frustum;Viewing\Projector;Viewing\Projector;BoundingVolume\GraphBoundVol\GraphBVUtils;BoundingVolume\GraphBoundVol;BoundingVolume\GraphBoundVol;BoundingVolume\GraphBoundVol;BoundingVolume\GraphBoundVol;BoundingVolume\GraphBoundVol;BoundingVolume\GraphBoundVol;BoundingVolume;BoundingVolume;BoundingVolume;BoundingVolume;CompiledMesh;MeshDB;MeshDB;MeshDB;Shaders\ShaderInstructions;Shaders\ShaderInstructions;Shaders\ShaderInstructions;Shaders\ShaderInstructions;Shaders\ShaderInstructions;Shaders\ShaderInstructions;Shaders\ShaderInstructions;Shaders\ShaderInstructions;Shaders\ShaderInstructions;Shaders\ShaderInstructions;Shaders\ShaderInstructions;Shaders\ShaderInstructions;Shaders\ShaderInstructions;Shaders\ShaderParser;Shaders\ShaderWarehouse;Shaders\ShaderWarehouse;Shaders\ShaderDefWarehouse;Shaders\ShaderDefWarehouse;Shaders\ShaderUtils;Shaders;Shaders;RenderVars"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="TLib"/>
+    <USERDEFINES value="WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0"/>
+    <SYSDEFINES value="_MSC_VER=1100;_NO_VCL;_ASSERTE;NO_STRICT"/>
+    <MAINSOURCE value="E3D.bpf"/>
+    <INCLUDEPATH value="RenderVars;Shaders;Shaders\ShaderUtils;Shaders\ShaderDefWarehouse;Shaders\ShaderWarehouse;Shaders\ShaderParser;Shaders\ShaderInstructions;MeshDB;CompiledMesh;BoundingVolume;BoundingVolume\GraphBoundVol;BoundingVolume\GraphBoundVol\GraphBVUtils;Viewing\Projector;Viewing\Frustum;Viewing\Viewport;Viewing\Camera;Mesh;Mesh\MeshUtils;Materials;Light;Drivers\Ogl;Drivers\OGL\ShaderRenderOGL;$(BCB)\include;$(BCB)\include\mfc;$(BCB)\include\atl;$(BCB)\include\vcl;I:\Projects\libs\TexLib\Src"/>
+    <LIBPATH value="RenderVars;Shaders;Shaders\ShaderUtils;Shaders\ShaderDefWarehouse;Shaders\ShaderWarehouse;Shaders\ShaderParser;Shaders\ShaderInstructions;MeshDB;CompiledMesh;BoundingVolume;BoundingVolume\GraphBoundVol;BoundingVolume\GraphBoundVol\GraphBVUtils;Viewing\Projector;Viewing\Frustum;Viewing\Viewport;Viewing\Camera;Mesh;Mesh\MeshUtils;Materials;Light;Drivers\Ogl;Drivers\OGL\ShaderRenderOGL;$(BCB)\lib;$(DEBUGLIBPATH);$(BCB)\lib\psdk"/>
+    <WARNINGS value="-w-8026 -w-8027 -w-8022 -w-8084 -w-8010 -w-8013 -w-8058 -w-par"/>
+    <LISTFILE value=""/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <IDLCFLAGS value="-IRenderVars -IShaders -IShaders\ShaderUtils -IShaders\ShaderDefWarehouse 
+      -IShaders\ShaderWarehouse -IShaders\ShaderParser 
+      -IShaders\ShaderInstructions -IMeshDB -ICompiledMesh -IBoundingVolume 
+      -IBoundingVolume\GraphBoundVol -IBoundingVolume\GraphBoundVol\GraphBVUtils 
+      -IViewing\Projector -IViewing\Frustum -IViewing\Viewport -IViewing\Camera 
+      -IMesh -IMesh\MeshUtils -IMaterials -ILight -IDrivers\Ogl 
+      -IDrivers\OGL\ShaderRenderOGL -I$(BCB)\include -I$(BCB)\include\mfc 
+      -I$(BCB)\include\atl -I$(BCB)\include\vcl -II:\Projects\libs\TexLib\Src 
+      -src_suffix cpp -DWIN32 -D_DEBUG -D_MBCS -D_LIB -D_WINDOWS -DNULL=0"/>
+    <CFLAG1 value="-Od -w -VF -X- -a8 -b -k -v -vi -q -s -I.\\ -I..\\ -c -w-8026 -w-8027 
+      -w-8022 -w-8084 -w-8010 -w-8013 -w-8058 -w-par"/>
+    <PFLAGS value="-N2\projects\GammaE\Borland -N0\projects\GammaE\Borland -$YD -$A8"/>
+    <RFLAGS value="/l 0xc0a /i$(BCB)\include;$(BCB)\include\mfc"/>
+    <AFLAGS value="/mx /w2 /zd"/>
+    <LFLAGS value="/P64"/>
+    <OTHERFILES value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="$(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES)"/>
+    <OTHERFILES value=""/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="E3D.bpf" FORMNAME="" UNITNAME="E3D" CONTAINERID="BPF" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Drivers\OGL\ShaderRenderOGL\CE3D_ShaderRenderer_OGL.cpp" FORMNAME="" UNITNAME="CE3D_ShaderRenderer_OGL" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Drivers\Ogl\CE3D_OGL_Renderer.cpp" FORMNAME="" UNITNAME="CE3D_OGL_Renderer" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Drivers\Ogl\CE3D_OGL_Win_Renderer.cpp" FORMNAME="" UNITNAME="CE3D_OGL_Win_Renderer" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Light\CE3D_Light.cpp" FORMNAME="" UNITNAME="CE3D_Light" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Materials\ColorObj.cpp" FORMNAME="" UNITNAME="ColorObj" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Materials\MipMapObj.cpp" FORMNAME="" UNITNAME="MipMapObj" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Materials\MipMapWH.cpp" FORMNAME="" UNITNAME="MipMapWH" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Materials\TexObj.cpp" FORMNAME="" UNITNAME="TexObj" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Materials\TexObjWH.cpp" FORMNAME="" UNITNAME="TexObjWH" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Mesh\MeshUtils\MESHUt_BuildNIMesh.cpp" FORMNAME="" UNITNAME="MESHUt_BuildNIMesh" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Mesh\MeshUtils\NormalGen.cpp" FORMNAME="" UNITNAME="NormalGen" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Mesh\MeshUtils\TexCoordGen.cpp" FORMNAME="" UNITNAME="TexCoordGen" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Mesh\MeshUtils\TransformMesh.cpp" FORMNAME="" UNITNAME="TransformMesh" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Mesh\CMesh.cpp" FORMNAME="" UNITNAME="CMesh" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Mesh\CMesh_Box.cpp" FORMNAME="" UNITNAME="CMesh_Box" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Mesh\CMesh_Cross.cpp" FORMNAME="" UNITNAME="CMesh_Cross" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Mesh\CMesh_Rect.cpp" FORMNAME="" UNITNAME="CMesh_Rect" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Mesh\CMesh_Sphere.cpp" FORMNAME="" UNITNAME="CMesh_Sphere" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Viewing\Camera\CE3D_Camera.cpp" FORMNAME="" UNITNAME="CE3D_Camera" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Viewing\Viewport\CE3D_Viewport.cpp" FORMNAME="" UNITNAME="CE3D_Viewport" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Viewing\Frustum\CE3D_Frustum.cpp" FORMNAME="" UNITNAME="CE3D_Frustum" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Viewing\Projector\CE3D_Projector.cpp" FORMNAME="" UNITNAME="CE3D_Projector" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Viewing\Projector\eE3D_ProjectorType.cpp" FORMNAME="" UNITNAME="eE3D_ProjectorType" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="BoundingVolume\GraphBoundVol\GraphBVUtils\CGraphBV_FileIO.cpp" FORMNAME="" UNITNAME="CGraphBV_FileIO" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="BoundingVolume\GraphBoundVol\CGraphBV.cpp" FORMNAME="" UNITNAME="CGraphBV" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="BoundingVolume\GraphBoundVol\CGraphBV_Box.cpp" FORMNAME="" UNITNAME="CGraphBV_Box" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="BoundingVolume\GraphBoundVol\CGraphBV_Cylinder.cpp" FORMNAME="" UNITNAME="CGraphBV_Cylinder" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="BoundingVolume\GraphBoundVol\CGraphBV_Manager.cpp" FORMNAME="" UNITNAME="CGraphBV_Manager" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="BoundingVolume\GraphBoundVol\CGraphBV_Point.cpp" FORMNAME="" UNITNAME="CGraphBV_Point" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="BoundingVolume\GraphBoundVol\CGraphBV_Sphere.cpp" FORMNAME="" UNITNAME="CGraphBV_Sphere" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="BoundingVolume\CBoundingBox.cpp" FORMNAME="" UNITNAME="CBoundingBox" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="BoundingVolume\CBoundingCylinder.cpp" FORMNAME="" UNITNAME="CBoundingCylinder" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="BoundingVolume\CBoundingSphere.cpp" FORMNAME="" UNITNAME="CBoundingSphere" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="BoundingVolume\CBoundingVolume.cpp" FORMNAME="" UNITNAME="CBoundingVolume" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CompiledMesh\CCompiledMesh.cpp" FORMNAME="" UNITNAME="CCompiledMesh" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MeshDB\CDefferredMeshDB.cpp" FORMNAME="" UNITNAME="CDefferredMeshDB" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MeshDB\eE3D_MeshType.cpp" FORMNAME="" UNITNAME="eE3D_MeshType" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MeshDB\TDefferredMeshEntry.cpp" FORMNAME="" UNITNAME="TDefferredMeshEntry" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Shaders\ShaderInstructions\CE3D_ShaderInstruction.cpp" FORMNAME="" UNITNAME="CE3D_ShaderInstruction" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Shaders\ShaderInstructions\CE3D_ShIns_BlendOp.cpp" FORMNAME="" UNITNAME="CE3D_ShIns_BlendOp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Shaders\ShaderInstructions\CE3D_ShIns_Color.cpp" FORMNAME="" UNITNAME="CE3D_ShIns_Color" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Shaders\ShaderInstructions\CE3D_ShIns_Extension.cpp" FORMNAME="" UNITNAME="CE3D_ShIns_Extension" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Shaders\ShaderInstructions\CE3D_ShIns_GeoOp.cpp" FORMNAME="" UNITNAME="CE3D_ShIns_GeoOp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Shaders\ShaderInstructions\CE3D_ShIns_SetTMU.cpp" FORMNAME="" UNITNAME="CE3D_ShIns_SetTMU" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Shaders\ShaderInstructions\CE3D_ShIns_TexOp.cpp" FORMNAME="" UNITNAME="CE3D_ShIns_TexOp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Shaders\ShaderInstructions\CE3D_ShIns_Texture.cpp" FORMNAME="" UNITNAME="CE3D_ShIns_Texture" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Shaders\ShaderInstructions\CE3D_ShIns_Wireframe.cpp" FORMNAME="" UNITNAME="CE3D_ShIns_Wireframe" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Shaders\ShaderInstructions\eShaderInstruction_TypeID.cpp" FORMNAME="" UNITNAME="eShaderInstruction_TypeID" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Shaders\ShaderInstructions\eShInsBlendOp_TypeID.cpp" FORMNAME="" UNITNAME="eShInsBlendOp_TypeID" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Shaders\ShaderInstructions\eShInsGeoOp_TypeID.cpp" FORMNAME="" UNITNAME="eShInsGeoOp_TypeID" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Shaders\ShaderInstructions\eShInsTexOp_TypeID.cpp" FORMNAME="" UNITNAME="eShInsTexOp_TypeID" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Shaders\ShaderParser\CE3D_ShaderParser.cpp" FORMNAME="" UNITNAME="CE3D_ShaderParser" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Shaders\ShaderWarehouse\CE3D_ShaderWH.cpp" FORMNAME="" UNITNAME="CE3D_ShaderWH" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Shaders\ShaderWarehouse\CE3D_ShWH_Entry.cpp" FORMNAME="" UNITNAME="CE3D_ShWH_Entry" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Shaders\ShaderDefWarehouse\CE3D_ShaderDefWH.cpp" FORMNAME="" UNITNAME="CE3D_ShaderDefWH" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Shaders\ShaderDefWarehouse\CE3D_ShDefWH_Entry.cpp" FORMNAME="" UNITNAME="CE3D_ShDefWH_Entry" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Shaders\ShaderUtils\CE3D_ShaderUtils.cpp" FORMNAME="" UNITNAME="CE3D_ShaderUtils" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Shaders\CE3D_Shader.cpp" FORMNAME="" UNITNAME="CE3D_Shader" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Shaders\CE3D_ShaderExtDB.cpp" FORMNAME="" UNITNAME="CE3D_ShaderExtDB" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="RenderVars\CE3D_RenderVars.cpp" FORMNAME="" UNITNAME="CE3D_RenderVars" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CE3D_Renderer.cpp" FORMNAME="" UNITNAME="CE3D_Renderer" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CE3D_RenderState.cpp" FORMNAME="" UNITNAME="CE3D_RenderState" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CE3D_RenderStats.cpp" FORMNAME="" UNITNAME="CE3D_RenderStats" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="eE3D_ChannelMask.cpp" FORMNAME="" UNITNAME="eE3D_ChannelMask" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="eE3D_FogMode.cpp" FORMNAME="" UNITNAME="eE3D_FogMode" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="eE3D_RenderBuffer_Type.cpp" FORMNAME="" UNITNAME="eE3D_RenderBuffer_Type" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="eE3D_StencilAction.cpp" FORMNAME="" UNITNAME="eE3D_StencilAction" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="eE3D_StencilFunc.cpp" FORMNAME="" UNITNAME="eE3D_StencilFunc" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="eE3D_ZTestFunc.cpp" FORMNAME="" UNITNAME="eE3D_ZTestFunc" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="eE3D_ZWrite.cpp" FORMNAME="" UNITNAME="eE3D_ZWrite" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="GammaE_E3D.cpp" FORMNAME="" UNITNAME="GammaE_E3D" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="vctobpr.log" FORMNAME="" UNITNAME="vctobpr" CONTAINERID="" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1033
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=3
+Item0=RenderVars;Shaders;Shaders\ShaderUtils;Shaders\ShaderDefWarehouse;Shaders\ShaderWarehouse;Shaders\ShaderParser;Shaders\ShaderInstructions;MeshDB;CompiledMesh;BoundingVolume;BoundingVolume\GraphBoundVol;BoundingVolume\GraphBoundVol\GraphBVUtils;Viewing\Projector;Viewing\Frustum;Viewing\Viewport;Viewing\Camera;Mesh;Mesh\MeshUtils;Materials;Light;Drivers\Ogl;Drivers\OGL\ShaderRenderOGL;$(BCB)\include;$(BCB)\include\mfc;$(BCB)\include\atl;$(BCB)\include\vcl;I:\Projects\libs\TexLib\Src
+Item1=RenderVars;Shaders;Shaders\ShaderUtils;Shaders\ShaderDefWarehouse;Shaders\ShaderWarehouse;Shaders\ShaderParser;Shaders\ShaderInstructions;MeshDB;CompiledMesh;BoundingVolume;BoundingVolume\GraphBoundVol;BoundingVolume\GraphBoundVol\GraphBVUtils;Viewing\Projector;Viewing\Frustum;Viewing\Viewport;Viewing\Camera;Mesh;Mesh\MeshUtils;Materials;Light;Drivers\Ogl;Drivers\OGL\ShaderRenderOGL;$(BCB)\include;$(BCB)\include\mfc;$(BCB)\include\atl;$(BCB)\include\vcl
+Item2=RenderVars;Shaders;Shaders\ShaderUtils;Shaders\ShaderDefWarehouse;Shaders\ShaderWarehouse;Shaders\ShaderParser;Shaders\ShaderInstructions;MeshDB;CompiledMesh;BoundingVolume;BoundingVolume\GraphBoundVol;BoundingVolume\GraphBoundVol\GraphBVUtils;Viewing\Projector;Viewing\Frustum;Viewing\Viewport;Viewing\Camera;Mesh;Mesh\MeshUtils;Materials;Light;Drivers\Ogl;Drivers\OGL\ShaderRenderOGL;$(BCB)\include;$(BCB)\include\mfc;$(BCB)\include\atl;$(BCB)\include\vcl;
+
+[HistoryLists\hlLibraryPath]
+Count=2
+Item0=RenderVars;Shaders;Shaders\ShaderUtils;Shaders\ShaderDefWarehouse;Shaders\ShaderWarehouse;Shaders\ShaderParser;Shaders\ShaderInstructions;MeshDB;CompiledMesh;BoundingVolume;BoundingVolume\GraphBoundVol;BoundingVolume\GraphBoundVol\GraphBVUtils;Viewing\Projector;Viewing\Frustum;Viewing\Viewport;Viewing\Camera;Mesh;Mesh\MeshUtils;Materials;Light;Drivers\Ogl;Drivers\OGL\ShaderRenderOGL;$(BCB)\lib;$(DEBUGLIBPATH);$(BCB)\lib\psdk
+Item1=RenderVars;Shaders;Shaders\ShaderUtils;Shaders\ShaderDefWarehouse;Shaders\ShaderWarehouse;Shaders\ShaderParser;Shaders\ShaderInstructions;MeshDB;CompiledMesh;BoundingVolume;BoundingVolume\GraphBoundVol;BoundingVolume\GraphBoundVol\GraphBVUtils;Viewing\Projector;Viewing\Frustum;Viewing\Viewport;Viewing\Camera;Mesh;Mesh\MeshUtils;Materials;Light;Drivers\Ogl;Drivers\OGL\ShaderRenderOGL;$(BCB)\lib;$(DEBUGLIBPATH);;$(BCB)\lib\psdk;
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=1
+Item0=WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0
+
+[HistoryLists\hlIntOutputDir]
+Count=2
+Item0=\projects\GammaE\Borland
+Item1=\projects\GammaE\Debug
+
+[HistoryLists\hlFinalOutputDir]
+Count=2
+Item0=\projects\GammaE\Borland
+Item1=\projects\GammaE\Debug\
+
+[HistoryLists\hlTlibPageSize]
+Count=2
+Item0=0x0040
+Item1=0x0010
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+Launcher=
+UseLauncher=0
+DebugCWD=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteLauncher=
+RemoteCWD=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=0
+
+[CORBA]
+AddServerUnit=1
+AddClientUnit=1
+PrecompiledHeaders=1
+  </IDEOPTIONS>
+</PROJECT>

@@ -35,7 +35,7 @@ void GetDate(TDate*Date)
 //---------------------------------------------------------------------------
 void GetDateString(char *StrDate)
 {
-    tdstDate Date;
+    TDate Date;
 
     GetDate(&Date);
     ConvertDateToString(&Date,StrDate);

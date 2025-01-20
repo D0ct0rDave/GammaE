@@ -56,7 +56,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_NULL=0;_MBCS;WIN32;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Memory;$(ProjectDir)..\..;;$(ProjectDir)..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\modules\Memory;$(ProjectDir)..\..;;$(ProjectDir)..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -72,7 +72,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_NULL=0;_MBCS;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Memory;$(ProjectDir)..\..;;$(ProjectDir)..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\modules\Memory;$(ProjectDir)..\..;;$(ProjectDir)..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -88,11 +88,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\Memory\GammaE_Mem.h" />
-    <ClInclude Include="..\Memory\MMgr.h" />
+    <ClInclude Include="..\modules\Memory\src\GMem.h" />
+    <ClInclude Include="..\modules\Memory\src\MMgr.h" />
+    <ClInclude Include="..\modules\Memory\src\MemMgr.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Memory\MMgr.cpp" />
+    <ClCompile Include="..\modules\Memory\src\MMgr.cpp" />
+    <ClCompile Include="..\modules\Memory\src\MemMgr.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

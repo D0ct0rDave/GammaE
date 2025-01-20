@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="\projects\GammaE\Borland\Math.lib"/>
+    <OBJFILES value="..\Borland\CPlane.obj ..\Borland\CRay.obj ..\Borland\CVect2.obj 
+      ..\Borland\CVect3.obj ..\Borland\CVect4.obj ..\Borland\CMatrix4x4.obj 
+      ..\Borland\CQuaternion.obj ..\Borland\CEval_Binary.obj 
+      ..\Borland\CEval_Const.obj ..\Borland\CEval_Cos.obj 
+      ..\Borland\CEval_Mult.obj ..\Borland\CEval_Periodic.obj 
+      ..\Borland\CEval_SawTooth.obj ..\Borland\CEval_Sin.obj 
+      ..\Borland\CEval_Square.obj ..\Borland\CEval_Sum.obj 
+      ..\Borland\CEval_Time.obj ..\Borland\CEval_Triangle.obj 
+      ..\Borland\CEvaluator.obj ..\Borland\GammaE_Math_Evaluators.obj 
+      ..\Borland\MATH_Common.obj ..\Borland\MATH_Utils.obj 
+      ..\Borland\CTriangle.obj ..\Borland\CSegment.obj ..\Borland\GammaE_Math.obj"/>
+    <RESFILES value=""/>
+    <IDLFILES value=""/>
+    <IDLGENFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES)"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value=""/>
+    <SPARELIBS value=""/>
+    <PACKAGES value=""/>
+    <PATHCPP value=".;MATH_Plane;MATH_Ray;MATH_Vector;MATH_Vector;MATH_Vector;MATH_Matrix;MATH_Quaternion;MATH_Evaluator;MATH_Evaluator;MATH_Evaluator;MATH_Evaluator;MATH_Evaluator;MATH_Evaluator;MATH_Evaluator;MATH_Evaluator;MATH_Evaluator;MATH_Evaluator;MATH_Evaluator;MATH_Evaluator;MATH_Evaluator;MATH_Other;MATH_Other;MATH_Triangle;MATH_Segment"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="TLib"/>
+    <USERDEFINES value="WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;WIN32;_DEBUG;_MBCS;_LIB;WIN32;_DEBUG;_MBCS;_LIB;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0"/>
+    <SYSDEFINES value="_NO_VCL;_ASSERTE;NO_STRICT"/>
+    <MAINSOURCE value="Math.bpf"/>
+    <INCLUDEPATH value="MATH_Segment;MATH_Triangle;MATH_Other;MATH_Evaluator;MATH_Quaternion;MATH_Matrix;MATH_Vector;MATH_Ray;MATH_Plane;$(BCB)\include;$(BCB)\include\mfc;$(BCB)\include\atl;$(BCB)\include\vcl"/>
+    <LIBPATH value="MATH_Segment;MATH_Triangle;MATH_Other;MATH_Evaluator;MATH_Quaternion;MATH_Matrix;MATH_Vector;MATH_Ray;MATH_Plane;$(BCB)\lib;$(DEBUGLIBPATH);$(BCB)\lib\psdk"/>
+    <WARNINGS value="-w-8026 -w-8027 -w-8022 -w-8084 -w-8010 -w-8013 -w-8058 -w-par"/>
+    <LISTFILE value=""/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <IDLCFLAGS value="-IMATH_Segment -IMATH_Triangle -IMATH_Other -IMATH_Evaluator 
+      -IMATH_Quaternion -IMATH_Matrix -IMATH_Vector -IMATH_Ray -IMATH_Plane 
+      -I$(BCB)\include -I$(BCB)\include\mfc -I$(BCB)\include\atl 
+      -I$(BCB)\include\vcl -src_suffix cpp -DWIN32 -D_DEBUG -D_MBCS -D_LIB 
+      -D_WINDOWS -DNULL=0 -DWIN32 -D_DEBUG -D_MBCS -D_LIB -D_WINDOWS -DWIN32 
+      -D_DEBUG -D_MBCS -D_LIB -DWIN32 -D_DEBUG -D_MBCS -D_LIB -DWIN32 -D_DEBUG 
+      -D_MBCS -D_LIB -D_WINDOWS -DNULL=0"/>
+    <CFLAG1 value="-Od -w -VF -X- -a8 -b -k -v -vi -q -s -I.\\ -I..\\ -c -w-8026 -w-8027 
+      -w-8022 -w-8084 -w-8010 -w-8013 -w-8058 -w-par -I../../Src -I.. -I."/>
+    <PFLAGS value="-N2\projects\GammaE\Borland -N0\projects\GammaE\Borland -$YD -$A8"/>
+    <RFLAGS value="/l 0xc0a /i$(BCB)\include;$(BCB)\include\mfc"/>
+    <AFLAGS value="/mx /w2 /zd"/>
+    <LFLAGS value=""/>
+    <OTHERFILES value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="$(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES)"/>
+    <OTHERFILES value=""/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="Math.bpf" FORMNAME="" UNITNAME="Math" CONTAINERID="BPF" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MATH_Plane\CPlane.cpp" FORMNAME="" UNITNAME="CPlane" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MATH_Ray\CRay.cpp" FORMNAME="" UNITNAME="CRay" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MATH_Vector\CVect2.cpp" FORMNAME="" UNITNAME="CVect2" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MATH_Vector\CVect3.cpp" FORMNAME="" UNITNAME="CVect3" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MATH_Vector\CVect4.cpp" FORMNAME="" UNITNAME="CVect4" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MATH_Matrix\CMatrix4x4.cpp" FORMNAME="" UNITNAME="CMatrix4x4" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MATH_Quaternion\CQuaternion.cpp" FORMNAME="" UNITNAME="CQuaternion" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MATH_Evaluator\CEval_Binary.cpp" FORMNAME="" UNITNAME="CEval_Binary" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MATH_Evaluator\CEval_Const.cpp" FORMNAME="" UNITNAME="CEval_Const" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MATH_Evaluator\CEval_Cos.cpp" FORMNAME="" UNITNAME="CEval_Cos" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MATH_Evaluator\CEval_Mult.cpp" FORMNAME="" UNITNAME="CEval_Mult" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MATH_Evaluator\CEval_Periodic.cpp" FORMNAME="" UNITNAME="CEval_Periodic" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MATH_Evaluator\CEval_SawTooth.cpp" FORMNAME="" UNITNAME="CEval_SawTooth" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MATH_Evaluator\CEval_Sin.cpp" FORMNAME="" UNITNAME="CEval_Sin" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MATH_Evaluator\CEval_Square.cpp" FORMNAME="" UNITNAME="CEval_Square" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MATH_Evaluator\CEval_Sum.cpp" FORMNAME="" UNITNAME="CEval_Sum" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MATH_Evaluator\CEval_Time.cpp" FORMNAME="" UNITNAME="CEval_Time" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MATH_Evaluator\CEval_Triangle.cpp" FORMNAME="" UNITNAME="CEval_Triangle" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MATH_Evaluator\CEvaluator.cpp" FORMNAME="" UNITNAME="CEvaluator" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MATH_Evaluator\GammaE_Math_Evaluators.cpp" FORMNAME="" UNITNAME="GammaE_Math_Evaluators" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MATH_Other\MATH_Common.cpp" FORMNAME="" UNITNAME="MATH_Common" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MATH_Other\MATH_Utils.cpp" FORMNAME="" UNITNAME="MATH_Utils" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MATH_Triangle\CTriangle.cpp" FORMNAME="" UNITNAME="CTriangle" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MATH_Segment\CSegment.cpp" FORMNAME="" UNITNAME="CSegment" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="GammaE_Math.cpp" FORMNAME="" UNITNAME="GammaE_Math" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="vctobpr.log" FORMNAME="" UNITNAME="vctobpr" CONTAINERID="" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1033
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=1
+Item0=MATH_Segment;MATH_Triangle;MATH_Other;MATH_Evaluator;MATH_Quaternion;MATH_Matrix;MATH_Vector;MATH_Ray;MATH_Plane;$(BCB)\include;$(BCB)\include\mfc;$(BCB)\include\atl;$(BCB)\include\vcl;
+
+[HistoryLists\hlLibraryPath]
+Count=1
+Item0=MATH_Segment;MATH_Triangle;MATH_Other;MATH_Evaluator;MATH_Quaternion;MATH_Matrix;MATH_Vector;MATH_Ray;MATH_Plane;$(BCB)\lib;$(DEBUGLIBPATH);;$(BCB)\lib\psdk;$(DEBUGLIBPATH);$(DEBUGLIBPATH);$(DEBUGLIBPATH);$(DEBUGLIBPATH);
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=1
+Item0=WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;WIN32;_DEBUG;_MBCS;_LIB;WIN32;_DEBUG;_MBCS;_LIB;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0
+
+[HistoryLists\hlIntOutputDir]
+Count=2
+Item0=\projects\GammaE\Borland
+Item1=\projects\GammaE\Debug
+
+[HistoryLists\hlFinalOutputDir]
+Count=2
+Item0=\projects\GammaE\Borland
+Item1=\projects\GammaE\Debug\
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+Launcher=
+UseLauncher=0
+DebugCWD=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteLauncher=
+RemoteCWD=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=0
+
+[CORBA]
+AddServerUnit=1
+AddClientUnit=1
+PrecompiledHeaders=1
+  </IDEOPTIONS>
+</PROJECT>

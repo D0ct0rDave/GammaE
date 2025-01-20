@@ -1,0 +1,8 @@
+- wxWidgets para algunas de las herramientas.
+- FreeImage library para el engine en la carga de texturas.
+- libsndfile para la carga de audio del engine.
+
+- OpenGL para el rendering gráfico.
+- OpenAL o DirectSound para el audio.
+- Lua para scripting.
+- libconfig para leer configuraciones.

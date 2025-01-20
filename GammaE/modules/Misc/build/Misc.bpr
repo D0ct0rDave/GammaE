@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="\projects\GammaE\Borland\Misc.lib"/>
+    <OBJFILES value="..\Borland\CChrono.obj ..\Borland\Chronos.obj ..\Borland\ParseUtils.obj 
+      ..\Borland\CCircularArray.obj ..\Borland\CDynArray.obj 
+      ..\Borland\CHashTable.obj ..\Borland\CLookupArray.obj 
+      ..\Borland\CLookupEntry.obj ..\Borland\CStArray.obj ..\Borland\ConsoleIO.obj"/>
+    <RESFILES value=""/>
+    <IDLFILES value=""/>
+    <IDLGENFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES)"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value=""/>
+    <SPARELIBS value=""/>
+    <PACKAGES value=""/>
+    <PATHCPP value=".;Timing;Timming;ParseUtils;TAD;TAD;TAD;TAD;TAD;TAD;Console"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="TLib"/>
+    <USERDEFINES value="WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;WIN32;_DEBUG;_MBCS;_LIB;WIN32;_DEBUG;_MBCS;_LIB;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0;WIN32;_DEBUG;_MBCS;_LIB;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0"/>
+    <SYSDEFINES value="_NO_VCL;_ASSERTE;NO_STRICT"/>
+    <MAINSOURCE value="Misc.bpf"/>
+    <INCLUDEPATH value="Console;TAD;ParseUtils;Timming;Timing;$(BCB)\include;$(BCB)\include\mfc;$(BCB)\include\atl;$(BCB)\include\vcl"/>
+    <LIBPATH value="Console;TAD;ParseUtils;Timming;Timing;$(BCB)\lib;$(DEBUGLIBPATH);$(BCB)\lib\psdk"/>
+    <WARNINGS value="-w-8026 -w-8027 -w-8022 -w-8084 -w-8010 -w-8013 -w-8058 -w-par"/>
+    <LISTFILE value=""/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <IDLCFLAGS value="-IConsole -ITAD -IParseUtils -ITimming -ITiming -I$(BCB)\include 
+      -I$(BCB)\include\mfc -I$(BCB)\include\atl -I$(BCB)\include\vcl -src_suffix 
+      cpp -DWIN32 -D_DEBUG -D_MBCS -D_LIB -D_WINDOWS -DNULL=0 -DWIN32 -D_DEBUG 
+      -D_MBCS -D_LIB -D_WINDOWS -DWIN32 -D_DEBUG -D_MBCS -D_LIB -DWIN32 -D_DEBUG 
+      -D_MBCS -D_LIB -DWIN32 -D_DEBUG -D_MBCS -D_LIB -D_WINDOWS -DNULL=0 -DWIN32 
+      -D_DEBUG -D_MBCS -D_LIB -DWIN32 -D_DEBUG -D_MBCS -D_LIB -D_WINDOWS -DNULL=0"/>
+    <CFLAG1 value="-Od -w -VF -X- -a8 -b -k -v -vi -q -s -I.\\ -I..\\ -c -w-8026 -w-8027 
+      -w-8022 -w-8084 -w-8010 -w-8013 -w-8058 -w-par -I../../Src -I.. -I."/>
+    <PFLAGS value="-N2\projects\GammaE\Borland -N0\projects\GammaE\Borland -$YD -$A8"/>
+    <RFLAGS value="/l 0xc0a /i$(BCB)\include;$(BCB)\include\mfc"/>
+    <AFLAGS value="/mx /w2 /zd"/>
+    <LFLAGS value=""/>
+    <OTHERFILES value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="$(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES)"/>
+    <OTHERFILES value=""/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="Misc.bpf" FORMNAME="" UNITNAME="Misc" CONTAINERID="BPF" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Timing\CChrono.cpp" FORMNAME="" UNITNAME="CChrono" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Timming\Chronos.cpp" FORMNAME="" UNITNAME="Chronos" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="ParseUtils\ParseUtils.cpp" FORMNAME="" UNITNAME="ParseUtils" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="TAD\CCircularArray.cpp" FORMNAME="" UNITNAME="CCircularArray" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="TAD\CDynArray.cpp" FORMNAME="" UNITNAME="CDynArray" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="TAD\CHashTable.cpp" FORMNAME="" UNITNAME="CHashTable" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="TAD\CLookupArray.cpp" FORMNAME="" UNITNAME="CLookupArray" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="TAD\CLookupEntry.cpp" FORMNAME="" UNITNAME="CLookupEntry" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="TAD\CStArray.cpp" FORMNAME="" UNITNAME="CStArray" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Console\ConsoleIO.cpp" FORMNAME="" UNITNAME="ConsoleIO" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="vctobpr.log" FORMNAME="" UNITNAME="vctobpr" CONTAINERID="" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1033
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=1
+Item0=Console;TAD;ParseUtils;Timming;Timing;$(BCB)\include;$(BCB)\include\mfc;$(BCB)\include\atl;$(BCB)\include\vcl;
+
+[HistoryLists\hlLibraryPath]
+Count=1
+Item0=Console;TAD;ParseUtils;Timming;Timing;$(BCB)\lib;$(DEBUGLIBPATH);;$(BCB)\lib\psdk;$(DEBUGLIBPATH);$(DEBUGLIBPATH);$(DEBUGLIBPATH);$(DEBUGLIBPATH);$(DEBUGLIBPATH);$(DEBUGLIBPATH);
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=1
+Item0=WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;WIN32;_DEBUG;_MBCS;_LIB;WIN32;_DEBUG;_MBCS;_LIB;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0;WIN32;_DEBUG;_MBCS;_LIB;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0
+
+[HistoryLists\hlIntOutputDir]
+Count=2
+Item0=\projects\GammaE\Borland
+Item1=\projects\GammaE\Debug
+
+[HistoryLists\hlFinalOutputDir]
+Count=2
+Item0=\projects\GammaE\Borland
+Item1=\projects\GammaE\Debug\
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+Launcher=
+UseLauncher=0
+DebugCWD=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteLauncher=
+RemoteCWD=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=0
+
+[CORBA]
+AddServerUnit=1
+AddClientUnit=1
+PrecompiledHeaders=1
+  </IDEOPTIONS>
+</PROJECT>

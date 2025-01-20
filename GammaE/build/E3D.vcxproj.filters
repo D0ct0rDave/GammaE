@@ -37,14 +37,17 @@
     <Filter Include="MeshDB">
       <UniqueIdentifier>{18BBE0C2-045D-0B99-ED17-1FEDD95892E9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Programs">
+      <UniqueIdentifier>{508629A2-3C53-84AD-656C-72555198B93B}</UniqueIdentifier>
+    </Filter>
     <Filter Include="RenderVars">
       <UniqueIdentifier>{A1EA0A00-8DA2-4C4D-F6A9-25A9E280E73D}</UniqueIdentifier>
     </Filter>
     <Filter Include="Shaders">
       <UniqueIdentifier>{EFAC8DF2-5B8C-0C8E-64A4-9764D00273EF}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Shaders\ShaderDefWarehouse">
-      <UniqueIdentifier>{376EF22B-237E-9EFC-8C37-031B78668D95}</UniqueIdentifier>
+    <Filter Include="Shaders\ShaderDefinitions">
+      <UniqueIdentifier>{9196FA6A-FD58-2EF5-4609-BD81B20A07D3}</UniqueIdentifier>
     </Filter>
     <Filter Include="Shaders\ShaderInstructions">
       <UniqueIdentifier>{CA1511CB-B625-BD9B-1FDF-21BA0B0EAC34}</UniqueIdentifier>
@@ -75,403 +78,432 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\E3D\BoundingVolume\CBoundingBox.h">
+    <ClInclude Include="..\modules\E3D\src\BoundingVolume\CBoundingBox.h">
       <Filter>BoundingVolume</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\BoundingVolume\CBoundingCylinder.h">
+    <ClInclude Include="..\modules\E3D\src\BoundingVolume\CBoundingCylinder.h">
       <Filter>BoundingVolume</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\BoundingVolume\CBoundingSphere.h">
+    <ClInclude Include="..\modules\E3D\src\BoundingVolume\CBoundingSphere.h">
       <Filter>BoundingVolume</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\BoundingVolume\CBoundingVolume.h">
+    <ClInclude Include="..\modules\E3D\src\BoundingVolume\CBoundingVolume.h">
       <Filter>BoundingVolume</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\BoundingVolume\GraphBoundVol\CGraphBV.h">
+    <ClInclude Include="..\modules\E3D\src\BoundingVolume\GraphBoundVol\CGraphBV.h">
       <Filter>BoundingVolume\GraphBoundVol</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\BoundingVolume\GraphBoundVol\CGraphBV_Box.h">
+    <ClInclude Include="..\modules\E3D\src\BoundingVolume\GraphBoundVol\CGraphBV_Box.h">
       <Filter>BoundingVolume\GraphBoundVol</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\BoundingVolume\GraphBoundVol\CGraphBV_Cylinder.h">
+    <ClInclude Include="..\modules\E3D\src\BoundingVolume\GraphBoundVol\CGraphBV_Cylinder.h">
       <Filter>BoundingVolume\GraphBoundVol</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\BoundingVolume\GraphBoundVol\CGraphBV_Manager.h">
+    <ClInclude Include="..\modules\E3D\src\BoundingVolume\GraphBoundVol\CGraphBV_Manager.h">
       <Filter>BoundingVolume\GraphBoundVol</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\BoundingVolume\GraphBoundVol\CGraphBV_Point.h">
+    <ClInclude Include="..\modules\E3D\src\BoundingVolume\GraphBoundVol\CGraphBV_Point.h">
       <Filter>BoundingVolume\GraphBoundVol</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\BoundingVolume\GraphBoundVol\CGraphBV_Sphere.h">
+    <ClInclude Include="..\modules\E3D\src\BoundingVolume\GraphBoundVol\CGraphBV_Sphere.h">
       <Filter>BoundingVolume\GraphBoundVol</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\BoundingVolume\GraphBoundVol\GraphBVUtils\CGraphBV_FileIO.h">
+    <ClInclude Include="..\modules\E3D\src\BoundingVolume\GraphBoundVol\GraphBVUtils\CGraphBV_FileIO.h">
       <Filter>BoundingVolume\GraphBoundVol\GraphBVUtils</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\BoundingVolume\GraphBoundVol\eGraphBV_TypeID.h">
+    <ClInclude Include="..\modules\E3D\src\BoundingVolume\GraphBoundVol\eGraphBV_TypeID.h">
       <Filter>BoundingVolume\GraphBoundVol</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\CE3D_RenderState.h" />
-    <ClInclude Include="..\E3D\CE3D_RenderStats.h" />
-    <ClInclude Include="..\E3D\CE3D_Renderer.h" />
-    <ClInclude Include="..\E3D\Color.h" />
-    <ClInclude Include="..\E3D\CompiledMesh\CCompiledMesh.h">
+    <ClInclude Include="..\modules\E3D\src\CE3D_RenderState.h" />
+    <ClInclude Include="..\modules\E3D\src\CE3D_RenderStats.h" />
+    <ClInclude Include="..\modules\E3D\src\CE3D_Renderer.h" />
+    <ClInclude Include="..\modules\E3D\src\CGRenderer.h" />
+    <ClInclude Include="..\modules\E3D\src\CompiledMesh\CCompiledMesh.h">
       <Filter>CompiledMesh</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Drivers\OGL\CE3D_OGL_Renderer.h">
+    <ClInclude Include="..\modules\E3D\src\Drivers\OGL\CE3D_OGL_MatrixStack.h">
       <Filter>Drivers\OGL</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Drivers\OGL\CE3D_OGL_Win_Renderer.h">
+    <ClInclude Include="..\modules\E3D\src\Drivers\OGL\CE3D_OGL_Renderer.h">
       <Filter>Drivers\OGL</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Drivers\OGL\ShaderRenderOGL\CE3D_ShaderRenderer_OGL.h">
+    <ClInclude Include="..\modules\E3D\src\Drivers\OGL\CE3D_OGL_Win_Renderer.h">
+      <Filter>Drivers\OGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\E3D\src\Drivers\OGL\ShaderRenderOGL\CE3D_ShaderRenderer_OGL.h">
       <Filter>Drivers\OGL\ShaderRenderOGL</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\E3D_REStats.h" />
-    <ClInclude Include="..\E3D\GammaE_E3D.h" />
-    <ClInclude Include="..\E3D\Light\CE3D_Light.h">
+    <ClInclude Include="..\modules\E3D\src\E3D_Enums.h" />
+    <ClInclude Include="..\modules\E3D\src\GE3D.h" />
+    <ClInclude Include="..\modules\E3D\src\Light\CE3D_Light.h">
       <Filter>Light</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Materials\ColorObj.h">
+    <ClInclude Include="..\modules\E3D\src\Light\LightWH.h">
+      <Filter>Light</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\E3D\src\Materials\CGColor.h">
       <Filter>Materials</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Materials\MipMapObj.h">
+    <ClInclude Include="..\modules\E3D\src\Materials\CGMipMap.h">
       <Filter>Materials</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Materials\MipMapWH.h">
+    <ClInclude Include="..\modules\E3D\src\Materials\CGProgram.h">
       <Filter>Materials</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Materials\TexObj.h">
+    <ClInclude Include="..\modules\E3D\src\Materials\CGProgramWH.h">
       <Filter>Materials</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Materials\TexObjWH.h">
+    <ClInclude Include="..\modules\E3D\src\Materials\CGTexObj.h">
       <Filter>Materials</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Mesh\CMesh.h">
+    <ClInclude Include="..\modules\E3D\src\Materials\MipMapWH.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\E3D\src\Materials\TexObjWH.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\E3D\src\Mesh\CMesh.h">
       <Filter>Mesh</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Mesh\CMesh_Box.h">
+    <ClInclude Include="..\modules\E3D\src\Mesh\CMesh_Box.h">
       <Filter>Mesh</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Mesh\CMesh_Cross.h">
+    <ClInclude Include="..\modules\E3D\src\Mesh\CMesh_Cross.h">
       <Filter>Mesh</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Mesh\CMesh_Rect.h">
+    <ClInclude Include="..\modules\E3D\src\Mesh\CMesh_Rect.h">
       <Filter>Mesh</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Mesh\CMesh_Sphere.h">
+    <ClInclude Include="..\modules\E3D\src\Mesh\CMesh_Sphere.h">
       <Filter>Mesh</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Mesh\MeshUtils\MESHUt_BuildNIMesh.h">
+    <ClInclude Include="..\modules\E3D\src\Mesh\Mesh.h">
+      <Filter>Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\E3D\src\Mesh\MeshUtils\MESHUt_BuildNIMesh.h">
       <Filter>Mesh\MeshUtils</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Mesh\MeshUtils\NormalGen.h">
+    <ClInclude Include="..\modules\E3D\src\Mesh\MeshUtils\NormalGen.h">
       <Filter>Mesh\MeshUtils</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Mesh\MeshUtils\TexCoordGen.h">
+    <ClInclude Include="..\modules\E3D\src\Mesh\MeshUtils\TexCoordGen.h">
       <Filter>Mesh\MeshUtils</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Mesh\MeshUtils\TransformMesh.h">
+    <ClInclude Include="..\modules\E3D\src\Mesh\MeshUtils\TransformMesh.h">
       <Filter>Mesh\MeshUtils</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\MeshDB\CDefferredMeshDB.h">
+    <ClInclude Include="..\modules\E3D\src\MeshDB\CDefferredMeshDB.h">
       <Filter>MeshDB</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\MeshDB\TDefferredMeshEntry.h">
-      <Filter>MeshDB</Filter>
+    <ClInclude Include="..\modules\E3D\src\Programs\CE3D_ShaderDefFileWH.h">
+      <Filter>Programs</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\MeshDB\eE3D_MeshType.h">
-      <Filter>MeshDB</Filter>
+    <ClInclude Include="..\modules\E3D\src\Programs\CE3D_ShaderDefWH.h">
+      <Filter>Programs</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\RenderVars\CE3D_RenderVars.h">
+    <ClInclude Include="..\modules\E3D\src\Programs\eE3D_ZWrite.h">
+      <Filter>Programs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\E3D\src\RenderVars\CE3D_RenderVars.h">
       <Filter>RenderVars</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Shaders\CE3D_Shader.h">
+    <ClInclude Include="..\modules\E3D\src\Shaders\CE3D_Shader.h">
       <Filter>Shaders</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Shaders\CE3D_ShaderExtDB.h">
+    <ClInclude Include="..\modules\E3D\src\Shaders\CE3D_ShaderExtDB.h">
       <Filter>Shaders</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Shaders\ShaderDefWarehouse\CE3D_ShDefWH_Entry.h">
-      <Filter>Shaders\ShaderDefWarehouse</Filter>
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderDefinitions\CE3D_ShaderDefFileWH.h">
+      <Filter>Shaders\ShaderDefinitions</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Shaders\ShaderDefWarehouse\CE3D_ShaderDefWH.h">
-      <Filter>Shaders\ShaderDefWarehouse</Filter>
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderDefinitions\CE3D_ShaderDefWH.h">
+      <Filter>Shaders\ShaderDefinitions</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Shaders\ShaderInstructions\CE3D_ShIns_BlendOp.h">
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\CE3D_ShIns_BlendOp.h">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Shaders\ShaderInstructions\CE3D_ShIns_Color.h">
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\CE3D_ShIns_Color.h">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Shaders\ShaderInstructions\CE3D_ShIns_Extension.h">
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\CE3D_ShIns_Extension.h">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Shaders\ShaderInstructions\CE3D_ShIns_GeoOp.h">
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\CE3D_ShIns_GeoOp.h">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Shaders\ShaderInstructions\CE3D_ShIns_SetTMU.h">
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\CE3D_ShIns_Program.h">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Shaders\ShaderInstructions\CE3D_ShIns_TexOp.h">
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\CE3D_ShIns_SetTMU.h">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Shaders\ShaderInstructions\CE3D_ShIns_Texture.h">
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\CE3D_ShIns_TexOp.h">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Shaders\ShaderInstructions\CE3D_ShIns_Wireframe.h">
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\CE3D_ShIns_Texture.h">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Shaders\ShaderInstructions\CE3D_ShaderInstruction.h">
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\CE3D_ShIns_Wireframe.h">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Shaders\ShaderInstructions\CE3D_ShaderInsts.h">
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\CE3D_ShIns_ZOp.h">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Shaders\ShaderInstructions\eShInsBlendOp_TypeID.h">
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\CE3D_ShaderInstruction.h">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Shaders\ShaderInstructions\eShInsGeoOp_TypeID.h">
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\CE3D_ShaderInsts.h">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Shaders\ShaderInstructions\eShInsTexOp_TypeID.h">
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\EE3D_ShaderInstructionType.h">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Shaders\ShaderInstructions\eShaderInstruction_TypeID.h">
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\eShInsBlendOp_TypeID.h">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Shaders\ShaderParser\CE3D_ShaderParser.h">
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\eShInsGeoOp_TypeID.h">
+      <Filter>Shaders\ShaderInstructions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\eShInsTexOp_TypeID.h">
+      <Filter>Shaders\ShaderInstructions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderParser\CE3D_ShaderParser.h">
       <Filter>Shaders\ShaderParser</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Shaders\ShaderUtils\CE3D_ShaderUtils.h">
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderUtils\CE3D_ShaderUtils.h">
       <Filter>Shaders\ShaderUtils</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Shaders\ShaderWarehouse\CE3D_ShWH_Entry.h">
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderWarehouse\CE3D_ShWH_Entry.h">
       <Filter>Shaders\ShaderWarehouse</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Shaders\ShaderWarehouse\CE3D_ShaderWH.h">
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderWarehouse\CE3D_ShaderWH.h">
       <Filter>Shaders\ShaderWarehouse</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Viewing\Camera\CE3D_Camera.h">
+    <ClInclude Include="..\modules\E3D\src\Viewing\Camera\CE3D_Camera.h">
       <Filter>Viewing\Camera</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Viewing\Frustum\CE3D_Frustum.h">
+    <ClInclude Include="..\modules\E3D\src\Viewing\Frustum\CE3D_Frustum.h">
       <Filter>Viewing\Frustum</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Viewing\Projector\CE3D_Projector.h">
+    <ClInclude Include="..\modules\E3D\src\Viewing\Projector\CE3D_Projector.h">
       <Filter>Viewing\Projector</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Viewing\Projector\eE3D_ProjectorType.h">
+    <ClInclude Include="..\modules\E3D\src\Viewing\Projector\eE3D_ProjectorType.h">
       <Filter>Viewing\Projector</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\Viewing\Viewport\CE3D_Viewport.h">
+    <ClInclude Include="..\modules\E3D\src\Viewing\Viewport\CE3D_Viewport.h">
       <Filter>Viewing\Viewport</Filter>
     </ClInclude>
-    <ClInclude Include="..\E3D\eE3D_ChannelMask.h" />
-    <ClInclude Include="..\E3D\eE3D_FogMode.h" />
-    <ClInclude Include="..\E3D\eE3D_RenderBuffer_Type.h" />
-    <ClInclude Include="..\E3D\eE3D_StencilAction.h" />
-    <ClInclude Include="..\E3D\eE3D_StencilFunc.h" />
-    <ClInclude Include="..\E3D\eE3D_ZTestFunc.h" />
-    <ClInclude Include="..\E3D\eE3D_ZWrite.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\E3D\BoundingVolume\CBoundingBox.cpp">
+    <ClCompile Include="..\modules\E3D\src\BoundingVolume\CBoundingBox.cpp">
       <Filter>BoundingVolume</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\BoundingVolume\CBoundingCylinder.cpp">
+    <ClCompile Include="..\modules\E3D\src\BoundingVolume\CBoundingCylinder.cpp">
       <Filter>BoundingVolume</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\BoundingVolume\CBoundingSphere.cpp">
+    <ClCompile Include="..\modules\E3D\src\BoundingVolume\CBoundingSphere.cpp">
       <Filter>BoundingVolume</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\BoundingVolume\CBoundingVolume.cpp">
+    <ClCompile Include="..\modules\E3D\src\BoundingVolume\CBoundingVolume.cpp">
       <Filter>BoundingVolume</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\BoundingVolume\GraphBoundVol\CGraphBV.cpp">
+    <ClCompile Include="..\modules\E3D\src\BoundingVolume\GraphBoundVol\CGraphBV.cpp">
       <Filter>BoundingVolume\GraphBoundVol</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\BoundingVolume\GraphBoundVol\CGraphBV_Box.cpp">
+    <ClCompile Include="..\modules\E3D\src\BoundingVolume\GraphBoundVol\CGraphBV_Box.cpp">
       <Filter>BoundingVolume\GraphBoundVol</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\BoundingVolume\GraphBoundVol\CGraphBV_Cylinder.cpp">
+    <ClCompile Include="..\modules\E3D\src\BoundingVolume\GraphBoundVol\CGraphBV_Cylinder.cpp">
       <Filter>BoundingVolume\GraphBoundVol</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\BoundingVolume\GraphBoundVol\CGraphBV_Manager.cpp">
+    <ClCompile Include="..\modules\E3D\src\BoundingVolume\GraphBoundVol\CGraphBV_Manager.cpp">
       <Filter>BoundingVolume\GraphBoundVol</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\BoundingVolume\GraphBoundVol\CGraphBV_Point.cpp">
+    <ClCompile Include="..\modules\E3D\src\BoundingVolume\GraphBoundVol\CGraphBV_Point.cpp">
       <Filter>BoundingVolume\GraphBoundVol</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\BoundingVolume\GraphBoundVol\CGraphBV_Sphere.cpp">
+    <ClCompile Include="..\modules\E3D\src\BoundingVolume\GraphBoundVol\CGraphBV_Sphere.cpp">
       <Filter>BoundingVolume\GraphBoundVol</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\BoundingVolume\GraphBoundVol\GraphBVUtils\CGraphBV_FileIO.cpp">
+    <ClCompile Include="..\modules\E3D\src\BoundingVolume\GraphBoundVol\GraphBVUtils\CGraphBV_FileIO.cpp">
       <Filter>BoundingVolume\GraphBoundVol\GraphBVUtils</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\BoundingVolume\GraphBoundVol\eGraphBV_TypeID.cpp">
+    <ClCompile Include="..\modules\E3D\src\BoundingVolume\GraphBoundVol\eGraphBV_TypeID.cpp">
       <Filter>BoundingVolume\GraphBoundVol</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\CE3D_RenderState.cpp" />
-    <ClCompile Include="..\E3D\CE3D_RenderStats.cpp" />
-    <ClCompile Include="..\E3D\CE3D_Renderer.cpp" />
-    <ClCompile Include="..\E3D\CompiledMesh\CCompiledMesh.cpp">
+    <ClCompile Include="..\modules\E3D\src\CE3D_RenderState.cpp" />
+    <ClCompile Include="..\modules\E3D\src\CE3D_Renderer.cpp" />
+    <ClCompile Include="..\modules\E3D\src\CompiledMesh\CCompiledMesh.cpp">
       <Filter>CompiledMesh</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Drivers\OGL\CE3D_OGL_Renderer.cpp">
+    <ClCompile Include="..\modules\E3D\src\Drivers\OGL\CE3D_OGL_MatrixStack.cpp">
       <Filter>Drivers\OGL</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Drivers\OGL\CE3D_OGL_Win_Renderer.cpp">
+    <ClCompile Include="..\modules\E3D\src\Drivers\OGL\CE3D_OGL_Renderer.cpp">
       <Filter>Drivers\OGL</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Drivers\OGL\ShaderRenderOGL\CE3D_ShaderRenderer_OGL.cpp">
+    <ClCompile Include="..\modules\E3D\src\Drivers\OGL\CE3D_OGL_Win_Renderer.cpp">
+      <Filter>Drivers\OGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\E3D\src\Drivers\OGL\ShaderRenderOGL\CE3D_ShaderRenderer_OGL.cpp">
       <Filter>Drivers\OGL\ShaderRenderOGL</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\GammaE_E3D.cpp" />
-    <ClCompile Include="..\E3D\Light\CE3D_Light.cpp">
+    <ClCompile Include="..\modules\E3D\src\Light\CE3D_Light.cpp">
       <Filter>Light</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Materials\ColorObj.cpp">
+    <ClCompile Include="..\modules\E3D\src\Light\LightWH.cpp">
+      <Filter>Light</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\E3D\src\Materials\CGColor.cpp">
       <Filter>Materials</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Materials\MipMapObj.cpp">
+    <ClCompile Include="..\modules\E3D\src\Materials\CGMipMap.cpp">
       <Filter>Materials</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Materials\MipMapWH.cpp">
+    <ClCompile Include="..\modules\E3D\src\Materials\CGProgram.cpp">
       <Filter>Materials</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Materials\TexObj.cpp">
+    <ClCompile Include="..\modules\E3D\src\Materials\CGProgramWH.cpp">
       <Filter>Materials</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Materials\TexObjWH.cpp">
+    <ClCompile Include="..\modules\E3D\src\Materials\CGTexObj.cpp">
       <Filter>Materials</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Mesh\CMesh.cpp">
+    <ClCompile Include="..\modules\E3D\src\Materials\MipMapWH.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\E3D\src\Materials\TexObjWH.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\E3D\src\Mesh\CMesh.cpp">
       <Filter>Mesh</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Mesh\CMesh_Box.cpp">
+    <ClCompile Include="..\modules\E3D\src\Mesh\CMesh_Box.cpp">
       <Filter>Mesh</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Mesh\CMesh_Cross.cpp">
+    <ClCompile Include="..\modules\E3D\src\Mesh\CMesh_Cross.cpp">
       <Filter>Mesh</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Mesh\CMesh_Rect.cpp">
+    <ClCompile Include="..\modules\E3D\src\Mesh\CMesh_Rect.cpp">
       <Filter>Mesh</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Mesh\CMesh_Sphere.cpp">
+    <ClCompile Include="..\modules\E3D\src\Mesh\CMesh_Sphere.cpp">
       <Filter>Mesh</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Mesh\MeshUtils\MESHUt_BuildNIMesh.cpp">
+    <ClCompile Include="..\modules\E3D\src\Mesh\Mesh.cpp">
+      <Filter>Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\E3D\src\Mesh\MeshUtils\MESHUt_BuildNIMesh.cpp">
       <Filter>Mesh\MeshUtils</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Mesh\MeshUtils\NormalGen.cpp">
+    <ClCompile Include="..\modules\E3D\src\Mesh\MeshUtils\NormalGen.cpp">
       <Filter>Mesh\MeshUtils</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Mesh\MeshUtils\TexCoordGen.cpp">
+    <ClCompile Include="..\modules\E3D\src\Mesh\MeshUtils\TexCoordGen.cpp">
       <Filter>Mesh\MeshUtils</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Mesh\MeshUtils\TransformMesh.cpp">
+    <ClCompile Include="..\modules\E3D\src\Mesh\MeshUtils\TransformMesh.cpp">
       <Filter>Mesh\MeshUtils</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\MeshDB\CDefferredMeshDB.cpp">
+    <ClCompile Include="..\modules\E3D\src\MeshDB\CDefferredMeshDB.cpp">
       <Filter>MeshDB</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\MeshDB\TDefferredMeshEntry.cpp">
-      <Filter>MeshDB</Filter>
+    <ClCompile Include="..\modules\E3D\src\Programs\CE3D_ShaderDefFileWH.cpp">
+      <Filter>Programs</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\MeshDB\eE3D_MeshType.cpp">
-      <Filter>MeshDB</Filter>
+    <ClCompile Include="..\modules\E3D\src\Programs\CE3D_ShaderDefWH.cpp">
+      <Filter>Programs</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\RenderVars\CE3D_RenderVars.cpp">
+    <ClCompile Include="..\modules\E3D\src\Programs\eE3D_ZWrite.cpp">
+      <Filter>Programs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\E3D\src\RenderVars\CE3D_RenderVars.cpp">
       <Filter>RenderVars</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Shaders\CE3D_Shader.cpp">
+    <ClCompile Include="..\modules\E3D\src\Shaders\CE3D_Shader.cpp">
       <Filter>Shaders</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Shaders\CE3D_ShaderExtDB.cpp">
+    <ClCompile Include="..\modules\E3D\src\Shaders\CE3D_ShaderExtDB.cpp">
       <Filter>Shaders</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Shaders\ShaderDefWarehouse\CE3D_ShDefWH_Entry.cpp">
-      <Filter>Shaders\ShaderDefWarehouse</Filter>
+    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderDefinitions\CE3D_ShaderDefFileWH.cpp">
+      <Filter>Shaders\ShaderDefinitions</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Shaders\ShaderDefWarehouse\CE3D_ShaderDefWH.cpp">
-      <Filter>Shaders\ShaderDefWarehouse</Filter>
+    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderDefinitions\CE3D_ShaderDefWH.cpp">
+      <Filter>Shaders\ShaderDefinitions</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Shaders\ShaderInstructions\CE3D_ShIns_BlendOp.cpp">
+    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\CE3D_ShIns_BlendOp.cpp">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Shaders\ShaderInstructions\CE3D_ShIns_Color.cpp">
+    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\CE3D_ShIns_Color.cpp">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Shaders\ShaderInstructions\CE3D_ShIns_Extension.cpp">
+    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\CE3D_ShIns_Extension.cpp">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Shaders\ShaderInstructions\CE3D_ShIns_GeoOp.cpp">
+    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\CE3D_ShIns_GeoOp.cpp">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Shaders\ShaderInstructions\CE3D_ShIns_SetTMU.cpp">
+    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\CE3D_ShIns_Program.cpp">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Shaders\ShaderInstructions\CE3D_ShIns_TexOp.cpp">
+    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\CE3D_ShIns_SetTMU.cpp">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Shaders\ShaderInstructions\CE3D_ShIns_Texture.cpp">
+    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\CE3D_ShIns_TexOp.cpp">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Shaders\ShaderInstructions\CE3D_ShIns_Wireframe.cpp">
+    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\CE3D_ShIns_Texture.cpp">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Shaders\ShaderInstructions\CE3D_ShaderInstruction.cpp">
+    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\CE3D_ShIns_Wireframe.cpp">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Shaders\ShaderInstructions\CE3D_ShaderInsts.cpp">
+    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\CE3D_ShIns_ZOp.cpp">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Shaders\ShaderInstructions\eShInsBlendOp_TypeID.cpp">
+    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\CE3D_ShaderInstruction.cpp">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Shaders\ShaderInstructions\eShInsGeoOp_TypeID.cpp">
+    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\CE3D_ShaderInsts.cpp">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Shaders\ShaderInstructions\eShInsTexOp_TypeID.cpp">
+    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\eShInsBlendOp_TypeID.cpp">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Shaders\ShaderInstructions\eShaderInstruction_TypeID.cpp">
+    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\eShInsGeoOp_TypeID.cpp">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Shaders\ShaderParser\CE3D_ShaderParser.cpp">
+    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\eShInsTexOp_TypeID.cpp">
+      <Filter>Shaders\ShaderInstructions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderParser\CE3D_ShaderParser.cpp">
       <Filter>Shaders\ShaderParser</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Shaders\ShaderUtils\CE3D_ShaderUtils.cpp">
+    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderUtils\CE3D_ShaderUtils.cpp">
       <Filter>Shaders\ShaderUtils</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Shaders\ShaderWarehouse\CE3D_ShWH_Entry.cpp">
+    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderWarehouse\CE3D_ShWH_Entry.cpp">
       <Filter>Shaders\ShaderWarehouse</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Shaders\ShaderWarehouse\CE3D_ShaderWH.cpp">
+    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderWarehouse\CE3D_ShaderWH.cpp">
       <Filter>Shaders\ShaderWarehouse</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Viewing\Camera\CE3D_Camera.cpp">
+    <ClCompile Include="..\modules\E3D\src\Viewing\Camera\CE3D_Camera.cpp">
       <Filter>Viewing\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Viewing\Frustum\CE3D_Frustum.cpp">
+    <ClCompile Include="..\modules\E3D\src\Viewing\Frustum\CE3D_Frustum.cpp">
       <Filter>Viewing\Frustum</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Viewing\Projector\CE3D_Projector.cpp">
+    <ClCompile Include="..\modules\E3D\src\Viewing\Projector\CE3D_Projector.cpp">
       <Filter>Viewing\Projector</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Viewing\Projector\eE3D_ProjectorType.cpp">
+    <ClCompile Include="..\modules\E3D\src\Viewing\Projector\eE3D_ProjectorType.cpp">
       <Filter>Viewing\Projector</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\Viewing\Viewport\CE3D_Viewport.cpp">
+    <ClCompile Include="..\modules\E3D\src\Viewing\Viewport\CE3D_Viewport.cpp">
       <Filter>Viewing\Viewport</Filter>
     </ClCompile>
-    <ClCompile Include="..\E3D\eE3D_ChannelMask.cpp" />
-    <ClCompile Include="..\E3D\eE3D_FogMode.cpp" />
-    <ClCompile Include="..\E3D\eE3D_RenderBuffer_Type.cpp" />
-    <ClCompile Include="..\E3D\eE3D_StencilAction.cpp" />
-    <ClCompile Include="..\E3D\eE3D_StencilFunc.cpp" />
-    <ClCompile Include="..\E3D\eE3D_ZTestFunc.cpp" />
-    <ClCompile Include="..\E3D\eE3D_ZWrite.cpp" />
   </ItemGroup>
 </Project>

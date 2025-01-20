@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Collider">
+      <UniqueIdentifier>{4359c470-3756-495f-8bec-f6e82d1b5c71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CollisionUtils">
+      <UniqueIdentifier>{64b7d98b-a8a5-423b-930b-398ca8d2d34d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CollisionSystem">
+      <UniqueIdentifier>{bb9b3969-a880-4d25-965b-b762ca044136}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="COL_TriList">
+      <UniqueIdentifier>{86ecd5d5-ef69-4623-8194-84acab41455e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="COL_Testers">
+      <UniqueIdentifier>{c44d613a-554e-4036-9ea1-bb1e736a9bc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="COL_Testers\COL_StaticTest">
+      <UniqueIdentifier>{32aba198-2b41-4ea1-9719-d23a08fe0e32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="COL_Testers\COL_DynamicTest">
+      <UniqueIdentifier>{7f2faedb-4121-4ab6-b086-c9f10c0d9976}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="COL_Testers\COL_SceneTest">
+      <UniqueIdentifier>{f73e2232-c6e8-4180-82fe-159a72b4008b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="COL_Testers\COL_SceneTest\COL_MeshTest">
+      <UniqueIdentifier>{62135115-867b-445d-a8d9-42e2b99e5e34}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Collider\CCOL_Collider.cpp">
+      <Filter>Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Collider\CCOL_Stack.cpp">
+      <Filter>Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CollisionUtils\CCOL_TriList_BVRayTest.cpp">
+      <Filter>CollisionUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CollisionSystem\CCOL_CollisionSystem.cpp">
+      <Filter>CollisionSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CollisionSystem\CCOL_ColState.cpp">
+      <Filter>CollisionSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\COL_TriList\CCOL_Scn_TriListGen.cpp">
+      <Filter>COL_TriList</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\COL_TriList\CCOL_Triangle.cpp">
+      <Filter>COL_TriList</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\COL_TriList\CCOL_TriList.cpp">
+      <Filter>COL_TriList</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\COL_TriList\CCOL_TriListGen.cpp">
+      <Filter>COL_TriList</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\COL_TriList\CCOL_TRN_TriListGen.cpp">
+      <Filter>COL_TriList</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\COL_Testers\COL_StaticTest\CCOL_ST_Box.cpp">
+      <Filter>COL_Testers\COL_StaticTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\COL_Testers\COL_StaticTest\CCOL_ST_ColTester.cpp">
+      <Filter>COL_Testers\COL_StaticTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\COL_Testers\COL_StaticTest\CCOL_ST_Point.cpp">
+      <Filter>COL_Testers\COL_StaticTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\COL_Testers\COL_StaticTest\CCOL_ST_Sphere.cpp">
+      <Filter>COL_Testers\COL_StaticTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\COL_Testers\COL_StaticTest\CCOL_ST_Tris.cpp">
+      <Filter>COL_Testers\COL_StaticTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\COL_Testers\COL_DynamicTest\CCOL_DT_Box.cpp">
+      <Filter>COL_Testers\COL_DynamicTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\COL_Testers\COL_DynamicTest\CCOL_DT_ColTester.cpp">
+      <Filter>COL_Testers\COL_DynamicTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\COL_Testers\COL_DynamicTest\CCOL_DT_Point.cpp">
+      <Filter>COL_Testers\COL_DynamicTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\COL_Testers\COL_DynamicTest\CCOL_DT_Sphere.cpp">
+      <Filter>COL_Testers\COL_DynamicTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\COL_Testers\COL_DynamicTest\CCOL_DT_Tri.cpp">
+      <Filter>COL_Testers\COL_DynamicTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\COL_Testers\COL_SceneTest\CCOL_Mesh.cpp">
+      <Filter>COL_Testers\COL_SceneTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\COL_Testers\COL_SceneTest\CCOL_Scn_ColTester.cpp">
+      <Filter>COL_Testers\COL_SceneTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MeshTester.cpp">
+      <Filter>COL_Testers\COL_SceneTest\COL_MeshTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_CommonMesh.cpp">
+      <Filter>COL_Testers\COL_SceneTest\COL_MeshTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_TerrainMesh.cpp">
+      <Filter>COL_Testers\COL_SceneTest\COL_MeshTest</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\Collider\CCOL_Collider.h">
+      <Filter>Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Collider\CCOL_Stack.h">
+      <Filter>Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Collider\eCOL_ColliderType.h">
+      <Filter>Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Collider\eCOL_TestType.h">
+      <Filter>Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\CollisionUtils\CCOL_TriList_BVRayTest.h">
+      <Filter>CollisionUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\CollisionSystem\CCOL_CollisionSystem.h">
+      <Filter>CollisionSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\CollisionSystem\CCOL_ColState.h">
+      <Filter>CollisionSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\COL_TriList\CCOL_Scn_TriListGen.h">
+      <Filter>COL_TriList</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\COL_TriList\CCOL_Triangle.h">
+      <Filter>COL_TriList</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\COL_TriList\CCOL_TriList.h">
+      <Filter>COL_TriList</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\COL_TriList\CCOL_TriListGen.h">
+      <Filter>COL_TriList</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\COL_TriList\CCOL_TRN_TriListGen.h">
+      <Filter>COL_TriList</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\COL_Testers\COL_StaticTest\CCOL_ST_Box.h">
+      <Filter>COL_Testers\COL_StaticTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\COL_Testers\COL_StaticTest\CCOL_ST_ColTester.h">
+      <Filter>COL_Testers\COL_StaticTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\COL_Testers\COL_StaticTest\CCOL_ST_Point.h">
+      <Filter>COL_Testers\COL_StaticTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\COL_Testers\COL_StaticTest\CCOL_ST_Sphere.h">
+      <Filter>COL_Testers\COL_StaticTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\COL_Testers\COL_StaticTest\CCOL_ST_Tris.h">
+      <Filter>COL_Testers\COL_StaticTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\COL_Testers\COL_DynamicTest\CCOL_DT_Box.h">
+      <Filter>COL_Testers\COL_DynamicTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\COL_Testers\COL_DynamicTest\CCOL_DT_ColTester.h">
+      <Filter>COL_Testers\COL_DynamicTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\COL_Testers\COL_DynamicTest\CCOL_DT_Point.h">
+      <Filter>COL_Testers\COL_DynamicTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\COL_Testers\COL_DynamicTest\CCOL_DT_Sphere.h">
+      <Filter>COL_Testers\COL_DynamicTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\COL_Testers\COL_DynamicTest\CCOL_DT_Tri.h">
+      <Filter>COL_Testers\COL_DynamicTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\COL_Testers\COL_SceneTest\CCOL_Mesh.h">
+      <Filter>COL_Testers\COL_SceneTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\COL_Testers\COL_SceneTest\CCOL_Scn_ColTester.h">
+      <Filter>COL_Testers\COL_SceneTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MeshTester.h">
+      <Filter>COL_Testers\COL_SceneTest\COL_MeshTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_CommonMesh.h">
+      <Filter>COL_Testers\COL_SceneTest\COL_MeshTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_TerrainMesh.h">
+      <Filter>COL_Testers\COL_SceneTest\COL_MeshTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GCollision.h" />
+  </ItemGroup>
+</Project>

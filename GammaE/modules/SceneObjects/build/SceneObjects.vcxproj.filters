@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Console">
+      <UniqueIdentifier>{f58cbcf2-c4dc-447d-bfd3-82bc7c53fe7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SceneAxis">
+      <UniqueIdentifier>{7ce4ea8c-7999-4617-8fb5-6fbf49e48a82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SkyDome">
+      <UniqueIdentifier>{004c7903-2158-4b6a-a181-184f5ce10408}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SkyBox">
+      <UniqueIdentifier>{fa832056-a42f-405b-9a75-ece666408513}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LensFlare">
+      <UniqueIdentifier>{e020d6c7-056c-4974-83c4-2570f541e49d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Reflector">
+      <UniqueIdentifier>{507eefef-489a-4ab1-bc19-1a4bbfb76cde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Detailer">
+      <UniqueIdentifier>{6550476b-db91-463e-a431-fe80d998fe41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CoronaMgr">
+      <UniqueIdentifier>{2db990e3-6ba4-4238-a86e-2a0324c414a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ShadowCaster">
+      <UniqueIdentifier>{4d8d08fe-0a9c-44d9-94bf-fe11c09eefd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TexProjector">
+      <UniqueIdentifier>{d9cb09a8-2b94-4c47-b6d4-6ac9e24e3e86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HUD">
+      <UniqueIdentifier>{a29beed5-080a-4965-b86c-316c5a2e6a69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HUD\Font">
+      <UniqueIdentifier>{b5d12140-6b76-4f86-9474-26d206753570}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HUD\MsgBox">
+      <UniqueIdentifier>{8694db5d-bd4b-4194-9f9b-d836a79a3684}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HUD\HUDFile">
+      <UniqueIdentifier>{a4c49795-7503-438e-8a78-cf98e9dcbaef}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Console\CConsole.cpp">
+      <Filter>Console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SceneAxis\SceneAxis.cpp">
+      <Filter>SceneAxis</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SkyDome\CSkyDome.cpp">
+      <Filter>SkyDome</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SkyBox\CSkyBox.cpp">
+      <Filter>SkyBox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\LensFlare\CLensFlare.cpp">
+      <Filter>LensFlare</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\LensFlare\CLensFlare_Elem.cpp">
+      <Filter>LensFlare</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Reflector\CObject3D_Reflector.cpp">
+      <Filter>Reflector</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Detailer\CDetailer.cpp">
+      <Filter>Detailer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CoronaMgr\CCorona.cpp">
+      <Filter>CoronaMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CoronaMgr\CCoronaMgr.cpp">
+      <Filter>CoronaMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ShadowCaster\CShadowCaster.cpp">
+      <Filter>ShadowCaster</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TexProjector\CTexProjector.cpp">
+      <Filter>TexProjector</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\HUD\CHUD.cpp">
+      <Filter>HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\HUD\CHUDIcon.cpp">
+      <Filter>HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\HUD\CHUDLabel.cpp">
+      <Filter>HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\HUD\CHUDProgressBar.cpp">
+      <Filter>HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\HUD\Font\CHUDFont.cpp">
+      <Filter>HUD\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\HUD\Font\CHUDFontWH.cpp">
+      <Filter>HUD\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\HUD\MsgBox\CHUDMsgBox.cpp">
+      <Filter>HUD\MsgBox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\HUD\MsgBox\CMenuTextGrid.cpp">
+      <Filter>HUD\MsgBox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\HUD\HUDFile\CHUDFile.cpp">
+      <Filter>HUD\HUDFile</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\Console\CConsole.h">
+      <Filter>Console</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SkyDome\CSkyDome.h">
+      <Filter>SkyDome</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SkyBox\CSkyBox.h">
+      <Filter>SkyBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\LensFlare\CLensFlare.h">
+      <Filter>LensFlare</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\LensFlare\CLensFlare_Elem.h">
+      <Filter>LensFlare</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Reflector\CObject3D_Reflector.h">
+      <Filter>Reflector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Detailer\CDetailer.h">
+      <Filter>Detailer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\CoronaMgr\CCorona.h">
+      <Filter>CoronaMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\CoronaMgr\CCoronaMgr.h">
+      <Filter>CoronaMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ShadowCaster\CShadowCaster.h">
+      <Filter>ShadowCaster</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TexProjector\CTexProjector.h">
+      <Filter>TexProjector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\HUD\CHUD.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\HUD\CHUDIcon.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\HUD\CHUDLabel.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\HUD\CHUDObject.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\HUD\CHUDProgressBar.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\HUD\Font\CHUDFont.h">
+      <Filter>HUD\Font</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\HUD\Font\CHUDFontWH.h">
+      <Filter>HUD\Font</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\HUD\MsgBox\CHUDMsgBox.h">
+      <Filter>HUD\MsgBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\HUD\MsgBox\CMenuTextGrid.h">
+      <Filter>HUD\MsgBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\HUD\HUDFile\CHUDFile.h">
+      <Filter>HUD\HUDFile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GSceneObjects.h" />
+  </ItemGroup>
+</Project>

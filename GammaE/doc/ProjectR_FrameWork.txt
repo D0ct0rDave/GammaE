@@ -1,0 +1,75 @@
+
+Organización de los proyectos: Estructura de directorios.
+
+He estudiado la posibilidad de hacerlo a la manera estandard de tener la siguiente estructura:
+	
+	projectname -	src		: CPPs
+					include : Hs
+					lib		: .lib
+					build	: vcproj / sln
+
+pero esto implica disociar los .h de los cpps, y es algo que ahora mismo es poco cómodo para trabajar.
+
+
+Esta es la estrategia seguida:
+
+Para los ficheros fuente:
+
+	ProjectName
+
+		- build:
+		[ vcproj, sln ]
+
+		- src:
+		[ CPPs, Hs ]
+
+Ficheros compilados:
+
+	ProjectName	
+
+		- COMPILED
+
+			- Plataforma: (VC / Borland / ...)
+
+				Configuración: (Debug, Release, Profile ...)
+				[ OBJs, BINs, SBRs, LIB, EXEs... ]
+
+	En el caso de los exes y libs, habría que poner un postbuild step para copiar los resultados
+	en un directorio final.
+
+		- lib
+		[ .LIBs ]
+			
+		-(Root)
+		[ EXEs ]
+
+Había estudiado la posibilidad de volcar los ficheros compilados en el directorio de la aplicación, 
+de manera que si se encuentra un problema, simplemente borrando ese directorio ya es suficiente. 
+Sin embargo, a la que la complejidad de la aplicacion crece, y te ves obligado a añadir otras 
+aplicaciones y herramientas, cada una de ellas tiene que replicar los ficheros compilados del motor 
+y las librerias, por lo que:
+	1- El tiempo de compilación aumenta en todos las aplicaciones y herramientas si 1 día modificas
+	un .H.
+	2- A veces tienes incoherencias porque modificaste un fichero 1 día, y lo compilaste para una
+	herramienta, y la herramienta actual no se ha dado cuenta de esa modificación, lo que se traduce
+	en una incoherencia que provoca errores de ejecución y debug.
+	3- El espacio de disco requerido aumenta considerablemente puesto que cada aplicación/herramienta
+	contiene un directorio con los ficheros compilados del motor / librerias
+
+
+Organizacíón de la solución GammaE: Estructura de directorios.
+
+SolutionDir
+	
+		- modules
+			Modulos del motor	
+
+		- build
+			Contine el fichero .sln
+			
+		- lib
+			Contiene las librerias copiadas con un postbuild event
+			
+		- inc
+			contiene el fichero .h que incluirán las aplicaciones que utilicen el motor.
+			

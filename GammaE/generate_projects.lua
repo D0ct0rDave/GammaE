@@ -1,8 +1,9 @@
 -- premake5.lua for the full Framework
+BUILD_LOCATION = os.getcwd() .. "/build"
 
 workspace "GammaE"
     configurations { "Debug", "Release" }
-    location "build" -- Generated build files for the workspace
+    location(BUILD_LOCATION) -- Generated build files for the workspace
     architecture "x86_64"
 
     -- Set the C++ standard for all projects in the workspace

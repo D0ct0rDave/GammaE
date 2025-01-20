@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Console">
-      <UniqueIdentifier>{389F3134-A47E-B0CF-AD96-3BA619F51631}</UniqueIdentifier>
+    <Filter Include="Logging">
+      <UniqueIdentifier>{AC6878E8-1848-F783-2160-825A8DBE5DE5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ParseUtils">
-      <UniqueIdentifier>{31B5B857-1D6D-FAA4-8674-D300724B9595}</UniqueIdentifier>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{ED6CDF9B-D939-3AA7-0253-284FEE7E6F35}</UniqueIdentifier>
     </Filter>
     <Filter Include="TAD">
       <UniqueIdentifier>{DE20880B-4A2A-887C-D3A5-9E7C3FAE937C}</UniqueIdentifier>
@@ -13,74 +13,156 @@
     <Filter Include="Timing">
       <UniqueIdentifier>{0DF979D3-F99A-A4A9-E255-B8FDCE962BFA}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Timming">
-      <UniqueIdentifier>{3A38BB42-A617-3ADE-AF2F-C5B41B8EA03F}</UniqueIdentifier>
+    <Filter Include="Types">
+      <UniqueIdentifier>{3A4E330E-A662-5BBF-6FE4-FE1EDBB757F0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{F68B420E-62A0-6ABF-2B22-0E1F97F566F0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Misc\Console\ConsoleIO.h">
-      <Filter>Console</Filter>
+    <ClInclude Include="..\modules\Misc\src\GMisc.h" />
+    <ClInclude Include="..\modules\Misc\src\Logging\CGErrorLC.h">
+      <Filter>Logging</Filter>
     </ClInclude>
-    <ClInclude Include="..\Misc\GammaE_Misc.h" />
-    <ClInclude Include="..\Misc\ParseUtils\ParseUtils.h">
-      <Filter>ParseUtils</Filter>
+    <ClInclude Include="..\modules\Misc\src\Logging\CGLogChannel.h">
+      <Filter>Logging</Filter>
     </ClInclude>
-    <ClInclude Include="..\Misc\TAD\CCircularArray.h">
+    <ClInclude Include="..\modules\Misc\src\Logging\CGLogger.h">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Misc\src\Logging\CGStandardLC.h">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Misc\src\Logging\CGSystemLC.h">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Misc\src\Logging\CGWarningLC.h">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Misc\src\MiscConst.h" />
+    <ClInclude Include="..\modules\Misc\src\MiscTypes.h" />
+    <ClInclude Include="..\modules\Misc\src\Resource\CGDiskResourceWH.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Misc\src\Resource\CGReferenceCounter.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Misc\src\Resource\CGResource.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Misc\src\Resource\CGResourceWH.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Misc\src\TAD\CGCircularArray.h">
       <Filter>TAD</Filter>
     </ClInclude>
-    <ClInclude Include="..\Misc\TAD\CDynArray.h">
+    <ClInclude Include="..\modules\Misc\src\TAD\CGDynArray.h">
       <Filter>TAD</Filter>
     </ClInclude>
-    <ClInclude Include="..\Misc\TAD\CHashTable.h">
+    <ClInclude Include="..\modules\Misc\src\TAD\CGHashTable.h">
       <Filter>TAD</Filter>
     </ClInclude>
-    <ClInclude Include="..\Misc\TAD\CLookupArray.h">
+    <ClInclude Include="..\modules\Misc\src\TAD\CGLookupArray.h">
       <Filter>TAD</Filter>
     </ClInclude>
-    <ClInclude Include="..\Misc\TAD\CLookupEntry.h">
+    <ClInclude Include="..\modules\Misc\src\TAD\CGSingleton.h">
       <Filter>TAD</Filter>
     </ClInclude>
-    <ClInclude Include="..\Misc\TAD\CStArray.h">
+    <ClInclude Include="..\modules\Misc\src\TAD\CGStArray.h">
       <Filter>TAD</Filter>
     </ClInclude>
-    <ClInclude Include="..\Misc\Timing\CChrono.h">
+    <ClInclude Include="..\modules\Misc\src\Timing\CGChrono.h">
       <Filter>Timing</Filter>
     </ClInclude>
-    <ClInclude Include="..\Misc\Timming\Chronos.h">
-      <Filter>Timming</Filter>
+    <ClInclude Include="..\modules\Misc\src\Types\CGString.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Misc\src\Types\CGTextResource.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Misc\src\Utils\CGConfigFile.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Misc\src\Utils\CRC.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Misc\src\Utils\MiscUtils.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Misc\src\Utils\ParseUtils.h">
+      <Filter>Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Misc\Console\ConsoleIO.cpp">
-      <Filter>Console</Filter>
+    <ClCompile Include="..\modules\Misc\src\Logging\CGErrorLC.cpp">
+      <Filter>Logging</Filter>
     </ClCompile>
-    <ClCompile Include="..\Misc\GammaE_Misc.cpp" />
-    <ClCompile Include="..\Misc\ParseUtils\ParseUtils.cpp">
-      <Filter>ParseUtils</Filter>
+    <ClCompile Include="..\modules\Misc\src\Logging\CGLogChannel.cpp">
+      <Filter>Logging</Filter>
     </ClCompile>
-    <ClCompile Include="..\Misc\TAD\CCircularArray.cpp">
+    <ClCompile Include="..\modules\Misc\src\Logging\CGLogger.cpp">
+      <Filter>Logging</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Misc\src\Logging\CGStandardLC.cpp">
+      <Filter>Logging</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Misc\src\Logging\CGSystemLC.cpp">
+      <Filter>Logging</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Misc\src\Logging\CGWarningLC.cpp">
+      <Filter>Logging</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Misc\src\Resource\CGDiskResourceWH.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Misc\src\Resource\CGReferenceCounter.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Misc\src\Resource\CGResource.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Misc\src\Resource\CGResourceWH.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Misc\src\TAD\CGCircularArray.cpp">
       <Filter>TAD</Filter>
     </ClCompile>
-    <ClCompile Include="..\Misc\TAD\CDynArray.cpp">
+    <ClCompile Include="..\modules\Misc\src\TAD\CGDynArray.cpp">
       <Filter>TAD</Filter>
     </ClCompile>
-    <ClCompile Include="..\Misc\TAD\CHashTable.cpp">
+    <ClCompile Include="..\modules\Misc\src\TAD\CGHashTable.cpp">
       <Filter>TAD</Filter>
     </ClCompile>
-    <ClCompile Include="..\Misc\TAD\CLookupArray.cpp">
+    <ClCompile Include="..\modules\Misc\src\TAD\CGLookupArray.cpp">
       <Filter>TAD</Filter>
     </ClCompile>
-    <ClCompile Include="..\Misc\TAD\CLookupEntry.cpp">
+    <ClCompile Include="..\modules\Misc\src\TAD\CGSingleton.cpp">
       <Filter>TAD</Filter>
     </ClCompile>
-    <ClCompile Include="..\Misc\TAD\CStArray.cpp">
+    <ClCompile Include="..\modules\Misc\src\TAD\CGStArray.cpp">
       <Filter>TAD</Filter>
     </ClCompile>
-    <ClCompile Include="..\Misc\Timing\CChrono.cpp">
+    <ClCompile Include="..\modules\Misc\src\Timing\CGChrono.cpp">
       <Filter>Timing</Filter>
     </ClCompile>
-    <ClCompile Include="..\Misc\Timming\Chronos.cpp">
-      <Filter>Timming</Filter>
+    <ClCompile Include="..\modules\Misc\src\Types\CGString.cpp">
+      <Filter>Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Misc\src\Types\CGTextResource.cpp">
+      <Filter>Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Misc\src\Utils\CGConfigFile.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Misc\src\Utils\CRC.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Misc\src\Utils\MiscUtils.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Misc\src\Utils\ParseUtils.cpp">
+      <Filter>Utils</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

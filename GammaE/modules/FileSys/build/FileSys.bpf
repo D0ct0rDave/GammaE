@@ -1,0 +1,16 @@
+USEUNIT(".\File\CFile.cpp");
+USEUNIT(".\File\FILEMgr.cpp");
+USEUNIT(".\OSFile\COSFile.cpp");
+USEUNIT(".\OSFile\COSFileW32.cpp");
+USEUNIT(".\OSFile\eFileOS_SeekMode.cpp");
+USEUNIT(".\FileManager\CFileSys_Manager.cpp");
+USEUNIT(".\FileManager\CFileSys_MgrMultiPAK.cpp");
+USEUNIT(".\FileManager\CFileSys_MgrMultiZIP.cpp");
+USEUNIT(".\FileManager\CFileSys_MgrPAK.cpp");
+USEUNIT(".\FileManager\CFileSys_MgrZIP.cpp");
+USEUNIT(".\FileManager\eFile_SeekMode.cpp");
+USEUNIT(".\FileUtils\CFileUtils.cpp");
+USEUNIT(".\GammaE_FileSys.cpp");
+USEFILE("vctobpr.log");
+
+#define Library
