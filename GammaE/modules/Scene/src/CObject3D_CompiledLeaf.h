@@ -1,111 +1,51 @@
-//## begin module%3C50A9EA01AF.cm preserve=no
 //	  %X% %Q% %Z% %W%
-//## end module%3C50A9EA01AF.cm
-
-//## begin module%3C50A9EA01AF.cp preserve=no
-//## end module%3C50A9EA01AF.cp
-
-//## Module: CObject3D_CompiledLeaf%3C50A9EA01AF; Pseudo Package specification
-//## Source file: i:\Projects\GammaE\Scene\CObject3D_CompiledLeaf.h
 
 #ifndef CObject3D_CompiledLeaf_h
 #define CObject3D_CompiledLeaf_h 1
 
-//## begin module%3C50A9EA01AF.additionalIncludes preserve=no
-//## end module%3C50A9EA01AF.additionalIncludes
-
-//## begin module%3C50A9EA01AF.includes preserve=yes
-//## end module%3C50A9EA01AF.includes
-
 // CObject3D
-#include "Scene\CObject3D.h"
-//## begin module%3C50A9EA01AF.additionalDeclarations preserve=yes
-//## end module%3C50A9EA01AF.additionalDeclarations
+#include "CObject3D.h"
 
-
-//## begin CObject3D_CompiledLeaf%3C50A9EA01AF.preface preserve=yes
-//## end CObject3D_CompiledLeaf%3C50A9EA01AF.preface
-
-//## Class: CObject3D_CompiledLeaf%3C50A9EA01AF
-//## Category: Scene%3AA2567D00C8
-//## Persistence: Transient
-//## Cardinality/Multiplicity: n
-
-class CObject3D_CompiledLeaf : public CObject3D  //## Inherits: <unnamed>%3C50AAA40347
+class CObject3D_CompiledLeaf : public CObject3D
 {
-  //## begin CObject3D_CompiledLeaf%3C50A9EA01AF.initialDeclarations preserve=yes
-  //## end CObject3D_CompiledLeaf%3C50A9EA01AF.initialDeclarations
+public: CObject3D_CompiledLeaf();
 
-  public:
-    //## Constructors (generated)
-      CObject3D_CompiledLeaf();
+    virtual ~CObject3D_CompiledLeaf();
 
-    //## Destructor (generated)
-      ~CObject3D_CompiledLeaf();
+    virtual void Render ();
 
+    void SetCMesh (CCompiledMesh *_poCMesh);
 
-    //## Other Operations (specified)
-      //## Operation: Render%1011911202
-      virtual void Render ();
+    virtual CGraphBV *poCreateBoundVol ()
+    {
+        return( CGraphBV_Manager::poCreate() );
+    };
 
-      //## Operation: SetCMesh%1011911203
-      void SetCMesh (CCompiledMesh *_poCMesh);
+    CCompiledMesh *poGetCMesh ();
 
-      //## Operation: poGetCMesh%1011911205
-      CCompiledMesh * poGetCMesh ();
+    virtual CGraphBV *poGetBoundVol ();
 
-      //## Operation: poGetBoundVol%1011911206
-      virtual CGraphBV* poGetBoundVol ();
+    virtual void ComputeBoundVol ();
 
-      //## Operation: ComputeBoundVol%1011911207
-      virtual void ComputeBoundVol ();
+    void SetShader (CE3D_Shader *_poShader);
 
-      //## Operation: SetShader%1011999904
-      void SetShader (CE3D_Shader* _poShader);
+    CE3D_Shader *poGetShader ();
 
-      //## Operation: poGetShader%1011999905
-      CE3D_Shader* poGetShader ();
-
-    // Additional Public Declarations
-      //## begin CObject3D_CompiledLeaf%3C50A9EA01AF.public preserve=yes
-      //## end CObject3D_CompiledLeaf%3C50A9EA01AF.public
-
-  protected:
-    // Additional Protected Declarations
-      //## begin CObject3D_CompiledLeaf%3C50A9EA01AF.protected preserve=yes
-      //## end CObject3D_CompiledLeaf%3C50A9EA01AF.protected
-
-  private:
+     // Additional Public Declarations
+protected:
+     // Additional Protected Declarations
+private:
     // Data Members for Class Attributes
 
-      //## Attribute: poCMesh%3C50AA020286
-      //## begin CObject3D_CompiledLeaf::poCMesh%3C50AA020286.attr preserve=no  private: CCompiledMesh * {UA} NULL
-      CCompiledMesh *poCMesh;
-      //## end CObject3D_CompiledLeaf::poCMesh%3C50AA020286.attr
+    CCompiledMesh *poCMesh;
 
-      //## Attribute: poShader%3C51EFFF0133
-      //## begin CObject3D_CompiledLeaf::poShader%3C51EFFF0133.attr preserve=no  private: CE3D_Shader * {UA} NULL
-      CE3D_Shader *poShader;
-      //## end CObject3D_CompiledLeaf::poShader%3C51EFFF0133.attr
+    CE3D_Shader *poShader;
 
-    // Additional Private Declarations
-      //## begin CObject3D_CompiledLeaf%3C50A9EA01AF.private preserve=yes
-      //## end CObject3D_CompiledLeaf%3C50A9EA01AF.private
-
-  private: //## implementation
+     // Additional Private Declarations
+private:
     // Additional Implementation Declarations
-      //## begin CObject3D_CompiledLeaf%3C50A9EA01AF.implementation preserve=yes
-      //## end CObject3D_CompiledLeaf%3C50A9EA01AF.implementation
-
 };
 
-//## begin CObject3D_CompiledLeaf%3C50A9EA01AF.postscript preserve=yes
-//## end CObject3D_CompiledLeaf%3C50A9EA01AF.postscript
+// Class CObject3D_CompiledLeaf
 
-// Class CObject3D_CompiledLeaf 
-
-//## begin module%3C50A9EA01AF.epilog preserve=yes
-//## end module%3C50A9EA01AF.epilog
-
-
-#endif
+#endif // ifndef CObject3D_CompiledLeaf_h

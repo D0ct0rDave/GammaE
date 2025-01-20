@@ -1,0 +1,22 @@
+Optimización:
+-------------
+Una posible mejora es para la consola, solo tener un quad por caracter escrito,
+no una matriz de quads, y la mitad de ellos vacío.
+Simplemente en la función SetChar(x,y,c) generar también geometría (VXs)
+del nuevo caracter. Posiblemente haya que implementar una función clear.
+
+Refactoring:
+------------
+Habría que hacer un refactoring para unificar conceptos.
+Por ejemplo, en el módulo de audio, las cosas funcionan diferente que en el módulo de gráficos.
+
+Refectoring:
+------------
+En el driver de DirectSound, podría rehacerse el mixer.
+Para empezar se podría adaptar una política de trabajar internamente con unos parámetros
+fijos. Por ejemplo, trabajar en punto flotante, ni 8 ni 16 ni 32, con un sampling establecido al inicio,
+y en estereo. 
+Tenemos que tener libertad de tener samples en cualquier formato PCM, estereo, mono, 8 o 16 bit,
+y de sampling rate variable, puesto que en el caso del subsistema gráfico, se goza de todas estas
+posibilidades.
+

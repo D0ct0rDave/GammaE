@@ -1,15 +1,14 @@
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 #ifndef TexSetH
 #define TexSetH
-// -------------------------------------------------------------
-struct Texture;
-struct MipMap;
-// ------------------------------------------------------------
+//-----------------------------------------------------------------------------
+#include "GammaE_E3D.h"
+//-----------------------------------------------------------------------------
 #define     TEXSET_MAJOR_VERSION    1
 #define     TEXSET_MINOR_VERSION    0
 
 #define     TEXSET_OBJ_IDENTIFIER   MAKE_RIFF_ID('T','S','E','T')
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 #define     TEXSET_MAX_TEXTURES         256
 
 #ifndef MAX_CARS
@@ -18,30 +17,25 @@ struct MipMap;
 
 #define MAX_CARS_TEXSET_NAME            80
 #define TEXSET_DEFAULT_TEXSET_NAME      "Unnamed TexSet"
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 typedef struct{
     bool Used;
     char Filename[MAX_CARS];
-    MipMap* tex;
+    CGMipMap* m_poTex;
 }TTextureEntry;
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 class TTexSet
 {
 public:
          TTexSet();
         ~TTexSet();
 
-        int  LoadTexture(char *Filename,unsigned int MipMapID);
+        int  LoadTexture      (char *Filename,unsigned int MipMapID);
 
-        MipMap  *GetMipMap(unsigned int MipMapID);
-        int      SetMipMap(unsigned int MipMapID,MipMap *mipMap);
+        CGMipMap  *GetMipMap(unsigned int MipMapID);
+        int          SetMipMap(unsigned int MipMapID,CGMipMap *MipMap);
 
-        Texture *GetMipMapLOD(unsigned int TexID,unsigned int LOD);
-
-        Texture *GetTexture(unsigned int TexID);
-        int      SetTexture(unsigned int TexID,Texture *Tex);
-
-        char *   GetTextureName(unsigned int TexID);
+        char *       GetTextureName(unsigned int TexID);
 
         int Load(char *Filename);
         int Save(char *Filename);
@@ -62,5 +56,5 @@ private:
 
         TTextureEntry TextureArray[TEXSET_MAX_TEXTURES];
 };
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 #endif

@@ -1,26 +1,14 @@
-//## begin module%3B4658C503C0.cm preserve=no
-//## end module%3B4658C503C0.cm
 
-//## begin module%3B4658C503C0.cp preserve=no
-//## end module%3B4658C503C0.cp
 
-//## Module: TERSceneLoader%3B4658C503C0; Pseudo Package body
-//## Source file: i:\Projects\GammaE\Terrain\TerrainScene\SceneLoaders\TERScene\TERSceneLoader.cpp
 
-//## begin module%3B4658C503C0.additionalIncludes preserve=no
-//## end module%3B4658C503C0.additionalIncludes
 
-//## begin module%3B4658C503C0.includes preserve=yes
-#include <file.h>
+#include "Gammae_FileSys.h"
 #include <string.h>
-#include "Memory/GammaE_mem.h"
-//## end module%3B4658C503C0.includes
+#include "GammaE_Mem.h"
 
 // TERSceneLoader
-#include "Terrain\TerrainScene\SceneLoaders\TERScene\TERSceneLoader.h"
-//## begin module%3B4658C503C0.additionalDeclarations preserve=yes
+#include "TerrainScene\SceneLoaders\TERScene\TERSceneLoader.h"
 #define ShowMessage(Msg)
-//## end module%3B4658C503C0.additionalDeclarations
 
 
 // Class TERSceneLoader 
@@ -43,58 +31,45 @@
 
 
 TERSceneLoader::TERSceneLoader()
-  //## begin TERSceneLoader::TERSceneLoader%.hasinit preserve=no
-      : HF(NULL), TM(NULL), LM(NULL), TS(NULL), ATS(NULL), iSectorRes(0), fSectorSize(0), fXYScale(0), fIScale(0), iCircXRes(0), iCircYRes(0), fCircXSize(0), fCircYSize(0), TB(NULL)
-  //## end TERSceneLoader::TERSceneLoader%.hasinit
-  //## begin TERSceneLoader::TERSceneLoader%.initialization preserve=yes
-  //## end TERSceneLoader::TERSceneLoader%.initialization
-{
-  //## begin TERSceneLoader::TERSceneLoader%.body preserve=yes
-	HF  = mNew CHeightField();
-	TM  = mNew CTexMap();
-	LM  = mNew CLightMap();
-	TS  = mNew TTexSet();
-	ATS = mNew TTexSet();
-  //## end TERSceneLoader::TERSceneLoader%.body
+        : HF(NULL), TM(NULL), LM(NULL), TS(NULL), ATS(NULL), iSectorRes(0), fSectorSize(0), fXYScale(0), fIScale(0), iCircXRes(0), iCircYRes(0), fCircXSize(0), fCircYSize(0), poTB(NULL), poTT(NULL), poLS(NULL)
+      {
 }
 
 
 TERSceneLoader::~TERSceneLoader()
 {
-  //## begin TERSceneLoader::~TERSceneLoader%.body preserve=yes
-	mDel HF;
-	mDel TM;
-	mDel LM;
-	mDel TS;
-	mDel ATS;
-  //## end TERSceneLoader::~TERSceneLoader%.body
+  	if (HF)	mDel HF;
+	if (TM)	mDel TM;
+	if (LM)	mDel LM;
+	if (TS)	mDel TS;
+	if (ATS) mDel ATS;
+	if (poTB) mDel poTB;
+	if (poTT) mDel poTT;
+	if (poLS) mDel poLS;
 }
 
 
 
-//## Other Operations (implementation)
-CObject3D * TERSceneLoader::Load (char *_Filename)
+CObject3D * TERSceneLoader::poLoad (char *_Filename)
 {
-  //## begin TERSceneLoader::Load%994466160.body preserve=yes
-	FILE *fd;
+  	FILE *fd;
 	fd = fopen(_Filename,"rb");
 	if (! fd) return(NULL);
 
 	// First load the scene
 	LoadData(fd);
 	fclose(fd);
+	
+	CreateSharedObjects();
 
 	// Now build the scene
-	CObject3D *poScene = GenerateScene();
-	
+	CObject3D *poScene = poGenerateScene();	
 	return(poScene);
-  //## end TERSceneLoader::Load%994466160.body
 }
 
 void TERSceneLoader::LoadData (FILE *fd)
 {
-  //## begin TERSceneLoader::LoadData%994715397.body preserve=yes
-	// First load all the data
+  	// First load all the data
 	unsigned int uiID;
 	unsigned int uiBlockLenght;
 	unsigned char ucMajorVersion,ucMinorVersion;
@@ -136,12 +111,13 @@ void TERSceneLoader::LoadData (FILE *fd)
 		exit(1);
 	}
 
+	HF  = mNew CHeightField();
 	if (! HF->iLoadWithHandler(fd))
 	{
 		printf("Unable to load height field data");
 		exit(1);
 	}	
-		
+
 	// ------------------------
 	// Texture Map data
 	// ------------------------
@@ -153,13 +129,13 @@ void TERSceneLoader::LoadData (FILE *fd)
 		printf("Invalid TexMap identifier");
 	}
 
-
+	TM  = mNew CTexMap();
 	if (! TM->iLoadWithHandler(fd))
 	{
 		printf("Unable to load texture map data");
 		exit(1);
 	}
-	
+
 	// ------------------------
 	// Light Map data
 	// ------------------------	
@@ -171,7 +147,8 @@ void TERSceneLoader::LoadData (FILE *fd)
 		printf("Invalid LightMap identifier");
 		exit(1);
 	}
-
+	
+	LM  = mNew CLightMap();
 	if (! LM->iLoadWithHandler(fd))
 	{
 		printf("Unable to load light map data");
@@ -189,7 +166,8 @@ void TERSceneLoader::LoadData (FILE *fd)
 		printf("Invalid texset identifier");
 		exit(1);
 	}
-
+	
+	TS  = mNew TTexSet();
 	if (! TS->LoadWithHandler(fd))
 	{
 		printf("Unable to load tex set data");
@@ -203,7 +181,7 @@ void TERSceneLoader::LoadData (FILE *fd)
     {
         memset(&EnvPars,0,sizeof(TEnvironmentPars));
 		fread (&EnvPars,104,1,fd);
-    }
+}
     else
         fread(&EnvPars,sizeof(TEnvironmentPars),1,fd);
 
@@ -231,129 +209,80 @@ void TERSceneLoader::LoadData (FILE *fd)
 		exit(1);
 	}
 
+	ATS = mNew TTexSet();
 	if (! ATS->LoadWithHandler(fd))
 	{
 		printf("Unable to load tex set data");
 		exit(1);
 	}
-  //## end TERSceneLoader::LoadData%994715397.body
 }
 
-CObject3D * TERSceneLoader::GenerateScene ()
+void TERSceneLoader::CreateSharedObjects ()
 {
-  //## begin TERSceneLoader::GenerateScene%994715398.body preserve=yes
-	unsigned int cSect,cSectX,cSectY;
-	CVect3	     Maxs,Mins;
-	float		 fResolution;
-	float		 fSize;
-
-	// CObject3D_Node	*TScene;
-	CTerrainCircuit *TC = mNew CTerrainCircuit();
-	CTerrainSector	*Sect;
-	
-		
-	// Create te main terrain scene object node
-	TC->Init(HF->iGetSecsPerRow(),HF->iGetSecsPerCol(),fSectorSize);
-	
+  
 	// Generate the tile bookmark
-	GenerateTileBookmark ();
+	poTB = poCreateTileBookmark ();
 	
 	// Create the tesselator object
-	CTerrainTesselatorGM *Tess = mNew CTerrainTesselatorGM();	
-	Tess->Init( (iSectorRes+1)*(iSectorRes+1) );
-	Tess->SetTileLODPar(EnvPars.fTileLODParam);
-		
-	// Setup each sector object	
-	cSect = 0;
-	for (cSectY=0;cSectY<HF->iGetSecsPerCol();cSectY++)
-		for (cSectX=0;cSectX<HF->iGetSecsPerRow();cSectX++)
-		{		
-			// Create sector object
-			Sect = mNew CTerrainSector();
-
-			// Setup sector properties
-			Sect->HF   = (CHFSector *)HF->GetSector(cSect);
-			Sect->TM   = (CTMSector *)TM->GetSector(cSect);
-			Sect->LM   = (CLMSector *)LM->GetSector(cSect);
-			Sect->TB   = TB;
-			Sect->Tess = Tess;			
-			Sect->fXYScale = fXYScale;
-
-			fResolution= (float)(Sect->HF->GetResolution() & 0xfffffffe);
-			fSize      = fResolution * fXYScale;
-
-			Maxs.V3((cSectX+1)*fSize,(cSectY+1)*fSize,Sect->HF->GetMaxHeight());
-			Mins.V3((cSectX  )*fSize,(cSectY  )*fSize,Sect->HF->GetMinHeight());
-			Sect->SetMaxsMins(Maxs,Mins);
-
-			// Add sector to the circuit			
-			TC->SetSector(cSectX,cSectY,Sect);
-						
-			cSect++;
-		}
+	poTT = mNew CTerrainTesselatorGM();	
+	poTT->Init( (iSectorRes+1)*(iSectorRes+1) );
+	poTT->SetTileLODPar(EnvPars.fTileLODParam);
 
 	// Create the LOD selector
-	TC->SetLODSelector( CreateLODSelector() );
-	
-	// Create skybox
-	SkyBox  = CreateSkyBox();
-	SkyDome = CreateSkyDome();
-
-	// Create scene
-	/*
-	TScene->Init(2);
-	TScene->AddObject(SkyBox);
-	TScene->AddObject(TC);
-	*/
-	
-	return(TC);
-  //## end TERSceneLoader::GenerateScene%994715398.body
+	poLS = poCreateLODSelector();
+ 
 }
 
-void TERSceneLoader::GenerateTileBookmark ()
+CTileBookmark * TERSceneLoader::poCreateTileBookmark ()
 {
-  //## begin TERSceneLoader::GenerateTileBookmark%994715400.body preserve=yes
+  	CTileBookmark		*poTB;
 	CE3D_Shader			*poSh;	
 	CE3D_ShIns_TexOp	*poTI;
-	Texture				*poTex;
+	CGMipMap			*poTex;
 	int					iMaxLODs,iMaxTiles,cTile,cLOD;	
 	char				MatName[256];
 
 	iMaxTiles = TS->GetMaxMipMaps();
 	iMaxLODs  = TS->GetMaxLODS();
 
-	TB = mNew CTileBookmark();
-	TB->Init(iMaxTiles,iMaxLODs);
+	poTB = mNew CTileBookmark();
+	poTB->Init(iMaxTiles,iMaxLODs);	
 
 	CE3D_ShaderUtils::SetupTilingFlags(E3D_TEX_WRAP_REPEAT,E3D_TEX_WRAP_REPEAT);
-
+	CE3D_ShaderUtils::SetupFilterFlags(E3D_TEX_MIN_FILTER_LINEAR_MIPMAP_LINEAR,
+										E3D_TEX_MAX_FILTER_LINEAR);
+	/*
+	CE3D_ShaderUtils::SetupFilterFlags(E3D_TEX_MIN_FILTER_NEAREST,
+										E3D_TEX_MAX_FILTER_NEAREST);
+	*/
 	for (cTile=0;cTile<iMaxTiles;cTile++)
-		for (cLOD=0;cLOD<iMaxLODs;cLOD++)
+	{
+		poTex = TS->GetMipMap(cTile);
+
+		if (poTex)
 		{
-			poTex = TS->GetMipMapLOD(cTile,cLOD);
-			if (poTex)
-			{	
-				sprintf(MatName,"TerrTex%d_LOD%d.tex",cTile,cLOD);
-				poSh = CE3D_ShaderUtils::poGenerateShaderFromTexture(poTex,MatName);
+			sprintf(MatName,"TerrTex%d_LOD%d.tex",cTile,cLOD);
+			poSh = CE3D_ShaderUtils::poGenerateShaderFromMipMap(poTex,MatName);
 
-				// Add tile rotation shader instruction
-				poTI		 = mNew CE3D_ShIns_TexOp;
-				poTI->SeteTOpType(eSITexOp_Rotate);
-				poTI->poEval = mNew CEval_Const;
-				poSh->PushInstruction(poTI);
+			// Add tile rotation shader instruction
+			poTI		 = mNew CE3D_ShIns_TexOp;
+			poTI->SetTOpType(eSITexOp_Rotate);
+			poTI->SetEvaluator( mNew CEval_Const );
+			poSh->PushInstruction(poTI);
 
-				TB->SetTileMaterial(cTile,cLOD,poSh);
-			}
+			poTB->SetTileMaterial(cTile,cLOD,poSh);
 		}
-  //## end TERSceneLoader::GenerateTileBookmark%994715400.body
+	}
+
+	CE3D_ShaderUtils::SetupFilterFlags(E3D_TEX_MIN_FILTER_NEAREST,E3D_TEX_MAX_FILTER_LINEAR);
+	return(poTB);
 }
 
-CLODSelector * TERSceneLoader::CreateLODSelector ()
+CLODSelector * TERSceneLoader::poCreateLODSelector ()
 {
-  //## begin TERSceneLoader::CreateLODSelector%995406158.body preserve=yes
-	CLODSelector_Array *pLODSel = mNew CLODSelector_Array();
+  	CLODSelector_Array *pLODSel = mNew CLODSelector_Array();
 	int					cLOD;
-	int					MaxLODs = logf(iSectorRes)/log(2.0f);
+	int					MaxLODs = log((float)iSectorRes)/log(2.0f);
 
 	pLODSel->Init(MaxLODs);
 	
@@ -368,16 +297,14 @@ CLODSelector * TERSceneLoader::CreateLODSelector ()
 	}
 	
 	return (pLODSel);
-  //## end TERSceneLoader::CreateLODSelector%995406158.body
 }
 
-CSkyBox * TERSceneLoader::CreateSkyBox ()
+CSkyBox * TERSceneLoader::poCreateSkyBox ()
 {
-  //## begin TERSceneLoader::CreateSkyBox%996522680.body preserve=yes
-	char StrBuff[256];	
+  	char StrBuff[256];	
 	
-	CE3D_Shader		*Mats[6];
-	Texture			*Tex;	
+	CE3D_Shader*	Mats[6];
+	CGMipMap*		Tex;	
 	int				iTex = 0;
 
 	CSkyBox *pSkyBox = NULL;
@@ -386,12 +313,12 @@ CSkyBox * TERSceneLoader::CreateSkyBox ()
 	CE3D_ShaderUtils::SetupTilingFlags(E3D_TEX_WRAP_REPEAT,E3D_TEX_WRAP_REPEAT);
 	for (int cMat=0;cMat<6;cMat++)
 	{
-		Tex = ATS->GetTexture(cMat);
+		Tex = ATS->GetMipMap(cMat);
 		if (Tex)
 		{			
 			iTex++;
 			sprintf(StrBuff,"SkyBox_%d.tex",cMat);
-			Mats[cMat] = CE3D_ShaderUtils::poGenerateShaderFromTexture(Tex,StrBuff);
+			Mats[cMat] = CE3D_ShaderUtils::poGenerateShaderFromMipMap(Tex,StrBuff);
 		}
 	}
 	
@@ -407,14 +334,12 @@ CSkyBox * TERSceneLoader::CreateSkyBox ()
 	}
 	
 	return(pSkyBox);
-  //## end TERSceneLoader::CreateSkyBox%996522680.body
 }
 
-CSkyDome * TERSceneLoader::CreateSkyDome ()
+CSkyDome * TERSceneLoader::poCreateSkyDome ()
 {
-  //## begin TERSceneLoader::CreateSkyDome%1001452005.body preserve=yes
-	CE3D_Shader		*Mat;
-	Texture			*Tex;
+  	CE3D_Shader		*Mat;
+	CGMipMap		*Tex;
 
 	CSkyDome *pSkyDome;
 	CVect3	 SkyDomeCenter;
@@ -422,10 +347,10 @@ CSkyDome * TERSceneLoader::CreateSkyDome ()
 		
 	CE3D_ShaderUtils::SetupTilingFlags(E3D_TEX_WRAP_REPEAT,E3D_TEX_WRAP_REPEAT);	
 
-	Tex = ATS->GetTexture(6);
+	Tex = ATS->GetMipMap(6);
 	if (! Tex) 	return(NULL);
 
-	Mat = CE3D_ShaderUtils::poGenerateShaderFromTexture(Tex,"SkyDome.tex");
+	Mat = CE3D_ShaderUtils::poGenerateShaderFromMipMap(Tex,"SkyDome.tex");
 	
 	// Create object
 	pSkyDome = mNew CSkyDome;
@@ -454,12 +379,53 @@ CSkyDome * TERSceneLoader::CreateSkyDome ()
 	pSkyDome->SetShader(Mat);
 
 	return(pSkyDome);
-  //## end TERSceneLoader::CreateSkyDome%1001452005.body
+}
+
+CObject3D * TERSceneLoader::poGenerateScene ()
+{
+  	unsigned int cSect,cSectX,cSectY;
+	CVect3	     Maxs,Mins;
+	float		 fResolution;
+	float		 fSize;
+
+	// CObject3D_Node	*TScene;
+	CTerrainCircuit *poTC = mNew CTerrainCircuit();
+	CTerrainSector	*poSect;
+		
+	// Create te main terrain scene object node
+	poTC->Init(HF->iGetSecsPerRow(),HF->iGetSecsPerCol(),fSectorSize);
+	
+	// Setup each sector object	
+	cSect = 0;
+	for (cSectY=0;cSectY<HF->iGetSecsPerCol();cSectY++)
+		for (cSectX=0;cSectX<HF->iGetSecsPerRow();cSectX++)
+		{		
+			// Create sector object
+			poSect = mNew CTerrainSector();
+
+			// Setup sector properties
+			poSect->HF   = (CHFSector *)HF->GetSector(cSect);
+			poSect->TM   = (CTMSector *)TM->GetSector(cSect);
+			poSect->LM   = (CLMSector *)LM->GetSector(cSect);
+			poSect->TB   = poTB;
+			poSect->Tess = poTT;
+			poSect->fXYScale = fXYScale;
+
+			fResolution= (float)(poSect->HF->GetResolution() & 0xfffffffe);
+			fSize      = fResolution * fXYScale;
+
+			Maxs.V3((cSectX+1)*fSize,(cSectY+1)*fSize,poSect->HF->GetMaxHeight());
+			Mins.V3((cSectX  )*fSize,(cSectY  )*fSize,poSect->HF->GetMinHeight());
+			poSect->SetMaxsMins(Maxs,Mins);
+
+			// Add sector to the circuit		
+			poTC->SetSector(cSectX,cSectY,poSect);
+			cSect++;
+		}
+
+	poTC->SetLODSelector( poLS );
+	return(poTC);
 }
 
 // Additional Declarations
-  //## begin TERSceneLoader%3B4658C503C0.declarations preserve=yes
-  //## end TERSceneLoader%3B4658C503C0.declarations
-
-//## begin module%3B4658C503C0.epilog preserve=yes
-//## end module%3B4658C503C0.epilog
+    

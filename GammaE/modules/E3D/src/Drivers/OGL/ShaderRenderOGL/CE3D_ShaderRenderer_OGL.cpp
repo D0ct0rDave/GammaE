@@ -1,57 +1,41 @@
-//## begin module%3A9AB97B0096.cm preserve=no
-//## end module%3A9AB97B0096.cm
-
-//## begin module%3A9AB97B0096.cp preserve=no
-//## end module%3A9AB97B0096.cp
-
-//## Module: CE3D_ShaderRenderer_OGL%3A9AB97B0096; Pseudo Package body
-//## Source file: i:\Projects\GammaE\E3D\Drivers\OGL\ShaderRenderOGL\CE3D_ShaderRenderer_OGL.cpp
-
-//## begin module%3A9AB97B0096.additionalIncludes preserve=no
-//## end module%3A9AB97B0096.additionalIncludes
-
-//## begin module%3A9AB97B0096.includes preserve=yes
-
+//-----------------------------------------------------------------------------
 #ifdef _MBCS
-	#include <windows.h>
-#else
 	#ifdef __BORLANDC__
+	#undef _ASSERTE
 	#include <vcl.h>
+        #else
+       	#include <windows.h>
 	#endif
+#else
 #endif
-
+//-----------------------------------------------------------------------------
 #include <gl/gl.h>
 #include <gl/glu.h>
 #include <gl/glext.h>
-//## end module%3A9AB97B0096.includes
+
+#include "CGRenderer.h"
+
 
 // CE3D_ShaderRenderer_OGL
-#include "E3D\Drivers\OGL\ShaderRenderOGL\CE3D_ShaderRenderer_OGL.h"
-//## begin module%3A9AB97B0096.additionalDeclarations preserve=yes
-
-
+#include "Drivers\OGL\ShaderRenderOGL\CE3D_ShaderRenderer_OGL.h"
+//-----------------------------------------------------------------------------
 //Our two function pointers.
 
 // DEBUG_CODE
-void __stdcall glActiveTextureARB_FACKED(unsigned int i)
-{
-}
-
-void __stdcall glClientActiveTextureARB_FACKED(unsigned int i)
-{
-}
+void __stdcall glActiveTextureARB_FACKED(uint){};
+void __stdcall glClientActiveTextureARB_FACKED(uint){};
+void __stdcall glBlendColor_FACKED(float,float,float,float){};
 // ! DEBUG_CODE
 
 PFNGLLOCKARRAYSEXTPROC			glLockArraysEXT			 = NULL;
 PFNGLUNLOCKARRAYSEXTPROC		glUnlockArraysEXT		 = NULL;
 PFNGLACTIVETEXTUREARBPROC		glActiveTextureARB		 = NULL;
 PFNGLCLIENTACTIVETEXTUREARBPROC	glClientActiveTextureARB = NULL;
-
-extern	CE3D_Renderer *gpoE3DRenderer;
-
-#ifndef CONTROL_ERRORS
+PFNGLBLENDCOLOREXTPROC			glBlendColor			 = NULL;
+//-----------------------------------------------------------------------------
+#ifndef CHECKERRORS
 	#ifdef _DEBUG
-	static void CONTROL_ERRORS()
+	static void CHECKERRORS()
 	{
 		int iError;
 		do{
@@ -64,146 +48,114 @@ extern	CE3D_Renderer *gpoE3DRenderer;
 		}while (iError != GL_NO_ERROR);
 	}
 	#else
-	#define CONTROL_ERRORS()
+	#define CHECKERRORS()
 	#endif
 #endif
-//## end module%3A9AB97B0096.additionalDeclarations
-
-
-// Class CE3D_ShaderRenderer_OGL 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-CE3D_ShaderRenderer_OGL::CE3D_ShaderRenderer_OGL()
-  //## begin CE3D_ShaderRenderer_OGL::CE3D_ShaderRenderer_OGL%.hasinit preserve=no
-      : poCurrentBV(NULL), poCurrentCMesh(NULL), poCurrentMesh(NULL), iMaxTMUs(1), iCurrentTMU(0), bFlushGeometry(false), bGeometryFlushed(false)
-  //## end CE3D_ShaderRenderer_OGL::CE3D_ShaderRenderer_OGL%.hasinit
-  //## begin CE3D_ShaderRenderer_OGL::CE3D_ShaderRenderer_OGL%.initialization preserve=yes
-  //## end CE3D_ShaderRenderer_OGL::CE3D_ShaderRenderer_OGL%.initialization
+//-----------------------------------------------------------------------------
+CE3D_ShaderRenderer_OGL::CE3D_ShaderRenderer_OGL(): poCurrentBV(NULL), poCurrentCMesh(NULL), poCurrentMesh(NULL), iMaxTMUs(1), iCurrentTMU(0), bFlushGeometry(false), bGeometryFlushed(false)
 {
-  //## begin CE3D_ShaderRenderer_OGL::CE3D_ShaderRenderer_OGL%.body preserve=yes
-  //## end CE3D_ShaderRenderer_OGL::CE3D_ShaderRenderer_OGL%.body
 }
-
-
+//-----------------------------------------------------------------------------
 CE3D_ShaderRenderer_OGL::~CE3D_ShaderRenderer_OGL()
 {
-  //## begin CE3D_ShaderRenderer_OGL::~CE3D_ShaderRenderer_OGL%.body preserve=yes
-  //## end CE3D_ShaderRenderer_OGL::~CE3D_ShaderRenderer_OGL%.body
 }
-
-
-
-//## Other Operations (implementation)
+//-----------------------------------------------------------------------------
 void CE3D_ShaderRenderer_OGL::Init ()
 {
-  //## begin CE3D_ShaderRenderer_OGL::Init%1011714680.body preserve=yes
-	#ifdef WIN32
+  	#ifdef WIN32
 	glLockArraysEXT			= (PFNGLLOCKARRAYSEXTPROC)			wglGetProcAddress("glLockArraysEXT");
 	glUnlockArraysEXT		= (PFNGLUNLOCKARRAYSEXTPROC)		wglGetProcAddress("glUnlockArraysEXT");
 	glActiveTextureARB		= (PFNGLACTIVETEXTUREARBPROC)		wglGetProcAddress("glActiveTextureARB");
 	glClientActiveTextureARB= (PFNGLCLIENTACTIVETEXTUREARBPROC)	wglGetProcAddress("glClientActiveTextureARB");
+	glBlendColor			= (PFNGLBLENDCOLOREXTPROC)			wglGetProcAddress("glBlendColor");
 
 	// DEBUG_CODE
-	if (! glActiveTextureARB)  glActiveTextureARB = glActiveTextureARB_FACKED;
-	if (! glClientActiveTextureARB) glClientActiveTextureARB = glClientActiveTextureARB_FACKED;
+	if (glActiveTextureARB == NULL)  glActiveTextureARB = glActiveTextureARB_FACKED;
+	if (glClientActiveTextureARB == NULL) glClientActiveTextureARB = glClientActiveTextureARB_FACKED;
+	if (glBlendColor == NULL) glBlendColor = glBlendColor_FACKED;
 	// ! DEBUG_CODE
 
 	#endif
-  //## end CE3D_ShaderRenderer_OGL::Init%1011714680.body
 }
-
+//-----------------------------------------------------------------------------
+void CE3D_ShaderRenderer_OGL::Render_ShInsProgram(CE3D_ShIns_Program* _poTI)
+{
+	CGRenderer::I()->SetCurrentProgram( _poTI->poGetProgram() );
+}
+//-----------------------------------------------------------------------------
 void CE3D_ShaderRenderer_OGL::Render_ShInsTexture (CE3D_ShIns_Texture* _poTI)
 {
-  //## begin CE3D_ShaderRenderer_OGL::Render_ShInsTexture%1013981858.body preserve=yes
-	
 	// Enable texturing for current TMU
 	glEnable(GL_TEXTURE_2D);
 
 	iCurrentTMU++;
 	if (iCurrentTMU==iMaxTMUs) bFlushGeometry = true;
 
-	gpoE3DRenderer->SetCurrentTextureContext(_poTI->pTex);
-	
-	glColor4f(1.0f,1.0f,1.0f,0.0f);
+	CGRenderer::I()->SetCurrentTextureContext(_poTI->m_poTex);
 	Render_Geometry();
-  //## end CE3D_ShaderRenderer_OGL::Render_ShInsTexture%1013981858.body
 }
-
+//-----------------------------------------------------------------------------
 void CE3D_ShaderRenderer_OGL::Render_ShInsColor (CE3D_ShIns_Color* _poTI)
 {
-  //## begin CE3D_ShaderRenderer_OGL::Render_ShInsColor%1013981859.body preserve=yes
-	bUsingConstantColor = true;
-
 	// Disable texturing for current TMU
 	glDisable(GL_TEXTURE_2D);	
 
 	iCurrentTMU++;
 	if (iCurrentTMU==iMaxTMUs) bFlushGeometry = true;
-
-	TFColor Color = _poTI->oColor.Color();
-	glColor4f(Color.r,Color.g,Color.b,Color.a);
-
-	glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA); // ??? Siempre deberia ir aqui???	
-	Render_Geometry();	
 	
-	glColor4f(1.0f,1.0f,1.0f,1.0f);
-  //## end CE3D_ShaderRenderer_OGL::Render_ShInsColor%1013981859.body
+	CGRenderer::I()->SetConstantColor( _poTI->oGetColor() );
+	
+	glBlendColor( _poTI->oGetColor().r, _poTI->oGetColor().g,_poTI->oGetColor().b,_poTI->oGetColor().a);
+	glBlendFunc(GL_CONSTANT_ALPHA,GL_ONE_MINUS_CONSTANT_ALPHA);
+	
+	Render_Geometry();	
 }
-
+//-----------------------------------------------------------------------------
 void CE3D_ShaderRenderer_OGL::Render_ShInsWireframe (CE3D_ShIns_Wireframe* _poTI)
 {
-  //## begin CE3D_ShaderRenderer_OGL::Render_ShInsWireframe%1013981860.body preserve=yes
-  	bUsingConstantColor = true;	
-
 	// Set polygon mode	
 	glPolygonMode(GL_BACK ,GL_LINE);
 	glPolygonMode(GL_FRONT,GL_LINE);
 
 	// Disable texturing for current TMU
-	glDisable(GL_TEXTURE_2D);	
+	glDisable(GL_TEXTURE_2D);
+	glDisable(GL_CULL_FACE);
 
-	TFColor Color = _poTI->oColor.Color();
-	glColor4f(Color.r,Color.g,Color.b,Color.a);
+	iCurrentTMU++;
+	if (iCurrentTMU==iMaxTMUs) bFlushGeometry = true;
 
-	// glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA); // ??? Siempre deberia ir aqui???	
-	Render_Geometry();		
+	CGRenderer::I()->SetConstantColor( _poTI->oGetColor() );
+
+	glBlendColor( _poTI->oGetColor().r,_poTI->oGetColor().g,_poTI->oGetColor().b,_poTI->oGetColor().a);
+	glBlendFunc(GL_CONSTANT_ALPHA,GL_ONE_MINUS_CONSTANT_ALPHA);// ??? Siempre deberia ir aqui???
+
+	Render_Geometry();
 
 	// Restore polygon mode	
 	glPolygonMode(GL_BACK ,GL_FILL);
 	glPolygonMode(GL_FRONT,GL_FILL);
-
-	glColor4f(1.0f,1.0f,1.0f,1.0f);
-  //## end CE3D_ShaderRenderer_OGL::Render_ShInsWireframe%1013981860.body
 }
-
+//-----------------------------------------------------------------------------
 void CE3D_ShaderRenderer_OGL::Render_ShInsExtension (CE3D_ShIns_Extension* _poTI)
 {
-  //## begin CE3D_ShaderRenderer_OGL::Render_ShInsExtension%1013981861.body preserve=yes
-	_poTI->pFunction((void *)&poCurrentMesh);
-	Render_Geometry();
-  //## end CE3D_ShaderRenderer_OGL::Render_ShInsExtension%1013981861.body
-}
+	iCurrentTMU++;
+	if (iCurrentTMU==iMaxTMUs) bFlushGeometry = true;
 
+  	_poTI->pFunction()((void *)&poCurrentMesh);
+	Render_Geometry();
+}
+//-----------------------------------------------------------------------------
 void CE3D_ShaderRenderer_OGL::Render_ShInsGeoOp (CE3D_ShIns_GeoOp* _poTI)
 {
-  //## begin CE3D_ShaderRenderer_OGL::Render_ShInsGeoOp%1013981862.body preserve=yes
-	float fValue = _poTI->poEval->GetValue();	
+  	float fValue;
+	
+	if (_poTI->poGetEvaluator())
+		fValue = _poTI->poGetEvaluator()->GetValue();	
+	else
+		fValue = 0.0f;
 	
 	glMatrixMode(GL_MODELVIEW);
-	switch (_poTI->GeteGOpType())
+	switch (_poTI->eGetGOpType())
 	{
 		case eSIGeoOp_RotateX:	glRotatef(fValue,1.0f,0.0f,0.0f);	break;
 		case eSIGeoOp_RotateY:	glRotatef(fValue,0.0f,1.0f,0.0f);	break;
@@ -216,22 +168,20 @@ void CE3D_ShaderRenderer_OGL::Render_ShInsGeoOp (CE3D_ShIns_GeoOp* _poTI)
 		case eSIGeoOp_TransY:	glTranslatef(0.0f,fValue,0.0f);		break;
 		case eSIGeoOp_TransZ:	glTranslatef(0.0f,0.0f,fValue);		break;
 	}
-	CONTROL_ERRORS();
-  //## end CE3D_ShaderRenderer_OGL::Render_ShInsGeoOp%1013981862.body
+	CHECKERRORS();
 }
-
+//-----------------------------------------------------------------------------
 void CE3D_ShaderRenderer_OGL::Render_ShInsTexOp (CE3D_ShIns_TexOp* _poTI)
 {
-  //## begin CE3D_ShaderRenderer_OGL::Render_ShInsTexOp%1013981863.body preserve=yes
-	float fValue;
+  	float fValue;
 	
-	if (_poTI->poEval)
-		fValue = _poTI->poEval->GetValue();	
+	if (_poTI->poGetEvaluator())
+		fValue = _poTI->poGetEvaluator()->GetValue();	
 	else
 		fValue = 0.0f;
 	
 	glMatrixMode(GL_TEXTURE);
-	switch (_poTI->GeteTOpType())
+	switch (_poTI->eGetTOpType())
 	{
 		case eSITexOp_Rotate:	glRotatef(fValue,0.0f,0.0f,1.0f);	break;
 		case eSITexOp_Scale:	glScalef (fValue,fValue,1.0f);		break;
@@ -262,60 +212,92 @@ void CE3D_ShaderRenderer_OGL::Render_ShInsTexOp (CE3D_ShIns_TexOp* _poTI)
 								glTexGeni(GL_T,GL_TEXTURE_GEN_MODE,GL_EYE_LINEAR);
 								break;
 
-		case eSITexOp_Matrix:	glMultMatrixf(_poTI->poMat->m);							
+		case eSITexOp_Matrix:	glMultMatrixf(_poTI->m_poMat->m );
 								break;
-	}
-	CONTROL_ERRORS();
-  //## end CE3D_ShaderRenderer_OGL::Render_ShInsTexOp%1013981863.body
-}
+		
+		case eSITexOp_FrameSet:	int		iFrame;
+								int		iXFrame;
+								int		iYFrame;
+								int		iTotalFrames;
+								float	fSPF;
+								float	fXStep;
+								float	fYStep;
 
+								fXStep = 1.0f / _poTI->m_uiImgCols;
+								fYStep = 1.0f / _poTI->m_uiImgRows;
+
+								iTotalFrames = _poTI->m_uiImgCols *_poTI->m_uiImgRows;
+								fSPF		 = 1.0f / (iTotalFrames*_poTI->m_fFreq);
+
+								iFrame  = (int)(CGRenderer::I()->REStats.fTotalTime / fSPF) % iTotalFrames;
+								iYFrame = iFrame / _poTI->m_uiImgCols;
+								iXFrame = iFrame - (iYFrame*_poTI->m_uiImgCols);
+
+								glTranslatef(iXFrame*fXStep,iYFrame*fYStep,0.0f);
+								glScalef(fXStep,fYStep,1.0f);								
+								break;								
+	}
+	CHECKERRORS();
+}
+//-----------------------------------------------------------------------------
 void CE3D_ShaderRenderer_OGL::Render_ShInsBlendOp (CE3D_ShIns_BlendOp* _poTI)
 {
-  //## begin CE3D_ShaderRenderer_OGL::Render_ShInsBlendOp%1013981864.body preserve=yes
-	bGeometryFlushed = false;
+  	bGeometryFlushed = false;
 
+	//<WARNING: DEBUG CODE>
 	glDisable  (GL_CULL_FACE);
-	bEnableCF  = true;
+	bEnableCF = true;
 
-	switch (_poTI->GeteBOpType())
+	switch (_poTI->eGetBlendMode())
 	{	
         // ------------------
         // Blending ops
         // ------------------
-        case eSIBOp_Copy:	        glBlendFunc(GL_ONE,GL_ZERO);
+        case E3D_BM_Copy:	        glBlendFunc(GL_ONE,GL_ZERO);
 									glEnable   (GL_CULL_FACE);
 									bEnableCF  = false;
                                     break;
-        case eSIBOp_Mult:			glBlendFunc(GL_DST_COLOR,GL_ZERO);									
+        case E3D_BM_Mult:			glBlendFunc(GL_DST_COLOR,GL_ZERO);
 								    break;
-        case eSIBOp_Mult2x:			glBlendFunc(GL_DST_COLOR,GL_SRC_COLOR);
+        case E3D_BM_Mult2x:			glBlendFunc(GL_DST_COLOR,GL_SRC_COLOR);
                                     break;
-        case eSIBOp_Add:			glBlendFunc(GL_ONE,GL_ONE);
+        case E3D_BM_Add:			glBlendFunc(GL_ONE,GL_ONE);
                                     break;
-        case eSIBOp_AddAndMult:		glBlendFunc(GL_DST_COLOR,GL_ONE);
+        case E3D_BM_AddAndMult:		glBlendFunc(GL_DST_COLOR,GL_ONE);
                                     break;
-        case eSIBOp_MultAndAdd:		glBlendFunc(GL_ONE,GL_SRC_COLOR);
-                                    break;        
-		case eSIBOp_Alpha:			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-									break;
-		case eSIBOp_AlphaAdd:		glBlendFunc(GL_SRC_ALPHA, GL_ONE);									
-									break;
-		case eSIBOp_AlphaInv:		glBlendFunc(GL_ONE_MINUS_SRC_ALPHA,GL_SRC_ALPHA);
-									break;
-		case eSIBOp_AlphaThrough:	// Useful for dummy management
-									glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-									glEnable   (GL_ALPHA_TEST);									
+        case E3D_BM_MultAndAdd:		glBlendFunc(GL_ONE,GL_SRC_COLOR);
+                                    break;
+		case E3D_BM_Alpha:			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+									glEnable   (GL_ALPHA_TEST);
 									bDisableAT = true;
-									
+									break;
+		case E3D_BM_AlphaAdd:		glBlendFunc(GL_SRC_ALPHA, GL_ONE);
+									glEnable   (GL_ALPHA_TEST);
+									bDisableAT = true;
+									break;
+		case E3D_BM_AlphaInv:		glBlendFunc(GL_ONE_MINUS_SRC_ALPHA,GL_SRC_ALPHA);
+									glEnable   (GL_ALPHA_TEST);
+									bDisableAT = true;
+									break;
+		case E3D_BM_AlphaThrough:	// Useful for dummy management
+									glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+									glEnable   (GL_ALPHA_TEST);
+									bDisableAT = true;
 									break;
 	}
-  //## end CE3D_ShaderRenderer_OGL::Render_ShInsBlendOp%1013981864.body
 }
-
+//-----------------------------------------------------------------------------
+void CE3D_ShaderRenderer_OGL::Render_ShInsZOp (CE3D_ShIns_ZOp* _poTI)
+{
+	CGRenderer::I()->SetZPars(_poTI->eGetZTestFunc(), _poTI->eGetZWrite());
+}
+//-----------------------------------------------------------------------------
 void CE3D_ShaderRenderer_OGL::Render_Geometry ()
 {
-  //## begin CE3D_ShaderRenderer_OGL::Render_Geometry%1013981865.body preserve=yes
-	if (bFlushGeometry)
+	// WARNING DEBUG CODE
+	glDisable(GL_CULL_FACE);
+	
+  	if (bFlushGeometry)
 	{
 		switch(eMeshType)
 		{
@@ -329,13 +311,14 @@ void CE3D_ShaderRenderer_OGL::Render_Geometry ()
 
 	// Current texture unit
 	InitTMU(iCurrentTMU);
-  //## end CE3D_ShaderRenderer_OGL::Render_Geometry%1013981865.body
-}
 
+	// Reset the program to fixed function
+	CGRenderer::I()->SetCurrentProgram(NULL);
+}
+//-----------------------------------------------------------------------------
 void CE3D_ShaderRenderer_OGL::InitTMU (int _iTMU)
 {
-  //## begin CE3D_ShaderRenderer_OGL::InitTMU%1013981866.body preserve=yes
-
+  
 	// First set current TMU
 	switch (iCurrentTMU)
 	{
@@ -364,10 +347,12 @@ void CE3D_ShaderRenderer_OGL::InitTMU (int _iTMU)
 	}
 
 	if (bEnableCF)
-	{		
+	{
+        // <WARNING: DEBUG CODE>
 		// glDisable (GL_CULL_FACE);	// DEBUG
-		glEnable (GL_CULL_FACE);
-
+		glEnable	(GL_CULL_FACE);
+		glDepthFunc (GL_LEQUAL);
+		glDepthMask	(GL_TRUE);
 		bEnableCF  = false;
 	}
 
@@ -377,7 +362,7 @@ void CE3D_ShaderRenderer_OGL::InitTMU (int _iTMU)
 	// Reset texture matrix
 	glMatrixMode(GL_TEXTURE);
 	glLoadIdentity();
-	CONTROL_ERRORS();
+	CHECKERRORS();
 
 	glDisable(GL_TEXTURE_GEN_S);
 	glDisable(GL_TEXTURE_GEN_T);
@@ -385,17 +370,18 @@ void CE3D_ShaderRenderer_OGL::InitTMU (int _iTMU)
 	// Setup default blending mode
 	glBlendFunc(GL_ONE,GL_ZERO);
 
-  //## end CE3D_ShaderRenderer_OGL::InitTMU%1013981866.body
+	// Set previous z pars
+	CGRenderer::I()->SetZPars(E3D_ZTF_Last, E3D_ZW_Last);
 }
-
+//-----------------------------------------------------------------------------
 void CE3D_ShaderRenderer_OGL::BeginShaderRender ()
 {
-  //## begin CE3D_ShaderRenderer_OGL::BeginShaderRender%983551121.body preserve=yes
-	bUsingConstantColor = false;	
+	InitTMU(0);
 
 	// glDisable (GL_CULL_FACE);	// DEBUG
-	// glEnable (GL_CULL_FACE);
-/*
+	glEnable (GL_CULL_FACE);
+	
+	/*
 	glActiveTextureARB(GL_TEXTURE0_ARB);				
 	glDisable(GL_TEXTURE_2D);
 	
@@ -407,28 +393,25 @@ void CE3D_ShaderRenderer_OGL::BeginShaderRender ()
 
 	glActiveTextureARB(GL_TEXTURE3_ARB);				
 	glDisable(GL_TEXTURE_2D);
-*/
+	*/
+
  	// OPTIMIZATION: glLockArrays Util cuando varias pasadas sobre el mismo objeto!
 	// We are telling OGL that from this point, we will not perform any modification
 	// in the vertex buffers
 	// glLockArraysEXT(0,CurrentMesh->usNumVerts);
-  //## end CE3D_ShaderRenderer_OGL::BeginShaderRender%983551121.body
 }
-
+//-----------------------------------------------------------------------------
 void CE3D_ShaderRenderer_OGL::EndShaderRender ()
 {
-  //## begin CE3D_ShaderRenderer_OGL::EndShaderRender%983551122.body preserve=yes
-	
+  	
 	// Unlock the arrays
 	// glUnlockArraysEXT();
 
-  //## end CE3D_ShaderRenderer_OGL::EndShaderRender%983551122.body
 }
-
+//-----------------------------------------------------------------------------
 void CE3D_ShaderRenderer_OGL::RenderShader (CE3D_Shader *_poShader)
 {
-  //## begin CE3D_ShaderRenderer_OGL::RenderShader%983551123.body preserve=yes
-	if (! _poShader) return;
+  	if (! _poShader) return;
 
 	CE3D_ShaderInstruction *poShIns;
 	for (int iIns=0;iIns<_poShader->iGetNumInstructions();iIns++)
@@ -437,9 +420,17 @@ void CE3D_ShaderRenderer_OGL::RenderShader (CE3D_Shader *_poShader)
 		
 		if (poShIns)
 		{
-			switch (poShIns->eInsType)
+			switch (poShIns->eGetInstructionType())
 			{
-				case eShIns_Texture:	if (!gpoE3DRenderer->REState.FlatRender)
+				case E3D_SHI_Program:	if (!CGRenderer::I()->REState.FlatRender)
+											Render_ShInsProgram((CE3D_ShIns_Program*)poShIns);
+										else
+										{
+											bFlushGeometry = true;
+											Render_Geometry();
+										}
+										break;
+				case E3D_SHI_Texture:	if (!CGRenderer::I()->REState.FlatRender)
 											Render_ShInsTexture((CE3D_ShIns_Texture*)poShIns);
 										else
 										{
@@ -447,7 +438,7 @@ void CE3D_ShaderRenderer_OGL::RenderShader (CE3D_Shader *_poShader)
 											Render_Geometry();
 										}
 										break;
-				case eShIns_Color :		if (!gpoE3DRenderer->REState.FlatRender)
+				case E3D_SHI_Color :		if (!CGRenderer::I()->REState.FlatRender)
 											Render_ShInsColor((CE3D_ShIns_Color*)poShIns);
 										else
 										{
@@ -455,7 +446,7 @@ void CE3D_ShaderRenderer_OGL::RenderShader (CE3D_Shader *_poShader)
 											Render_Geometry();
 										}
 										break;
-				case eShIns_Wireframe:	if (!gpoE3DRenderer->REState.FlatRender)
+				case E3D_SHI_Wireframe:	if (!CGRenderer::I()->REState.FlatRender)
 											Render_ShInsWireframe((CE3D_ShIns_Wireframe*)poShIns);
 										else
 										{
@@ -463,7 +454,7 @@ void CE3D_ShaderRenderer_OGL::RenderShader (CE3D_Shader *_poShader)
 											Render_Geometry();
 										}
 										break;
-				case eShIns_Extension:	if (!gpoE3DRenderer->REState.FlatRender)
+				case E3D_SHI_Extension:	if (!CGRenderer::I()->REState.FlatRender)
 											Render_ShInsExtension((CE3D_ShIns_Extension*)poShIns);
 										else
 										{
@@ -471,26 +462,26 @@ void CE3D_ShaderRenderer_OGL::RenderShader (CE3D_Shader *_poShader)
 											Render_Geometry();
 										}
 										break;
-				case eShIns_GeoOp:		Render_ShInsGeoOp((CE3D_ShIns_GeoOp*)poShIns);
+				case E3D_SHI_GeoOp:		Render_ShInsGeoOp((CE3D_ShIns_GeoOp*)poShIns);
 										break;
-				case eShIns_TexOp:		if (!gpoE3DRenderer->REState.FlatRender)
+				case E3D_SHI_TexOp:		if (!CGRenderer::I()->REState.FlatRender)
 											Render_ShInsTexOp((CE3D_ShIns_TexOp*)poShIns);
 										break;
-				case eShIns_BlendOp:	if (!gpoE3DRenderer->REState.FlatRender)
+				case E3D_SHI_BlendOp:	if (!CGRenderer::I()->REState.FlatRender)
 											Render_ShInsBlendOp((CE3D_ShIns_BlendOp*)poShIns);
 										break;
-				case eShIns_SetTMU:		
+				case E3D_SHI_ZOp:		Render_ShInsZOp((CE3D_ShIns_ZOp*)poShIns);
+										break;
+				case E3D_SHI_SetTMU:		
 										break;															
 			}
 		}
 	}
-  //## end CE3D_ShaderRenderer_OGL::RenderShader%983551123.body
 }
-
+//-----------------------------------------------------------------------------
 void CE3D_ShaderRenderer_OGL::Render (CMesh *_poMesh, CE3D_Shader *_poShader)
 {
-  //## begin CE3D_ShaderRenderer_OGL::Render%983551120.body preserve=yes
-	assert (_poMesh   && "NULL Mesh operand");
+  	assert (_poMesh   && "NULL Mesh operand");
 	
 	eMeshType	  = eE3DMT_Mesh;
 	poCurrentMesh = _poMesh;
@@ -507,13 +498,11 @@ void CE3D_ShaderRenderer_OGL::Render (CMesh *_poMesh, CE3D_Shader *_poShader)
 		// Only process geometric data
 		RenderMesh(_poMesh);
 	}
-  //## end CE3D_ShaderRenderer_OGL::Render%983551120.body
 }
-
+//-----------------------------------------------------------------------------
 void CE3D_ShaderRenderer_OGL::Render (CCompiledMesh *_poCMesh, CE3D_Shader *_poShader)
 {
-  //## begin CE3D_ShaderRenderer_OGL::Render%1011911191.body preserve=yes
-	assert (_poCMesh  && "NULL Mesh operand");
+  	assert (_poCMesh  && "NULL Mesh operand");
 	
 	eMeshType	    = eE3DMT_CompiledMesh;
 	poCurrentCMesh	= _poCMesh;
@@ -527,24 +516,26 @@ void CE3D_ShaderRenderer_OGL::Render (CCompiledMesh *_poCMesh, CE3D_Shader *_poS
 	}
 	else
 		RenderCompiledMesh(_poCMesh);
-  //## end CE3D_ShaderRenderer_OGL::Render%1011911191.body
 }
-
+//-----------------------------------------------------------------------------
 void CE3D_ShaderRenderer_OGL::RenderMesh (CMesh *_poMesh)
 {
-  //## begin CE3D_ShaderRenderer_OGL::RenderMesh%983551127.body preserve=yes
-	// Setup color array. If any
-	CONTROL_ERRORS();
+  	// Setup color array. If any
+	CHECKERRORS();
+	
+	unsigned int uiTris = 0;
 
-	if ((bUsingConstantColor) || (gpoE3DRenderer->REState.FlatRender))
+	if (CGRenderer::I()->REState.FlatRender)
 	{
-		if ((_poMesh->VCs) && !(gpoE3DRenderer->REState.FlatRender))
+		/*
+		if ((_poMesh->VCs) && !(CGRenderer::I()->REState.FlatRender))
 		{
 			glEnableClientState(GL_COLOR_ARRAY);
 			glColorPointer(4,GL_FLOAT,0,_poMesh->VCs);
 		}
 		else
-			glDisableClientState(GL_COLOR_ARRAY);
+		*/
+		glDisableClientState(GL_COLOR_ARRAY);
 
 		glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 		glDisableClientState(GL_NORMAL_ARRAY);
@@ -557,7 +548,9 @@ void CE3D_ShaderRenderer_OGL::RenderMesh (CMesh *_poMesh)
 			glColorPointer(4,GL_FLOAT,0,_poMesh->VCs);
 		}
 		else
+		{
 			glDisableClientState(GL_COLOR_ARRAY);
+		}
 
 		// Setup texcoord array. If any
 		if (_poMesh->UVs)
@@ -611,45 +604,43 @@ void CE3D_ShaderRenderer_OGL::RenderMesh (CMesh *_poMesh)
 		case E3D_MESH_NONE:			return;
 									break;
 		case E3D_MESH_TRIS:			// Draw the elements
+									uiTris = _poMesh->usNumPrims;
 									glDrawElements (GL_TRIANGLES     ,_poMesh->usNumIdxs,GL_UNSIGNED_SHORT,(void *)_poMesh->Idxs);
 									break;
-		case E3D_MESH_QUADS:		glDrawElements (GL_QUADS         ,_poMesh->usNumIdxs,GL_UNSIGNED_SHORT,(void *)_poMesh->Idxs);
+		case E3D_MESH_QUADS:		uiTris = _poMesh->usNumPrims*2;
+									glDrawElements (GL_QUADS         ,_poMesh->usNumIdxs,GL_UNSIGNED_SHORT,(void *)_poMesh->Idxs);
 									break;
-		case E3D_MESH_TRIFANS:		glDrawElements (GL_TRIANGLE_FAN  ,_poMesh->usNumIdxs,GL_UNSIGNED_SHORT,(void *)_poMesh->Idxs);
+		case E3D_MESH_TRIFANS:		uiTris = _poMesh->usNumPrims;
+									glDrawElements (GL_TRIANGLE_FAN  ,_poMesh->usNumIdxs,GL_UNSIGNED_SHORT,(void *)_poMesh->Idxs);
 									break;
-		case E3D_MESH_TRISTRIPS:	glDrawElements (GL_TRIANGLE_STRIP,_poMesh->usNumIdxs,GL_UNSIGNED_SHORT,(void *)_poMesh->Idxs);
+		case E3D_MESH_TRISTRIPS:	uiTris = _poMesh->usNumPrims;
+									glDrawElements (GL_TRIANGLE_STRIP,_poMesh->usNumIdxs,GL_UNSIGNED_SHORT,(void *)_poMesh->Idxs);
 									break;
-		case E3D_MESH_QUADSTRIPS:	glDrawElements (GL_QUAD_STRIP    ,_poMesh->usNumIdxs,GL_UNSIGNED_SHORT,(void *)_poMesh->Idxs);
+		case E3D_MESH_QUADSTRIPS:	uiTris = _poMesh->usNumPrims*2;
+									glDrawElements (GL_QUAD_STRIP    ,_poMesh->usNumIdxs,GL_UNSIGNED_SHORT,(void *)_poMesh->Idxs);
 									break;
-
-		case E3D_MESH_NITRIS:		glDrawArrays   (GL_TRIANGLES	 ,0,_poMesh->usNumPrims*3);
+		case E3D_MESH_NITRIS:		uiTris = _poMesh->usNumPrims;
+									glDrawArrays   (GL_TRIANGLES	 ,0,_poMesh->usNumPrims*3);
 									break;
-		case E3D_MESH_NIQUADS:		glDrawArrays   (GL_QUADS		 ,0,_poMesh->usNumPrims*4);
+		case E3D_MESH_NIQUADS:		uiTris = _poMesh->usNumPrims*2;
+									glDrawArrays   (GL_QUADS		 ,0,_poMesh->usNumPrims*4);
 									break;
-		case E3D_MESH_NITRISTRIP:	glDrawArrays   (GL_TRIANGLE_STRIP,0,_poMesh->usNumPrims+2);
+		case E3D_MESH_NITRISTRIP:	uiTris = _poMesh->usNumPrims;
+									glDrawArrays   (GL_TRIANGLE_STRIP,0,_poMesh->usNumPrims+2);
 									break;
 	}
 
-	gpoE3DRenderer->REStats.NumRenderedTris  += _poMesh->usNumPrims;
-	gpoE3DRenderer->REStats.NumRenderedVerts += _poMesh->usNumVerts;
+	CGRenderer::I()->REStats.NumRenderedTris  += uiTris;
+	CGRenderer::I()->REStats.NumRenderedVerts += _poMesh->usNumVerts;
 
-	CONTROL_ERRORS();
-  //## end CE3D_ShaderRenderer_OGL::RenderMesh%983551127.body
+	CHECKERRORS();
 }
-
+//-----------------------------------------------------------------------------
 void CE3D_ShaderRenderer_OGL::RenderCompiledMesh (CCompiledMesh *_poCMesh)
 {
-  //## begin CE3D_ShaderRenderer_OGL::RenderCompiledMesh%1011911190.body preserve=yes
-	glCallList(poCurrentCMesh->iID);
+  	glCallList(poCurrentCMesh->iID);
 
-	gpoE3DRenderer->REStats.NumRenderedTris	 += poCurrentCMesh->usNumPrims;
-	gpoE3DRenderer->REStats.NumRenderedVerts += poCurrentCMesh->usNumVerts;
-  //## end CE3D_ShaderRenderer_OGL::RenderCompiledMesh%1011911190.body
+	CGRenderer::I()->REStats.NumRenderedTris  += poCurrentCMesh->usNumPrims;
+	CGRenderer::I()->REStats.NumRenderedVerts += poCurrentCMesh->usNumVerts;
 }
-
-// Additional Declarations
-  //## begin CE3D_ShaderRenderer_OGL%3A9AB97B0096.declarations preserve=yes
-  //## end CE3D_ShaderRenderer_OGL%3A9AB97B0096.declarations
-
-//## begin module%3A9AB97B0096.epilog preserve=yes
-//## end module%3A9AB97B0096.epilog
+//-----------------------------------------------------------------------------

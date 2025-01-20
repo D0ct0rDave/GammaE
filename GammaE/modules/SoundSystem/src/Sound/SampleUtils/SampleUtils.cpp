@@ -1,8 +1,12 @@
-#include "memory/gammae_mem.h"
-#include <sndfile.h>
+#include "GammaE_Mem.h"
+#include "GammaE_misc.h"
+
 #include "SampleUtils.h"
+
+#include "Sound/SampleFormats/CPCMStreamSample.h"
+#include "Sound/SampleFormats/CPCMSample.h"
 // ----------------------------------------------------------------------------------
-int SampleUtils_GetSampleOffset(int _iSampleNum,int _iChannels,int _iBits)
+inline int SampleUtils_GetSampleOffset(int _iSampleNum,int _iChannels,int _iBits)
 {
 	return ( _iSampleNum * (_iBits >> 3) * _iChannels );
 }
@@ -18,16 +22,31 @@ void SampleUtils_ConvertTo16BitStereo(void *_pIn,void *_pOut,int _iInCh,int _iIn
 	{
 		case 8:	switch (_iInCh)
 				{
-					case 1: pucOSt[0] = 0;
-							pucOSt[1] = pucI[0];
-							pucOSt[2] = 0;
-							pucOSt[3] = pucI[0];
-							break;
-					case 2: pucOSt[0] = 0;
-							pucOSt[1] = pucI[0];
-							pucOSt[2] = 0;
-							pucOSt[3] = pucI[1];
-							break;
+					case 1:
+					{
+						short sS  = pucI[0]*255;
+						char* pcS =(char*)&sS;
+
+						pucOSt[0] = pcS[0];
+						pucOSt[1] = pcS[1];
+						pucOSt[2] = pcS[0];
+						pucOSt[3] = pcS[1];
+					}
+					break;
+
+					case 2:
+					{
+						short sSL  = pucI[0]*255;
+						short sSR  = pucI[1]*255;
+						char* pcSL =(char*)&sSL;
+						char* pcSR =(char*)&sSR;						
+
+						pucOSt[0] = pcSL[0];
+						pucOSt[1] = pcSL[1];
+						pucOSt[2] = pcSR[0];
+						pucOSt[3] = pcSR[1];
+					}
+					break;
 				}
 				break;
 		case 16:switch (_iInCh)
@@ -87,6 +106,7 @@ void SampleUtils_ConvertFrom16BitStereo(void *_pIn,void *_pOut,int _iOutCh,int _
 // ----------------------------------------------------------------------------------
 void SampleUtils_ConvertSample(CSample *_pSample,int _iChannels,int _iBits,int _iSampleRate)
 {
+	/*
 	// Create a sample of the desired format
 	CSample			pOutSmp;	
 	unsigned char	*pucOutData;
@@ -101,7 +121,13 @@ void SampleUtils_ConvertSample(CSample *_pSample,int _iChannels,int _iBits,int _
 	int				iOffset;
 	int				iSample;
 	int				iNumSamples;
-	
+
+	if ((_iChannels==-1) && (_iBits==-1) && (_iSampleRate == -1)) return;
+
+	if (_iChannels   == -1) _iChannels   = _pSample->iChannels;
+	if (_iBits       == -1) _iBits       = _pSample->iBits;
+	if (_iSampleRate == -1) _iSampleRate = _pSample->iSRate;
+
 	pOutSmp.Init(_iChannels,_iBits,_iSampleRate,_pSample->iSamples);
 	pucInData   = (unsigned char *)_pSample->pData;
 	pucOutData  = (unsigned char *) pOutSmp.pData;
@@ -137,32 +163,27 @@ void SampleUtils_ConvertSample(CSample *_pSample,int _iChannels,int _iBits,int _
 
 	// remove the buffer link
 	pOutSmp.pData = NULL;
+	*/
 }
 // ----------------------------------------------------------------------------------
 // Load a sample from a supported format
 // ----------------------------------------------------------------------------------
-CSample *SampleUtils_LoadSample(char *_Filename)
-{	
-	SNDFILE*	Sfd;
-	SF_INFO		SInfo;
-	int			iSSize;
-	CSample		*pSample;
-
-	Sfd = sf_open_read	(_Filename, &SInfo) ;	
-	if (! Sfd) return (NULL);
-	
-	iSSize = SInfo.channels*(SInfo.pcmbitwidth>>3)*SInfo.samples;
-	
-	pSample = mNew CSample;
-	pSample->Init(SInfo.channels,SInfo.pcmbitwidth,SInfo.samplerate,(int)SInfo.samples);
-	
-	if ( (int)sf_read_raw(Sfd,pSample->pData,iSSize) != iSSize)
+CSample *SampleUtils_LoadSample(char *_szFilename,bool _bStream)
+{
+	// Suponemos que directamente es un WAV file
+	if (! _bStream)
 	{
-		mDel pSample;
-		return (NULL);
+		CPCMSample* poSample = mNew CPCMSample;
+		poSample->Init(_szFilename);
+		
+		return(poSample);
 	}
-	
-	sf_close(Sfd) ;
-	return (pSample);
+	else
+	{
+		CPCMStreamSample* poSample = mNew CPCMStreamSample;
+		poSample->Init(_szFilename);
+
+		return(poSample);
+	}
 }
 // ----------------------------------------------------------------------------------

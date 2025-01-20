@@ -1,29 +1,15 @@
-//## begin module%3AF50E46017C.cm preserve=no
-//	  %X% %Q% %Z% %W%
-//## end module%3AF50E46017C.cm
-
-//## begin module%3AF50E46017C.cp preserve=no
-//## end module%3AF50E46017C.cp
-
-//## Module: CSector%3AF50E46017C; Pseudo Package body
-//## Source file: E:\Projects\GammaE\TerrainData\Sector\CSector.cpp
-
-//## begin module%3AF50E46017C.additionalIncludes preserve=no
-//## end module%3AF50E46017C.additionalIncludes
-
-//## begin module%3AF50E46017C.includes preserve=yes
+#include "GammaE_Mem.h"
+#include "GammaE_Misc.h"
 #include <assert.h>
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
-#include "File.h"
-//## end module%3AF50E46017C.includes
+#include "Gammae_FileSys.h"
 
 // CSector
-#include "TerrainData\Sector\CSector.h"
-//## begin module%3AF50E46017C.additionalDeclarations preserve=yes
+#include "Sector\CSector.h"
 
 // GetValueLOD local variable
 	CSectElem *GVL_a  = NULL;
@@ -34,7 +20,6 @@
 	CSectElem *GVL_r2 = NULL;
 
 	CSectElem *GVL_Sum = NULL;
-//## end module%3AF50E46017C.additionalDeclarations
 
 
 // Class CSector 
@@ -48,87 +33,69 @@
 
 
 CSector::CSector()
-  //## begin CSector::CSector%.hasinit preserve=no
-      : ulID(0), VGenMethod(eGM_Nearest), pData(NULL), Resolution(0), ucMajVer(1), ucMinVer(0), b21(false), iLast(0)
-  //## end CSector::CSector%.hasinit
-  //## begin CSector::CSector%.initialization preserve=yes
-  //## end CSector::CSector%.initialization
-{
-  //## begin CSector::CSector%.body preserve=yes
-  //## end CSector::CSector%.body
+        : ulID(0), VGenMethod(eGM_Nearest), pData(NULL), Resolution(0), ucMajVer(1), ucMinVer(0), b21(false), iLast(0)
+      {
 }
 
 
 CSector::~CSector()
 {
-  //## begin CSector::~CSector%.body preserve=yes
-	Invalidate();
-  //## end CSector::~CSector%.body
+  	Invalidate();
 }
 
 
 const CSector & CSector::operator=(const CSector &right)
 {
-  //## begin CSector::operator=%.body preserve=yes
-	// Assume assignement between elements of identical class
+  	// Assume assignement between elements of identical class
 	Init(right.Resolution,right.b21);
 	memcpy( pData,right.pData,DataSize() );
 	
 	return (*this);
-  //## end CSector::operator=%.body
 }
 
 
 
-//## Other Operations (implementation)
 void CSector::Init (int _iRes, bool _b21)
 {
-  //## begin CSector::Init%989359113.body preserve=yes
-  	Invalidate();
+    	Invalidate();
 
 	Resolution = _iRes;
 	b21 = _b21;
 	
 	iLast	   = _iRes-1;
-	pData      = malloc( DataSize() );
+	pData      = mAlloc( DataSize() );
 	memset(pData,0,DataSize() );
 
-  //## end CSector::Init%989359113.body
 }
 
 void CSector::Invalidate ()
 {
-  //## begin CSector::Invalidate%989359112.body preserve=yes
-	if (pData) free(pData);
+  	if (pData) mFree(pData);
 	
 	pData      = NULL;
 	Resolution = 0;
-  //## end CSector::Invalidate%989359112.body
 }
 
 unsigned long CSector::ByteSize ()
 {
-  //## begin CSector::ByteSize%989139157.body preserve=yes
-	
+  	
 	// Version + Res + Data
 	return ( 1+1 + 4 + DataSize() );
 
-  //## end CSector::ByteSize%989139157.body
 }
 
 CSectElem & CSector::GetValueF (float _fX, float _fY)
 {
-  //## begin CSector::GetValueF%990742414.body preserve=yes
-	if (VGenMethod == eGM_Nearest) return ( GetValue((int)_fX,(int)_fY) );
+  	if (VGenMethod == eGM_Nearest) return ( GetValue((int)_fX,(int)_fY) );
 
 	if ( GVL_a )
 	{
-		delete GVL_a;
-		delete GVL_b;
-		delete GVL_c;
-		delete GVL_d;
-		delete GVL_r1;
-		delete GVL_r2;
+		mDel GVL_a;
+		mDel GVL_b;
+		mDel GVL_c;
+		mDel GVL_d;
+		mDel GVL_r1;
+		mDel GVL_r2;
 	}
 	
 	GVL_a  = GetValue(0,0).CreateClass();
@@ -168,22 +135,20 @@ CSectElem & CSector::GetValueF (float _fX, float _fY)
 
 							return ( GVL_a->CosInterpolate(*GVL_r1,*GVL_r2,fY) );
 							break;
-    }
+}
 
 	return ( *GVL_a );
-  //## end CSector::GetValueF%990742414.body
 }
 
 CSectElem & CSector::GetValueLOD (int _X, int _Y, int _iLOD)
 {
-  //## begin CSector::GetValueLOD%991155097.body preserve=yes
-	switch (VGenMethod)
+  	switch (VGenMethod)
 	{
 		case eGM_Nearest:	return( GetValue(_X,_Y) );
 							break;
 		case eGM_Linear:
 		case eGM_CosLinear: int cK,cL,cX,cY,cElems,iSize;
-							if (GVL_Sum) delete (GVL_Sum);
+							if (GVL_Sum) mDel (GVL_Sum);
 
 							GVL_Sum = GetValue(0,0).CreateClass();
 							iSize = (1 << (_iLOD-1));
@@ -216,13 +181,11 @@ CSectElem & CSector::GetValueLOD (int _X, int _Y, int _iLOD)
 	}
 
 	return ( *GVL_Sum );
-  //## end CSector::GetValueLOD%991155097.body
 }
 
 CSector * CSector::GenerateLOD (int _iLOD)
 {
-  //## begin CSector::GenerateLOD%989359111.body preserve=yes
-	unsigned int	 uiNewSectorRes;
+  	unsigned int	 uiNewSectorRes;
 	unsigned int	 cI,cJ;
 	CSector			*LODSect = CreateClass();
 
@@ -277,19 +240,15 @@ else{
 	}
 	
 	return(LODSect);
-  //## end CSector::GenerateLOD%989359111.body
 }
 
 void CSector::GetLODData (int _iLOD, void *_pData)
 {
-  //## begin CSector::GetLODData%989359114.body preserve=yes	
-  //## end CSector::GetLODData%989359114.body
 }
 
 int CSector::iLoad (char *_Filename)
 {
-  //## begin CSector::iLoad%989359124.body preserve=yes
-    unsigned int   ulBlockLenght;
+      unsigned int   ulBlockLenght;
     unsigned int   ulLoadedID;
     FILE          *fd;
     int			   iRes;
@@ -297,41 +256,41 @@ int CSector::iLoad (char *_Filename)
 	// Control Filename string
     if (! _Filename)
     {
-        ERROR_SetError("CSECT1001","NULL object filename.");
+        CGSystemLC::I()->Error("CSECT1001","NULL object filename.");
         return(RES_OP_ERROR);
-    }
+}
 
 	// Try opening file
 	fd  = fopen (_Filename,"rb");
 	if (! fd)
     {
-        ERROR_SetError("CSECT1002","Unable to open file",_Filename);
+        CGSystemLC::I()->Error("CSECT1002","Unable to open file",_Filename);
         return(RES_OP_ERROR);
-    }
+}
 
     // Read identifier
     if (! fread(&ulLoadedID,4,1,fd))
     {
-        ERROR_SetError("CSECT1003","Unable to read object from file");
+        CGSystemLC::I()->Error("CSECT1003","Unable to read object from file");
         fclose(fd);
         return(RES_OP_ERROR);
-    }
+}
 
 	// Compare IDs
     if (ulLoadedID != ulID)
     {
-        ERROR_SetError("CSECT1004","Bad object identifier.");
+        CGSystemLC::I()->Error("CSECT1004","Bad object identifier.");
         fclose(fd);
         return(RES_OP_ERROR);
-    }
+}
 
 	// Read block lenght
     if (! fread(&ulBlockLenght,4,1,fd))
     {
-        ERROR_SetError("CSECT1005","Unable to read data lenght from file");
+        CGSystemLC::I()->Error("CSECT1005","Unable to read data lenght from file");
         fclose(fd);
         return(RES_OP_ERROR);
-    }
+}
 
 	// Load the rest of the data
     iRes = iLoadWithHandler(fd);
@@ -340,28 +299,26 @@ int CSector::iLoad (char *_Filename)
     fclose(fd);
 	
     return ( iRes );
-  //## end CSector::iLoad%989359124.body
 }
 
 int CSector::iLoadWithHandler (FILE *_FD)
 {
-  //## begin CSector::iLoadWithHandler%989359125.body preserve=yes
-    unsigned char  ucMajorVersion;
+      unsigned char  ucMajorVersion;
     unsigned char  ucMinorVersion;
 
 	// Control file descriptor
     if (! _FD)
     {
-		ERROR_SetError("CSECT1011","NULL object file descriptor.");
+		CGSystemLC::I()->Error("CSECT1011","NULL object file descriptor.");
         return(RES_OP_ERROR);
-    }
+}
 
     // Read object version
     if (! fread(&ucMajorVersion,1,1,_FD))
     {
-		ERROR_SetError("CSECT1012","Unable to read object data");
+		CGSystemLC::I()->Error("CSECT1012","Unable to read object data");
         return(RES_OP_ERROR);
-    }
+}
 
 	// Read minor version
     fread(&ucMinorVersion,1,1,_FD);
@@ -369,9 +326,9 @@ int CSector::iLoadWithHandler (FILE *_FD)
 	// Control version number
     if ((ucMajorVersion > ucMajVer) || ((ucMajorVersion == ucMajVer) && (ucMinorVersion > ucMinVer)) )
     {
-        ERROR_SetError("CSECT1013","Incorrect object version number");
+        CGSystemLC::I()->Error("CSECT1013","Incorrect object version number");
         return(RES_OP_ERROR);
-    }
+}
 
     // Read object info
     fread(&b21,1,1,_FD);
@@ -386,46 +343,42 @@ int CSector::iLoadWithHandler (FILE *_FD)
     fread( pData,DataSize(),1,_FD);
 
 	return(RES_OP_OK);
-  //## end CSector::iLoadWithHandler%989359125.body
 }
 
 int CSector::iSave (char *_Filename)
 {
-  //## begin CSector::iSave%989359126.body preserve=yes
-    FILE			*fd;
+      FILE			*fd;
     int				iRes;
 
     if (! _Filename)
     {
-        ERROR_SetError("CSECT2001","NULL filename.");
+        CGSystemLC::I()->Error("CSECT2001","NULL filename.");
         return(RES_OP_ERROR);
-    }
+}
 
 	fd  = fopen (_Filename,"wb");
 	if (! fd)
     {
-        ERROR_SetError("CSECT2002","Unable to open file for saving",_Filename);
+        CGSystemLC::I()->Error("CSECT2002","Unable to open file for saving",_Filename);
         return(RES_OP_ERROR);
-    }
+}
 
     iRes = iSaveWithHandler(fd);
     fclose(fd);
     
     return ( iRes );
-  //## end CSector::iSave%989359126.body
 }
 
 int CSector::iSaveWithHandler (FILE *_FD)
 {
-  //## begin CSector::iSaveWithHandler%989359127.body preserve=yes
-    unsigned int	ulBlockLenght;
+      unsigned int	ulBlockLenght;
 
     // Write identifier
     if (! fwrite(&ulID,4,1,_FD))
     {
-        ERROR_SetError("CSECT2011","Unable to save object data");
+        CGSystemLC::I()->Error("CSECT2011","Unable to save object data");
         return(RES_OP_ERROR);
-    }
+}
 	
     // Write block length
     ulBlockLenght = ByteSize();
@@ -444,26 +397,17 @@ int CSector::iSaveWithHandler (FILE *_FD)
     fwrite(pData,DataSize(),1,_FD);
 
     return(RES_OP_OK);
-  //## end CSector::iSaveWithHandler%989359127.body
 }
 
 unsigned long CSector::DataSize ()
 {
-  //## begin CSector::DataSize%989359128.body preserve=yes
-	return( ElemArraySize(Resolution) );
-  //## end CSector::DataSize%989359128.body
+  	return( ElemArraySize(Resolution) );
 }
 
 unsigned long CSector::ElemArraySize (int _iResolution)
 {
-  //## begin CSector::ElemArraySize%989667594.body preserve=yes
-	return(0);
-  //## end CSector::ElemArraySize%989667594.body
+  	return(0);
 }
 
 // Additional Declarations
-  //## begin CSector%3AF50E46017C.declarations preserve=yes
-  //## end CSector%3AF50E46017C.declarations
-
-//## begin module%3AF50E46017C.epilog preserve=yes
-//## end module%3AF50E46017C.epilog
+    

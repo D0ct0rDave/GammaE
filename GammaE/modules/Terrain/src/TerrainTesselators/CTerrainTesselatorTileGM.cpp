@@ -1,23 +1,11 @@
-//## begin module%3B5C902D0082.cm preserve=no
 //	  %X% %Q% %Z% %W%
-//## end module%3B5C902D0082.cm
 
-//## begin module%3B5C902D0082.cp preserve=no
-//## end module%3B5C902D0082.cp
 
-//## Module: CTerrainTesselatorTileGM%3B5C902D0082; Pseudo Package body
-//## Source file: i:\Projects\GammaE\Terrain\TerrainTesselators\CTerrainTesselatorTileGM.cpp
 
-//## begin module%3B5C902D0082.additionalIncludes preserve=no
-//## end module%3B5C902D0082.additionalIncludes
 
-//## begin module%3B5C902D0082.includes preserve=yes
-//## end module%3B5C902D0082.includes
 
 // CTerrainTesselatorTileGM
-#include "Terrain\TerrainTesselators\CTerrainTesselatorTileGM.h"
-//## begin module%3B5C902D0082.additionalDeclarations preserve=yes
-//## end module%3B5C902D0082.additionalDeclarations
+#include "TerrainTesselators\CTerrainTesselatorTileGM.h"
 
 
 // Class CTerrainTesselatorTileGM 
@@ -30,30 +18,20 @@
 
 
 CTerrainTesselatorTileGM::CTerrainTesselatorTileGM()
-  //## begin CTerrainTesselatorTileGM::CTerrainTesselatorTileGM%.hasinit preserve=no
-      : Tile_iMaxSteps(0), Tile_iSteps(0), Tile_iGridStep(0), Tile_iStride(0), Tile_fTexStep(0), Tile_fMeters(0), Tile_Tile(NULL)
-  //## end CTerrainTesselatorTileGM::CTerrainTesselatorTileGM%.hasinit
-  //## begin CTerrainTesselatorTileGM::CTerrainTesselatorTileGM%.initialization preserve=yes
-  //## end CTerrainTesselatorTileGM::CTerrainTesselatorTileGM%.initialization
-{
-  //## begin CTerrainTesselatorTileGM::CTerrainTesselatorTileGM%.body preserve=yes
-  //## end CTerrainTesselatorTileGM::CTerrainTesselatorTileGM%.body
+        : Tile_iMaxSteps(0), Tile_iSteps(0), Tile_iGridStep(0), Tile_iStride(0), Tile_fTexStep(0), Tile_fMeters(0), Tile_Tile(NULL)
+      {
 }
 
 
 CTerrainTesselatorTileGM::~CTerrainTesselatorTileGM()
 {
-  //## begin CTerrainTesselatorTileGM::~CTerrainTesselatorTileGM%.body preserve=yes
-  //## end CTerrainTesselatorTileGM::~CTerrainTesselatorTileGM%.body
 }
 
 
 
-//## Other Operations (implementation)
 void CTerrainTesselatorTileGM::GenerateTileCoordData ()
 {
-  //## begin CTerrainTesselatorTileGM::GenerateTileCoordData%995922489.body preserve=yes
-    /*
+      /*
 	int             cI,cJ,iVXPos;
     float           fTexUCur    = 0;
     float           fTexVCur    = 0;
@@ -128,15 +106,13 @@ void CTerrainTesselatorTileGM::GenerateTileCoordData ()
 										fTexVCur   += m_fTexStep;
 									}
 									break;
-    }
+}
 	*/
-  //## end CTerrainTesselatorTileGM::GenerateTileCoordData%995922489.body
 }
 
 void CTerrainTesselatorTileGM::RenderTile (int iX, int iY)
 {
-  //## begin CTerrainTesselatorTileGM::RenderTile%995922490.body preserve=yes
-    // GRID_ETMap_RotType eRotFlag;
+      // GRID_ETMap_RotType eRotFlag;
 
     // Set current texture tile
 	// TMaterial * TileMat = GetTileMaterial(iX,iY);
@@ -166,23 +142,21 @@ void CTerrainTesselatorTileGM::RenderTile (int iX, int iY)
 
 			iVXPos1 += Tile_iGridStep;
 			iVXPos2 += Tile_iGridStep;
-        }
+}
 
 		Idxs[iIdx] = Idxs[iIdx-1];
 		iIdx++;
 
 		iVXPos1 += (Tile_iStride - Tile_iGridStep*(Tile_iSteps+1));
 		iVXPos2  = iVXPos1 + Tile_iStride;
-    }
+}
 	
-	gpoE3DRenderer->RenderMesh(Mesh,poTileMat);
-  //## end CTerrainTesselatorTileGM::RenderTile%995922490.body
+	CGRenderer::I()->RenderMesh(Mesh,poTileMat);
 }
 
 void CTerrainTesselatorTileGM::RenderTiling ()
 {
-  //## begin CTerrainTesselatorTileGM::RenderTiling%995922491.body preserve=yes
-  	int				iX,iY;
+    	int				iX,iY;
     // -----------------------
     // Setup variables
     // -----------------------
@@ -228,20 +202,18 @@ void CTerrainTesselatorTileGM::RenderTiling ()
  	m_fTexStep       = 1.0f / m_uiTileSteps;
     */
 
-    //------------------------------------
+    //-----------------------------------------------------------------------------
     // Render the tiles
-    //------------------------------------      
+    //-----------------------------------------------------------------------------      
 	for (iY = 0; iY<TM->GetResolution();iY++)
         for (iX = 0; iX<TM->GetResolution();iX++)
 			RenderTile(iX,iY);
 
-  //## end CTerrainTesselatorTileGM::RenderTiling%995922491.body
 }
 
 CE3D_Shader * CTerrainTesselatorTileGM::GetTileMaterial (int iX, int iY)
 {
-  //## begin CTerrainTesselatorTileGM::GetTileMaterial%995922492.body preserve=yes
-	static CVect3					TileCenter;
+  	static CVect3					TileCenter;
     static int						i,j;
     static unsigned int				uiLOD;
     static unsigned int				uiTexIndex;
@@ -255,18 +227,13 @@ CE3D_Shader * CTerrainTesselatorTileGM::GetTileMaterial (int iX, int iY)
 	TileCenter.V3(i*fXYScale,j*fXYScale,HData[j*uiSectorRes+i]);
 
 	// Get the distance from the tile to the camera
-	fDistance  = TileCenter.Distance(Cam);
+	fDistance  = TileCenter.fDistance(Cam);
 
     uiTexIndex = Tile_Tile->GetTileIdx();
     uiLOD      = GetTileLOD(fDistance,TB->GetMaxLODs());
 
     return ( TB->poGetTileMaterial(uiTexIndex,uiLOD) );
-  //## end CTerrainTesselatorTileGM::GetTileMaterial%995922492.body
 }
 
 // Additional Declarations
-  //## begin CTerrainTesselatorTileGM%3B5C902D0082.declarations preserve=yes
-  //## end CTerrainTesselatorTileGM%3B5C902D0082.declarations
-
-//## begin module%3B5C902D0082.epilog preserve=yes
-//## end module%3B5C902D0082.epilog
+    

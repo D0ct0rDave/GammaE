@@ -1,0 +1,13 @@
+USEUNIT(".\Timing\CChrono.cpp");
+USEUNIT(".\Timming\Chronos.cpp");
+USEUNIT(".\ParseUtils\ParseUtils.cpp");
+USEUNIT(".\TAD\CCircularArray.cpp");
+USEUNIT(".\TAD\CDynArray.cpp");
+USEUNIT(".\TAD\CHashTable.cpp");
+USEUNIT(".\TAD\CLookupArray.cpp");
+USEUNIT(".\TAD\CLookupEntry.cpp");
+USEUNIT(".\TAD\CStArray.cpp");
+USEUNIT(".\Console\ConsoleIO.cpp");
+USEFILE("vctobpr.log");
+
+#define Library

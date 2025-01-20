@@ -1,477 +1,195 @@
-//## begin module%3A9AB8C503B6.cm preserve=no
-//## end module%3A9AB8C503B6.cm
-
-//## begin module%3A9AB8C503B6.cp preserve=no
-//## end module%3A9AB8C503B6.cp
-
-//## Module: CE3D_OGL_Win_Renderer%3A9AB8C503B6; Pseudo Package body
-//## Source file: i:\Projects\GammaE\E3D\Drivers\OGL\CE3D_OGL_Win_Renderer.cpp
-
-//## begin module%3A9AB8C503B6.additionalIncludes preserve=no
-//## end module%3A9AB8C503B6.additionalIncludes
-
-//## begin module%3A9AB8C503B6.includes preserve=yes
-#include "Memory/GammaE_Mem.h"
-#include "Misc/GammaE_Misc.h"
+// ----------------------------------------------------------------------------
+#include "GammaE_Mem.h"
+#include "GammaE_Misc.h"
 
 #include "CE3D_OGL_Win_Renderer.h"
-#include <tex.h>
+
 #include <gl/gl.h>
 #include <gl/glu.h>
 #include <gl/glext.h>
 
+#include "RenderVars/CE3D_RenderVars.h"
+
 // The format of the functions we're gonna get hold of.
 typedef void (APIENTRY *PFNGLCOLORTABLEEXT)(int, int, int, int, int, const void * );
+PFNGLSECONDARYCOLOR3FVPROC								glSecondaryColor3fv = NULL;
 
-//Our two function pointers.
-PFNGLCOLORTABLEEXT glColorTableEXT;
+//Our function pointers.
+PFNGLCOLORTABLEEXT										glColorTableEXT;
 
-//## end module%3A9AB8C503B6.includes
+PFNGLCREATEPROGRAMOBJECTARBPROC                         glCreateProgramObjectARB = NULL;
+PFNGLCREATESHADEROBJECTARBPROC                          glCreateShaderObjectARB = NULL;
+PFNGLSHADERSOURCEARBPROC                                glShaderSourceARB = NULL;
+PFNGLCOMPILESHADERARBPROC                               glCompileShaderARB = NULL;
+PFNGLGETOBJECTPARAMETERIVARBPROC                        glGetObjectParameterivARB = NULL;
+PFNGLATTACHOBJECTARBPROC                                glAttachObjectARB = NULL;
+PFNGLGETINFOLOGARBPROC                                  glGetInfoLogARB = NULL;
+PFNGLLINKPROGRAMARBPROC                                 glLinkProgramARB = NULL;
+PFNGLUSEPROGRAMOBJECTARBPROC                            glUseProgramObjectARB = NULL;
+PFNGLGETUNIFORMLOCATIONARBPROC                          glGetUniformLocationARB = NULL;
+PFNGLUNIFORM1FARBPROC                                   glUniform1fARB = NULL;
+PFNGLUNIFORM1IARBPROC                                   glUniform1iARB = NULL;
 
 // CE3D_OGL_Win_Renderer
-#include "E3D\Drivers\OGL\CE3D_OGL_Win_Renderer.h"
-//## begin module%3A9AB8C503B6.additionalDeclarations preserve=yes
+#include "Drivers\OGL\CE3D_OGL_Win_Renderer.h"
+#include "CE3D_OGL_MatrixStack.h"
 
-//---------------------------------------------------------------------------
-// Driver specific options
-//---------------------------------------------------------------------------
-#define E3D_RENDERER_OP_GDI 	0x00000100
-
-//---------------------------------------------------------------------------
-unsigned int GetTextureFormat(PixelFormat pixelFormat)
+CE3D_OGL_MatrixStack m_oCamMatrixStack;
+CE3D_OGL_MatrixStack m_oWorldMatrixStack;
+static CGColor m_oClearColor(0.25,0.25,0.25,1.0f);
+//-----------------------------------------------------------------------------
+unsigned int GetTextureFormat(EImageFormat PixelFormat)
 {
-    switch (pixelFormat)
+    switch (PixelFormat)
     {
-		case PixelFormat::ARGB32:return(GL_RGBA);
-		case PixelFormat::RGB24: return(GL_RGB);
-		case PixelFormat::GRAY8: return(GL_LUMINANCE);
-		case PixelFormat::PALETTE:return(GL_COLOR_INDEX);
-
+		case IF_RGBA:return(GL_RGBA);
+        case IF_RGB: return(GL_RGB);
+        // case TEX_PF_GRAY8: return(GL_LUMINANCE);
+		case IF_PALETTE:return(GL_COLOR_INDEX);
+			
 		default:
 				return(GL_RGBA);
-    }
+	}
 }
-//---------------------------------------------------------------------------
-unsigned int GetTextureInternalFormat(PixelFormat pixelFormat)
+//-----------------------------------------------------------------------------
+unsigned int GetTextureInternalFormat(EImageFormat PixelFormat)
 {
-     switch (pixelFormat)
+     switch (PixelFormat)
     {
-        case PixelFormat::ARGB32:return(GL_RGBA);
-        case PixelFormat::RGB24: return(GL_RGB);
-        case PixelFormat::GRAY8: return(GL_LUMINANCE);
-		case PixelFormat::PALETTE: return(GL_COLOR_INDEX8_EXT);
+        case IF_RGBA:return(GL_RGBA8);
+        case IF_RGB: return(GL_RGB8);
+        // case TEX_PF_GRAY8: return(GL_LUMINANCE);
+		case IF_PALETTE:return(GL_COLOR_INDEX8_EXT);
 		
 		default:
-			return(0);
-    }
+				return(0);
+	}
 }
-//---------------------------------------------------------------------------
-GLenum eGetStencilAct(eE3D_StencilAction _eSA)
+//-----------------------------------------------------------------------------
+GLenum eGetStencilAct(E3D_StencilAction _eSA)
 {
 	switch (_eSA)
 	{
-		case eE3D_SA_None:	return(GL_KEEP);
-		case eE3D_SA_Keep:	return(GL_KEEP);
-		case eE3D_SA_Zero:	return(GL_ZERO);
-		case eE3D_SA_Inc:	return(GL_INCR);
-		case eE3D_SA_Dec:	return(GL_DECR);
-		case eE3D_SA_Inv:	return(GL_INVERT);
+		case E3D_SA_None:	return(GL_KEEP);
+		case E3D_SA_Keep:	return(GL_KEEP);
+		case E3D_SA_Zero:	return(GL_ZERO);
+		case E3D_SA_Inc:	return(GL_INCR);
+		case E3D_SA_Dec:	return(GL_DECR);
+		case E3D_SA_Inv:	return(GL_INVERT);
 		default:
 				return(GL_KEEP);
 	}
 }
-
-GLenum eGetStencilFunc(eE3D_StencilFunc _eSF)
+// -----------------------------------------------------------------------------
+GLenum eGetStencilFunc(E3D_StencilFunc _eSF)
 {
 	switch (_eSF)
 	{
-		case eE3D_SF_None:		return(GL_ALWAYS);
-		case eE3D_SF_Never:		return(GL_NEVER);
-		case eE3D_SF_Less:		return(GL_LESS);
-		case eE3D_SF_LEqual:	return(GL_LEQUAL);
-		case eE3D_SF_Greater:	return(GL_GREATER);
-		case eE3D_SF_GEqual:	return(GL_GEQUAL);
-		case eE3D_SF_Equal:		return(GL_EQUAL);
-		case eE3D_SF_NotEqual:	return(GL_NOTEQUAL);
-		case eE3D_SF_Always:	return(GL_ALWAYS);
+		case E3D_SF_None:		return(GL_ALWAYS);
+		case E3D_SF_Never:		return(GL_NEVER);
+		case E3D_SF_Less:		return(GL_LESS);
+		case E3D_SF_LEqual:	return(GL_LEQUAL);
+		case E3D_SF_Greater:	return(GL_GREATER);
+		case E3D_SF_GEqual:	return(GL_GEQUAL);
+		case E3D_SF_Equal:		return(GL_EQUAL);
+		case E3D_SF_NotEqual:	return(GL_NOTEQUAL);
+		case E3D_SF_Always:	return(GL_ALWAYS);
 		default:
 				return(GL_ALWAYS);
 	}
 }
-
-GLenum eGetFogMode(eE3D_FogMode _eFM)
+// -----------------------------------------------------------------------------
+GLenum eGetFogMode(E3D_FogMode _eFM)
 {
 	switch (_eFM)
 	{
-		case eE3D_FM_None:	return(GL_LINEAR);
-		case eE3D_FM_Linear:return(GL_LINEAR);
-		case eE3D_FM_Exp:	return(GL_EXP);
-		case eE3D_FM_Exp2:	return(GL_EXP2);
+		case E3D_FM_None:	return(GL_LINEAR);
+		case E3D_FM_Linear:	return(GL_LINEAR);
+		case E3D_FM_Exp:	return(GL_EXP);
+		case E3D_FM_Exp2:	return(GL_EXP2);
 		default:
 				return(GL_LINEAR);
 	}
 }
-
-GLenum eGetDepthFunc(eE3D_ZTestFunc _ZT)
+// -----------------------------------------------------------------------------
+GLenum eGetDepthFunc(E3D_ZTestFunc _ZT)
 {
 	switch (_ZT)
 	{
-		case eE3D_ZTF_None:		return(GL_ALWAYS);
-		case eE3D_ZTF_Never:	return(GL_NEVER);
-		case eE3D_ZTF_Less:		return(GL_LESS);
-		case eE3D_ZTF_LEqual:	return(GL_LEQUAL);
-		case eE3D_ZTF_Greater:	return(GL_GREATER);
-		case eE3D_ZTF_GEqual:	return(GL_GEQUAL);
-		case eE3D_ZTF_Equal:	return(GL_EQUAL);
-		case eE3D_ZTF_NotEqual:	return(GL_NOTEQUAL);
-		case eE3D_ZTF_Always:	return(GL_ALWAYS);
+		case E3D_ZTF_None:		return(GL_ALWAYS);
+		case E3D_ZTF_Never:		return(GL_NEVER);
+		case E3D_ZTF_Less:		return(GL_LESS);
+		case E3D_ZTF_LEqual:	return(GL_LEQUAL);
+		case E3D_ZTF_Greater:	return(GL_GREATER);
+		case E3D_ZTF_GEqual:	return(GL_GEQUAL);
+		case E3D_ZTF_Equal:		return(GL_EQUAL);
+		case E3D_ZTF_NotEqual:	return(GL_NOTEQUAL);
+		case E3D_ZTF_Always:	return(GL_ALWAYS);
 		default:
 				return(GL_ALWAYS);
 	}
 }
-
+// -----------------------------------------------------------------------------
 GLenum eGetLightID(int _iLightID)
 {
 	return(GL_LIGHT0 + _iLightID);
 }
-
-
-
+// -----------------------------------------------------------------------------
 // For Lighting
 #define		 MAX_LIGHTS	 8
 CVect4		 oLPos	 [MAX_LIGHTS];
 unsigned int uiEnabledLights = 0;
-
-
-
+// -----------------------------------------------------------------------------
 #ifdef _DEBUG
+static int s_iLastError = 0;
+static int s_iError     = 0;
 
-static void CONTROL_ERRORS()
+static void CHECKERRORS()
 {
-	int iError;
-	do{
+	s_iLastError = 0;
 
-		iError = glGetError();
-		if (iError != GL_NO_ERROR)
+	do{
+		s_iError = glGetError();
+
+		if (s_iError != GL_NO_ERROR)
 		{
-			int a=0;
+			s_iLastError = s_iError;
 		}
-	}while (iError != GL_NO_ERROR);
+
+	}while (s_iError != GL_NO_ERROR);
 }
 #else
-#define CONTROL_ERRORS()
+#define CHECKERRORS()
 #endif
 
-//---------------------------------------------------------------------------
 //#define _DEBUG_WIREFRAME
-
-//## end module%3A9AB8C503B6.additionalDeclarations
-
-
-// Class CE3D_OGL_Win_Renderer 
-
+//-----------------------------------------------------------------------------
 CE3D_OGL_Win_Renderer::CE3D_OGL_Win_Renderer()
-  //## begin CE3D_OGL_Win_Renderer::CE3D_OGL_Win_Renderer%.hasinit preserve=no
-  //## end CE3D_OGL_Win_Renderer::CE3D_OGL_Win_Renderer%.hasinit
-  //## begin CE3D_OGL_Win_Renderer::CE3D_OGL_Win_Renderer%.initialization preserve=yes
-  //## end CE3D_OGL_Win_Renderer::CE3D_OGL_Win_Renderer%.initialization
-{
-  //## begin CE3D_OGL_Win_Renderer::CE3D_OGL_Win_Renderer%.body preserve=yes
-
+{  
 	// Setup NULL color
 	CE3D_ShIns_Color *poColor = mNew CE3D_ShIns_Color;
-	poColor->oColor.SetColor(1.0f,0.0f,0.0f,0.5f);
+	poColor->SetColor( CGColor(1.0f,0.0f,0.0f,0.5f) );
     E3D_NULL_SHADER.AddInstruction(poColor);
 
-	//---------------------------------------------------------------------------
+	//-----------------------------------------------------------------------------
 	// Create and initialize engine associated objects
-	//---------------------------------------------------------------------------
+	//-----------------------------------------------------------------------------
 	REStats.cDTime   = 0;
-	REStats.DTimes[0] = REStats.DTimes[1] = REStats.DTimes[2] = REStats.DTimes[3] = 1;
+	REStats.DTimes[0]= REStats.DTimes[1] = REStats.DTimes[2] = REStats.DTimes[3] = 1;
 	REStats.FPS      = 1.0f;
-  //## end CE3D_OGL_Win_Renderer::CE3D_OGL_Win_Renderer%.body
+	REStats.DTime    = 0.0f;
 }
-
-
+// -----------------------------------------------------------------------------
 CE3D_OGL_Win_Renderer::~CE3D_OGL_Win_Renderer()
 {
-  //## begin CE3D_OGL_Win_Renderer::~CE3D_OGL_Win_Renderer%.body preserve=yes
   	Finish();
-  //## end CE3D_OGL_Win_Renderer::~CE3D_OGL_Win_Renderer%.body
 }
-
-
-
-//## Other Operations (implementation)
-void CE3D_OGL_Win_Renderer::RenderBBox (CGraphBV* BVol)
+// -----------------------------------------------------------------------------
+int CE3D_OGL_Win_Renderer::Init (handler _pHndDeviceContext, int _iOptions, int _iScrTX, int _iScrTY, int _iColorBits)
 {
-  //## begin CE3D_OGL_Win_Renderer::RenderBBox%996790582.body preserve=yes
-	if (! BVol) return;
-
-	float  fXSize = BVol->GetRange(0) * 0.5f;
-	float  fYSize = BVol->GetRange(1) * 0.5f;
-	float  fZSize = BVol->GetRange(2) * 0.5f;
-	
-	CVect3 Pos = BVol->GetCenter();
-	
-	
-	glBlendFunc(GL_ONE,GL_ZERO);
-	glDisable(GL_TEXTURE_2D);
-	glDisable(GL_CULL_FACE);
-	glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
-
-	glColor3f(1.0f,1.0f,0.25f);
-	glBegin(GL_QUADS);
-		glVertex3f(Pos.X()-fXSize,Pos.Y()-fYSize,Pos.Z() + fZSize);
-		glVertex3f(Pos.X()-fXSize,Pos.Y()+fYSize,Pos.Z() + fZSize);		
-		glVertex3f(Pos.X()+fXSize,Pos.Y()+fYSize,Pos.Z() + fZSize);
-		glVertex3f(Pos.X()+fXSize,Pos.Y()-fYSize,Pos.Z() + fZSize);
-
-		glVertex3f(Pos.X()-fXSize,Pos.Y()-fYSize,Pos.Z() + fZSize);
-		glVertex3f(Pos.X()-fXSize,Pos.Y()+fYSize,Pos.Z() + fZSize);		
-		glVertex3f(Pos.X()-fXSize,Pos.Y()+fYSize,Pos.Z() - fZSize);
-		glVertex3f(Pos.X()-fXSize,Pos.Y()-fYSize,Pos.Z() - fZSize);		
-
-		glVertex3f(Pos.X()+fXSize,Pos.Y()-fYSize,Pos.Z() + fZSize);
-		glVertex3f(Pos.X()+fXSize,Pos.Y()+fYSize,Pos.Z() + fZSize);		
-		glVertex3f(Pos.X()+fXSize,Pos.Y()+fYSize,Pos.Z() - fZSize);
-		glVertex3f(Pos.X()+fXSize,Pos.Y()-fYSize,Pos.Z() - fZSize);		
-
-		glVertex3f(Pos.X()-fXSize,Pos.Y()-fYSize,Pos.Z() - fZSize);
-		glVertex3f(Pos.X()-fXSize,Pos.Y()+fYSize,Pos.Z() - fZSize);		
-		glVertex3f(Pos.X()+fXSize,Pos.Y()+fYSize,Pos.Z() - fZSize);
-		glVertex3f(Pos.X()+fXSize,Pos.Y()-fYSize,Pos.Z() - fZSize);
-	glEnd();
-	glEnable(GL_CULL_FACE);
-
-	glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
-	glEnable(GL_TEXTURE_2D);
-  //## end CE3D_OGL_Win_Renderer::RenderBBox%996790582.body
-}
-
-void CE3D_OGL_Win_Renderer::RenderNormals (CMesh* Mesh)
-{
-  //## begin CE3D_OGL_Win_Renderer::RenderNormals%1000845954.body preserve=yes
-	if ( (Mesh->VNs) && (Mesh->VXs))	
-	{
-		glBlendFunc(GL_ONE,GL_ZERO);
-		glDisable(GL_TEXTURE_2D);
-
-		CVect3 *pVX = Mesh->VXs;
-		CVect3 *pVN = Mesh->VNs;
-		CVect3 pEnd;
-
-		glBegin(GL_LINES);
-		glColor3f(0.0f,0.0f,1.0f);
-
-		for (int cVert=0;cVert<Mesh->usNumVerts;cVert++)
-		{	
-			pEnd.Assign(*pVN);	
-			pEnd.Scale (2.0f);
-			pEnd.Add(*pVX);			
-			
-			glVertex3fv(pVX->v);
-			glVertex3fv(pEnd.v);
-
-			pVX++;
-			pVN++;
-		}
-
-		glEnd();
-		glEnable(GL_TEXTURE_2D);
-	}
-	
-  //## end CE3D_OGL_Win_Renderer::RenderNormals%1000845954.body
-}
-
-void CE3D_OGL_Win_Renderer::BeginRender ()
-{
-  //## begin CE3D_OGL_Win_Renderer::BeginRender%1003953180.body preserve=yes
-	Chrono_StartChrono();
-
-	// Invalidate Defferred objects warehouse
-	oDefObjWH.Invalidate();
-
-    // Initialize statistic variables
-	REStats.NumTestedObjs 	 = 0;
-	REStats.NumRenderedGObjs = 0;
-    REStats.NumCulledObjs	 = 0;
-    REStats.NumRenderedTris  = 0;
-    REStats.NumRenderedVerts = 0;		
-
-	GLint BufferMask;
-	BufferMask = GL_COLOR_BUFFER_BIT;
-
-	if (eStencilFunc != eE3D_SF_None)  BufferMask |= GL_STENCIL_BUFFER_BIT;
-	if (eZTest       != eE3D_ZTF_None) BufferMask |= GL_DEPTH_BUFFER_BIT;
-
-	glClear(BufferMask);
-  //## end CE3D_OGL_Win_Renderer::BeginRender%1003953180.body
-}
-
-void CE3D_OGL_Win_Renderer::ClearCameraMatrix ()
-{
-  //## begin CE3D_OGL_Win_Renderer::ClearCameraMatrix%1003953181.body preserve=yes
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-	CONTROL_ERRORS();
-  //## end CE3D_OGL_Win_Renderer::ClearCameraMatrix%1003953181.body
-}
-
-void CE3D_OGL_Win_Renderer::ClearProjectorMatrix ()
-{
-  //## begin CE3D_OGL_Win_Renderer::ClearProjectorMatrix%1003953182.body preserve=yes
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	CONTROL_ERRORS();
-  //## end CE3D_OGL_Win_Renderer::ClearProjectorMatrix%1003953182.body
-}
-
-void CE3D_OGL_Win_Renderer::DisableBBoxRender ()
-{
-  //## begin CE3D_OGL_Win_Renderer::DisableBBoxRender%1003953183.body preserve=yes
-  	REState.BBoxRender = false;
-  //## end CE3D_OGL_Win_Renderer::DisableBBoxRender%1003953183.body
-}
-
-void CE3D_OGL_Win_Renderer::DisableDefferredMode ()
-{
-  //## begin CE3D_OGL_Win_Renderer::DisableDefferredMode%1003953184.body preserve=yes
-	REState.DefferredMode = false;
-
-	if (oDefObjWH.iNumDefferredObjects())
-    	RenderDefferredObjects();
-
-  //## end CE3D_OGL_Win_Renderer::DisableDefferredMode%1003953184.body
-}
-
-void CE3D_OGL_Win_Renderer::DisableFrustumCulling ()
-{
-  //## begin CE3D_OGL_Win_Renderer::DisableFrustumCulling%1003953186.body preserve=yes
-	REState.FrustumCulling = false;
-  //## end CE3D_OGL_Win_Renderer::DisableFrustumCulling%1003953186.body
-}
-
-void CE3D_OGL_Win_Renderer::DisableNormalRender ()
-{
-  //## begin CE3D_OGL_Win_Renderer::DisableNormalRender%1003953188.body preserve=yes
-	REState.NormalRender = false;
-  //## end CE3D_OGL_Win_Renderer::DisableNormalRender%1003953188.body
-}
-
-void CE3D_OGL_Win_Renderer::EnableBBoxRender ()
-{
-  //## begin CE3D_OGL_Win_Renderer::EnableBBoxRender%1003953190.body preserve=yes
-  	REState.BBoxRender = true;
-  //## end CE3D_OGL_Win_Renderer::EnableBBoxRender%1003953190.body
-}
-
-void CE3D_OGL_Win_Renderer::EnableDefferredMode ()
-{
-  //## begin CE3D_OGL_Win_Renderer::EnableDefferredMode%1003953191.body preserve=yes
-	REState.DefferredMode = true;
-  //## end CE3D_OGL_Win_Renderer::EnableDefferredMode%1003953191.body
-}
-
-void CE3D_OGL_Win_Renderer::EnableFrustumCulling ()
-{
-  //## begin CE3D_OGL_Win_Renderer::EnableFrustumCulling%1003953193.body preserve=yes
-	REState.FrustumCulling = true;
-  //## end CE3D_OGL_Win_Renderer::EnableFrustumCulling%1003953193.body
-}
-
-void CE3D_OGL_Win_Renderer::EnableNormalRender ()
-{
-  //## begin CE3D_OGL_Win_Renderer::EnableNormalRender%1003953195.body preserve=yes
-	REState.NormalRender = true;
-  //## end CE3D_OGL_Win_Renderer::EnableNormalRender%1003953195.body
-}
-
-void CE3D_OGL_Win_Renderer::EndRender ()
-{
-  //## begin CE3D_OGL_Win_Renderer::EndRender%1003953197.body preserve=yes
-  
-	// If there are some defferred objects render them
-	if (oDefObjWH.iNumDefferredObjects())
-    	RenderDefferredObjects();
-	
-	SwapBuffers(DC);	
-
-	// Get delta time
-	REStats.DTime = (float)Chrono_EllapsedTime();
-	REStats.DTimes[REStats.cDTime++] = REStats.DTime;	REStats.cDTime &= 0x03;
-	
-	// Compute FPS
-	// REStats.FPS = 0;	for(int i=0;i<4;i++) REStats.FPS += 0.25f/REStats.DTimes[i];
-	// REState.FPS = 0; for(int i=0;i<4;i++) REState.FPS += 1 / REStats.DTime[i];  REState.FPS /= 4;
-    if (REStats.iCurrentFrame>3)
-    	REStats.FPS = 1.0f / ((REStats.DTimes[0] + REStats.DTimes[1] + REStats.DTimes[2] + REStats.DTimes[3]) * 0.25f);
-    else
-        REStats.FPS = 1000.0f;
-
-	
-	// Increase total render time
-	REStats.fTotalTime += REStats.DTime;
-
-	// One more frame
-	REStats.iCurrentFrame++;
-
-  //## end CE3D_OGL_Win_Renderer::EndRender%1003953197.body
-}
-
-void CE3D_OGL_Win_Renderer::Finish ()
-{
-  //## begin CE3D_OGL_Win_Renderer::Finish%1003953198.body preserve=yes
-	if ((GLRC) && (DC))
-    {
-    	// Deactivate rendering context
-	    wglMakeCurrent(0,0);
-        // Destroy rendering context
-    	wglDeleteContext(GLRC);
-
-		ReleaseDC(WND,DC);
-    }
-  //## end CE3D_OGL_Win_Renderer::Finish%1003953198.body
-}
-
-void CE3D_OGL_Win_Renderer::GetCameraMatrix (CMatrix4x4 *M)
-{
-  //## begin CE3D_OGL_Win_Renderer::GetCameraMatrix%1003953200.body preserve=yes
-	glGetFloatv(GL_MODELVIEW_MATRIX,M->m);
-	CONTROL_ERRORS();
-  //## end CE3D_OGL_Win_Renderer::GetCameraMatrix%1003953200.body
-}
-
-CE3D_Shader * CE3D_OGL_Win_Renderer::poGetCurrentMaterial ()
-{
-  //## begin CE3D_OGL_Win_Renderer::poGetCurrentMaterial%1003953201.body preserve=yes
-	return (poCurrentShader);
-  //## end CE3D_OGL_Win_Renderer::poGetCurrentMaterial%1003953201.body
-}
-
-void CE3D_OGL_Win_Renderer::GetCurrentMatrix (CMatrix4x4 *M)
-{
-  //## begin CE3D_OGL_Win_Renderer::GetCurrentMatrix%1003953202.body preserve=yes
-	// coger directamente de OpenGL	
-	glGetFloatv(GL_MODELVIEW_MATRIX,M->m);
-	CONTROL_ERRORS();
-  //## end CE3D_OGL_Win_Renderer::GetCurrentMatrix%1003953202.body
-}
-
-void CE3D_OGL_Win_Renderer::GetProjectorMatrix (CMatrix4x4 *M)
-{
-  //## begin CE3D_OGL_Win_Renderer::GetProjectorMatrix%1003953204.body preserve=yes
-	glGetFloatv(GL_PROJECTION_MATRIX,M->m);
-	CONTROL_ERRORS();
-  //## end CE3D_OGL_Win_Renderer::GetProjectorMatrix%1003953204.body
-}
-
-int CE3D_OGL_Win_Renderer::Init (void *_pHndDeviceContext, int _iOptions, int _iScrTX, int _iScrTY, int _iColorBits)
-{
-  //## begin CE3D_OGL_Win_Renderer::Init%1003953206.body preserve=yes
-	//---------------------------------------------------------------------------
+  	//-----------------------------------------------------------------------------
 	// Begin Windows specific
-	//---------------------------------------------------------------------------
+	//-----------------------------------------------------------------------------
 		#define OP_SetOption(variable,option) variable |= option
 		#define OP_IsOption(variable,option) (variable & option)
 
@@ -529,18 +247,18 @@ int CE3D_OGL_Win_Renderer::Init (void *_pHndDeviceContext, int _iOptions, int _i
  		// read implementation properties
 		wglMakeCurrent(DC,GLRC);
 
-	//---------------------------------------------------------------------------
+	//-----------------------------------------------------------------------------
 	// End Windows specific
-	//---------------------------------------------------------------------------
+	//-----------------------------------------------------------------------------
 
-	//---------------------------------------------------------------------------
+	//-----------------------------------------------------------------------------
 	// Setup openGL default state
-	//---------------------------------------------------------------------------
+	//-----------------------------------------------------------------------------
 	iScrTX = _iScrTX;
 	iScrTY = _iScrTY;
 	   
 	// Frame buffer clear color
-	glClearColor(0.5f,0.5f,0.5f,0.0f);
+	glClearColor(m_oClearColor.r,m_oClearColor.g,m_oClearColor.g,m_oClearColor.a);
     
 	// Render buffer
     glDrawBuffer(GL_BACK);	
@@ -576,7 +294,7 @@ int CE3D_OGL_Win_Renderer::Init (void *_pHndDeviceContext, int _iOptions, int _i
 	// Enable blending	
 	glEnable(GL_BLEND);	
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);	
-	glAlphaFunc(GL_GREATER,0.1f);    
+	glAlphaFunc(GL_GREATER,0.0f);
 
 	// Desactivar el render con color
 	glDisableClientState(GL_COLOR_ARRAY);
@@ -603,213 +321,471 @@ int CE3D_OGL_Win_Renderer::Init (void *_pHndDeviceContext, int _iOptions, int _i
 	// Enable paletted textures
 	// -------------------------------------
 	glColorTableEXT = (PFNGLCOLORTABLEEXT)wglGetProcAddress("glColorTableEXT");
-	glEnable(GL_SHARED_TEXTURE_PALETTE_EXT);
+	if (glColorTableEXT)
+	{
+		glEnable(GL_SHARED_TEXTURE_PALETTE_EXT);
+	}
+	else
+	{
+		// DMC: error / warning
+	}
+
+	glUseProgramObjectARB		= (PFNGLUSEPROGRAMOBJECTARBPROC)	wglGetProcAddress("glUseProgramObjectARB");
+	glCreateProgramObjectARB	= (PFNGLCREATEPROGRAMOBJECTARBPROC)	wglGetProcAddress("glCreateProgramObjectARB");
+	glShaderSourceARB			= (PFNGLSHADERSOURCEARBPROC)		wglGetProcAddress("glShaderSourceARB");
+	glCreateShaderObjectARB		= (PFNGLCREATESHADEROBJECTARBPROC)	wglGetProcAddress("glCreateShaderObjectARB");
+	glCompileShaderARB			= (PFNGLCOMPILESHADERARBPROC)		wglGetProcAddress("glCompileShaderARB");
+	glGetObjectParameterivARB	= (PFNGLGETOBJECTPARAMETERIVARBPROC)wglGetProcAddress("glGetObjectParameterivARB");
+	glAttachObjectARB			= (PFNGLATTACHOBJECTARBPROC)		wglGetProcAddress("glAttachObjectARB");
+	glLinkProgramARB			= (PFNGLLINKPROGRAMARBPROC)			wglGetProcAddress("glLinkProgramARB");
+	glGetInfoLogARB				= (PFNGLGETINFOLOGARBPROC)			wglGetProcAddress("glGetInfoLogARB");
+	glGetUniformLocationARB		= (PFNGLGETUNIFORMLOCATIONARBPROC)	wglGetProcAddress("glGetUniformLocationARB");
+	glUniform1fARB				= (PFNGLUNIFORM1FARBPROC)           wglGetProcAddress("glUniform1fARB");
+	glUniform1iARB				= (PFNGLUNIFORM1IARBPROC)           wglGetProcAddress("glUniform1iARB");
+
+	glSecondaryColor3fv			= (PFNGLSECONDARYCOLOR3FVPROC)      wglGetProcAddress("glSecondaryColor3fv");
 
 	// -------------------------------------
 	// Initialize material renderer
 	// -------------------------------------
 	oShaderRenderer.Init();
+
 	return(1);	
-  //## end CE3D_OGL_Win_Renderer::Init%1003953206.body
 }
-
-void CE3D_OGL_Win_Renderer::LoadIdentity ()
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::Finish ()
 {
-  //## begin CE3D_OGL_Win_Renderer::LoadIdentity%1003953207.body preserve=yes
-	glMatrixMode(GL_MODELVIEW);
+  	if ((GLRC) && (DC))
+    {
+    	// Deactivate rendering context
+	    wglMakeCurrent(0,0);
+        // Destroy rendering context
+    	wglDeleteContext(GLRC);
+
+		ReleaseDC(WND,DC);
+		
+		GLRC = NULL;
+		DC   = NULL;
+	}
+}
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::RenderBBox (CGraphBV* BVol)
+{
+	if (! BVol) return;
+
+	float  fXSize = BVol->GetRange(0) * 0.5f;
+	float  fYSize = BVol->GetRange(1) * 0.5f;
+	float  fZSize = BVol->GetRange(2) * 0.5f;
+	
+	CVect3 Pos = BVol->GetCenter();
+
+	glBlendFunc(GL_ONE,GL_ZERO);
+	glDisable(GL_TEXTURE_2D);
+	glDisable(GL_CULL_FACE);
+	glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
+
+	glColor3f(1.0f,1.0f,0.25f);
+	glBegin(GL_QUADS);
+		glVertex3f(Pos.x-fXSize,Pos.y-fYSize,Pos.z + fZSize);
+		glVertex3f(Pos.x-fXSize,Pos.y+fYSize,Pos.z + fZSize);		
+		glVertex3f(Pos.x+fXSize,Pos.y+fYSize,Pos.z + fZSize);
+		glVertex3f(Pos.x+fXSize,Pos.y-fYSize,Pos.z + fZSize);
+
+		glVertex3f(Pos.x-fXSize,Pos.y-fYSize,Pos.z + fZSize);
+		glVertex3f(Pos.x-fXSize,Pos.y+fYSize,Pos.z + fZSize);		
+		glVertex3f(Pos.x-fXSize,Pos.y+fYSize,Pos.z - fZSize);
+		glVertex3f(Pos.x-fXSize,Pos.y-fYSize,Pos.z - fZSize);		
+
+		glVertex3f(Pos.x+fXSize,Pos.y-fYSize,Pos.z + fZSize);
+		glVertex3f(Pos.x+fXSize,Pos.y+fYSize,Pos.z + fZSize);		
+		glVertex3f(Pos.x+fXSize,Pos.y+fYSize,Pos.z - fZSize);
+		glVertex3f(Pos.x+fXSize,Pos.y-fYSize,Pos.z - fZSize);		
+
+		glVertex3f(Pos.x-fXSize,Pos.y-fYSize,Pos.z - fZSize);
+		glVertex3f(Pos.x-fXSize,Pos.y+fYSize,Pos.z - fZSize);		
+		glVertex3f(Pos.x+fXSize,Pos.y+fYSize,Pos.z - fZSize);
+		glVertex3f(Pos.x+fXSize,Pos.y-fYSize,Pos.z - fZSize);
+	glEnd();
+	// glEnable(GL_CULL_FACE);
+
+	glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
+	glEnable(GL_TEXTURE_2D);
+}
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::RenderNormals (CMesh* Mesh)
+{
+	if ( (Mesh->VNs) && (Mesh->VXs))	
+	{
+		glBlendFunc(GL_ONE,GL_ZERO);
+		glDisable(GL_TEXTURE_2D);
+
+		CVect3 *pVX = Mesh->VXs;
+		CVect3 *pVN = Mesh->VNs;
+		CVect3 pEnd;
+
+		glBegin(GL_LINES);
+		glColor3f(0.0f,0.0f,1.0f);
+
+		for (int cVert=0;cVert<Mesh->usNumVerts;cVert++)
+		{	
+			pEnd.Assign(*pVN);	
+			pEnd.Scale (2.0f);
+			pEnd.Add(*pVX);			
+			
+			glVertex3fv(pVX->V());
+			glVertex3fv(pEnd.V());
+
+			pVX++;
+			pVN++;
+		}
+
+		glEnd();
+		glEnable(GL_TEXTURE_2D);
+	}
+}
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::DisableBBoxRender ()
+{
+   	REState.BBoxRender = false;
+}
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::DisableDefferredMode ()
+{
+	REState.DefferredMode = false;
+
+	if (oDefObjWH.uiNumObjects())
+    	RenderDefferredObjects();
+}
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::DisableFrustumCulling ()
+{
+	REState.FrustumCulling = false;
+}
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::DisableNormalRender ()
+{
+  	REState.NormalRender = false;
+}
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::EnableBBoxRender ()
+{
+    	REState.BBoxRender = true;
+}
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::EnableDefferredMode ()
+{
+  	REState.DefferredMode = true;
+}
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::EnableFrustumCulling ()
+{
+  	REState.FrustumCulling = true;
+}
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::EnableNormalRender ()
+{
+  	REState.NormalRender = true;
+}
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::BeginRender ()
+{
+  	m_oChrono.Reset();
+	m_oChrono.Start();
+
+	// Invalidate Defferred objects warehouse
+	oDefObjWH.Invalidate();
+
+    // Initialize statistic variables
+	REStats.NumTestedObjs 	 = 0;
+	REStats.NumRenderedGObjs = 0;
+    REStats.NumCulledObjs	 = 0;
+    REStats.NumRenderedTris  = 0;
+    REStats.NumRenderedVerts = 0;		
+
+	GLint BufferMask;
+	BufferMask = GL_COLOR_BUFFER_BIT;
+
+	if (eStencilFunc != E3D_SF_None)  BufferMask |= GL_STENCIL_BUFFER_BIT;
+	if (eZTest       != E3D_ZTF_None) BufferMask |= GL_DEPTH_BUFFER_BIT;
+
+	glClear(BufferMask);
+}
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::EndRender ()
+{   
+	// If there are some defferred objects render them
+	if (oDefObjWH.uiNumObjects())
+    	RenderDefferredObjects();
+	
+	SwapBuffers(DC);	
+
+	// Get delta time
+	m_oChrono.Stop();
+	REStats.DTime = (float)m_oChrono.dElapsedTime();
+	REStats.DTimes[REStats.cDTime++] = REStats.DTime;	REStats.cDTime &= 0x03;
+	
+	// Compute FPS
+	// REStats.FPS = 0;	for(int i=0;i<4;i++) REStats.FPS += 0.25f/REStats.DTimes[i];
+	// REState.FPS = 0; for(int i=0;i<4;i++) REState.FPS += 1 / REStats.DTime[i];  REState.FPS /= 4;
+    if (REStats.iCurrentFrame>3)
+    	REStats.FPS = 1.0f / ((REStats.DTimes[0] + REStats.DTimes[1] + REStats.DTimes[2] + REStats.DTimes[3]) * 0.25f);
+    else
+        REStats.FPS = 1.0f / REStats.DTime;
+
+	// Increase total render time
+	REStats.fTotalTime += REStats.DTime;
+
+	// One more frame
+	REStats.iCurrentFrame++;
+}
+// -----------------------------------------------------------------------------
+// World / Model Matrix
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::ClearWorldMatrix ()
+{
+	m_oWorldMatrixStack.LoadIdentity();
+	/*
+  	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	CONTROL_ERRORS();
-  //## end CE3D_OGL_Win_Renderer::LoadIdentity%1003953207.body
+	CHECKERRORS();
+	*/
 }
-
-void CE3D_OGL_Win_Renderer::MultiplyMatrix (CMatrix4x4 *Matrix)
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::SetWorldMatrix (CMatrix4x4 *M)
+{    
+	m_oWorldMatrixStack.Load(*M);
+	/*
+	// copiar directamente a OpenGL
+	glMatrixMode (GL_MODELVIEW);
+	glLoadMatrixf(M->m);
+	CHECKERRORS();
+	*/
+}
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::GetWorldMatrix (CMatrix4x4 *M)
 {
-  //## begin CE3D_OGL_Win_Renderer::MultiplyMatrix%1003953208.body preserve=yes
-  
+	*M = m_oWorldMatrixStack.oGetTop();
+/*
+  	// coger directamente de OpenGL	
+	glGetFloatv(GL_MODELVIEW_MATRIX,M->m);
+	CHECKERRORS();
+*/
+}
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::PushWorldMatrix ()
+{
+	m_oWorldMatrixStack.Push();
+	/*
+  	glMatrixMode(GL_MODELVIEW);
+	glPushMatrix();
+	CHECKERRORS();
+	*/
+}
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::PopWorldMatrix ()
+{
+	m_oWorldMatrixStack.Pop();
+  	/*
+  	glMatrixMode(GL_MODELVIEW);
+	glPopMatrix();
+	CHECKERRORS();
+	*/
+}
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::MultiplyMatrix(CMatrix4x4 *Matrix)
+{
+	m_oWorldMatrixStack.Multiply(*Matrix);
+	/*
 	// Leaves X = MatrixStack*M
   	glMatrixMode(GL_MODELVIEW);
 	glMultMatrixf(Matrix->m);
-	CONTROL_ERRORS();
-  //## end CE3D_OGL_Win_Renderer::MultiplyMatrix%1003953208.body
+	CHECKERRORS();
+	*/
 }
-
-void CE3D_OGL_Win_Renderer::PopCameraMatrix ()
-{
-  //## begin CE3D_OGL_Win_Renderer::PopCameraMatrix%1003953209.body preserve=yes
-	glMatrixMode(GL_MODELVIEW);
-	glPopMatrix();
-	CONTROL_ERRORS();
-  //## end CE3D_OGL_Win_Renderer::PopCameraMatrix%1003953209.body
-}
-
-void CE3D_OGL_Win_Renderer::PopMatrix ()
-{
-  //## begin CE3D_OGL_Win_Renderer::PopMatrix%1003953210.body preserve=yes
-	glMatrixMode(GL_MODELVIEW);
-	glPopMatrix();
-	CONTROL_ERRORS();
-  //## end CE3D_OGL_Win_Renderer::PopMatrix%1003953210.body
-}
-
-void CE3D_OGL_Win_Renderer::PopProjectorMatrix ()
-{
-  //## begin CE3D_OGL_Win_Renderer::PopProjectorMatrix%1003953211.body preserve=yes
-	glMatrixMode(GL_PROJECTION);
-	glPopMatrix();
-	CONTROL_ERRORS();
-  //## end CE3D_OGL_Win_Renderer::PopProjectorMatrix%1003953211.body
-}
-
+// -----------------------------------------------------------------------------
 void CE3D_OGL_Win_Renderer::PreMultiplyMatrix (CMatrix4x4 *Matrix)
 {
-  //## begin CE3D_OGL_Win_Renderer::PreMultiplyMatrix%1003953212.body preserve=yes
-
 	// Leaves X = M * MatrixStack
+ 	float m[16];
 
-  	float m[16];
-	
 	glMatrixMode (GL_MODELVIEW);
 	glGetFloatv(GL_MODELVIEW_MATRIX,m);
-	CONTROL_ERRORS();
+	CHECKERRORS();
 	
 	glLoadMatrixf(Matrix->m);
-	CONTROL_ERRORS();
+	CHECKERRORS();
 	
 	glMultMatrixf(m);
-	CONTROL_ERRORS();
-
-  //## end CE3D_OGL_Win_Renderer::PreMultiplyMatrix%1003953212.body
+	CHECKERRORS();
 }
+// -----------------------------------------------------------------------------
+// Camera matrix operations
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::SetCameraMatrix (CMatrix4x4 *M)
+{
+	m_oCamMatrixStack.Load( *M );
 
+	/*
+	// copiar directamente a OpenGL
+	glMatrixMode (GL_MODELVIEW);
+	glLoadMatrixf(M->m);
+	CHECKERRORS();
+	*/
+}
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::GetCameraMatrix (CMatrix4x4 *M)
+{
+	*M = m_oCamMatrixStack.oGetTop();
+
+/*
+  	glGetFloatv(GL_MODELVIEW_MATRIX,M->m);
+	CHECKERRORS();
+*/
+
+}
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::ClearCameraMatrix ()
+{
+	m_oCamMatrixStack.LoadIdentity();
+
+/*
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	CHECKERRORS();
+*/
+}
+// -----------------------------------------------------------------------------
 void CE3D_OGL_Win_Renderer::PushCameraMatrix ()
 {
-  //## begin CE3D_OGL_Win_Renderer::PushCameraMatrix%1003953213.body preserve=yes
-	glMatrixMode(GL_MODELVIEW);
-	glPushMatrix();
-	CONTROL_ERRORS();
-  //## end CE3D_OGL_Win_Renderer::PushCameraMatrix%1003953213.body
-}
+	m_oCamMatrixStack.Push();
 
-void CE3D_OGL_Win_Renderer::PushMatrix ()
+/*
+  	glMatrixMode(GL_MODELVIEW);
+	glPushMatrix();
+	CHECKERRORS();
+*/
+}
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::PopCameraMatrix ()
 {
-  //## begin CE3D_OGL_Win_Renderer::PushMatrix%1003953214.body preserve=yes
-	glMatrixMode(GL_MODELVIEW);
-	glPushMatrix();
-	CONTROL_ERRORS();
-  //## end CE3D_OGL_Win_Renderer::PushMatrix%1003953214.body
+	m_oCamMatrixStack.Pop();
+	
+/*
+  	glMatrixMode(GL_MODELVIEW);
+	glPopMatrix();
+	CHECKERRORS();
+*/
 }
-
+// -----------------------------------------------------------------------------
+// Projector matrix operations
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::ClearProjectorMatrix ()
+{
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	CHECKERRORS();
+}
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::SetProjectorMatrix (CMatrix4x4 *M)
+{
+  	// copiar directamente a OpenGL
+	glMatrixMode (GL_PROJECTION);
+	glLoadMatrixf(M->m);
+	CHECKERRORS();
+}
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::GetProjectorMatrix (CMatrix4x4 *M)
+{
+  	glGetFloatv(GL_PROJECTION_MATRIX,M->m);
+	CHECKERRORS();
+}
+// -----------------------------------------------------------------------------
 void CE3D_OGL_Win_Renderer::PushProjectorMatrix ()
 {
-  //## begin CE3D_OGL_Win_Renderer::PushProjectorMatrix%1003953215.body preserve=yes
-	glMatrixMode(GL_PROJECTION);
+  	glMatrixMode(GL_PROJECTION);
 	glPushMatrix();
-	CONTROL_ERRORS();
-  //## end CE3D_OGL_Win_Renderer::PushProjectorMatrix%1003953215.body
+	CHECKERRORS();
 }
-
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::PopProjectorMatrix ()
+{
+  	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+	CHECKERRORS();
+}
+// -----------------------------------------------------------------------------
+//
+// -----------------------------------------------------------------------------
 void CE3D_OGL_Win_Renderer::RenderDefferredObjects ()
 {
-  //## begin CE3D_OGL_Win_Renderer::RenderDefferredObjects%1003953216.body preserve=yes
-	
+  	
 	// Sort meshes by material
 	oDefObjWH.Sort();
-
-	int				cObj;
-	CMatrix4x4		*poMatrix;
-	void			*poMesh;
-	CE3D_Shader		*poShader;
-	eE3D_MeshType	eMT;
-	int				iLights;
+	
+	// Get the number of enabled lights
 	unsigned int	uiOldEnabledLights = uiEnabledLights;
 
-	PushMatrix();
+	PushWorldMatrix();
 	
-		// Loop throught all defferred objects
-		for (cObj=0;cObj< oDefObjWH.iNumDefferredObjects();cObj++)
+		// Loop through all deferred objects
+		for (uint i=0;i< oDefObjWH.uiNumObjects();i++)
 		{
 			// Get object data
-			eMT = oDefObjWH.eGetObject(cObj,poMesh,poShader,poMatrix,uiEnabledLights);
+			CDefferredMeshEntry oDME = oDefObjWH.oGetObject(i);
 
 			// Setup its modelview matrix
-			SetCurrentMatrix(poMatrix);		
+			SetWorldMatrix(&oDME.oMatrix);
 
-			// Prepare for lighting
-			PrepareLights();
-
-			switch (eMT)
-			{
-				case eE3DMT_Mesh:
-				{
-					// Render bounding box
-					if (REState.BBoxRender)	RenderBBox(((CMesh *)poMesh)->GetBoundVol() );
-
-					// Render normals
-					if (REState.NormalRender) RenderNormals((CMesh *)poMesh);	
-
-					// Render					
-					oShaderRenderer.Render((CMesh *)poMesh,poShader);
-				}
-				break;
-
-				case eE3DMT_CompiledMesh:
-				{
-					// Render bounding box
-					if (REState.BBoxRender)	RenderBBox(((CCompiledMesh *)poMesh)->poGetBV() );
-
-					// Render
-					oShaderRenderer.Render((CCompiledMesh *)poMesh,poShader);
-				}
-				break;
-			}
+			// Internal render
+			RenderMesh_Int(oDME.poMesh,oDME.poShader,oDME.eMeshType);
 		}
 
-	PopMatrix();
+	PopWorldMatrix();
 
 	// Restore light state
 	uiEnabledLights = uiOldEnabledLights;
 
 	oDefObjWH.Invalidate();
-  //## end CE3D_OGL_Win_Renderer::RenderDefferredObjects%1003953216.body
 }
-
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::RenderMesh (CMesh *_poMesh)
+{
+   	RenderMesh(_poMesh,NULL);
+}
+// -----------------------------------------------------------------------------
 void CE3D_OGL_Win_Renderer::RenderMesh (CMesh *_poMesh, CE3D_Shader *_poShader)
 {
-  //## begin CE3D_OGL_Win_Renderer::RenderMesh%1003953217.body preserve=yes
-  	if (! _poShader) 
+    if (! _poShader)
 		_poShader = &E3D_NULL_SHADER;
 
+	if (! _poMesh->usNumPrims)
+		return;
+
 	if (REState.DefferredMode)
-	{	
+	{
 		// Insert deferred objects
 		CMatrix4x4 M;
-		GetCurrentMatrix(&M);
-		oDefObjWH.InsertDefferredObject(_poMesh,eE3DMT_Mesh,_poShader,M,uiEnabledLights);
+		GetWorldMatrix(&M);
+		oDefObjWH.bInsertDefferredObject(_poMesh,eE3DMT_Mesh,_poShader,M,uiEnabledLights);
 	}
 	else
 	{
-		PrepareLights();
-
-		if (REState.BBoxRender)		RenderBBox(_poMesh->GetBoundVol() );
-		if (REState.NormalRender)	RenderNormals(_poMesh);
-		
-		oShaderRenderer.Render(_poMesh,_poShader);
+		RenderMesh_Int(_poMesh,_poShader,eE3DMT_Mesh);
 	}
 
 	REStats.NumRenderedGObjs++;
-  //## end CE3D_OGL_Win_Renderer::RenderMesh%1003953217.body
 }
-
-void CE3D_OGL_Win_Renderer::RenderMesh (CMesh *_poMesh)
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::RenderCompiledMesh (CCompiledMesh* _poCMesh)
 {
-  //## begin CE3D_OGL_Win_Renderer::RenderMesh%1003953218.body preserve=yes
-  	RenderMesh(_poMesh,NULL);
-  //## end CE3D_OGL_Win_Renderer::RenderMesh%1003953218.body
+  	RenderCompiledMesh(_poCMesh,NULL);
 }
-
+// -----------------------------------------------------------------------------
 void CE3D_OGL_Win_Renderer::RenderCompiledMesh (CCompiledMesh *_poCMesh, CE3D_Shader *_poShader)
 {
-  //## begin CE3D_OGL_Win_Renderer::RenderCompiledMesh%1011911187.body preserve=yes
+  	if (! _poCMesh->usNumPrims) 
+		return;
+
 	// Compiled meshes with NULL materials are still valid since the material 
 	// definition may be inside the compiled mesh 
 
@@ -817,328 +793,280 @@ void CE3D_OGL_Win_Renderer::RenderCompiledMesh (CCompiledMesh *_poCMesh, CE3D_Sh
 	{	
 		// Insert deferred objects
 		CMatrix4x4 M;
-		GetCurrentMatrix(&M);
-		oDefObjWH.InsertDefferredObject(_poCMesh,eE3DMT_Mesh,_poShader,M,uiEnabledLights);
+		GetWorldMatrix(&M);
+		oDefObjWH.bInsertDefferredObject(_poCMesh,eE3DMT_CompiledMesh,_poShader,M,uiEnabledLights);
 	}
 	else
 	{
-		PrepareLights();
-
-		if (REState.BBoxRender)	RenderBBox(_poCMesh->poGetBV() );
-				
-		oShaderRenderer.Render(_poCMesh,_poShader);
+		RenderMesh_Int(_poCMesh,_poShader,eE3DMT_CompiledMesh);
 	}
 
 	REStats.NumRenderedGObjs++;
-  //## end CE3D_OGL_Win_Renderer::RenderCompiledMesh%1011911187.body
 }
-
-void CE3D_OGL_Win_Renderer::RenderCompiledMesh (CCompiledMesh* _poCMesh)
+// -----------------------------------------------------------------------------
+// Common internal render for both compiled or not compiled meshes
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::RenderMesh_Int(void *_poMesh, CE3D_Shader *_poShader,E3D_MeshType _eMeshType)
 {
-  //## begin CE3D_OGL_Win_Renderer::RenderCompiledMesh%1011911188.body preserve=yes
-	RenderCompiledMesh(_poCMesh,NULL);
-  //## end CE3D_OGL_Win_Renderer::RenderCompiledMesh%1011911188.body
-}
+	PrepareLights();
 
-void CE3D_OGL_Win_Renderer::Rotate (float Angle, float v0, float v1, float v2)
-{
-  //## begin CE3D_OGL_Win_Renderer::Rotate%1003953219.body preserve=yes
-    glRotatef(Angle,v0,v1,v2);
-  //## end CE3D_OGL_Win_Renderer::Rotate%1003953219.body
-}
+	// Premultiply camera matrix by model matrix
+	glMatrixMode(GL_MODELVIEW);
+	glPushMatrix();
 
-void CE3D_OGL_Win_Renderer::RotateX (float Angle)
-{
-  //## begin CE3D_OGL_Win_Renderer::RotateX%1003953220.body preserve=yes
-	glRotatef(Angle,1.0f,0.0f,0.0f);
-  //## end CE3D_OGL_Win_Renderer::RotateX%1003953220.body
-}
 
-void CE3D_OGL_Win_Renderer::RotateY (float Angle)
-{
-  //## begin CE3D_OGL_Win_Renderer::RotateY%1003953221.body preserve=yes
-	glRotatef(Angle,0.0f,1.0f,0.0f);
-  //## end CE3D_OGL_Win_Renderer::RotateY%1003953221.body
-}
+	CMatrix4x4 oM = m_oCamMatrixStack.oGetTop() * m_oWorldMatrixStack.oGetTop();
 
-void CE3D_OGL_Win_Renderer::RotateZ (float Angle)
-{
-  //## begin CE3D_OGL_Win_Renderer::RotateZ%1003953222.body preserve=yes
-	glRotatef(Angle,0.0f,0.0f,1.0f);
-  //## end CE3D_OGL_Win_Renderer::RotateZ%1003953222.body
-}
+	glLoadMatrixf( oM.m );
 
-void CE3D_OGL_Win_Renderer::Scale (float x, float y, float z)
-{
-  //## begin CE3D_OGL_Win_Renderer::Scale%1003953223.body preserve=yes
-  	glScalef(x,y,z);
-  //## end CE3D_OGL_Win_Renderer::Scale%1003953223.body
-}
+/*	float m[16];
+	glGetFloatv(GL_MODELVIEW_MATRIX,m);
+	CHECKERRORS();
+	glLoadMatrixf( m_oCamMatrixStack.oGetTop().m );
+	CHECKERRORS();
 
-void CE3D_OGL_Win_Renderer::ScaleX (float Value)
-{
-  //## begin CE3D_OGL_Win_Renderer::ScaleX%1003953224.body preserve=yes
-	glScalef(Value,1.0f,1.0f);
-  //## end CE3D_OGL_Win_Renderer::ScaleX%1003953224.body
-}
+	glMultMatrixf(m);
+*/
+	// glMultMatrixf(m_oCamMatrixStack.oGetTop().m);
+	// CHECKERRORS();
 
-void CE3D_OGL_Win_Renderer::ScaleY (float Value)
-{
-  //## begin CE3D_OGL_Win_Renderer::ScaleY%1003953225.body preserve=yes
-	glScalef(1.0f,Value,1.0f);
-  //## end CE3D_OGL_Win_Renderer::ScaleY%1003953225.body
-}
+		if (_eMeshType == eE3DMT_Mesh)
+		{
+			CMesh* poMesh = (CMesh*)_poMesh;
 
-void CE3D_OGL_Win_Renderer::ScaleZ (float Value)
-{
-  //## begin CE3D_OGL_Win_Renderer::ScaleZ%1003953226.body preserve=yes
-  	glScalef(1.0f,1.0f,Value);
-  //## end CE3D_OGL_Win_Renderer::ScaleZ%1003953226.body
-}
+			if (REState.BBoxRender)		RenderBBox( poMesh->GetBoundVol() );
+			if (REState.NormalRender)	RenderNormals(poMesh);
 
-void CE3D_OGL_Win_Renderer::SetCameraMatrix (CMatrix4x4 *M)
-{
-  //## begin CE3D_OGL_Win_Renderer::SetCameraMatrix%1003953228.body preserve=yes
-	// copiar directamente a OpenGL
-	glMatrixMode (GL_MODELVIEW);
-	glLoadMatrixf(M->m);
-	CONTROL_ERRORS();
-  //## end CE3D_OGL_Win_Renderer::SetCameraMatrix%1003953228.body
-}
+			oShaderRenderer.Render(poMesh,_poShader);
+		}
+		else
+		{
+			CCompiledMesh* poMesh = (CCompiledMesh*)_poMesh;
 
+			if (REState.BBoxRender)		RenderBBox( poMesh->poGetBV() );
+			// if (REState.NormalRender)	RenderNormals(poMesh);
+
+			oShaderRenderer.Render(poMesh,_poShader);		
+		}
+
+	glPopMatrix();
+	CHECKERRORS();
+}
+// -----------------------------------------------------------------------------
 void CE3D_OGL_Win_Renderer::SetCurrentMaterial (CE3D_Shader *_poShader)
 {
-  //## begin CE3D_OGL_Win_Renderer::SetCurrentMaterial%1003953229.body preserve=yes
-	poCurrentShader = _poShader;
-  //## end CE3D_OGL_Win_Renderer::SetCurrentMaterial%1003953229.body
+  	poCurrentShader = _poShader;
 }
-
-void CE3D_OGL_Win_Renderer::SetCurrentMatrix (CMatrix4x4 *M)
+// -----------------------------------------------------------------------------
+CE3D_Shader * CE3D_OGL_Win_Renderer::poGetCurrentMaterial ()
 {
-  //## begin CE3D_OGL_Win_Renderer::SetCurrentMatrix%1003953230.body preserve=yes
-  
-	// copiar directamente a OpenGL
-	glMatrixMode (GL_MODELVIEW);
-	glLoadMatrixf(M->m);
-	CONTROL_ERRORS();
-  //## end CE3D_OGL_Win_Renderer::SetCurrentMatrix%1003953230.body
+  	return (poCurrentShader);
 }
-
-void CE3D_OGL_Win_Renderer::SetCurrentTextureContext (TTextureObj *TexObj)
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::SetCurrentTextureContext (CGTextureObj *TexObj)
 {
-  //## begin CE3D_OGL_Win_Renderer::SetCurrentTextureContext%1003953231.body preserve=yes
-	if (! TexObj)		return;
-	if (! TexObj->MipMapObj)	return;
+  	if (! TexObj)		return;
+	if (! TexObj->m_poMipMap)	return;
 
-	if (! TexObj->MipMapObj->Handler)
+	if (! TexObj->m_uiHandler)
     {
         // La textura no ha sido cargada en mem antes
         UploadTexture(TexObj);
-        TexObj->MipMapObj->Update = false;
-    }
+        TexObj->Validate();
+	}
     else
-    {    	
-        if (TexObj->MipMapObj->Update)
+    {
+        if (! TexObj->bValid())
         {
             UpdateTexture(TexObj);
-            TexObj->MipMapObj->Update = false;
-        }
+            TexObj->Validate();
+		}
 		else
 		{
 			// Establecer el/ contexto de la textura    	
-			glBindTexture(GL_TEXTURE_2D,TexObj->MipMapObj->Handler);
-			if (TexObj->MipMapObj->mipMap->lods[0]->pixelFormat == PixelFormat::PALETTE)
-			{					
-				glColorTableEXT(GL_SHARED_TEXTURE_PALETTE_EXT,
-								GL_RGB,
-								TexObj->MipMapObj->mipMap->lods[0]->palette->numColors,
-								GL_RGB,
-								GL_UNSIGNED_BYTE,
-								TexObj->MipMapObj->mipMap->lods[0]->palette->data);
+			glBindTexture(GL_TEXTURE_2D,TexObj->m_uiHandler);
+			CHECKERRORS();
+			
+			if (TexObj->m_poMipMap->m_eFormat == IF_PALETTE)
+			{				
+				if (glColorTableEXT)
+				{
+					glColorTableEXT(GL_SHARED_TEXTURE_PALETTE_EXT,
+									GL_RGB,
+									256,
+									GL_RGB,
+									GL_UNSIGNED_BYTE,
+									TexObj->m_poMipMap->m_pPalette);
+					CHECKERRORS();
+				}
 			}
 		}
-    }
-  //## end CE3D_OGL_Win_Renderer::SetCurrentTextureContext%1003953231.body
+	}
 }
-
-void CE3D_OGL_Win_Renderer::SetProjectorMatrix (CMatrix4x4 *M)
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::UpdateTexture (CGTextureObj *TexObj)
 {
-  //## begin CE3D_OGL_Win_Renderer::SetProjectorMatrix%1003953234.body preserve=yes
-	// copiar directamente a OpenGL
-	glMatrixMode (GL_PROJECTION);
-	glLoadMatrixf(M->m);
-	CONTROL_ERRORS();
-  //## end CE3D_OGL_Win_Renderer::SetProjectorMatrix%1003953234.body
-}
-
-void CE3D_OGL_Win_Renderer::Translate (float x, float y, float z)
-{
-  //## begin CE3D_OGL_Win_Renderer::Translate%1003953236.body preserve=yes
-  	glTranslatef(x,y,z);
-  //## end CE3D_OGL_Win_Renderer::Translate%1003953236.body
-}
-
-void CE3D_OGL_Win_Renderer::TranslateX (float Value)
-{
-  //## begin CE3D_OGL_Win_Renderer::TranslateX%1003953237.body preserve=yes
-	glTranslatef(Value,0.0f,0.0f);
-  //## end CE3D_OGL_Win_Renderer::TranslateX%1003953237.body
-}
-
-void CE3D_OGL_Win_Renderer::TranslateY (float Value)
-{
-  //## begin CE3D_OGL_Win_Renderer::TranslateY%1003953238.body preserve=yes
-	glTranslatef(0.0f,Value,0.0f);
-  //## end CE3D_OGL_Win_Renderer::TranslateY%1003953238.body
-}
-
-void CE3D_OGL_Win_Renderer::TranslateZ (float Value)
-{
-  //## begin CE3D_OGL_Win_Renderer::TranslateZ%1003953239.body preserve=yes
-    glTranslatef(0.0f,0.0f,Value);
-  //## end CE3D_OGL_Win_Renderer::TranslateZ%1003953239.body
-}
-
-void CE3D_OGL_Win_Renderer::UpdateTexture (TTextureObj *TexObj)
-{
-  //## begin CE3D_OGL_Win_Renderer::UpdateTexture%1003953240.body preserve=yes
-	unsigned int cLOD;
+    unsigned int cLOD;
 	
-	glBindTexture(GL_TEXTURE_2D,TexObj->MipMapObj->Handler);
+	glBindTexture(GL_TEXTURE_2D,TexObj->m_uiHandler);
 
-	for (cLOD = 0;cLOD < TexObj->MipMapObj->mipMap->lods.size();cLOD++)
+	unsigned int uiTX = TexObj->m_poMipMap->m_uiTX;
+	unsigned int uiTY = TexObj->m_poMipMap->m_uiTY;
+
+    for (cLOD = 0;cLOD < TexObj->m_poMipMap->m_uiNumLODs;cLOD++)
     {
-		Texture* lod = TexObj->MipMapObj->mipMap->lods[cLOD];
-        glTexImage2D(GL_TEXTURE_2D,
-                    cLOD,
-                    GetTextureInternalFormat(lod->pixelFormat),
-					lod->width,
-					lod->height,
-                    0,
-                    GetTextureFormat(lod->pixelFormat),
-                    GL_UNSIGNED_BYTE,
-					lod->data);
-    }
+		// WINGDIAPI void APIENTRY glTexImage2D (GLenum target, GLint level, GLint internalformat, GLsizei width, GLsizei height, GLint border, GLenum format, GLenum type, const GLvoid *pixels);
+        glTexImage2D	(GL_TEXTURE_2D,
+                         cLOD,
+                         GetTextureInternalFormat(TexObj->m_poMipMap->m_eFormat),
+                         uiTX,
+                         uiTY,
+                         0,
+                         GetTextureFormat(TexObj->m_poMipMap->m_eFormat),
+                         GL_UNSIGNED_BYTE,
+                         TexObj->m_poMipMap->m_pLOD[cLOD]);
+        CHECKERRORS();
+
+		uiTX >>= 1;
+		uiTY >>= 1;
+	}
 	
 	// Setup clut if needed
-	if (TexObj->MipMapObj->mipMap->lods[0]->pixelFormat == PixelFormat::PALETTE)
-	{					
-		glColorTableEXT(GL_SHARED_TEXTURE_PALETTE_EXT,
-						GL_RGB,
-						TexObj->MipMapObj->mipMap->lods[0]->palette->numColors,
-						GL_RGB,
-						GL_UNSIGNED_BYTE,
-						TexObj->MipMapObj->mipMap->lods[0]->palette->data);
+	if (TexObj->m_poMipMap->m_eFormat == IF_PALETTE)
+	{	
+		if (glColorTableEXT)
+		{
+			glColorTableEXT(GL_SHARED_TEXTURE_PALETTE_EXT,
+							GL_RGB,
+							256,
+							GL_RGB,
+							GL_UNSIGNED_BYTE,
+							TexObj->m_poMipMap->m_pPalette);
+			CHECKERRORS();
+		}
 	}
-  //## end CE3D_OGL_Win_Renderer::UpdateTexture%1003953240.body
 }
-
-void CE3D_OGL_Win_Renderer::UploadTexture (TTextureObj *TexObj)
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::UploadTexture (CGTextureObj *TexObj)
 {
-  //## begin CE3D_OGL_Win_Renderer::UploadTexture%1003953241.body preserve=yes
-	unsigned int cLOD;
+    unsigned int cLOD;
 
     // Generar un handler para la textura
-    glGenTextures(1,&TexObj->MipMapObj->Handler);
+    glGenTextures(1,&TexObj->m_uiHandler);
+	CHECKERRORS();
 
-	// Establecer el contexto de la nueva textura
-    glBindTexture(GL_TEXTURE_2D, TexObj->MipMapObj->Handler);
+    // Establecer el contexto de la nueva textura
+    glBindTexture(GL_TEXTURE_2D,TexObj->m_uiHandler);
+	CHECKERRORS();
+	
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
-	for (cLOD = 0;cLOD < TexObj->MipMapObj->mipMap->lods.size();cLOD++)
-	{
-		Texture* lod = TexObj->MipMapObj->mipMap->lods[cLOD];
-		glTexImage2D(GL_TEXTURE_2D,
-			cLOD,
-			GetTextureInternalFormat(lod->pixelFormat),
-			lod->width,
-			lod->height,
-			0,
-			GetTextureFormat(lod->pixelFormat),
-			GL_UNSIGNED_BYTE,
-			lod->data);
+	uint uiTX = TexObj->m_poMipMap->m_uiTX;
+	uint uiTY = TexObj->m_poMipMap->m_uiTY;
+
+    for (cLOD = 0;cLOD < TexObj->m_poMipMap->m_uiNumLODs;cLOD++)
+    {
+        glTexImage2D (GL_TEXTURE_2D,
+                      cLOD,
+                      GetTextureInternalFormat(TexObj->m_poMipMap->m_eFormat),
+                      uiTX,
+                      uiTY,
+                      0,
+                      GetTextureFormat(TexObj->m_poMipMap->m_eFormat),
+                      GL_UNSIGNED_BYTE,
+                      TexObj->m_poMipMap->m_pLOD[cLOD]);
+		CHECKERRORS();
+		
+		uiTX >>= 1;
+		uiTY >>= 1;
 	}
 
     // Establecer algunas propiedades para este objeto textura
-    if (TexObj->UWrap == E3D_TEX_WRAP_REPEAT)
+    if (TexObj->m_uiUWrap == E3D_TEX_WRAP_REPEAT)
         glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_REPEAT);
     else
         glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_CLAMP);
 
-    if (TexObj->VWrap == E3D_TEX_WRAP_REPEAT)
+    if (TexObj->m_uiVWrap == E3D_TEX_WRAP_REPEAT)
         glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_REPEAT);
     else
         glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_CLAMP);
 
     // Setup mignification filter
-    switch (TexObj->MinFilter)
+    switch (TexObj->m_uiMinFilter)
     {
-        case E3D_TEX_MIN_FILTER_NEAREST: glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
-                                         break;
-        case E3D_TEX_MIN_FILTER_LINEAR:  glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
-                                         break;
-    }
+        case E3D_TEX_MIN_FILTER_NEAREST: 
+		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
+        break;
+        case E3D_TEX_MIN_FILTER_LINEAR:
+		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
+		break;
+		case E3D_TEX_MIN_FILTER_NEAREST_MIPMAP_NEAREST:
+		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST_MIPMAP_NEAREST);
+		break;
+		case E3D_TEX_MIN_FILTER_NEAREST_MIPMAP_LINEAR:
+		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST_MIPMAP_LINEAR);
+		break;
+		case E3D_TEX_MIN_FILTER_LINEAR_MIPMAP_NEAREST:
+		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR_MIPMAP_NEAREST);
+		break;
+		case E3D_TEX_MIN_FILTER_LINEAR_MIPMAP_LINEAR:
+		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR_MIPMAP_LINEAR);
+		break;
+	}
 
     // Setup magnification filter
-    switch (TexObj->MaxFilter)
+    switch (TexObj->m_uiMaxFilter)
     {
         case E3D_TEX_MAX_FILTER_NEAREST: glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
                                          break;
         case E3D_TEX_MAX_FILTER_LINEAR:  glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
                                          break;
-    }
-	
-	// Setup clut if needed
-	if (TexObj->MipMapObj->mipMap->lods[0]->pixelFormat == PixelFormat::PALETTE)
-	{					
-		glColorTableEXT(GL_SHARED_TEXTURE_PALETTE_EXT,
-						GL_RGB,
-						TexObj->MipMapObj->mipMap->lods[0]->palette->numColors,
-						GL_RGB,
-						GL_UNSIGNED_BYTE,
-						TexObj->MipMapObj->mipMap->lods[0]->palette->data);
 	}
-  //## end CE3D_OGL_Win_Renderer::UploadTexture%1003953241.body
-}
 
+	// Setup clut if needed
+	if (TexObj->m_poMipMap->m_eFormat == IF_PALETTE)
+	{				
+		if (glColorTableEXT)
+		{			
+			glColorTableEXT(GL_SHARED_TEXTURE_PALETTE_EXT,
+							GL_RGB,
+							256,
+							GL_RGB,
+							GL_UNSIGNED_BYTE,
+							TexObj->m_poMipMap->m_pPalette);
+			CHECKERRORS();
+		}
+	}
+}
+// -----------------------------------------------------------------------------
 bool CE3D_OGL_Win_Renderer::UsingBBoxRender ()
 {
-  //## begin CE3D_OGL_Win_Renderer::UsingBBoxRender%1003953242.body preserve=yes
-	return(REState.BBoxRender);
-  //## end CE3D_OGL_Win_Renderer::UsingBBoxRender%1003953242.body
+  	return(REState.BBoxRender);
 }
-
+// -----------------------------------------------------------------------------
 bool CE3D_OGL_Win_Renderer::UsingDefferredMode ()
 {
-  //## begin CE3D_OGL_Win_Renderer::UsingDefferredMode%1003953243.body preserve=yes
-	return (REState.DefferredMode);    
-  //## end CE3D_OGL_Win_Renderer::UsingDefferredMode%1003953243.body
+  	return (REState.DefferredMode);    
 }
-
+// -----------------------------------------------------------------------------
 bool CE3D_OGL_Win_Renderer::UsingFrustumCulling ()
 {
-  //## begin CE3D_OGL_Win_Renderer::UsingFrustumCulling%1003953245.body preserve=yes
-  	return(REState.FrustumCulling);
-  //## end CE3D_OGL_Win_Renderer::UsingFrustumCulling%1003953245.body
+    	return(REState.FrustumCulling);
 }
-
+// -----------------------------------------------------------------------------
 bool CE3D_OGL_Win_Renderer::UsingNormalRender ()
 {
-  //## begin CE3D_OGL_Win_Renderer::UsingNormalRender%1003953247.body preserve=yes
-  return (REState.NormalRender);
-  //## end CE3D_OGL_Win_Renderer::UsingNormalRender%1003953247.body
+    return (REState.NormalRender);
 }
-
+// -----------------------------------------------------------------------------
 void CE3D_OGL_Win_Renderer::UpdateViewing ()
 {
-  //## begin CE3D_OGL_Win_Renderer::UpdateViewing%1003953258.body preserve=yes
-  //## end CE3D_OGL_Win_Renderer::UpdateViewing%1003953258.body
 }
-
+// -----------------------------------------------------------------------------
 void CE3D_OGL_Win_Renderer::SetViewport (CE3D_Viewport *_Viewport)
 {
-  //## begin CE3D_OGL_Win_Renderer::SetViewport%1003953259.body preserve=yes
-	if (! _Viewport) return;
+  	if (! _Viewport) return;
 		
 	Viewport	 = _Viewport;
 	fAspectRatio = (Viewport->ScrTX*iScrTX) / (Viewport->ScrTY*iScrTY);
@@ -1152,71 +1080,73 @@ void CE3D_OGL_Win_Renderer::SetViewport (CE3D_Viewport *_Viewport)
 			   Viewport->ScrCY*iScrTY,
 			   Viewport->ScrTX*iScrTX,
 			   Viewport->ScrTY*iScrTY);
-	CONTROL_ERRORS();
+	CHECKERRORS();
 
 	glScissor (Viewport->ScrCX*iScrTX,
 			   Viewport->ScrCY*iScrTY,
 			   Viewport->ScrTX*iScrTX,
 			   Viewport->ScrTY*iScrTY);
-	CONTROL_ERRORS();
+	CHECKERRORS();
 
 	if (Projector)
 		Frustum.Compute(Projector,fAspectRatio);
-  //## end CE3D_OGL_Win_Renderer::SetViewport%1003953259.body
 }
-
+// -----------------------------------------------------------------------------
 CE3D_Viewport * CE3D_OGL_Win_Renderer::GetViewport ()
 {
-  //## begin CE3D_OGL_Win_Renderer::GetViewport%1003953260.body preserve=yes
-	return(Viewport);
-  //## end CE3D_OGL_Win_Renderer::GetViewport%1003953260.body
+  	return(Viewport);
 }
-
+// -----------------------------------------------------------------------------
 void CE3D_OGL_Win_Renderer::SetCamera (CE3D_Camera *_Camera)
 {
-  //## begin CE3D_OGL_Win_Renderer::SetCamera%1003953261.body preserve=yes
-	if (! _Camera) return;
+  	if (! _Camera) return;
 	Camera = _Camera;
-	
+
 	// Camera matrix
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-	CONTROL_ERRORS();
+	glMatrixMode(GL_MODELVIEW);	
+	glPushMatrix();
+	
+		glLoadIdentity();
+		CHECKERRORS();
 
-    gluLookAt(	Camera->Pos.v[0],
-				Camera->Pos.v[1],
-				Camera->Pos.v[2],
-    			Camera->Pos.v[0]+Camera->Dir.v[0],
-				Camera->Pos.v[1]+Camera->Dir.v[1],
-				Camera->Pos.v[2]+Camera->Dir.v[2],
-    			Camera->Up.v[0],
-				Camera->Up.v[1],
-				Camera->Up.v[2]);
-	CONTROL_ERRORS();
-  //## end CE3D_OGL_Win_Renderer::SetCamera%1003953261.body
+		gluLookAt(	Camera->Pos.x,
+					Camera->Pos.y,
+					Camera->Pos.z,
+    				Camera->Pos.x + Camera->Dir.x,
+					Camera->Pos.y + Camera->Dir.y,
+					Camera->Pos.z + Camera->Dir.z,
+    				Camera->Up.x,
+					Camera->Up.y,
+					Camera->Up.z);
+		CHECKERRORS();
+
+  		// coger directamente de OpenGL
+  		CMatrix4x4 oMat;
+		glGetFloatv(GL_MODELVIEW_MATRIX,oMat.m);
+		m_oCamMatrixStack.Load(oMat);
+
+	// Restore old matrix
+	glPopMatrix();
 }
-
+// -----------------------------------------------------------------------------
 CE3D_Camera * CE3D_OGL_Win_Renderer::GetCamera ()
 {
-  //## begin CE3D_OGL_Win_Renderer::GetCamera%1003953262.body preserve=yes
-	return(Camera);
-  //## end CE3D_OGL_Win_Renderer::GetCamera%1003953262.body
+  	return(Camera);
 }
-
+// -----------------------------------------------------------------------------
 void CE3D_OGL_Win_Renderer::SetProjector (CE3D_Projector *_Projector)
 {
-  //## begin CE3D_OGL_Win_Renderer::SetProjector%1003953263.body preserve=yes
-	if (!_Projector) return;
+  	if (!_Projector) return;
 
 	Projector   = _Projector;
 
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-	CONTROL_ERRORS();
+	CHECKERRORS();
 
 	switch (Projector->ePrjType)
 	{
-		case eE3DPrjType_Perspective:	
+		case E3D_PT_Perspective:	
 		{			
 			/*
 			glFrustum( -tan(Projector->fFOV*_PI_OVER_180)*fAspectRatio,
@@ -1227,47 +1157,70 @@ void CE3D_OGL_Win_Renderer::SetProjector (CE3D_Projector *_Projector)
 			*/			
 
 			gluPerspective(Projector->fFOV,fAspectRatio,Projector->fNear,Projector->fFar);
-			CONTROL_ERRORS();
+			CHECKERRORS();
 		}
 		break;
 
-		case eE3DPrjType_Orthogonal:
+		case E3D_PT_Orthogonal:
 		{
-			glOrtho(-0.5f*fAspectRatio,
-					 0.5f*fAspectRatio,
-					 0.5f,
-					-0.5f,
+			/*
+            gluOrtho2D(-0.5f*fAspectRatio,
+					    0.5f*fAspectRatio,
+					   -0.5f,
+					    0.5f);
+            */
+
+            /*
+			gluOrtho2D(-fAspectRatio,
+					    fAspectRatio,
+					    1.0f,
+                       -1.0f);
+
+			*/
+
+			/*
+			// DMC: quitado aunque sin comprender muy bien el cometido
+			// de este cálculo.
+			float fAngle = Projector->fFOV * _PI_OVER_180_;
+			float fSeparation = Projector->fNear * cosf(fAngle)/sinf(fAngle);
+
+			glOrtho(-fSeparation*fAspectRatio,
+					 fSeparation*fAspectRatio,
+					-fSeparation,
+					 fSeparation,					 
 					 Projector->fNear,Projector->fFar);
-			CONTROL_ERRORS();
+			*/
+
+			glOrtho(-fAspectRatio,
+					 fAspectRatio,
+					-1.0f,
+					 1.0f,
+					 Projector->fNear,Projector->fFar);
+
+			CHECKERRORS();
 		}
 		break;
 	}
 
 	Frustum.Compute(Projector,fAspectRatio);	
-  //## end CE3D_OGL_Win_Renderer::SetProjector%1003953263.body
 }
-
+// -----------------------------------------------------------------------------
 CE3D_Projector * CE3D_OGL_Win_Renderer::GetProjector ()
 {
-  //## begin CE3D_OGL_Win_Renderer::GetProjector%1003953264.body preserve=yes
-	return(Projector);
-  //## end CE3D_OGL_Win_Renderer::GetProjector%1003953264.body
+  	return(Projector);
 }
-
+// -----------------------------------------------------------------------------
 void CE3D_OGL_Win_Renderer::SetScreenSize (int _iScrTX, int _iScrTY)
 {
-  //## begin CE3D_OGL_Win_Renderer::SetScreenSize%1006393129.body preserve=yes
-  	iScrTX = _iScrTX;
+    	iScrTX = _iScrTX;
 	iScrTY = _iScrTY;
 
 	SetViewport(Viewport);	
-  //## end CE3D_OGL_Win_Renderer::SetScreenSize%1006393129.body
 }
-
+// -----------------------------------------------------------------------------
 CCompiledMesh * CE3D_OGL_Win_Renderer::poCompileMesh (CMesh *_poMesh, CE3D_Shader *_poShader)
 {
-  //## begin CE3D_OGL_Win_Renderer::poCompileMesh%1011911189.body preserve=yes
-	assert  (_poMesh);
+  	assert  (_poMesh);
 	if (_poMesh->GetMeshType() == E3D_MESH_NONE) return(NULL);
 
 	CCompiledMesh		*poCMesh;
@@ -1290,31 +1243,25 @@ CCompiledMesh * CE3D_OGL_Win_Renderer::poCompileMesh (CMesh *_poMesh, CE3D_Shade
 
 	return(poCMesh);
 
-  //## end CE3D_OGL_Win_Renderer::poCompileMesh%1011911189.body
 }
-
+// -----------------------------------------------------------------------------
 void CE3D_OGL_Win_Renderer::DestroyCompiledMesh (CCompiledMesh *_poCMesh)
-{
-  //## begin CE3D_OGL_Win_Renderer::DestroyCompiledMesh%1011911201.body preserve=yes
-	
+{  	
 	// List and object will longer no be available
 	glDeleteLists(_poCMesh->iID,1);
 	mDel _poCMesh;
-
-  //## end CE3D_OGL_Win_Renderer::DestroyCompiledMesh%1011911201.body
 }
-
+// -----------------------------------------------------------------------------
 void CE3D_OGL_Win_Renderer::SetupPalette (TPixelFormatDescriptor PFD)
 {
-  //## begin CE3D_OGL_Win_Renderer::SetupPalette%983399603.body preserve=yes
-  	int nColors,i;
+    int nColors,i;
     TLogPalette  *lpPalette;
     unsigned char byRedMask,byGreenMask,byBlueMask;
     HPALETTE Palette;
 
 	nColors =1 << PFD.cColorBits;
 
-    lpPalette = (TLogPalette *) malloc(sizeof(TLogPalette)+(nColors*sizeof(TPaletteEntry)));
+    lpPalette = (TLogPalette *) mAlloc(sizeof(TLogPalette)+(nColors*sizeof(TPaletteEntry)));
 
     lpPalette->palVersion    = 0x300;
     lpPalette->palNumEntries =nColors;
@@ -1329,7 +1276,7 @@ void CE3D_OGL_Win_Renderer::SetupPalette (TPixelFormatDescriptor PFD)
         lpPalette->palPalEntry[i].peGreen = (((i >> PFD.cGreenShift) & byGreenMask)*255) / byGreenMask;
         lpPalette->palPalEntry[i].peBlue  = (((i >> PFD.cBlueShift)  & byBlueMask) *255) / byBlueMask;
         lpPalette->palPalEntry[i].peFlags = 0;
-    }
+	}
 
     Palette = CreatePalette(lpPalette);
 
@@ -1337,16 +1284,14 @@ void CE3D_OGL_Win_Renderer::SetupPalette (TPixelFormatDescriptor PFD)
     {
     	SelectPalette(DC,Palette,false);
     	RealizePalette(DC);
-    }
+	}
 
-	free(lpPalette);
-  //## end CE3D_OGL_Win_Renderer::SetupPalette%983399603.body
+	mFree(lpPalette);
 }
-
+// -----------------------------------------------------------------------------
 void CE3D_OGL_Win_Renderer::EnableFlatRendering ()
 {
-  //## begin CE3D_OGL_Win_Renderer::EnableFlatRendering%1018547526.body preserve=yes
-	REState.FlatRender = true;
+  	REState.FlatRender = true;
 
 	glDisable	(GL_TEXTURE_2D);
 	glShadeModel(GL_FLAT);
@@ -1357,13 +1302,11 @@ void CE3D_OGL_Win_Renderer::EnableFlatRendering ()
 
 	glClearColor(1.0f,1.0f,1.0f,0.0f);
 	glColor4f(0.5f,0.5f,0.5f,0.0f);
-  //## end CE3D_OGL_Win_Renderer::EnableFlatRendering%1018547526.body
 }
-
+// -----------------------------------------------------------------------------
 void CE3D_OGL_Win_Renderer::DisableFlatRendering ()
 {
-  //## begin CE3D_OGL_Win_Renderer::DisableFlatRendering%1018547527.body preserve=yes
-	REState.FlatRender = false;
+  	REState.FlatRender = false;
 	
 	glEnable	(GL_TEXTURE_2D);
 	glShadeModel(GL_SMOOTH);
@@ -1372,57 +1315,51 @@ void CE3D_OGL_Win_Renderer::DisableFlatRendering ()
 	if (uiEnabledLights)
 		glEnable(GL_LIGHTING);
 
-	glClearColor(0.5f,0.5f,0.5f,0.0f);
+	glClearColor(m_oClearColor.r,m_oClearColor.g,m_oClearColor.g,m_oClearColor.a);
 	glColor4f(1.0f,1.0f,1.0f,0.0f);
-  //## end CE3D_OGL_Win_Renderer::DisableFlatRendering%1018547527.body
 }
-
+// -----------------------------------------------------------------------------
 bool CE3D_OGL_Win_Renderer::UsingFlatRendering ()
 {
-  //## begin CE3D_OGL_Win_Renderer::UsingFlatRendering%1018547528.body preserve=yes
-	return(REState.FlatRender);
-  //## end CE3D_OGL_Win_Renderer::UsingFlatRendering%1018547528.body
+  	return(REState.FlatRender);
 }
-
-void CE3D_OGL_Win_Renderer::ReadBuffer (int _iX, int _iY, int _iTX, int _iTY, eE3D_RenderBuffer_Type _eBufferType, void* _pData)
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::ReadBuffer (int _iX, int _iY, int _iTX, int _iTY, E3D_RenderBuffer_Type _eBufferType, void* _pData)
 {
-  //## begin CE3D_OGL_Win_Renderer::ReadBuffer%1018547529.body preserve=yes
-	switch (_eBufferType)
+  	switch (_eBufferType)
 	{
-		case eE3D_RB_Front:	
+		case E3D_RB_Front:	
 		{
 			glReadBuffer(GL_FRONT);
 			glReadPixels(_iX,_iY,_iTX,_iTY,GL_RGBA,GL_UNSIGNED_BYTE,_pData);
 			return;
 		}
 				
-		case eE3D_RB_Back:
+		case E3D_RB_Back:
 		{
 			glReadBuffer(GL_BACK);
 			glReadPixels(_iX,_iY,_iTX,_iTY,GL_RGBA,GL_UNSIGNED_BYTE,_pData);
 			return;
 		}
-		case eE3D_RB_Z:
+		case E3D_RB_Z:
 		{
 			glReadBuffer(GL_DEPTH);
 			glReadPixels(_iX,_iY,_iTX,_iTY,GL_DEPTH_COMPONENT,GL_UNSIGNED_INT,_pData);
 			return;
 		}
 
-		case eE3D_RB_Stencil:
+		case E3D_RB_Stencil:
 		{
 			glReadBuffer(GL_STENCIL);
 			glReadPixels(_iX,_iY,_iTX,_iTY,GL_STENCIL_INDEX,GL_UNSIGNED_BYTE,_pData);
 			return;
 		}
 	}	
-  //## end CE3D_OGL_Win_Renderer::ReadBuffer%1018547529.body
 }
-
-void CE3D_OGL_Win_Renderer::WriteBuffer (int _iX, int _iY, int _iTX, int _iTY, eE3D_RenderBuffer_Type _eBufferType, void* _pData)
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::WriteBuffer (int _iX, int _iY, int _iTX, int _iTY, E3D_RenderBuffer_Type _eBufferType, void* _pData)
 {
-  //## begin CE3D_OGL_Win_Renderer::WriteBuffer%1018547530.body preserve=yes
-
+  
 /*
 	void glDrawPixels(
     GLsizei width,
@@ -1432,27 +1369,27 @@ void CE3D_OGL_Win_Renderer::WriteBuffer (int _iX, int _iY, int _iTX, int _iTY, e
   
 	const GLvoid *pixels)	switch (_eBufferType)
 	{
-		case eE3D_RB_Front:	
+		case E3D_RB_Front:	
 		{
 			glReadBuffer(GL_FRONT);
 			glReadPixels(_iX,_iY,_iTX,_iTY,GL_RGBA,GL_UNSIGNED_BYTE);
 			return;
 		}
 				
-		case eE3D_RB_Back:
+		case E3D_RB_Back:
 		{
 			glReadBuffer(GL_BACK);
 			glReadPixels(_iX,_iY,_iTX,_iTY,GL_RGBA,GL_UNSIGNED_BYTE);
 			return;
 		}
-		case eE3D_RB_Z:
+		case E3D_RB_Z:
 		{
 			glReadBuffer(GL_DEPTH_BUFFER);
 			glReadPixels(_iX,_iY,_iTX,_iTY,GL_RGBA,GL_UNSIGNED_BYTE);
 			return;
 		}
 
-		case eE3D_RB_Stencil:
+		case E3D_RB_Stencil:
 		{
 			glReadBuffer(GL_STENCIL_BUFFER);
 			glReadPixels(_iX,_iY,_iTX,_iTY,GL_RGBA,GL_UNSIGNED_BYTE);
@@ -1460,26 +1397,24 @@ void CE3D_OGL_Win_Renderer::WriteBuffer (int _iX, int _iY, int _iTX, int _iTY, e
 		}
 	}
 */
-  //## end CE3D_OGL_Win_Renderer::WriteBuffer%1018547530.body
 }
-
-void CE3D_OGL_Win_Renderer::SetStencilParams (bool _bEnable, eE3D_StencilFunc _eStencilFunc, int _iRefValue, int _iMask, eE3D_StencilAction _eSFails, eE3D_StencilAction _eZFails, eE3D_StencilAction _eZPass)
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::SetStencilParams (bool _bEnable, E3D_StencilFunc _eStencilFunc, int _iRefValue, int _iMask, E3D_StencilAction _eSFails, E3D_StencilAction _eZFails, E3D_StencilAction _eZPass)
 {
-  //## begin CE3D_OGL_Win_Renderer::SetStencilParams%1018547531.body preserve=yes
-	eE3D_StencilFunc	eSFAux;
+  	E3D_StencilFunc	eSFAux;
 
 	// ---------------------------
 	// Handle first special cases:
 	// ---------------------------
 
 	// Last 
-	if (_eStencilFunc == eE3D_SF_Last)
+	if (_eStencilFunc == E3D_SF_Last)
 	{
-		if ((eStencilFunc == eE3D_SF_None) && (eStencilFuncLast != eE3D_SF_None))
+		if ((eStencilFunc == E3D_SF_None) && (eStencilFuncLast != E3D_SF_None))
 			glEnable(GL_STENCIL_TEST);
 		else
 		{
-			if ((eStencilFunc != eE3D_SF_None) && (eStencilFuncLast == eE3D_SF_None))
+			if ((eStencilFunc != E3D_SF_None) && (eStencilFuncLast == E3D_SF_None))
 				glDisable(GL_STENCIL_TEST);
 		}
 		
@@ -1488,13 +1423,13 @@ void CE3D_OGL_Win_Renderer::SetStencilParams (bool _bEnable, eE3D_StencilFunc _e
 	}
 
 	// Disable
-	if (_eStencilFunc == eE3D_SF_None)
+	if (_eStencilFunc == E3D_SF_None)
 	{
 		// Disable ?
-		if (eStencilFunc != eE3D_SF_None)
+		if (eStencilFunc != E3D_SF_None)
 		{
 			eStencilFuncLast= eStencilFunc;
-			eStencilFunc    = eE3D_SF_None;
+			eStencilFunc    = E3D_SF_None;
 			glDisable(GL_STENCIL_TEST);
 		}
 		
@@ -1502,10 +1437,10 @@ void CE3D_OGL_Win_Renderer::SetStencilParams (bool _bEnable, eE3D_StencilFunc _e
 	}
 
 	// Current
-	if (_eStencilFunc != eE3D_SF_Current)
+	if (_eStencilFunc != E3D_SF_Current)
 	{
 		// Enable function
-		if (eStencilFunc == eE3D_SF_None) glEnable(GL_STENCIL_TEST);
+		if (eStencilFunc == E3D_SF_None) glEnable(GL_STENCIL_TEST);
 		// glFogf (GL_FOG_MODE,eGetFogMode(_eFogMode));
 	}
 
@@ -1519,116 +1454,109 @@ void CE3D_OGL_Win_Renderer::SetStencilParams (bool _bEnable, eE3D_StencilFunc _e
 
 	eStencilFunc    = _eStencilFunc;
 	eStencilFuncLast= eStencilFunc;
-  //## end CE3D_OGL_Win_Renderer::SetStencilParams%1018547531.body
 }
-
-void CE3D_OGL_Win_Renderer::SetZPars (eE3D_ZTestFunc _eZTest, eE3D_ZWrite _eZWrite)
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::SetZPars (E3D_ZTestFunc _eZTest, E3D_ZWrite _eZWrite)
 {
-  //## begin CE3D_OGL_Win_Renderer::SetZPars%1018547536.body preserve=yes
-	if (_eZTest != eE3D_ZTF_Current)
+  	if (_eZTest != E3D_ZTF_Current)
 	{
 		// Disable ?	
-		if (_eZTest == eE3D_ZTF_None)
+		if (_eZTest == E3D_ZTF_None)
 		{
 			// Is enabled?
 			if (eZTest != _eZTest)
 			{		
 				eZTestLast = eZTest;
-				eZTest     = eE3D_ZTF_None;
+				eZTest     = E3D_ZTF_None;
 				glDisable(GL_DEPTH_TEST);
 			}
 		}
 		else
 		{
-			if (_eZTest == eE3D_ZTF_Last) _eZTest = eZTestLast;
+			if (_eZTest == E3D_ZTF_Last) _eZTest = eZTestLast;
 			
 			// Enable function
-			if (eZTest == eE3D_ZTF_None) glEnable(GL_DEPTH_TEST);
+			if (eZTest == E3D_ZTF_None) glEnable(GL_DEPTH_TEST);
 
 			// Set pars
 			glDepthFunc(eGetDepthFunc(_eZTest));
 
 			eZTest	   = _eZTest;
-			eZTestLast = eZTest;			
+			eZTestLast = eZTest;
 		}
 	}
 
-
-	if (_eZWrite != eE3D_ZW_Current)
+	if (_eZWrite != E3D_ZW_Current)
 	{
 		// Disable ?	
-		if (_eZWrite == eE3D_ZW_Disable)
+		if (_eZWrite == E3D_ZW_Disable)
 		{	
 			// Is enabled?
-			if (eZWrite == eE3D_ZW_Enable)
+			if (eZWrite == E3D_ZW_Enable)
 			{		
-				eZWriteLast = eE3D_ZW_Enable;
-				eZWrite     = eE3D_ZW_Disable;
+				eZWriteLast = E3D_ZW_Enable;
+				eZWrite     = E3D_ZW_Disable;
 				glDepthMask(GL_FALSE);
 			}
 		}
-   else if (_eZWrite == eE3D_ZW_Enable)
+   else if (_eZWrite == E3D_ZW_Enable)
 		{
 			// Is disabled?
-			if (eZWrite == eE3D_ZW_Disable)
+			if (eZWrite == E3D_ZW_Disable)
 			{							
-				eZWriteLast = eE3D_ZW_Disable;
-				eZWrite     = eE3D_ZW_Enable;
+				eZWriteLast = E3D_ZW_Disable;
+				eZWrite     = E3D_ZW_Enable;
 				glDepthMask(GL_TRUE);
 			}
 		}
-	else if  (_eZWrite == eE3D_ZW_Last)
+	else if  (_eZWrite == E3D_ZW_Last)
 		{
 			// Is disabled?
 			eZWrite     = eZWriteLast;			
 		
-			if (eZWriteLast == eE3D_ZW_Enable)
+			if (eZWriteLast == E3D_ZW_Enable)
 				glDepthMask(GL_TRUE);
 			else
 				glDepthMask(GL_FALSE);
 		}
 	}
-  //## end CE3D_OGL_Win_Renderer::SetZPars%1018547536.body
 }
-
+// -----------------------------------------------------------------------------
 void CE3D_OGL_Win_Renderer::MaskChannels (bool _bR, bool _bG, bool _bB, bool _bA)
 {
-  //## begin CE3D_OGL_Win_Renderer::MaskChannels%1018623772.body preserve=yes
-	glColorMask(_bR,_bG,_bB,_bA);
-  //## end CE3D_OGL_Win_Renderer::MaskChannels%1018623772.body
+  	glColorMask(_bR,_bG,_bB,_bA);
 }
-
-void CE3D_OGL_Win_Renderer::SetFogPars (eE3D_FogMode _eFogMode, float _fStart, float _fEnd, float _fDensity, TFColor* _poColor)
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::SetFogPars(E3D_FogMode _eFogMode, float _fStart, float _fEnd, float _fDensity, CGColor* _poColor)
 {
-  //## begin CE3D_OGL_Win_Renderer::SetFogPars%1018623773.body preserve=yes
-	
+  	
 	// ---------------------------
 	// Handle first special cases:
 	// ---------------------------
 
 	// Last 
-	if (_eFogMode == eE3D_FM_Last)
+	if (_eFogMode == E3D_FM_Last)
 	{
-		if ((eFogMode == eE3D_FM_None) && (eFogModeLast != eE3D_FM_None))
+		if ((eFogMode == E3D_FM_None) && (eFogModeLast != E3D_FM_None))
 			glEnable(GL_FOG);
 		else
 		{
-			if ((eFogMode != eE3D_FM_None) && (eFogModeLast == eE3D_FM_None))
+			if ((eFogMode != E3D_FM_None) && (eFogModeLast == E3D_FM_None))
 				glDisable(GL_FOG);
 		}
 		
 		eFogMode = eFogModeLast;
 		return;
 	}
-	
+
 	// Disable
-	if (_eFogMode == eE3D_FM_None)
+	if (_eFogMode == E3D_FM_None)
 	{
-		// Disable ?	
-		if (eFogMode != eE3D_FM_None)
+		// Disable ?
+		if (eFogMode != E3D_FM_None)
 		{
 			eFogModeLast= eFogMode;
-			eFogMode    = eE3D_FM_None;
+			eFogMode    = E3D_FM_None;
 			glDisable(GL_FOG);								
 		}
 		
@@ -1636,10 +1564,10 @@ void CE3D_OGL_Win_Renderer::SetFogPars (eE3D_FogMode _eFogMode, float _fStart, f
 	}
 
 	// Current
-	if (_eFogMode != eE3D_FM_Current)
+	if (_eFogMode != E3D_FM_Current)
 	{
 		// Enable function
-		if (eFogMode == eE3D_FM_None) glEnable(GL_FOG);		
+		if (eFogMode == E3D_FM_None) glEnable(GL_FOG);		
 		glFogf (GL_FOG_MODE,eGetFogMode(_eFogMode));	
 	}
 
@@ -1651,52 +1579,48 @@ void CE3D_OGL_Win_Renderer::SetFogPars (eE3D_FogMode _eFogMode, float _fStart, f
 
 	eFogMode	= _eFogMode;
 	eFogModeLast= _eFogMode;
-  //## end CE3D_OGL_Win_Renderer::SetFogPars%1018623773.body
 }
-
-void CE3D_OGL_Win_Renderer::ClearBuffer (eE3D_RenderBuffer_Type _eBuffer)
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::ClearBuffer (E3D_RenderBuffer_Type _eBuffer)
 {
-  //## begin CE3D_OGL_Win_Renderer::ClearBuffer%1018623775.body preserve=yes
-	switch (_eBuffer)
+  	switch (_eBuffer)
 	{
-		case eE3D_RB_Front:
-		case eE3D_RB_Back:		glClear(GL_COLOR_BUFFER_BIT);
+		case E3D_RB_Front:
+		case E3D_RB_Back:		glClear(GL_COLOR_BUFFER_BIT);
 								return;
-		case eE3D_RB_Z:			glClear(GL_DEPTH_BUFFER_BIT);
+		case E3D_RB_Z:			glClear(GL_DEPTH_BUFFER_BIT);
 								return;
-		case eE3D_RB_Stencil:	glClear(GL_STENCIL_BUFFER_BIT);
+		case E3D_RB_Stencil:	glClear(GL_STENCIL_BUFFER_BIT);
 								return;
 		default:
 				return;				
 	}
-  //## end CE3D_OGL_Win_Renderer::ClearBuffer%1018623775.body
 }
-
-void CE3D_OGL_Win_Renderer::SetupLight (int _iLightID, CE3D_Light& _roLight)
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::SetupLight (int _iLightID, CE3D_Light& _oLight)
 {
-  //## begin CE3D_OGL_Win_Renderer::SetupLight%1032001950.body preserve=yes
-	switch (_roLight.eType)
+  	switch (_oLight.eType)
 	{
 		case LT_Point:
 		{
-			oLPos[_iLightID].v[0] = _roLight.oPos.v[0];
-			oLPos[_iLightID].v[1] = _roLight.oPos.v[1];
-			oLPos[_iLightID].v[2] = _roLight.oPos.v[2];
-			oLPos[_iLightID].v[3] = 1.0f;
+			oLPos[_iLightID].x = _oLight.oPos.x;
+			oLPos[_iLightID].y = _oLight.oPos.y;
+			oLPos[_iLightID].z = _oLight.oPos.z;
+			oLPos[_iLightID].w = 1.0f;
 		}
 		break;
 
 		case LT_Directional:
-			oLPos[_iLightID].v[0] = _roLight.oDir.v[0];
-			oLPos[_iLightID].v[1] = _roLight.oDir.v[1];
-			oLPos[_iLightID].v[2] = _roLight.oDir.v[2];
-			oLPos[_iLightID].v[3] = 0.0f;
+			oLPos[_iLightID].x = _oLight.oDir.x;
+			oLPos[_iLightID].y = _oLight.oDir.y;
+			oLPos[_iLightID].z = _oLight.oDir.z;
+			oLPos[_iLightID].w = 0.0f;
 		break;
 
 		case LT_Spot:
 			/*
-			glLightf (eLightID, GL_SPOT_CUTOFF			,_roLight.fSpCutOff);
-			glLightfv(eLightID, GL_SPOT_DIRECTION		,_roLight.oSpDir.v);
+			glLightf (eLightID, GL_SPOT_CUTOFF			,_oLight.fSpCutOff);
+			glLightfv(eLightID, GL_SPOT_DIRECTION		,_oLight.oSpDir.z);
 			glLightfv(eLightID, GL_SPOT_EXPONENT		,fPos);	
 			*/
 		break;
@@ -1710,27 +1634,25 @@ void CE3D_OGL_Win_Renderer::SetupLight (int _iLightID, CE3D_Light& _roLight)
 	/*
 	glPushMatrix();
 	glLoadIdentity();
-	glLightfv(eLightID,GL_POSITION,oLPos[_iLightID].v);
+	glLightfv(eLightID,GL_POSITION,oLPos[_iLightID].V());
 	glPopMatrix();
 	*/
 	// ---------------------------------------
 
 	
 
-	glLightfv(eLightID, GL_AMBIENT	,(float*)&_roLight.oLitAmb );
-	glLightfv(eLightID, GL_DIFFUSE	,(float*)&_roLight.oLitDiff);
-	glLightfv(eLightID, GL_SPECULAR	,(float*)&_roLight.oLitSpec);
+	glLightfv(eLightID, GL_AMBIENT	,(float*)&_oLight.oLitAmb );
+	glLightfv(eLightID, GL_DIFFUSE	,(float*)&_oLight.oLitDiff);
+	glLightfv(eLightID, GL_SPECULAR	,(float*)&_oLight.oLitSpec);
 
-	glLightf (eLightID, GL_CONSTANT_ATTENUATION	,_roLight.fCAtt);
-	glLightf (eLightID, GL_LINEAR_ATTENUATION	,_roLight.fLAtt);
-	glLightf (eLightID, GL_QUADRATIC_ATTENUATION,_roLight.fQAtt);
-  //## end CE3D_OGL_Win_Renderer::SetupLight%1032001950.body
+	glLightf (eLightID, GL_CONSTANT_ATTENUATION	,_oLight.fCAtt);
+	glLightf (eLightID, GL_LINEAR_ATTENUATION	,_oLight.fLAtt);
+	glLightf (eLightID, GL_QUADRATIC_ATTENUATION,_oLight.fQAtt);
 }
-
+// -----------------------------------------------------------------------------
 void CE3D_OGL_Win_Renderer::SetLight (int _iLightID, bool _bEnable)
 {
-  //## begin CE3D_OGL_Win_Renderer::SetLight%1032019131.body preserve=yes
-	if (_bEnable)
+  	if (_bEnable)
 	{
 		uiEnabledLights |= (1<<_iLightID);
 	}
@@ -1739,11 +1661,18 @@ void CE3D_OGL_Win_Renderer::SetLight (int _iLightID, bool _bEnable)
 		glDisable(eGetLightID(_iLightID));
 		uiEnabledLights &= ~(1<<_iLightID);
 	}
-  //## end CE3D_OGL_Win_Renderer::SetLight%1032019131.body
 }
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::InvalidateTexture (CGTextureObj *TexObj)
+{
+	unsigned int cLOD;
 
+    // Generar un handler para la textura
+    glDeleteTextures(1,&TexObj->m_uiHandler);
+	TexObj->m_uiHandler = 0;
+}
+// -----------------------------------------------------------------------------
 // Additional Declarations
-  //## begin CE3D_OGL_Win_Renderer%3A9AB8C503B6.declarations preserve=yes
 void CE3D_OGL_Win_Renderer::PrepareLights()
 {
 	if (uiEnabledLights)
@@ -1756,7 +1685,7 @@ void CE3D_OGL_Win_Renderer::PrepareLights()
 			{
 				// Send light position to the GL
 				glEnable (eGetLightID(iL));
-				glLightfv(eGetLightID(iL),GL_POSITION,oLPos[iL].v);				
+				glLightfv(eGetLightID(iL),GL_POSITION,oLPos[iL].V());
 			}
 			else
 				glEnable(eGetLightID(iL));
@@ -1767,17 +1696,129 @@ void CE3D_OGL_Win_Renderer::PrepareLights()
 		glDisable(GL_LIGHTING);
 		return;
 	}
- 
 }
-  //## end CE3D_OGL_Win_Renderer%3A9AB8C503B6.declarations
-//## begin module%3A9AB8C503B6.epilog preserve=yes
-//## end module%3A9AB8C503B6.epilog
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::UploadProgram(CGProgram* _poProgram)
+{
+	char szError[1024];
+	GLsizei length;
 
+	_poProgram->m_hProgram = (handler)glCreateProgramObjectARB();
+	glGetInfoLogARB((GLhandleARB)_poProgram->m_hProgram, 1024, &length, (GLcharARB *)szError);
+	CHECKERRORS();
 
-// Detached code regions:
-// WARNING: this code will be lost if code is regenerated.
-#if 0
-//## begin CE3D_OGL_Win_Renderer::DisableLighting%1003953187.body preserve=no
-//## end CE3D_OGL_Win_Renderer::DisableLighting%1003953187.body
+	// Process vertex shader
+	if (_poProgram->m_pucVSData != NULL)
+	{
+		_poProgram->m_hVS = (handler)glCreateShaderObjectARB(GL_VERTEX_SHADER_ARB);
+		glGetInfoLogARB((GLhandleARB)_poProgram->m_hProgram, 1024, &length, (GLcharARB *)szError);
+		CHECKERRORS();
+		
+		glShaderSourceARB((GLhandleARB)_poProgram->m_hVS,1,(const GLcharARB**)&_poProgram->m_pucVSData,NULL);
+		glGetInfoLogARB((GLhandleARB)_poProgram->m_hProgram, 1024, &length, (GLcharARB *)szError);
+		CHECKERRORS();
+		
+		glCompileShaderARB((GLhandleARB)_poProgram->m_hVS);
+		glGetInfoLogARB((GLhandleARB)_poProgram->m_hProgram, 1024, &length, (GLcharARB *)szError);
+		CHECKERRORS();
+		
+		glAttachObjectARB((GLhandleARB)_poProgram->m_hProgram,(GLhandleARB)_poProgram->m_hVS);
+		glGetInfoLogARB((GLhandleARB)_poProgram->m_hProgram, 1024, &length, (GLcharARB *)szError);
+		CHECKERRORS();
+	}
 
-#endif
+	// Process pixel shader
+	if (_poProgram->m_pucPSData != NULL)
+	{
+		_poProgram->m_hPS = (handler)glCreateShaderObjectARB(GL_FRAGMENT_SHADER_ARB);
+		glGetInfoLogARB((GLhandleARB)_poProgram->m_hProgram, 1024, &length, (GLcharARB *)szError);
+		CHECKERRORS();
+		
+		glShaderSourceARB((GLhandleARB)_poProgram->m_hPS,1,(const GLcharARB**)&_poProgram->m_pucPSData,NULL);
+		glGetInfoLogARB((GLhandleARB)_poProgram->m_hProgram, 1024, &length, (GLcharARB *)szError);
+		CHECKERRORS();
+		
+		glCompileShaderARB((GLhandleARB)_poProgram->m_hPS);
+		glGetInfoLogARB((GLhandleARB)_poProgram->m_hProgram, 1024, &length, (GLcharARB *)szError);
+		CHECKERRORS();
+		
+		glAttachObjectARB((GLhandleARB)_poProgram->m_hProgram,(GLhandleARB)_poProgram->m_hPS);
+		glGetInfoLogARB((GLhandleARB)_poProgram->m_hProgram, 1024, &length, (GLcharARB *)szError);
+		CHECKERRORS();
+	}
+	
+	// Link the program
+	glLinkProgramARB((GLhandleARB)_poProgram->m_hProgram);
+	
+	GLint resul;
+	glGetObjectParameterivARB((GLhandleARB)_poProgram->m_hProgram,GL_OBJECT_LINK_STATUS_ARB,&resul);
+	if (resul != 1)
+	{
+		glGetInfoLogARB((GLhandleARB)_poProgram->m_hProgram, 1024, &length, (GLcharARB *)szError);
+		CHECKERRORS();
+
+		CGErrorLC::I()->Write(szError);
+	}
+	
+	int my_sampler_uniform_location = glGetUniformLocationARB((GLhandleARB)_poProgram->m_hProgram, "TMU0Tex");
+	glUniform1iARB(my_sampler_uniform_location, 0);
+	CHECKERRORS();
+}
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::UpdateProgram(CGProgram* _poProgram)
+{
+
+}
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::SetCurrentProgram(CGProgram* _poProgram)
+{
+	if (glUseProgramObjectARB == NULL) return;
+
+  	if (_poProgram == NULL)
+	{
+		glUseProgramObjectARB(0);
+		CHECKERRORS();
+  		return;
+  	}
+
+	if (_poProgram->m_hProgram == NULL)
+    {
+        // El programa no ha sido cargado en mem antes
+        UploadProgram(_poProgram);
+        _poProgram->Validate();
+	}
+    else
+    {
+        if (! _poProgram->bValid())
+        {
+            UpdateProgram(_poProgram);
+            _poProgram->Validate();
+		}
+	}
+
+	glUseProgramObjectARB((GLhandleARB)_poProgram->m_hProgram);
+
+	char szError[1024];
+	GLsizei length;
+	glGetInfoLogARB((GLhandleARB)_poProgram->m_hProgram, 1024, &length, (GLcharARB *)szError);
+	CHECKERRORS();	
+}
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::InvalidateProgram(CGProgram* _poProgram)
+{
+}
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::SetProgramParam(CGProgram* _poProgram,const CGString& _sParam,void*_pValue)
+{
+
+}
+// -----------------------------------------------------------------------------
+void CE3D_OGL_Win_Renderer::SetConstantColor(const CGColor& _oColor)
+{
+	// Qué pasa con el alpha? .... 
+	// glSecondaryColor3fv();
+	
+	glMaterialfv(GL_FRONT_AND_BACK,GL_DIFFUSE,_oColor.v() );
+
+}
+// -----------------------------------------------------------------------------

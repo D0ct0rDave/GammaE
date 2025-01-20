@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Sector">
+      <UniqueIdentifier>{ead03397-db32-4050-9bfd-f4495612d9ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sector\HeightField">
+      <UniqueIdentifier>{b8dab9d5-5217-450e-adf1-ee1f9b220021}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sector\LightMap">
+      <UniqueIdentifier>{87a0c42f-f709-4df8-ad7d-89abc328c494}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sector\TexMap">
+      <UniqueIdentifier>{2817b42d-76c9-41a9-ad09-1046e51c3559}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sector\SectorMatrix">
+      <UniqueIdentifier>{220ee525-2e11-4203-9e59-e0bf50f2a4f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sector\SectorMatrix\CSectorLoaderManager">
+      <UniqueIdentifier>{5aeba588-5d0d-4a70-85ad-038c0a76a361}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SectElem">
+      <UniqueIdentifier>{db175838-8688-47bc-a1d3-4c970b85da60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TexSet">
+      <UniqueIdentifier>{4db9219d-cfc8-46fc-a957-91a1a9276e8d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Sector\CHFSector.cpp">
+      <Filter>Sector</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Sector\CLMSector.cpp">
+      <Filter>Sector</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Sector\CSector.cpp">
+      <Filter>Sector</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Sector\CTexSector.cpp">
+      <Filter>Sector</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Sector\CTMSector.cpp">
+      <Filter>Sector</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Sector\HeightField\CHFSector_FN.cpp">
+      <Filter>Sector\HeightField</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Sector\LightMap\CLMSector_Gray.cpp">
+      <Filter>Sector\LightMap</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Sector\LightMap\CLMSector_Pal.cpp">
+      <Filter>Sector\LightMap</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Sector\LightMap\CLMSector_RGB24.cpp">
+      <Filter>Sector\LightMap</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Sector\TexMap\CTMSector_8_16.cpp">
+      <Filter>Sector\TexMap</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Sector\SectorMatrix\CHeightField.cpp">
+      <Filter>Sector\SectorMatrix</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Sector\SectorMatrix\CLightMap.cpp">
+      <Filter>Sector\SectorMatrix</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Sector\SectorMatrix\CSectorMatrix.cpp">
+      <Filter>Sector\SectorMatrix</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Sector\SectorMatrix\CTexMap.cpp">
+      <Filter>Sector\SectorMatrix</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Sector\SectorMatrix\CSectorLoaderManager\CSectorLoaderManager.cpp">
+      <Filter>Sector\SectorMatrix\CSectorLoaderManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Sector\SectorMatrix\CSectorLoaderManager\CSLM_HFieldSect.cpp">
+      <Filter>Sector\SectorMatrix\CSectorLoaderManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Sector\SectorMatrix\CSectorLoaderManager\CSLM_LMapSect.cpp">
+      <Filter>Sector\SectorMatrix\CSectorLoaderManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Sector\SectorMatrix\CSectorLoaderManager\CSLM_TexSect.cpp">
+      <Filter>Sector\SectorMatrix\CSectorLoaderManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Sector\SectorMatrix\CSectorLoaderManager\CSLM_TMapSect.cpp">
+      <Filter>Sector\SectorMatrix\CSectorLoaderManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SectElem\CColor.cpp">
+      <Filter>SectElem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SectElem\CHeight.cpp">
+      <Filter>SectElem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SectElem\CLightElem.cpp">
+      <Filter>SectElem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SectElem\CSectElem.cpp">
+      <Filter>SectElem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SectElem\CTile.cpp">
+      <Filter>SectElem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TexSet\TexSet.cpp">
+      <Filter>TexSet</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\Sector\CHFSector.h">
+      <Filter>Sector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Sector\CLMSector.h">
+      <Filter>Sector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Sector\CSector.h">
+      <Filter>Sector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Sector\CTexSector.h">
+      <Filter>Sector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Sector\CTMSector.h">
+      <Filter>Sector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Sector\HeightField\CHFSector_FN.h">
+      <Filter>Sector\HeightField</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Sector\LightMap\CLMSector_Gray.h">
+      <Filter>Sector\LightMap</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Sector\LightMap\CLMSector_Pal.h">
+      <Filter>Sector\LightMap</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Sector\LightMap\CLMSector_RGB24.h">
+      <Filter>Sector\LightMap</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Sector\TexMap\CTMSector_8_16.h">
+      <Filter>Sector\TexMap</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Sector\SectorMatrix\CHeightField.h">
+      <Filter>Sector\SectorMatrix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Sector\SectorMatrix\CLightMap.h">
+      <Filter>Sector\SectorMatrix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Sector\SectorMatrix\CSectorMatrix.h">
+      <Filter>Sector\SectorMatrix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Sector\SectorMatrix\CTexMap.h">
+      <Filter>Sector\SectorMatrix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Sector\SectorMatrix\CSectorLoaderManager\CSectorLoaderManager.h">
+      <Filter>Sector\SectorMatrix\CSectorLoaderManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Sector\SectorMatrix\CSectorLoaderManager\CSLM_HFieldSect.h">
+      <Filter>Sector\SectorMatrix\CSectorLoaderManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Sector\SectorMatrix\CSectorLoaderManager\CSLM_LMapSect.h">
+      <Filter>Sector\SectorMatrix\CSectorLoaderManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Sector\SectorMatrix\CSectorLoaderManager\CSLM_TexSect.h">
+      <Filter>Sector\SectorMatrix\CSectorLoaderManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Sector\SectorMatrix\CSectorLoaderManager\CSLM_TMapSect.h">
+      <Filter>Sector\SectorMatrix\CSectorLoaderManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SectElem\CColor.h">
+      <Filter>SectElem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SectElem\CHeight.h">
+      <Filter>SectElem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SectElem\CLightElem.h">
+      <Filter>SectElem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SectElem\CSectElem.h">
+      <Filter>SectElem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SectElem\CTile.h">
+      <Filter>SectElem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TexSet\TexSet.h">
+      <Filter>TexSet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GammaE_TerrainData.h" />
+  </ItemGroup>
+</Project>

@@ -1,127 +1,103 @@
-//## begin module%3C080D120063.cm preserve=no
 //	  %X% %Q% %Z% %W%
-//## end module%3C080D120063.cm
 
-//## begin module%3C080D120063.cp preserve=no
-//## end module%3C080D120063.cp
 
-//## Module: MATH_Utils%3C080D120063; Pseudo Package body
-//## Source file: i:\Projects\GammaE\Math\MATH_Other\MATH_Utils.cpp
 
-//## begin module%3C080D120063.additionalIncludes preserve=no
-//## end module%3C080D120063.additionalIncludes
 
-//## begin module%3C080D120063.includes preserve=yes
 #include <math.h>
 
 const float EPSILON			 = 1e-5f;
 const float ONE_PLUS_EPSILON = 1.0f + EPSILON;
-//## end module%3C080D120063.includes
 
 // MATH_Utils
-#include "Math\MATH_Other\MATH_Utils.h"
+#include "MATH_Other\MATH_Utils.h"
 // MATH_Common
-#include "Math\MATH_Other\MATH_Common.h"
-//## begin module%3C080D120063.additionalDeclarations preserve=yes
+#include "MATH_Other\MATH_Common.h"
 static float	fU;
 static float	fV;
 static float	fT;
 static float	fDet;
 static float	fInvDet;
 static CVect3	PVec,TVec,QVec;
-//## end module%3C080D120063.additionalDeclarations
 
 
 // Class MATH_Utils 
 
 MATH_Utils::MATH_Utils()
-  //## begin MATH_Utils::MATH_Utils%.hasinit preserve=no
-  //## end MATH_Utils::MATH_Utils%.hasinit
-  //## begin MATH_Utils::MATH_Utils%.initialization preserve=yes
-  //## end MATH_Utils::MATH_Utils%.initialization
-{
-  //## begin MATH_Utils::MATH_Utils%.body preserve=yes
-  //## end MATH_Utils::MATH_Utils%.body
+        {
 }
 
 
 MATH_Utils::~MATH_Utils()
 {
-  //## begin MATH_Utils::~MATH_Utils%.body preserve=yes
-  //## end MATH_Utils::~MATH_Utils%.body
 }
 
 
 
-//## Other Operations (implementation)
 void MATH_Utils::GetPNVertexs (CVect3& _Maxs, CVect3& _Mins, CPlane& _Plane, CVect3& P, CVect3& N)
 {
-  //## begin MATH_Utils::GetPNVertexs%1007160407.body preserve=yes
-  	if (_Plane.Normal().v[2]>0)
+    	if (_Plane.Normal().z>0)
     {
-    	if (_Plane.Normal().v[1]>0)
+    	if (_Plane.Normal().y>0)
         {
-        	if (_Plane.Normal().v[0]>0)
+        	if (_Plane.Normal().x>0)
             {
             	P = _Maxs;
                 N = _Mins;
-            }
+}
         	else
             {
-            	P.V3( _Mins.X(),_Maxs.Y(),_Maxs.Z() );
-                N.V3( _Maxs.X(),_Mins.Y(),_Mins.Z() );
-            }
-        }
+            	P.V3( _Mins.x,_Maxs.y,_Maxs.z );
+                N.V3( _Maxs.x,_Mins.y,_Mins.z );
+}
+}
         else
         {
-        	if (_Plane.Normal().v[0]>0)
+        	if (_Plane.Normal().x>0)
             {
-                P.V3(_Maxs.X(),_Mins.Y(),_Maxs.Z() );
-                N.V3(_Mins.X(),_Maxs.Y(),_Mins.Z() );
-            }
+                P.V3(_Maxs.x,_Mins.y,_Maxs.z );
+                N.V3(_Mins.x,_Maxs.y,_Mins.z );
+}
         	else
             {
-            	P.V3(_Mins.X(),_Mins.Y(),_Maxs.Z() );
-                N.V3(_Maxs.X(),_Maxs.Y(),_Mins.Z() );
-            }
-        }
-    }
+            	P.V3(_Mins.x,_Mins.y,_Maxs.z );
+                N.V3(_Maxs.x,_Maxs.y,_Mins.z );
+}
+}
+}
     else
     {
-    	if (_Plane.Normal().v[1]>0)
+    	if (_Plane.Normal().y>0)
         {
-        	if (_Plane.Normal().v[0]>0)
+        	if (_Plane.Normal().x>0)
             {
-            	P.V3(_Maxs.X(),_Maxs.Y(),_Mins.Z());
-                N.V3(_Mins.X(),_Mins.Y(),_Maxs.Z());
-            }
+            	P.V3(_Maxs.x,_Maxs.y,_Mins.z);
+                N.V3(_Mins.x,_Mins.y,_Maxs.z);
+}
         	else
             {
-            	P.V3(_Mins.X(),_Maxs.Y(),_Mins.Z());
-                N.V3(_Maxs.X(),_Mins.Y(),_Maxs.Z());
-            }
-        }
+            	P.V3(_Mins.x,_Maxs.y,_Mins.z);
+                N.V3(_Maxs.x,_Mins.y,_Maxs.z);
+}
+}
         else
         {
-        	if (_Plane.Normal().v[0]>0)
+        	if (_Plane.Normal().x>0)
             {
-                P.V3(_Maxs.X(),_Mins.Y(),_Mins.Z());
-                N.V3(_Mins.X(),_Maxs.Y(),_Maxs.Z());
-            }
+                P.V3(_Maxs.x,_Mins.y,_Mins.z);
+                N.V3(_Mins.x,_Maxs.y,_Maxs.z);
+}
         	else
             {
             	P = _Mins;
                 N = _Maxs;
-            }
-        }
-    }
-  //## end MATH_Utils::GetPNVertexs%1007160407.body
+}
+}
+}
 }
 
 int MATH_Utils::iTestBoxPlane (CVect3& _Maxs, CVect3& _Mins, CPlane& _Plane)
 {
-  //## begin MATH_Utils::iTestBoxPlane%1007160406.body preserve=yes
-  	CVect3 P,N;
+    	CVect3 P,N;
 
     // Get PN vertices
 	GetPNVertexs (_Maxs,_Mins,_Plane,P,N);
@@ -131,77 +107,68 @@ int MATH_Utils::iTestBoxPlane (CVect3& _Maxs, CVect3& _Mins, CPlane& _Plane)
     if (_Plane.GetDistanceToPoint(P) < 0.0f) return(-1);		// back
 	return (0);													// Intersecting
 
-  //## end MATH_Utils::iTestBoxPlane%1007160406.body
 }
 
 int MATH_Utils::iTestSpherePlane (CVect3& _Center, float _fRadius, CPlane& _Plane)
 {
-  //## begin MATH_Utils::iTestSpherePlane%1007160408.body preserve=yes
-  	float fDist = _Plane.GetDistanceToPoint(_Center);
+    	float fDist = _Plane.GetDistanceToPoint(_Center);
 
 		 if (fDist >  _fRadius) return( 1);		// in front of plane
 	else if (fDist < -_fRadius) return(-1);		// back of the plane
 	return(0);									// intersecting
-  //## end MATH_Utils::iTestSpherePlane%1007160408.body
 }
 
-int MATH_Utils::iTestPointPlane (CVect3& _roPoint, CPlane& _roPlane)
+int MATH_Utils::iTestPointPlane (CVect3& _oPoint, CPlane& _oPlane)
 {
-  //## begin MATH_Utils::iTestPointPlane%1011722643.body preserve=yes
-	
-	return ( (int)_roPlane.GetDistanceToPoint(_roPoint) );
+  	
+	return ( (int)_oPlane.GetDistanceToPoint(_oPoint) );
 
-  //## end MATH_Utils::iTestPointPlane%1011722643.body
 }
 
 float MATH_Utils::fTriPointDistance (CTriangle& _Tri, CVect3& _Point)
 {
-  //## begin MATH_Utils::fTriPointDistance%1007945050.body preserve=yes
-
+  
 	return ( MATH_Common::fSqrt(fTriPointSqDistance(_Tri,_Point)) );
 
-  //## end MATH_Utils::fTriPointDistance%1007945050.body
 }
 
 float MATH_Utils::fTriPointSqDistance (CTriangle& _Tri, CVect3& _Point)
 {
-  //## begin MATH_Utils::fTriPointSqDistance%1007945052.body preserve=yes
-	
-	return ( _Point.SqDistance(oNearestTriPoint(_Point,_Tri)) );
+  
+	CVect3 oPnt = oNearestTriPoint(_Point,_Tri);
+	return ( _Point.fSqDistance(oPnt) );
 
-  //## end MATH_Utils::fTriPointSqDistance%1007945052.body
 }
 
-CVect3 MATH_Utils::oNearestTriPoint (CVect3& _roPoint, CTriangle& _roTri)
+CVect3 MATH_Utils::oNearestTriPoint (CVect3& _oPoint, CTriangle& _oTri)
 {
-  //## begin MATH_Utils::oNearestTriPoint%1019590874.body preserve=yes
-	CPlane	oPlane;
+  	CPlane	oPlane;
 	float	fMu,fLambda;
 	CVect3	cp;
 	CVect3	c;
 	
-	oPlane.GeneratePlaneFromFields(_roTri.VXs[0],_roTri.Normal);
-	c = oPlane.ProjectPoint(_roPoint);
+	oPlane.GeneratePlaneFromFields(_oTri.VXs[0],_oTri.Normal);
+	c = oPlane.ProjectPoint(_oPoint);
 	
 	// Get vector c - p
 	cp.Assign(c);
-	cp.Sub   (_roTri.VXs[0]);
+	cp.Sub   (_oTri.VXs[0]);
 
-    if (_roTri.e2.X() != 0.0f)
+    if (_oTri.e2.x != 0.0f)
     {
-        float fAux = _roTri.e2.Y() / _roTri.e2.X();
-        fMu     = (cp.Y() - cp.X()*fAux   )/(_roTri.e1.Y() - _roTri.e1.X()*fAux);
-        fLambda = (cp.X() - fMu*_roTri.e1.X())/_roTri.e2.X();
-    }
+        float fAux = _oTri.e2.y / _oTri.e2.x;
+        fMu     = (cp.y - cp.x*fAux   )/(_oTri.e1.y - _oTri.e1.x*fAux);
+        fLambda = (cp.x - fMu*_oTri.e1.x)/_oTri.e2.x;
+}
     else
     {
-        // float fAux = Tri.E2.v[0] / Tri.E2.v[1] = 0.0f / Tri.E2.v[1] = 0.0f;
-        // fMu     = (cp.v[0] - cp.v[1]*fAux   )/(Tri.E1.v[0] - Tri.E1.v[1]*fAux);
-        // fMu     = (cp.v[0] - cp.v[1]*0.0f   )/(Tri.E1.v[0] - Tri.E1.v[1]*0.0f);
-        // fMu     = (cp.v[0]                  )/(Tri.E1.v[0]                   );
-        fMu     = cp.X() / _roTri.e1.v[0];
-        fLambda = (cp.Y() - fMu*_roTri.e1.Y())/_roTri.e2.Y();
-    }
+        // float fAux = Tri.E2[0] / Tri.E2[1] = 0.0f / Tri.E2[1] = 0.0f;
+        // fMu     = (cp[0] - cp[1]*fAux   )/(Tri.E1[0] - Tri.E1[1]*fAux);
+        // fMu     = (cp[0] - cp[1]*0.0f   )/(Tri.E1[0] - Tri.E1[1]*0.0f);
+        // fMu     = (cp[0]                  )/(Tri.E1[0]                   );
+        fMu     = cp.x / _oTri.e1.x;
+        fLambda = (cp.y - fMu*_oTri.e1.y)/_oTri.e2.y;
+}
 
 	// --------------
     // Select region:
@@ -212,19 +179,19 @@ CVect3 MATH_Utils::oNearestTriPoint (CVect3& _roPoint, CTriangle& _roTri)
 		if (fLambda <= 0.0f)
 		{
 			// Region A
-			return (_roTri.VXs[0]);
+			return (_oTri.VXs[0]);
 		}
 		else
 		{
 			if (fLambda >= 1.0f)
 				// Region E
-				return (_roTri.VXs[2]);
+				return (_oTri.VXs[2]);
 			else
 				// Region D
-				c.Interpolate(_roTri.VXs[0],_roTri.VXs[2],fLambda);
+				c.Interpolate(_oTri.VXs[0],_oTri.VXs[2],fLambda);
 				return(c);				
 		}
-    }
+}
     else
     {
 		if (fLambda < 0.0f)
@@ -232,14 +199,14 @@ CVect3 MATH_Utils::oNearestTriPoint (CVect3& _roPoint, CTriangle& _roTri)
 			if (fMu >1.0f)
 			{
 				// Region C
-				return(_roTri.VXs[1]);
+				return(_oTri.VXs[1]);
 			}
 			else
 			{
 				// Region B
 				
 				// fMu >0.0f,fMu <1.0f
-				c.Interpolate(_roTri.VXs[0],_roTri.VXs[1],fMu);
+				c.Interpolate(_oTri.VXs[0],_oTri.VXs[1],fMu);
 				return( c );				
 			}
 		}
@@ -249,7 +216,7 @@ CVect3 MATH_Utils::oNearestTriPoint (CVect3& _roPoint, CTriangle& _roTri)
 			if (fMu + fLambda > 1.0f)	
 			{
 				CSegment oSeg;
-				oSeg.Init(_roTri.VXs[1],_roTri.VXs[2]);
+				oSeg.Init(_oTri.VXs[1],_oTri.VXs[2]);
 				return ( oSeg.ProjectPoint(c) );				
 			}
 			else
@@ -258,14 +225,12 @@ CVect3 MATH_Utils::oNearestTriPoint (CVect3& _roPoint, CTriangle& _roTri)
 				return(c);
 			}
 		}
-     }
-  //## end MATH_Utils::oNearestTriPoint%1019590874.body
+}
 }
 
-int MATH_Utils::iTestRayTriIntersection (CRay& _Ray, CTriangle& _Tri)
+int MATH_Utils::iTestRayTriIntersection (CRay& _ay, CTriangle& _Tri)
 {
-  //## begin MATH_Utils::iTestRayTriIntersection%1008626800.body preserve=yes
-	// Mirar si el punto cae dentro del triangulo
+  	// Mirar si el punto cae dentro del triangulo
 
 	/* Ray-Triangle Intersection Test Routine           */
 	/* Different optimizations of my and Ben Trumbore's */
@@ -287,12 +252,12 @@ int MATH_Utils::iTestRayTriIntersection (CRay& _Ray, CTriangle& _Tri)
 	e2.Assign(_Tri.VXs[2]);	e2.Sub(_Tri.VXs[0]);
 */
 	/* begin calculating determinant - also used to calculate U parameter */
-	PVec.CrossProd(_Ray.Dir,_Tri.e2);
+	PVec.CrossProd(_ay.Dir,_Tri.e2);
 
 
 	/* if determinant is near zero, ray lies in plane of triangle */
 	// fDet = e1.DotProd(PVec);
-	fDet = _Tri.e1.DotProd(PVec);
+	fDet = _Tri.e1.fDotProd(PVec);
 
 	// Avoid divide by 0
 	if (fDet > -EPSILON && fDet < EPSILON) return 0;	
@@ -305,10 +270,10 @@ int MATH_Utils::iTestRayTriIntersection (CRay& _Ray, CTriangle& _Tri)
 	fInvDet = 1.0f / fDet;
 
 	// calculate distance from vert0 to ray origin
-	TVec.Assign(_Ray.Origin);	TVec.Sub(_Tri.VXs[0]);
+	TVec.Assign(_ay.Origin);	TVec.Sub(_Tri.VXs[0]);
 
 	// calculate U parameter and test bounds
-	fU = TVec.DotProd(PVec)*fInvDet;
+	fU = TVec.fDotProd(PVec)*fInvDet;
 	if (fU < -EPSILON || fU > ONE_PLUS_EPSILON) return 0;
 
 	// prepare to test V parameter
@@ -316,98 +281,84 @@ int MATH_Utils::iTestRayTriIntersection (CRay& _Ray, CTriangle& _Tri)
 	QVec.CrossProd(TVec,_Tri.e1);
 
 	// calculate V parameter and test bounds
-	fV = _Ray.Dir.DotProd(QVec)*fInvDet;
+	fV = _ay.Dir.fDotProd(QVec)*fInvDet;
 	if (fV < -EPSILON || fU + fV > ONE_PLUS_EPSILON) return 0;
 	
 	return(1);
-  //## end MATH_Utils::iTestRayTriIntersection%1008626800.body
 }
 
-int MATH_Utils::iTestRayTriIntersection (CRay& _Ray, CTriangle& _Tri, CVect3& _Point)
+int MATH_Utils::iTestRayTriIntersection (CRay& _ay, CTriangle& _Tri, CVect3& _Point)
 {
-  //## begin MATH_Utils::iTestRayTriIntersection%1008112115.body preserve=yes
-	if (iTestRayTriIntersection(_Ray,_Tri))
+  	if (iTestRayTriIntersection(_ay,_Tri))
 	{
 		// calculate t, ray intersects triangle
-		fT = _Tri.e2.DotProd(QVec)*fInvDet;
+		fT = _Tri.e2.fDotProd(QVec)*fInvDet;
 
-		_Point.LineEq(_Ray.Origin,_Ray.Dir,fT);
+		_Point.LineEq(_ay.Origin,_ay.Dir,fT);
 	   return 1;
 	}
 	else
 		return(0);
-  //## end MATH_Utils::iTestRayTriIntersection%1008112115.body
 }
 
-int MATH_Utils::iTestSegTriIntersection (CRay& _Ray, CTriangle& _Tri)
+int MATH_Utils::iTestSegTriIntersection (CRay& _ay, CTriangle& _Tri)
 {
-  //## begin MATH_Utils::iTestSegTriIntersection%1008626805.body preserve=yes
-	if (iTestRayTriIntersection (_Ray, _Tri))
+  	if (iTestRayTriIntersection (_ay, _Tri))
 	{
 		// calculate t, ray intersects triangle
-		fT = _Tri.e2.DotProd(QVec)*fInvDet;
+		fT = _Tri.e2.fDotProd(QVec)*fInvDet;
 
 		return(fT>=0.0f);				// above the point of origin
 	}
 
 	return(0);
-  //## end MATH_Utils::iTestSegTriIntersection%1008626805.body
 }
 
-int MATH_Utils::iTestSegTriIntersection (CRay& _Ray, CTriangle& _Tri, CVect3& _Point)
+int MATH_Utils::iTestSegTriIntersection (CRay& _ay, CTriangle& _Tri, CVect3& _Point)
 {
-  //## begin MATH_Utils::iTestSegTriIntersection%1008626806.body preserve=yes
-	if (iTestSegTriIntersection(_Ray,_Tri))
+  	if (iTestSegTriIntersection(_ay,_Tri))
 	{
-		_Point.LineEq(_Ray.Origin,_Ray.Dir,fT);
+		_Point.LineEq(_ay.Origin,_ay.Dir,fT);
 		return(1);
 	}
 	return(0);
-  //## end MATH_Utils::iTestSegTriIntersection%1008626806.body
 }
 
 float MATH_Utils::fGetT ()
 {
-  //## begin MATH_Utils::fGetT%1011825874.body preserve=yes
-	return(fT);
-  //## end MATH_Utils::fGetT%1011825874.body
+  	return(fT);
 }
 
 int MATH_Utils::iPointInsideTriangle (CTriangle& _Tri, CVect3& _Point, CVect3& _PPoint)
 {
-  //## begin MATH_Utils::iPointInsideTriangle%1008626801.body preserve=yes
-	CRay	Ray;
+  	CRay	Ray;
 
 	Ray.Origin.Assign(_Point);
 	Ray.Dir.Assign   (_Tri.Normal);
 
 	return ( iTestRayTriIntersection (Ray, _Tri,_PPoint) );
-  //## end MATH_Utils::iPointInsideTriangle%1008626801.body
 }
 
 int MATH_Utils::iPointInsideTriangle (CTriangle& _Tri, CVect3& _Point)
 {
-  //## begin MATH_Utils::iPointInsideTriangle%1008626799.body preserve=yes
-	CRay	Ray;
+  	CRay	Ray;
 
 	Ray.Origin.Assign(_Point);
 	Ray.Dir.Assign   (_Tri.Normal);
 	
 	return ( iTestRayTriIntersection (Ray,_Tri) );
-  //## end MATH_Utils::iPointInsideTriangle%1008626799.body
 }
 
-int MATH_Utils::iTest3PlaneIntersection (CPlane& _roPlane0, CPlane& _roPlane1, CPlane& _roPlane2, CVect3& _roPoint)
+int MATH_Utils::iTest3PlaneIntersection (CPlane& _oPlane0, CPlane& _oPlane1, CPlane& _oPlane2, CVect3& _oPoint)
 {
-  //## begin MATH_Utils::iTest3PlaneIntersection%1014585363.body preserve=yes
-	float		fDet;
+  	float		fDet;
 	CMatrix4x4	oMat;	
 	CVect3		a,b,c,p;
 
 	// Setup matrix
-	oMat.SetRowVector(0,_roPlane0.Normal().X(),_roPlane0.Normal().Y(),_roPlane0.Normal().Z(),-1.0f*_roPlane0.D());
-	oMat.SetRowVector(1,_roPlane1.Normal().X(),_roPlane1.Normal().Y(),_roPlane1.Normal().Z(),-1.0f*_roPlane1.D());
-	oMat.SetRowVector(2,_roPlane2.Normal().X(),_roPlane2.Normal().Y(),_roPlane2.Normal().Z(),-1.0f*_roPlane2.D());
+	oMat.SetRowVector(0,_oPlane0.Normal().x,_oPlane0.Normal().y,_oPlane0.Normal().z,-1.0f*_oPlane0.D());
+	oMat.SetRowVector(1,_oPlane1.Normal().x,_oPlane1.Normal().y,_oPlane1.Normal().z,-1.0f*_oPlane1.D());
+	oMat.SetRowVector(2,_oPlane2.Normal().x,_oPlane2.Normal().y,_oPlane2.Normal().z,-1.0f*_oPlane2.D());
 	oMat.SetRowVector(3,0.0f,0.0f,0.0f,1.0f);
 	
 	// Compute matrix determinant
@@ -417,30 +368,28 @@ int MATH_Utils::iTest3PlaneIntersection (CPlane& _roPlane0, CPlane& _roPlane1, C
 	if (MATH_Common::fAbs(fDet) < _EPSILON_) return(0);
 
 
-	a.CrossProd(_roPlane1.Normal(),_roPlane2.Normal());
-	a.Scale(-1.0f*_roPlane0.D());
+	a.CrossProd(_oPlane1.Normal(),_oPlane2.Normal());
+	a.Scale(-1.0f*_oPlane0.D());
 	
-	b.CrossProd(_roPlane2.Normal(),_roPlane0.Normal());
-	b.Scale(-1.0f*_roPlane1.D());
+	b.CrossProd(_oPlane2.Normal(),_oPlane0.Normal());
+	b.Scale(-1.0f*_oPlane1.D());
 
-	c.CrossProd(_roPlane0.Normal(),_roPlane1.Normal());
-	c.Scale(-1.0f*_roPlane2.D());
+	c.CrossProd(_oPlane0.Normal(),_oPlane1.Normal());
+	c.Scale(-1.0f*_oPlane2.D());
 
 	// Setup intersection point
-	_roPoint.Assign(a);
-	_roPoint.Add   (b);
-	_roPoint.Add   (c);
-	_roPoint.Scale (1.0f / fDet);
+	_oPoint.Assign(a);
+	_oPoint.Add   (b);
+	_oPoint.Add   (c);
+	_oPoint.Scale (1.0f / fDet);
 
 	return(1);
 
-  //## end MATH_Utils::iTest3PlaneIntersection%1014585363.body
 }
 
-int MATH_Utils::iTest2PlaneIntersection (CPlane& _roPlane0, CPlane& _roPlane1, CRay& _roRay)
+int MATH_Utils::iTest2PlaneIntersection (CPlane& _oPlane0, CPlane& _oPlane1, CRay& _oRay)
 {
-  //## begin MATH_Utils::iTest2PlaneIntersection%1014585364.body preserve=yes
-  /*
+    /*
     Vector3d m, pt0;
   float demn;
 
@@ -460,19 +409,19 @@ int MATH_Utils::iTest2PlaneIntersection (CPlane& _roPlane0, CPlane& _roPlane1, C
     demn = n.GetY() * plane2.n.GetZ() - n.GetZ() * plane2.n.GetY();
     ASSERT(demn != 0.0f);  // Sanity Check.
 
-    pt0.SetX(0.0f);
-    pt0.SetY((d * plane2.n.GetZ() - n.GetZ() * plane2.d) / demn);
-    pt0.SetZ((n.GetY() * plane2.d - plane2.n.GetY() * d) / demn);
-  }
+    pt0.x = 0.0f;
+    pt0.y = (d * plane2.n.GetZ() - n.GetZ() * plane2.d) / demn;
+    pt0.z = (n.GetY() * plane2.d - plane2.n.GetY() * d) / demn;
+}
   else if (dy >= dx && dy >= dz) {
     ASSERT(!EQUAL4(m.GetY(), 0.0f));
     demn = n.GetZ() * plane2.n.GetX() - n.GetX() * plane2.n.GetZ();
     ASSERT(demn != 0.0f);
 
-    pt0.SetX((n.GetZ() * plane2.d - plane2.n.GetZ() * d) / demn);
-    pt0.SetY(0.0f);
-    pt0.SetZ((plane2.n.GetX() * d - n.GetX() * plane2.d) / demn);
-  }
+    pt0.x = (n.GetZ() * plane2.d - plane2.n.GetZ() * d) / demn;
+    pt0.y = 0.0f;
+    pt0.z = (plane2.n.GetX() * d - n.GetX() * plane2.d) / demn;
+}
   else { // m.GetZ() != 0.0f
     // Sanity.
     ASSERT(dz >= dx && dz >= dy);
@@ -481,22 +430,20 @@ int MATH_Utils::iTest2PlaneIntersection (CPlane& _roPlane0, CPlane& _roPlane1, C
     demn = n.GetY() * plane2.n.GetX() - n.GetX() * plane2.n.GetY();
     ASSERT(demn != 0.0f);  // Sanity Check.
 
-    pt0.SetX((n.GetY() * plane2.d - plane2.n.GetY() * d) / demn);
-    pt0.SetY((plane2.n.GetX() * d - n.GetX() * plane2.d) / demn);
-    pt0.SetZ(0.0f);
-  }
+    pt0.x = (n.GetY() * plane2.d - plane2.n.GetY() * d) / demn;
+    pt0.y = (plane2.n.GetX() * d - n.GetX() * plane2.d) / demn;
+    pt0.z = 0.0f;
+}
 
   l.NewLine(pt0, m);
   return true;
   */
 	return(0);
-  //## end MATH_Utils::iTest2PlaneIntersection%1014585364.body
 }
 
-int MATH_Utils::iTestRayAABBIntersection (CRay& _roRay, CVect3& _roMaxs, CVect3& _roMins)
+int MATH_Utils::iTestRayAABBIntersection (CRay& _oRay, CVect3& _oMaxs, CVect3& _oMins)
 {
-  //## begin MATH_Utils::iTestRayAABBIntersection%1015279069.body preserve=yes
-	
+  	
 	/*
 	Fast Rat-Box Intersection
 	by Andrew Woo
@@ -518,16 +465,16 @@ int MATH_Utils::iTestRayAABBIntersection (CRay& _roRay, CVect3& _roMaxs, CVect3&
 	// Find candidate planes
 	for (i=0;i<3;i++)
 	{
-		if (_roRay.Origin.v[i] < _roMins.v[i])
+		if (_oRay.Origin.v(i) < _oMins.v(i))
 		{
 			cQuadrant[i] = Q_LEFT;
-			oCPlane.v[i] = _roMins.v[i];
+			oCPlane.v(i) = _oMins.v(i);
 			bInside		 = false;
 		}
-   else if (_roRay.Origin.v[i] > _roMaxs.v[i])
+   else if (_oRay.Origin.v(i) > _oMaxs.v(i))
 		{
 			cQuadrant[i]  = Q_RIGHT;
-			oCPlane.v[i]  = _roMaxs.v[i];
+			oCPlane.v(i)  = _oMaxs.v(i);
 			bInside		  = false;
 		}
 	else{
@@ -538,41 +485,41 @@ int MATH_Utils::iTestRayAABBIntersection (CRay& _roRay, CVect3& _roMaxs, CVect3&
 	// Ray origin inside bounding box
 	if (bInside)
 	{
-		// IntersectionPoint = _roRay.Origin;
+		// IntersectionPoint = _oRay.Origin;
 		return(1);
 	}
 	
 	// Compute T distances to candidate planes
 	for (i=0;i<3;i++)
 	{
-		if ((cQuadrant[i] != Q_MIDDLE) && (_roRay.Dir.v[i] != 0.0f))
-			oMaxT.v[i] = (oCPlane.v[i] - _roRay.Origin.v[i]) / _roRay.Dir.v[i];
+		if ((cQuadrant[i] != Q_MIDDLE) && (_oRay.Dir.v(i) != 0.0f))
+			oMaxT.v(i) = (oCPlane.v(i) - _oRay.Origin.v(i)) / _oRay.Dir.v(i);
 		else
-			oMaxT.v[i] = -1.0f;
+			oMaxT.v(i) = -1.0f;
 	}
 
 	// Get largest maxT for final choice of intersection	
 	iWhichPlane = 0;
 	for (i=1;i<3;i++)
-		if (oMaxT.v[iWhichPlane]<oMaxT.v[iWhichPlane])
+		if (oMaxT.v(iWhichPlane) < oMaxT.v(iWhichPlane))
 			iWhichPlane = i;
 	
 	// Check final candidate actually inside box
-	if (oMaxT.v[iWhichPlane]<0.0f) return (0);
+	if (oMaxT.v(iWhichPlane)<0.0f) return (0);
 	
-	CVect3 _roPoint;
+	CVect3 _oPoint;
 	for (i=0;i<3;i++)
 	{
 		if (iWhichPlane != i)
 		{			
-			_roPoint.v[i] = _roRay.Origin.v[i] + oMaxT.v[iWhichPlane]*_roRay.Dir.v[i];
+			_oPoint.v(i) = _oRay.Origin.v(i) + oMaxT.v(iWhichPlane) * _oRay.Dir.v(i);
 
-			if ((_roPoint.v[i] < _roMins.v[i]) || (_roPoint.v[i] > _roMaxs.v[i])) 
+			if ((_oPoint.v(i) < _oMins.v(i)) || (_oPoint.v(i) > _oMaxs.v(i))) 
 				return(0);
 		}
 		else
 		{
-			_roPoint.v[i] = oCPlane.v[i];	
+			_oPoint.v(i) = oCPlane.v(i);	
 		}
 	}
 
@@ -581,21 +528,15 @@ int MATH_Utils::iTestRayAABBIntersection (CRay& _roRay, CVect3& _roMaxs, CVect3&
 	#undef Q_RIGHT
 	#undef Q_LEFT
 	#undef Q_MIDDLE
-  //## end MATH_Utils::iTestRayAABBIntersection%1015279069.body
 }
 
 // Additional Declarations
-  //## begin MATH_Utils%3C080D120063.declarations preserve=yes
-  //## end MATH_Utils%3C080D120063.declarations
-
-//## begin module%3C080D120063.epilog preserve=yes
-//## end module%3C080D120063.epilog
+    
 
 
 // Detached code regions:
 // WARNING: this code will be lost if code is regenerated.
 #if 0
-//## begin MATH_Utils::iPointBelongsTriangle%1020464100.body preserve=no
 
 	// Point belongs the triangle iff:
 	//	Point is contained in the triangle
@@ -603,6 +544,5 @@ int MATH_Utils::iTestRayAABBIntersection (CRay& _roRay, CVect3& _roMaxs, CVect3&
 
 	if (_Tri
 
-//## end MATH_Utils::iPointBelongsTriangle%1020464100.body
 
 #endif

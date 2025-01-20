@@ -1,25 +1,18 @@
-//## begin module%3C1FBD52007E.cm preserve=no
-//	  %X% %Q% %Z% %W%
-//## end module%3C1FBD52007E.cm
+     //	  %X% %Q% %Z% %W%
 
-//## begin module%3C1FBD52007E.cp preserve=no
-//## end module%3C1FBD52007E.cp
 
-//## Module: CCOL_DT_Box%3C1FBD52007E; Pseudo Package body
-//## Source file: i:\Projects\GammaE\Collision\COL_Testers\COL_DynamicTest\CCOL_DT_Box.cpp
 
-//## begin module%3C1FBD52007E.additionalIncludes preserve=no
-//## end module%3C1FBD52007E.additionalIncludes
 
-//## begin module%3C1FBD52007E.includes preserve=yes
-//## end module%3C1FBD52007E.includes
 
 // CCOL_DT_Box
-#include "Collision\COL_Testers\COL_DynamicTest\CCOL_DT_Box.h"
-//## begin module%3C1FBD52007E.additionalDeclarations preserve=yes
+#include "COL_Testers\COL_DynamicTest\CCOL_DT_Box.h"
 
-//----------------------------------------------------------------------------
-static bool bClip (float _fDenom, float _fNumer, float& _rfT0, float& _rfT1)
+int CCOL_DT_Box::iColAxis = 0;
+
+#define		NOCOLLISION_TIME	 1.0f
+
+//-----------------------------------------------------------------------------
+static bool bClip (float _fDenom, float _fNumer, float& _fT0, float& _fT1)
 {
     // Return value is 'true' if line segment intersects the current test
     // plane.  Otherwise 'false' is returned in which case the line segment
@@ -27,21 +20,21 @@ static bool bClip (float _fDenom, float _fNumer, float& _rfT0, float& _rfT1)
 
 		if ( _fDenom > 0.0f )
 		{
-			if ( _fNumer > _fDenom*_rfT1 )
+			if ( _fNumer > _fDenom*_fT1 )
 				return(false);
 
-			if ( _fNumer > _fDenom*_rfT0 )
-				_rfT0 = _fNumer/_fDenom;
+			if ( _fNumer > _fDenom*_fT0 )
+				_fT0 = _fNumer/_fDenom;
 
 			return(true);
 		}
    else if ( _fDenom < 0.0f )
 		{
-			if ( _fNumer > _fDenom*_rfT0 )
+			if ( _fNumer > _fDenom*_fT0 )
 				return (false);
 
-			if ( _fNumer > _fDenom*_rfT1 )
-				_rfT1 = _fNumer/_fDenom;
+			if ( _fNumer > _fDenom*_fT1 )
+				_fT1 = _fNumer/_fDenom;
 
 			return(true);
 		}
@@ -49,78 +42,64 @@ static bool bClip (float _fDenom, float _fNumer, float& _rfT0, float& _rfT1)
 		  return (_fNumer <= 0.0f);
 		}
 }
-//----------------------------------------------------------------------------
-bool bFindIntersection (CVect3& _roOrigin,CVect3& _roDir,CVect3& _roExt,float &_rfT0,float &_rfT1)
+//-----------------------------------------------------------------------------
+bool bFindIntersection (CVect3& _oOrigin,CVect3& _oDir,CVect3& _oExt,float &_fT0,float &_fT1)
 {
-    float fSaveT0 = _rfT0, fSaveT1 = _rfT1;
+    float fSaveT0 = _fT0, fSaveT1 = _fT1;
 
     bool bNotEntirelyClipped =
-        bClip(+_roDir.X(),-_roOrigin.X() - _roExt.X(),_rfT0,_rfT1) &&
-        bClip(-_roDir.X(),+_roOrigin.X() - _roExt.X(),_rfT0,_rfT1) &&
-        bClip(+_roDir.Y(),-_roOrigin.Y() - _roExt.Y(),_rfT0,_rfT1) &&
-        bClip(-_roDir.Y(),+_roOrigin.Y() - _roExt.Y(),_rfT0,_rfT1) &&
-        bClip(+_roDir.Z(),-_roOrigin.Z() - _roExt.Z(),_rfT0,_rfT1) &&
-        bClip(-_roDir.Z(),+_roOrigin.Z() - _roExt.Z(),_rfT0,_rfT1);
+        bClip(+_oDir.x,-_oOrigin.x - _oExt.x,_fT0,_fT1) &&
+        bClip(-_oDir.x,+_oOrigin.x - _oExt.x,_fT0,_fT1) &&
+        bClip(+_oDir.y,-_oOrigin.y - _oExt.y,_fT0,_fT1) &&
+        bClip(-_oDir.y,+_oOrigin.y - _oExt.y,_fT0,_fT1) &&
+        bClip(+_oDir.z,-_oOrigin.z - _oExt.z,_fT0,_fT1) &&
+        bClip(-_oDir.z,+_oOrigin.z - _oExt.z,_fT0,_fT1);
 
     return ( bNotEntirelyClipped && 
-			((_rfT0 != fSaveT0) || (_rfT1 != fSaveT1)) ); 
+			((_fT0 != fSaveT0) || (_fT1 != fSaveT1)) ); 
 }
-//----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 
-//## end module%3C1FBD52007E.additionalDeclarations
 
 
 // Class CCOL_DT_Box 
 
 CCOL_DT_Box::CCOL_DT_Box()
-  //## begin CCOL_DT_Box::CCOL_DT_Box%.hasinit preserve=no
-  //## end CCOL_DT_Box::CCOL_DT_Box%.hasinit
-  //## begin CCOL_DT_Box::CCOL_DT_Box%.initialization preserve=yes
-  //## end CCOL_DT_Box::CCOL_DT_Box%.initialization
-{
-  //## begin CCOL_DT_Box::CCOL_DT_Box%.body preserve=yes
-  //## end CCOL_DT_Box::CCOL_DT_Box%.body
+        {
 }
 
 
 CCOL_DT_Box::~CCOL_DT_Box()
 {
-  //## begin CCOL_DT_Box::~CCOL_DT_Box%.body preserve=yes
-  //## end CCOL_DT_Box::~CCOL_DT_Box%.body
 }
 
 
 
-//## Other Operations (implementation)
-float CCOL_DT_Box::fTestSphere (CVect3& _roSMaxs, CVect3& _roSMins, CVect3& _roDCenter, float _fDRadius)
+float CCOL_DT_Box::fTestSphere (CVect3& _oSMaxs, CVect3& _oSMins, CVect3& _oDCenter, float _fDRadius)
 {
-  //## begin CCOL_DT_Box::fTestSphere%1008711893.body preserve=yes
-	CVect3 DMaxs,DMins;
+  	CVect3 DMaxs,DMins;
 	
 	// Setup destination bounding box
-	DMaxs.Assign( _roDCenter );
+	DMaxs.Assign( _oDCenter );
 	DMaxs.Add   (_fDRadius,_fDRadius,_fDRadius);
 
-	DMins.Assign( _roDCenter );
+	DMins.Assign( _oDCenter );
 	DMins.Sub   (_fDRadius,_fDRadius,_fDRadius);
 
-	return( fTestBox(_roSMaxs,_roSMins,DMaxs,DMins) );
-  //## end CCOL_DT_Box::fTestSphere%1008711893.body
+	return( fTestBox(_oSMaxs,_oSMins,DMaxs,DMins) );
 }
 
-float CCOL_DT_Box::fTestBox (CVect3& _roSMaxs, CVect3& _roSMins, CVect3& _roDMaxs, CVect3& _roDMins)
+float CCOL_DT_Box::fTestBox (CVect3& _oSMaxs, CVect3& _oSMins, CVect3& _oDMaxs, CVect3& _oDMins)
 {
-  //## begin CCOL_DT_Box::fTestBox%1008711894.body preserve=yes
-	// Check if they were colliding in the previous frame
-	if (CCOL_ST_Box::iTestBox(_roSMaxs,_roSMins,_roDMaxs,_roDMins)) return(0.0f);
+  	// Check if they were colliding in the previous frame
+	if (CCOL_ST_Box::iTestBox(_oSMaxs,_oSMins,_oDMaxs,_oDMins)) return(0.0f);
 
-  	CVect3 vA;
-	CVect3 vB;	
-	CVect3 vBA;
-	CVect3 u0;
-	CVect3 u1;
-
-	float fAux,fU0,fU1;
+	int		i;
+	CVect3	vA;
+	CVect3	vB;	
+	CVect3	vBA;
+	CVect3	u0,u1;
+	float	fU0,fU1;
 
 	// Velocities
 	vA.Assign(CCOL_ColState::SrcFPos);	// Traversed space in the current frame time
@@ -139,73 +118,121 @@ float CCOL_DT_Box::fTestBox (CVect3& _roSMaxs, CVect3& _roSMins, CVect3& _roDMax
 	// if (vBA = (0,0,0)) the objects could only collide if at time 0 are
 	// colliding. At this time the object hadn't collided due to the first
 	// test.	
-	if ((vBA.X() == 0) && (vBA.Y() == 0) && (vBA.Z() == 0)) return(-1.0f);
-	
+	if ((vBA.x == 0) && (vBA.y == 0) && (vBA.z == 0)) return(NOCOLLISION_TIME);
 
 	// First time of overlap along each axis
-	u0.V3(0.0f,0.0f,0.0f);
-	
+	u0.V3(-1.0f,-1.0f,-1.0f);
 	// Last time of overlap along each axis
 	u1.V3(1.0f,1.0f,1.0f);
 	
-	
 	// Find the possible first and last times of overlap along each axis
-	int i;
 	for (i=0;i<3;i++)
-	{
+	{		
 		//     max   min
   		//  |-a-|     |-b-|		
-		if (_roSMaxs.v[i] < _roDMins.v[i])	// A 
+		if (_oSMaxs.v(i) <= _oDMins.v(i))	// A 
 		{
-			if (vBA.v[i]<0.0f)
+			if (vBA.v(i)<0.0f)
 			{
 				//     max   min
   				//  |-a-|     |-b-|
 				//             <--
-				u0.v[i] = (_roSMaxs.v[i] - _roDMins.v[i]) / vBA.v[i];
-				u1.v[i] = (_roSMins.v[i] - _roDMaxs.v[i]) / vBA.v[i];
+				u0.v(i) = (_oSMaxs.v(i) - _oDMins.v(i)) / vBA.v(i);
 			}
 			else
 			{
-				// B is moving away from A: 'i' is a separating axis
-				//     max   min
-  				//  |-a-|     |-b-|
-				//              -->
-				return(-1.0f);
+				return(NOCOLLISION_TIME);
 			}
 		}
 		//     max   min
   		//  |-b-|     |-a-|
-   else if (_roDMaxs.v[i] < _roSMins.v[i])
+   else if (_oDMaxs.v(i) <= _oSMins.v(i))
 		{
-			if (vBA.v[i]>0.0f)
+			if (vBA.v(i)>0.0f)
 			{
 				//     max   min
   				//  |-b-|     |-a-|
 				//   -->
-				u0.v[i] = (_roSMins.v[i] - _roDMaxs.v[i]) / vBA.v[i];
-				u1.v[i] = (_roSMaxs.v[i] - _roDMins.v[i]) / vBA.v[i];
+				u0.v(i) = (_oSMins.v(i) - _oDMaxs.v(i)) / vBA.v(i);
 			}
-			else
+			else 
 			{
-				// B is moving away from A: 'i' is a separating axis
-				//     max   min
-  				//  |-b-|     |-a-|
-				//  <--
-				return(-1.0f);
+				return(NOCOLLISION_TIME);
 			}
+		}
+
+		// last time overlap 
+		if ((_oDMaxs.v(i) < _oSMins.v(i)) && (vBA.v(i)<0.0f))
+		{
+			u1.v(i) = (_oSMins.v(i) - _oDMaxs.v(i)) / vBA.v(i);
+		}
+
+   else if ((_oSMaxs.v(i) > _oDMins.v(i)) && (vBA.v(i)>0.0f))
+		{
+			u1.v(i) = (_oSMaxs.v(i) - _oDMins.v(i)) / vBA.v(i);
 		}
 	}
 
-	MATH_Utils::GetMaxMins(u0.X(),u0.Y(),u0.Z(),fU0,fAux);
-	// MATH_Utils::GetMaxMins(u0.X(),u0.Y(),u0.Z(),fAux,fU1);
-	
-	if ((fU0<1.0f) /*&& (fU0 < fU1)*/)
+
+	if (u0.v(0) > u0.v(1))
 	{
-		return(fU0);
+		if (u0.v(0) > u0.v(2))
+		{
+			// 0 > 1  && 0 > 2
+			fU0 = u0.v(0);
+			iColAxis = 0;	
+		}
+		else
+		{
+			// 0 > 1 && 2 > 0
+			fU0 = u0.v(2);
+			iColAxis = 2;
+		}
 	}
 	else
-		return(-1.0f);
+	{
+		if (u0.v(1) > u0.v(2))
+		{
+			// 1 > 0  && 1 > 2
+			fU0 = u0.v(1);
+			iColAxis = 1;	
+		}
+		else
+		{
+			// 1 > 0 && 2 > 1
+			fU0 = u0.v(2);
+			iColAxis = 2;
+		}
+	}
+
+	if (u1.v(0) < u1.v(1))
+	{		
+		if (u1.v(0) < u1.v(2))
+			// 0 < 1 && 0 < 2
+			fU1 = u1.v(0);
+		else
+			// 0 < 1 && 2 < 0
+			fU1 = u1.v(2);
+	}
+	else
+	{		
+		if (u1.v(1) < u1.v(2))
+			// 1 < 0 && 1 < 2
+			fU1 = u1.v(1);
+		else
+			// 1 < 0 && 2 < 1
+			fU1 = u1.v(2);
+	}
+
+
+	if ((fU0 <= fU1) && (fU0 < NOCOLLISION_TIME))
+	{
+		return(fU0);	
+	}
+	else
+		return(NOCOLLISION_TIME);
+
+
 	/*
 	// Miguel Gomez algorithm
 
@@ -213,29 +240,29 @@ float CCOL_DT_Box::fTestBox (CVect3& _roSMaxs, CVect3& _roSMins, CVect3& _roDMax
 	for (i=0;i<3;i++)
 	{
 		// u0 times: Compute firsts times of colision
-		if ((_SMaxs.v[i] < _DMins.v[i]) && (vBA.v[i]<0.0f))
+		if ((_SMaxs.v(i) < _DMins.v(i)) && (vBA.v(i)<0.0f))
 		{
-			u0.v[i] = (_SMaxs.v[i] - _DMins.v[i]) / vBA.v[i];				
+			u0.v(i) = (_SMaxs.v(i) - _DMins.v(i)) / vBA.v(i);				
 		}
 
-   else if ((_DMaxs.v[i] < _SMins.v[i]) && (vBA.v[i]>0.0f))
+   else if ((_DMaxs.v(i) < _SMins.v(i)) && (vBA.v(i)>0.0f))
 		{
-			u0.v[i] = (_SMins.v[i] - _DMaxs.v[i]) / vBA.v[i];
+			u0.v(i) = (_SMins.v(i) - _DMaxs.v(i)) / vBA.v(i);
 		}
 		
 		// u1 times: Compute lasts times of colision
-		if ((_DMaxs.v[i] > _SMins.v[i]) && (vBA.v[i]<0.0f))
+		if ((_DMaxs.v(i) > _SMins.v(i)) && (vBA.v(i)<0.0f))
 		{
-			u1.v[i] = (_SMins.v[i] - _DMaxs.v[i]) / vBA.v[i];	
+			u1.v(i) = (_SMins.v(i) - _DMaxs.v(i)) / vBA.v(i);	
 		}
-   else if ((_SMaxs.v[i] > _DMins.v[i]) && (vBA.v[i]>0.0f))
+   else if ((_SMaxs.v(i) > _DMins.v(i)) && (vBA.v(i)>0.0f))
 		{
-			u1.v[i] = (_SMaxs.v[i] - _DMins.v[i]) / vBA.v[i];
+			u1.v(i) = (_SMaxs.v(i) - _DMins.v(i)) / vBA.v(i);
 		}
 	}
 
-	MATH_Utils::GetMaxMins(u0.X(),u0.Y(),u0.Z(),fU0,fAux);	
-	MATH_Utils::GetMaxMins(u1.X(),u1.Y(),u1.Z(),fAux,fU1);
+	MATH_Utils::GetMaxMins(u0.x,u0.y,u0.z,fU0,fAux);	
+	MATH_Utils::GetMaxMins(u1.x,u1.y,u1.z,fAux,fU1);
 
 	// if the first time of overlap happens after last time of overlap
 	// the object have not collided
@@ -244,13 +271,11 @@ float CCOL_DT_Box::fTestBox (CVect3& _roSMaxs, CVect3& _roSMins, CVect3& _roDMax
 	if (fU0==0.0f) return(-1.0f);
 	return(fU0);
 	*/
-  //## end CCOL_DT_Box::fTestBox%1008711894.body
 }
 
-float CCOL_DT_Box::fTestPoint (CVect3& _roSMaxs, CVect3& _roSMins, CVect3& _roDPoint)
+float CCOL_DT_Box::fTestPoint (CVect3& _oSMaxs, CVect3& _oSMins, CVect3& _oDPoint)
 {
-  //## begin CCOL_DT_Box::fTestPoint%1008711895.body preserve=yes
-	if (CCOL_ST_Box::iTestPoint(_roSMaxs,_roSMins,_roDPoint)) 
+  	if (CCOL_ST_Box::iTestPoint(_oSMaxs,_oSMins,_oDPoint)) 
 		return(0.0f);
 
 	// Based on Magic Software, Inc.
@@ -274,14 +299,14 @@ float CCOL_DT_Box::fTestPoint (CVect3& _roSMaxs, CVect3& _roSMins, CVect3& _roDP
 	CVect3	oBExt;	// Box extents
 	
 	// Compute box center
-	oBoxC.Interpolate(_roSMaxs,_roSMins,0.5f);
+	oBoxC.Interpolate(_oSMaxs,_oSMins,0.5f);
 
-	// Point initial position in Box reference system
-	oPI.Assign(_roDPoint);	oPI.Sub(oBoxC);
+	// Point initial position in Box Ref system
+	oPI.Assign(_oDPoint);	oPI.Sub(oBoxC);
 	
 	// Compute box extents
-	oBExt.Assign(_roSMaxs);
-	oBExt.Sub   (_roSMins);
+	oBExt.Assign(_oSMaxs);
+	oBExt.Sub   (_oSMins);
 	oBExt.Scale (0.5f);
 
     float fT0 = 0.0f, fT1 = 1.0f;
@@ -290,12 +315,7 @@ float CCOL_DT_Box::fTestPoint (CVect3& _roSMaxs, CVect3& _roSMins, CVect3& _roDP
 		return(fT0);
 	else
 		return(-1.0f);
-  //## end CCOL_DT_Box::fTestPoint%1008711895.body
 }
 
 // Additional Declarations
-  //## begin CCOL_DT_Box%3C1FBD52007E.declarations preserve=yes
-  //## end CCOL_DT_Box%3C1FBD52007E.declarations
-
-//## begin module%3C1FBD52007E.epilog preserve=yes
-//## end module%3C1FBD52007E.epilog
+    

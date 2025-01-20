@@ -1,23 +1,7 @@
-//## begin module%3C0C21B2015B.cm preserve=no
-//	  %X% %Q% %Z% %W%
-//## end module%3C0C21B2015B.cm
-
-//## begin module%3C0C21B2015B.cp preserve=no
-//## end module%3C0C21B2015B.cp
-
-//## Module: MATH_Common%3C0C21B2015B; Pseudo Package specification
-//## Source file: i:\Projects\GammaE\Math\MATH_Other\MATH_Common.h
-
+//-----------------------------------------------------------------------------
 #ifndef MATH_Common_h
 #define MATH_Common_h 1
-
-//## begin module%3C0C21B2015B.additionalIncludes preserve=no
-//## end module%3C0C21B2015B.additionalIncludes
-
-//## begin module%3C0C21B2015B.includes preserve=yes
-//## end module%3C0C21B2015B.includes
-
-//## begin module%3C0C21B2015B.additionalDeclarations preserve=yes
+//-----------------------------------------------------------------------------
 #define _PI_		  3.1415926535897932384626433832795f
 #define _2PI_		  6.283185307179586476925286766558f
 #define _PI2_		  1.5707963267948966192313216916395f
@@ -30,108 +14,104 @@
 #define _P4_(x) ((x)*(x)*(x)*(x))
 
 #define _EPSILON_ 1e-5f
-//## end module%3C0C21B2015B.additionalDeclarations
-
-
-//## begin MATH_Common%3C0C21B2015B.preface preserve=yes
-//## end MATH_Common%3C0C21B2015B.preface
-
-//## Class: MATH_Common%3C0C21B2015B
-//## Category: Math::MATH_Other%3C275D6F02F7
-//## Persistence: Transient
-//## Cardinality/Multiplicity: n
-
+//-----------------------------------------------------------------------------
 class MATH_Common 
 {
-  //## begin MATH_Common%3C0C21B2015B.initialDeclarations preserve=yes
-  //## end MATH_Common%3C0C21B2015B.initialDeclarations
+	public:
 
-  public:
-    //## Constructors (generated)
-      MATH_Common();
+		static float fRand();
+		
+		static float fSRand();
 
-    //## Destructor (generated)
-      ~MATH_Common();
+		static float fSqrt(float _fValue);
 
+		static float fSin(float _fValue);
 
-    //## Other Operations (specified)
-      //## Operation: fRand%1007421153
-      static float fRand ();
+		static float fCos(float _fValue);
 
-      //## Operation: fSqrt%1008711892
-      static float fSqrt (float _fValue);
+		static float fTan(float _fValue);
 
-      //## Operation: fAbs%1009321159
-      static float fAbs (float _fValue);
+		static float fArcTan(float _fValue);
 
-      //## Operation: fSign%1009406730
-      static float fSign (float _fValue);
+		static float fAbs(float _fValue);
 
-      //## Operation: bInRange%1009406731
-      static bool bInRange (float _fValue, float _fMin, float _fMax);
+		static float fSign(float _fValue);
 
-      //## Operation: bEqualF%1021629965
-      static bool bEqualF (float _fA, float _fB, float _fEpsilon);
+		static bool bInRange(float _fValue, float _fMin, float _fMax);
 
-    // Additional Public Declarations
-      //## begin MATH_Common%3C0C21B2015B.public preserve=yes
-      //## end MATH_Common%3C0C21B2015B.public
+		static bool bEqual(float _fA, float _fB, float _fEpsilon = 1e-3f);
 
-  protected:
-    // Additional Protected Declarations
-      //## begin MATH_Common%3C0C21B2015B.protected preserve=yes
-      //## end MATH_Common%3C0C21B2015B.protected
+		static float fClamp(float _fA,float _fB,float _fValue);
 
-  private:
-    // Additional Private Declarations
-      //## begin MATH_Common%3C0C21B2015B.private preserve=yes
-      //## end MATH_Common%3C0C21B2015B.private
+		static float fMin(float a,float b);
 
-  private: //## implementation
-    // Additional Implementation Declarations
-      //## begin MATH_Common%3C0C21B2015B.implementation preserve=yes
-      //## end MATH_Common%3C0C21B2015B.implementation
+		static float fMax(float a,float b);
 
+		static float fMod(float a,float b);
+
+		static float fFloor(float x);
+
+		static float fCeil (float x);
+
+		static float fLerp(float a,float b,float f);
 };
-
-//## begin MATH_Common%3C0C21B2015B.postscript preserve=yes
-//## end MATH_Common%3C0C21B2015B.postscript
-
-// Class MATH_Common 
-
-
-//## Other Operations (inline)
-inline float MATH_Common::fAbs (float _fValue)
+//-----------------------------------------------------------------------------
+inline float MATH_Common::fAbs(float _fValue)
 {
-  //## begin MATH_Common::fAbs%1009321159.body preserve=yes
 	*((unsigned int*)&_fValue) &= 0x7fffffff;
-	return(_fValue);
-  //## end MATH_Common::fAbs%1009321159.body
+	return(_fValue); 
 }
-
-inline float MATH_Common::fSign (float _fValue)
+//-----------------------------------------------------------------------------
+inline float MATH_Common::fSign(float _fValue)
 {
-  //## begin MATH_Common::fSign%1009406730.body preserve=yes
 	return ( (*((unsigned int*)&_fValue) >> 31)*-2.0f + 1.0f);  
-  //## end MATH_Common::fSign%1009406730.body
 }
-
-inline bool MATH_Common::bInRange (float _fValue, float _fMin, float _fMax)
+//-----------------------------------------------------------------------------
+inline bool MATH_Common::bInRange(float _fValue, float _fMin, float _fMax)
+{  
+	return ((_fValue >= _fMin) && (_fValue<=_fMax)); 
+}
+//-----------------------------------------------------------------------------
+inline bool MATH_Common::bEqual(float _fA, float _fB, float _fEpsilon )
+{  
+	return ( MATH_Common::fAbs(_fA - _fB) < _fEpsilon ); 
+}
+//-----------------------------------------------------------------------------
+inline float MATH_Common::fClamp(float _fA,float _fB,float _fValue)
 {
-  //## begin MATH_Common::bInRange%1009406731.body preserve=yes
-	return ((_fValue >= _fMin) && (_fValue<=_fMax));
-  //## end MATH_Common::bInRange%1009406731.body
-}
+	if (_fValue<_fA)
+		return(_fA);
 
-inline bool MATH_Common::bEqualF (float _fA, float _fB, float _fEpsilon)
+	if (_fValue>_fB)
+		return(_fB);
+	else
+		return(_fValue);		
+}
+//-----------------------------------------------------------------------------
+inline float MATH_Common::fMin(float a,float b)
 {
-  //## begin MATH_Common::bEqualF%1021629965.body preserve=yes
-	return ( MATH_Common::fAbs(_fA - _fB) < _fEpsilon );
-  //## end MATH_Common::bEqualF%1021629965.body
+    return(a<b?a:b);
 }
-
-//## begin module%3C0C21B2015B.epilog preserve=yes
-//## end module%3C0C21B2015B.epilog
-
-
+//-----------------------------------------------------------------------------
+inline float MATH_Common::fMax(float a,float b)
+{
+    return(a<b?b:a);
+}
+//-----------------------------------------------------------------------------
+inline float MATH_Common::fFloor(float x)
+{
+	return( (float)((int)x - ((x<0) && (x!=(int)x))) );
+}
+//-----------------------------------------------------------------------------
+inline float MATH_Common::fCeil(float x)
+{
+	return( (float)((int)x - ((x>0) && (x!=(int)x))) );
+}
+//-----------------------------------------------------------------------------
+inline float MATH_Common::fLerp(float a,float b,float f)
+{
+	return(a + (b-a)*f);
+}
+//-----------------------------------------------------------------------------
 #endif
+//-----------------------------------------------------------------------------

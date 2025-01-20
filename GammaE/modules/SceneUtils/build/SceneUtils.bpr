@@ -1,0 +1,275 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="\projects\GammaE\Borland\Scene.lib"/>
+    <OBJFILES value="..\Borland\CParticleSystem.obj ..\Borland\CParticleSystem_Coolant.obj 
+      ..\Borland\CParticleSystem_Generic.obj 
+      ..\Borland\cParticleSystem_Generic_Quad.obj 
+      ..\Borland\CParticleSystem_Generic_Stretch.obj 
+      ..\Borland\CParticleSystem_Sparks.obj ..\Borland\ASE_ModelParser.obj 
+      ..\Borland\ASE_Tokens.obj ..\Borland\CLoader3DS.obj 
+      ..\Borland\T3DS_Chunk.obj ..\Borland\CLoaderMD2.obj 
+      ..\Borland\MD2LightNormals.obj ..\Borland\CLoaderMD3.obj 
+      ..\Borland\CLoaderGEM.obj ..\Borland\CLoaderBSP2.obj 
+      ..\Borland\C3DLoader.obj ..\Borland\SCNUt_BSPBuilder.obj 
+      ..\Borland\SCNUt_OctreeBuilder.obj ..\Borland\SCNUt_Scn2TriScnBuilder.obj 
+      ..\Borland\SCNUt_Mesh2TriScene.obj ..\Borland\SCNUt_TransformTriScene.obj 
+      ..\Borland\SCNUt_AdjTri.obj ..\Borland\SCNUt_AdjTriList.obj 
+      ..\Borland\SCNUt_AdjTriListBuilder.obj ..\Borland\SCNUt_Edge.obj 
+      ..\Borland\SCNUt_EdgeBuilder.obj ..\Borland\SCNUt_EdgeList.obj 
+      ..\Borland\SCNUt_Stripifier.obj ..\Borland\SCNUt_SceneCompiler.obj 
+      ..\Borland\SCNUt_TriUtils.obj ..\Borland\SCNUt_TriSceneLoader.obj 
+      ..\Borland\SCNUt_ComputeBoundingBox.obj 
+      ..\Borland\SCNUt_AnimMesh_NormalComputer.obj 
+      ..\Borland\SCNUt_MaterialTable.obj ..\Borland\SCNUt_MeshCompacter.obj 
+      ..\Borland\SCNUt_MeshGenerator.obj ..\Borland\SCNUt_TriSceneSeparator.obj 
+      ..\Borland\SCNUt_TriSceneClassifier.obj 
+      ..\Borland\SCNUt_TriSceneSplitter.obj ..\Borland\SCNUt_SceneBuilder.obj 
+      ..\Borland\SCNUt_CoplanarRemover.obj ..\Borland\SCNUt_VisibilityTester.obj 
+      ..\Borland\ScnUt_ShaderAssigner.obj ..\Borland\SCNUt_PlanarMapper.obj 
+      ..\Borland\SCNUt_ePolyState.obj ..\Borland\SCNUt_Triangle.obj 
+      ..\Borland\SCNUt_TriScene.obj ..\Borland\SCNUt_TriSceneAccumulator.obj 
+      ..\Borland\CBillboard.obj ..\Borland\CBillboard_AxisAlign.obj 
+      ..\Borland\CBillboard_ScrAlign.obj ..\Borland\CBillboard_WorldAlign.obj 
+      ..\Borland\CHeadUpDisplay.obj ..\Borland\THUDObjPosEntry.obj 
+      ..\Borland\CSaverGEM.obj ..\Borland\C3DSaver.obj 
+      ..\Borland\CObject3D_AnimCfg.obj ..\Borland\CObject3D_AnimCfgGen.obj 
+      ..\Borland\CObject3D_AnimCfgMgr.obj ..\Borland\CObject3D_AnimGen.obj 
+      ..\Borland\CObject3D_AnimMesh.obj ..\Borland\CObject3D_AnimNode.obj 
+      ..\Borland\CObject3D_AnimTransf.obj ..\Borland\TFrameAnimation.obj 
+      ..\Borland\CObject3D.obj ..\Borland\CObject3D_BSPNode.obj 
+      ..\Borland\CObject3D_Camera.obj ..\Borland\CObject3D_CompiledLeaf.obj 
+      ..\Borland\CObject3D_Leaf.obj ..\Borland\CObject3D_Mux.obj 
+      ..\Borland\CObject3D_Node.obj ..\Borland\CObject3D_Transf.obj 
+      ..\Borland\e3DObjectTypeID.obj"/>
+    <RESFILES value=""/>
+    <IDLFILES value=""/>
+    <IDLGENFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES)"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value=""/>
+    <SPARELIBS value=""/>
+    <PACKAGES value=""/>
+    <PATHCPP value=".;ParticleSystems;ParticleSystems;ParticleSystems;ParticleSystems;ParticleSystems;ParticleSystems;3D_Loaders\3DMax_ASE;3D_Loaders\3DMax_ASE;3D_Loaders\3DSLoader;3D_Loaders\3DSLoader;3D_Loaders\MD2Loader;3D_Loaders\MD2Loader;3D_Loaders\MD3Loader;3D_Loaders\GEMLoader;3D_Loaders\BSP2Loader;3D_Loaders;SceneUtils\BSPBuilder;SceneUtils\OctreeBuilder;SceneUtils\Scn2TriScnBuilder;SceneUtils\Mesh2TriScn;SceneUtils\TransfTriScn;SceneUtils\ScnStripifier;SceneUtils\ScnStripifier;SceneUtils\ScnStripifier;SceneUtils\ScnStripifier;SceneUtils\ScnStripifier;SceneUtils\ScnStripifier;SceneUtils\ScnStripifier;SceneUtils\SceneCompiler;SceneUtils\ScnUtils;SceneUtils\TriScnLoader;SceneUtils\ScnBBoxGen;SceneUtils\ScnNormalGen;SceneUtils\ScnMeshGen;SceneUtils\ScnMeshGen;SceneUtils\ScnMeshGen;SceneUtils\SeparateTriScene;SceneUtils\SplitTriScene;SceneUtils\SplitTriScene;SceneUtils\SceneBuilder;SceneUtils\ScnCoplanarRemover;SceneUtils\ScnVisibilityTester;SceneUtils\ScnShaderAssigner;SceneUtils\ScnPlanarMapper;SceneUtils;SceneUtils;SceneUtils;SceneUtils;BillBoard;BillBoard;BillBoard;BillBoard;2D_Objects;2D_Objects;3D_Savers\GEMSaver;3D_Savers;Animation;Animation;Animation;Animation;Animation;Animation;Animation;Animation"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="TLib"/>
+    <USERDEFINES value="WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;WIN32;_DEBUG;_MBCS;_LIB;WIN32;_DEBUG;_MBCS;_LIB;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0;WIN32;_DEBUG;_MBCS;_LIB;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0"/>
+    <SYSDEFINES value="_NO_VCL;_ASSERTE;NO_STRICT"/>
+    <MAINSOURCE value="Scene.bpf"/>
+    <INCLUDEPATH value="Animation;3D_Savers;3D_Savers\GEMSaver;2D_Objects;BillBoard;SceneUtils;SceneUtils\ScnPlanarMapper;SceneUtils\ScnShaderAssigner;SceneUtils\ScnVisibilityTester;SceneUtils\ScnCoplanarRemover;SceneUtils\SceneBuilder;SceneUtils\SplitTriScene;SceneUtils\SeparateTriScene;SceneUtils\ScnMeshGen;SceneUtils\ScnNormalGen;SceneUtils\ScnBBoxGen;SceneUtils\TriScnLoader;SceneUtils\ScnUtils;SceneUtils\SceneCompiler;SceneUtils\ScnStripifier;SceneUtils\TransfTriScn;SceneUtils\Mesh2TriScn;SceneUtils\Scn2TriScnBuilder;SceneUtils\OctreeBuilder;SceneUtils\BSPBuilder;3D_Loaders;3D_Loaders\BSP2Loader;3D_Loaders\GEMLoader;3D_Loaders\MD3Loader;3D_Loaders\MD2Loader;3D_Loaders\3DSLoader;3D_Loaders\3DMax_ASE;ParticleSystems;$(BCB)\include;$(BCB)\include\mfc;$(BCB)\include\atl;$(BCB)\include\vcl;I:\Projects\libs\TexLib\Src"/>
+    <LIBPATH value="Animation;3D_Savers;3D_Savers\GEMSaver;2D_Objects;BillBoard;SceneUtils;SceneUtils\ScnPlanarMapper;SceneUtils\ScnShaderAssigner;SceneUtils\ScnVisibilityTester;SceneUtils\ScnCoplanarRemover;SceneUtils\SceneBuilder;SceneUtils\SplitTriScene;SceneUtils\SeparateTriScene;SceneUtils\ScnMeshGen;SceneUtils\ScnNormalGen;SceneUtils\ScnBBoxGen;SceneUtils\TriScnLoader;SceneUtils\ScnUtils;SceneUtils\SceneCompiler;SceneUtils\ScnStripifier;SceneUtils\TransfTriScn;SceneUtils\Mesh2TriScn;SceneUtils\Scn2TriScnBuilder;SceneUtils\OctreeBuilder;SceneUtils\BSPBuilder;3D_Loaders;3D_Loaders\BSP2Loader;3D_Loaders\GEMLoader;3D_Loaders\MD3Loader;3D_Loaders\MD2Loader;3D_Loaders\3DSLoader;3D_Loaders\3DMax_ASE;ParticleSystems;$(BCB)\lib;$(BCB)\lib\psdk;$(DEBUGLIBPATH)"/>
+    <WARNINGS value="-w-8026 -w-8027 -w-8022 -w-8084 -w-8010 -w-8013 -w-8058 -w-par"/>
+    <LISTFILE value=""/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <IDLCFLAGS value="-IAnimation -I3D_Savers -I3D_Savers\GEMSaver -I2D_Objects -IBillBoard 
+      -ISceneUtils -ISceneUtils\ScnPlanarMapper -ISceneUtils\ScnShaderAssigner 
+      -ISceneUtils\ScnVisibilityTester -ISceneUtils\ScnCoplanarRemover 
+      -ISceneUtils\SceneBuilder -ISceneUtils\SplitTriScene 
+      -ISceneUtils\SeparateTriScene -ISceneUtils\ScnMeshGen 
+      -ISceneUtils\ScnNormalGen -ISceneUtils\ScnBBoxGen 
+      -ISceneUtils\TriScnLoader -ISceneUtils\ScnUtils -ISceneUtils\SceneCompiler 
+      -ISceneUtils\ScnStripifier -ISceneUtils\TransfTriScn 
+      -ISceneUtils\Mesh2TriScn -ISceneUtils\Scn2TriScnBuilder 
+      -ISceneUtils\OctreeBuilder -ISceneUtils\BSPBuilder -I3D_Loaders 
+      -I3D_Loaders\BSP2Loader -I3D_Loaders\GEMLoader -I3D_Loaders\MD3Loader 
+      -I3D_Loaders\MD2Loader -I3D_Loaders\3DSLoader -I3D_Loaders\3DMax_ASE 
+      -IParticleSystems -I$(BCB)\include -I$(BCB)\include\mfc 
+      -I$(BCB)\include\atl -I$(BCB)\include\vcl -II:\Projects\libs\TexLib\Src 
+      -src_suffix cpp -DWIN32 -D_DEBUG -D_MBCS -D_LIB -D_WINDOWS -DNULL=0 
+      -DWIN32 -D_DEBUG -D_MBCS -D_LIB -D_WINDOWS -DWIN32 -D_DEBUG -D_MBCS -D_LIB 
+      -DWIN32 -D_DEBUG -D_MBCS -D_LIB -DWIN32 -D_DEBUG -D_MBCS -D_LIB -D_WINDOWS 
+      -DNULL=0 -DWIN32 -D_DEBUG -D_MBCS -D_LIB -DWIN32 -D_DEBUG -D_MBCS -D_LIB 
+      -D_WINDOWS -DNULL=0 -DWIN32 -D_DEBUG -D_MBCS -D_LIB -D_WINDOWS -DNULL=0"/>
+    <CFLAG1 value="-Od -w -VF -X- -r- -a8 -b -k -y -v -vi- -q -s -I.\\ -I..\\ -c -w-8026 
+      -w-8027 -w-8022 -w-8084 -w-8010 -w-8013 -w-8058 -w-par -I../../Src -I.. -I."/>
+    <PFLAGS value="-N2\projects\GammaE\Borland -N0\projects\GammaE\Borland -$YD -$W -$O- -$A8"/>
+    <RFLAGS value="/l 0xc0a /d &quot;_DEBUG&quot; /i$(BCB)\include;$(BCB)\include\mfc"/>
+    <AFLAGS value="/mx /w2 /zi"/>
+    <LFLAGS value="/P64"/>
+    <OTHERFILES value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="$(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES)"/>
+    <OTHERFILES value=""/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="Scene.bpf" FORMNAME="" UNITNAME="Scene" CONTAINERID="BPF" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="ParticleSystems\CParticleSystem.cpp" FORMNAME="" UNITNAME="CParticleSystem" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="ParticleSystems\CParticleSystem_Coolant.cpp" FORMNAME="" UNITNAME="CParticleSystem_Coolant" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="ParticleSystems\CParticleSystem_Generic.cpp" FORMNAME="" UNITNAME="CParticleSystem_Generic" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="ParticleSystems\cParticleSystem_Generic_Quad.cpp" FORMNAME="" UNITNAME="cParticleSystem_Generic_Quad" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="ParticleSystems\CParticleSystem_Generic_Stretch.cpp" FORMNAME="" UNITNAME="CParticleSystem_Generic_Stretch" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="ParticleSystems\CParticleSystem_Sparks.cpp" FORMNAME="" UNITNAME="CParticleSystem_Sparks" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="3D_Loaders\3DMax_ASE\ASE_ModelParser.cpp" FORMNAME="" UNITNAME="ASE_ModelParser" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="3D_Loaders\3DMax_ASE\ASE_Tokens.cpp" FORMNAME="" UNITNAME="ASE_Tokens" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="3D_Loaders\3DSLoader\CLoader3DS.cpp" FORMNAME="" UNITNAME="CLoader3DS" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="3D_Loaders\3DSLoader\T3DS_Chunk.cpp" FORMNAME="" UNITNAME="T3DS_Chunk" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="3D_Loaders\MD2Loader\CLoaderMD2.cpp" FORMNAME="" UNITNAME="CLoaderMD2" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="3D_Loaders\MD2Loader\MD2LightNormals.cpp" FORMNAME="" UNITNAME="MD2LightNormals" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="3D_Loaders\MD3Loader\CLoaderMD3.cpp" FORMNAME="" UNITNAME="CLoaderMD3" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="3D_Loaders\GEMLoader\CLoaderGEM.cpp" FORMNAME="" UNITNAME="CLoaderGEM" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="3D_Loaders\BSP2Loader\CLoaderBSP2.cpp" FORMNAME="" UNITNAME="CLoaderBSP2" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="3D_Loaders\C3DLoader.cpp" FORMNAME="" UNITNAME="C3DLoader" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\BSPBuilder\SCNUt_BSPBuilder.cpp" FORMNAME="" UNITNAME="SCNUt_BSPBuilder" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\OctreeBuilder\SCNUt_OctreeBuilder.cpp" FORMNAME="" UNITNAME="SCNUt_OctreeBuilder" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\Scn2TriScnBuilder\SCNUt_Scn2TriScnBuilder.cpp" FORMNAME="" UNITNAME="SCNUt_Scn2TriScnBuilder" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\Mesh2TriScn\SCNUt_Mesh2TriScene.cpp" FORMNAME="" UNITNAME="SCNUt_Mesh2TriScene" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\TransfTriScn\SCNUt_TransformTriScene.cpp" FORMNAME="" UNITNAME="SCNUt_TransformTriScene" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\ScnStripifier\SCNUt_AdjTri.cpp" FORMNAME="" UNITNAME="SCNUt_AdjTri" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\ScnStripifier\SCNUt_AdjTriList.cpp" FORMNAME="" UNITNAME="SCNUt_AdjTriList" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\ScnStripifier\SCNUt_AdjTriListBuilder.cpp" FORMNAME="" UNITNAME="SCNUt_AdjTriListBuilder" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\ScnStripifier\SCNUt_Edge.cpp" FORMNAME="" UNITNAME="SCNUt_Edge" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\ScnStripifier\SCNUt_EdgeBuilder.cpp" FORMNAME="" UNITNAME="SCNUt_EdgeBuilder" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\ScnStripifier\SCNUt_EdgeList.cpp" FORMNAME="" UNITNAME="SCNUt_EdgeList" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\ScnStripifier\SCNUt_Stripifier.cpp" FORMNAME="" UNITNAME="SCNUt_Stripifier" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\SceneCompiler\SCNUt_SceneCompiler.cpp" FORMNAME="" UNITNAME="SCNUt_SceneCompiler" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\ScnUtils\SCNUt_TriUtils.cpp" FORMNAME="" UNITNAME="SCNUt_TriUtils" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\TriScnLoader\SCNUt_TriSceneLoader.cpp" FORMNAME="" UNITNAME="SCNUt_TriSceneLoader" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\ScnBBoxGen\SCNUt_ComputeBoundingBox.cpp" FORMNAME="" UNITNAME="SCNUt_ComputeBoundingBox" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\ScnNormalGen\SCNUt_AnimMesh_NormalComputer.cpp" FORMNAME="" UNITNAME="SCNUt_AnimMesh_NormalComputer" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\ScnMeshGen\SCNUt_MaterialTable.cpp" FORMNAME="" UNITNAME="SCNUt_MaterialTable" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\ScnMeshGen\SCNUt_MeshCompacter.cpp" FORMNAME="" UNITNAME="SCNUt_MeshCompacter" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\ScnMeshGen\SCNUt_MeshGenerator.cpp" FORMNAME="" UNITNAME="SCNUt_MeshGenerator" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\SeparateTriScene\SCNUt_TriSceneSeparator.cpp" FORMNAME="" UNITNAME="SCNUt_TriSceneSeparator" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\SplitTriScene\SCNUt_TriSceneClassifier.cpp" FORMNAME="" UNITNAME="SCNUt_TriSceneClassifier" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\SplitTriScene\SCNUt_TriSceneSplitter.cpp" FORMNAME="" UNITNAME="SCNUt_TriSceneSplitter" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\SceneBuilder\SCNUt_SceneBuilder.cpp" FORMNAME="" UNITNAME="SCNUt_SceneBuilder" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\ScnCoplanarRemover\SCNUt_CoplanarRemover.cpp" FORMNAME="" UNITNAME="SCNUt_CoplanarRemover" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\ScnVisibilityTester\SCNUt_VisibilityTester.cpp" FORMNAME="" UNITNAME="SCNUt_VisibilityTester" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\ScnShaderAssigner\ScnUt_ShaderAssigner.cpp" FORMNAME="" UNITNAME="ScnUt_ShaderAssigner" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\ScnPlanarMapper\SCNUt_PlanarMapper.cpp" FORMNAME="" UNITNAME="SCNUt_PlanarMapper" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\SCNUt_ePolyState.cpp" FORMNAME="" UNITNAME="SCNUt_ePolyState" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\SCNUt_Triangle.cpp" FORMNAME="" UNITNAME="SCNUt_Triangle" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\SCNUt_TriScene.cpp" FORMNAME="" UNITNAME="SCNUt_TriScene" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneUtils\SCNUt_TriSceneAccumulator.cpp" FORMNAME="" UNITNAME="SCNUt_TriSceneAccumulator" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="BillBoard\CBillboard.cpp" FORMNAME="" UNITNAME="CBillboard" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="BillBoard\CBillboard_AxisAlign.cpp" FORMNAME="" UNITNAME="CBillboard_AxisAlign" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="BillBoard\CBillboard_ScrAlign.cpp" FORMNAME="" UNITNAME="CBillboard_ScrAlign" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="BillBoard\CBillboard_WorldAlign.cpp" FORMNAME="" UNITNAME="CBillboard_WorldAlign" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="2D_Objects\CHeadUpDisplay.cpp" FORMNAME="" UNITNAME="CHeadUpDisplay" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="2D_Objects\THUDObjPosEntry.cpp" FORMNAME="" UNITNAME="THUDObjPosEntry" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="3D_Savers\GEMSaver\CSaverGEM.cpp" FORMNAME="" UNITNAME="CSaverGEM" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="3D_Savers\C3DSaver.cpp" FORMNAME="" UNITNAME="C3DSaver" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Animation\CObject3D_AnimCfg.cpp" FORMNAME="" UNITNAME="CObject3D_AnimCfg" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Animation\CObject3D_AnimCfgGen.cpp" FORMNAME="" UNITNAME="CObject3D_AnimCfgGen" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Animation\CObject3D_AnimCfgMgr.cpp" FORMNAME="" UNITNAME="CObject3D_AnimCfgMgr" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Animation\CObject3D_AnimGen.cpp" FORMNAME="" UNITNAME="CObject3D_AnimGen" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Animation\CObject3D_AnimMesh.cpp" FORMNAME="" UNITNAME="CObject3D_AnimMesh" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Animation\CObject3D_AnimNode.cpp" FORMNAME="" UNITNAME="CObject3D_AnimNode" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Animation\CObject3D_AnimTransf.cpp" FORMNAME="" UNITNAME="CObject3D_AnimTransf" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Animation\TFrameAnimation.cpp" FORMNAME="" UNITNAME="TFrameAnimation" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CObject3D.cpp" FORMNAME="" UNITNAME="CObject3D" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CObject3D_BSPNode.cpp" FORMNAME="" UNITNAME="CObject3D_BSPNode" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CObject3D_Camera.cpp" FORMNAME="" UNITNAME="CObject3D_Camera" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CObject3D_CompiledLeaf.cpp" FORMNAME="" UNITNAME="CObject3D_CompiledLeaf" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CObject3D_Leaf.cpp" FORMNAME="" UNITNAME="CObject3D_Leaf" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CObject3D_Mux.cpp" FORMNAME="" UNITNAME="CObject3D_Mux" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CObject3D_Node.cpp" FORMNAME="" UNITNAME="CObject3D_Node" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CObject3D_Transf.cpp" FORMNAME="" UNITNAME="CObject3D_Transf" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="e3DObjectTypeID.cpp" FORMNAME="" UNITNAME="e3DObjectTypeID" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="vctobpr.log" FORMNAME="" UNITNAME="vctobpr" CONTAINERID="" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1033
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=3
+Item0=Animation;3D_Savers;3D_Savers\GEMSaver;2D_Objects;BillBoard;SceneUtils;SceneUtils\ScnPlanarMapper;SceneUtils\ScnShaderAssigner;SceneUtils\ScnVisibilityTester;SceneUtils\ScnCoplanarRemover;SceneUtils\SceneBuilder;SceneUtils\SplitTriScene;SceneUtils\SeparateTriScene;SceneUtils\ScnMeshGen;SceneUtils\ScnNormalGen;SceneUtils\ScnBBoxGen;SceneUtils\TriScnLoader;SceneUtils\ScnUtils;SceneUtils\SceneCompiler;SceneUtils\ScnStripifier;SceneUtils\TransfTriScn;SceneUtils\Mesh2TriScn;SceneUtils\Scn2TriScnBuilder;SceneUtils\OctreeBuilder;SceneUtils\BSPBuilder;3D_Loaders;3D_Loaders\BSP2Loader;3D_Loaders\GEMLoader;3D_Loaders\MD3Loader;3D_Loaders\MD2Loader;3D_Loaders\3DSLoader;3D_Loaders\3DMax_ASE;ParticleSystems;$(BCB)\include;$(BCB)\include\mfc;$(BCB)\include\atl;$(BCB)\include\vcl;I:\Projects\libs\TexLib\Src
+Item1=Animation;3D_Savers;3D_Savers\GEMSaver;2D_Objects;BillBoard;SceneUtils;SceneUtils\ScnPlanarMapper;SceneUtils\ScnShaderAssigner;SceneUtils\ScnVisibilityTester;SceneUtils\ScnCoplanarRemover;SceneUtils\SceneBuilder;SceneUtils\SplitTriScene;SceneUtils\SeparateTriScene;SceneUtils\ScnMeshGen;SceneUtils\ScnNormalGen;SceneUtils\ScnBBoxGen;SceneUtils\TriScnLoader;SceneUtils\ScnUtils;SceneUtils\SceneCompiler;SceneUtils\ScnStripifier;SceneUtils\TransfTriScn;SceneUtils\Mesh2TriScn;SceneUtils\Scn2TriScnBuilder;SceneUtils\OctreeBuilder;SceneUtils\BSPBuilder;3D_Loaders;3D_Loaders\BSP2Loader;3D_Loaders\GEMLoader;3D_Loaders\MD3Loader;3D_Loaders\MD2Loader;3D_Loaders\3DSLoader;3D_Loaders\3DMax_ASE;ParticleSystems;$(BCB)\include;$(BCB)\include\mfc;$(BCB)\include\atl;$(BCB)\include\vcl
+Item2=Animation;3D_Savers;3D_Savers\GEMSaver;2D_Objects;BillBoard;SceneUtils;SceneUtils\ScnPlanarMapper;SceneUtils\ScnShaderAssigner;SceneUtils\ScnVisibilityTester;SceneUtils\ScnCoplanarRemover;SceneUtils\SceneBuilder;SceneUtils\SplitTriScene;SceneUtils\SeparateTriScene;SceneUtils\ScnMeshGen;SceneUtils\ScnNormalGen;SceneUtils\ScnBBoxGen;SceneUtils\TriScnLoader;SceneUtils\ScnUtils;SceneUtils\SceneCompiler;SceneUtils\ScnStripifier;SceneUtils\TransfTriScn;SceneUtils\Mesh2TriScn;SceneUtils\Scn2TriScnBuilder;SceneUtils\OctreeBuilder;SceneUtils\BSPBuilder;3D_Loaders;3D_Loaders\BSP2Loader;3D_Loaders\GEMLoader;3D_Loaders\MD3Loader;3D_Loaders\MD2Loader;3D_Loaders\3DSLoader;3D_Loaders\3DMax_ASE;ParticleSystems;$(BCB)\include;$(BCB)\include\mfc;$(BCB)\include\atl;$(BCB)\include\vcl;
+
+[HistoryLists\hlLibraryPath]
+Count=3
+Item0=Animation;3D_Savers;3D_Savers\GEMSaver;2D_Objects;BillBoard;SceneUtils;SceneUtils\ScnPlanarMapper;SceneUtils\ScnShaderAssigner;SceneUtils\ScnVisibilityTester;SceneUtils\ScnCoplanarRemover;SceneUtils\SceneBuilder;SceneUtils\SplitTriScene;SceneUtils\SeparateTriScene;SceneUtils\ScnMeshGen;SceneUtils\ScnNormalGen;SceneUtils\ScnBBoxGen;SceneUtils\TriScnLoader;SceneUtils\ScnUtils;SceneUtils\SceneCompiler;SceneUtils\ScnStripifier;SceneUtils\TransfTriScn;SceneUtils\Mesh2TriScn;SceneUtils\Scn2TriScnBuilder;SceneUtils\OctreeBuilder;SceneUtils\BSPBuilder;3D_Loaders;3D_Loaders\BSP2Loader;3D_Loaders\GEMLoader;3D_Loaders\MD3Loader;3D_Loaders\MD2Loader;3D_Loaders\3DSLoader;3D_Loaders\3DMax_ASE;ParticleSystems;$(BCB)\lib;$(BCB)\lib\psdk;$(DEBUGLIBPATH)
+Item1=Animation;3D_Savers;3D_Savers\GEMSaver;2D_Objects;BillBoard;SceneUtils;SceneUtils\ScnPlanarMapper;SceneUtils\ScnShaderAssigner;SceneUtils\ScnVisibilityTester;SceneUtils\ScnCoplanarRemover;SceneUtils\SceneBuilder;SceneUtils\SplitTriScene;SceneUtils\SeparateTriScene;SceneUtils\ScnMeshGen;SceneUtils\ScnNormalGen;SceneUtils\ScnBBoxGen;SceneUtils\TriScnLoader;SceneUtils\ScnUtils;SceneUtils\SceneCompiler;SceneUtils\ScnStripifier;SceneUtils\TransfTriScn;SceneUtils\Mesh2TriScn;SceneUtils\Scn2TriScnBuilder;SceneUtils\OctreeBuilder;SceneUtils\BSPBuilder;3D_Loaders;3D_Loaders\BSP2Loader;3D_Loaders\GEMLoader;3D_Loaders\MD3Loader;3D_Loaders\MD2Loader;3D_Loaders\3DSLoader;3D_Loaders\3DMax_ASE;ParticleSystems;$(BCB)\lib;$(DEBUGLIBPATH);$(BCB)\lib\psdk
+Item2=Animation;3D_Savers;3D_Savers\GEMSaver;2D_Objects;BillBoard;SceneUtils;SceneUtils\ScnPlanarMapper;SceneUtils\ScnShaderAssigner;SceneUtils\ScnVisibilityTester;SceneUtils\ScnCoplanarRemover;SceneUtils\SceneBuilder;SceneUtils\SplitTriScene;SceneUtils\SeparateTriScene;SceneUtils\ScnMeshGen;SceneUtils\ScnNormalGen;SceneUtils\ScnBBoxGen;SceneUtils\TriScnLoader;SceneUtils\ScnUtils;SceneUtils\SceneCompiler;SceneUtils\ScnStripifier;SceneUtils\TransfTriScn;SceneUtils\Mesh2TriScn;SceneUtils\Scn2TriScnBuilder;SceneUtils\OctreeBuilder;SceneUtils\BSPBuilder;3D_Loaders;3D_Loaders\BSP2Loader;3D_Loaders\GEMLoader;3D_Loaders\MD3Loader;3D_Loaders\MD2Loader;3D_Loaders\3DSLoader;3D_Loaders\3DMax_ASE;ParticleSystems;$(BCB)\lib;$(DEBUGLIBPATH);;$(BCB)\lib\psdk;$(DEBUGLIBPATH);$(DEBUGLIBPATH);$(DEBUGLIBPATH);$(DEBUGLIBPATH);$(DEBUGLIBPATH);$(DEBUGLIBPATH);$(DEBUGLIBPATH);
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=1
+Item0=WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;WIN32;_DEBUG;_MBCS;_LIB;WIN32;_DEBUG;_MBCS;_LIB;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0;WIN32;_DEBUG;_MBCS;_LIB;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0
+
+[HistoryLists\hlIntOutputDir]
+Count=2
+Item0=\projects\GammaE\Borland
+Item1=\projects\GammaE\Debug
+
+[HistoryLists\hlFinalOutputDir]
+Count=3
+Item0=\projects\GammaE\Borland\
+Item1=\projects\GammaE\Borland
+Item2=\projects\GammaE\Debug\
+
+[HistoryLists\hlTlibPageSize]
+Count=2
+Item0=0x0040
+Item1=0x0010
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+Launcher=
+UseLauncher=0
+DebugCWD=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteLauncher=
+RemoteCWD=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=0
+
+[CORBA]
+AddServerUnit=1
+AddClientUnit=1
+PrecompiledHeaders=1
+  </IDEOPTIONS>
+</PROJECT>

@@ -1,0 +1,404 @@
+// --------------------------------------------------
+// 29-06-2009
+// --------------------------------------------------
+- Hash value en las strings. De este modo, las comparaciones serán lo más rápìdas posibles. También añadir el campo length
+- Otra manera de pasar parámetros a las funciones de los scripts.
+	
+	. ClearPars
+	. AddPar(xxx)
+	. AddPar(yyy)
+	. AddPar(zzz)
+	. CallExtension( extension )
+
+x Entity spawner, promover a GammaE_Game. Al estar en GammaE_Game, se podrá hacer spawn sin necesidad de utilizar una extension.
+DONE: 29-06-2009
+
+// --------------------------------------------------
+// 28-06-2009
+// --------------------------------------------------
+- Comentarios en el fichero de bindings: al pasarlo por el intérprete de comandos da muchos errores.
+- Que el command bind loader cargue y acepte los parámetros de los comandos.
+- He tenido que comentar la sentencia que controlaba si la consola estaba abierta o no para aceptar 
+comandos. Correcto?
+
+// --------------------------------------------------
+// 22-06-2009
+// --------------------------------------------------
+- El sistema de colisiones de GammaE es un poco complejo/extraño. He creado un módulo Collision dentro de ProjectR, 
+y funciona, pero sería ideal tener algo a nivel de motor. En un principio el sistema está pensado para ser manejado desde
+la Game lib(clase CGEntityCollisionMgr). 
+Consideraciones a tener en cuenta:
+	Quizá sea interesante tener una reacción rápida en el momento de detectar una colisión (a través de un callback por ejemplo)
+- No me acaba de funcionar bien las colisiones dinámicas con esferas.
+x Importador de caminos	(procedurales / control points) para el juego.
+x Exportador de caminos	(procedurales / control points) desde editor BCB.
+- Pensar si es interesante tener diferentes scripts para los diferentes estados de las entidades: Init, Think, ...
+
+// --------------------------------------------------
+// 06-06-2009
+// --------------------------------------------------
+x Generador de trails con caminos precalculados: Tenemos un trail con una curva precalculada, y simplemente actualizamos la cabeza 
+del trail con un factor que va de 0 a 1. El tamaño de la cola puede ser parametrizable, al igual que el resto de parámetros (size, color, etc...)
+DONE:
+
+// --------------------------------------------------
+// 31-05-2009
+// --------------------------------------------------
+- Pensar si es conveniente quitar funciones de matrices sobre cámara y proyector en el Renderer puesto que hay 
+funciones de matrices y también de los propios objetos cámara y proyector, lo que quizá es redundante y además 
+introduce incoherencias (si se modifica la matriz de proyección, el proyector que hay deja de ser válido).
+En caso de quitar esa funcionalidad posiblemente es necesario implementar un stack de proyectores y cámaras.
+(¿Se puede vivir con esta incoherencia?	)
+
+// --------------------------------------------------
+// 28-05-2009
+// --------------------------------------------------
+x Programa para convertir formato de particulas de antares a gammae.
+DONE:
+
+// --------------------------------------------------
+// 25-05-2009
+// --------------------------------------------------
+x Manager de instancias de sistemas de partículas: funcionalidad add sh psys, add psys, etc ...
+DONE: 27-8-2009
+
+// --------------------------------------------------
+// 23-05-2009
+// --------------------------------------------------
+x Crear una clase CObject3D_Switch: Versión simplificada de Mux, pero para 1 sólo objecto.
+Enable / Disable / bEnabled
+DONE: 23-05-2009
+
+x Refactorizar CHUDObject para que derive de CObject3D_Switch en vez de CObject3D_Mux
+DONE: 25-05-2009
+
+// --------------------------------------------------
+// 22-05-2009
+// --------------------------------------------------
+x Crear una clase que sea curva para caminos.
+DONE: 25-05-2009
+
+// --------------------------------------------------
+// 16-05-2009
+// --------------------------------------------------
+- Eliminar la dependencia de libconfig y hacer que los ficheros de configuración vayan a través de lua.
+
+// --------------------------------------------------
+// 14-05-2009
+// --------------------------------------------------
+x Añadir funcionalidad para registrar funciones externas, de manera que desde fuera del motor, se tenga la posibilidad
+de registrar funciones llamables desde script. La idea es introducir código wrapper independiente de lenguage de scripting
+DONE: 14-05-2009, funcionalidad básica para registrar funciones sin parámetros ni resultados.
+- Código desde CGEntity para cargar automáticamente scripts si los hay?????. Pensar si es conveniente.
+
+// --------------------------------------------------
+// 11-05-2009
+// --------------------------------------------------
+x Pensar en si es interesante eliminar el paso en el que la aplicación registra los comandos reconocidos por el sistema.
+Se podría utilizar el momento en el que se registran los callbacks en el command dispatcher. Pensar en las responsabilidades de cada
+clase involucrada y refactorizarlo de nuevo. Una cosa es cierta, cada vez que se añade un comando nuevo, no se debería de tener que 
+registrar el comando en el commandregistry y además luego registrar el callback por separado, porque de esta manera pueden existir más
+comandos que callbacks. 
+DONE: 25-05-2009
+x Comandos ErrorLogClear y SysLogClear para limpiar los Logs.
+DONE:
+
+// --------------------------------------------------
+// 09-05-2009
+// --------------------------------------------------
+- Pensar en como implementar clases susceptibles de tener diferentes implementaciones, por ejemplo
+CVideo que puede ser AVI, THP, BINK, W32, etc... y buscar una unificación de criterios en todo el motor
+
+- Clase MATH_Common, tiene el nombre muy largo, habría que buscar al más corto, como MATH_Lib o algo así.
+
+- Debería haber una función común para modificar por ejemplo la posición de una entidad, esta a su vez, debería encargarse
+de modificar los valores almacenados en el collider y en el graphic resource. Por otro lado no me parece buena idea
+compartir el objeto transformación o la matriz entre el collider y el objeto gráfico, por que pudiese ser interesante
+tener una rotación en el objeto gráfico, y en cambio que no fuera interesante tenerla aplicada en el objeto físico.
+
+- Clase MATH_Transformation ??? util para cualquier objecto que requiera transformaciones, como CCOL_Collider o CMesh, CObjectNode
+etc... Ésta introduce los elementos de transformación independientes, oPos, fScale, Pitch, Roll, Yaw, y la propia transformación
+tiene un flag Dirty que dice cuando es válido el contenido y por tanto no hay que actualizar la matriz de transformación o no.
+Es un objeto mátemático? o un objeto de rendering? MATH_Transform o E3D_Transform.
+
+x Habría que implementar una especie de averager en el módulo de mates.
+DONE: 21-05-2009 CSmoother
+
+x Introducir las constantes Zero X,Y,Z en CVect3 
+DONE: 11-05-2009
+
+// --------------------------------------------------
+// 07-05-2009
+// --------------------------------------------------
+x Estudiar toLua como mecanismo de integración de Lua en el motor. 
+DONE: en conclusión, no me gusta el hecho de que se tenga que preparar un archivo h especial para ser procesado por toLua. 
+Había pensado en realizar un preproceso con algun programa para eliminar las clausulas public de las clases, y pasar luego a toLua 
+el resultado. Finalmente estudio SWIG y me convence el hecho de que no hay que realizar demasiado esfuerzo para el binding del 
+motor con Lua.
+x Estudiar quitar la nomenclatura prefijo "r" para referencias y tratarlas como objetos por valor.
+DONE
+
+// --------------------------------------------------
+// 05-05-2009
+// --------------------------------------------------
+x Renombrar el directorio Source por src dentro de ProjectR_Framework. Es para ser consistente con los 
+directorios src dentro de GammaE/modules ...
+DONE:
+
+// --------------------------------------------------
+// 04-05-2009
+// --------------------------------------------------
+- Mirar como está implementado la instanciación de modelos con animación por morph. Y si es necesario implementar un sistema
+que permita instanciación sin necesidad de cargar varias veces el mismo modelo.
+
+// --------------------------------------------------
+// 27-4-2009
+// --------------------------------------------------
+x Integrar clase CGString en CLookupTable
+- CGGameApplication no está bien diseñada. Incluye funcionalidad de resize cuando no tiene ningún objeto
+sobre el que resizear. Esto no se hace posible hasta CGGameConsoleApp.
+x Crear un módulo para la entrada de datos, aunque sea siguiendo la filosofía MicroKernel, es decir, 
+desde fuera se rellena el interior, que luego es utilizado por otros módulos o incluso la propia aplicación.
+x Singleton para E3D_Renderer
+x Singleton para SoundRenderer
+
+// --------------------------------------------------
+// 18-4-2009
+// --------------------------------------------------
+x Tratar de hacer algo para que solamente sea necesario incluir GammaE.h sin tener que añadir 1000 entradas de directorios dentro del vcproj para que el
+proyecto funcione. Por otro lado, tambien es interesante si se puede hacer lo mismo a nivel de .libs, es decir, defines un punto donde se guardan las .lib comun a todas
+las librerias, y solo tienes que añadir un path para poder linkar contra todas las librerias
+
+// --------------------------------------------------
+// 16-4-2009
+// --------------------------------------------------
+x Implementar un módulo de controlador de entrada (Input)
+
+// --------------------------------------------------
+// 15-4-2009
+// --------------------------------------------------
+- Estudiar la posibilidad de renombrar todas las clases de GammaE para que sigan una nomenclatura estandar
+tipo: CGRenderer, CGObject3D,CGObject_Leaf, CGMesh, CGMatrix4x4, CGVect3, CG ....
+
+- Crear un breve documento que describa la notación húngara de los tipos básicos utilizados en el motor:
+
+CGString		s
+uint			ui
+short			?
+unsigned short	us
+
+// --------------------------------------------------
+// 12-4-2009
+// --------------------------------------------------
+x Sacar todo lo relativo a ScnUt de la libreria Scene y colocarlo en un nuevo proyecto llamado SceneUtils
+DONE: 10-4-2009
+x Sacar tambien algunas de las cosas de partículas encontradas en ese módulo y crear un nuevo proyecto llamado
+SFX donde encontraremos todo esto.
+DONE: 25-05-2009
+x Sacar objecto CHeadUpDisplay y ponerlo en SceneObjects
+
+// --------------------------------------------------
+// 10-4-2009
+// --------------------------------------------------
+x Estaría bien crear una clase para gestionar la salida de errores. Algo así como una stderr sobre la que 
+se vuelcan informaciones de WARNING y errores. Se debería poder redirigir o cambiar la salida segun las 
+necesidades del programa.
+Por ejemplo, una clase que carga un tipo de fichero, encuentra un error, y hace:
+	
+	CStdErr::Error("adf %x asdf %y cadfasdf.",olo,looiu);
+	CStdErr::Warning("lsoso asdfasfdasd %x dfasffa.",looiu);
+
+Esta debería redirigir el mesaje a un lugar. Si el programa necesita que la salida vaya a un lugar concreto, 
+se debe de poder realizar. 
+
+Por ejemplo:
+
+	CStdErr::SetLogger(CLogger* _poLogger)
+	{
+		if (_poLogger == NULL)	m_poLogger = m_poStdLogger; else m_poLogger = _poLogger;
+	}
+
+	CStdErr::Error(...)
+	{
+		m_poLogger->Print(...);
+	}
+
+
+DONE: 10-4-2009
+
+// --------------------------------------------------
+// 4-4-2009
+// --------------------------------------------------
+- Pruebo a integrar DevIL image library, pero hay un problema fundamental. Colisionan los nombres
+mAlloc, mFree que la librería también utiliza. Comienzo la integración de FreeImage.
+- Probablemente, necesite crear una estrictura mipmap básica, con información mínima.
+
+// --------------------------------------------------
+// 26-3-2009
+// --------------------------------------------------
+- Implementar el proceso posterior a un posible invalidate de los elementos de las warehouses.
+P.E. para las texturas, volver a crear los descriptores de textura, o lo que fuera necesario.
+
+
+// --------------------------------------------------
+// 26-3-2009
+// --------------------------------------------------
+- Convertir todas las warehouses en clases derivadas de CResourceWH o CDiskResourceWH
+
+	x - CSampleWH
+	x - CSoundWH
+	x - CHUDFontWH
+	x - CE3D_ShaderWH
+	x - CMipMapWH
+	x - CE3D_ShaderDefWH
+	N - CE3D_ShaderDefFileWH
+	x - C3DObjWH
+	x - CTexObjWH
+
+// --------------------------------------------------
+// 20-3-2009
+// --------------------------------------------------
+- Estoy estudiando la posibilidad de añadir funcionalidad de scripting como un módulo aparte para el motor. 
+La idea es programar la lógica del juego desde scripts, o la lógica de las entidades del juego desde script.
+Si algo no funcionase como creemos que debe funcionar, se debería poder modificar y en tiempo real recargar los
+scripts.
+
+// --------------------------------------------------
+// 28-2-2009
+// --------------------------------------------------
+- Soporte en un módulo para crear interfaces 2D a partir de un fichero HTML. La ventaja es que se pueden
+editar las páginas desde cualquier editor. Se podrían registrar funciones para eventos tipo OnLoad, hover, etc...
+Tb se podría proporcionar un sistema que permita recuperar elementos de la página html para luego poder ser accedidos
+desde el juego. Así cuando encontremos el atributo "name" dentro de un TAG, podremos acceder al objeto que representa
+ese TAG mediante un "name" y poder manipularlo desde el juego. Por ejemplo, un link podría ser un label, accedemos al label
+mediante un nombre que se pone en el fichero HTML. Lo mismo es aplicable para imágenes, y quizá más cosas...
+
+// --------------------------------------------------
+// 31-1-2009
+// --------------------------------------------------
+- Manager de objetos de HUD. Se le pasa un objeto, y el manager gestionará su aspecto, escalandolo o transformándolo.
+El manager se encarga de activar o desactivar las animaciones de esos elementos.
+
+CHUDAnimMgr :: Register(CHUDObject)
+
+CHUDAnimMgr Play / CHUDAnimMgr Play(x secs)
+CHUDAnimMgr Stop / CHUDAnimMgr Stop(x secs)
+
+El manager se encarga de buscar el shader del objeto del HUD, e ir modificando el parámetro que considere necesario 
+para que se realize la animación o se pare.
+
+Otro asunto es que lo que se anime sea la HUDEntry, (x,y,tx,ty) según un fichero de configuración.
+
+CHUDAnimMgr :: Register(CHUDObject,"evaluator alias") y esto modifique las coordenadas x,y o el tamaño tx,ty de la HUD entry.
+
+// --------------------------------------------------
+// 30-1-2009
+// --------------------------------------------------
+- Dar soporte a fuentes no regulares. Crear clase font y que las CHUDLabels utilicen los datos de CHUDFont
+	DONE:30-1-2009
+
+// --------------------------------------------------
+// 25-1-2009
+// --------------------------------------------------
+-	Qué pasa si un cliente hace 2 veces connect. Por ejemplo, la aplicación le peta, y se quiere conectar otra vez.
+	El módulo CNETSys y la apliación deben enterarse de algún modo.
+	Se podría detectar desde CNETSystem y enviar un callback de desconexión para que la aplicación se enterara. 
+	
+		NewConection
+		If (client was there)
+		{
+			DisconnectClientCallback;
+		}
+
+		NewClientConnectionCallback;
+
+- Animaciones elementos HUD.
+
+// --------------------------------------------------
+// 
+// --------------------------------------------------
+Pequeña aplicacion que permita cargar modelos de personajes
+en los formatos conocidos, seleccionar un skin por defecto
+y guardarlo en formato gem.
+
+// --------------------------------------------------
+// 
+// --------------------------------------------------
+Separar CObject3D_Node en  CObject3D_Node,CObject3D_Transf
+1 encargado de la agrupacion de objetos y otro de la 
+transformación de la geometría que tiene asociada.
+
+// --------------------------------------------------
+// 
+// --------------------------------------------------
+Mejorar el algoritmo de resampleado de sonidos. Cuando
+se expanda (low -> high SRate) utilizar linear interpolation.
+Cuando se encoja, utilizar box filter, (Average)
+
+
+// --------------------------------------------------
+// 
+// --------------------------------------------------
+Introducir los objetos de terreno como parte de la
+escena. El objetivo es que se puedan grabar/cargar desde
+un fichero GEM, y tratarse de la misma manera que cualquier
+otro objeto. De este modo es como si se convirtiera en
+una primitiva de alto nivel del propio del engine. Esto mimsmo 
+es lo que se debería hacer para patches, y quizás otras cosas.
+
+
+// --------------------------------------------------
+// 
+// --------------------------------------------------
+Cambiar el sistema de frustum, de manera que se transforme
+el frustum a coordenadas locales a los objetos, y no
+los objetos a coordenadas del frustum. Esto ahorra muchas
+transformaciones.
+
+// --------------------------------------------------
+// 
+// --------------------------------------------------
+Sistema de colisiones
+Sistema de sonido
+Cargar BSPs
+Cargar MD3s
+
+// --------------------------------------------------
+// 
+// --------------------------------------------------
+Asignador de material a un objeto. Hará recursión
+hasta los nodos mesh y les asignara el material establecido
+
+// --------------------------------------------------
+// 
+// --------------------------------------------------
+Generador de Bounding Box de un Objeto
+
+// --------------------------------------------------
+//
+// --------------------------------------------------
+Generador de coordenadas UV de un objeto
+
+
+// --------------------------------------------------
+//
+// --------------------------------------------------
+Conversor de malla de triangulos expandida (del proyecto
+Octree3D) a malla reducida.
+
+Insertar vertices en lista sin repetición.
+
+Funcion insertar vértice (Vertice + UV + Material),
+devuelve el índice del array de vértices,
+si no está en el array de vértices, crea uno nuevo
+y devuelve este indice
+
+// --------------------------------------------------
+//
+// --------------------------------------------------
+Conversor de objeto 3D a Lista de triangulos expandida.
+
+// --------------------------------------------------
+//
+// --------------------------------------------------
+Generador de escena, en Octree3D

@@ -1,17 +1,7 @@
-//## begin module%3BDB5AB6017E.cm preserve=no
-//	  %X% %Q% %Z% %W%
-//## end module%3BDB5AB6017E.cm
 
-//## begin module%3BDB5AB6017E.cp preserve=no
-//## end module%3BDB5AB6017E.cp
 
-//## Module: CObject3D_Reflector%3BDB5AB6017E; Pseudo Package body
-//## Source file: i:\Projects\GammaE\SceneObjects\Reflector\CObject3D_Reflector.cpp
 
-//## begin module%3BDB5AB6017E.additionalIncludes preserve=no
-//## end module%3BDB5AB6017E.additionalIncludes
 
-//## begin module%3BDB5AB6017E.includes preserve=yes
 #ifdef _MBCS
 	#include <windows.h>
 	#include <wingdi.h>
@@ -26,12 +16,9 @@
 #endif
 
 #include <gl/gl.h>
-//## end module%3BDB5AB6017E.includes
 
 // CObject3D_Reflector
-#include "SceneObjects\Reflector\CObject3D_Reflector.h"
-//## begin module%3BDB5AB6017E.additionalDeclarations preserve=yes
-//## end module%3BDB5AB6017E.additionalDeclarations
+#include "Reflector\CObject3D_Reflector.h"
 
 
 // Class CObject3D_Reflector 
@@ -39,50 +26,40 @@
 
 
 CObject3D_Reflector::CObject3D_Reflector()
-  //## begin CObject3D_Reflector::CObject3D_Reflector%.hasinit preserve=no
-      : Mirror(NULL)
-  //## end CObject3D_Reflector::CObject3D_Reflector%.hasinit
-  //## begin CObject3D_Reflector::CObject3D_Reflector%.initialization preserve=yes
-  //## end CObject3D_Reflector::CObject3D_Reflector%.initialization
-{
-  //## begin CObject3D_Reflector::CObject3D_Reflector%.body preserve=yes
-	Mirror = new CMesh_Rect();
-  //## end CObject3D_Reflector::CObject3D_Reflector%.body
+        : Mirror(NULL)
+      {
+  	Mirror = mNew CMesh_Rect();
 }
 
 
 CObject3D_Reflector::~CObject3D_Reflector()
 {
-  //## begin CObject3D_Reflector::~CObject3D_Reflector%.body preserve=yes
-	delete Mirror;
-  //## end CObject3D_Reflector::~CObject3D_Reflector%.body
+  	mDel Mirror;
 }
 
 
 
-//## Other Operations (implementation)
 void CObject3D_Reflector::Render ()
 {
-  //## begin CObject3D_Reflector::Render%1004231435.body preserve=yes
-	CMatrix4x4	M;
+  	CMatrix4x4	M;
 	CMatrix4x4	PrjMatrix;
 	CMatrix4x4	FPrjMat;
 	
 	// Enable stenciling
-	gpoE3DRenderer->SetStencilPars(eE3D_SF_Always,1,~0,eE3D_SA_Keep,eE3D_SA_Keep,eE3D_SA_Replace);	
+	CGRenderer::I()->SetStencilPars(E3D_SF_Always,1,~0,E3D_SA_Keep,E3D_SA_Keep,E3D_SA_Replace);	
 
 	// Render the reflector object first with stencil on
-	gpoE3DRenderer->ClearBuffer(eE3D_RB_Stencil);
+	CGRenderer::I()->ClearBuffer(E3D_RB_Stencil);
 
-	gpoE3DRenderer->SetZPars(eE3D_ZTF_None,eE3D_ZW_Disable);
-	gpoE3DRenderer->RenderMesh(Mirror);
-	gpoE3DRenderer->SetZPars(eE3D_ZTF_Last,eE3D_ZW_Last);		
+	CGRenderer::I()->SetZPars(E3D_ZTF_None, E3D_ZW_Disable);
+	CGRenderer::I()->RenderMesh(Mirror);
+	CGRenderer::I()->SetZPars(E3D_ZTF_Last, E3D_ZW_Last);
 	
 	// Disable Stenciling 
-	gpoE3DRenderer->SetStencilPars(eE3D_SF_None,0,0,eE3D_SA_None,eE3D_SA_None,eE3D_SA_None);
+	CGRenderer::I()->SetStencilPars(E3D_SF_None,0,0,E3D_SA_None,E3D_SA_None,E3D_SA_None);
 
 	/*
-	gpoE3DRenderer->GetGetProjectorMatrix(&M);
+	CGRenderer::I()->GetGetProjectorMatrix(&M);
 	// Setup reflection matrix
 	SetupReflectionMatrix(PrjMatrix);
 
@@ -90,36 +67,34 @@ void CObject3D_Reflector::Render ()
 	FPrjMat.Multiply(PrjMatrix,M);
 	
 	// Setup reflection matrix
-	gpoE3DRenderer->SetProjectorMatrix(&FPrjMat);
+	CGRenderer::I()->SetProjectorMatrix(&FPrjMat);
 	
 	// Normal Rendering
 	CObject3D_Node::Render();
 
 	// Restore previous matrix
-	gpoE3DRenderer->SetProjectorMatrix(&M);
+	CGRenderer::I()->SetProjectorMatrix(&M);
 	*/
 	
-	gpoE3DRenderer->PushMatrix();
+	CGRenderer::I()->PushWorldMatrix();
 	
 	// Setup reflection matrix
 	SetupReflectionMatrix(PrjMatrix);
 	
-	gpoE3DRenderer->MultiplyMatrix(&PrjMatrix);	
+	CGRenderer::I()->MultiplyMatrix(&PrjMatrix);	
 	
 	// Normal Rendering
 	CObject3D_Node::Render();
 
 	// Restore previous matrix
-	gpoE3DRenderer->PopMatrix();	
+	CGRenderer::I()->PopWorldMatrix();	
 	
 	glDisable(GL_STENCIL_TEST);
-  //## end CObject3D_Reflector::Render%1004231435.body
 }
 
-void CObject3D_Reflector::SetupReflectionMatrix (CMatrix4x4 &_roMat)
+void CObject3D_Reflector::SetupReflectionMatrix (CMatrix4x4 &_oMat)
 {
-  //## begin CObject3D_Reflector::SetupReflectionMatrix%1004231436.body preserve=yes
-	CPlane	Plane;
+  	CPlane	Plane;
 	CVect3	Normal;
 	float	D;
 
@@ -128,32 +103,27 @@ void CObject3D_Reflector::SetupReflectionMatrix (CMatrix4x4 &_roMat)
 	//Normal.V3(0,0,1);
 	D = -1.0f*Plane.D();
 
-	_roMat.Set(0,0,1.0f - 2.0f*Normal.X()*Normal.X());
-	_roMat.Set(0,1,     - 2.0f*Normal.X()*Normal.Y());
-	_roMat.Set(0,2,     - 2.0f*Normal.X()*Normal.Z());
-	_roMat.Set(0,3,       2.0f*Normal.X()*D);
+	_oMat.Set(0,0,1.0f - 2.0f*Normal.x*Normal.x);
+	_oMat.Set(0,1,     - 2.0f*Normal.x*Normal.y);
+	_oMat.Set(0,2,     - 2.0f*Normal.x*Normal.z);
+	_oMat.Set(0,3,       2.0f*Normal.x*D);
 
-	_roMat.Set(1,0,     - 2.0f*Normal.Y()*Normal.X());
-	_roMat.Set(1,1,1.0f - 2.0f*Normal.Y()*Normal.Y());
-	_roMat.Set(1,2,     - 2.0f*Normal.Y()*Normal.Z());
-	_roMat.Set(1,3,       2.0f*Normal.Y()*D);
+	_oMat.Set(1,0,     - 2.0f*Normal.y*Normal.x);
+	_oMat.Set(1,1,1.0f - 2.0f*Normal.y*Normal.y);
+	_oMat.Set(1,2,     - 2.0f*Normal.y*Normal.z);
+	_oMat.Set(1,3,       2.0f*Normal.y*D);
 	
-	_roMat.Set(2,0,     - 2.0f*Normal.Z()*Normal.X());
-	_roMat.Set(2,1,     - 2.0f*Normal.Z()*Normal.Y());
-	_roMat.Set(2,2,1.0f - 2.0f*Normal.Z()*Normal.Z());
-	_roMat.Set(2,3,       2.0f*Normal.Z()*D);
+	_oMat.Set(2,0,     - 2.0f*Normal.z*Normal.x);
+	_oMat.Set(2,1,     - 2.0f*Normal.z*Normal.y);
+	_oMat.Set(2,2,1.0f - 2.0f*Normal.z*Normal.z);
+	_oMat.Set(2,3,       2.0f*Normal.z*D);
 
-	_roMat.Set(3,0,0.0f);
-	_roMat.Set(3,1,0.0f);
-	_roMat.Set(3,2,0.0f);
-	_roMat.Set(3,3,1.0f);
+	_oMat.Set(3,0,0.0f);
+	_oMat.Set(3,1,0.0f);
+	_oMat.Set(3,2,0.0f);
+	_oMat.Set(3,3,1.0f);
 	
-  //## end CObject3D_Reflector::SetupReflectionMatrix%1004231436.body
 }
 
 // Additional Declarations
-  //## begin CObject3D_Reflector%3BDB5AB6017E.declarations preserve=yes
-  //## end CObject3D_Reflector%3BDB5AB6017E.declarations
-
-//## begin module%3BDB5AB6017E.epilog preserve=yes
-//## end module%3BDB5AB6017E.epilog
+    

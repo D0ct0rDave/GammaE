@@ -1,51 +1,29 @@
-//## begin module%3B7AF1BC01C2.cm preserve=no
 //	  %X% %Q% %Z% %W%
-//## end module%3B7AF1BC01C2.cm
 
-//## begin module%3B7AF1BC01C2.cp preserve=no
-//## end module%3B7AF1BC01C2.cp
 
-//## Module: CCOL_ST_ColTester%3B7AF1BC01C2; Pseudo Package body
-//## Source file: i:\Projects\GammaE\Collision\COL_Testers\COL_StaticTest\CCOL_ST_ColTester.cpp
 
-//## begin module%3B7AF1BC01C2.additionalIncludes preserve=no
-//## end module%3B7AF1BC01C2.additionalIncludes
 
-//## begin module%3B7AF1BC01C2.includes preserve=yes
-//## end module%3B7AF1BC01C2.includes
 
 // CCOL_ST_ColTester
-#include "Collision\COL_Testers\COL_StaticTest\CCOL_ST_ColTester.h"
-//## begin module%3B7AF1BC01C2.additionalDeclarations preserve=yes
-//## end module%3B7AF1BC01C2.additionalDeclarations
+#include "COL_Testers\COL_StaticTest\CCOL_ST_ColTester.h"
 
 
 // Class CCOL_ST_ColTester 
 
 CCOL_ST_ColTester::CCOL_ST_ColTester()
-  //## begin CCOL_ST_ColTester::CCOL_ST_ColTester%.hasinit preserve=no
-  //## end CCOL_ST_ColTester::CCOL_ST_ColTester%.hasinit
-  //## begin CCOL_ST_ColTester::CCOL_ST_ColTester%.initialization preserve=yes
-  //## end CCOL_ST_ColTester::CCOL_ST_ColTester%.initialization
-{
-  //## begin CCOL_ST_ColTester::CCOL_ST_ColTester%.body preserve=yes
-  //## end CCOL_ST_ColTester::CCOL_ST_ColTester%.body
+        {
 }
 
 
 CCOL_ST_ColTester::~CCOL_ST_ColTester()
 {
-  //## begin CCOL_ST_ColTester::~CCOL_ST_ColTester%.body preserve=yes
-  //## end CCOL_ST_ColTester::~CCOL_ST_ColTester%.body
 }
 
 
 
-//## Other Operations (implementation)
 int CCOL_ST_ColTester::iTestCollision (CGraphBV *SrcObj, CGraphBV *DstObj)
 {
-  //## begin CCOL_ST_ColTester::iTestCollision%997912317.body preserve=yes
-	CBoundingSphere *SS,*DS;
+  	CBoundingSphere *SS,*DS;
 	CBoundingBox	*SB,*DB;
 	CVect3			*SP,*DP;
 	int				iFlags=0;
@@ -119,13 +97,11 @@ int CCOL_ST_ColTester::iTestCollision (CGraphBV *SrcObj, CGraphBV *DstObj)
 	}
 
 	return (0);
-  //## end CCOL_ST_ColTester::iTestCollision%997912317.body
 }
 
 int CCOL_ST_ColTester::iTestPlane (CGraphBV *_SrcObj, CPlane& Plane)
 {
-  //## begin CCOL_ST_ColTester::iTestPlane%1007160414.body preserve=yes
-	CBoundingSphere *SS;
+  	CBoundingSphere *SS;
 	CBoundingBox	*SB;
 	CVect3			*SP;
 
@@ -143,12 +119,7 @@ int CCOL_ST_ColTester::iTestPlane (CGraphBV *_SrcObj, CPlane& Plane)
 	}
 
 	return (0);
-  //## end CCOL_ST_ColTester::iTestPlane%1007160414.body
 }
 
 // Additional Declarations
-  //## begin CCOL_ST_ColTester%3B7AF1BC01C2.declarations preserve=yes
-  //## end CCOL_ST_ColTester%3B7AF1BC01C2.declarations
-
-//## begin module%3B7AF1BC01C2.epilog preserve=yes
-//## end module%3B7AF1BC01C2.epilog
+    

@@ -1,62 +1,34 @@
-//## begin module%3CCD399302BD.cm preserve=no
-//## end module%3CCD399302BD.cm
 
-//## begin module%3CCD399302BD.cp preserve=no
-//## end module%3CCD399302BD.cp
 
-//## Module: CMesh_Sphere%3CCD399302BD; Pseudo Package body
-//## Source file: i:\Projects\GammaE\E3D\Mesh\CMesh_Sphere.cpp
 
-//## begin module%3CCD399302BD.additionalIncludes preserve=no
-//## end module%3CCD399302BD.additionalIncludes
 
-//## begin module%3CCD399302BD.includes preserve=yes
-//## end module%3CCD399302BD.includes
 
 // CMesh_Sphere
-#include "E3D\Mesh\CMesh_Sphere.h"
-//## begin module%3CCD399302BD.additionalDeclarations preserve=yes
-//## end module%3CCD399302BD.additionalDeclarations
+#include "Mesh\CMesh_Sphere.h"
 
 
 // Class CMesh_Sphere 
 
 CMesh_Sphere::CMesh_Sphere()
-  //## begin CMesh_Sphere::CMesh_Sphere%.hasinit preserve=no
-  //## end CMesh_Sphere::CMesh_Sphere%.hasinit
-  //## begin CMesh_Sphere::CMesh_Sphere%.initialization preserve=yes
-  //## end CMesh_Sphere::CMesh_Sphere%.initialization
-{
-  //## begin CMesh_Sphere::CMesh_Sphere%.body preserve=yes
-	Init(16,1.0f);
-  //## end CMesh_Sphere::CMesh_Sphere%.body
+        {
+  	Init(16,1.0f);
 }
 
 CMesh_Sphere::CMesh_Sphere (int _iNumSlices, float _fRadius)
-  //## begin CMesh_Sphere::CMesh_Sphere%1020082679.hasinit preserve=no
-  //## end CMesh_Sphere::CMesh_Sphere%1020082679.hasinit
-  //## begin CMesh_Sphere::CMesh_Sphere%1020082679.initialization preserve=yes
-  //## end CMesh_Sphere::CMesh_Sphere%1020082679.initialization
-{
-  //## begin CMesh_Sphere::CMesh_Sphere%1020082679.body preserve=yes
-	Init(_iNumSlices,_fRadius);
-  //## end CMesh_Sphere::CMesh_Sphere%1020082679.body
+        {
+  	Init(_iNumSlices,_fRadius);
 }
 
 
 CMesh_Sphere::~CMesh_Sphere()
 {
-  //## begin CMesh_Sphere::~CMesh_Sphere%.body preserve=yes
-  //## end CMesh_Sphere::~CMesh_Sphere%.body
 }
 
 
 
-//## Other Operations (implementation)
 void CMesh_Sphere::Init (int _iNumSlices, float _fRadius)
 {
-  //## begin CMesh_Sphere::Init%1020082680.body preserve=yes
-	CMesh::Init(_iNumSlices*_iNumSlices*2,_iNumSlices*_iNumSlices*2-2,
+  	CMesh::Init(_iNumSlices*_iNumSlices*2,_iNumSlices*_iNumSlices*2-2,
 				E3D_MESH_NITRISTRIP,MESH_FIELD_ALL);
 
 	int	  cI,cJ,iIdx;
@@ -106,33 +78,28 @@ void CMesh_Sphere::Init (int _iNumSlices, float _fRadius)
 			
 			VXs[iIdx].V3(x1,y1,z1);
 			UVs[iIdx].V2(u,v);
-			VCs[iIdx].V4(1.0f,1.0f,1.0f,1.0f);
+			VCs[iIdx].Set(1.0f,1.0f,1.0f,1.0f);
 			VNs[iIdx].Assign(VXs[iIdx]);	// VN = Normalized(Pos - Origin) // Origin=(0,0,0)
 			VNs[iIdx].Normalize();
 			iIdx++;
 
 			VXs[iIdx].V3(x2,y2,z2);
 			UVs[iIdx].V2(u,v + fVStep);
-			VCs[iIdx].V4(1.0f,1.0f,1.0f,1.0f);
+			VCs[iIdx].Set(1.0f,1.0f,1.0f,1.0f);
 			VNs[iIdx].Assign(VXs[iIdx]);	// VN = Normalized(Pos - Origin) // Origin=(0,0,0)
 			VNs[iIdx].Normalize();
 			iIdx++;
 
 			u      += fUStep;
             theta3 += fPhiStep;
-        }            
+}            
 		
 		v      += fVStep;
         theta1 += fRhoStep;
         theta2 += fRhoStep;
-    }	
+}	
 
-  //## end CMesh_Sphere::Init%1020082680.body
 }
 
 // Additional Declarations
-  //## begin CMesh_Sphere%3CCD399302BD.declarations preserve=yes
-  //## end CMesh_Sphere%3CCD399302BD.declarations
-
-//## begin module%3CCD399302BD.epilog preserve=yes
-//## end module%3CCD399302BD.epilog
+    

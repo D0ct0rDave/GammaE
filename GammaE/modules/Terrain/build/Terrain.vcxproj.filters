@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="TerrainMaterials">
+      <UniqueIdentifier>{134c3f9d-efee-44c4-b017-1d6989a46569}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TerrainScene">
+      <UniqueIdentifier>{d46ad88a-cce2-42df-8df9-03c38703f467}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TerrainScene\SceneLoaders">
+      <UniqueIdentifier>{76c74890-1340-4a55-919b-f006679aebde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TerrainScene\SceneLoaders\DEFFile">
+      <UniqueIdentifier>{a20f6a7f-0810-41b9-90d4-96a13b6a422b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TerrainScene\SceneLoaders\TERScene">
+      <UniqueIdentifier>{02687220-aed7-42bd-a1c0-be21a59f22da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TerrainScene\SceneLoaders\EnvPars">
+      <UniqueIdentifier>{0368dfdf-bf3d-4f6d-9f49-ed3c90752e4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TerrainTesselators">
+      <UniqueIdentifier>{55e7614e-5289-4ed5-bf75-57f03515a2c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TerrainMath">
+      <UniqueIdentifier>{13dd59dd-ac60-4787-8cb7-5c6f288186fe}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\TerrainMaterials\CTileBookmark.cpp">
+      <Filter>TerrainMaterials</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TerrainScene\CTerrainCircuit.cpp">
+      <Filter>TerrainScene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TerrainScene\CTerrainSector.cpp">
+      <Filter>TerrainScene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TerrainScene\SceneLoaders\DEFSceneLoader.cpp">
+      <Filter>TerrainScene\SceneLoaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TerrainScene\SceneLoaders\DEFFile\DEFFile.cpp">
+      <Filter>TerrainScene\SceneLoaders\DEFFile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TerrainScene\SceneLoaders\TERScene\TERSceneLoader.cpp">
+      <Filter>TerrainScene\SceneLoaders\TERScene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TerrainTesselators\CTerrainTesselator.cpp">
+      <Filter>TerrainTesselators</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TerrainTesselators\CTerrainTesselatorGM.cpp">
+      <Filter>TerrainTesselators</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TerrainTesselators\CTerrainTesselatorTileGM.cpp">
+      <Filter>TerrainTesselators</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TerrainMath\CLODSelector.cpp">
+      <Filter>TerrainMath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TerrainMath\CLODSelector_Array.cpp">
+      <Filter>TerrainMath</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\TerrainMaterials\CTileBookmark.h">
+      <Filter>TerrainMaterials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TerrainScene\CTerrainCircuit.h">
+      <Filter>TerrainScene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TerrainScene\CTerrainSector.h">
+      <Filter>TerrainScene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TerrainScene\SceneLoaders\DEFSceneLoader.h">
+      <Filter>TerrainScene\SceneLoaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TerrainScene\SceneLoaders\DEFFile\DEFFile.h">
+      <Filter>TerrainScene\SceneLoaders\DEFFile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TerrainScene\SceneLoaders\TERScene\TERSceneLoader.h">
+      <Filter>TerrainScene\SceneLoaders\TERScene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TerrainScene\SceneLoaders\EnvPars\EnvPars.h">
+      <Filter>TerrainScene\SceneLoaders\EnvPars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TerrainTesselators\CTerrainTesselator.h">
+      <Filter>TerrainTesselators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TerrainTesselators\CTerrainTesselatorGM.h">
+      <Filter>TerrainTesselators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TerrainTesselators\CTerrainTesselatorTileGM.h">
+      <Filter>TerrainTesselators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TerrainMath\CLODSelector.h">
+      <Filter>TerrainMath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TerrainMath\CLODSelector_Array.h">
+      <Filter>TerrainMath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GammaE_Terrain.h" />
+  </ItemGroup>
+</Project>

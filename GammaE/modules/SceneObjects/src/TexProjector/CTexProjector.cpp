@@ -1,28 +1,15 @@
-//## begin module%3CB94617013A.cm preserve=no
-//	  %X% %Q% %Z% %W%
-//## end module%3CB94617013A.cm
 
-//## begin module%3CB94617013A.cp preserve=no
-//## end module%3CB94617013A.cp
 
-//## Module: CTexProjector%3CB94617013A; Pseudo Package body
-//## Source file: i:\Projects\GammaE\SceneObjects\TexProjector\CTexProjector.cpp
 
-//## begin module%3CB94617013A.additionalIncludes preserve=no
-//## end module%3CB94617013A.additionalIncludes
 
-//## begin module%3CB94617013A.includes preserve=yes
-#include "memory/gammae_mem.h"
-//## end module%3CB94617013A.includes
+#include "GammaE_Mem.h"
 
 // CTexProjector
-#include "SceneObjects\TexProjector\CTexProjector.h"
-//## begin module%3CB94617013A.additionalDeclarations preserve=yes
+#include "TexProjector\CTexProjector.h"
 
 // arreglar
 // int iMaxUVs = 0;
 
-//## end module%3CB94617013A.additionalDeclarations
 
 
 // Class CTexProjector 
@@ -30,20 +17,13 @@
 
 
 CTexProjector::CTexProjector()
-  //## begin CTexProjector::CTexProjector%.hasinit preserve=no
-  //## end CTexProjector::CTexProjector%.hasinit
-  //## begin CTexProjector::CTexProjector%.initialization preserve=yes
-  //## end CTexProjector::CTexProjector%.initialization
-{
-  //## begin CTexProjector::CTexProjector%.body preserve=yes
-  //## end CTexProjector::CTexProjector%.body
+        {
 }
 
 
 CTexProjector::~CTexProjector()
 {
-  //## begin CTexProjector::~CTexProjector%.body preserve=yes
-	
+  	
 	// Unlink projector mesh
    	oAuxMesh.BVol      = NULL;
 	oAuxMesh.eMeshType = E3D_MESH_NONE;
@@ -60,76 +40,66 @@ CTexProjector::~CTexProjector()
 	
 	SetMesh(NULL);
 
-  //## end CTexProjector::~CTexProjector%.body
 }
 
 
 
-//## Other Operations (implementation)
-void CTexProjector::Setup (CMesh* _roSrcMesh, CE3D_Shader* _poShader, CMatrix4x4& _roPrjMatrix)
+void CTexProjector::Setup (CMesh* _oSrcMesh, CE3D_Shader* _poShader, CMatrix4x4& _oPrjMatrix)
 {
-  //## begin CTexProjector::Setup%1018775600.body preserve=yes
-
+  
 	// Copy source data
- 	oAuxMesh.BVol      = _roSrcMesh->BVol;
-	oAuxMesh.eMeshType = _roSrcMesh->eMeshType;	
-	oAuxMesh.Idxs      = _roSrcMesh->Idxs;
-	oAuxMesh.VXs	   = _roSrcMesh->VXs;
-	oAuxMesh.usNumIdxs = _roSrcMesh->usNumIdxs;
-	oAuxMesh.usNumPrims= _roSrcMesh->usNumPrims;
-	oAuxMesh.usNumVerts= _roSrcMesh->usNumVerts;	
-	oAuxMesh.UVs	   = (CVect2*)_roSrcMesh->VXs;
+ 	oAuxMesh.BVol      = _oSrcMesh->BVol;
+	oAuxMesh.eMeshType = _oSrcMesh->eMeshType;	
+	oAuxMesh.Idxs      = _oSrcMesh->Idxs;
+	oAuxMesh.VXs	   = _oSrcMesh->VXs;
+	oAuxMesh.usNumIdxs = _oSrcMesh->usNumIdxs;
+	oAuxMesh.usNumPrims= _oSrcMesh->usNumPrims;
+	oAuxMesh.usNumVerts= _oSrcMesh->usNumVerts;	
+	oAuxMesh.UVs	   = (CVect2*)_oSrcMesh->VXs;
 	oAuxMesh.UVs2      = NULL;
-	oAuxMesh.VCs       = NULL;						// _roSrcMesh->VCs;	
+	oAuxMesh.VCs       = NULL;						// _oSrcMesh->VCs;	
 	oAuxMesh.VNs       = NULL;
 	oAuxMesh.TNs       = NULL;
 	
 	// UVs
 	/*
-	if (_roSrcMesh->usNumVerts > iMaxUVs)
+	if (_oSrcMesh->usNumVerts > iMaxUVs)
 	{
 		if (iMaxUVs)
 			mDel []oAuxMesh.UVs;
 		
-		oAuxMesh.UVs = mNew CVect2[_roSrcMesh->usNumVerts];
-		iMaxUVs = _roSrcMesh->usNumVerts;
+		oAuxMesh.UVs = mNew CVect2[_oSrcMesh->usNumVerts];
+		iMaxUVs = _oSrcMesh->usNumVerts;
 	}
 
 	// Project coordinates 
 	CVect3	oUV;
 	int		iV;
-	for (iV=0;iV<_roSrcMesh->usNumVerts;iV++)
+	for (iV=0;iV<_oSrcMesh->usNumVerts;iV++)
 	{	
-		// oUV.V4(oAuxMesh.VXs[iV].X(),oAuxMesh.VXs[iV].Y(),oAuxMesh.VXs[iV].Z(),1.0f);		
+		// oUV.V4(oAuxMesh.VXs[iV].x,oAuxMesh.VXs[iV].y,oAuxMesh.VXs[iV].z,1.0f);		
 		oUV.Assign(oAuxMesh.VXs[iV]);		
-		_roPrjMatrix.TransformVector(oUV);		
+		_oPrjMatrix.TransformVector(oUV);		
 
-		// oAuxMesh.UVs[iV].V2(0.5f + 0.5f*oUV.X()/oUV.Z(),0.5f + 0.5f*oUV.Y()/oUV.Z());
-		oAuxMesh.UVs[iV].V2(oUV.X()/oUV.Z(),oUV.Y()/oUV.Z());
+		// oAuxMesh.UVs[iV].V2(0.5f + 0.5f*oUV.x/oUV.z,0.5f + 0.5f*oUV.y/oUV.z);
+		oAuxMesh.UVs[iV].V2(oUV.x/oUV.z,oUV.y/oUV.z);
 	}
 	*/
 	SetShader(_poShader);
 	SetMesh  (&oAuxMesh);	
-  //## end CTexProjector::Setup%1018775600.body
 }
 
-void CTexProjector::Setup (CMesh* _roSrcMesh, CE3D_Shader* _poShader, CVect3& _roPos, CVect3& _roDir, float _fXSize, float _fYSize)
+void CTexProjector::Setup (CMesh* _oSrcMesh, CE3D_Shader* _poShader, CVect3& _oPos, CVect3& _oDir, float _fXSize, float _fYSize)
 {
-  //## begin CTexProjector::Setup%1019152544.body preserve=yes
-	// Compute projection matrix
+  	// Compute projection matrix
 	CMatrix4x4 oPrjMat;
 	
 	// ...
 	// ...
 	// ...
 
-	Setup(_roSrcMesh,_poShader,oPrjMat);
-  //## end CTexProjector::Setup%1019152544.body
+	Setup(_oSrcMesh,_poShader,oPrjMat);
 }
 
 // Additional Declarations
-  //## begin CTexProjector%3CB94617013A.declarations preserve=yes
-  //## end CTexProjector%3CB94617013A.declarations
-
-//## begin module%3CB94617013A.epilog preserve=yes
-//## end module%3CB94617013A.epilog
+    

@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{BD798A53-A9DC-19F8-5262-52AE3EA4E57A}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>SceneObjects</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(ProjectDir)\lib\Debug\</OutDir>
+    <IntDir>$(ProjectDir)\obj\Debug\</IntDir>
+    <TargetName>SceneObjects</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(ProjectDir)\lib\Release\</OutDir>
+    <IntDir>$(ProjectDir)\obj\Release\</IntDir>
+    <TargetName>SceneObjects</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_NULL=0;_MBCS;WIN32;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Scene;..\SceneObjects;$(ProjectDir)..\..;;$(ProjectDir)..;$(ProjectDir)..\..\sdks\FileLib\Src;;$(ProjectDir)..\..\sdks\TexLib\src;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_NULL=0;_MBCS;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Scene;..\SceneObjects;$(ProjectDir)..\..;;$(ProjectDir)..;$(ProjectDir)..\..\sdks\FileLib\Src;;$(ProjectDir)..\..\sdks\TexLib\src;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Scene\src\3D_Loaders\3DMax_ASE\ASE_ModelParser.h" />
+    <ClInclude Include="..\Scene\src\3D_Loaders\3DMax_ASE\ASE_Tokens.h" />
+    <ClInclude Include="..\Scene\src\3D_Loaders\3DSLoader\CLoader3DS.h" />
+    <ClInclude Include="..\Scene\src\3D_Loaders\3DSLoader\T3DS_Chunk.h" />
+    <ClInclude Include="..\Scene\src\3D_Loaders\BSP2Loader\BSP2Types.h" />
+    <ClInclude Include="..\Scene\src\3D_Loaders\BSP2Loader\CLoaderBSP2.h" />
+    <ClInclude Include="..\Scene\src\3D_Loaders\C3DLoader.h" />
+    <ClInclude Include="..\Scene\src\3D_Loaders\GEMLoader\CLoaderGEM.h" />
+    <ClInclude Include="..\Scene\src\3D_Loaders\GEMLoader\GEMFile.h" />
+    <ClInclude Include="..\Scene\src\3D_Loaders\MD2Loader\CLoaderMD2.h" />
+    <ClInclude Include="..\Scene\src\3D_Loaders\MD2Loader\MD2LightNormals.h" />
+    <ClInclude Include="..\Scene\src\3D_Loaders\MD2Loader\MD2Types.h" />
+    <ClInclude Include="..\Scene\src\3D_Loaders\MD3Loader\CLoaderMD3.h" />
+    <ClInclude Include="..\Scene\src\3D_Loaders\MD3Loader\MD3Model.h" />
+    <ClInclude Include="..\Scene\src\3D_Savers\C3DSaver.h" />
+    <ClInclude Include="..\Scene\src\3D_Savers\GEMSaver\CSaverGEM.h" />
+    <ClInclude Include="..\Scene\src\Animation\CObject3D_AnimCfg.h" />
+    <ClInclude Include="..\Scene\src\Animation\CObject3D_AnimCfgGen.h" />
+    <ClInclude Include="..\Scene\src\Animation\CObject3D_AnimCfgMgr.h" />
+    <ClInclude Include="..\Scene\src\Animation\CObject3D_AnimGen.h" />
+    <ClInclude Include="..\Scene\src\Animation\CObject3D_AnimMesh.h" />
+    <ClInclude Include="..\Scene\src\Animation\CObject3D_AnimNode.h" />
+    <ClInclude Include="..\Scene\src\Animation\CObject3D_AnimTransf.h" />
+    <ClInclude Include="..\Scene\src\Animation\TFrameAnimation.h" />
+    <ClInclude Include="..\Scene\src\CObject3D.h" />
+    <ClInclude Include="..\Scene\src\CObject3D_BSPNode.h" />
+    <ClInclude Include="..\Scene\src\CObject3D_Camera.h" />
+    <ClInclude Include="..\Scene\src\CObject3D_CompiledLeaf.h" />
+    <ClInclude Include="..\Scene\src\CObject3D_Instance.h" />
+    <ClInclude Include="..\Scene\src\CObject3D_Leaf.h" />
+    <ClInclude Include="..\Scene\src\CObject3D_Link.h" />
+    <ClInclude Include="..\Scene\src\CObject3D_Mux.h" />
+    <ClInclude Include="..\Scene\src\CObject3D_Node.h" />
+    <ClInclude Include="..\Scene\src\CObject3D_ScreenRect.h" />
+    <ClInclude Include="..\Scene\src\CObject3D_Switch.h" />
+    <ClInclude Include="..\Scene\src\CObject3D_Transf.h" />
+    <ClInclude Include="..\Scene\src\GScene.h" />
+    <ClInclude Include="..\Scene\src\e3DObjectTypeID.h" />
+    <ClInclude Include="..\SceneObjects\src\Console\CConsole.h" />
+    <ClInclude Include="..\SceneObjects\src\CoronaMgr\CCorona.h" />
+    <ClInclude Include="..\SceneObjects\src\CoronaMgr\CCoronaMgr.h" />
+    <ClInclude Include="..\SceneObjects\src\Detailer\CDetailer.h" />
+    <ClInclude Include="..\SceneObjects\src\GSceneObjects.h" />
+    <ClInclude Include="..\SceneObjects\src\HUD\CHUD.h" />
+    <ClInclude Include="..\SceneObjects\src\HUD\CHUDIcon.h" />
+    <ClInclude Include="..\SceneObjects\src\HUD\CHUDLabel.h" />
+    <ClInclude Include="..\SceneObjects\src\HUD\CHUDObject.h" />
+    <ClInclude Include="..\SceneObjects\src\HUD\CHUDProgressBar.h" />
+    <ClInclude Include="..\SceneObjects\src\HUD\Font\CHUDFont.h" />
+    <ClInclude Include="..\SceneObjects\src\HUD\Font\CHUDFontWH.h" />
+    <ClInclude Include="..\SceneObjects\src\HUD\HUDFile\CHUDFile.h" />
+    <ClInclude Include="..\SceneObjects\src\HUD\MsgBox\CHUDMsgBox.h" />
+    <ClInclude Include="..\SceneObjects\src\HUD\MsgBox\CMenuTextGrid.h" />
+    <ClInclude Include="..\SceneObjects\src\LensFlare\CLensFlare.h" />
+    <ClInclude Include="..\SceneObjects\src\LensFlare\CLensFlare_Elem.h" />
+    <ClInclude Include="..\SceneObjects\src\LightCaster\CLightCaster.h" />
+    <ClInclude Include="..\SceneObjects\src\Reflector\CObject3D_Reflector.h" />
+    <ClInclude Include="..\SceneObjects\src\SceneAxis\SceneAxis.h" />
+    <ClInclude Include="..\SceneObjects\src\ShadowCaster\CShadowCaster.h" />
+    <ClInclude Include="..\SceneObjects\src\SkyBox\CSkyBox.h" />
+    <ClInclude Include="..\SceneObjects\src\SkyDome\CSkyDome.h" />
+    <ClInclude Include="..\SceneObjects\src\TexProjector\CTexProjector.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Scene\src\3D_Loaders\3DMax_ASE\ASE_ModelParser.cpp" />
+    <ClCompile Include="..\Scene\src\3D_Loaders\3DMax_ASE\ASE_Tokens.cpp" />
+    <ClCompile Include="..\Scene\src\3D_Loaders\3DSLoader\CLoader3DS.cpp" />
+    <ClCompile Include="..\Scene\src\3D_Loaders\3DSLoader\T3DS_Chunk.cpp" />
+    <ClCompile Include="..\Scene\src\3D_Loaders\BSP2Loader\CLoaderBSP2.cpp" />
+    <ClCompile Include="..\Scene\src\3D_Loaders\C3DLoader.cpp" />
+    <ClCompile Include="..\Scene\src\3D_Loaders\GEMLoader\CLoaderGEM.cpp" />
+    <ClCompile Include="..\Scene\src\3D_Loaders\MD2Loader\CLoaderMD2.cpp" />
+    <ClCompile Include="..\Scene\src\3D_Loaders\MD2Loader\MD2LightNormals.cpp" />
+    <ClCompile Include="..\Scene\src\3D_Loaders\MD3Loader\CLoaderMD3.cpp" />
+    <ClCompile Include="..\Scene\src\3D_Savers\C3DSaver.cpp" />
+    <ClCompile Include="..\Scene\src\3D_Savers\GEMSaver\CSaverGEM.cpp" />
+    <ClCompile Include="..\Scene\src\Animation\CObject3D_AnimCfg.cpp" />
+    <ClCompile Include="..\Scene\src\Animation\CObject3D_AnimCfgGen.cpp" />
+    <ClCompile Include="..\Scene\src\Animation\CObject3D_AnimCfgMgr.cpp" />
+    <ClCompile Include="..\Scene\src\Animation\CObject3D_AnimGen.cpp" />
+    <ClCompile Include="..\Scene\src\Animation\CObject3D_AnimMesh.cpp" />
+    <ClCompile Include="..\Scene\src\Animation\CObject3D_AnimNode.cpp" />
+    <ClCompile Include="..\Scene\src\Animation\CObject3D_AnimTransf.cpp" />
+    <ClCompile Include="..\Scene\src\Animation\TFrameAnimation.cpp" />
+    <ClCompile Include="..\Scene\src\CObject3D.cpp" />
+    <ClCompile Include="..\Scene\src\CObject3D_BSPNode.cpp" />
+    <ClCompile Include="..\Scene\src\CObject3D_Camera.cpp" />
+    <ClCompile Include="..\Scene\src\CObject3D_CompiledLeaf.cpp" />
+    <ClCompile Include="..\Scene\src\CObject3D_Leaf.cpp" />
+    <ClCompile Include="..\Scene\src\CObject3D_Link.cpp" />
+    <ClCompile Include="..\Scene\src\CObject3D_Mux.cpp" />
+    <ClCompile Include="..\Scene\src\CObject3D_Node.cpp" />
+    <ClCompile Include="..\Scene\src\CObject3D_ScreenRect.cpp" />
+    <ClCompile Include="..\Scene\src\CObject3D_Switch.cpp" />
+    <ClCompile Include="..\Scene\src\CObject3D_Transf.cpp" />
+    <ClCompile Include="..\Scene\src\e3DObjectTypeID.cpp" />
+    <ClCompile Include="..\SceneObjects\src\Console\CConsole.cpp" />
+    <ClCompile Include="..\SceneObjects\src\CoronaMgr\CCorona.cpp" />
+    <ClCompile Include="..\SceneObjects\src\CoronaMgr\CCoronaMgr.cpp" />
+    <ClCompile Include="..\SceneObjects\src\Detailer\CDetailer.cpp" />
+    <ClCompile Include="..\SceneObjects\src\HUD\CHUD.cpp" />
+    <ClCompile Include="..\SceneObjects\src\HUD\CHUDIcon.cpp" />
+    <ClCompile Include="..\SceneObjects\src\HUD\CHUDLabel.cpp" />
+    <ClCompile Include="..\SceneObjects\src\HUD\CHUDProgressBar.cpp" />
+    <ClCompile Include="..\SceneObjects\src\HUD\Font\CHUDFont.cpp" />
+    <ClCompile Include="..\SceneObjects\src\HUD\Font\CHUDFontWH.cpp" />
+    <ClCompile Include="..\SceneObjects\src\HUD\HUDFile\CHUDFile.cpp" />
+    <ClCompile Include="..\SceneObjects\src\HUD\MsgBox\CHUDMsgBox.cpp" />
+    <ClCompile Include="..\SceneObjects\src\HUD\MsgBox\CMenuTextGrid.cpp" />
+    <ClCompile Include="..\SceneObjects\src\LensFlare\CLensFlare.cpp" />
+    <ClCompile Include="..\SceneObjects\src\LensFlare\CLensFlare_Elem.cpp" />
+    <ClCompile Include="..\SceneObjects\src\LightCaster\CLightCaster.cpp" />
+    <ClCompile Include="..\SceneObjects\src\Reflector\CObject3D_Reflector.cpp" />
+    <ClCompile Include="..\SceneObjects\src\SceneAxis\SceneAxis.cpp" />
+    <ClCompile Include="..\SceneObjects\src\ShadowCaster\CShadowCaster.cpp" />
+    <ClCompile Include="..\SceneObjects\src\SkyBox\CSkyBox.cpp" />
+    <ClCompile Include="..\SceneObjects\src\SkyDome\CSkyDome.cpp" />
+    <ClCompile Include="..\SceneObjects\src\TexProjector\CTexProjector.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

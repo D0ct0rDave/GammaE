@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="MATH_Plane">
+      <UniqueIdentifier>{975284d7-7a07-4122-b54a-9e8ee6397f16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MATH_Ray">
+      <UniqueIdentifier>{aa79e3c8-e95c-4dd2-bfbf-16237ea103b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MATH_Vector">
+      <UniqueIdentifier>{5669fa9b-d54d-4b71-9e37-a732eebd8a53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MATH_Matrix">
+      <UniqueIdentifier>{172ec3c9-dbd3-46b4-92a2-f0fe30c063b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MATH_Quaternion">
+      <UniqueIdentifier>{a40e6e21-a136-4a7f-9ccf-0f2af08d19fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MATH_Evaluator">
+      <UniqueIdentifier>{b3d77638-a846-44c1-ac2b-c1564ca70abc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MATH_Other">
+      <UniqueIdentifier>{a5a0d5b6-5f9d-42ca-a044-be14368601ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MATH_Triangle">
+      <UniqueIdentifier>{12a52472-5481-43ad-9b8d-fa68e4a5fe5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MATH_Segment">
+      <UniqueIdentifier>{bcabab88-e4b7-4ae6-a1eb-b05da7dbc0a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MATH_Curve">
+      <UniqueIdentifier>{586e705e-0e75-498d-931b-42a60004b483}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\MATH_Plane\CPlane.cpp">
+      <Filter>MATH_Plane</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MATH_Ray\CRay.cpp">
+      <Filter>MATH_Ray</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MATH_Vector\CVect2.cpp">
+      <Filter>MATH_Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MATH_Vector\CVect3.cpp">
+      <Filter>MATH_Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MATH_Vector\CVect4.cpp">
+      <Filter>MATH_Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MATH_Matrix\CMatrix4x4.cpp">
+      <Filter>MATH_Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MATH_Quaternion\CQuaternion.cpp">
+      <Filter>MATH_Quaternion</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MATH_Evaluator\CEval_Binary.cpp">
+      <Filter>MATH_Evaluator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MATH_Evaluator\CEval_Const.cpp">
+      <Filter>MATH_Evaluator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MATH_Evaluator\CEval_Cos.cpp">
+      <Filter>MATH_Evaluator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MATH_Evaluator\CEval_Mult.cpp">
+      <Filter>MATH_Evaluator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MATH_Evaluator\CEval_Periodic.cpp">
+      <Filter>MATH_Evaluator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MATH_Evaluator\CEval_SawTooth.cpp">
+      <Filter>MATH_Evaluator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MATH_Evaluator\CEval_Sin.cpp">
+      <Filter>MATH_Evaluator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MATH_Evaluator\CEval_Square.cpp">
+      <Filter>MATH_Evaluator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MATH_Evaluator\CEval_Sum.cpp">
+      <Filter>MATH_Evaluator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MATH_Evaluator\CEval_Time.cpp">
+      <Filter>MATH_Evaluator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MATH_Evaluator\CEval_Triangle.cpp">
+      <Filter>MATH_Evaluator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MATH_Evaluator\CEvaluator.cpp">
+      <Filter>MATH_Evaluator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MATH_Evaluator\GammaE_Math_Evaluators.cpp">
+      <Filter>MATH_Evaluator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MATH_Other\CSmoother.cpp">
+      <Filter>MATH_Other</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MATH_Other\MATH_Common.cpp">
+      <Filter>MATH_Other</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MATH_Other\MATH_Utils.cpp">
+      <Filter>MATH_Other</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MATH_Triangle\CTriangle.cpp">
+      <Filter>MATH_Triangle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MATH_Segment\CSegment.cpp">
+      <Filter>MATH_Segment</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MATH_Curve\C4PCurve.cpp">
+      <Filter>MATH_Curve</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MATH_Curve\CCurve.cpp">
+      <Filter>MATH_Curve</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\MATH_Plane\CPlane.h">
+      <Filter>MATH_Plane</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MATH_Ray\CRay.h">
+      <Filter>MATH_Ray</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MATH_Vector\CVect2.h">
+      <Filter>MATH_Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MATH_Vector\cvect3.h">
+      <Filter>MATH_Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MATH_Vector\CVect4.h">
+      <Filter>MATH_Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MATH_Matrix\CMatrix4x4.h">
+      <Filter>MATH_Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MATH_Quaternion\CQuaternion.h">
+      <Filter>MATH_Quaternion</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MATH_Evaluator\CEval_Binary.h">
+      <Filter>MATH_Evaluator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MATH_Evaluator\CEval_Const.h">
+      <Filter>MATH_Evaluator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MATH_Evaluator\CEval_Cos.h">
+      <Filter>MATH_Evaluator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MATH_Evaluator\CEval_Mult.h">
+      <Filter>MATH_Evaluator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MATH_Evaluator\CEval_Periodic.h">
+      <Filter>MATH_Evaluator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MATH_Evaluator\CEval_SawTooth.h">
+      <Filter>MATH_Evaluator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MATH_Evaluator\CEVAL_SIN.H">
+      <Filter>MATH_Evaluator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MATH_Evaluator\CEval_Square.h">
+      <Filter>MATH_Evaluator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MATH_Evaluator\CEval_Sum.h">
+      <Filter>MATH_Evaluator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MATH_Evaluator\CEval_Time.h">
+      <Filter>MATH_Evaluator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MATH_Evaluator\CEval_Triangle.h">
+      <Filter>MATH_Evaluator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MATH_Evaluator\CEvaluator.h">
+      <Filter>MATH_Evaluator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MATH_Evaluator\GammaE_Math_Evaluators.h">
+      <Filter>MATH_Evaluator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MATH_Other\CSmoother.h">
+      <Filter>MATH_Other</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MATH_Other\MATH_Common.h">
+      <Filter>MATH_Other</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MATH_Other\MATH_Utils.h">
+      <Filter>MATH_Other</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MATH_Triangle\CTriangle.h">
+      <Filter>MATH_Triangle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MATH_Segment\CSegment.h">
+      <Filter>MATH_Segment</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MATH_Curve\C4PCurve.h">
+      <Filter>MATH_Curve</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MATH_Curve\CCurve.h">
+      <Filter>MATH_Curve</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GMath.h" />
+  </ItemGroup>
+</Project>

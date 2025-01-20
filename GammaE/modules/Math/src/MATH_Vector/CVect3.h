@@ -1,21 +1,9 @@
-//## begin module%3A9AD9AC01F4.cm preserve=no
-//	  %X% %Q% %Z% %W%
-//## end module%3A9AD9AC01F4.cm
-
-//## begin module%3A9AD9AC01F4.cp preserve=no
-//## end module%3A9AD9AC01F4.cp
-
-//## Module: CVect3%3A9AD9AC01F4; Pseudo Package specification
-//## Source file: i:\Projects\GammaE\Math\MATH_Vector\CVect3.h
-
+//-----------------------------------------------------------------------------
 #ifndef CVect3_h
 #define CVect3_h 1
-
-//## begin module%3A9AD9AC01F4.additionalIncludes preserve=no
-//## end module%3A9AD9AC01F4.additionalIncludes
-
-//## begin module%3A9AD9AC01F4.includes preserve=yes
+//-----------------------------------------------------------------------------
 #include <math.h>
+#include "GammaE_Misc.h"
 #ifndef cosf
 #define cosf cos
 #endif
@@ -23,250 +11,157 @@
 #ifndef sinf
 #define sinf sin
 #endif
-
-#define _X_	0
-#define _Y_	1
-#define _Z_	2
-
-//## end module%3A9AD9AC01F4.includes
-
+//-----------------------------------------------------------------------------
 // MATH_Common
-#include "Math\MATH_Other\MATH_Common.h"
-//## begin module%3A9AD9AC01F4.additionalDeclarations preserve=yes
-//## end module%3A9AD9AC01F4.additionalDeclarations
-
-
-//## begin CVect3%3A9AD9AC01F4.preface preserve=yes
-//## end CVect3%3A9AD9AC01F4.preface
-
-//## Class: CVect3%3A9AD9AC01F4
-//## Category: Math::MATH_Vector%3C275D080385
-//## Persistence: Transient
-//## Cardinality/Multiplicity: n
-
-//## Uses: <unnamed>%3CB5CCBE0346;MATH_Common { -> }
-
+#include "..\MATH_Other\MATH_Common.h"
+//-----------------------------------------------------------------------------
 class CVect3 
 {
-  //## begin CVect3%3A9AD9AC01F4.initialDeclarations preserve=yes
-  //## end CVect3%3A9AD9AC01F4.initialDeclarations
-
   public:
-    //## Constructors (generated)
-      CVect3();
+			CVect3();
+			
+			CVect3 (float _fX, float _fY, float _fZ);
 
-    //## Constructors (specified)
-      //## Operation: CVect3%1018547492
-      CVect3 (float _fX, float _fY, float _fZ);
+            void V3(float _fX, float _fY, float _fZ);
 
+            void Point(float _fAzimut, float _fElevation);
 
-    //## Other Operations (specified)
-      //## Operation: V3%1018547493
-      void V3 (float _fX, float _fY, float _fZ);
+            void Assign(const CVect3& _oV);
 
-      //## Operation: Point%1018547494
-      void Point (float _fAzimut, float _fElevation);
+            void CrossProd(const CVect3& _oV1,const CVect3& _oV2);
 
-      //## Operation: Assign%1018547495
-      void Assign (CVect3& _roV);
+            void Normal(const CVect3& _oA, const CVect3& _oB, const CVect3& _oC);
 
-      //## Operation: CrossProd%1018547496
-      void CrossProd (CVect3& _roV1, CVect3& _roV2);
+            void Orthogonal(const CVect3& _oV);
 
-      //## Operation: Normal%1018547497
-      void Normal (CVect3& _roA, CVect3& _roB, CVect3& _roC);
+            void LineEq(const CVect3& _oPos, const CVect3& _oDir, float _fU);
 
-      //## Operation: Orthogonal%1018547498
-      void Orthogonal (CVect3& _roV);
+            void Add(const CVect3& _oV);
 
-      //## Operation: LineEq%1018547499
-      void LineEq (CVect3& _roPos, CVect3& _roDir, float _fU);
+            void Sub(const CVect3& _oV);
 
-      //## Operation: X%1018547500
-      float X ();
+            void Mult(const CVect3& _oV);
 
-      //## Operation: Y%1018547501
-      float Y ();
+            void Scale(float _fFactor);
 
-      //## Operation: Z%1018547502
-      float Z ();
+            void Add(float _fX, float _fY, float _fZ);
 
-      //## Operation: SetX%1018547503
-      void SetX (float _fX);
+            void Sub(float _fX, float _fY, float _fZ);
 
-      //## Operation: SetY%1018547504
-      void SetY (float _fY);
+            void Mult(float _fX, float _fY, float _fZ);
 
-      //## Operation: SetZ%1018547505
-      void SetZ (float _fZ);
+            float fDotProd(const CVect3& _oV) const;
 
-      //## Operation: Add%1018547506
-      void Add (CVect3& _roV);
+            void Interpolate(const CVect3& _oA,const CVect3& _oB, float _fFact);
 
-      //## Operation: Sub%1018547507
-      void Sub (CVect3& _roV);
+            void Normalize();
 
-      //## Operation: Mult%1018547508
-      void Mult (CVect3& _roV);
+            float fModule() const;
 
-      //## Operation: Scale%1018547509
-      void Scale (float _fFactor);
+            float fSqModule() const;
 
-      //## Operation: Add%1018547510
-      void Add (float _fX, float _fY, float _fZ);
+            float fDistance(const CVect3& _oPnt) const;
 
-      //## Operation: Sub%1018547511
-      void Sub (float _fX, float _fY, float _fZ);
+            float fSqDistance(const CVect3& _oPnt) const;
 
-      //## Operation: Mult%1018547512
-      void Mult (float _fX, float _fY, float _fZ);
+            bool bInside(const CVect3& _oMax, const CVect3& _oMin) const;
 
-      //## Operation: DotProd%1018547513
-      float DotProd (CVect3& _roV);
+            bool bEqual(const CVect3& _oV) const;
 
-      //## Operation: Module%1018547514
-      float Module ();
+            int iGetGreaterAxis() const;
 
-      //## Operation: SqModule%1018547515
-      float SqModule ();
+            static const CVect3& oZero() { extern CVect3 gsoZero;	return(gsoZero); };
+            static const CVect3& oX()    { extern CVect3 gsoX;		return(gsoX); };
+            static const CVect3& oY()    { extern CVect3 gsoY;		return(gsoY); };
+            static const CVect3& oZ()    { extern CVect3 gsoZ;		return(gsoZ); };
 
-      //## Operation: Normalize%1018547516
-      void Normalize ();
+			float& v(uint _uiIdx)
+			{
+				return( *((float*)&x + _uiIdx) );
+			}
 
-      //## Operation: Interpolate%1018547517
-      void Interpolate (CVect3& _roA, CVect3& _roB, float _fFact);
+			const float* V()
+			{
+				return( &x);
+			};
+			// float& operator[](const unsigned int index) const;
 
-      //## Operation: Distance%1018547518
-      float Distance (CVect3& _roPnt);
-
-      //## Operation: SqDistance%1018547519
-      float SqDistance (CVect3& _roPnt);
-
-      //## Operation: Inside%1018547520
-      bool Inside (CVect3& _roMax, CVect3& _roMin);
-
-      //## Operation: Equal%1018547521
-      bool Equal (CVect3& _roV);
-
-      //## Operation: iGetGreaterAxis%1018547522
-      int iGetGreaterAxis ();
-
-    // Data Members for Class Attributes
-
-      //## Attribute: v%3CB5CCB402F2
-      //## begin CVect3::v%3CB5CCB402F2.attr preserve=no  public: float[3] {UA} 
-      float v[3];
-      //## end CVect3::v%3CB5CCB402F2.attr
-
+			// Data Members for Class Attributes				
+			float x;
+			float y;
+			float z;
     // Additional Public Declarations
-      //## begin CVect3%3A9AD9AC01F4.public preserve=yes
-      //## end CVect3%3A9AD9AC01F4.public
-
+            
   protected:
     // Additional Protected Declarations
-      //## begin CVect3%3A9AD9AC01F4.protected preserve=yes
-      //## end CVect3%3A9AD9AC01F4.protected
-
+            
   private:
     // Additional Private Declarations
-      //## begin CVect3%3A9AD9AC01F4.private preserve=yes
-      //## end CVect3%3A9AD9AC01F4.private
-
-  private: //## implementation
-    // Additional Implementation Declarations
-      //## begin CVect3%3A9AD9AC01F4.implementation preserve=yes
-      //## end CVect3%3A9AD9AC01F4.implementation
-
+            
+  private:     // Additional Implementation Declarations
+            
 };
 
-//## begin CVect3%3A9AD9AC01F4.postscript preserve=yes
-//## end CVect3%3A9AD9AC01F4.postscript
 
 // Class CVect3 
 
 inline CVect3::CVect3()
-  //## begin CVect3::CVect3%.hasinit preserve=no
-  //## end CVect3::CVect3%.hasinit
-  //## begin CVect3::CVect3%.initialization preserve=yes
-  //## end CVect3::CVect3%.initialization
 {
-  //## begin CVect3::CVect3%.body preserve=yes
-  //## end CVect3::CVect3%.body
 }
 
-inline CVect3::CVect3 (float _fX, float _fY, float _fZ)
-  //## begin CVect3::CVect3%1018547492.hasinit preserve=no
-  //## end CVect3::CVect3%1018547492.hasinit
-  //## begin CVect3::CVect3%1018547492.initialization preserve=yes
-  //## end CVect3::CVect3%1018547492.initialization
+inline CVect3::CVect3(float _fX, float _fY, float _fZ)
 {
-  //## begin CVect3::CVect3%1018547492.body preserve=yes
-	v[0] = _fX;
-	v[1] = _fY;
-	v[2] = _fZ;
-  //## end CVect3::CVect3%1018547492.body
+  	x = _fX;
+	y = _fY;
+	z = _fZ;
 }
 
-
-
-//## Other Operations (inline)
-inline void CVect3::V3 (float _fX, float _fY, float _fZ)
+inline void CVect3::V3(float _fX, float _fY, float _fZ)
 {
-  //## begin CVect3::V3%1018547493.body preserve=yes
-	v[0] = _fX;
-	v[1] = _fY;
-	v[2] = _fZ;
-  //## end CVect3::V3%1018547493.body
+  	x = _fX;
+	y = _fY;
+	z = _fZ;
 }
 
-inline void CVect3::Point (float _fAzimut, float _fElevation)
+inline void CVect3::Point(float _fAzimut, float _fElevation)
 {
-  //## begin CVect3::Point%1018547494.body preserve=yes
-    static float c;
+	static float c;
 	c = (float)cosf(_fElevation);
 
-    v[0] = c * (float)cosf(_fAzimut);
-    v[1] = c * (float)sinf(_fAzimut);
-    v[2] =     (float)sinf(_fElevation);
-  //## end CVect3::Point%1018547494.body
+    x = c * (float)cosf(_fAzimut);
+    y = c * (float)sinf(_fAzimut);
+    z =     (float)sinf(_fElevation);
 }
 
-inline void CVect3::Assign (CVect3& _roV)
+inline void CVect3::Assign(const CVect3& _oV)
 {
-  //## begin CVect3::Assign%1018547495.body preserve=yes
-	v[0] = _roV.v[0];
-	v[1] = _roV.v[1];
-	v[2] = _roV.v[2];
-  //## end CVect3::Assign%1018547495.body
+  	x = _oV.x;
+	y = _oV.y;
+	z = _oV.z;
 }
 
-inline void CVect3::CrossProd (CVect3& _roV1, CVect3& _roV2)
+inline void CVect3::CrossProd(const CVect3& _oV1,const CVect3& _oV2)
 {
-  //## begin CVect3::CrossProd%1018547496.body preserve=yes
-	v[0] = _roV1.Y()*_roV2.Z() - _roV1.Z()*_roV2.Y();
-	v[1] = _roV1.Z()*_roV2.X() - _roV1.X()*_roV2.Z();
-	v[2] = _roV1.X()*_roV2.Y() - _roV1.Y()*_roV2.X();
-  //## end CVect3::CrossProd%1018547496.body
+  	x = _oV1.y*_oV2.z - _oV1.z*_oV2.y;
+	y = _oV1.z*_oV2.x - _oV1.x*_oV2.z;
+	z = _oV1.x*_oV2.y - _oV1.y*_oV2.x;
 }
 
-inline void CVect3::Normal (CVect3& _roA, CVect3& _roB, CVect3& _roC)
+inline void CVect3::Normal(const CVect3& _oA, const CVect3& _oB, const CVect3& _oC)
 {
-  //## begin CVect3::Normal%1018547497.body preserve=yes
-  	static CVect3 ba,ca;
+  	CVect3 ba,ca;
 
-    ba.Assign(_roB);	ba.Sub(_roA);
-    ca.Assign(_roC);	ca.Sub(_roA);
+    ba.Assign(_oB);	ba.Sub(_oA);
+    ca.Assign(_oC);	ca.Sub(_oA);
 
     CrossProd(ba,ca);
-  //## end CVect3::Normal%1018547497.body
 }
 
-inline void CVect3::Orthogonal (CVect3& _roV)
+inline void CVect3::Orthogonal(const CVect3& _oV)
 {
-  //## begin CVect3::Orthogonal%1018547498.body preserve=yes
-	float fX = MATH_Common::fAbs(_roV.v[0]);
-	float fY = MATH_Common::fAbs(_roV.v[1]);
-	float fZ = MATH_Common::fAbs(_roV.v[2]);
+  	float fX = MATH_Common::fAbs(_oV.x);
+	float fY = MATH_Common::fAbs(_oV.y);
+	float fZ = MATH_Common::fAbs(_oV.z);
 
 	// Regla: intercambiar las 2 coordenadas con valores más altos
 	// la coordenada que tenga menor valor se invierte ( multiplica por -1)
@@ -277,25 +172,25 @@ inline void CVect3::Orthogonal (CVect3& _roV)
 		if (fY > fZ)
 		{
 			// fX > fY && fY > fZ
-			v[0] = -_roV.v[1];
-			v[1] =  _roV.v[0];
-			v[2] =  0.0f;
+			x = -_oV.y;
+			y =  _oV.x;
+			z =  0.0f;
 		}
 		else
 		{			
 			if (fX > fZ)
 			{
 				// fX > fY && fX > fZ && fZ > fY
-				v[0] = -_roV.v[2];
-				v[1] =  0.0f;
-				v[2] =  _roV.v[0];
+				x = -_oV.z;
+				y =  0.0f;
+				z =  _oV.x;
 			}
 			else			
 			{
 				// fX > fY && fZ < fX fY < fZ
-				v[0] =  _roV.v[2];
-				v[1] =  0.0f;
-				v[2] = -_roV.v[0];
+				x =  _oV.z;
+				y =  0.0f;
+				z = -_oV.x;
 			}
 		}
 	}
@@ -306,195 +201,127 @@ inline void CVect3::Orthogonal (CVect3& _roV)
 			if (fX > fZ)
 			{
 				// fY > fX && fY > fZ && fX > fZ
-				v[0] =  _roV.v[1];
-				v[1] = -_roV.v[0];
-				v[2] =  0.0f;
+				x =  _oV.y;
+				y = -_oV.x;
+				z =  0.0f;
 			}
 			else
 			{
 				// fY > fX && fY > fZ && fZ > fX
-				v[0] = 0.0f;
-				v[1] = -_roV.v[2];
-				v[2] =  _roV.v[1];
+				x = 0.0f;
+				y = -_oV.z;
+				z =  _oV.y;
 			}			
 		}
 		else
 		{
 			// fZ > fY && fY > fX
-			v[0] = 0.0f;
-			v[1] =  _roV.v[2];
-			v[2] = -_roV.v[1];			
+			x = 0.0f;
+			y =  _oV.z;
+			z = -_oV.y;			
 		}
 	}
 
-  //## end CVect3::Orthogonal%1018547498.body
 }
 
-inline void CVect3::LineEq (CVect3& _roPos, CVect3& _roDir, float _fU)
+inline void CVect3::LineEq (const CVect3& _oPos,const CVect3& _oDir, float _fU)
 {
-  //## begin CVect3::LineEq%1018547499.body preserve=yes
-  	v[0] = _roPos.v[0] + _fU*_roDir.v[0];
-	v[1] = _roPos.v[1] + _fU*_roDir.v[1];
-	v[2] = _roPos.v[2] + _fU*_roDir.v[2];
-  //## end CVect3::LineEq%1018547499.body
+   	x = _oPos.x + _fU*_oDir.x;
+	y = _oPos.y + _fU*_oDir.y;
+	z = _oPos.z + _fU*_oDir.z;
 }
 
-inline float CVect3::X ()
+inline void CVect3::Add(const CVect3& _oV)
 {
-  //## begin CVect3::X%1018547500.body preserve=yes
-	return(v[0]);
-  //## end CVect3::X%1018547500.body
+  	x += _oV.x;
+	y += _oV.y;
+	z += _oV.z;
 }
 
-inline float CVect3::Y ()
+inline void CVect3::Sub(const CVect3& _oV)
 {
-  //## begin CVect3::Y%1018547501.body preserve=yes
-	return(v[1]);	
-  //## end CVect3::Y%1018547501.body
+  	x -= _oV.x;
+	y -= _oV.y;
+	z -= _oV.z;
 }
 
-inline float CVect3::Z ()
+inline void CVect3::Mult(const CVect3& _oV)
 {
-  //## begin CVect3::Z%1018547502.body preserve=yes
-	return(v[2]);
-  //## end CVect3::Z%1018547502.body
+  	x *= _oV.x;
+	y *= _oV.y;
+	z *= _oV.z;
 }
 
-inline void CVect3::SetX (float _fX)
+inline void CVect3::Scale(float _fFactor)
 {
-  //## begin CVect3::SetX%1018547503.body preserve=yes
-	v[0] = _fX;
-  //## end CVect3::SetX%1018547503.body
+    x *= _fFactor;
+	y *= _fFactor;
+	z *= _fFactor;
 }
 
-inline void CVect3::SetY (float _fY)
+inline void CVect3::Add(float _fX, float _fY, float _fZ)
 {
-  //## begin CVect3::SetY%1018547504.body preserve=yes
-	v[1] = _fY;
-  //## end CVect3::SetY%1018547504.body
+  	x += _fX;
+	y += _fY;
+	z += _fZ;
 }
 
-inline void CVect3::SetZ (float _fZ)
+inline void CVect3::Sub(float _fX, float _fY, float _fZ)
 {
-  //## begin CVect3::SetZ%1018547505.body preserve=yes
-	v[2] = _fZ;
-  //## end CVect3::SetZ%1018547505.body
+  	x -= _fX;
+	y -= _fY;
+	z -= _fZ;
 }
 
-inline void CVect3::Add (CVect3& _roV)
+inline void CVect3::Mult(float _fX, float _fY, float _fZ)
 {
-  //## begin CVect3::Add%1018547506.body preserve=yes
-	v[0] += _roV.v[0];
-	v[1] += _roV.v[1];
-	v[2] += _roV.v[2];
-  //## end CVect3::Add%1018547506.body
+  	x *= _fX;
+	y *= _fY;
+	z *= _fZ;
 }
 
-inline void CVect3::Sub (CVect3& _roV)
+inline float CVect3::fDotProd(const CVect3& _oV) const
 {
-  //## begin CVect3::Sub%1018547507.body preserve=yes
-	v[0] -= _roV.v[0];
-	v[1] -= _roV.v[1];
-	v[2] -= _roV.v[2];
-  //## end CVect3::Sub%1018547507.body
+  	return (x*_oV.x + y*_oV.y + z*_oV.z);
 }
 
-inline void CVect3::Mult (CVect3& _roV)
+inline float CVect3::fModule() const
 {
-  //## begin CVect3::Mult%1018547508.body preserve=yes
-	v[0] *= _roV.v[0];
-	v[1] *= _roV.v[1];
-	v[2] *= _roV.v[2];
-  //## end CVect3::Mult%1018547508.body
+  	return( MATH_Common::fSqrt(x*x + y*y + z*z) );
 }
 
-inline void CVect3::Scale (float _fFactor)
+inline float CVect3::fSqModule() const
 {
-  //## begin CVect3::Scale%1018547509.body preserve=yes
-  	v[0] *= _fFactor;
-	v[1] *= _fFactor;
-	v[2] *= _fFactor;
-  //## end CVect3::Scale%1018547509.body
+  	return (x*x + y*y + z*z);
 }
 
-inline void CVect3::Add (float _fX, float _fY, float _fZ)
+inline void CVect3::Normalize()
 {
-  //## begin CVect3::Add%1018547510.body preserve=yes
-	v[0] += _fX;
-	v[1] += _fY;
-	v[2] += _fZ;
-  //## end CVect3::Add%1018547510.body
-}
-
-inline void CVect3::Sub (float _fX, float _fY, float _fZ)
-{
-  //## begin CVect3::Sub%1018547511.body preserve=yes
-	v[0] -= _fX;
-	v[1] -= _fY;
-	v[2] -= _fZ;
-  //## end CVect3::Sub%1018547511.body
-}
-
-inline void CVect3::Mult (float _fX, float _fY, float _fZ)
-{
-  //## begin CVect3::Mult%1018547512.body preserve=yes
-	v[0] *= _fX;
-	v[1] *= _fY;
-	v[2] *= _fZ;
-  //## end CVect3::Mult%1018547512.body
-}
-
-inline float CVect3::DotProd (CVect3& _roV)
-{
-  //## begin CVect3::DotProd%1018547513.body preserve=yes
-	return (v[0]*_roV.v[0] + v[1]*_roV.v[1] + v[2]*_roV.v[2]);
-  //## end CVect3::DotProd%1018547513.body
-}
-
-inline float CVect3::Module ()
-{
-  //## begin CVect3::Module%1018547514.body preserve=yes
-	return( MATH_Common::fSqrt(v[0]*v[0] + v[1]*v[1] + v[2]*v[2]) );
-  //## end CVect3::Module%1018547514.body
-}
-
-inline float CVect3::SqModule ()
-{
-  //## begin CVect3::SqModule%1018547515.body preserve=yes
-	return (v[0]*v[0] + v[1]*v[1] + v[2]*v[2]);
-  //## end CVect3::SqModule%1018547515.body
-}
-
-inline void CVect3::Normalize ()
-{
-  //## begin CVect3::Normalize%1018547516.body preserve=yes
-	static float m;
+  	static float m;
 	
-	m = Module();
+	m = fModule();
 	if (m==1) return;
 
 	if (m)
     {
     	m = 1.0f/m;
 
-    	v[0]*=m;
-    	v[1]*=m;
-    	v[2]*=m;
-    }
+    	x*=m;
+    	y*=m;
+    	z*=m;
+}
     else
     {
-        // v[0] = MMath_Sgn(v[0])*MMATH_INFINITE;
-        v[0] = MATH_Common::fSign(v[0])*1000;
-        v[1] = v[0];
-        v[2] = v[0];
-    }
-  //## end CVect3::Normalize%1018547516.body
+        // x = MMath_Sgn(x)*MMATH_INFINITE;
+        x = MATH_Common::fSign(x)*1000;
+        y = x;
+        z = x;
+}
 }
 
-inline void CVect3::Interpolate (CVect3& _roA, CVect3& _roB, float _fFact)
+inline void CVect3::Interpolate(const CVect3& _oA,const CVect3& _oB, float _fFact)
 {
-  //## begin CVect3::Interpolate%1018547517.body preserve=yes
-/*
+  /*
 	// x = a*(1-f) + b*f   =>   x = a -a*f + b*f    =>	x = a + (b-a)*f
 
 	float *va = a.v;
@@ -505,35 +332,29 @@ inline void CVect3::Interpolate (CVect3& _roA, CVect3& _roB, float _fFact)
 	*vc  = *va+(*vb - *va)*Factor;va++;vb++;vc++;
 	*vc  = *va+(*vb - *va)*Factor;
 */
-	v[0] = _roA.v[0] + (_roB.v[0] - _roA.v[0])*_fFact;
-	v[1] = _roA.v[1] + (_roB.v[1] - _roA.v[1])*_fFact;
-	v[2] = _roA.v[2] + (_roB.v[2] - _roA.v[2])*_fFact;
-  //## end CVect3::Interpolate%1018547517.body
+	x = _oA.x + (_oB.x - _oA.x)*_fFact;
+	y = _oA.y + (_oB.y - _oA.y)*_fFact;
+	z = _oA.z + (_oB.z - _oA.z)*_fFact;
 }
 
-inline float CVect3::Distance (CVect3& _roPnt)
+inline float CVect3::fDistance(const CVect3& _oPnt) const
 {
-  //## begin CVect3::Distance%1018547518.body preserve=yes
-	return (MATH_Common::fSqrt(SqDistance(_roPnt)) );
-  //## end CVect3::Distance%1018547518.body
+  	return (MATH_Common::fSqrt(fSqDistance(_oPnt)) );
 }
 
-inline float CVect3::SqDistance (CVect3& _roPnt)
+inline float CVect3::fSqDistance(const CVect3& _oPnt) const
 {
-  //## begin CVect3::SqDistance%1018547519.body preserve=yes
-	static CVect3 VAux;
+  	static CVect3 VAux;
 
-    VAux.V3(v[0],v[1],v[2]);
-    VAux.Sub (_roPnt);
-	return ( VAux.SqModule() );
-  //## end CVect3::SqDistance%1018547519.body
+    VAux.V3(x,y,z);
+    VAux.Sub (_oPnt);
+	return ( VAux.fSqModule() );
 }
 
-inline bool CVect3::Inside (CVect3& _roMax, CVect3& _roMin)
+inline bool CVect3::bInside (const CVect3& _oMax,const CVect3& _oMin) const
 {
-  //## begin CVect3::Inside%1018547520.body preserve=yes
-/*
-	//---------------------------------------------------------------------------
+  /*
+	//-----------------------------------------------------------------------------
 	inline float _FFabs(float a)
 	{	
 		*((unsigned int *)&a) &= 0x7fffffff;	
@@ -541,39 +362,35 @@ inline bool CVect3::Inside (CVect3& _roMax, CVect3& _roMin)
 	}
 
 	return ( (
-			  (_FFabs(Max.v[0] - v[0]) + _FFabs(v[0] - Min.v[0]) + 
-			   _FFabs(Max.v[1] - v[1]) + _FFabs(v[1] - Min.v[1]) +
-			   _FFabs(Max.v[2] - v[2]) + _FFabs(v[2] - Min.v[2])) -
+			  (_FFabs(Max.x - x) + _FFabs(x - Min.x) + 
+			   _FFabs(Max.y - y) + _FFabs(y - Min.y) +
+			   _FFabs(Max.z - z) + _FFabs(z - Min.z)) -
 			 
-			 (_FFabs(Max.v[0] - Min.v[0]) +
-			  _FFabs(Max.v[1] - Min.v[1]) +
-			  _FFabs(Max.v[2] - Min.v[2]))
+			 (_FFabs(Max.x - Min.x) +
+			  _FFabs(Max.y - Min.y) +
+			  _FFabs(Max.z - Min.z))
 			  )
 
 			  == 0.0f
 			);
 */
 	return(
-    	  (v[0] >= _roMin.v[0]) && (v[1] >= _roMin.v[1]) && (v[2] >= _roMin.v[2]) &&
-          (v[0] <= _roMax.v[0]) && (v[1] <= _roMax.v[1]) && (v[2] <= _roMax.v[2])
+    	  (x >= _oMin.x) && (y >= _oMin.y) && (z >= _oMin.z) &&
+          (x <= _oMax.x) && (y <= _oMax.y) && (z <= _oMax.z)
           );
 
-  //## end CVect3::Inside%1018547520.body
 }
 
-inline bool CVect3::Equal (CVect3& _roV)
+inline bool CVect3::bEqual(const CVect3& _oV) const
 {
-  //## begin CVect3::Equal%1018547521.body preserve=yes
-	return( (v[0] == _roV.v[0]) && (v[1] == _roV.v[1]) && (v[2] == _roV.v[2]) );
-  //## end CVect3::Equal%1018547521.body
+  	return( (x == _oV.x) && (y == _oV.y) && (z == _oV.z) );
 }
 
-inline int CVect3::iGetGreaterAxis ()
+inline int CVect3::iGetGreaterAxis () const
 {
-  //## begin CVect3::iGetGreaterAxis%1018547522.body preserve=yes
-	float fX = MATH_Common::fAbs(v[0]);
-	float fY = MATH_Common::fAbs(v[1]);
-	float fZ = MATH_Common::fAbs(v[2]);
+  	float fX = MATH_Common::fAbs(x);
+	float fY = MATH_Common::fAbs(y);
+	float fZ = MATH_Common::fAbs(z);
 
 	if (fX > fY)
 	{
@@ -599,11 +416,14 @@ inline int CVect3::iGetGreaterAxis ()
 			// fZ > fY && fY > fZ
 			return(2);
 	}
-  //## end CVect3::iGetGreaterAxis%1018547522.body
 }
-
-//## begin module%3A9AD9AC01F4.epilog preserve=yes
-//## end module%3A9AD9AC01F4.epilog
-
-
+//-----------------------------------------------------------------------------
+/*
+float& CVect3::operator[](const unsigned int index) const
+{
+	return( *((float*)&x + index) );
+}
+*/
+//-----------------------------------------------------------------------------
 #endif
+//-----------------------------------------------------------------------------

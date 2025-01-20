@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ParticleSystems">
+      <UniqueIdentifier>{a98e6695-7b16-4c55-b9df-dae4a08579b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Billboard">
+      <UniqueIdentifier>{2c76e8bb-6046-474b-8c1d-10cd60520fc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Trail">
+      <UniqueIdentifier>{16c74c3a-346f-4fe3-bba7-1c1d99ed7019}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Coronas">
+      <UniqueIdentifier>{13186e57-0f8f-4415-863f-b91844d75cbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SFXObjectManager">
+      <UniqueIdentifier>{edfdda3b-ea5d-4be3-beee-00420cd4e17a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\ParticleSystems\CGParticle.h">
+      <Filter>ParticleSystems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ParticleSystems\CGParticleSystemGenerator.h">
+      <Filter>ParticleSystems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ParticleSystems\CGParticleSystemInstance.h">
+      <Filter>ParticleSystems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ParticleSystems\CGPSGDefFileWH.h">
+      <Filter>ParticleSystems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ParticleSystems\CGPSGGeneric.h">
+      <Filter>ParticleSystems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ParticleSystems\CGPSGGenericQuad.h">
+      <Filter>ParticleSystems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ParticleSystems\CGPSGGenericQuadOrbit.h">
+      <Filter>ParticleSystems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ParticleSystems\CGPSIManager.h">
+      <Filter>ParticleSystems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ParticleSystems\CGPSysGenWH.h">
+      <Filter>ParticleSystems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\BillBoard\CGBillboard.h">
+      <Filter>Billboard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\BillBoard\CGBillboard_AxisAlign.h">
+      <Filter>Billboard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\BillBoard\CGBillboard_ScrAlign.h">
+      <Filter>Billboard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\BillBoard\CGBillboard_WorldAlign.h">
+      <Filter>Billboard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\BillBoard\CGBillboardRenderer.h">
+      <Filter>Billboard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\trail\CGTrail.h">
+      <Filter>Trail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\trail\CGTrailGenDefFileWH.h">
+      <Filter>Trail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\trail\CGTrailGenerator.h">
+      <Filter>Trail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\trail\CGTrailGenStd.h">
+      <Filter>Trail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\trail\CGTrailGenWH.h">
+      <Filter>Trail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\trail\CGTrailInstance.h">
+      <Filter>Trail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\trail\CGTrailManager.h">
+      <Filter>Trail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Coronas\CGCorona.h">
+      <Filter>Coronas</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Coronas\CGCoronaGenDefFileWH.h">
+      <Filter>Coronas</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Coronas\CGCoronaGenerator.h">
+      <Filter>Coronas</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Coronas\CGCoronaGenStd.h">
+      <Filter>Coronas</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Coronas\CGCoronaGenWH.h">
+      <Filter>Coronas</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Coronas\CGCoronaInstance.h">
+      <Filter>Coronas</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Coronas\CGCoronaManager.h">
+      <Filter>Coronas</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SfxObject\CGSFXObjectManager.h">
+      <Filter>SFXObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GSfx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\ParticleSystems\CGParticleSystemGenerator.cpp">
+      <Filter>ParticleSystems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ParticleSystems\CGParticleSystemInstance.cpp">
+      <Filter>ParticleSystems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ParticleSystems\CGPSGDefFileWH.cpp">
+      <Filter>ParticleSystems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ParticleSystems\CGPSGGeneric.cpp">
+      <Filter>ParticleSystems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ParticleSystems\CGPSGGenericQuad.cpp">
+      <Filter>ParticleSystems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ParticleSystems\CGPSGGenericQuadCinematic.cpp">
+      <Filter>ParticleSystems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ParticleSystems\CGPSGGenericQuadOrbit.cpp">
+      <Filter>ParticleSystems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ParticleSystems\CGPSIManager.cpp">
+      <Filter>ParticleSystems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ParticleSystems\CGPSysGenWH.cpp">
+      <Filter>ParticleSystems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\BillBoard\CGBillboard.cpp">
+      <Filter>Billboard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\BillBoard\CGBillboard_AxisAlign.cpp">
+      <Filter>Billboard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\BillBoard\CGBillboard_ScrAlign.cpp">
+      <Filter>Billboard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\BillBoard\CGBillboard_WorldAlign.cpp">
+      <Filter>Billboard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\BillBoard\CGBillboardRenderer.cpp">
+      <Filter>Billboard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\trail\CGTrailGenDefFileWH.cpp">
+      <Filter>Trail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\trail\CGTrailGenerator.cpp">
+      <Filter>Trail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\trail\CGTrailGenStd.cpp">
+      <Filter>Trail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\trail\CGTrailGenWH.cpp">
+      <Filter>Trail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\trail\CGTrailInstance.cpp">
+      <Filter>Trail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\trail\CGTrailManager.cpp">
+      <Filter>Trail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Coronas\CGCoronaGenDefFileWH.cpp">
+      <Filter>Coronas</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Coronas\CGCoronaGenerator.cpp">
+      <Filter>Coronas</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Coronas\CGCoronaGenStd.cpp">
+      <Filter>Coronas</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Coronas\CGCoronaGenWH.cpp">
+      <Filter>Coronas</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Coronas\CGCoronaInstance.cpp">
+      <Filter>Coronas</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Coronas\CGCoronaManager.cpp">
+      <Filter>Coronas</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SfxObject\CGSFXObjectManager.cpp">
+      <Filter>SFXObjectManager</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\src\ParticleSystems\CGPSGGenericQuadCinematic.h">
+      <Filter>ParticleSystems</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

@@ -1,30 +1,14 @@
-//## begin module%3BB700C50336.cm preserve=no
-//	  %X% %Q% %Z% %W%
-//## end module%3BB700C50336.cm
-
-//## begin module%3BB700C50336.cp preserve=no
-//## end module%3BB700C50336.cp
-
-//## Module: CSoundRenderer_DSound%3BB700C50336; Pseudo Package body
-//## Source file: i:\Projects\GammaE\SoundSystem\SoundRender\SoundDrivers\SndDrv_DirectSound\CSoundRenderer_DSound.cpp
-
-//## begin module%3BB700C50336.additionalIncludes preserve=no
-//## end module%3BB700C50336.additionalIncludes
-
-//## begin module%3BB700C50336.includes preserve=yes
+//-----------------------------------------------------------------------------
 #include <DSound.h>	
-#include "memory/GammaE_mem.h"
-#include "Misc/GammaE_Misc.h"
-
-#include "FileSys/GammaE_FileSys.h"
-
+#include "GammaE_Mem.h"
+#include "GammaE_Misc.h"
+#include "GammaE_FileSys.h"
+//-----------------------------------------------------------------------------
 #ifdef __cplusplus
 #endif
-//## end module%3BB700C50336.includes
 
 // CSoundRenderer_DSound
-#include "SoundSystem\SoundRender\SoundDrivers\SndDrv_DirectSound\CSoundRenderer_DSound.h"
-//## begin module%3BB700C50336.additionalDeclarations preserve=yes
+#include "SoundRender\SoundDrivers\SndDrv_DirectSound\CSoundRenderer_DSound.h"
 HINSTANCE			hDSInstance;
 //HRESULT (WINAPI *poDirectSoundCreate)(GUID FAR *lpGUID, LPDIRECTSOUND FAR *lplpDS, IUnknown FAR *pUnkOuter);
 HRESULT (WINAPI *poDirectSoundCreate)(LPGUID, LPDIRECTSOUND *, LPUNKNOWN);
@@ -45,49 +29,35 @@ DSBCAPS				DSBuffCaps;
 DWORD				dwWritePos;
 
 HWND__				*hWnd;
-unsigned int		uiSndBuffSize = 0;
 unsigned int		uiSndOfs      = 0;
 
-const float			fBUFFERTIME	  = 0.1f;
-
-//## end module%3BB700C50336.additionalDeclarations
-
-
-// Class CSoundRenderer_DSound 
-
-
-
-
+// Be careful since (buffertime*srate / ibuffersblocks) must be INTEGER !!!!
+const int			iBUFFERSAMPLES= 8192;
+const int			iBUFFERBLOCKS = 4;
+int					iBLOCKSIZE;
+int				    iBUFFERSIZE;
+int					iWRITEBLOCK   = 1;
+int					iREADBLOCK    = 0;
+//-----------------------------------------------------------------------------
 CSoundRenderer_DSound::CSoundRenderer_DSound()
-  //## begin CSoundRenderer_DSound::CSoundRenderer_DSound%.hasinit preserve=no
-  //## end CSoundRenderer_DSound::CSoundRenderer_DSound%.hasinit
-  //## begin CSoundRenderer_DSound::CSoundRenderer_DSound%.initialization preserve=yes
-  //## end CSoundRenderer_DSound::CSoundRenderer_DSound%.initialization
 {
-  //## begin CSoundRenderer_DSound::CSoundRenderer_DSound%.body preserve=yes
-  //## end CSoundRenderer_DSound::CSoundRenderer_DSound%.body
 }
-
-
+//-----------------------------------------------------------------------------
 CSoundRenderer_DSound::~CSoundRenderer_DSound()
 {
-  //## begin CSoundRenderer_DSound::~CSoundRenderer_DSound%.body preserve=yes
-	Finish();
-  //## end CSoundRenderer_DSound::~CSoundRenderer_DSound%.body
+  	Finish();
 }
 
-
-
-//## Other Operations (implementation)
 int CSoundRenderer_DSound::Init (void *_HndDeviceContext, int _iSndBits, int _iSndSRate, int _iMaxEmiters)
 {
-  //## begin CSoundRenderer_DSound::Init%1001849070.body preserve=yes
-	hWnd = (HWND__*)_HndDeviceContext;
-
+  	hWnd = (HWND__*)_HndDeviceContext;
+	
+	// --------------------------------------------------------------
 	// Init the emiter array	
+	// --------------------------------------------------------------	
 	iMaxEmiters = _iMaxEmiters;
 	oEmiters.Init(_iMaxEmiters);
-	
+
 	// --------------------------------------------------------------
 	// Setup correctly sound parameters
 	// --------------------------------------------------------------
@@ -105,64 +75,63 @@ else iSndRate = 11025;
 	// --------------------------------------------------------------
 	// Init direct sound
 	// --------------------------------------------------------------
-	CONPrintf("Init direct sound... ");
+	CGSystemLC::I()->Write("Init direct sound... ");
 	if(poDirectSoundCreate(NULL,&lpDS,NULL) != DS_OK)
 	{
-		CONPrintf("Failed\n");
+		CGSystemLC::I()->Error("Failed initializing Direct Sound\n");
 		Finish();		
 		return(0);
 	}
-	CONPrintf("ok\n");
+	CGSystemLC::I()->Write("ok\n");
 
 	// --------------------------------------------------------------
-	CONPrintf("Getting direct sound capabilities... ");
+	CGSystemLC::I()->Write("Getting direct sound capabilities... ");
 	DSCaps.dwSize = sizeof(DSCAPS);
 	// if ( IDirectSound_GetCaps(lpDS,&DSCaps ) != DS_OK)
 	if ( lpDS->GetCaps(&DSCaps ) != DS_OK)
 	{
-		CONPrintf("Failed\n");		
+		CGSystemLC::I()->Error("Failed getting sound capabilities\n");		
 		Finish();
 		return(0);
 	}
-	CONPrintf("ok\n");
+	CGSystemLC::I()->Write("ok\n");
 
 	// --------------------------------------------------------------	
-	CONPrintf("Testing for hardware accelerated sound... ");
+	CGSystemLC::I()->Write("Testing for hardware accelerated sound... ");
 	if (DSCaps.dwFlags & DSCAPS_EMULDRIVER )
 	{		
-		CONPrintf("Failed\n");
+		CGSystemLC::I()->Error("Failed test of hardware acceleration\n");
 		Finish();
 		return(0);
 	}
-	CONPrintf("ok\n");
+	CGSystemLC::I()->Write("ok\n");
+	
 
 	return (iCreateBuffers());
-  //## end CSoundRenderer_DSound::Init%1001849070.body
 }
-
+//-----------------------------------------------------------------------------
 void CSoundRenderer_DSound::Finish ()
 {
-  //## begin CSoundRenderer_DSound::Finish%1014979367.body preserve=yes
-	if (lpDSBuff)	lpDSBuff->Release();
-	if (lpDS)		lpDS->Release();
-	
+  	if (lpDSBuff)	lpDSBuff->Release();
+	if (lpDS)		lpDS->Release();	
+
 	iUnloadDirectSound();
-	
+
+	CSoundMixer::Finish();
+
 	lpDS     = NULL;
 	lpDSBuff = NULL;
-  //## end CSoundRenderer_DSound::Finish%1014979367.body
 }
-
+//-----------------------------------------------------------------------------
 int CSoundRenderer_DSound::iLoadDirectSound ()
 {
-  //## begin CSoundRenderer_DSound::iLoadDirectSound%1015076948.body preserve=yes
-  	if (! hDSInstance)
+   	if (! hDSInstance)
 	{
-		CONPrintf( "Loading DSound.DLL: ");
+		CGSystemLC::I()->Write( "Loading DSound.DLL: ");
 		hDSInstance = LoadLibrary("dsound.dll");
 		if (! hDSInstance)
 		{
-			CONPrintf( "Failed loading library.\n" );
+			CGSystemLC::I()->Error( "Failed loading library.\n" );
 			return(0);
 		}
 
@@ -170,20 +139,18 @@ int CSoundRenderer_DSound::iLoadDirectSound ()
 		// ((FARPROC)poDirectSoundCreate) = GetProcAddress(hDSInstance,"DirectSoundCreate");
 		if (!poDirectSoundCreate)
 		{
-			CONPrintf( "Failed getting proc address.\n" );
+			CGSystemLC::I()->Error( "Failed getting DirectSoundCreate proc address.\n" );
 			return(0);
 		}
-		CONPrintf( "OK\n" );
+		CGSystemLC::I()->Write( "OK\n" );
 	}
 
 	return(1);
-  //## end CSoundRenderer_DSound::iLoadDirectSound%1015076948.body
 }
-
+//-----------------------------------------------------------------------------
 int CSoundRenderer_DSound::iUnloadDirectSound ()
 {
-  //## begin CSoundRenderer_DSound::iUnloadDirectSound%1015076949.body preserve=yes
-	CONPrintf("Unloading DSound.dll.\n");
+  	CGSystemLC::I()->Write("Unloading DSound.dll.\n");
   	if ( hDSInstance )
 	{
 		FreeLibrary( hDSInstance );
@@ -191,25 +158,23 @@ int CSoundRenderer_DSound::iUnloadDirectSound ()
 	}
 
 	return(1);
-  //## end CSoundRenderer_DSound::iUnloadDirectSound%1015076949.body
 }
-
+//-----------------------------------------------------------------------------
 int CSoundRenderer_DSound::iCreateBuffers ()
 {
-  //## begin CSoundRenderer_DSound::iCreateBuffers%1015076950.body preserve=yes
-	HRESULT Res;
+  	HRESULT Res;
 
 	// --------------------------------------------------------------
 	// Set cooperative level to write into buffer
 	// --------------------------------------------------------------
-	CONPrintf("Setting EXCLUSIVE cooperative level ... ");
+	CGSystemLC::I()->Write("Setting EXCLUSIVE cooperative level ... ");
 	if (lpDS->SetCooperativeLevel(hWnd,DSSCL_EXCLUSIVE) != DS_OK)
 	{
-		CONPrintf("Failed\n");
+		CGSystemLC::I()->Error("Failed setting Executive Cooperative Level\n");
 		Finish();
 		return(0);
 	}
-	CONPrintf("ok\n");
+	CGSystemLC::I()->Write("ok\n");
 
 
 	// --------------------------------------------------------------
@@ -222,20 +187,20 @@ int CSoundRenderer_DSound::iCreateBuffers ()
 	DSBuffDesc.lpwfxFormat   = NULL;
 		
 	// Create the primary buffer
-	CONPrintf("Create the primary buffer... ");
+	CGSystemLC::I()->Write("Create the primary buffer... ");
 	if( (Res = lpDS->CreateSoundBuffer(&DSBuffDesc,&lpDSPBuff,NULL)) != DS_OK)
 	{		
-		CONPrintf("Failed\n");
+		CGSystemLC::I()->Error("Failed creating direct sound primary buffer\n");
 		Finish();
 		return(0);
 	}	
-	CONPrintf("ok\n");
+	CGSystemLC::I()->Write("ok\n");
 
 
 	// --------------------------------------------------------------
 	// Setup desired sample format for primary buffer
 	// --------------------------------------------------------------
-	CONPrintf("Setup desired sample format for primary buffer... ");
+	CGSystemLC::I()->Write("Setup desired sample format for primary buffer... ");
 
 	memset(&DSWaveFmt,0,sizeof(WAVEFORMATEX));
 	DSWaveFmt.cbSize		 = 0;
@@ -249,36 +214,37 @@ int CSoundRenderer_DSound::iCreateBuffers ()
 	if ((Res = lpDSPBuff->SetFormat(&DSWaveFmt)) != DS_OK)
 	// if ( (Res = IDirectSoundBuffer_SetFormat(lpDSPBuff,&DSWaveFmt)) != DS_OK)
 	{
-		CONPrintf("Failed\n");
+		CGSystemLC::I()->Error("Failed setting Direct Sound sample format\n");
 		Finish();
 		return(0);		
 	}
-	CONPrintf("ok\n");
+	CGSystemLC::I()->Write("ok\n");
 	
 
 	// --------------------------------------------------------------
 	// Set cooperative level to write into buffer
 	// --------------------------------------------------------------
-	CONPrintf("Setting WRITEPRIMARY cooperative level ... ");
+	CGSystemLC::I()->Write("Setting WRITEPRIMARY cooperative level ... ");
 	if (lpDS->SetCooperativeLevel(hWnd,DSSCL_WRITEPRIMARY) != DS_OK)
 	{
-		CONPrintf("Failed\n");
-		CONPrintf("Using secondary buffer for writting ... ");		
+		CGSystemLC::I()->Error("Failed setting WritePrimary Cooperative Level\n");
+		CGSystemLC::I()->Write("Using secondary buffer for writting ... ");
 		// --------------------------------------------------------------
 		// Set DSound Primary buffer features
 		// --------------------------------------------------------------
 		memset(&DSBuffDesc,0,sizeof(DSBUFFERDESC));
 		DSBuffDesc2.dwSize		 = sizeof(DSBUFFERDESC);
 		DSBuffDesc2.dwFlags		 = DSBCAPS_CTRLFREQUENCY | DSBCAPS_LOCSOFTWARE;
-		DSBuffDesc2.dwBufferBytes= (unsigned int)(fBUFFERTIME*(float)DSWaveFmt.nAvgBytesPerSec);
+		DSBuffDesc2.dwBufferBytes= iBUFFERSAMPLES*DSWaveFmt.nBlockAlign;
 		DSBuffDesc2.lpwfxFormat  = &DSWaveFmt;
-				if (DS_OK != lpDS->CreateSoundBuffer(&DSBuffDesc2, &lpDSSBuff, NULL))
+
+		if (DS_OK != lpDS->CreateSoundBuffer(&DSBuffDesc2, &lpDSSBuff, NULL))
 		{
-			CONPrintf("Failed\n");
+			CGSystemLC::I()->Error("Failed creating DirectSound secondary buffer for writting\n");
 			Finish();
 			return(0);
 		}
-		
+
 		// Setup main buffer to secondary buffer
 		lpDSBuff = lpDSSBuff;
 	}
@@ -287,89 +253,121 @@ int CSoundRenderer_DSound::iCreateBuffers ()
 		// Setup main buffer to primary buffer
 		lpDSBuff = lpDSPBuff;
 	}
-	CONPrintf("ok\n");
+	CGSystemLC::I()->Write("ok\n");
 
 
 	// --------------------------------------------------------------
 	// Getting buffer capabilities
 	// --------------------------------------------------------------
-	CONPrintf("Getting buffer capabilities...");
+	CGSystemLC::I()->Write("Getting buffer capabilities...");
 	
 	DSBuffCaps.dwSize = sizeof(DSBCAPS);
 	if ((Res = lpDSBuff->GetCaps (&DSBuffCaps)) != DS_OK)
 	{		
-		CONPrintf("Failed\n");
+		CGSystemLC::I()->Error("Failed getting DirectSound buffer capabilities\n");
 		Finish();
 		return(0);
 	}
-	CONPrintf("ok\n");
+	CGSystemLC::I()->Write("ok\n");
 
-	
-	uiSndBuffSize = DSBuffCaps.dwBufferBytes;
+	iBUFFERSIZE  = iBUFFERSAMPLES*DSWaveFmt.nBlockAlign;
+	iBLOCKSIZE   = iBUFFERSIZE / iBUFFERBLOCKS;
+
+	// Create a mixing buffer of maximum of 1 second
+	CSoundMixer::SetupBuffer(iBUFFERSAMPLES,iSndRate,iSndBits);
+
+	// Set Direct Sound Buffer Notify Position
+	/*
+	DSBPOSITIONNOTIFY pPosNotify[2];
+	pPosNotify[0].dwOffset     = 0;
+	pPosNotify[1].dwOffset     = uiSndBuffSize;
+	pPosNotify[0].hEventNotify = m_pHEvent[0];
+	pPosNotify[1].hEventNotify = m_pHEvent[1];
+
+	if ( FAILED(lpDSBuff->SetNotificationPositions(2, pPosNotify)) )
+	{
+		CONPrintf("Failed\n");
+		Finish();
+		return;
+	}
+	*/
 
 	// Start output
-	lpDSPBuff->Play(0,0,DSBPLAY_LOOPING);
 	if (lpDSSBuff) lpDSSBuff->Play (0,0,DSBPLAY_LOOPING);
-	
-	// Create a mixing buffer of maximum of 1 second
-	CSoundMixer::SetupBuffer(fBUFFERTIME,iSndRate,iSndBits);
 
 	return(1);
-  //## end CSoundRenderer_DSound::iCreateBuffers%1015076950.body
 }
-
+//-----------------------------------------------------------------------------
 void CSoundRenderer_DSound::Render (float _fDelta)
 {
-  //## begin CSoundRenderer_DSound::Render%1001849071.body preserve=yes
-	if (_fDelta == 0.0f) return;
+  	if (_fDelta == 0.0f) return;
+	
+	// Retrieve current cursor positions	
+	HRESULT	hRes;
+	DWORD	dwReadCursor;
+	DWORD	dwWriteCursor;
 
-	// Process all emiters:
-	// Compute distance to receiver
-	// Compute angle of incidence
-	// Process emiter parameters, volume, falloff, etc.
-	// Add to a local emiter list,
-	// Order by average volume between left and right channel
-	// Send to mixers those entities whose priorities are higher
-	// or send all entities in the best case
-	unsigned int uiProcEmit = 0;
-	unsigned int uiSamples  = (unsigned int)(_fDelta*(float)iSndRate);
-	CSoundEmiter *poEm;
+	if ((hRes = lpDSBuff->GetCurrentPosition(&dwReadCursor,&dwWriteCursor)) != DS_OK)
+		return;	
 
-	for (int iElem=0;iElem<oEmiters.iMaxElems();iElem++)
-	{
-		poEm = oEmiters.poElem(iElem);
-		if ( poEm )
+	iREADBLOCK = dwReadCursor / iBLOCKSIZE;
+	if (iREADBLOCK != iWRITEBLOCK)
+		return;
+
+	iWRITEBLOCK = (iWRITEBLOCK+1) % iBUFFERBLOCKS;
+
+	// unsigned int uiSamples  = (unsigned int)(_fDelta*(float)iSndRate);
+	unsigned int uiSamples  = iBLOCKSIZE / DSWaveFmt.nBlockAlign;
+
+
+	// ------------------------------------------
+	// Proceed with the mix
+	// ------------------------------------------
+	
+		// Process all emiters:
+		// Compute distance to receiver
+		// Compute angle of incidence
+		// Process emiter parameters, volume, falloff, etc.
+		// Add to a local emiter list,
+		// Order by average volume between left and right channel
+		// Send to mixers those entities whose priorities are higher
+		// or send all entities in the best case
+		unsigned int uiProcEmit = 0;	
+
+		CSoundMixer::Clear();
+
+		for (int iElem=0;iElem<oEmiters.uiMaxElems();iElem++)
 		{
-			if (! poEm->oSMP.bEnd)
+			CSoundEmiter_DSound* poEm = oEmiters.poElem(iElem);
+			if (poEm != NULL)
 			{
-				if (bComputeVolumeFactors(poEm))
+				if (! poEm->oSMP.bEnd)
 				{
-					CSoundMixer::Mix(poEm->oSMP,uiSamples);
-					uiProcEmit++;
+					if (bComputeVolumeFactors(poEm))
+					{
+						poEm->oSMP.poSound = poEm->poSound;
+
+						CSoundMixer::Mix(poEm->oSMP,uiSamples);
+						uiProcEmit++;
+					}
+				}
+				else
+				{
+					// Remove emiter from the list
+					oEmiters.Release( poEm );
 				}
 			}
-			else
-			{
-				// Remove emiter from the list
-				oEmiters.Del(iElem);
-			}
 		}
-	}
 
-	if (! uiProcEmit)
-	{
-		CSoundMixer::Clear();
-	}
+		CSoundMixer::PostProcess();
 
-	TransferData(uiSamples);
-  //## end CSoundRenderer_DSound::Render%1001849071.body
+	TransferData();
+
 }
-
-void CSoundRenderer_DSound::TransferData (unsigned int _uiSamples)
+//-----------------------------------------------------------------------------
+void CSoundRenderer_DSound::TransferData ()
 {
-  //## begin CSoundRenderer_DSound::TransferData%1015160465.body preserve=yes
-	unsigned int	uiSampleBytes = _uiSamples*DSWaveFmt.nBlockAlign;
-	
+  
 	// Get current play position
 	HRESULT			hRes;
 
@@ -377,25 +375,31 @@ void CSoundRenderer_DSound::TransferData (unsigned int _uiSamples)
 	void*		pData2;
 	DWORD		dwWriteBytes1;
 	DWORD		dwWriteBytes2;
+	int			iRepeat;
+	DWORD		dwFlags = 0; // DSBLOCK_ENTIREBUFFER;
 
-
-	hRes = lpDSBuff->Lock(	uiSndOfs,uiSampleBytes,
-							&pData1,&dwWriteBytes1,
-							&pData2,&dwWriteBytes2,
-							/*DSBLOCK_FROMWRITECURSOR */0);
-
+	iRepeat = 0;	
 	
-	// If DSERR_BUFFERLOST is returned, restore and retry lock.
-    if (hRes == DSERR_BUFFERLOST) 
-    { 
-        lpDSBuff->Restore(); 
-		hRes = lpDSBuff->Lock(uiSndOfs,uiSampleBytes,
-							  &pData1,&dwWriteBytes1,
-							  &pData2,&dwWriteBytes2,
-							  0 );
-	} 
+	do{
+		hRes    = lpDSBuff->Lock(iWRITEBLOCK*iBLOCKSIZE,
+								iBLOCKSIZE,
+								&pData1,&dwWriteBytes1,
+								&pData2,&dwWriteBytes2,
+								dwFlags);
+		
+		
+		if (hRes == DSERR_BUFFERLOST) 
+		{
+			// If DSERR_BUFFERLOST is returned, restore and retry lock.
+			lpDSBuff->Restore(); 
+			if (iRepeat == 1) return;
+			iRepeat = 1;
+		}
 
-	if (dwWriteBytes1 < uiSampleBytes)
+	} while (iRepeat);
+
+
+	if (dwWriteBytes2 != 0)
 	{
 		// Copy first part
 		memcpy(pData1,CSoundMixer::pGetBuffer(),dwWriteBytes1);
@@ -413,23 +417,21 @@ void CSoundRenderer_DSound::TransferData (unsigned int _uiSamples)
 	// Unlock buffer
 	hRes = lpDSBuff->Unlock(pData1,dwWriteBytes1,pData2,dwWriteBytes2);
 
-  //## end CSoundRenderer_DSound::TransferData%1015160465.body
 }
-
-bool CSoundRenderer_DSound::bComputeVolumeFactors (CSoundEmiter* _poEmiter)
+//-----------------------------------------------------------------------------
+bool CSoundRenderer_DSound::bComputeVolumeFactors (CSoundEmiter_DSound* _poEmiter)
 {
-  //## begin CSoundRenderer_DSound::bComputeVolumeFactors%1015188291.body preserve=yes
-	if (_poEmiter->iType == 0)
+  	if (_poEmiter->iType == 0)
 	{
 		// Global foreground emiters
-		_poEmiter->oSMP.fLVol = _poEmiter->fVol;
-		_poEmiter->oSMP.fRVol = _poEmiter->fVol;		
+		_poEmiter->oSMP.fLVol = _poEmiter->fVol*fGlbVol;
+		_poEmiter->oSMP.fRVol = _poEmiter->fVol*fGlbVol;
 		return(true);
 	}
 
 	// Distance factor
 	float fDistFactor;
-	fDistFactor  = poReceiver->Pos.SqDistance(_poEmiter->Pos);
+	fDistFactor  = poReceiver->Pos.fSqDistance(_poEmiter->Pos);
 	fDistFactor /= (_poEmiter->fRadius*_poEmiter->fRadius);
 
 	if (fDistFactor > _poEmiter->fVol)
@@ -446,8 +448,8 @@ bool CSoundRenderer_DSound::bComputeVolumeFactors (CSoundEmiter* _poEmiter)
 	if (_poEmiter->iType == 1)
 	{
 		// Global background emiters
-		_poEmiter->oSMP.fLVol = fDistFactor*_poEmiter->fVol;
-		_poEmiter->oSMP.fRVol = fDistFactor*_poEmiter->fVol;
+		_poEmiter->oSMP.fLVol = fDistFactor*_poEmiter->fVol*fGlbVol;
+		_poEmiter->oSMP.fRVol = fDistFactor*_poEmiter->fVol*fGlbVol;
 		return(true);
 	}
 
@@ -455,7 +457,7 @@ bool CSoundRenderer_DSound::bComputeVolumeFactors (CSoundEmiter* _poEmiter)
 	const float fVolBias = 0.5f;
 	const float fVolAtt  = 0.5f;
 	float       fAngleFact;
-	fAngleFact = fVolBias + (1.0f - (1.0f+poReceiver->Dir.DotProd(_poEmiter->Dir))*0.5f)*fVolAtt;
+	fAngleFact = fVolBias + (1.0f - (1.0f+poReceiver->Dir.fDotProd(_poEmiter->Dir))*0.5f)*fVolAtt;
 
 	// Panning factor
 	CRay	oRay;
@@ -465,21 +467,19 @@ bool CSoundRenderer_DSound::bComputeVolumeFactors (CSoundEmiter* _poEmiter)
 	oPerp.Normalize();
 
 	float		fPanFact;
-	fPanFact = ((1.0f+oPerp.DotProd(poReceiver->Side))*0.5f);
+	fPanFact = ((1.0f+oPerp.fDotProd(poReceiver->Side))*0.5f);
 
 	// 
-	float fVolFact = fDistFactor*fAngleFact*_poEmiter->fVol;
+	float fVolFact = fDistFactor*fAngleFact*_poEmiter->fVol*fGlbVol;
 
 	_poEmiter->oSMP.fLVol = fVolFact*fPanFact;
 	_poEmiter->oSMP.fRVol = fVolFact*(1.0f-fPanFact);
 
 	return(true);
-  //## end CSoundRenderer_DSound::bComputeVolumeFactors%1015188291.body
 }
-
-// Additional Declarations
-  //## begin CSoundRenderer_DSound%3BB700C50336.declarations preserve=yes
-  //## end CSoundRenderer_DSound%3BB700C50336.declarations
-
-//## begin module%3BB700C50336.epilog preserve=yes
-//## end module%3BB700C50336.epilog
+//-----------------------------------------------------------------------------  
+CSoundEmiter* CSoundRenderer_DSound::poGetFreeEmiter()
+{
+	return( oEmiters.poGet() );
+}
+//-----------------------------------------------------------------------------

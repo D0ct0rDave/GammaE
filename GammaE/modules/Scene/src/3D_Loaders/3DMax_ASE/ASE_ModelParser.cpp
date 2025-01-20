@@ -1,20 +1,20 @@
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
-#include "../../../E3D/GammaE_E3D.h"
+#include "GammaE_E3D.h"
 #include "ASE_ModelParser.h"
 
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // Defines necesarios para el módulo
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 #ifndef MAX_CARS
 #define MAX_CARS 256
 #endif
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // Parsing states
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 
 #define STATE_Searching           0
 #define STATE_Ready               1
@@ -22,86 +22,95 @@
 #define STATE_Comenting2          3
 #define STATE_Comenting3          4
 
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // Token Table
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 
 #define TKTYPE_NUMVERTEX            0
 #define TKTYPE_NUMTVERTEX           1
-#define TKTYPE_NUMFACES				2
+#define TKTYPE_NUMFACES             2
 
 #define TKTYPE_TVERTEX              10
-#define TKTYPE_VERTEX   			11
-#define TKTYPE_FACE     			12
+#define TKTYPE_VERTEX               11
+#define TKTYPE_FACE                 12
 #define TKTYPE_NORMAL               13
 
-#define NUM_TOKEN_TYPES				7
+#define NUM_TOKEN_TYPES             7
 
 /*
-char * TokenTable[] = {
+   char * TokenTable[] = {
     "*MESH_NUMVERTEX",
     "*MESH_NUMFACES",
     "*MESH_NUMTVERTEX",
     "*MESH_VERTEX",
     "*MESH_FACE"
-};
-*/
-//---------------------------------------------------------------------------
+   };
+ */
+//-----------------------------------------------------------------------------
 // Utility functions
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 
 char *NextString(char *Str)
 {
-    int State = STATE_Searching;
-    while ((State != STATE_Ready) && *Str)
+   int State = STATE_Searching;
+
+    while ( ( State != STATE_Ready ) && *Str )
     {
         switch (State)
         {
-            case STATE_Searching: if (*Str=='/')
-                                  {
-                                        State=STATE_Comenting1;
-                                        Str++;
-                                  }
-                             else if ((*Str==0x20) || (*Str==0x09) || (*Str==0x0a) || (*Str==0x0c))
-                                        Str++;
-                             else
-                                  State = STATE_Ready;
-                                  break;
+            case STATE_Searching:
 
-            case STATE_Comenting1:  if (*Str=='*') State = STATE_Comenting2;
-                                    Str++;
-                                    break;
+                if (*Str == '/')
+                {
+                    State = STATE_Comenting1;
+                    Str++;
+                }
+                else if ( ( *Str == 0x20 ) || ( *Str == 0x09 ) || ( *Str == 0x0a ) || ( *Str == 0x0c ) )
+                    Str++;
+                else
+                    State = STATE_Ready;
+                break;
 
-            case STATE_Comenting2:  if (*Str=='*') State = STATE_Comenting3;
-                                    Str++;
-                                    break;
+            case STATE_Comenting1:
 
-            case STATE_Comenting3:  if (*Str=='/') State = STATE_Searching;
-                                    Str++;
-                                    break;
+                if (*Str == '*') State = STATE_Comenting2;
+                Str++;
+                break;
+
+            case STATE_Comenting2:
+
+                if (*Str == '*') State = STATE_Comenting3;
+                Str++;
+                break;
+
+            case STATE_Comenting3:
+
+                if (*Str == '/') State = STATE_Searching;
+                Str++;
+                break;
         }
     }
 
-    return(Str);
-}
-//---------------------------------------------------------------------------
-char *NextWord(char* Str)
+    return( Str );
+} // NextString
+//-----------------------------------------------------------------------------
+char *NextWord(char *Str)
 {
-    // Saltar espacios y tabuladores
-    while ((*Str==' ') || (*Str =='\t')) Str++;
-    return(Str);
+     // Saltar espacios y tabuladores
+    while ( ( *Str == ' ' ) || ( *Str == '\t' ) ) Str++;
+    return( Str );
 }
-//---------------------------------------------------------------------------
-char *WordFinal(char* Str)
+//-----------------------------------------------------------------------------
+char *WordFinal(char *Str)
 {
-    // Saltar letras
-    while ((*Str) && (*Str!='\r') && (*Str!='\n') && (*Str!=' ') && (*Str !='\t')) Str++;
-    return(Str);
+     // Saltar letras
+    while ( ( *Str ) && ( *Str != '\r' ) && ( *Str != '\n' ) && ( *Str != ' ' ) && ( *Str != '\t' ) ) Str++;
+    return( Str );
 }
-//---------------------------------------------------------------------------
-char *SeparateToken(char* *Token,int *TokenIndex,char* *Args,char *Str)
+//-----------------------------------------------------------------------------
+char *SeparateToken(char * *Token,int *TokenIndex,char * *Args,char *Str)
 {
-    char *Letra,*TkIndex;
+   char *Letra,*TkIndex;
 
     *Token = NextWord(Str);
     Str = WordFinal(Str);
@@ -109,13 +118,12 @@ char *SeparateToken(char* *Token,int *TokenIndex,char* *Args,char *Str)
     Str++;
     *Args = Str;
 
-
-    // Buscar siguiente palabra de la cadena
+     // Buscar siguiente palabra de la cadena
     Str = NextWord(Str);           // Comienzo de la siguiente palabra
 
-    return(Str);
+    return( Str );
 }
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 int E3D_ASELoader_LoadFile(char *Filename,CMesh *Obj)
 {
 /*
@@ -145,7 +153,7 @@ int E3D_ASELoader_LoadFile(char *Filename,CMesh *Obj)
     {
         fclose(fd);
         return(0);
-    }
+   }
 
     fseek(fd,0,SEEK_SET);
     fread(StrBuff,Lenght,1,fd);
@@ -183,7 +191,7 @@ int E3D_ASELoader_LoadFile(char *Filename,CMesh *Obj)
                                     Obj3D->Vs[Index].v[0] = fX;
                                     Obj3D->Vs[Index].v[1] = fY;
                                     Obj3D->Vs[Index].v[2] = fZ;
-                                    */
+ */
 /*                                    break;
 
             case TKTYPE_FACE:       sscanf(Args,"%i: A: %i B: %i C: %i",&Index,&iX,&iY,&iZ);
@@ -191,11 +199,11 @@ int E3D_ASELoader_LoadFile(char *Filename,CMesh *Obj)
                                     Obj3D->Tris[Index].V[0] = iX;
                                     Obj3D->Tris[Index].V[1] = iY;
                                     Obj3D->Tris[Index].V[2] = iZ;
-                                    */
-                                    /*break;
-        }
-    }
-*/
-    return(1);
+ */
+    /*break;
+       }
+       }
+     */
+    return( 1 );
 }
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------

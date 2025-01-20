@@ -1,365 +1,310 @@
-//## begin module%3C7F7DF20222.cm preserve=no
-//	  %X% %Q% %Z% %W%
-//## end module%3C7F7DF20222.cm
 
-//## begin module%3C7F7DF20222.cp preserve=no
-//## end module%3C7F7DF20222.cp
 
-//## Module: CSoundMixer%3C7F7DF20222; Pseudo Package body
-//## Source file: i:\Projects\GammaE\SoundSystem\SoundRender\SoundMixer\CSoundMixer.cpp
 
-//## begin module%3C7F7DF20222.additionalIncludes preserve=no
-//## end module%3C7F7DF20222.additionalIncludes
 
-//## begin module%3C7F7DF20222.includes preserve=yes
-#include <stdlib.h>
-//## end module%3C7F7DF20222.includes
+
+// El mixer trabaja internamente con 32 bits stereo
+// El buffer de prefetch de samples es de 16 bit, stereo
+// La mezcla final se puede hacer mono o estereo, 8 o 16 bit
+
 
 // CSoundMixer
-#include "SoundSystem\SoundRender\SoundMixer\CSoundMixer.h"
-//## begin module%3C7F7DF20222.additionalDeclarations preserve=yes
-#include "memory/GammaE_mem.h"
+#include "SoundRender\SoundMixer\CSoundMixer.h"
+#include "GammaE_Mem.h"
 #include <string.h>
-//## end module%3C7F7DF20222.additionalDeclarations
+
+void *CSoundMixer::pSampleBuffer = NULL;
 
 
 // Class CSoundMixer 
 
-//## begin CSoundMixer::pBuffer%3C7F7E0B0047.attr preserve=no  private: static void * {UA} NULL
 void *CSoundMixer::pBuffer = NULL;
-//## end CSoundMixer::pBuffer%3C7F7E0B0047.attr
 
-//## begin CSoundMixer::pi32bBuffer%3D0CA81B005D.attr preserve=no  private: static int * {UA} NULL
 int *CSoundMixer::pi32bBuffer = NULL;
-//## end CSoundMixer::pi32bBuffer%3D0CA81B005D.attr
 
-//## begin CSoundMixer::uiBuffSize%3C7F7E1B0307.attr preserve=no  private: static unsigned int {UA} 0
 unsigned int CSoundMixer::uiBuffSize = 0;
-//## end CSoundMixer::uiBuffSize%3C7F7E1B0307.attr
 
-//## begin CSoundMixer::uiBuffSamples%3C82223001C4.attr preserve=no  private: static unsigned int {UA} 0
 unsigned int CSoundMixer::uiBuffSamples = 0;
-//## end CSoundMixer::uiBuffSamples%3C82223001C4.attr
 
-//## begin CSoundMixer::iSRate%3C7F99A10179.attr preserve=no  private: static int {UA} 0
 int CSoundMixer::iSRate = 0;
-//## end CSoundMixer::iSRate%3C7F99A10179.attr
 
-//## begin CSoundMixer::iBits%3C7F9A530160.attr preserve=no  private: static int {UA} 0
 int CSoundMixer::iBits = 0;
-//## end CSoundMixer::iBits%3C7F9A530160.attr
 
-//## begin CSoundMixer::bPostProcess%3D0CA872027F.attr preserve=no  private: static bool {UA} false
-bool CSoundMixer::bPostProcess = false;
-//## end CSoundMixer::bPostProcess%3D0CA872027F.attr
 
-//## begin CSoundMixer::poRec%3C7F8E4001FD.role preserve=no  public: static CSoundReceiver { -> RHAN}
-CSoundReceiver *CSoundMixer::poRec;
-//## end CSoundMixer::poRec%3C7F8E4001FD.role
 
 CSoundMixer::CSoundMixer()
-  //## begin CSoundMixer::CSoundMixer%.hasinit preserve=no
-  //## end CSoundMixer::CSoundMixer%.hasinit
-  //## begin CSoundMixer::CSoundMixer%.initialization preserve=yes
-  //## end CSoundMixer::CSoundMixer%.initialization
-{
-  //## begin CSoundMixer::CSoundMixer%.body preserve=yes
-  //## end CSoundMixer::CSoundMixer%.body
+        {
 }
 
 
 CSoundMixer::~CSoundMixer()
 {
-  //## begin CSoundMixer::~CSoundMixer%.body preserve=yes
-	if (pBuffer) mDel []pBuffer;
-	if (pi32bBuffer) mDel []pi32bBuffer;
-  //## end CSoundMixer::~CSoundMixer%.body
 }
 
 
 
-//## Other Operations (implementation)
 void CSoundMixer::Clear ()
 {
-  //## begin CSoundMixer::Clear%1014979369.body preserve=yes
-	memset(pBuffer,0,uiBuffSize);
+  	memset(pBuffer,0,uiBuffSize);
+	memset(pSampleBuffer,0,uiBuffSamples*2*2);
 	memset(pi32bBuffer,0,uiBuffSamples*2*4);
-  //## end CSoundMixer::Clear%1014979369.body
 }
 
-void CSoundMixer::SetupBuffer (float _fSeconds, unsigned int _iSRate, int _iBits)
+void CSoundMixer::SetupBuffer (unsigned int _uiSamples, unsigned int _iSRate, int _iBits)
 {
-  //## begin CSoundMixer::SetupBuffer%1014979371.body preserve=yes
-	iSRate       = _iSRate;
+  	iSRate       = _iSRate;
 	iBits        = _iBits;
-	uiBuffSamples= (unsigned int)(_fSeconds*iSRate);
+	uiBuffSamples= _uiSamples;
 	uiBuffSize   = uiBuffSamples*(iBits>>3)*2;
 	pBuffer      = mAlloc(uiBuffSize);
 	pi32bBuffer  = (int*)mAlloc(uiBuffSamples*2*4);
+	pSampleBuffer= (int*)mAlloc(uiBuffSamples*2*2);
 
 	Clear();	// Erase buffer contents previously to it's use
 
 	assert (pBuffer && "Unable to allocate sound buffer");
-  //## end CSoundMixer::SetupBuffer%1014979371.body
 }
 
-void CSoundMixer::Mix (CSoundMixPars& _roSMP, unsigned int _uiSamples)
+void CSoundMixer::Mix (CSoundMixPars& _oSMP, unsigned int _uiSamples,unsigned int _uiCurDSmpPos)
 {
-  //## begin CSoundMixer::Mix%1014979370.body preserve=yes
-	bPostProcess = true;
-
+  
 	// Current buffer position
-	if (_uiSamples>uiBuffSamples) _uiSamples = uiBuffSamples;
+	if ((_uiSamples + _uiCurDSmpPos) > uiBuffSamples) _uiSamples = uiBuffSamples;
+	
+	CSoundLayer		*poSLayer = &_oSMP.poSound->poSLayer[_oSMP.iCLayer];
+	CSample			*poSample = poSLayer->poSample;
 
-	if(iBits==16)
+	int iFlags = (poSample->iBits << 8) | poSample->iChannels;	
+	int iProcSamples = 0;
+	
+	switch (iFlags)
 	{
-		if (_roSMP.poSound->poSLayer[_roSMP.iCLayer].poSample->iChannels==2)
-			Mix16S(_roSMP,_uiSamples,0);
-		else
-			Mix16M(_roSMP,_uiSamples,0);
+		// 16 bit, mono
+		case 0x0801:	iProcSamples = iMix8M (_oSMP,poSample,_uiSamples,_uiCurDSmpPos); break;
+		case 0x0802:	iProcSamples = iMix8S (_oSMP,poSample,_uiSamples,_uiCurDSmpPos); break;
+		case 0x1001:	iProcSamples = iMix16M(_oSMP,poSample,_uiSamples,_uiCurDSmpPos); break;
+		case 0x1002:	iProcSamples = iMix16S(_oSMP,poSample,_uiSamples,_uiCurDSmpPos); break;
 	}
-else if (iBits == 8)
+
+	_uiCurDSmpPos+= iProcSamples;
+	_uiSamples   -= iProcSamples;
+	_oSMP.iSPos += iProcSamples;
+
+	// Have we fullfilled all the need info?
+	if (_uiSamples > 0)
 	{
-		if (_roSMP.poSound->poSLayer[_roSMP.iCLayer].poSample->iChannels==2)
-			Mix8S(_roSMP,_uiSamples,0);
+		// Nooooo:
+
+		// Look if sample is looping
+		if ((poSLayer->bLoop) && (! _oSMP.bLUnlock))
+		{
+			// Start at the beginning of the same sample
+			_oSMP.iSPos = 0;
+			
+			// Continue mixing ...
+			Mix(_oSMP,_uiSamples,_uiCurDSmpPos);
+		}
 		else
-			Mix8M(_roSMP,_uiSamples,0);
+		{
+			// Auto update this
+			_oSMP.bLUnlock = false;
+
+			// Next layer								
+			if ((_oSMP.iCLayer + 1) < _oSMP.poSound->iNumLayers)
+			{
+				// Update current sound layer
+				_oSMP.iSPos = 0;
+				_oSMP.iCLayer++;
+				
+				// Continue mixing ...
+				Mix(_oSMP,_uiSamples,_uiCurDSmpPos);				
+			}
+			else
+			{
+				// No more process on this sound
+				_oSMP.bEnd = true;
+			}
+		}
 	}
-  //## end CSoundMixer::Mix%1014979370.body
 }
 
-void CSoundMixer::Mix16M (CSoundMixPars& _roSMP, unsigned int uiSamples, unsigned int _uiCurDSmpPos)
+int CSoundMixer::iMix16M(CSoundMixPars& _oSMP, CSample* _poSample, unsigned int _uiSamples, unsigned int _uiCurDSmpPos)
 {
-  //## begin CSoundMixer::Mix16M%1014979372.body preserve=yes
-	if (_roSMP.bEnd) return;
+    
+	// Mix a 16 bit mono sample with the contents of the mix buffer
 
-	unsigned int	uiDSmp;
-	unsigned int	uiSSmp;
-	unsigned int	uiMax;
-	int				iCount;
-	int				iS;
-	int				iL;
-	int				iR;
-	
+	// Fetch sample data
+	int iMaxSamples = _poSample->iGetData(_oSMP.iSPos,pSampleBuffer,_uiSamples);
+
 	// Get volume multipliers
-	int				iLV = _roSMP.fLVol*32768.0f;
-	int				iRV = _roSMP.fRVol*32768.0f;
+	int				iLV       = _oSMP.fLVol*32768.0f;
+	int				iRV       = _oSMP.fRVol*32768.0f;
 
-	CSoundLayer		*poSLayer = &_roSMP.poSound->poSLayer[_roSMP.iCLayer];
-	CSample			*poSamp   = poSLayer->poSample;
-	short			*psSrc   = (short*)poSamp->pData;	
-	int				*piDst   = (int  *)pi32bBuffer + _uiCurDSmpPos*2;
+	// Get buffer pointers
+	short			*psSrc    = (short*)pSampleBuffer;
+	int				*piDst    = (int  *)pi32bBuffer + _uiCurDSmpPos*2;
 
-	uiMax  = poSamp->iSamples;
-	uiSSmp = _roSMP.iSPos;
-	uiDSmp = 0;
 
-	for (uiDSmp=0;uiDSmp<uiSamples;uiDSmp++)
+	// Mix samples
+	for (unsigned int s=0;s<iMaxSamples;s++)
 	{
-		// Get sample
-		iS = psSrc[uiSSmp];
-		
 		// Process sample
-		iL = iS * iLV;	iL >>= 15;	// Sample*Vol/32768
-		iR = iS * iRV;	iR >>= 15;
-		
+		int iL = psSrc[0] * iLV;	iL >>= 15;
+		int iR = psSrc[0] * iRV;	iR >>= 15;
+		psSrc += 1;
+
 		// Store sample
 		piDst[0] += iL;
 		piDst[1] += iR;
 		piDst    += 2;
-
-		// Update pointers
-		uiSSmp++;
-		if (uiSSmp==uiMax)
-		{
-			// Look if sample is looping
-			if ((poSLayer->bLoop) && (! _roSMP.bLUnlock))
-				// Start at the beginning of this sample
-				uiSSmp = 0;
-			else
-			{
-				// Auto update this
-				_roSMP.bLUnlock = false;
-
-				// Next layer								
-				if (_roSMP.iCLayer+1<_roSMP.poSound->iNumLayers)
-				{						
-					// Update current sound layer
-					_roSMP.iCLayer++;			
-
-					// Pointers			
-					poSLayer++;
-					poSamp = poSLayer->poSample;
-					
-					// What if the next sample is stereo???
-					if (poSamp->iChannels == 2)
-					{
-						Mix16S(_roSMP,uiSamples-(uiDSmp-1),uiDSmp);
-						return;
-					}
-
-					psSrc = (short*)poSamp->pData;
-
-					uiSSmp = 0;
-					uiMax  = poSamp->iSamples;
-				}
-				else
-				{
-					// No more process on this sound
-					_roSMP.bEnd = true;
-					return;
-				}
-			}
-		}
 	}
-	
-	// Update sample position
-	_roSMP.iSPos = uiSSmp;
-  //## end CSoundMixer::Mix16M%1014979372.body
+
+	return (iMaxSamples);
 }
 
-void CSoundMixer::Mix16S (CSoundMixPars& _roSMP, unsigned int uiSamples, unsigned int _uiCurDSmpPos)
+int CSoundMixer::iMix16S(CSoundMixPars& _oSMP, CSample* _poSample, unsigned int _uiSamples, unsigned int _uiCurDSmpPos)
 {
-  //## begin CSoundMixer::Mix16S%1014979373.body preserve=yes
-  	if (_roSMP.bEnd) return;
+  	
+	// Mix a 16 bit stereo sample with the contents of the mix buffer
 
-	unsigned int	uiDSmp;
-	unsigned int	uiSSmp;
-	unsigned int	uiMax;
-	int				iCount;
-	int				iS;
-	int				iL;
-	int				iR;
-	
+	// Fetch sample data
+	int iMaxSamples = _poSample->iGetData(_oSMP.iSPos,pSampleBuffer,_uiSamples);
+
 	// Get volume multipliers
-	int	iLV = _roSMP.fLVol*32768.0f;
-	int	iRV = _roSMP.fRVol*32768.0f;
+	int				iLV       = _oSMP.fLVol*32768.0f;
+	int				iRV       = _oSMP.fRVol*32768.0f;
 
-	CSoundLayer		*poSLayer = &_roSMP.poSound->poSLayer[_roSMP.iCLayer];
-	CSample			*poSamp   = poSLayer->poSample;
-	short  *psSrc   = (short*)poSamp->pData;
-	short  *psDst   = (short*)pBuffer + _uiCurDSmpPos*2;
+	// Get buffer pointers
+	short			*psSrc    = (short*)pSampleBuffer;
+	int				*piDst    = (int  *)pi32bBuffer + _uiCurDSmpPos*2;
 
-	uiMax  = poSamp->iSamples;
-	uiSSmp = _roSMP.iSPos;
-	uiDSmp = 0;
 
-	for (uiDSmp=_uiCurDSmpPos;uiDSmp<uiSamples;uiDSmp++)			    
-	{	
+	// Mix samples
+	for (unsigned int s=0;s<iMaxSamples;s++)
+	{
 		// Process sample
-		iL = psSrc[uiSSmp*2+0] * iLV;	iL >>= 15;
-		iR = psSrc[uiSSmp*2+1] * iRV;	iR >>= 15;
+		int iL = psSrc[0] * iLV;	iL >>= 15;
+		int iR = psSrc[1] * iRV;	iR >>= 15;
+		psSrc += 2;
 
 		// Store sample
-		psDst[0] = iL;
-		psDst[1] = iR;
-		psDst   +=2;
-
-		// Update pointers
-		uiSSmp++;
-		if (uiSSmp==uiMax)
-		{
-			// Look if sample is looping
-			if ((poSLayer->bLoop) && (! _roSMP.bLUnlock))
-				// Start at the beginning of this sample
-				uiSSmp = 0;
-			else
-			{
-				// Auto update this
-				_roSMP.bLUnlock = false;
-
-				// Next layer								
-				if (_roSMP.iCLayer+1<_roSMP.poSound->iNumLayers)
-				{						
-					// Update current sound layer
-					_roSMP.iCLayer++;			
-
-					// Pointers			
-					poSLayer++;
-					poSamp = poSLayer->poSample;
-					
-					// What if the next sample is mono???
-					if (poSamp->iChannels == 1)
-					{
-						Mix16M(_roSMP,uiSamples-(uiDSmp-1),uiDSmp);
-						return;
-					}
-
-					psSrc = (short*)poSamp->pData;
-
-					uiSSmp = 0;
-					uiMax  = poSamp->iSamples;
-				}
-				else
-				{
-					// No more process on this sound
-					_roSMP.bEnd = true;
-					return;
-				}
-			}
-		}
+		piDst[0] += iL;
+		piDst[1] += iR;
+		piDst    += 2;
 	}
-	
-	// Update sample position
-	_roSMP.iSPos = uiSSmp;
-  //## end CSoundMixer::Mix16S%1014979373.body
+
+	return (iMaxSamples);
 }
 
-void CSoundMixer::Mix8M (CSoundMixPars& _roSMP, unsigned int uiSamples, unsigned int _uiCurDSmpPos)
+int CSoundMixer::iMix8M (CSoundMixPars& _oSMP, CSample* _poSample, unsigned int _uiSamples, unsigned int _uiCurDSmpPos)
 {
-  //## begin CSoundMixer::Mix8M%1014979374.body preserve=yes
-  //## end CSoundMixer::Mix8M%1014979374.body
+  	
+	// Mix a 8 bit mono sample with the contents of the mix buffer
+
+	// Fetch sample data
+	int iMaxSamples = _poSample->iGetData(_oSMP.iSPos,pSampleBuffer,_uiSamples);
+
+	// Get volume multipliers
+	int				iLV       = _oSMP.fLVol*32768.0f;
+	int				iRV       = _oSMP.fRVol*32768.0f;
+
+
+	// Get buffer pointers
+	char			*pcSrc    = (char *)pSampleBuffer;
+	int				*piDst    = (int  *)pi32bBuffer + _uiCurDSmpPos*2;
+
+
+	// Mix samples
+	for (unsigned int s=0;s<iMaxSamples;s++)
+	{
+		// Process sample
+		int iL = pcSrc[0] * iLV;	iL >>= 7;
+		int iR = pcSrc[0] * iRV;	iR >>= 7;
+		pcSrc += 1;
+
+		// Store sample
+		piDst[0] += iL;
+		piDst[1] += iR;
+		piDst    += 2;
+	}
+
+	return (iMaxSamples);
+
 }
 
-void CSoundMixer::Mix8S (CSoundMixPars& _roSMP, unsigned int uiSamples, unsigned int _uiCurDSmpPos)
+int CSoundMixer::iMix8S (CSoundMixPars& _oSMP, CSample* _poSample, unsigned int _uiSamples, unsigned int _uiCurDSmpPos)
 {
-  //## begin CSoundMixer::Mix8S%1014979375.body preserve=yes
-  //## end CSoundMixer::Mix8S%1014979375.body
+  
+	// Mix a 8 bit stereo sample with the contents of the mix buffer
+
+	// Fetch sample data
+	int iMaxSamples = _poSample->iGetData(_oSMP.iSPos,pSampleBuffer,_uiSamples);
+
+	// Get volume multipliers
+	int				iLV       = _oSMP.fLVol*32768.0f;
+	int				iRV       = _oSMP.fRVol*32768.0f;
+
+	// Get buffer pointers
+	char			*pcSrc    = (char *)pSampleBuffer;
+	int				*piDst    = (int  *)pi32bBuffer + _uiCurDSmpPos*2;
+
+
+	// Mix samples
+	for (unsigned int s=0;s<iMaxSamples;s++)
+	{
+		// Process sample
+		int iL = pcSrc[0] * iLV;	iL >>= 7;
+		int iR = pcSrc[1] * iRV;	iR >>= 7;
+		pcSrc += 2;
+
+		// Store sample
+		piDst[0] += iL;
+		piDst[1] += iR;
+		piDst    += 2;
+	}
+
+	return (iMaxSamples);
+
 }
 
 void* CSoundMixer::pGetBuffer ()
 {
-  //## begin CSoundMixer::pGetBuffer%1015160464.body preserve=yes
-	if (bPostProcess)
-	{
-		// Clamp all the buffer values
-		int		iSmp;
-		int		iMaxSmp = uiBuffSamples<<1;
-		int		*piSSmp = pi32bBuffer;
-		short	*psDSmp = (short*)pBuffer;
-		
-		for (iSmp=0;iSmp<iMaxSmp;iSmp++)
-		{			
-			if (*piSSmp < -32768)	*psDSmp = -32768;
-	   else if (*piSSmp >  32767)	*psDSmp =  32767;
-	   else	
-				*psDSmp = *piSSmp;
-			
-			*psDSmp++;
-			*piSSmp++;
-		}
-		
-		// Clear the auxiliary buffer
-		memset(pi32bBuffer,0,uiBuffSamples*2*4);
-
-		// We do not need signal post processing
-		bPostProcess = false;
-	}
-
-	return(pBuffer);
-  //## end CSoundMixer::pGetBuffer%1015160464.body
+  	return(pBuffer);
 }
 
 unsigned int CSoundMixer::uiGetBufferSize ()
 {
-  //## begin CSoundMixer::uiGetBufferSize%1015168104.body preserve=yes
-	return(uiBuffSize);
-  //## end CSoundMixer::uiGetBufferSize%1015168104.body
+  	return(uiBuffSize);
+}
+
+void CSoundMixer::Finish ()
+{
+  	if (pBuffer) mFree(pBuffer);
+	if (pSampleBuffer) mFree(pSampleBuffer);
+	if (pi32bBuffer) mFree(pi32bBuffer);
 }
 
 // Additional Declarations
-  //## begin CSoundMixer%3C7F7DF20222.declarations preserve=yes
-  //## end CSoundMixer%3C7F7DF20222.declarations
+  void CSoundMixer::PostProcess()
+{
+	// Clamp all the buffer values
+	int		iSmp;
+	int		iMaxSmp = uiBuffSamples<<1;	// uiBuffSamples shorts
+	int		*piSSmp = pi32bBuffer;
+	short	*psDSmp = (short*)pBuffer;
 
-//## begin module%3C7F7DF20222.epilog preserve=yes
-//## end module%3C7F7DF20222.epilog
+	for (iSmp=0;iSmp<iMaxSmp;iSmp++)
+	{
+		if (*piSSmp < -32768)	*psDSmp = -32768;
+	else if (*piSSmp >  32767)	*psDSmp =  32767;
+	else	
+			*psDSmp = *piSSmp;
+
+		*psDSmp++;
+		*piSSmp++;
+	}
+
+	// Clear the auxiliary buffer
+	memset(pi32bBuffer,0,uiBuffSamples*2*4);
+}
+  

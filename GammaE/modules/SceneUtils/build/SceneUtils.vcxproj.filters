@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="BSPBuilder">
+      <UniqueIdentifier>{cd5422ba-5919-45d7-be21-853779341104}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mesh2TriScn">
+      <UniqueIdentifier>{bb249478-5f40-4f53-aefe-3cde8dbd6632}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OctreeBuilder">
+      <UniqueIdentifier>{fceca1f7-ede9-4125-bcb7-3f1d45f5b054}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SceneBuilder">
+      <UniqueIdentifier>{f1f1179b-fa4f-44ab-927c-55eba8bfa261}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SceneCompiler">
+      <UniqueIdentifier>{833e667a-71d7-49cc-87e8-caa507eace6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scn2TriScnBuilder">
+      <UniqueIdentifier>{bbb91b3f-16ba-4e15-8555-801d81e2dd86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScnCoplanarRemover">
+      <UniqueIdentifier>{61366459-147d-4cf4-90af-085c37b8cdf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScnMeshGen">
+      <UniqueIdentifier>{b47e913a-c222-4533-818b-c5159a273b7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScnNormalGen">
+      <UniqueIdentifier>{563092b3-d340-4b9d-8804-36df3637a441}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScnPlanarMapper">
+      <UniqueIdentifier>{80213a2e-5fdd-4813-956f-8643e8f9d8d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScnShaderAssigner">
+      <UniqueIdentifier>{5e5170e8-9843-491d-89cd-8476e33721ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScnStripifier">
+      <UniqueIdentifier>{23c5d7ff-7451-412c-89a0-8d6d6a7e0fbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScnUtils">
+      <UniqueIdentifier>{423b79d1-3fb6-47d1-8027-3f342c34de41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScnVisibilityTester">
+      <UniqueIdentifier>{4da3f2e2-e8c2-426c-8810-31280099690d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SeparateTriScene">
+      <UniqueIdentifier>{2b8414e2-a101-4731-878c-0d0647fc0977}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SplitTriScene">
+      <UniqueIdentifier>{afa8592a-bb98-478e-8296-5484abdcacee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TransfTriScn">
+      <UniqueIdentifier>{cc613091-e687-488a-ad51-748b58a99d80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TriScnLoader">
+      <UniqueIdentifier>{1a7d0c4f-5159-4eaa-8ee6-182f97dd8b48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TriScnSaver">
+      <UniqueIdentifier>{2100eec0-4c55-4615-b60c-5e065566bbad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScnBBoxGen">
+      <UniqueIdentifier>{b581717a-4ee8-477e-a36a-5e4aef45df88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AnimScnLoader">
+      <UniqueIdentifier>{b24c4fe5-e048-4686-b98b-357682f1eba7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\BSPBuilder\SCNUt_BSPBuilder.cpp">
+      <Filter>BSPBuilder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Mesh2TriScn\SCNUt_Mesh2TriScene.cpp">
+      <Filter>Mesh2TriScn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\OctreeBuilder\SCNUt_OctreeBuilder.cpp">
+      <Filter>OctreeBuilder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SceneBuilder\SCNUt_SceneBuilder.cpp">
+      <Filter>SceneBuilder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SceneCompiler\SCNUt_SceneCompiler.cpp">
+      <Filter>SceneCompiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Scn2TriScnBuilder\SCNUt_Scn2TriScnBuilder.cpp">
+      <Filter>Scn2TriScnBuilder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ScnCoplanarRemover\SCNUt_CoplanarRemover.cpp">
+      <Filter>ScnCoplanarRemover</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ScnMeshGen\SCNUt_MeshCompacter.cpp">
+      <Filter>ScnMeshGen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ScnMeshGen\SCNUt_MeshGenerator.cpp">
+      <Filter>ScnMeshGen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ScnNormalGen\SCNUt_AnimMesh_NormalComputer.cpp">
+      <Filter>ScnNormalGen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ScnPlanarMapper\SCNUt_PlanarMapper.cpp">
+      <Filter>ScnPlanarMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ScnShaderAssigner\ScnUt_ShaderAssigner.cpp">
+      <Filter>ScnShaderAssigner</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ScnStripifier\SCNUt_AdjTri.cpp">
+      <Filter>ScnStripifier</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ScnStripifier\SCNUt_AdjTriList.cpp">
+      <Filter>ScnStripifier</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ScnStripifier\SCNUt_AdjTriListBuilder.cpp">
+      <Filter>ScnStripifier</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ScnStripifier\SCNUt_Edge.cpp">
+      <Filter>ScnStripifier</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ScnStripifier\SCNUt_EdgeBuilder.cpp">
+      <Filter>ScnStripifier</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ScnStripifier\SCNUt_EdgeList.cpp">
+      <Filter>ScnStripifier</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ScnStripifier\SCNUt_Stripifier.cpp">
+      <Filter>ScnStripifier</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ScnUtils\SCNUt_TriUtils.cpp">
+      <Filter>ScnUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ScnVisibilityTester\SCNUt_VisibilityTester.cpp">
+      <Filter>ScnVisibilityTester</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SeparateTriScene\SCNUt_TriSceneSeparator.cpp">
+      <Filter>SeparateTriScene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SplitTriScene\SCNUt_TriSceneClassifier.cpp">
+      <Filter>SplitTriScene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SplitTriScene\SCNUt_TriSceneSplitter.cpp">
+      <Filter>SplitTriScene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TransfTriScn\SCNUt_TransformTriScene.cpp">
+      <Filter>TransfTriScn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TriScnLoader\SCNUt_TriSceneLoader.cpp">
+      <Filter>TriScnLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TriScnSaver\SCNUt_TriSceneSaver.cpp">
+      <Filter>TriScnSaver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ScnBBoxGen\SCNUt_ComputeBoundingBox.cpp">
+      <Filter>ScnBBoxGen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\AnimScnLoader\SCNUt_AnimSceneLoader.cpp">
+      <Filter>AnimScnLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SCNUt_ePolyState.cpp" />
+    <ClCompile Include="..\src\SCNUt_ExtendedTri.cpp" />
+    <ClCompile Include="..\src\SCNUt_MaterialTable.cpp" />
+    <ClCompile Include="..\src\SCNUt_Triangle.cpp" />
+    <ClCompile Include="..\src\SCNUt_TriScene.cpp" />
+    <ClCompile Include="..\src\SCNUt_TriSceneAccumulator.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\BSPBuilder\SCNUt_BSPBuilder.h">
+      <Filter>BSPBuilder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Mesh2TriScn\SCNUt_Mesh2TriScene.h">
+      <Filter>Mesh2TriScn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\OctreeBuilder\SCNUt_OctreeBuilder.h">
+      <Filter>OctreeBuilder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SceneBuilder\SCNUt_SceneBuilder.h">
+      <Filter>SceneBuilder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SceneCompiler\SCNUt_SceneCompiler.h">
+      <Filter>SceneCompiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scn2TriScnBuilder\SCNUt_Scn2TriScnBuilder.h">
+      <Filter>Scn2TriScnBuilder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ScnCoplanarRemover\SCNUt_CoplanarRemover.h">
+      <Filter>ScnCoplanarRemover</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ScnMeshGen\SCNUt_MeshCompacter.h">
+      <Filter>ScnMeshGen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ScnMeshGen\SCNUt_MeshGenerator.h">
+      <Filter>ScnMeshGen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ScnNormalGen\SCNUt_AnimMesh_NormalComputer.h">
+      <Filter>ScnNormalGen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ScnPlanarMapper\SCNUt_PlanarMapper.h">
+      <Filter>ScnPlanarMapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ScnShaderAssigner\ScnUt_ShaderAssigner.h">
+      <Filter>ScnShaderAssigner</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ScnStripifier\SCNUt_AdjTri.h">
+      <Filter>ScnStripifier</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ScnStripifier\SCNUt_AdjTriList.h">
+      <Filter>ScnStripifier</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ScnStripifier\SCNUt_AdjTriListBuilder.h">
+      <Filter>ScnStripifier</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ScnStripifier\SCNUt_Edge.h">
+      <Filter>ScnStripifier</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ScnStripifier\SCNUt_EdgeBuilder.h">
+      <Filter>ScnStripifier</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ScnStripifier\SCNUt_EdgeList.h">
+      <Filter>ScnStripifier</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ScnStripifier\SCNUt_Stripifier.h">
+      <Filter>ScnStripifier</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ScnUtils\SCNUt_TriUtils.h">
+      <Filter>ScnUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ScnVisibilityTester\SCNUt_VisibilityTester.h">
+      <Filter>ScnVisibilityTester</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SeparateTriScene\SCNUt_TriSceneSeparator.h">
+      <Filter>SeparateTriScene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SplitTriScene\SCNUt_TriSceneClassifier.h">
+      <Filter>SplitTriScene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SplitTriScene\SCNUt_TriSceneSplitter.h">
+      <Filter>SplitTriScene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TransfTriScn\SCNUt_TransformTriScene.h">
+      <Filter>TransfTriScn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TriScnLoader\SCNUt_TriSceneLoader.h">
+      <Filter>TriScnLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TriScnSaver\SCNUt_TriSceneSaver.h">
+      <Filter>TriScnSaver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ScnBBoxGen\SCNUt_ComputeBoundingBox.h">
+      <Filter>ScnBBoxGen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\AnimScnLoader\SCNUt_AnimSceneLoader.h">
+      <Filter>AnimScnLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GSceneUtils.h" />
+    <ClInclude Include="..\src\SCNUt_ePolyState.h" />
+    <ClInclude Include="..\src\SCNUt_ExtendedTri.h" />
+    <ClInclude Include="..\src\SCNUt_MaterialTable.h" />
+    <ClInclude Include="..\src\SCNUt_Triangle.h" />
+    <ClInclude Include="..\src\SCNUt_TriScene.h" />
+    <ClInclude Include="..\src\SCNUt_TriSceneAccumulator.h" />
+    <ClInclude Include="..\src\TTriangle.h" />
+  </ItemGroup>
+</Project>

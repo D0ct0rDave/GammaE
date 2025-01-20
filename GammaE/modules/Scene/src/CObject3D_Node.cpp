@@ -1,237 +1,174 @@
-//## begin module%3AAC0C32006E.cm preserve=no
-//	  %X% %Q% %Z% %W%
-//## end module%3AAC0C32006E.cm
-
-//## begin module%3AAC0C32006E.cp preserve=no
-//## end module%3AAC0C32006E.cp
-
-//## Module: CObject3D_Node%3AAC0C32006E; Pseudo Package body
-//## Source file: i:\Projects\GammaE\Scene\CObject3D_Node.cpp
-
-//## begin module%3AAC0C32006E.additionalIncludes preserve=no
-//## end module%3AAC0C32006E.additionalIncludes
-
-//## begin module%3AAC0C32006E.includes preserve=yes
+// ----------------------------------------------------------------------------
 #include <assert.h>
-#include "memory/gammae_mem.h"
-//## end module%3AAC0C32006E.includes
-
-// CObject3D_Node
-#include "Scene\CObject3D_Node.h"
-//## begin module%3AAC0C32006E.additionalDeclarations preserve=yes
-//## end module%3AAC0C32006E.additionalDeclarations
-
-
-// Class CObject3D_Node 
-
-
-
-
+#include "GammaE_Mem.h"
+#include "CObject3D_Node.h"
+// ----------------------------------------------------------------------------
 CObject3D_Node::CObject3D_Node()
-  //## begin CObject3D_Node::CObject3D_Node%.hasinit preserve=no
-  //## end CObject3D_Node::CObject3D_Node%.hasinit
-  //## begin CObject3D_Node::CObject3D_Node%.initialization preserve=yes
-  //## end CObject3D_Node::CObject3D_Node%.initialization
 {
-  //## begin CObject3D_Node::CObject3D_Node%.body preserve=yes
-	TypeID		= e3DObj_Node;
-
-	BVol		= CGraphBV_Manager::poCreate();
-	bFrustumTest= true;
-  //## end CObject3D_Node::CObject3D_Node%.body
+    TypeID      = e3DObj_Node;
+    BVol        = poCreateBoundVol();
+    bFrustumTest = true;
 }
-
-CObject3D_Node::CObject3D_Node (int _iInitialSubObjs)
-  //## begin CObject3D_Node::CObject3D_Node%1019380666.hasinit preserve=no
-  //## end CObject3D_Node::CObject3D_Node%1019380666.hasinit
-  //## begin CObject3D_Node::CObject3D_Node%1019380666.initialization preserve=yes
-  //## end CObject3D_Node::CObject3D_Node%1019380666.initialization
+// ----------------------------------------------------------------------------
+CObject3D_Node::CObject3D_Node(uint _uiMaxSubObjs)
 {
-  //## begin CObject3D_Node::CObject3D_Node%1019380666.body preserve=yes
-	CObject3D_Node();
-	Init(_iInitialSubObjs);
-  //## end CObject3D_Node::CObject3D_Node%1019380666.body
+    Init(_uiMaxSubObjs);
 }
-
-
+// ----------------------------------------------------------------------------
 CObject3D_Node::~CObject3D_Node()
 {
-  //## begin CObject3D_Node::~CObject3D_Node%.body preserve=yes
-	Clear();
-  //## end CObject3D_Node::~CObject3D_Node%.body
+    Clear();
+    mDel BVol;
 }
-
-
-
-//## Other Operations (implementation)
-void CObject3D_Node::Init (int _iInitialSubObjs)
+// ----------------------------------------------------------------------------
+void CObject3D_Node::Init(uint _uiMaxSubObjs)
 {
-  //## begin CObject3D_Node::Init%984427108.body preserve=yes
-	poSubObj.SetReallocFactor(_iInitialSubObjs);
-	//poSubObj.iAdd(NULL);
+   poSubObj.Init(_uiMaxSubObjs);
 
-	/*
-	MaxSubObjects = _MaxSubObjects;
-	SubObj        = mNew CObject3D *[MaxSubObjects];		
-	for (int cObj=0;cObj<MaxSubObjects;cObj++)	SubObj[cObj] = NULL;
-	*/
+    for (uint i = 0; i < _uiMaxSubObjs; i++)
+        poSubObj.iAdd(NULL);
 
-	// poSubObj.
-  //## end CObject3D_Node::Init%984427108.body
+    //poSubObj.iAdd(NULL);
+
+    /*
+       MaxSubObjects = _MaxSubObjects;
+       SubObj        = mNew CObject3D_Gen *[MaxSubObjects];
+       for(int cObj=0;cObj<MaxSubObjects;cObj++)	SubObj[cObj] = NULL;
+     */
+
+    // poSubObj.
 }
-
-void CObject3D_Node::Clear ()
+// ----------------------------------------------------------------------------
+void CObject3D_Node::Clear()
 {
-  //## begin CObject3D_Node::Clear%986154962.body preserve=yes
-	int cObj;
-
-	// Free SubObj
-	for (cObj=0;cObj<poSubObj.iNumElems();cObj++)
-	{
-		if (poSubObj[cObj])
-			poSubObj[cObj]->UnReference();
-	}
-	poSubObj.Clear();
-  //## end CObject3D_Node::Clear%986154962.body
-}
-
-CGraphBV * CObject3D_Node::poGetBoundVol ()
-{
-  //## begin CObject3D_Node::poGetBoundVol%984427103.body preserve=yes
-  	return( BVol);
-  //## end CObject3D_Node::poGetBoundVol%984427103.body
-}
-
-void CObject3D_Node::ComputeBoundVol ()
-{
-  //## begin CObject3D_Node::ComputeBoundVol%984427104.body preserve=yes
-  
-	// Las bounding boxes de los objetos deben tener en cuenta
-	// las transformaciones que se deben realizar en los nodos 
-	// hijos. Probar a transformar la BoundingBox mediante la
-	// matriz asociada al nodo. Despues volver a obtener
-	// los max y los mins, para volver a tener una AABB
-
-	int			cObj;
-	float		fXSide,fYSide,fZSide;
-    CVect3		Maxs,Mins,Center;
-	CGraphBV	*BV;
-
-    Mins.V3( 1000000000, 1000000000, 1000000000);
-    Maxs.V3(-1000000000,-1000000000,-1000000000);
-
-    for (cObj=0;cObj<poSubObj.iNumElems();cObj++)
+     // Free SubObj
+    for(uint cObj = 0; cObj < poSubObj.uiNumElems(); cObj++)
     {
-		if (poSubObj[cObj])
-		{
-			// Compute the AABB for the object
-			poSubObj[cObj]->ComputeBoundVol();
-			BV = poSubObj[cObj]->poGetBoundVol();
+        if(poSubObj[cObj])
+            poSubObj[cObj]->Deref();
+    }
+    poSubObj.Clear();
+}
+// ----------------------------------------------------------------------------
+CGraphBV *CObject3D_Node::poCreateBoundVol()
+{
+    return ( CGraphBV_Manager::poCreate() );
+}
+// ----------------------------------------------------------------------------
+CGraphBV *CObject3D_Node::poGetBoundVol()
+{
+    return( BVol );
+}
+// ----------------------------------------------------------------------------
+void CObject3D_Node::ComputeBoundVol()
+{
+     // Las bounding boxes de los objetos deben tener en cuenta
+     // las transformaciones que se deben realizar en los nodos
+     // hijos. Probar a transformar la BoundingBox mediante la
+     // matriz asociada al nodo. Despues volver a obtener
+     // los max y los mins, para volver a tener una AABB
+    float fXSide,fYSide,fZSide;
+    CVect3 Maxs,Mins,Center;
+    CGraphBV    *BV;
 
-			// Get object properties				
-			fXSide = BV->GetRange(0)*0.5f;
-			fYSide = BV->GetRange(1)*0.5f;
-			fZSide = BV->GetRange(2)*0.5f;			
-			Center = BV->GetCenter();
-			
-			// Compute Maxs/Mins vectors
-			if ( Center.X() + fXSide > Maxs.X() ) Maxs.SetX(Center.X() + fXSide);
-			if ( Center.X() - fXSide < Mins.X() ) Mins.SetX(Center.X() - fXSide);
+    Mins.V3( 1e10f, 1e10f, 1e10f);
+    Maxs.V3(-1e10f,-1e10f,-1e10f);
 
-			if ( Center.Y() + fYSide > Maxs.Y() ) Maxs.SetY(Center.Y() + fYSide);
-			if ( Center.Y() - fYSide < Mins.Y() ) Mins.SetY(Center.Y() - fYSide);
-			
-			if ( Center.Z() + fZSide > Maxs.Z() ) Maxs.SetZ(Center.Z() + fZSide);
-			if ( Center.Z() - fZSide < Mins.Z() ) Mins.SetZ(Center.Z() - fZSide);
-		}
+    for(uint cObj = 0; cObj < poSubObj.uiNumElems(); cObj++)
+    {
+        if(poSubObj[cObj])
+        {
+             // Compute the AABB for the object
+            poSubObj[cObj]->ComputeBoundVol();
+            BV = poSubObj[cObj]->poGetBoundVol();
+
+            if(BV == NULL) continue;
+
+             // Get object properties
+            fXSide = BV->GetRange(0) * 0.5f;
+            fYSide = BV->GetRange(1) * 0.5f;
+            fZSide = BV->GetRange(2) * 0.5f;
+            Center = BV->GetCenter();
+
+             // Compute Maxs/Mins vectors
+            if( Center.x + fXSide > Maxs.x ) Maxs.x = Center.x + fXSide;
+
+            if( Center.x - fXSide < Mins.x ) Mins.x = Center.x - fXSide;
+
+            if( Center.y + fYSide > Maxs.y ) Maxs.y = Center.y + fYSide;
+
+            if( Center.y - fYSide < Mins.y ) Mins.y = Center.y - fYSide;
+
+            if( Center.z + fZSide > Maxs.z ) Maxs.z = Center.z + fZSide;
+
+            if( Center.z - fZSide < Mins.z ) Mins.z = Center.z - fZSide;
+        }
     }
 
-	BVol->Init(Maxs,Mins);	
-  //## end CObject3D_Node::ComputeBoundVol%984427104.body
-}
-
-void CObject3D_Node::DelObject (int _iPos)
+    BVol->Init(Maxs,Mins);
+} // ComputeBoundVol
+// ----------------------------------------------------------------------------
+void CObject3D_Node::DelObject(uint _uiPos)
 {
-  //## begin CObject3D_Node::DelObject%996702770.body preserve=yes
-	assert( (_iPos<poSubObj.iNumElems()) && "Object out of bounds");
+    assert( ( _uiPos < poSubObj.uiNumElems() ) && "Object out of bounds" );
 
-	if (poSubObj[_iPos])
-	{
-		poSubObj[_iPos]->UnReference();		
-		poSubObj[_iPos] = NULL;
-	}	
-  //## end CObject3D_Node::DelObject%996702770.body
+    if( poSubObj[_uiPos] )
+    {
+        poSubObj[_uiPos]->Deref();
+        poSubObj[_uiPos] = NULL;
+    }
 }
-
-int CObject3D_Node::iAddObject (CObject3D* _poObj)
+// ----------------------------------------------------------------------------
+int CObject3D_Node::iAddObject(CObject3D *_poObj)
 {
-  //## begin CObject3D_Node::iAddObject%996522678.body preserve=yes
-	poSubObj.iAdd(_poObj);
-	return(poSubObj.iNumElems()-1);
-  //## end CObject3D_Node::iAddObject%996522678.body
-}
+    for (uint i = 0; i < poSubObj.uiMaxElems(); i++)
+    {
+        if (poSubObj[i] == NULL)
+        {
+            poSubObj[i] = _poObj;
+            _poObj->Ref();
 
-void CObject3D_Node::SetObject (CObject3D* _poObj, int _iPos)
+            return( i );
+        }
+    }
+
+     // Cannot add object to the node
+    return( -1 );
+}
+// ----------------------------------------------------------------------------
+void CObject3D_Node::SetObject(CObject3D *_poObj, uint _uiPos)
 {
-  //## begin CObject3D_Node::SetObject%984427106.body preserve=yes
-	assert( (_iPos<poSubObj.iNumElems()) && "Object out of bounds");
-	assert( _poObj && "Setting a NULL Subobject");
-	
-	poSubObj[_iPos] = _poObj;
-	_poObj->Reference();
-  //## end CObject3D_Node::SetObject%984427106.body
-}
+    assert( ( _uiPos < poSubObj.uiNumElems() ) && "Object out of bounds" );
+    assert( _poObj && "Setting a NULL Subobject");
 
-CObject3D* CObject3D_Node::poGetObject (int _iPos)
+    poSubObj[_uiPos] = _poObj;
+    _poObj->Ref();
+}
+// ----------------------------------------------------------------------------
+CObject3D *CObject3D_Node::poGetObject(uint _uiPos)
 {
-  //## begin CObject3D_Node::poGetObject%984427107.body preserve=yes
-	assert( (_iPos<poSubObj.iNumElems()) && "Object out of bounds");	
-	return( poSubObj[_iPos] );
-  //## end CObject3D_Node::poGetObject%984427107.body
+    assert( ( _uiPos < poSubObj.uiNumElems() ) && "Object out of bounds" );
+    return( poSubObj[_uiPos] );
 }
-
-void CObject3D_Node::Render ()
+// ----------------------------------------------------------------------------
+void CObject3D_Node::Render()
 {
-  //## begin CObject3D_Node::Render%984427105.body preserve=yes
-
-	if ( bVisible() )
-	{
-		int	cObj;
-		for (cObj=0;cObj<poSubObj.iNumElems();cObj++)
-			if (poSubObj[cObj])
-				poSubObj[cObj]->Render();
-	}
-
-  //## end CObject3D_Node::Render%984427105.body
+    if( bVisible() )
+    {
+        for(uint cObj = 0; cObj < poSubObj.uiNumElems(); cObj++)
+            if(poSubObj[cObj])
+                poSubObj[cObj]->Render();
+    }
 }
-
-int CObject3D_Node::iNumSubObjs ()
+// ----------------------------------------------------------------------------
+uint CObject3D_Node::uiNumSubObjs()
 {
-  //## begin CObject3D_Node::iNumSubObjs%1010017301.body preserve=yes	
-	int iNumSubObjs;
-	int cObj;
+   uint uiNumSubObjects = 0;
 
-	iNumSubObjs = 0;
-	for (cObj=0;cObj<poSubObj.iNumElems();cObj++)
-		if (poSubObj[cObj]) iNumSubObjs++;
+    for(uint cObj = 0; cObj < poSubObj.uiNumElems(); cObj++)
+        if(poSubObj[cObj])
+            uiNumSubObjects++;
 
-	return(iNumSubObjs);
-  //## end CObject3D_Node::iNumSubObjs%1010017301.body
+    return( uiNumSubObjects );
 }
-
-// Additional Declarations
-  //## begin CObject3D_Node%3AAC0C32006E.declarations preserve=yes
-  //## end CObject3D_Node%3AAC0C32006E.declarations
-
-//## begin module%3AAC0C32006E.epilog preserve=yes
-//## end module%3AAC0C32006E.epilog
-
-
-// Detached code regions:
-// WARNING: this code will be lost if code is regenerated.
-#if 0
-//## begin CObject3D_Node::iGetMaxSubObjects%999339053.body preserve=no
-	return (MaxSubObjects);
-//## end CObject3D_Node::iGetMaxSubObjects%999339053.body
-
-#endif
+// ----------------------------------------------------------------------------

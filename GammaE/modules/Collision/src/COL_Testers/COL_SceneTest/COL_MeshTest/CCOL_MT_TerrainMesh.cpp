@@ -1,25 +1,13 @@
-//## begin module%3C294DBE032E.cm preserve=no
 //	  %X% %Q% %Z% %W%
-//## end module%3C294DBE032E.cm
 
-//## begin module%3C294DBE032E.cp preserve=no
-//## end module%3C294DBE032E.cp
 
-//## Module: CCOL_MT_TerrainMesh%3C294DBE032E; Pseudo Package body
-//## Source file: i:\Projects\GammaE\Collision\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_TerrainMesh.cpp
 
-//## begin module%3C294DBE032E.additionalIncludes preserve=no
-//## end module%3C294DBE032E.additionalIncludes
 
-//## begin module%3C294DBE032E.includes preserve=yes
-//## end module%3C294DBE032E.includes
 
 // CCOL_ColState
-#include "Collision\CollisionSystem\CCOL_ColState.h"
+#include "CollisionSystem\CCOL_ColState.h"
 // CCOL_MT_TerrainMesh
-#include "Collision\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_TerrainMesh.h"
-//## begin module%3C294DBE032E.additionalDeclarations preserve=yes
-//## end module%3C294DBE032E.additionalDeclarations
+#include "COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_TerrainMesh.h"
 
 
 // Class CCOL_MT_TerrainMesh 
@@ -31,30 +19,20 @@
 
 
 CCOL_MT_TerrainMesh::CCOL_MT_TerrainMesh()
-  //## begin CCOL_MT_TerrainMesh::CCOL_MT_TerrainMesh%.hasinit preserve=no
-      : HF(NULL), iSectorRes(0), fRatio(0), iTWidth(0), iTHeight(0), fInvRatio(0)
-  //## end CCOL_MT_TerrainMesh::CCOL_MT_TerrainMesh%.hasinit
-  //## begin CCOL_MT_TerrainMesh::CCOL_MT_TerrainMesh%.initialization preserve=yes
-  //## end CCOL_MT_TerrainMesh::CCOL_MT_TerrainMesh%.initialization
-{
-  //## begin CCOL_MT_TerrainMesh::CCOL_MT_TerrainMesh%.body preserve=yes
-  //## end CCOL_MT_TerrainMesh::CCOL_MT_TerrainMesh%.body
+        : HF(NULL), iSectorRes(0), fRatio(0), iTWidth(0), iTHeight(0), fInvRatio(0)
+      {
 }
 
 
 CCOL_MT_TerrainMesh::~CCOL_MT_TerrainMesh()
 {
-  //## begin CCOL_MT_TerrainMesh::~CCOL_MT_TerrainMesh%.body preserve=yes
-  //## end CCOL_MT_TerrainMesh::~CCOL_MT_TerrainMesh%.body
 }
 
 
 
-//## Other Operations (implementation)
-int CCOL_MT_TerrainMesh::iTestCollision (CMesh* _poMesh, int _iMat, CGraphBV* _poBVol, CCOL_TriList& _roTriList)
+int CCOL_MT_TerrainMesh::iTestCollision (CMesh* _poMesh, int _iMat, CGraphBV* _poBVol, CCOL_TriList& _oTriList)
 {
-  //## begin CCOL_MT_TerrainMesh::iTestCollision%1009321164.body preserve=yes
-
+  
 	// Convertir coordinadas SrcIPos, SrcFPos a coordenadas de terreno
 	// Trazar el recorrido del objeto sobre el terreno, pixel a pixel.
 	
@@ -76,10 +54,10 @@ int CCOL_MT_TerrainMesh::iTestCollision (CMesh* _poMesh, int _iMat, CGraphBV* _p
 	float		fHeight,fHalfZObj;	
 	float		fColTime;
 		
-	iIX = CCOL_ColState::SrcIPos.X()*fRatio;
-	iIY = CCOL_ColState::SrcIPos.Y()*fRatio;
-	iFX = CCOL_ColState::SrcFPos.X()*fRatio;
-	iFY = CCOL_ColState::SrcFPos.Y()*fRatio;
+	iIX = CCOL_ColState::SrcIPos.x*fRatio;
+	iIY = CCOL_ColState::SrcIPos.y*fRatio;
+	iFX = CCOL_ColState::SrcFPos.x*fRatio;
+	iFY = CCOL_ColState::SrcFPos.y*fRatio;
 
 	iXRange = iFX - iIX;
 	iYRange = iFY - iIY;
@@ -109,14 +87,14 @@ int CCOL_MT_TerrainMesh::iTestCollision (CMesh* _poMesh, int _iMat, CGraphBV* _p
 	if (! iSteps)
 		fZStep = 0.0f;
 	else
-		fZStep = (CCOL_ColState::SrcFPos.Z() - CCOL_ColState::SrcIPos.Z()) / (float)iSteps;
+		fZStep = (CCOL_ColState::SrcFPos.z - CCOL_ColState::SrcIPos.z) / (float)iSteps;
 
 	// Loop throught all the traversed triangles
 	fActX	 = iIX;
 	fActY	 = iIY;
-	fActZ    = CCOL_ColState::SrcIPos.Z();
+	fActZ    = CCOL_ColState::SrcIPos.z;
 
-	fHalfZObj= _poBVol->GetExtents().Z();
+	fHalfZObj= _poBVol->GetExtents().z;
    
     iNumTris = 0;
 
@@ -142,7 +120,7 @@ int CCOL_MT_TerrainMesh::iTestCollision (CMesh* _poMesh, int _iMat, CGraphBV* _p
 			fColTime = CCOL_DT_ColTester::fTestTriangle(_poBVol,Tri);
 			if (fColTime >= 0.0f)
 			{
-				_roTriList.iAddTri(Tri.VXs,Tri.Normal,-1,fColTime);
+				_oTriList.iAddTri(Tri.VXs,Tri.Normal,-1,fColTime);
 				iNumTris ++;
 			}
 			
@@ -153,7 +131,7 @@ int CCOL_MT_TerrainMesh::iTestCollision (CMesh* _poMesh, int _iMat, CGraphBV* _p
 			fColTime = CCOL_DT_ColTester::fTestTriangle(_poBVol,Tri);
 			if (fColTime >= 0.0f)
 			{
-				_roTriList.iAddTri(Tri.VXs,Tri.Normal,-1,fColTime);
+				_oTriList.iAddTri(Tri.VXs,Tri.Normal,-1,fColTime);
 				iNumTris ++;
 			}
 		}
@@ -174,10 +152,10 @@ int CCOL_MT_TerrainMesh::iTestCollision (CMesh* _poMesh, int _iMat, CGraphBV* _p
 	
 	float	fXStep,fYStep,fActX,fActY;
 		
-	iIX = CCOL_ColState::SrcIPos.X()*fRatio;
-	iIY = CCOL_ColState::SrcIPos.Y()*fRatio;
-	iFX = CCOL_ColState::SrcFPos.X()*fRatio;
-	iFY = CCOL_ColState::SrcFPos.Y()*fRatio;	
+	iIX = CCOL_ColState::SrcIPos.x*fRatio;
+	iIY = CCOL_ColState::SrcIPos.y*fRatio;
+	iFX = CCOL_ColState::SrcFPos.x*fRatio;
+	iFY = CCOL_ColState::SrcFPos.y*fRatio;	
 
 	iXRange = iFX - iIX;
 	iYRange = iFY - iIY;	
@@ -204,7 +182,7 @@ int CCOL_MT_TerrainMesh::iTestCollision (CMesh* _poMesh, int _iMat, CGraphBV* _p
 		}
 	}
 
-	fZStep = (CCOL_ColState::SrcFPos.Z() - CCOL_ColState::SrcIPos.Z()) / (float)iSteps;
+	fZStep = (CCOL_ColState::SrcFPos.z - CCOL_ColState::SrcIPos.z) / (float)iSteps;
 
 	// Loop throught all the traversed triangles
 	fActX	 = iIX;
@@ -226,7 +204,7 @@ int CCOL_MT_TerrainMesh::iTestCollision (CMesh* _poMesh, int _iMat, CGraphBV* _p
 				Tri.Init(VXs);		Tri.ComputeAll();
 				if (CCOL_DT_ColTester::iTestTriangle(_BVol,Tri))
 				{
-					_rTriList.iAddTri(Tri.VXs,Tri.Normal);
+					_TriList.iAddTri(Tri.VXs,Tri.Normal);
 					iNumTris++;
 					// return(1);
 				}
@@ -234,7 +212,7 @@ int CCOL_MT_TerrainMesh::iTestCollision (CMesh* _poMesh, int _iMat, CGraphBV* _p
 				Tri.Init(VXs+3);		Tri.ComputeAll();
 				if (CCOL_DT_ColTester::iTestTriangle(_BVol,Tri))
 				{
-					_rTriList.iAddTri(Tri.VXs,Tri.Normal);
+					_TriList.iAddTri(Tri.VXs,Tri.Normal);
 					iNumTris++;
 					// return(1);
 				}
@@ -248,7 +226,7 @@ int CCOL_MT_TerrainMesh::iTestCollision (CMesh* _poMesh, int _iMat, CGraphBV* _p
 					Tri.Init(VXs + iTri*3);		Tri.ComputeAll();
 					if (CCOL_DT_ColTester::iTestTriangle(_BVol,Tri))
 					{
-						_rTriList.iAddTri(Tri.VXs,Tri.Normal);
+						_TriList.iAddTri(Tri.VXs,Tri.Normal);
 						iNumTris++;
 						// return(1);
 					}
@@ -262,13 +240,11 @@ int CCOL_MT_TerrainMesh::iTestCollision (CMesh* _poMesh, int _iMat, CGraphBV* _p
 	}
 	return(iNumTris);
 */
-  //## end CCOL_MT_TerrainMesh::iTestCollision%1009321164.body
 }
 
 int CCOL_MT_TerrainMesh::iGetTriangles (int _iX, int _iY, int _iRad, CVect3* _pVXs)
 {
-  //## begin CCOL_MT_TerrainMesh::iGetTriangles%1009321167.body preserve=yes
-	int iIX,iFX;
+  	int iIX,iFX;
 	int iIY,iFY;
 	int cI,cJ;
 	
@@ -285,13 +261,11 @@ int CCOL_MT_TerrainMesh::iGetTriangles (int _iX, int _iY, int _iRad, CVect3* _pV
 		}
 
 	return(2*(2*_iRad+1)*(2*_iRad+1));
-  //## end CCOL_MT_TerrainMesh::iGetTriangles%1009321167.body
 }
 
 void CCOL_MT_TerrainMesh::GetTriangle (int _iX, int _iY, CVect3* _pa6VXs)
 {
-  //## begin CCOL_MT_TerrainMesh::GetTriangle%1009406733.body preserve=yes
-  	float fH[4];
+    	float fH[4];
 	float fIX,fFX;
 	float fIY,fFY;
 
@@ -313,13 +287,11 @@ void CCOL_MT_TerrainMesh::GetTriangle (int _iX, int _iY, CVect3* _pa6VXs)
 	_pa6VXs[3].V3(fIX,fIY,fH[0]);
 	_pa6VXs[4].V3(fFX,fFY,fH[3]);
 	_pa6VXs[5].V3(fFX,fIY,fH[1]);
-  //## end CCOL_MT_TerrainMesh::GetTriangle%1009406733.body
 }
 
 float CCOL_MT_TerrainMesh::GetHeight (int iX, int iY)
 {
-  //## begin CCOL_MT_TerrainMesh::GetHeight%1009321166.body preserve=yes
-  	int		iXSect = iX / iSectorRes;
+    	int		iXSect = iX / iSectorRes;
 	int		iYSect = iY / iSectorRes;
 	
 	iX -= iXSect*iSectorRes;
@@ -328,13 +300,11 @@ float CCOL_MT_TerrainMesh::GetHeight (int iX, int iY)
 	float *pfa = (float *) ((CHFSector*)HF->GetSector(iXSect,iYSect))->GetValue(iX,iY).Get();
 	
 	return(*pfa);
-  //## end CCOL_MT_TerrainMesh::GetHeight%1009321166.body
 }
 
 void CCOL_MT_TerrainMesh::Init (CHeightField* _pHF, int _iSectorRes, float _fSectorSize)
 {
-  //## begin CCOL_MT_TerrainMesh::Init%1009321165.body preserve=yes
-  	HF			= _pHF;
+    	HF			= _pHF;
 
 	iSectorRes  = _iSectorRes;	
 	
@@ -343,12 +313,7 @@ void CCOL_MT_TerrainMesh::Init (CHeightField* _pHF, int _iSectorRes, float _fSec
 
 	iTWidth		= HF->iGetSecsPerRow()*_iSectorRes-2;
 	iTHeight	= HF->iGetSecsPerCol()*_iSectorRes-2;
-  //## end CCOL_MT_TerrainMesh::Init%1009321165.body
 }
 
 // Additional Declarations
-  //## begin CCOL_MT_TerrainMesh%3C294DBE032E.declarations preserve=yes
-  //## end CCOL_MT_TerrainMesh%3C294DBE032E.declarations
-
-//## begin module%3C294DBE032E.epilog preserve=yes
-//## end module%3C294DBE032E.epilog
+    

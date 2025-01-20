@@ -1,159 +1,193 @@
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 #include <string.h>
-//---------------------------------------------------------------------------
-#include "tex.h"
+#include <stdio.h>
+//-----------------------------------------------------------------------------
 #include "MipMapWH.h"
-#include <assert.h>
-#include <windows.h>
-
-//---------------------------------------------------------------------------
-#ifndef NULL
-#define NULL 0
-#endif
-
-//---------------------------------------------------------------------------
-
-TMMWH_MipMapEntry TMipMapWarehouse::MMs[E3D_MIPMAP_WAREHOUSE_MAX_MIPMAPS];
-unsigned int TMipMapWarehouse::NumMMEntries;
-
-//---------------------------------------------------------------------------
-TMipMapWarehouse::TMipMapWarehouse()
+#include <freeimage.h>
+//-----------------------------------------------------------------------------
+FIBITMAP* GenericLoaderINT(const char* lpszPathName, int flag)
 {
-    memset(MMs,0,sizeof(TMMWH_MipMapEntry)*E3D_MIPMAP_WAREHOUSE_MAX_MIPMAPS);
-    NumMMEntries = 0;
+	FREE_IMAGE_FORMAT fif = FIF_UNKNOWN;
+
+	// check the file signature and deduce its format
+	// (the second argument is currently not used by FreeImage)
+	fif = FreeImage_GetFileType(lpszPathName, 0);
+	if(fif == FIF_UNKNOWN) {
+		// no signature ?
+		// try to guess the file format from the file extension
+		fif = FreeImage_GetFIFFromFilename(lpszPathName);
+	}
+
+	// check that the plugin has reading capabilities ...
+	if((fif != FIF_UNKNOWN) && FreeImage_FIFSupportsReading(fif)) {
+		// ok, let's load the file
+		FIBITMAP *dib = FreeImage_Load(fif, lpszPathName, flag);
+		// unless a bad file format, we are done !
+		return dib;
+	}
+	return NULL;
 }
-//---------------------------------------------------------------------------
-TMipMapWarehouse::~TMipMapWarehouse()
+//-----------------------------------------------------------------------------
+FIBITMAP* GenericLoader(const char* lpszPathName, int flag)
 {
-    InvalidateWarehouse();
+	// Has the filename any extension?
+	if (strstr(lpszPathName,".") == NULL)
+	{
+		char* szDefaultExtensions[] = {"tga","jpg","png",NULL};
+
+		uint uiExt = 0;
+		while (szDefaultExtensions[uiExt] != NULL)
+		{
+			// Filename has no extension, so try appending some standard extensions like TGA, JPG, PNG
+			FIBITMAP* poBmp = NULL;
+			char szStr[1024];	
+
+			sprintf(szStr,"%s.%s",lpszPathName,szDefaultExtensions[uiExt]);
+			poBmp = GenericLoaderINT(szStr,flag);
+
+			if (poBmp != NULL)
+				// Ok we've found it!
+				return(poBmp);
+
+			// Nop, try next extension
+			uiExt ++;
+		}
+		
+		
+	}
+	else
+		// Filename has extension so let's load normaly
+		return( GenericLoaderINT(lpszPathName,flag) );
+	
+	return(NULL);
 }
-//---------------------------------------------------------------------------
-void TMipMapWarehouse::InvalidateWarehouse()
+//-----------------------------------------------------------------------------
+void FlipImage(FIBITMAP *dib)
 {
-    unsigned int cMMEntry;
-    for (cMMEntry=0;cMMEntry<E3D_MIPMAP_WAREHOUSE_MAX_MIPMAPS;cMMEntry++)
-        if (MMs[cMMEntry].Valid)
-        {
-            DestroyMipMap(MMs[cMMEntry].MMData.mipMap);
-            MMs[cMMEntry].Valid = false;
-        }
+	uint uiHeight  = FreeImage_GetHeight(dib);
+	uint uiHHeight = uiHeight>>1;
+	uint uiSize    = FreeImage_GetPitch(dib);
+	void* pLine = mAlloc(uiSize);
 
-    NumMMEntries=0;
+	for (uint i=0;i<uiHHeight;i++)
+	{
+		void* pSLine = FreeImage_GetScanLine(dib,i);
+		void* pDLine = FreeImage_GetScanLine(dib,uiHeight-i-1);
+
+		memcpy(pLine,pSLine,uiSize);
+		memcpy(pSLine,pDLine,uiSize);
+		memcpy(pDLine,pLine,uiSize);
+	}
+	
+	mFree(pLine);
 }
-//---------------------------------------------------------------------------
-TMMWH_MipMapEntry *TMipMapWarehouse::FindMipMapEntry(char *MipMapName)
+//-----------------------------------------------------------------------------
+void SwapRBChannels(FIBITMAP *dib)
 {
-    unsigned int cMMEntry;
-    for (cMMEntry=0;cMMEntry<E3D_MIPMAP_WAREHOUSE_MAX_MIPMAPS;cMMEntry++)
-        if (MMs[cMMEntry].Valid)
-        {
-            if (! strcmp(MMs[cMMEntry].MipMapName,MipMapName))
-                return(&MMs[cMMEntry]);
-        }
+	uint uiBPP     = FreeImage_GetBPP(dib);
+	if ((uiBPP!=24) && (uiBPP!=32)) return;
+	
+	uint uiHeight  = FreeImage_GetHeight(dib);
+	uint uiHHeight = uiHeight>>1;
+	uint uiSize    = FreeImage_GetPitch(dib);
+	uint uiStep = uiBPP /8;
 
-    // MipMap not found
-    return(NULL);
+	for (uint i=0;i<uiHeight;i++)
+	{
+		void* pLine = FreeImage_GetScanLine(dib,i);
+
+		for (uint j=0;j<uiSize;j+=uiStep)
+		{
+			char* pPixel = (char*)pLine + j;
+			char aux = pPixel[0];
+			pPixel[0] = pPixel[2];
+			pPixel[2] = aux;			
+		}
+	}
 }
-//---------------------------------------------------------------------------
-TMMWH_MipMapEntry *TMipMapWarehouse::FindFreeMipMapEntry()
+//-----------------------------------------------------------------------------
+CMipMapWH::CMipMapWH() : m_sAlternatePath("")
 {
-    unsigned int cMMEntry;
-    for (cMMEntry=0;cMMEntry<E3D_MIPMAP_WAREHOUSE_MAX_MIPMAPS;cMMEntry++)
-        if (! MMs[cMMEntry].Valid) return(&MMs[cMMEntry]);
-
-    // Not free entries
-    return(NULL);
+	FreeImage_Initialise();
 }
-//---------------------------------------------------------------------------
-TMMWH_MipMapEntry *TMipMapWarehouse::FindMipMap(TMipMapObj *MipMap)
-{
-    unsigned int cMMEntry;
-    for (cMMEntry=0;cMMEntry<E3D_MIPMAP_WAREHOUSE_MAX_MIPMAPS;cMMEntry++)
-        if (! (&MMs[cMMEntry].MMData == MipMap)) return(&MMs[cMMEntry]);
-
-    // MipMap not found
-    return(NULL);
-}
-//---------------------------------------------------------------------------
-/*
-TMipMapObj *TMipMapWarehouse::AllocMipMap(char *MipMapName,unsigned int TX,unsigned int TY,PixelFormat PixelFormat,unsigned int NumLODS)
-{
-    assert(false, "AllocMipMap method called!");
-
-    TMMWH_MipMapEntry* MMEntry;
-
-    MMEntry = FindMipMapEntry(MipMapName);
-    if (MMEntry) return(&MMEntry->MMData);
-
-    MMEntry = FindFreeMipMapEntry();
-    if (! MMEntry) return(NULL);
-
-    if (! AllocateMipMap(&MMEntry->MMData.MipMap,TX,TY,PixelFormat,NumLODS))
-        return(NULL);
-
-    strcpy(MMEntry->MipMapName,MipMapName);
-    MMEntry->MMData.Update = true;
-    MMEntry->Valid     = true;
-
-    return(&MMEntry->MMData);
-
-    return NULL;
-}
-*/
-//---------------------------------------------------------------------------
-
-void TMipMapWarehouse::FreeMipMapEntry(TMipMapObj* MipMap)
-{
-    TMMWH_MipMapEntry* MMEntry;
-
-    MMEntry = FindMipMap(MipMap);
-    if (! MMEntry) return;
-
-    if (MMEntry->Valid)
-    {
-        DestroyMipMap(MMEntry->MMData.mipMap);
-        MMEntry->Valid = false;
-
-        NumMMEntries--;
-    }
-}
-
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // If mipmap texture not found, please implement the return of a null texture.
-//---------------------------------------------------------------------------
-TMipMapObj *TMipMapWarehouse::LoadMipMap(char *Filename,unsigned int NumLODS)
+//-----------------------------------------------------------------------------
+CGMipMap *CMipMapWH::poLoadResource(const CGString& _sFilename)
 {
-    TMMWH_MipMapEntry* MMEntry;
+	FIBITMAP *dib = GenericLoader((char*)_sFilename.szString(), 0);
+	
+	// Try with alternate path
+	if (dib == NULL)
+	{
+		CGString sFilename = m_sAlternatePath + "/" + _sFilename;
+		dib = GenericLoader(sFilename.szString(), 0);
+	}
 
-    MMEntry = FindMipMapEntry(Filename);
-    if (MMEntry) return(&MMEntry->MMData);
+	// If not loaded return
+	if (dib == NULL) return(NULL);
+	
+	FlipImage(dib);
+	SwapRBChannels(dib);
 
-    MMEntry = FindFreeMipMapEntry();
-    if (! MMEntry) return(NULL);
-    
+	CGMipMap* poMMO	= mNew CGMipMap;
 
-    char szDirectory[1024];
-    GetCurrentDirectory(1024, szDirectory);
+	poMMO->m_poHandler	= (void*)dib;
+	poMMO->m_uiTX		= FreeImage_GetWidth(dib);
+	poMMO->m_uiTY		= FreeImage_GetHeight(dib);
+	poMMO->m_pLOD[0]	= FreeImage_GetBits(dib);
+	poMMO->m_uiNumLODs	= 1;
 
-    Texture* _poTex = poLoadTexture(Filename);
-    if (_poTex == NULL)
-    {
-        return(NULL);
-    }
+	switch(FreeImage_GetColorType(dib))
+	{
+		case FIC_MINISWHITE:
+		case FIC_MINISBLACK:
+		case FIC_CMYK:
+		break;
 
-    MMEntry->MMData.mipMap = poCreateMipMapFromTexture(_poTex);
+		case FIC_RGB:			
+		{
+			BITMAPINFOHEADER *bih = FreeImage_GetInfoHeader(dib);
 
-    DestroyTexture(_poTex);
+			if (bih->biBitCount == 32)
+				poMMO->m_eFormat = IF_RGBA;
+			else
+				poMMO->m_eFormat = IF_RGB;
+			
+			/*
+			uint uiSize = poMMO->m_uiTX*poMMO->m_uiTY;
+			unsigned char*pSrc = (unsigned char*)poMMO->m_pLOD[0];		
+			unsigned char*pDst = (unsigned char*)mAlloc(uiSize * 4);
+			poMMO->m_pLOD[0] = pDst;
+			
+			while (uiSize>0)
+			{
+				pDst[0] = pSrc[0];
+				pDst[1] = pSrc[1];
+				pDst[2] = pSrc[2];
+				pDst[3] = 255;
 
-	strcpy(MMEntry->MipMapName, Filename);
-    MMEntry->MMData.Update = true;
-    MMEntry->Valid  = true;
+				pSrc += 3;
+				pDst += 4;
+				uiSize --;
+			}
 
-    return(&MMEntry->MMData);
+			poMMO->m_eFormat = IF_RGBA;
+			*/
+		}
+		break;
+
+		case FIC_RGBALPHA:
+		poMMO->m_eFormat = IF_RGBA;
+		break;
+
+		case FIC_PALETTE:			
+		poMMO->m_eFormat  = IF_PALETTE;
+		poMMO->m_pPalette = FreeImage_GetPalette(dib);
+		break;
+	}
+
+	return(poMMO);
 }
-//---------------------------------------------------------------------------
-// epilog: singleton initializer through static instantiation
-//---------------------------------------------------------------------------
-static TMipMapWarehouse oInstance;
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 

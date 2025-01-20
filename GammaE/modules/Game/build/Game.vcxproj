@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <ProjectGuid>{46E2D6D2-21C8-40E3-B1E5-3A370E330F4E}</ProjectGuid>
+    <RootNamespace>AI</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>17.0.35004.147</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\Release\</OutDir>
+    <IntDir>.\Release\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(ProjectDir)..\COMPILED\VC\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)..\COMPILED\VC\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader />
+      <PrecompiledHeaderOutputFile>.\Release/AI.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Release/</AssemblerListingLocation>
+      <ObjectFileName>.\Release/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0c0a</Culture>
+    </ResourceCompile>
+    <Lib>
+      <OutputFile>.\Release\AI.lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PreBuildEvent>
+      <Command>REM gcc.exe -E -C -nostdinc -nostdinc++ -I$(PROJECTRCODEROOT)\GammaE\inc $(ProjectDir)..\src\GameRes\Script\CGScriptBinding.cpp
+echo $(SDKS&amp;LIBS)\swig\swig.exe -includeall -c++ -lua -ignoremissing -I$(SDKS&amp;LIBS)\Lib\lua -I$(SDKS&amp;LIBS)\Lib -I$(PROJECTRCODEROOT)\GammaE\inc -I$(PROJECTRCODEROOT)\GammaE\inc
+$(ProjectDir)..\..\..\..\sdks\swig\swig.exe -includeall -c++ -lua -ignoremissing -I$(ProjectDir)..\..\..\..\sdks\lua -I$(SDKS&amp;LIBS)..\..\..\..\sdks\ -I$(ProjectDir)..\..\..\..\GammaE\inc $(ProjectDir)..\src\GameRes\Script\CGScriptBinding.cpp
+
+
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\src;$(ProjectDir)\..\..\..\inc;$(ProjectDir)..\..\..\..\sdks\lua\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader />
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation />
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)$(ProjectName).pdb</ProgramDataBaseFileName>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <BrowseInformation>true</BrowseInformation>
+      <BrowseInformationFile>$(IntDir)</BrowseInformationFile>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0c0a</Culture>
+    </ResourceCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <Xdcmake>
+      <OutputFile>$(ProjectDir)\..\COMPILED\VC\$(TargetName).xml</OutputFile>
+    </Xdcmake>
+    <Bscmake>
+      <OutputFile>$(IntDir)$(ProjectName).bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+      <Message>Put the result in the final folder</Message>
+      <Command>mkdir $(TargetPath) $(ProjectDir)..\lib\vc%3b
+copy /Y $(TargetPath) $(ProjectDir)..\lib\vc\$(TargetName)D$(TargetExt)
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Entities\CGGameEntity.cpp" />
+    <ClCompile Include="..\src\Entities\CGGameEntityMgr.cpp" />
+    <ClCompile Include="..\src\Entities\CGGEntityRenderMgr.cpp" />
+    <ClCompile Include="..\src\Entities\CGGEntityStateRegistry.cpp" />
+    <ClCompile Include="..\src\Entities\CGLiveGameEntity.cpp" />
+    <ClCompile Include="..\src\Entities\CommandInterpreter\CGGameApplication.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">/showIncludes %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\src\Entities\CommandInterpreter\CGGameCommandInterpreter.cpp" />
+    <ClCompile Include="..\src\Entities\CommandInterpreter\CGGameConsoleApp.cpp" />
+    <ClCompile Include="..\src\Entities\CommandInterpreter\CGGCICommand.cpp" />
+    <ClCompile Include="..\src\Entities\CommandInterpreter\CGGCIStdCommands.cpp" />
+    <ClCompile Include="..\src\Entities\CommandInterpreter\ExtendedCI\CGGameExtendedCI.cpp" />
+    <ClCompile Include="..\src\Entities\CommandInterpreter\ExtendedCI\CGGCIExtendedCommands.cpp" />
+    <ClCompile Include="..\src\Entities\EntitySpawner\CGGameEntitySpawner.cpp" />
+    <ClCompile Include="..\src\GameRegistry\CGVariableRegistry.cpp" />
+    <ClCompile Include="..\src\GameRes\Graphic\CGGraphicInstance.cpp" />
+    <ClCompile Include="..\src\GameRes\Graphic\CGGraphicResource.cpp" />
+    <ClCompile Include="..\src\GameRes\Graphic\CGGraphicResourceWH.cpp" />
+    <ClCompile Include="..\src\GameRes\Input\CGInputHandler.cpp" />
+    <ClCompile Include="..\src\GameRes\Path\CGCurvePath.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+    </ClCompile>
+    <ClCompile Include="..\src\GameRes\Path\CGPath.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+    </ClCompile>
+    <ClCompile Include="..\src\GameRes\Path\CGPathDefinitionFileWH.cpp" />
+    <ClCompile Include="..\src\GameRes\Path\CGPathResource.cpp" />
+    <ClCompile Include="..\src\GameRes\Path\CGPathResourceWH.cpp" />
+    <ClCompile Include="..\src\GameRes\Path\CGSpiralPath.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+    </ClCompile>
+    <CustomBuild Include="..\src\GameRes\Script\CGScriptBinding.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">REM gcc.exe -E -C -nostdinc -nostdinc++ -I$(PROJECTRCODEROOT)\GammaE\inc %(FullPath) &gt; %(Filename).i
+echo $(SDKS&amp;LIBS)\swig\swig.exe -includeall -c++ -lua -ignoremissing -I$(SDKS&amp;LIBS)\Lib\lua -I$(SDKS&amp;LIBS)\Lib -I$(PROJECTRCODEROOT)\GammaE\inc -I$(PROJECTRCODEROOT)\GammaE\inc %(FullPath)
+$(SDKS&amp;LIBS)\swig\swig.exe -includeall -c++ -lua -ignoremissing -I$(SDKS&amp;LIBS)\Lib\lua -I$(SDKS&amp;LIBS)\Lib -I$(PROJECTRCODEROOT)\GammaE\inc -I$(PROJECTRCODEROOT)\GammaE\inc %(FullPath)
+
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)_prepro.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClCompile Include="..\src\GameRes\Script\CGScriptBinding_wrap.cxx" />
+    <ClCompile Include="..\src\GameRes\Script\CGScriptingSystem.cpp" />
+    <ClCompile Include="..\src\GameRes\Script\CGScriptInstance.cpp" />
+    <ClCompile Include="..\src\GameRes\Script\CGScriptResource.cpp" />
+    <ClCompile Include="..\src\GameRes\Script\CGScriptResourceWH.cpp" />
+    <ClCompile Include="..\src\Game\CGGameBase.cpp" />
+    <ClCompile Include="..\src\Game\CGGameMode.cpp" />
+    <ClCompile Include="..\src\MessageMgr\CGGameMessageMgr.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\Entities\CGGameEntity.h" />
+    <ClInclude Include="..\src\Entities\CGGameEntityMgr.h" />
+    <ClInclude Include="..\src\Entities\CGGEntityRenderMgr.h" />
+    <ClInclude Include="..\src\Entities\CGGEntityStateRegistry.h" />
+    <ClInclude Include="..\src\Entities\CGLiveGameEntity.h" />
+    <ClInclude Include="..\src\Entities\CommandInterpreter\CGGameApplication.h" />
+    <ClInclude Include="..\src\Entities\CommandInterpreter\CGGameCommandInterpreter.h" />
+    <ClInclude Include="..\src\Entities\CommandInterpreter\CGGameConsoleApp.h" />
+    <ClInclude Include="..\src\Entities\CommandInterpreter\CGGCICommand.h" />
+    <ClInclude Include="..\src\Entities\CommandInterpreter\CGGCIState.h" />
+    <ClInclude Include="..\src\Entities\CommandInterpreter\CGGCIStdCommands.h" />
+    <ClInclude Include="..\src\Entities\CommandInterpreter\ExtendedCI\CGGameExtendedCI.h" />
+    <ClInclude Include="..\src\Entities\CommandInterpreter\ExtendedCI\CGGCIExtendedCommands.h" />
+    <ClInclude Include="..\src\Entities\EntitySpawner\CGGameEntitySpawner.h" />
+    <ClInclude Include="..\src\GameRegistry\CGGameRegistry.h" />
+    <ClInclude Include="..\src\GameRegistry\CGVariableRegistry.h" />
+    <ClInclude Include="..\src\GameRes\Graphic\CGGraphicInstance.h" />
+    <ClInclude Include="..\src\GameRes\Graphic\CGGraphicResource.h" />
+    <ClInclude Include="..\src\GameRes\Graphic\CGGraphicResourceWH.h" />
+    <ClInclude Include="..\src\GameRes\Input\CGInputHandler.h" />
+    <ClInclude Include="..\src\GameRes\Path\CGCurvePath.h" />
+    <ClInclude Include="..\src\GameRes\Path\CGPath.h" />
+    <ClInclude Include="..\src\GameRes\Path\CGPathDefinitionFileWH.h" />
+    <ClInclude Include="..\src\GameRes\Path\CGPathResource.h" />
+    <ClInclude Include="..\src\GameRes\Path\CGPathResourceWH.h" />
+    <ClInclude Include="..\src\GameRes\Path\CGSpiralPath.h" />
+    <ClInclude Include="..\src\GameRes\Script\CGScriptingSystem.h" />
+    <ClInclude Include="..\src\GameRes\Script\CGScriptInstance.h" />
+    <ClInclude Include="..\src\GameRes\Script\CGScriptResource.h" />
+    <ClInclude Include="..\src\GameRes\Script\CGScriptResourceWH.h" />
+    <ClInclude Include="..\src\Game\CGGameBase.h" />
+    <ClInclude Include="..\src\Game\CGGameMode.h" />
+    <ClInclude Include="..\src\GGame.h" />
+    <ClInclude Include="..\src\MessageMgr\CGGameMessageMgr.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

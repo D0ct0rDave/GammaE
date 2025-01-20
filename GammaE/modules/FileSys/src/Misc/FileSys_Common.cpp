@@ -1,15 +1,15 @@
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 #include "FileSys_Common.h"
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 #ifndef NULL
 #define NULL 0
 #endif
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 TMsgProcess    MsgFunction    = NULL;
 TBeginProcess  BeginFunction  = NULL;
 TEndProcess    EndFunction    = NULL;
 TUpdateProcess UpdateFunction = NULL;
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 void CB_SetMsgFunction(void *MsgFunctionCallBack)
 {
     MsgFunction = (TMsgProcess)MsgFunctionCallBack;
@@ -29,25 +29,25 @@ void CB_SetEndFunction(void *EndFunctionCallBack)
 {
     EndFunction = (TEndProcess)EndFunctionCallBack;
 }
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 void CB_MsgProcess(char * Message)
 {
     if (MsgFunction)
         MsgFunction(Message);
 }
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 void CB_BeginProcess(char *Title)
 {
     if (BeginFunction)
         BeginFunction(Title);
 }
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 void CB_UpdateProcess(char *Message,unsigned int Percentage)
 {
     if (UpdateFunction)
         UpdateFunction(Message,Percentage);
 }
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 void CB_EndProcess()
 {
     // When the user calls this function the callback's
@@ -60,7 +60,7 @@ void CB_EndProcess()
     EndFunction     = NULL;
     UpdateFunction  = NULL;
 }
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 #ifdef BCB
 #include <vcl.h>
 #endif
@@ -71,7 +71,7 @@ void CB_EndProcess()
 
 #define  MAX_CARS_DATE           128
 
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 void GetDate(TDate *Date)
 {
     // Changed to make compatible with MS Visual C++
@@ -92,7 +92,7 @@ void GetDate(TDate *Date)
     Date->Min   = TheTime->tm_min;	/* minutes after the hour - [0,59] */
     Date->Sec   = TheTime->tm_sec;	/* seconds after the minute - [0,59] */
 }
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 void GetDateString(char *StrDate)
 {
     TDate Date;
@@ -100,7 +100,7 @@ void GetDateString(char *StrDate)
     GetDate(&Date);
     ConvertDateToString(&Date,StrDate);
 }
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 void ConvertDateToString(TDate *Date, char *StrDate)
 {
     sprintf(StrDate,
@@ -112,22 +112,22 @@ void ConvertDateToString(TDate *Date, char *StrDate)
             Date->Min,
             Date->Sec);
 }
-//-------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 
 
 #include <string.h>
 
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 #define             MAX_CARS_ERROR_CODE             32
 #define             MAX_CARS_ERROR_MESS             256
 #define             MAX_CARS_ERROR_BUFFER           65536
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 char ERROR_BUFFER [MAX_CARS_ERROR_BUFFER];
 char ERROR_MESSAGE[MAX_CARS_ERROR_MESS];
 char ERROR_CODE   [MAX_CARS_ERROR_CODE];
 
 bool InitializeBuffer = true;
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 char * ERROR_GetError()
 {
     InitializeBuffer = true;
@@ -142,7 +142,7 @@ char * ERROR_GetErrorMessage()
 {
     return(ERROR_MESSAGE);
 }
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 void ERROR_SetErrorCode(char *ErrorCode)
 {
     if ( strlen(ErrorCode)>MAX_CARS_ERROR_CODE ) return;
@@ -158,9 +158,9 @@ void ERROR_SetErrorMessage(char *ErrorMessage)
     strncpy(ERROR_MESSAGE,ErrorMessage,MAX_CARS_ERROR_MESS-1);
     ERROR_MESSAGE[MAX_CARS_ERROR_MESS-1] = 0;
 }
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // Set error variante 0
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 void ERROR_SetError(char *ErrorCode,char *ErrorMessage)
 {
     // New list of warnings and errors
@@ -168,7 +168,7 @@ void ERROR_SetError(char *ErrorCode,char *ErrorMessage)
     {
         ERROR_BUFFER[0] = 0;
         InitializeBuffer = false;
-    }
+}
 
     ERROR_SetErrorCode   (ErrorCode);
     ERROR_SetErrorMessage(ErrorMessage);
@@ -181,9 +181,9 @@ void ERROR_SetError(char *ErrorCode,char *ErrorMessage)
     strcat(ERROR_BUFFER,ErrorMessage);
     strcat(ERROR_BUFFER,"\n");
 }
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // Set error variante 1
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 void ERROR_SetError(char *ErrorCode,char *Arg0,char *Arg1)
 {
     // New list of warnings and errors
@@ -191,7 +191,7 @@ void ERROR_SetError(char *ErrorCode,char *Arg0,char *Arg1)
     {
         ERROR_BUFFER[0] = 0;
         InitializeBuffer = false;
-    }
+}
 
     if ( strlen(ERROR_BUFFER) >=
         MAX_CARS_ERROR_BUFFER - (MAX_CARS_ERROR_CODE + MAX_CARS_ERROR_MESS + 2)) return;
@@ -205,12 +205,12 @@ void ERROR_SetError(char *ErrorCode,char *Arg0,char *Arg1)
         {
             strcat(ERROR_BUFFER," ");
             strcat(ERROR_BUFFER,Arg1);
-        }
-    }
 }
-//---------------------------------------------------------------------------
+}
+}
+//-----------------------------------------------------------------------------
 // Set error variante 2
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 void ERROR_SetError(char *ErrorCode,char *Arg0,char *Arg1,char *Arg2)
 {
     // New list of warnings and errors
@@ -218,7 +218,7 @@ void ERROR_SetError(char *ErrorCode,char *Arg0,char *Arg1,char *Arg2)
     {
         ERROR_BUFFER[0] = 0;
         InitializeBuffer = false;
-    }
+}
 
     if ( strlen(ERROR_BUFFER) >=
         MAX_CARS_ERROR_BUFFER - (MAX_CARS_ERROR_CODE + MAX_CARS_ERROR_MESS + 2)) return;
@@ -234,21 +234,21 @@ void ERROR_SetError(char *ErrorCode,char *Arg0,char *Arg1,char *Arg2)
         {
             strcat(ERROR_BUFFER,Arg0);
             strcat(ERROR_BUFFER," ");
-        }
+}
 
         if (Arg1)
         {
             strcat(ERROR_BUFFER,Arg1);
             strcat(ERROR_BUFFER," ");
-        }
+}
 
         if (Arg2)
             strcat(ERROR_BUFFER,Arg2);
-    }
 }
-//---------------------------------------------------------------------------
+}
+//-----------------------------------------------------------------------------
 // Set error variante 3
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 void ERROR_SetError(char *ErrorCode,char *Arg0,char *Arg1,char *Arg2,char *Arg3)
 {
     // New list of warnings and errors
@@ -256,7 +256,7 @@ void ERROR_SetError(char *ErrorCode,char *Arg0,char *Arg1,char *Arg2,char *Arg3)
     {
         ERROR_BUFFER[0] = 0;
         InitializeBuffer = false;
-    }
+}
 
     if ( strlen(ERROR_BUFFER) >=
         MAX_CARS_ERROR_BUFFER - (MAX_CARS_ERROR_CODE + MAX_CARS_ERROR_MESS + 2)) return;
@@ -273,25 +273,25 @@ void ERROR_SetError(char *ErrorCode,char *Arg0,char *Arg1,char *Arg2,char *Arg3)
         {
             strcat(ERROR_BUFFER,Arg0);
             strcat(ERROR_BUFFER," ");
-        }
+}
 
         if (Arg1)
         {
             strcat(ERROR_BUFFER,Arg1);
             strcat(ERROR_BUFFER," ");
-        }
+}
 
         if (Arg2)
         {
             strcat(ERROR_BUFFER,Arg2);
             strcat(ERROR_BUFFER," ");
-        }
+}
 
         if (Arg3)
             strcat(ERROR_BUFFER,Arg2);
-    }
 }
-//---------------------------------------------------------------------------
+}
+//-----------------------------------------------------------------------------
 #include <stdio.h>
 
 unsigned int uiBlockLenPos[256];
@@ -327,4 +327,4 @@ void FILE_EndRIFFBlock(FILE *fd)
 
 	uiBLIdx--;
 }
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------

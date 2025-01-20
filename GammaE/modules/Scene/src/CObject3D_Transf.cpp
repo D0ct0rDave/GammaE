@@ -1,247 +1,180 @@
-//## begin module%3CB3429C00AC.cm preserve=no
-//## end module%3CB3429C00AC.cm
-
-//## begin module%3CB3429C00AC.cp preserve=no
-//## end module%3CB3429C00AC.cp
-
-//## Module: CObject3D_Transf%3CB3429C00AC; Pseudo Package body
-//## Source file: i:\Projects\GammaE\Scene\CObject3D_Transf.cpp
-
-//## begin module%3CB3429C00AC.additionalIncludes preserve=no
-//## end module%3CB3429C00AC.additionalIncludes
-
-//## begin module%3CB3429C00AC.includes preserve=yes
-#include "E3D/Drivers/OGL/CE3D_OGL_Win_Renderer.h"
-//## end module%3CB3429C00AC.includes
-
-// CObject3D_Transf
-#include "Scene\CObject3D_Transf.h"
-//## begin module%3CB3429C00AC.additionalDeclarations preserve=yes
-//## end module%3CB3429C00AC.additionalDeclarations
-
-
-// Class CObject3D_Transf 
-
-
-
-
-
-
-
+//-----------------------------------------------------------------------------
+#include "GammaE_E3D.h"
+//-----------------------------------------------------------------------------
+#include "CObject3D_Transf.h"
+//-----------------------------------------------------------------------------
 CObject3D_Transf::CObject3D_Transf()
-  //## begin CObject3D_Transf::CObject3D_Transf%.hasinit preserve=no
-  //## end CObject3D_Transf::CObject3D_Transf%.hasinit
-  //## begin CObject3D_Transf::CObject3D_Transf%.initialization preserve=yes
-  //## end CObject3D_Transf::CObject3D_Transf%.initialization
 {
-  //## begin CObject3D_Transf::CObject3D_Transf%.body preserve=yes
-	TypeID		 = e3DObj_Transf;
+    m_poObj = NULL;
 
-	oPos.V3 (0.0f,0.0f,0.0f);	
-	
-	oSide.V3(1.0f,0.0f,0.0f);
-	oDir.V3 (0.0f,1.0f,0.0f);
-	oUp.V3  (0.0f,0.0f,1.0f);
+    TypeID       = e3DObj_Transf;
 
-    oTransf.LoadIdentity();
-	
-	BVol		 = CGraphBV_Manager::poCreate();
-	bFrustumTest = false;
-  //## end CObject3D_Transf::CObject3D_Transf%.body
+    m_oPos.V3 (0.0f,0.0f,0.0f);
+
+    m_oSide.V3(1.0f,0.0f,0.0f);
+    m_oDir.V3 (0.0f,1.0f,0.0f);
+    m_oUp.V3  (0.0f,0.0f,1.0f);
+
+    m_oTransf.LoadIdentity();
+
+    BVol         = poCreateBoundVol();
+    bFrustumTest = false;
 }
-
-
+//-----------------------------------------------------------------------------
 CObject3D_Transf::~CObject3D_Transf()
 {
-  //## begin CObject3D_Transf::~CObject3D_Transf%.body preserve=yes
-  //## end CObject3D_Transf::~CObject3D_Transf%.body
+    if (m_poObj) m_poObj->Deref();
+
+    if (BVol) mDel BVol;
 }
-
-
-
-//## Other Operations (implementation)
-void CObject3D_Transf::SetPos (CVect3& _roPos)
+//-----------------------------------------------------------------------------
+void CObject3D_Transf::SetPos (const CVect3 & _oPos)
 {
-  //## begin CObject3D_Transf::SetPos%1018703073.body preserve=yes
-	oPos.Assign(_roPos);
-	SetupTransformation();
-  //## end CObject3D_Transf::SetPos%1018703073.body
+   m_oPos.Assign(_oPos);
+    SetupTransformation();
 }
-
-CVect3& CObject3D_Transf::roPos ()
+//-----------------------------------------------------------------------------
+CVect3 & CObject3D_Transf::oPos()
 {
-  //## begin CObject3D_Transf::roPos%1018703074.body preserve=yes
-	return (oPos);
-  //## end CObject3D_Transf::roPos%1018703074.body
+    return ( m_oPos );
 }
-
-void CObject3D_Transf::SetDir (CVect3& _roDir)
+//-----------------------------------------------------------------------------
+void CObject3D_Transf::SetDir (const CVect3 & _oDir)
 {
-  //## begin CObject3D_Transf::SetDir%1019293387.body preserve=yes
-	oDir.Assign(_roDir);
-	SetupTransformation();
-  //## end CObject3D_Transf::SetDir%1019293387.body
+   m_oDir.Assign(_oDir);
+    SetupTransformation();
 }
-
-CVect3& CObject3D_Transf::roDir ()
+//-----------------------------------------------------------------------------
+CVect3 & CObject3D_Transf::oDir ()
 {
-  //## begin CObject3D_Transf::roDir%1019293388.body preserve=yes
-	return(oDir);
-  //## end CObject3D_Transf::roDir%1019293388.body
+    return( m_oDir );
 }
-
-void CObject3D_Transf::SetUp (CVect3& _roUp)
+//-----------------------------------------------------------------------------
+void CObject3D_Transf::SetUp (const CVect3 & _oUp)
 {
-  //## begin CObject3D_Transf::SetUp%1019293389.body preserve=yes
-	oUp.Assign(_roUp);
-	SetupTransformation();
-  //## end CObject3D_Transf::SetUp%1019293389.body
+   m_oUp.Assign(_oUp);
+    SetupTransformation();
 }
-
-CVect3& CObject3D_Transf::roUp ()
+//-----------------------------------------------------------------------------
+CVect3 & CObject3D_Transf::oUp ()
 {
-  //## begin CObject3D_Transf::roUp%1019293390.body preserve=yes
-	return(oUp);
-  //## end CObject3D_Transf::roUp%1019293390.body
+    return( m_oUp );
 }
-
-void CObject3D_Transf::SetSide (CVect3& _roSide)
+//-----------------------------------------------------------------------------
+void CObject3D_Transf::SetSide (const CVect3 & _oSide)
 {
-  //## begin CObject3D_Transf::SetSide%1019293391.body preserve=yes
-	oSide.Assign(_roSide);
-	SetupTransformation();
-  //## end CObject3D_Transf::SetSide%1019293391.body
+   m_oSide.Assign(_oSide);
+    SetupTransformation();
 }
-
-CVect3& CObject3D_Transf::roSide ()
+//-----------------------------------------------------------------------------
+CVect3 & CObject3D_Transf::oSide ()
 {
-  //## begin CObject3D_Transf::roSide%1019293392.body preserve=yes
-	return(oSide);
-  //## end CObject3D_Transf::roSide%1019293392.body
+    return( m_oSide );
 }
-
-void CObject3D_Transf::Setup (CVect3& _roPos, CVect3& _roDir, CVect3& _roSide, CVect3& _roUp)
+//-----------------------------------------------------------------------------
+void CObject3D_Transf::Setup (const CVect3 & _oPos, const CVect3 & _oDir, const CVect3 & _oSide, const CVect3 & _oUp)
 {
-  //## begin CObject3D_Transf::Setup%1019293393.body preserve=yes
-	oPos .Assign(_roPos);
-	oDir .Assign(_roDir);
-	oSide.Assign(_roSide);
-	oUp  .Assign(_roUp);
-	
-	SetupTransformation();
-  //## end CObject3D_Transf::Setup%1019293393.body
-}
+   m_oPos.Assign(_oPos);
+   m_oDir.Assign(_oDir);
+   m_oSide.Assign(_oSide);
+   m_oUp.Assign(_oUp);
 
-void CObject3D_Transf::SetTransf (CMatrix4x4& _roTransf)
+    SetupTransformation();
+}
+//-----------------------------------------------------------------------------
+void CObject3D_Transf::SetTransf (const CMatrix4x4 & _oTransf)
 {
-  //## begin CObject3D_Transf::SetTransf%1018703083.body preserve=yes
-	CVect4 oP = _roTransf.GetColVector(3);	
-	CVect4 oS = _roTransf.GetColVector(0);	// X
-	CVect4 oD = _roTransf.GetColVector(1);	// Y
-	CVect4 oU = _roTransf.GetColVector(2);	// Z
+   CVect4 oP = _oTransf.GetColVector(3);
+   CVect4 oS = _oTransf.GetColVector(0);   // X
+   CVect4 oD = _oTransf.GetColVector(1);   // Y
+   CVect4 oU = _oTransf.GetColVector(2);   // Z
 
-	oPos .V3(oP.X(),oP.Y(),oP.Z());
-	oSide.V3(oS.X(),oS.Y(),oS.Z());
-	oDir .V3(oD.X(),oD.Y(),oD.Z());
-	oUp  .V3(oU.X(),oU.Y(),oU.Z());
-	
-	oTransf = _roTransf;
+   m_oPos.V3(oP.x,oP.y,oP.z);
+   m_oSide.V3(oS.x,oS.y,oS.z);
+   m_oDir.V3(oD.x,oD.y,oD.z);
+   m_oUp.V3(oU.x,oU.y,oU.z);
 
-	// Recompute Bounding Volume
-	BVol->Copy( poObj->poGetBoundVol() );
-	BVol->Transform(oTransf);
-  //## end CObject3D_Transf::SetTransf%1018703083.body
+    m_oTransf = _oTransf;
+
+     // Recompute Bounding Volume
+    BVol->Copy( m_poObj->poGetBoundVol() );
+    BVol->Transform(m_oTransf);
 }
-
-CMatrix4x4& CObject3D_Transf::roTransf ()
+//-----------------------------------------------------------------------------
+CMatrix4x4 & CObject3D_Transf::oTransf ()
 {
-  //## begin CObject3D_Transf::roTransf%1018703084.body preserve=yes
-	return(oTransf);
-  //## end CObject3D_Transf::roTransf%1018703084.body
+    return( m_oTransf );
 }
-
-void CObject3D_Transf::SetObject (CObject3D* _poObj)
+//-----------------------------------------------------------------------------
+void CObject3D_Transf::SetObject (CObject3D *_poObj)
 {
-  //## begin CObject3D_Transf::SetObject%1018703876.body preserve=yes
-	assert (_poObj && "NULL Object");
-	poObj = _poObj;
-  //## end CObject3D_Transf::SetObject%1018703876.body
-}
+    assert (_poObj && "NULL Object");
 
-CObject3D* CObject3D_Transf::poGetObject ()
+    if (m_poObj)
+        m_poObj->Deref();
+
+    m_poObj = _poObj;
+
+    if (m_poObj != NULL)
+        m_poObj->Ref();
+}
+//-----------------------------------------------------------------------------
+CObject3D *CObject3D_Transf::poGetObject ()
 {
-  //## begin CObject3D_Transf::poGetObject%1018703877.body preserve=yes
-	return (poObj);	
-  //## end CObject3D_Transf::poGetObject%1018703877.body
+    return ( m_poObj );
 }
-
+//-----------------------------------------------------------------------------
 void CObject3D_Transf::SetupTransformation ()
 {
-  //## begin CObject3D_Transf::SetupTransformation%1018703878.body preserve=yes
+     // Setup transformation matrix from separate vectors
+    m_oTransf.SetColVector(0,m_oSide.x,m_oSide.y,m_oSide.z,0.0f);
+    m_oTransf.SetColVector(1,m_oDir.x,m_oDir.y,m_oDir.z,0.0f);
+    m_oTransf.SetColVector(2,m_oUp.x,m_oUp.y,m_oUp.z,0.0f);
+    m_oTransf.SetColVector(3,m_oPos.x,m_oPos.y,m_oPos.z,1.0f);
 
-	// Setup transformation matrix from separate vectors
-	oTransf.SetColVector(0,oSide.X(),oSide.Y(),oSide.Z(),0.0f);
-	oTransf.SetColVector(1,oDir .X(),oDir .Y(),oDir .Z(),0.0f);
-	oTransf.SetColVector(2,oUp  .X(),oUp  .Y(),oUp  .Z(),0.0f);
-	oTransf.SetColVector(3,oPos .X(),oPos .Y(),oPos .Z(),1.0f);
-
-	// Recompute Bounding Volume
-	BVol->Copy( poObj->poGetBoundVol() );
-	BVol->Transform(oTransf);
-
-  //## end CObject3D_Transf::SetupTransformation%1018703878.body
+     // Recompute Bounding Volume
+    BVol->Copy( m_poObj->poGetBoundVol() );
+    BVol->Transform(m_oTransf);
 }
-
+//-----------------------------------------------------------------------------
+CGraphBV *CObject3D_Transf::poCreateBoundVol()
+{
+    return ( CGraphBV_Manager::poCreate() );
+}
+//-----------------------------------------------------------------------------
 void CObject3D_Transf::ComputeBoundVol ()
 {
-  //## begin CObject3D_Transf::ComputeBoundVol%1018703071.body preserve=yes
-	poObj->ComputeBoundVol();
-	BVol->Copy( poObj->poGetBoundVol() );
-	BVol->Transform(oTransf);
-  //## end CObject3D_Transf::ComputeBoundVol%1018703071.body
+   m_poObj->ComputeBoundVol();
+   BVol->Copy( m_poObj->poGetBoundVol() );
+   BVol->Transform(m_oTransf);
 }
-
-CGraphBV* CObject3D_Transf::poGetBoundVol ()
+//-----------------------------------------------------------------------------
+CGraphBV *CObject3D_Transf::poGetBoundVol ()
 {
-  //## begin CObject3D_Transf::poGetBoundVol%1018703070.body preserve=yes
-	return (BVol);
-  //## end CObject3D_Transf::poGetBoundVol%1018703070.body
+    return ( BVol );
 }
-
+//-----------------------------------------------------------------------------
 void CObject3D_Transf::Render ()
 {
-  //## begin CObject3D_Transf::Render%1018703072.body preserve=yes
-	gpoE3DRenderer->PushLocalFrustum();	
-	gpoE3DRenderer->PushMatrix();
+   CGRenderer::I()->PushLocalFrustum();
+   CGRenderer::I()->PushWorldMatrix();
 
-		if (gpoE3DRenderer->UsingBBoxRender())
-		{
-			((CE3D_OGL_Win_Renderer*)gpoE3DRenderer)->RenderBBox(poGetBoundVol());
-		}
-		
-		// Setup new reference system
-		gpoE3DRenderer->MultiplyMatrix(&oTransf);
+     // Setup new Ref system
+    CGRenderer::I()->MultiplyMatrix(&m_oTransf);
 
-		// Get the local frustum
-		/*
-		if ((poObj->eGetTypeID() != e3DObj_Leaf) &&
-			(poObj->eGetTypeID() != e3DObj_CompiledLeaf))
-		*/
-			gpoE3DRenderer->ComputeLocalFrustum();
-		
-		// We only can test visibility after performing the camera transformation
-		if ( bVisible() ) 
-			poObj->Render();
+    // Get the local frustum
+    /*
+       if ((poObj->eGetTypeID() != e3DObj_Leaf) &&
+        (poObj->eGetTypeID() != e3DObj_CompiledLeaf))
+     */
+    CGRenderer::I()->ComputeLocalFrustum();
 
-	// Restore current state
-	gpoE3DRenderer->PopMatrix();
-	gpoE3DRenderer->PopLocalFrustum();
-  //## end CObject3D_Transf::Render%1018703072.body
+     // We only can test visibility after performing the camera transformation
+    if ( bVisible() )
+        m_poObj->Render();
+
+     // Restore current state
+    CGRenderer::I()->PopWorldMatrix();
+    CGRenderer::I()->PopLocalFrustum();
 }
-
-// Additional Declarations
-  //## begin CObject3D_Transf%3CB3429C00AC.declarations preserve=yes
-  //## end CObject3D_Transf%3CB3429C00AC.declarations
-
-//## begin module%3CB3429C00AC.epilog preserve=yes
-//## end module%3CB3429C00AC.epilog
+//-----------------------------------------------------------------------------

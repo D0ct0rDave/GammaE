@@ -1,17 +1,7 @@
-//## begin module%3B9E7C9F013E.cm preserve=no
-//	  %X% %Q% %Z% %W%
-//## end module%3B9E7C9F013E.cm
 
-//## begin module%3B9E7C9F013E.cp preserve=no
-//## end module%3B9E7C9F013E.cp
 
-//## Module: CQuaternion%3B9E7C9F013E; Pseudo Package body
-//## Source file: i:\Projects\GammaE\Math\MATH_Quaternion\CQuaternion.cpp
 
-//## begin module%3B9E7C9F013E.additionalIncludes preserve=no
-//## end module%3B9E7C9F013E.additionalIncludes
 
-//## begin module%3B9E7C9F013E.includes preserve=yes
 	/*
 	Quaternion code extracted from "Advance OpenGL MD3Load"
 	Author	: Mustata Bogdan (LoneRunner)
@@ -22,39 +12,23 @@
 	*/
 	#include <math.h>	
 
-//## end module%3B9E7C9F013E.includes
 
 // CQuaternion
-#include "Math\MATH_Quaternion\CQuaternion.h"
-//## begin module%3B9E7C9F013E.additionalDeclarations preserve=yes
+#include "MATH_Quaternion\CQuaternion.h"
 	#define X 0
 	#define Y 1
 	#define Z 2
 	#define W 3
 	#define QUAT_EPSILON 0.1f
-//## end module%3B9E7C9F013E.additionalDeclarations
 
 
 // Class CQuaternion 
 
 
-CQuaternion::CQuaternion()
-  //## begin CQuaternion::CQuaternion%.hasinit preserve=no
-  //## end CQuaternion::CQuaternion%.hasinit
-  //## begin CQuaternion::CQuaternion%.initialization preserve=yes
-  //## end CQuaternion::CQuaternion%.initialization
-{
-  //## begin CQuaternion::CQuaternion%.body preserve=yes
-  //## end CQuaternion::CQuaternion%.body
-}
 
-
-
-//## Other Operations (implementation)
 void CQuaternion::Slerp (CQuaternion& _Src, CQuaternion& _Dst, float _fFactor)
 {
-  //## begin CQuaternion::Slerp%1000239577.body preserve=yes
-	static float        to1[4];
+  	static float        to1[4];
 	static float        omega, cosom, sinom, scale0, scale1;
 
 	// calc cosine
@@ -102,13 +76,11 @@ void CQuaternion::Slerp (CQuaternion& _Src, CQuaternion& _Dst, float _fFactor)
 	quat[Y] = scale0 * _Src.quat[Y] + scale1 * to1[1];
 	quat[Z] = scale0 * _Src.quat[Z] + scale1 * to1[2];
 	quat[W] = scale0 * _Src.quat[W] + scale1 * to1[3];
-  //## end CQuaternion::Slerp%1000239577.body
 }
 
 CMatrix4x4 & CQuaternion::ToMatrix ()
 {
-  //## begin CQuaternion::ToMatrix%1000239578.body preserve=yes
-	static		 CMatrix4x4 Mat;
+  	static		 CMatrix4x4 Mat;
 	static float wx, wy, wz, xx, yy, yz, xy, xz, zz, x2, y2, z2;
              
 	// calculate coefficients
@@ -133,13 +105,11 @@ CMatrix4x4 & CQuaternion::ToMatrix ()
 	Mat.Set(3,2,            0.0f);   Mat.Set(3,3,           1.0f);
 
 	return (Mat);
-  //## end CQuaternion::ToMatrix%1000239578.body
 }
 
 void CQuaternion::FromMatrix (CMatrix4x4 &_Matrix)
 {
-  //## begin CQuaternion::FromMatrix%1000239579.body preserve=yes
-	static float  tr, s, q[4];
+  	static float  tr, s, q[4];
 	static int    i, j, k;
 	static int	  nxt[3];  
 
@@ -171,7 +141,7 @@ void CQuaternion::FromMatrix (CMatrix4x4 &_Matrix)
 		j = nxt[i];
 		k = nxt[j];
 
-	    s = (float)MATH_Common::fSqrt( (_Matrix.Get(i,i) - (_Matrix.Get(j,j) + _Matrix.Get(k,k)) ) + 1.0);
+	    s = MATH_Common::fSqrt( (_Matrix.Get(i,i) - (_Matrix.Get(j,j) + _Matrix.Get(k,k)) ) + 1.0f);
                        
 		q[i] = s * (float)0.5;
                              
@@ -186,16 +156,29 @@ void CQuaternion::FromMatrix (CMatrix4x4 &_Matrix)
 		quat[Z] = q[2];
 		quat[W] = q[3];
 	}
-  //## end CQuaternion::FromMatrix%1000239579.body
 }
 
 // Additional Declarations
-  //## begin CQuaternion%3B9E7C9F013E.declarations preserve=yes
-  	#undef	X
+    	#undef	X
 	#undef  Y
 	#undef  Z
 	#undef  W
 	#undef  QuatEpsilon
-  //## end CQuaternion%3B9E7C9F013E.declarations
-//## begin module%3B9E7C9F013E.epilog preserve=yes
-//## end module%3B9E7C9F013E.epilog
+	
+void CQuaternion::FromVector(CVect4& _Vect)
+{
+	quat[0] = _Vect.x;
+	quat[1] = _Vect.y;
+	quat[2] = _Vect.z;
+	quat[3] = _Vect.w;
+}
+  
+void CQuaternion::FromComponents(CVect3& _Vect,float _fRotation)
+{
+	quat[0] = _Vect.x;
+	quat[1] = _Vect.y;
+	quat[2] = _Vect.z;
+	quat[3] = _fRotation;	  
+}
+	
+  

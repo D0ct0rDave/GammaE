@@ -1,20 +1,65 @@
+#include <stdlib.h>
 #include "MMgr.h"
 
-#include "stdlib.h"
-#include <assert.h>
+#ifdef _DEBUG
+#ifdef _MBCS
 
-void* operator new(size_t sz)
+#ifndef __BORLANDC__
+//#define MEMWATCH
+//#include "memwatch.h"
+#endif
+
+#endif
+#endif
+
+void *MEMAlloc(size_t sz)
 {
-	if (! sz) return(NULL);
-	void *pData = malloc(sz);
-	
-	assert(pData && "Unable to allocate data");
-	// __FILE__, __LINE__
-	return(pData);	
+	#ifdef _DEBUG
+		// if (! MEMMgr::poMB) MEMMgr::Init(64*1024*1024);
+
+		void *pData;			
+		static void *pDataCmp = NULL;
+
+		if (! MEMMgr::poMB)
+			pData = malloc(sz);
+		else
+			pData = MEMMgr::Alloc(sz);
+
+		if (pData == pDataCmp)
+		{
+			int a=0;
+		}
+
+		return(pData);
+	#else
+		if (! MEMMgr::poMB)
+			return(malloc(sz));
+		else
+			return(MEMMgr::Alloc(sz));
+	#endif
 }
 
-void operator delete(void * _P)
+void MEMFree (void *_P)
 {
-	assert ( _P && "Attempting to erase a NULL pointer");
-	free(_P);
+	#ifdef _DEBUG
+		static void *pDataCmp = NULL;
+		if (! MEMMgr::poMB)
+		{			
+			if (_P == pDataCmp)
+			{
+				int a=0;
+			}
+
+			free(_P);
+		}
+		else
+			MEMMgr::Free(_P);
+	#else		
+		if (! MEMMgr::poMB)
+			free(_P);
+		else
+			MEMMgr::Free(_P);
+	#endif
+
 }
+

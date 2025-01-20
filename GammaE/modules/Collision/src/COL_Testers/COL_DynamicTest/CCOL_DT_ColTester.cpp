@@ -1,52 +1,30 @@
-//## begin module%3C1FBC350287.cm preserve=no
 //	  %X% %Q% %Z% %W%
-//## end module%3C1FBC350287.cm
 
-//## begin module%3C1FBC350287.cp preserve=no
-//## end module%3C1FBC350287.cp
 
-//## Module: CCOL_DT_ColTester%3C1FBC350287; Pseudo Package body
-//## Source file: i:\Projects\GammaE\Collision\COL_Testers\COL_DynamicTest\CCOL_DT_ColTester.cpp
 
-//## begin module%3C1FBC350287.additionalIncludes preserve=no
-//## end module%3C1FBC350287.additionalIncludes
 
-//## begin module%3C1FBC350287.includes preserve=yes
-//## end module%3C1FBC350287.includes
 
 // CCOL_DT_ColTester
-#include "Collision\COL_Testers\COL_DynamicTest\CCOL_DT_ColTester.h"
-//## begin module%3C1FBC350287.additionalDeclarations preserve=yes
+#include "COL_Testers\COL_DynamicTest\CCOL_DT_ColTester.h"
 #include <string.h>
-//## end module%3C1FBC350287.additionalDeclarations
 
 
 // Class CCOL_DT_ColTester 
 
 CCOL_DT_ColTester::CCOL_DT_ColTester()
-  //## begin CCOL_DT_ColTester::CCOL_DT_ColTester%.hasinit preserve=no
-  //## end CCOL_DT_ColTester::CCOL_DT_ColTester%.hasinit
-  //## begin CCOL_DT_ColTester::CCOL_DT_ColTester%.initialization preserve=yes
-  //## end CCOL_DT_ColTester::CCOL_DT_ColTester%.initialization
-{
-  //## begin CCOL_DT_ColTester::CCOL_DT_ColTester%.body preserve=yes
-  //## end CCOL_DT_ColTester::CCOL_DT_ColTester%.body
+        {
 }
 
 
 CCOL_DT_ColTester::~CCOL_DT_ColTester()
 {
-  //## begin CCOL_DT_ColTester::~CCOL_DT_ColTester%.body preserve=yes
-  //## end CCOL_DT_ColTester::~CCOL_DT_ColTester%.body
 }
 
 
 
-//## Other Operations (implementation)
 float CCOL_DT_ColTester::fTestCollision (CGraphBV *SrcObj, CGraphBV *DstObj)
 {
-  //## begin CCOL_DT_ColTester::fTestCollision%1008711899.body preserve=yes
-	CBoundingSphere *SS,*DS;
+  	CBoundingSphere *SS,*DS;
 	CBoundingBox	*SB,*DB;
 	CVect3			*SP,*DP;
 	int				iFlags;
@@ -132,20 +110,16 @@ float CCOL_DT_ColTester::fTestCollision (CGraphBV *SrcObj, CGraphBV *DstObj)
 		CCOL_ColState::fMinColTime = fRes;
 	
 	return (fRes);
-  //## end CCOL_DT_ColTester::fTestCollision%1008711899.body
 }
 
 float CCOL_DT_ColTester::fTestPlane (CGraphBV *_SrcObj, CPlane& Plane)
 {
-  //## begin CCOL_DT_ColTester::fTestPlane%1008711900.body preserve=yes
-  return(-1.0f);
-  //## end CCOL_DT_ColTester::fTestPlane%1008711900.body
+    return(-1.0f);
 }
 
 float CCOL_DT_ColTester::fTestTriangle (CGraphBV *_SrcObj, CTriangle& _Tri)
 {
-  //## begin CCOL_DT_ColTester::fTestTriangle%1009321156.body preserve=yes
-	float			fRes;
+  	float			fRes;
 
 	// --------------------------------------------------------------------------
 	// Assume Triangles and Bounding Volumes are in world space coordinate system
@@ -177,12 +151,7 @@ float CCOL_DT_ColTester::fTestTriangle (CGraphBV *_SrcObj, CTriangle& _Tri)
 		CCOL_ColState::fMinColTime = fRes;
 
 	return(fRes);
-  //## end CCOL_DT_ColTester::fTestTriangle%1009321156.body
 }
 
 // Additional Declarations
-  //## begin CCOL_DT_ColTester%3C1FBC350287.declarations preserve=yes
-  //## end CCOL_DT_ColTester%3C1FBC350287.declarations
-
-//## begin module%3C1FBC350287.epilog preserve=yes
-//## end module%3C1FBC350287.epilog
+    

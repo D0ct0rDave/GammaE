@@ -1,6 +1,6 @@
-#include "memory/gammae_mem.h"
+#include "GammaE_Mem.h"
 #include "NormalGen.h"
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 CVect3 NormalGen_ComputeVertexNormal(CMesh &Mesh,CVect3 *pPNs,int iVX)
 {	
 	CVect3	Accum;
@@ -30,7 +30,7 @@ CVect3 NormalGen_ComputeVertexNormal(CMesh &Mesh,CVect3 *pPNs,int iVX)
 	if (iNumFaces)	Accum.Scale(1.0f / (float)iNumFaces);
 	return (Accum);
 }
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 CVect3 *NormalGen_ComputePrimitiveNormals(CMesh &Mesh)
 {
     unsigned int	cPri;
@@ -88,7 +88,7 @@ CVect3 *NormalGen_ComputePrimitiveNormals(CMesh &Mesh)
 
 	return (pPNs);
 }
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 void NormalGen_ComputeVertexsNormals(CMesh &Mesh)
 {
 	bool bErasePNs = (Mesh.TNs == NULL);
@@ -110,4 +110,4 @@ void NormalGen_ComputeVertexsNormals(CMesh &Mesh)
 		Mesh.TNs = NULL;
 	}
 }
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------

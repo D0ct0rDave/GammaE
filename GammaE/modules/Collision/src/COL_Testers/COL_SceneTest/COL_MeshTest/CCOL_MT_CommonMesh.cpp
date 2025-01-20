@@ -1,85 +1,58 @@
-//## begin module%3C29310E01C5.cm preserve=no
 //	  %X% %Q% %Z% %W%
-//## end module%3C29310E01C5.cm
 
-//## begin module%3C29310E01C5.cp preserve=no
-//## end module%3C29310E01C5.cp
 
-//## Module: CCOL_MT_CommonMesh%3C29310E01C5; Pseudo Package body
-//## Source file: i:\Projects\GammaE\Collision\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_CommonMesh.cpp
 
-//## begin module%3C29310E01C5.additionalIncludes preserve=no
-//## end module%3C29310E01C5.additionalIncludes
 
-//## begin module%3C29310E01C5.includes preserve=yes
-//## end module%3C29310E01C5.includes
 
 // CCOL_ColState
-#include "Collision\CollisionSystem\CCOL_ColState.h"
+#include "CollisionSystem\CCOL_ColState.h"
 // CCOL_MT_CommonMesh
-#include "Collision\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_CommonMesh.h"
-//## begin module%3C29310E01C5.additionalDeclarations preserve=yes
+#include "COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_CommonMesh.h"
 
 
 
-inline void TEST_Triangle(CVect3 *_poVXs,int _iTri,int &_riTris,CMesh* _poMesh,int _iMat,CGraphBV* _poBVol, CCOL_TriList& _roTriList)
+inline void TEST_Triangle(CVect3 *_poVXs,CVect3 *_poVN,int &_iTris,int _iMat,CGraphBV* _poBVol, CCOL_TriList& _oTriList)
 {
 	CTriangle	oTri;
 	float		fTime;
 
-	
-	
-	if (_poMesh->TNs)
-		oTri.Init(_poVXs,_poMesh->TNs[_iTri]);	
+	if (_poVN)
+		oTri.Init(_poVXs,*_poVN);	
 	else
-	{
+	{		
 		oTri.Init(_poVXs);
 		oTri.Normal.Normalize();
 	}
 	oTri.ComputeAll();
 
-
-
 	fTime = CCOL_DT_ColTester::fTestTriangle(_poBVol,oTri);
-
 	if (fTime>=0.0f)
 	{
-		_roTriList.iAddTri(oTri.VXs,oTri.Normal,_iMat,fTime);
-		_riTris++;
+		_oTriList.iAddTri(oTri.VXs,oTri.Normal,_iMat,fTime);
+		_iTris++;
 	}
 }
 
 
-//## end module%3C29310E01C5.additionalDeclarations
 
 
 // Class CCOL_MT_CommonMesh 
 
 CCOL_MT_CommonMesh::CCOL_MT_CommonMesh()
-  //## begin CCOL_MT_CommonMesh::CCOL_MT_CommonMesh%.hasinit preserve=no
-  //## end CCOL_MT_CommonMesh::CCOL_MT_CommonMesh%.hasinit
-  //## begin CCOL_MT_CommonMesh::CCOL_MT_CommonMesh%.initialization preserve=yes
-  //## end CCOL_MT_CommonMesh::CCOL_MT_CommonMesh%.initialization
-{
-  //## begin CCOL_MT_CommonMesh::CCOL_MT_CommonMesh%.body preserve=yes
-  //## end CCOL_MT_CommonMesh::CCOL_MT_CommonMesh%.body
+        {
 }
 
 
 CCOL_MT_CommonMesh::~CCOL_MT_CommonMesh()
 {
-  //## begin CCOL_MT_CommonMesh::~CCOL_MT_CommonMesh%.body preserve=yes
-  //## end CCOL_MT_CommonMesh::~CCOL_MT_CommonMesh%.body
 }
 
 
 
-//## Other Operations (implementation)
-int CCOL_MT_CommonMesh::iTestCollision (CMesh* _poMesh, int _iMat, CGraphBV* _poBVol, CCOL_TriList& _roTriList)
+int CCOL_MT_CommonMesh::iTestCollision (CMesh* _poMesh, int _iMat, CGraphBV* _poBVol, CCOL_TriList& _oTriList)
 {
-  //## begin CCOL_MT_CommonMesh::iTestCollision%1009321162.body preserve=yes
-	if (! _poMesh)				 return(0);
-	if (! _roTriList.iFreeTris()) return(0);
+  	if (! _poMesh)				 return(0);
+	if (! _oTriList.iFreeTris()) return(0);
 
 	int				cTri;
 	CTriangle		Tri;
@@ -89,6 +62,7 @@ int CCOL_MT_CommonMesh::iTestCollision (CMesh* _poMesh, int _iMat, CGraphBV* _po
 	float			fSqDist;
 	int				iTris = 0;
 	float			fTime;
+	int				i0,i1,i2;
 
 	switch (_poMesh->eMeshType)
 	{
@@ -97,13 +71,35 @@ int CCOL_MT_CommonMesh::iTestCollision (CMesh* _poMesh, int _iMat, CGraphBV* _po
 		// -------------------------------------------------------------------------------------
 		case E3D_MESH_TRIS:
 		{
-			for (cTri=0;((cTri<_poMesh->usNumPrims) && _roTriList.iFreeTris());cTri++)
+			for (cTri=0;((cTri<_poMesh->usNumPrims) && _oTriList.iFreeTris());cTri++)
 			{
-				VXs[0].Assign( _poMesh->VXs[ _poMesh->Idxs[cTri*3+0] ]);
-				VXs[1].Assign( _poMesh->VXs[ _poMesh->Idxs[cTri*3+1] ]);
-				VXs[2].Assign( _poMesh->VXs[ _poMesh->Idxs[cTri*3+2] ]);
+				i0 = _poMesh->Idxs[cTri*3+0];
+				i1 = _poMesh->Idxs[cTri*3+1];
+				i2 = _poMesh->Idxs[cTri*3+2];
 
-				TEST_Triangle(VXs,cTri,iTris,_poMesh,_iMat,_poBVol,_roTriList);
+				// -----------------------------
+				VXs[0].Assign( _poMesh->VXs[ i0 ]);
+				VXs[1].Assign( _poMesh->VXs[ i1 ]);
+				VXs[2].Assign( _poMesh->VXs[ i2 ]);
+				
+				 if (_poMesh->TNs)
+				 {
+					 TEST_Triangle(VXs,&_poMesh->TNs[cTri],iTris,_iMat,_poBVol,_oTriList);
+				 }
+			/*
+			else if (_poMesh->VNs)
+				{
+					VN.Assign( _poMesh->VNs[ i0 ] );
+					VN.Add   ( _poMesh->VNs[ i1 ] );
+					VN.Add   ( _poMesh->VNs[ i2 ] );					
+					VN.Scale ( 1.0f / 3.0f);
+
+					TEST_Triangle(VXs,&VN,iTris,_iMat,_poBVol,_oTriList);
+				}
+			*/
+			else 
+					TEST_Triangle(VXs,NULL,iTris,_iMat,_poBVol,_oTriList);			
+				// -----------------------------
 			}
 		}
 		break;
@@ -111,22 +107,24 @@ int CCOL_MT_CommonMesh::iTestCollision (CMesh* _poMesh, int _iMat, CGraphBV* _po
 		// -------------------------------------------------------------------------------------
 		case E3D_MESH_QUADS:
 		{
-			for (cTri=0;((cTri<_poMesh->usNumPrims) && (_roTriList.iFreeTris()>2));cTri++)
+			/*
+			for (cTri=0;((cTri<_poMesh->usNumPrims) && (_oTriList.iFreeTris()>2));cTri++)
 			{
 				// First quad triangle 
 				VXs[0].Assign(_poMesh->VXs[ _poMesh->Idxs[cTri*4+0] ]);
 				VXs[1].Assign(_poMesh->VXs[ _poMesh->Idxs[cTri*4+1] ]);
 				VXs[2].Assign(_poMesh->VXs[ _poMesh->Idxs[cTri*4+3] ]);
 
-				TEST_Triangle(VXs,cTri,iTris,_poMesh,_iMat,_poBVol,_roTriList);
+				TEST_Triangle(VXs,cTri,iTris,_poMesh,_iMat,_poBVol,_oTriList);
 
 				// Second quad triangle 
 				VXs[0].Assign(_poMesh->VXs[ _poMesh->Idxs[cTri*4+1] ]);
 				VXs[1].Assign(_poMesh->VXs[ _poMesh->Idxs[cTri*4+3] ]);
 				VXs[2].Assign(_poMesh->VXs[ _poMesh->Idxs[cTri*4+2] ]);
 
-				TEST_Triangle(VXs,cTri,iTris,_poMesh,_iMat,_poBVol,_roTriList);
+				TEST_Triangle(VXs,cTri,iTris,_poMesh,_iMat,_poBVol,_oTriList);
 			}
+			*/
 		}
 		break;
 
@@ -136,13 +134,35 @@ int CCOL_MT_CommonMesh::iTestCollision (CMesh* _poMesh, int _iMat, CGraphBV* _po
 		// -------------------------------------------------------------------------------------
 		case E3D_MESH_TRISTRIPS:
 		{
-			for (cTri=0;((cTri<_poMesh->usNumPrims) && _roTriList.iFreeTris());cTri++)
+			for (cTri=0;((cTri<_poMesh->usNumPrims) && _oTriList.iFreeTris());cTri++)
 			{
-				VXs[0].Assign( _poMesh->VXs[_poMesh->Idxs[cTri  ] ]);
-				VXs[1].Assign( _poMesh->VXs[_poMesh->Idxs[cTri+1] ]);
-				VXs[2].Assign( _poMesh->VXs[_poMesh->Idxs[cTri+2] ]);
+				i0 = _poMesh->Idxs[cTri  ];
+				i1 = _poMesh->Idxs[cTri+1];
+				i2 = _poMesh->Idxs[cTri+2];
 
-				TEST_Triangle(VXs,cTri,iTris,_poMesh,_iMat,_poBVol,_roTriList);
+				// -----------------------------
+				VXs[0].Assign( _poMesh->VXs[i0]);
+				VXs[1].Assign( _poMesh->VXs[i1]);
+				VXs[2].Assign( _poMesh->VXs[i2]);
+			
+				if (_poMesh->TNs)
+				{
+					TEST_Triangle(VXs,&_poMesh->TNs[cTri],iTris,_iMat,_poBVol,_oTriList);
+				}
+			/*
+			else if (_poMesh->VNs)
+				{
+					VN.Assign( _poMesh->VNs[i0] );
+					VN.Add   ( _poMesh->VNs[i1] );
+					VN.Add   ( _poMesh->VNs[i2] );
+					VN.Scale (1.0f / 3.0f);
+
+					TEST_Triangle(VXs,&VN,iTris,_iMat,_poBVol,_oTriList);
+				}
+			*/
+			else 
+				TEST_Triangle(VXs,NULL,iTris,_iMat,_poBVol,_oTriList);
+				// -----------------------------
 			}
 		}
 		break;
@@ -152,12 +172,36 @@ int CCOL_MT_CommonMesh::iTestCollision (CMesh* _poMesh, int _iMat, CGraphBV* _po
 		
 		// -------------------------------------------------------------------------------------
 		case E3D_MESH_NITRIS:
-		{
-			pVXs = _poMesh->VXs;			
-			for (cTri=0;((cTri<_poMesh->usNumPrims) && _roTriList.iFreeTris());cTri++)
+		{			
+			for (cTri=0;((cTri<_poMesh->usNumPrims) && _oTriList.iFreeTris());cTri++)
 			{
-				TEST_Triangle(pVXs,cTri,iTris,_poMesh,_iMat,_poBVol,_roTriList);
-				pVXs += 3;
+				i0 = cTri*3+0;
+				i1 = cTri*3+1;
+				i2 = cTri*3+2;
+				
+				// -----------------------------
+				VXs[0].Assign( _poMesh->VXs[i0]);
+				VXs[1].Assign( _poMesh->VXs[i1]);
+				VXs[2].Assign( _poMesh->VXs[i2]);
+
+				if (_poMesh->TNs)
+				{
+					TEST_Triangle(VXs,&_poMesh->TNs[cTri],iTris,_iMat,_poBVol,_oTriList);
+				}
+			/*
+			else if (_poMesh->VNs)
+				{
+					VN.Assign( _poMesh->VNs[i0] );
+					VN.Add   ( _poMesh->VNs[i1] );
+					VN.Add   ( _poMesh->VNs[i2] );
+					VN.Scale (1.0f / 3.0f);
+
+					TEST_Triangle(VXs,&VN,iTris,_iMat,_poBVol,_oTriList);
+				}
+			*/
+			else 
+				TEST_Triangle(VXs,NULL,iTris,_iMat,_poBVol,_oTriList);
+				// -----------------------------
 			}
 		}
 		break;
@@ -165,47 +209,66 @@ int CCOL_MT_CommonMesh::iTestCollision (CMesh* _poMesh, int _iMat, CGraphBV* _po
 		// -------------------------------------------------------------------------------------
 		case E3D_MESH_NIQUADS:		
 		{
-			for (cTri=0;((cTri<_poMesh->usNumPrims) && (_roTriList.iFreeTris()>2));cTri++)
+			/*
+			for (cTri=0;((cTri<_poMesh->usNumPrims) && (_oTriList.iFreeTris()>2));cTri++)
 			{
 				// First quad triangle 
 				VXs[0].Assign( _poMesh->VXs[cTri*4+0] );
 				VXs[1].Assign( _poMesh->VXs[cTri*4+1] );
 				VXs[2].Assign( _poMesh->VXs[cTri*4+3] );
 
-				TEST_Triangle(VXs,cTri,iTris,_poMesh,_iMat,_poBVol,_roTriList);
+				TEST_Triangle(VXs,cTri,iTris,_poMesh,_iMat,_poBVol,_oTriList);
 
 				// Second quad triangle 
 				VXs[0].Assign( _poMesh->VXs[ cTri*4+1 ] );
 				VXs[1].Assign( _poMesh->VXs[ cTri*4+3 ] );
 				VXs[2].Assign( _poMesh->VXs[ cTri*4+2 ] );
 
-				TEST_Triangle(VXs,cTri,iTris,_poMesh,_iMat,_poBVol,_roTriList);
+				TEST_Triangle(VXs,cTri,iTris,_poMesh,_iMat,_poBVol,_oTriList);
 			}
+			*/
 		}
 		break;
 
 		// -------------------------------------------------------------------------------------
 		case E3D_MESH_NITRISTRIP:
 			
-			for (cTri=0;((cTri<_poMesh->usNumPrims) && _roTriList.iFreeTris());cTri++)
+			for (cTri=0;((cTri<_poMesh->usNumPrims) && _oTriList.iFreeTris());cTri++)
 			{
-				VXs[0].Assign( _poMesh->VXs[cTri  ] );
-				VXs[1].Assign( _poMesh->VXs[cTri+1] );
-				VXs[2].Assign( _poMesh->VXs[cTri+2] );
+				i0 = cTri  ;
+				i1 = cTri+1;
+				i2 = cTri+2;
 
-				TEST_Triangle(VXs,cTri,iTris,_poMesh,_iMat,_poBVol,_roTriList);
+				// -----------------------------
+				VXs[0].Assign( _poMesh->VXs[i0]);
+				VXs[1].Assign( _poMesh->VXs[i1]);
+				VXs[2].Assign( _poMesh->VXs[i2]);
+
+				if (_poMesh->TNs)
+				{
+					TEST_Triangle(VXs,&_poMesh->TNs[cTri],iTris,_iMat,_poBVol,_oTriList);
+				}
+			/*
+			else if (_poMesh->VNs)
+				{
+					VN.Assign( _poMesh->VNs[i0] );
+					VN.Add   ( _poMesh->VNs[i1] );
+					VN.Add   ( _poMesh->VNs[i2] );
+					VN.Scale (1.0f / 3.0f);
+
+					TEST_Triangle(VXs,&VN,iTris,_iMat,_poBVol,_oTriList);
+				}
+			*/
+			else 
+				TEST_Triangle(VXs,NULL,iTris,_iMat,_poBVol,_oTriList);
+				// -----------------------------
 			}
 
 		break;
 	}
 
 	return (iTris);	
-  //## end CCOL_MT_CommonMesh::iTestCollision%1009321162.body
 }
 
 // Additional Declarations
-  //## begin CCOL_MT_CommonMesh%3C29310E01C5.declarations preserve=yes
-  //## end CCOL_MT_CommonMesh%3C29310E01C5.declarations
-
-//## begin module%3C29310E01C5.epilog preserve=yes
-//## end module%3C29310E01C5.epilog
+    

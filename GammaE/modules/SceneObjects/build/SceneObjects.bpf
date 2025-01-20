@@ -1,0 +1,20 @@
+USEUNIT(".\Console\CConsole.cpp");
+USEUNIT(".\SceneAxis\SceneAxis.cpp");
+USEUNIT(".\SkyDome\CSkyDome.cpp");
+USEUNIT(".\SkyBox\CSkyBox.cpp");
+USEUNIT(".\LensFlare\CLensFlare.cpp");
+USEUNIT(".\LensFlare\CLensFlare_Elem.cpp");
+USEUNIT(".\Reflector\CObject3D_Reflector.cpp");
+USEUNIT(".\Detailer\CDetailer.cpp");
+USEUNIT(".\CoronaMgr\CCorona.cpp");
+USEUNIT(".\CoronaMgr\CCoronaMgr.cpp");
+USEUNIT(".\ShadowCaster\CShadowCaster.cpp");
+USEUNIT(".\TexProjector\CTexProjector.cpp");
+USEUNIT(".\3DObjWH\C3DObjWH.cpp");
+USEUNIT(".\HUDElems\CHUDIcon.cpp");
+USEUNIT(".\HUDElems\CHUDLabel.cpp");
+USEUNIT(".\HUDElems\CHUDMsgBox.cpp");
+USEUNIT(".\HUDElems\CMenuTextGrid.cpp");
+USEFILE("vctobpr.log");
+
+#define Library

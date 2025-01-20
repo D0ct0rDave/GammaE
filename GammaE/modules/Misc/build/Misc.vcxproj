@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <ProjectGuid>{89507051-7FDD-4924-81F6-CBE9D20E25AE}</ProjectGuid>
+    <RootNamespace>Misc</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>17.0.35004.147</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(ProjectDir)..\COMPILED\VC\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)..\COMPILED\VC\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>\projects\GammaE\Release\</OutDir>
+    <IntDir>\projects\GammaE\Release\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\src;$(ProjectDir)\..\..\..\inc;$(ProjectDir)..\..\..\..\SDKs\libconfig;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeaderOutputFile>$(OutDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation />
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)$(ProjectName).pdb</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <Culture>0x0c0a</Culture>
+    </ResourceCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <PostBuildEvent>
+      <Command>mkdir $(TargetPath) $(ProjectDir)..\lib\vc%3b
+copy /Y $(TargetPath) $(ProjectDir)..\lib\vc\$(TargetName)D$(TargetExt)
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_WINDOWS;WIN32;NDEBUG;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader />
+      <PrecompiledHeaderOutputFile>\projects\GammaE\Release/Misc.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>\projects\GammaE\Release/</AssemblerListingLocation>
+      <ObjectFileName>\projects\GammaE\Release/</ObjectFileName>
+      <ProgramDataBaseFileName>\projects\GammaE\Release/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <Culture>0x0c0a</Culture>
+    </ResourceCompile>
+    <Lib>
+      <OutputFile>\projects\GammaE\Release\Misc.lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Logging\CGErrorLC.cpp" />
+    <ClCompile Include="..\src\Logging\CGLogChannel.cpp" />
+    <ClCompile Include="..\src\Logging\CGLogger.cpp" />
+    <ClCompile Include="..\src\Logging\CGStandardLC.cpp" />
+    <ClCompile Include="..\src\Logging\CGSystemLC.cpp" />
+    <ClCompile Include="..\src\Logging\CGWarningLC.cpp" />
+    <ClCompile Include="..\src\Resource\CGDiskResourceWH.cpp" />
+    <ClCompile Include="..\src\Resource\CGReferenceCounter.cpp" />
+    <ClCompile Include="..\src\Resource\CGResource.cpp" />
+    <ClCompile Include="..\src\Resource\CGResourceWH.cpp" />
+    <ClCompile Include="..\src\TAD\CGCircularArray.cpp" />
+    <ClCompile Include="..\src\TAD\CGDynArray.cpp" />
+    <ClCompile Include="..\src\TAD\CGHashTable.cpp" />
+    <ClCompile Include="..\src\TAD\CGLookupArray.cpp" />
+    <ClCompile Include="..\src\TAD\CGSingleton.cpp" />
+    <ClCompile Include="..\src\TAD\CGStArray.cpp" />
+    <ClCompile Include="..\src\Timing\CGChrono.cpp" />
+    <ClCompile Include="..\src\Types\CGString.cpp" />
+    <ClCompile Include="..\src\Types\CGTextResource.cpp" />
+    <ClCompile Include="..\src\Utils\CGConfigFile.cpp" />
+    <ClCompile Include="..\src\Utils\CRC.cpp" />
+    <ClCompile Include="..\src\Utils\MiscUtils.cpp" />
+    <ClCompile Include="..\src\Utils\ParseUtils.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\GMisc.h" />
+    <ClInclude Include="..\src\Logging\CGErrorLC.h" />
+    <ClInclude Include="..\src\Logging\CGLogChannel.h" />
+    <ClInclude Include="..\src\Logging\CGLogger.h" />
+    <ClInclude Include="..\src\Logging\CGStandardLC.h" />
+    <ClInclude Include="..\src\Logging\CGSystemLC.h" />
+    <ClInclude Include="..\src\Logging\CGWarningLC.h" />
+    <ClInclude Include="..\src\MiscConst.h" />
+    <ClInclude Include="..\src\MiscTypes.h" />
+    <ClInclude Include="..\src\Resource\CGDiskResourceWH.h" />
+    <ClInclude Include="..\src\Resource\CGReferenceCounter.h" />
+    <ClInclude Include="..\src\Resource\CGResource.h" />
+    <ClInclude Include="..\src\Resource\CGResourceWH.h" />
+    <ClInclude Include="..\src\TAD\CGCircularArray.h" />
+    <ClInclude Include="..\src\TAD\CGDynArray.h" />
+    <ClInclude Include="..\src\TAD\CGHashTable.h" />
+    <ClInclude Include="..\src\TAD\CGLookupArray.h" />
+    <ClInclude Include="..\src\TAD\CGSingleton.h" />
+    <ClInclude Include="..\src\TAD\CGStArray.h" />
+    <ClInclude Include="..\src\Timing\CGChrono.h" />
+    <ClInclude Include="..\src\Types\CGString.h" />
+    <ClInclude Include="..\src\Types\CGTextResource.h" />
+    <ClInclude Include="..\src\Utils\CGConfigFile.h" />
+    <ClInclude Include="..\src\Utils\CRC.h" />
+    <ClInclude Include="..\src\Utils\MiscUtils.h" />
+    <ClInclude Include="..\src\Utils\ParseUtils.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

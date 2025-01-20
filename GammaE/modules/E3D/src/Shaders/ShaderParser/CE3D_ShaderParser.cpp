@@ -1,31 +1,20 @@
-//## begin module%3C604EBE02A5.cm preserve=no
-//## end module%3C604EBE02A5.cm
-
-//## begin module%3C604EBE02A5.cp preserve=no
-//## end module%3C604EBE02A5.cp
-
-//## Module: CE3D_ShaderParser%3C604EBE02A5; Pseudo Package body
-//## Source file: i:\Projects\GammaE\E3D\Shaders\ShaderParser\CE3D_ShaderParser.cpp
-
-//## begin module%3C604EBE02A5.additionalIncludes preserve=no
-//## end module%3C604EBE02A5.additionalIncludes
-
-//## begin module%3C604EBE02A5.includes preserve=yes
+// ----------------------------------------------------------------------------
 #include <string.h>
-#include <stdlib.h>
 #include <stdio.h>
 
-#include "Memory/GammaE_Mem.h"
+#include "GammaE_Mem.h"
+// ----------------------------------------------------------------------------
+#include "Materials/CGTexObj.h"
+#include "Materials/MipmapWH.h"
+#include "Materials/TexObjWH.h"
+#include "Materials/CGProgramWH.h"
+#include "Shaders\CE3D_ShaderExtDB.h"
 
-//## end module%3C604EBE02A5.includes
+#include "Shaders\ShaderInstructions\CE3D_ShaderInsts.h"
+#include "Shaders\ShaderParser\CE3D_ShaderParser.h"
 
-// CE3D_ShaderInsts
-#include "E3D\Shaders\ShaderInstructions\CE3D_ShaderInsts.h"
-// CE3D_ShaderParser
-#include "E3D\Shaders\ShaderParser\CE3D_ShaderParser.h"
-//## begin module%3C604EBE02A5.additionalDeclarations preserve=yes
-#define stricmp _stricmp
-
+#include "E3D_Enums.h"
+// ----------------------------------------------------------------------------
 typedef enum {
 
 	E3D_PSH_NODE_NAME,
@@ -57,16 +46,24 @@ typedef enum {
     E3D_PSH_GOP_ENDDEF,
     E3D_PSH_GOP_READY,
 
+    E3D_PSH_ZOP_BEGINDEF,
+    E3D_PSH_ZOP_ENDDEF,
+    E3D_PSH_ZOP_PARS,
+
     E3D_PSH_TEX_BEGINDEF,
     E3D_PSH_TEX_ENDDEF,
     E3D_PSH_TEX_PARS,
+
+    E3D_PSH_PROG_BEGINDEF,
+    E3D_PSH_PROG_ENDDEF,
+    E3D_PSH_PROG_PARS,
 
     E3D_PSH_COL_BEGINDEF,
     E3D_PSH_COL_ENDDEF,
     E3D_PSH_COL_PARS,
 
-    E3D_PSH_EVALUATOR_ENDDEF,
     E3D_PSH_EVALUATOR_BEGINDEF,
+    E3D_PSH_EVALUATOR_ENDDEF,
 	E3D_PSH_EV_CTE,
 	
 	E3D_PSH_EXT_NAME,
@@ -75,80 +72,51 @@ typedef enum {
     E3D_PSH_EXT_READY
 
 }TE3D_ParseShader_State;
-//## end module%3C604EBE02A5.additionalDeclarations
-
-
-// Class CE3D_ShaderParser 
-
+// ----------------------------------------------------------------------------
 CE3D_ShaderParser::CE3D_ShaderParser()
-  //## begin CE3D_ShaderParser::CE3D_ShaderParser%.hasinit preserve=no
-  //## end CE3D_ShaderParser::CE3D_ShaderParser%.hasinit
-  //## begin CE3D_ShaderParser::CE3D_ShaderParser%.initialization preserve=yes
-  //## end CE3D_ShaderParser::CE3D_ShaderParser%.initialization
 {
-  //## begin CE3D_ShaderParser::CE3D_ShaderParser%.body preserve=yes
-  //## end CE3D_ShaderParser::CE3D_ShaderParser%.body
 }
-
-
-CE3D_ShaderParser::~CE3D_ShaderParser()
-{
-  //## begin CE3D_ShaderParser::~CE3D_ShaderParser%.body preserve=yes
-  //## end CE3D_ShaderParser::~CE3D_ShaderParser%.body
-}
-
-
-
-//## Other Operations (implementation)
-CE3D_Shader * CE3D_ShaderParser::poCreateShaderFromTexture (char *_szTexName)
-{
-  //## begin CE3D_ShaderParser::poCreateShaderFromTexture%1012941677.body preserve=yes
-    
+// ----------------------------------------------------------------------------
+CE3D_Shader * CE3D_ShaderParser::poCreateShaderFromTexture (const CGString& _sTexName)
+{     
 	// ------------------------------------
 	// First of all try loading the texture
 	// ------------------------------------
 	// Create the mipmap object
-    TMipMapObj	*MipMapObj	= TMipMapWarehouse::LoadMipMap(_szTexName,0);
-	if (! MipMapObj) return(NULL);
+    CGMipMap* poMipMapObj	= CMipMapWH::I()->poLoad(_sTexName.szString());
+	if (! poMipMapObj) return(NULL);
     
 	// Create the texture object node
-    TTextureObj   *TexObj	= TTexObjWarehouse::AllocateTexObj();
-	// TTextureObj   *TexObj = mNew TTextureObj;	
+    CGTextureObj  *TexObj	= mNew CGTextureObj;
     if (! TexObj)
     {
         // WARNING
         // Maximum number of texture objects reached
         return(NULL);	// Return a null material ???
-    }
-    TexObj->UWrap     = E3D_TEX_WRAP_REPEAT;
-    TexObj->VWrap     = E3D_TEX_WRAP_REPEAT;
-    TexObj->MinFilter = E3D_TEX_MIN_FILTER_NEAREST;
-    TexObj->MaxFilter = E3D_TEX_MIN_FILTER_LINEAR;
-   	TexObj->MipMapObj = MipMapObj;
+	}
 
+    TexObj->m_uiUWrap     = E3D_TEX_WRAP_REPEAT;
+    TexObj->m_uiVWrap     = E3D_TEX_WRAP_REPEAT;
+    TexObj->m_uiMinFilter = E3D_TEX_MIN_FILTER_NEAREST;
+    TexObj->m_uiMaxFilter = E3D_TEX_MIN_FILTER_LINEAR;
+   	TexObj->m_poMipMap	  = poMipMapObj;
     
 	// Create texture shader instruction
 	CE3D_ShIns_Texture *poShTex = mNew CE3D_ShIns_Texture();
-    if (! poShTex)
-		return(NULL); // Return a null material ???
-	poShTex->pTex = TexObj;
-    
+	poShTex->m_poTex = TexObj;
 
 	// Setup shader
 	CE3D_Shader	*poSh = mNew CE3D_Shader();	
 	poSh->AddInstruction(poShTex);
-	
-    return(poSh);
-  //## end CE3D_ShaderParser::poCreateShaderFromTexture%1012941677.body
-}
 
-CE3D_Shader * CE3D_ShaderParser::poParseShader (char *_szShaderDefinition, char* _szShaderName)
+	CTexObjWH::I()->uiAdd(TexObj,_sTexName);
+    return(poSh);
+}
+// ----------------------------------------------------------------------------
+CE3D_Shader * CE3D_ShaderParser::poParseShader(const CGString& _sShaderDefinition,const CGString& _sShaderName)
 {
-  //## begin CE3D_ShaderParser::poParseShader%1012941678.body preserve=yes
-    if ((! _szShaderDefinition)	&& (!_szShaderName)) return(NULL);
-    
 	CE3D_Shader	*poShader	= NULL;
-    char *szShStr			= ParseUtils_CreateString(_szShaderDefinition);
+    char *szShStr			= ParseUtils_CreateString( (char*)_sShaderDefinition.szString() );
     char *szShaderStream	= szShStr;
     char *szToken;
 
@@ -174,17 +142,23 @@ CE3D_Shader * CE3D_ShaderParser::poParseShader (char *_szShaderDefinition, char*
 				}
 			}
 			break;
-        	
+
 			case E3D_PSH_MAT_INSTDEF:
 			{
-					if (! stricmp(szToken,"BlendOp"))
+					 if (! stricmp(szToken,"BlendOp"))
 						poShader->AddInstruction( poParse_ShIns_BlendingOperation(szShStr) );
+
+				else if (! stricmp(szToken,"ZOp"))
+						poShader->AddInstruction( poParse_ShIns_ZOperation(szShStr) );
 
 				else if (! stricmp(szToken,"TexOp"))
 						poShader->AddInstruction( poParse_ShIns_TextureOperation(szShStr) );
 
 				else if (! stricmp(szToken,"GeoOp"))
 						poShader->AddInstruction( poParse_ShIns_GeometricOperation(szShStr) );
+
+				else if (! stricmp(szToken,"Program"))
+						poShader->AddInstruction( poParse_ShIns_Program(szShStr) );
 
 				else if (! stricmp(szToken,"Texture"))
 						poShader->AddInstruction( poParse_ShIns_Texture(szShStr) );
@@ -205,33 +179,51 @@ CE3D_Shader * CE3D_ShaderParser::poParseShader (char *_szShaderDefinition, char*
 						ParseState = E3D_PSH_MAT_ENDDEF;
 			}
 		}
-    }
+	}
+	
 	// --------------------------------------------------------------------------
 	// END: Parse shader instructions
 	// --------------------------------------------------------------------------
 	if (! poShader)
 	{
 		// The shader couldn't be created. Try loading as a texture with its material name
-		poShader = poCreateShaderFromTexture(_szShaderName);
+		poShader = poCreateShaderFromTexture(_sShaderName);
 	}	
 
 	mFree(szShaderStream);
 
 	return(poShader);
-  //## end CE3D_ShaderParser::poParseShader%1012941678.body
 }
+// ----------------------------------------------------------------------------
+CE3D_ShaderInstruction * CE3D_ShaderParser::poParse_ShIns_Program (char *&_szDesc)
+{
+    CE3D_ShIns_Program	*poSh   = NULL;
+	float				fR,fG,fB,fA;
 
+	//    
+  	char *szToken;	
+	NextToken(szToken,_szDesc);		
+
+    poSh = mNew CE3D_ShIns_Program();
+    if (! poSh)	return(NULL);
+
+    // Create the texture object node
+	poSh->SetProgram( CGProgramWH::I()->poLoad(szToken) );
+
+    return(poSh);
+}
+// ----------------------------------------------------------------------------
 CE3D_ShaderInstruction * CE3D_ShaderParser::poParse_ShIns_Texture (char *&_szDesc)
 {
-  //## begin CE3D_ShaderParser::poParse_ShIns_Texture%1012941679.body preserve=yes
-	CE3D_ShIns_Texture	*MatNode   = NULL;
-    TTextureObj			*TexObj    = NULL;
-    TMipMapObj			*MipMapObj = NULL;
+  	CE3D_ShIns_Texture*	MatNode   = NULL;
+    CGTextureObj*		TexObj    = NULL;
+    CGMipMap*			MipMapObj = NULL;
 
     // Variable parameters with default values
-	char		 *szToken;
-	char 		 MipMapName[MAX_CARS];
+	char*		szToken;
+	char 		 MipMapName[MAX_CHARS];
     unsigned int MipMapLODS = 1;
+    // tdeMipMapCreationMethod MMCMethod = MMCM_BilinearFiltering;
     unsigned int VWrap     = E3D_TEX_WRAP_REPEAT;
     unsigned int UWrap     = E3D_TEX_WRAP_REPEAT;
     unsigned int MinFilter = E3D_TEX_MIN_FILTER_NEAREST;
@@ -252,119 +244,134 @@ CE3D_ShaderInstruction * CE3D_ShaderParser::poParse_ShIns_Texture (char *&_szDes
 
 		switch (ParseState)
 		{
-        	case E3D_PSH_TEX_BEGINDEF:	if (! stricmp(szToken,"{"))
-                                 		ParseState = E3D_PSH_TEX_PARS;
-            						else
-									{
-                                    	// Copy the texture name
-										strcpy(MipMapName,szToken);
-										// WARNING if name redefinition
-									}
-									break;
+        	case E3D_PSH_TEX_BEGINDEF:	
+        	{
+				if (! stricmp(szToken,"{"))
+             		ParseState = E3D_PSH_TEX_PARS;
+				else
+				{
+                	// Copy the texture name
+					strcpy(MipMapName,szToken);
+					// WARNING if name redefinition
+				}
+			}
+			break;
 
-			case E3D_PSH_TEX_PARS:	// Image filename
-            				 		if (! stricmp(szToken,"Image"))
-                             		{
-                                    	NextToken(szToken,_szDesc);
-										strcpy(MipMapName,szToken);
-									}
-									// Mignification filter
-							 else   if (! stricmp(szToken,"MinFilter"))
-                             		{
-                                        	NextToken(szToken,_szDesc);
+			case E3D_PSH_TEX_PARS:
+			{
+				// Image filename
+ 				if (! stricmp(szToken,"Image"))
+ 				{
+        			NextToken(szToken,_szDesc);
+					strcpy(MipMapName,szToken);
+				}
 
-                                        	if (! stricmp(szToken,"NEAREST"))
-                                            	MinFilter = E3D_TEX_MIN_FILTER_NEAREST;
-									   else if (! stricmp(szToken,"LINEAR"))
-                                            	MinFilter = E3D_TEX_MIN_FILTER_LINEAR;
-									   else if (! stricmp(szToken,"NEAREST_MIPMAP_NEAREST"))
-                                            	MinFilter = E3D_TEX_MIN_FILTER_NEAREST_MIPMAP_NEAREST;
-									   else if (! stricmp(szToken,"NEAREST_MIPMAP_LINEAR"))
-                                            	MinFilter = E3D_TEX_MIN_FILTER_NEAREST_MIPMAP_LINEAR;
-									   else if (! stricmp(szToken,"LINEAR_MIPMAP_NEAREST"))
-                                            	MinFilter = E3D_TEX_MIN_FILTER_LINEAR_MIPMAP_NEAREST;
-									   else if (! stricmp(szToken,"LINEAR_MIPMAP_LINEAR"))
-                                            	MinFilter = E3D_TEX_MIN_FILTER_LINEAR_MIPMAP_LINEAR;
-									   else
-									   {
-                                       			// WARNING
-									   }
-									}
-									// Magnification filter
-							 else 	if (! stricmp(szToken,"MagFilter"))
-                             		{
-                                    	NextToken(szToken,_szDesc);
+				// Mignification filter
+			else if (! stricmp(szToken,"MinFilter"))
+ 				{
+            			NextToken(szToken,_szDesc);
 
-                                        	if (! stricmp(szToken,"NEAREST"))
-                                            	MagFilter = E3D_TEX_MAX_FILTER_NEAREST;
-									   else if (! stricmp(szToken,"LINEAR"))
-                                            	MagFilter = E3D_TEX_MAX_FILTER_LINEAR;
-									   else
-									   {
-                                       			// WARNING
-									   }
-									}
-									// Number of LODs
-							 else	if (! stricmp(szToken,"NumLODs"))
-                             		{
-                                    	NextToken(szToken,_szDesc);
-                                     	if (! sscanf(szToken,"%d",&MipMapLODS))
-                                        	// WARNING
-                                        	MipMapLODS = 1;
-									}
-									
-									/*
-									// MipMap generation method
-							 else 	if (! stricmp(szToken,"MMGenMethod"))
-                             		{
-                                    	NextToken(szToken,_szDesc);
-                                        	if (! stricmp(szToken,"NORMAL"))
-                                            	MMCMethod = MMCM_Normal;
-									   else if (! stricmp(szToken,"HLINEAR_FILTERING"))
-                                            	MMCMethod = MMCM_HLinearFiltering;
-									   else if (! stricmp(szToken,"VLINEAR_FILTERING"))
-                                            	MMCMethod = MMCM_VLinearFiltering;
-									   else if (! stricmp(szToken,"BILINEAR_FILTERING"))
-                                            	MMCMethod = MMCM_BilinearFiltering;
-									   else
-									   {
-                                       			// WARNING
-									   }
-									}
-									*/
-							 else 	if (! stricmp(szToken,"UWrap"))
-									{
-                                    	NextToken(szToken,_szDesc);
-                                        	if (! stricmp(szToken,"REPEAT"))
-                                            	UWrap = E3D_TEX_WRAP_REPEAT;
-									   else if (! stricmp(szToken,"CLAMP"))
-                                            	UWrap = E3D_TEX_WRAP_CLAMP;
-									   else
-									   {
-                                       			// WARNING
-									   }
-									}
-							 else 	if (! stricmp(szToken,"VWrap"))
-									{
-                                    	NextToken(szToken,_szDesc);
-                                        	if (! stricmp(szToken,"REPEAT"))
-                                            	VWrap = E3D_TEX_WRAP_REPEAT;
-									   else if (! stricmp(szToken,"CLAMP"))
-                                            	VWrap = E3D_TEX_WRAP_CLAMP;
-									   else
-									   {
-                                       			// WARNING
-									   }
-									}
-							 else   {
-                             			// WARNING
-										// Unknown token name
-									}
-								break;
+            			if (! stricmp(szToken,"NEAREST"))
+                			MinFilter = E3D_TEX_MIN_FILTER_NEAREST;
+				   else if (! stricmp(szToken,"LINEAR"))
+                			MinFilter = E3D_TEX_MIN_FILTER_LINEAR;
+				   else if (! stricmp(szToken,"NEAREST_MIPMAP_NEAREST"))
+                			MinFilter = E3D_TEX_MIN_FILTER_NEAREST_MIPMAP_NEAREST;
+				   else if (! stricmp(szToken,"NEAREST_MIPMAP_LINEAR"))
+                			MinFilter = E3D_TEX_MIN_FILTER_NEAREST_MIPMAP_LINEAR;
+				   else if (! stricmp(szToken,"LINEAR_MIPMAP_NEAREST"))
+                			MinFilter = E3D_TEX_MIN_FILTER_LINEAR_MIPMAP_NEAREST;
+				   else if (! stricmp(szToken,"LINEAR_MIPMAP_LINEAR"))
+                			MinFilter = E3D_TEX_MIN_FILTER_LINEAR_MIPMAP_LINEAR;
+				   else
+				   {
+           				// WARNING
+				   }
+				}
+
+				// Magnification filter
+			else if (! stricmp(szToken,"MagFilter"))
+ 				{
+        			NextToken(szToken,_szDesc);
+
+            		if (! stricmp(szToken,"NEAREST"))
+                		MagFilter = E3D_TEX_MAX_FILTER_NEAREST;
+			   else if (! stricmp(szToken,"LINEAR"))
+               			MagFilter = E3D_TEX_MAX_FILTER_LINEAR;
+					else
+					{
+           					// WARNING
+					}
+				}
+
+				// Number of LODs
+			else if (! stricmp(szToken,"NumLODs"))
+ 				{
+        			NextToken(szToken,_szDesc);
+         			if (! sscanf(szToken,"%d",&MipMapLODS))
+            			// WARNING
+            			MipMapLODS = 1;
+				}
+
+				// MipMap generation method
+			else if (! stricmp(szToken,"MMGenMethod"))
+ 				{
+        			NextToken(szToken,_szDesc);
+					/*
+            			if (! stricmp(szToken,"NORMAL"))
+                			MMCMethod = MMCM_Normal;
+				   else if (! stricmp(szToken,"HLINEAR_FILTERING"))
+                			MMCMethod = MMCM_HLinearFiltering;
+				   else if (! stricmp(szToken,"VLINEAR_FILTERING"))
+                			MMCMethod = MMCM_VLinearFiltering;
+				   else if (! stricmp(szToken,"BILINEAR_FILTERING"))
+                			MMCMethod = MMCM_BilinearFiltering;
+				   else if (! stricmp(szToken,"BILINEAR_MRQZ_FILTERING"))
+           					MMCMethod = MMCM_BilinearMRQZFiltering;
+				   else
+				   {
+           					// WARNING
+				   }
+				   */				   
+				}
+
+			else if (! stricmp(szToken,"UWrap"))
+				{
+        			NextToken(szToken,_szDesc);
+            			if (! stricmp(szToken,"REPEAT"))
+                			UWrap = E3D_TEX_WRAP_REPEAT;
+				   else if (! stricmp(szToken,"CLAMP"))
+                			UWrap = E3D_TEX_WRAP_CLAMP;
+				   else
+				   {
+           					// WARNING
+				   }
+				}
+
+			else if (! stricmp(szToken,"VWrap"))
+				{
+        			NextToken(szToken,_szDesc);
+            			if (! stricmp(szToken,"REPEAT"))
+                			VWrap = E3D_TEX_WRAP_REPEAT;
+				   else if (! stricmp(szToken,"CLAMP"))
+                			VWrap = E3D_TEX_WRAP_CLAMP;
+				   else
+				   {
+           					// WARNING
+				   }
+				}
+
+			else {
+ 					// WARNING
+					// Unknown token name
+				}
+			}
+			break;
 		}
-    }
+	}
+
 	// --------------------------------------------------------------------------
-	// END: Parse texture paramters
+	// END: Parse texture parameters
 	// --------------------------------------------------------------------------
 
     // Create the material node
@@ -372,7 +379,7 @@ CE3D_ShaderInstruction * CE3D_ShaderParser::poParse_ShIns_Texture (char *&_szDes
     if (! MatNode) return(NULL); // Return a null material ???
 
     // Create the texture object node
-    TexObj = TTexObjWarehouse::AllocateTexObj();
+    TexObj = mNew CGTextureObj;
 
     if (! TexObj)
     {
@@ -380,37 +387,35 @@ CE3D_ShaderInstruction * CE3D_ShaderParser::poParse_ShIns_Texture (char *&_szDes
         // Maximum number of texture objects reached
         mDel MatNode;
         return(NULL);	// Return a null material ???
-    }
+	}
 
 	// Setup material node
-	MatNode->pTex   = TexObj;    
+	MatNode->m_poTex      = TexObj;
 
 	// Setup texture object
-    TexObj->UWrap     = UWrap;
-    TexObj->VWrap     = VWrap;
-    TexObj->MinFilter = MinFilter;
-    TexObj->MaxFilter = MagFilter;
+    TexObj->m_uiUWrap     = UWrap;
+    TexObj->m_uiVWrap     = VWrap;
+    TexObj->m_uiMinFilter = MinFilter;
+    TexObj->m_uiMaxFilter = MagFilter;
 
 	// Create the texture object
-    MipMapObj = TMipMapWarehouse::LoadMipMap(MipMapName,MipMapLODS);
+    MipMapObj = CMipMapWH::I()->poLoad(MipMapName);
 
     if (MipMapObj)
-    	TexObj->MipMapObj = MipMapObj;
+    	TexObj->m_poMipMap = MipMapObj;
     else
     {
 		// WARNING
         // No mipmap filename defined, return the null texture ???
-		TexObj->MipMapObj = NULL;
-    }
+		TexObj->m_poMipMap = NULL;    	
+	}
 
     return(MatNode);
-  //## end CE3D_ShaderParser::poParse_ShIns_Texture%1012941679.body
 }
-
+// ----------------------------------------------------------------------------
 void CE3D_ShaderParser::Parse_Color_General (char* _szDesc, float* _fR, float* _fG, float* _fB, float* _fA)
 {
-  //## begin CE3D_ShaderParser::Parse_Color_General%1013026081.body preserve=yes
-	char *szToken;
+  	char *szToken;
 
     // Variable parameters with default values
 	float r = 1.0f;
@@ -436,28 +441,28 @@ void CE3D_ShaderParser::Parse_Color_General (char* _szDesc, float* _fR, float* _
                     if (! sscanf(szToken,"%f",&r))
 						r = 1.0f;
 					else
-						if (r>1.0f) r = 1.0f;	else if (r<0.0f) r=0.0f;
+						r = MATH_Common::fClamp(0.0f,1.0f,r);
 
 					// scan green component
 					NextToken(szToken,_szDesc);
 					if (! sscanf(szToken,"%f",&g))
 						g = 1.0f;
 					else
-						if (g>1.0f) g = 1.0f;	else if (g<0.0f) g=0.0f;
-					
+						g = MATH_Common::fClamp(0.0f,1.0f,g);
+
 					// scan blue component
 					NextToken(szToken,_szDesc);
 					if (! sscanf(szToken,"%f",&b))
 						b = 1.0f;
 					else
-						if (b>1.0f) b = 1.0f;	else if (b<0.0f) b=0.0f;
+						b = MATH_Common::fClamp(0.0f,1.0f,b);
 
 					// scan alpha component
 					NextToken(szToken,_szDesc);
 					if (! sscanf(szToken,"%f",&a))
 						a = 1.0f;
 					else
-						if (a>1.0f) a = 1.0f;	else if (a<0.0f) a=0.0f;
+						a = MATH_Common::fClamp(0.0f,1.0f,a);
 
 					ParseState = E3D_PSH_COL_ENDDEF;
 				}
@@ -465,68 +470,74 @@ void CE3D_ShaderParser::Parse_Color_General (char* _szDesc, float* _fR, float* _
 			break;
 
             case E3D_PSH_COL_PARS:  // Red color
-                             		if (! stricmp(szToken,"r"))
-                             		{
-										// scan red component
-                                    	NextToken(szToken,_szDesc);
-										if (! sscanf(szToken,"%f",&r))
-											r = 1.0f;
-										else
-											if (r>1.0f) r = 1.0f;	else if (r<0.0f) r=0.0f;
-                                    }
-                                    // Green color
-                             else   if (! stricmp(szToken,"g"))
-                             		{
-										// scan green component
-										NextToken(szToken,_szDesc);
-										if (! sscanf(szToken,"%f",&g))
-											g = 1.0f;
-										else
-											if (g>1.0f) g = 1.0f;	else if (g<0.0f) g=0.0f;
-                                    }
-                                    // Blue color
-                             else   if (! stricmp(szToken,"b"))
-                             		{
-										// scan blue component
-										NextToken(szToken,_szDesc);
-										if (! sscanf(szToken,"%f",&b))
-											b = 1.0f;
-										else
-											if (b>1.0f) b = 1.0f;	else if (b<0.0f) b=0.0f;
+            {
+         		if (! stricmp(szToken,"r"))
+         		{
+					// scan red component
+                	NextToken(szToken,_szDesc);
+					if (! sscanf(szToken,"%f",&r))
+						r = 1.0f;
+					else
+						r = MATH_Common::fClamp(0.0f,1.0f,r);
+				}
 
-                                    }
-                                    // Alpha color
-                             else   if (! stricmp(szToken,"a"))
-                             		{
-										// scan alpha component
-										NextToken(szToken,_szDesc);
-										if (! sscanf(szToken,"%f",&a))
-											a = 1.0f;
-										else
-											if (a>1.0f) a = 1.0f;	else if (a<0.0f) a=0.0f;
-									}
-							 else   if (! stricmp(szToken,"}")) 
-									{
-										ParseState = E3D_PSH_COL_ENDDEF;
-									}
-                             else   {
-                             			// WARNING
-                                        // Unknown szToken name
-                                    }
-        }
+                // Green color
+         else   if (! stricmp(szToken,"g"))
+         		{
+					// scan green component
+					NextToken(szToken,_szDesc);
+					if (! sscanf(szToken,"%f",&g))
+						g = 1.0f;
+					else
+						g = MATH_Common::fClamp(0.0f,1.0f,g);
+				}
+
+                // Blue color
+         else   if (! stricmp(szToken,"b"))
+         		{
+					// scan blue component
+					NextToken(szToken,_szDesc);
+					if (! sscanf(szToken,"%f",&b))
+						b = 1.0f;
+					else
+						b = MATH_Common::fClamp(0.0f,1.0f,b);
+
+				}
+
+                // Alpha color
+         else   if (! stricmp(szToken,"a"))
+         		{
+					// scan alpha component
+					NextToken(szToken,_szDesc);
+					if (! sscanf(szToken,"%f",&a))
+						a = 1.0f;
+					else
+						a = MATH_Common::fClamp(0.0f,1.0f,a);
+				}
+		 
+		 else   if (! stricmp(szToken,"}")) 
+				{
+					ParseState = E3D_PSH_COL_ENDDEF;
+				}
+         
+         else   {
+         			// WARNING
+                    // Unknown szToken name
+				}
+			}
+			break;
+		}
 	}
 
 	*_fR = r;
 	*_fG = g;
 	*_fB = b;
 	*_fA = a;
-  //## end CE3D_ShaderParser::Parse_Color_General%1013026081.body
 }
-
+// ----------------------------------------------------------------------------
 CE3D_ShaderInstruction * CE3D_ShaderParser::poParse_ShIns_Color (char *&_szDesc)
 {
-  //## begin CE3D_ShaderParser::poParse_ShIns_Color%1012941680.body preserve=yes
-    CE3D_ShIns_Color	*poSh   = NULL;   
+    CE3D_ShIns_Color*	poSh   = NULL;   
 	float				fR,fG,fB,fA;
     
 	// Create the material node
@@ -536,16 +547,14 @@ CE3D_ShaderInstruction * CE3D_ShaderParser::poParse_ShIns_Color (char *&_szDesc)
     if (! poSh)	return(NULL);	// Return a null material ???
 
     // Create the texture object node
-	poSh->oColor.SetColor(fR,fG,fB,fA);
+	poSh->SetColor( CGColor(fR,fG,fB,fA) );
 
     return(poSh);
-  //## end CE3D_ShaderParser::poParse_ShIns_Color%1012941680.body
 }
-
+// ----------------------------------------------------------------------------
 CE3D_ShaderInstruction * CE3D_ShaderParser::poParse_ShIns_Wireframe (char *&_szDesc)
 {
-  //## begin CE3D_ShaderParser::poParse_ShIns_Wireframe%1012941681.body preserve=yes
-    CE3D_ShIns_Wireframe	*poSh   = NULL;   
+    CE3D_ShIns_Wireframe*	poSh   = NULL;   
 	float					fR,fG,fB,fA;
     
 	// Create the material node
@@ -555,16 +564,14 @@ CE3D_ShaderInstruction * CE3D_ShaderParser::poParse_ShIns_Wireframe (char *&_szD
     if (! poSh)	return(NULL);	// Return a null material ???
 
     // Create the texture object node
-	poSh->oColor.SetColor(fR,fG,fB,fA);
+	poSh->SetColor( CGColor(fR,fG,fB,fA) );
 
     return(poSh);
-  //## end CE3D_ShaderParser::poParse_ShIns_Wireframe%1012941681.body
 }
-
+// ----------------------------------------------------------------------------
 CE3D_ShaderInstruction * CE3D_ShaderParser::poParse_ShIns_Extension (char *&_szDesc)
 {
-  //## begin CE3D_ShaderParser::poParse_ShIns_Extension%1012941682.body preserve=yes
-	char *szToken;	
+  	char *szToken;	
 	NextToken(szToken,_szDesc);		
 
 	// Get the extension from the Extension DB
@@ -574,138 +581,479 @@ CE3D_ShaderInstruction * CE3D_ShaderParser::poParse_ShIns_Extension (char *&_szD
 	
 	CE3D_ShIns_Extension *poSh;	
 	poSh  = mNew CE3D_ShIns_Extension();			
-	poSh->pFunction = pFunc;
+	poSh->SetFunction(pFunc);
 		
 	return(poSh);
-  //## end CE3D_ShaderParser::poParse_ShIns_Extension%1012941682.body
 }
-
+// ----------------------------------------------------------------------------
 CE3D_ShaderInstruction * CE3D_ShaderParser::poParse_ShIns_BlendingOperation (char *&_szDesc)
 {
-  //## begin CE3D_ShaderParser::poParse_ShIns_BlendingOperation%1012941683.body preserve=yes
-	char *szToken;	
+  	char *szToken;
 	NextToken(szToken,_szDesc);	
 
 	CE3D_ShIns_BlendOp *poSh = mNew CE3D_ShIns_BlendOp();
-	poSh->SeteBOpType(eSIBOp_NULL);
+	poSh->SetBlendMode(E3D_BM_NULL);
 
 	if (! stricmp(szToken,"Copy"))
-		poSh->SeteBOpType(eSIBOp_Copy);
+		poSh->SetBlendMode(E3D_BM_Copy);
 	if (! stricmp(szToken,"Mult"))
-		poSh->SeteBOpType(eSIBOp_Mult);
+		poSh->SetBlendMode(E3D_BM_Mult);
 	if (! stricmp(szToken,"Mult2x"))
-		poSh->SeteBOpType(eSIBOp_Mult2x);
+		poSh->SetBlendMode(E3D_BM_Mult2x);
 	if (! stricmp(szToken,"Add"))
-		poSh->SeteBOpType(eSIBOp_Add);
+		poSh->SetBlendMode(E3D_BM_Add);
 	if (! stricmp(szToken,"Add&Mult"))
-		poSh->SeteBOpType(eSIBOp_MultAndAdd);
+		poSh->SetBlendMode(E3D_BM_AddAndMult);
 	if (! stricmp(szToken,"Mult&Add"))
-		poSh->SeteBOpType(eSIBOp_AddAndMult);
+		poSh->SetBlendMode(E3D_BM_MultAndAdd);
 	if (! stricmp(szToken,"Alpha"))
-		poSh->SeteBOpType(eSIBOp_Alpha);
+		poSh->SetBlendMode(E3D_BM_Alpha);
 	if (! stricmp(szToken,"AlphaAdd"))
-		poSh->SeteBOpType(eSIBOp_AlphaAdd);
+		poSh->SetBlendMode(E3D_BM_AlphaAdd);
 	if (! stricmp(szToken,"AlphaInv"))
-		poSh->SeteBOpType(eSIBOp_AlphaInv);
+		poSh->SetBlendMode(E3D_BM_AlphaInv);
 	if (! stricmp(szToken,"AlphaThrough"))
-		poSh->SeteBOpType(eSIBOp_AlphaThrough);
+		poSh->SetBlendMode(E3D_BM_AlphaThrough);
 
 	return(poSh);
-  //## end CE3D_ShaderParser::poParse_ShIns_BlendingOperation%1012941683.body
 }
+// ----------------------------------------------------------------------------
+CE3D_ShaderInstruction * CE3D_ShaderParser::poParse_ShIns_ZOperation (char *&_szDesc)
+{
+  	char *szToken;
+	NextToken(szToken,_szDesc);	
 
+	float			fRefValue	= 0.0f;
+	E3D_ZTestFunc	eZTestFunc	= E3D_ZTF_LEqual;
+	E3D_ZWrite		eZWrite		= E3D_ZW_Enable;
+
+    TE3D_ParseShader_State ParseState  = E3D_PSH_ZOP_BEGINDEF;
+
+    while ((ParseState != E3D_PSH_ZOP_ENDDEF) && (_szDesc))
+    {
+        NextToken(szToken,_szDesc);
+
+        switch (ParseState)
+        {
+        	case E3D_PSH_ZOP_BEGINDEF:
+			{
+				if (! stricmp(szToken,"{"))
+					ParseState = E3D_PSH_ZOP_PARS;
+            	else
+				{
+					// ZFunc
+					if (! stricmp(szToken,"ZFunc"))
+ 					{
+        				NextToken(szToken,_szDesc);
+
+        				if (! stricmp(szToken,"ALWAYS"))
+            				eZTestFunc = E3D_ZTF_Always;
+				   else if (! stricmp(szToken,"NEVER"))
+            				eZTestFunc = E3D_ZTF_Never;
+				   else if (! stricmp(szToken,"LESS"))
+            				eZTestFunc = E3D_ZTF_Less;
+				   else if (! stricmp(szToken,"LEQUAL"))
+            				eZTestFunc = E3D_ZTF_LEqual;
+				   else if (! stricmp(szToken,"GREATER"))
+            				eZTestFunc = E3D_ZTF_Greater;
+				   else if (! stricmp(szToken,"GEQUAL"))
+            				eZTestFunc = E3D_ZTF_GEqual;
+				   else if (! stricmp(szToken,"EQUAL"))
+            				eZTestFunc = E3D_ZTF_Equal;
+				   else if (! stricmp(szToken,"NOTEQUAL"))
+            				eZTestFunc = E3D_ZTF_NotEqual;
+						else
+						{
+       						// WARNING
+						}
+					}
+
+/*
+					// ZFunc Ref Value
+			   else if (! stricmp(szToken,"RefVal"))
+ 					{
+        				NextToken(szToken,_szDesc);
+
+        				if (! sscanf(szToken,"%f",&fRefValue))
+							fRefValue = 1.0f;
+						else
+							fRefValue = MATH_Common::fClamp(0.0f,1.0f,fRefValue);
+					}
+*/
+
+					// ZWrite
+			   else if (! stricmp(szToken,"ZWrite"))
+ 					{
+        				NextToken(szToken,_szDesc);
+
+            			if (! stricmp(szToken,"ENABLE"))
+                			eZWrite = E3D_ZW_Enable;
+				   else if (! stricmp(szToken,"DISABLE"))
+							eZWrite = E3D_ZW_Disable;
+					else{
+           						// WARNING
+						}
+					}
+					
+					// 
+			   else if (! stricmp(szToken,"}")) 
+					{
+						ParseState = E3D_PSH_ZOP_ENDDEF;
+					}         
+					else
+					{
+         				// WARNING
+						// Unknown szToken name
+					}
+				}
+			}
+			break;
+		}
+	}
+
+	// Create Z Operation
+	CE3D_ShIns_ZOp *poSh = mNew CE3D_ShIns_ZOp();
+	
+	poSh->SetZTestFunc(eZTestFunc);
+	poSh->SetZWrite(eZWrite);
+
+	return(poSh);
+}
+// ----------------------------------------------------------------------------
 CE3D_ShaderInstruction * CE3D_ShaderParser::poParse_ShIns_TextureOperation (char *&_szDesc)
 {
-  //## begin CE3D_ShaderParser::poParse_ShIns_TextureOperation%1012941684.body preserve=yes
-	char *szToken;
+  	char *szToken;
 	NextToken(szToken,_szDesc);	
 
 	CE3D_ShIns_TexOp *poSh = mNew CE3D_ShIns_TexOp();
-	poSh->SeteTOpType(eSITexOp_NULL);
+	poSh->SetTOpType(eSITexOp_NULL);
 
 	if (! stricmp(szToken,"Rotate"))
-		poSh->SeteTOpType(eSITexOp_Rotate);
+	{
+		poSh->SetTOpType(eSITexOp_Rotate);
+		poSh->SetEvaluator( poParseEvaluator(_szDesc) );
+	}
 	if (! stricmp(szToken,"ScaleUV"))
-		poSh->SeteTOpType(eSITexOp_Scale);
+	{
+		poSh->SetTOpType(eSITexOp_Scale);
+		poSh->SetEvaluator( poParseEvaluator(_szDesc) );
+	}
 	if (! stricmp(szToken,"ScaleU"))
-		poSh->SeteTOpType(eSITexOp_ScaleU);
+	{
+		poSh->SetTOpType(eSITexOp_ScaleU);
+		poSh->SetEvaluator( poParseEvaluator(_szDesc) );
+	}
 	if (! stricmp(szToken,"ScaleV"))
-		poSh->SeteTOpType(eSITexOp_ScaleV);
+	{
+		poSh->SetTOpType(eSITexOp_ScaleV);
+		poSh->SetEvaluator( poParseEvaluator(_szDesc) );
+	}
 	if (! stricmp(szToken,"TransU"))
-		poSh->SeteTOpType(eSITexOp_TransU);
+	{
+		poSh->SetTOpType(eSITexOp_TransU);
+		poSh->SetEvaluator( poParseEvaluator(_szDesc) );
+	}
 	if (! stricmp(szToken,"TransV"))
-		poSh->SeteTOpType(eSITexOp_TransV);
+	{
+		poSh->SetTOpType(eSITexOp_TransV);
+		poSh->SetEvaluator( poParseEvaluator(_szDesc) );
+	}
 	if (! stricmp(szToken,"ReflectMap"))
-		poSh->SeteTOpType(eSITexOp_ReflectMap);
+		poSh->SetTOpType(eSITexOp_ReflectMap);
 	if (! stricmp(szToken,"EnvMap"))
-		poSh->SeteTOpType(eSITexOp_EnvMap);
+		poSh->SetTOpType(eSITexOp_EnvMap);
 	if (! stricmp(szToken,"Matrix"))
-		poSh->SeteTOpType(eSITexOp_Matrix);
-
-	poSh->poEval = poParseEvaluator(_szDesc);
+		poSh->SetTOpType(eSITexOp_Matrix);
+	if (! stricmp(szToken,"FrameSet"))
+	{
+		poSh->SetTOpType(eSITexOp_FrameSet);
+		NextToken(szToken,_szDesc);		sscanf(szToken,"%d",&poSh->m_uiImgCols);
+		NextToken(szToken,_szDesc);		sscanf(szToken,"%d",&poSh->m_uiImgRows);
+		NextToken(szToken,_szDesc);		sscanf(szToken,"%f",&poSh->m_fFreq);
+	}
 
 	return(poSh);
-  //## end CE3D_ShaderParser::poParse_ShIns_TextureOperation%1012941684.body
 }
-
+// ----------------------------------------------------------------------------
 CE3D_ShaderInstruction * CE3D_ShaderParser::poParse_ShIns_GeometricOperation (char *&_szDesc)
 {
-  //## begin CE3D_ShaderParser::poParse_ShIns_GeometricOperation%1012941685.body preserve=yes
-	char *szToken;
+  	char *szToken;
 	NextToken(szToken,_szDesc);	
 
 	CE3D_ShIns_GeoOp *poSh = mNew CE3D_ShIns_GeoOp();
-	poSh->SeteGOpType(eSIGeoOp_NULL);
+	poSh->SetGOpType(eSIGeoOp_NULL);
 
 	if (! stricmp(szToken,"RotateX"))
-		poSh->SeteGOpType(eSIGeoOp_RotateX);
+		poSh->SetGOpType(eSIGeoOp_RotateX);
 	if (! stricmp(szToken,"RotateY"))
-		poSh->SeteGOpType(eSIGeoOp_RotateY);
+		poSh->SetGOpType(eSIGeoOp_RotateY);
 	if (! stricmp(szToken,"RotateZ"))
-		poSh->SeteGOpType(eSIGeoOp_RotateZ);
+		poSh->SetGOpType(eSIGeoOp_RotateZ);
 	if (! stricmp(szToken,"Scale"))
-		poSh->SeteGOpType(eSIGeoOp_Scale);
+		poSh->SetGOpType(eSIGeoOp_Scale);
 	if (! stricmp(szToken,"ScaleX"))
-		poSh->SeteGOpType(eSIGeoOp_ScaleX);
+		poSh->SetGOpType(eSIGeoOp_ScaleX);
 	if (! stricmp(szToken,"ScaleY"))
-		poSh->SeteGOpType(eSIGeoOp_ScaleY);
+		poSh->SetGOpType(eSIGeoOp_ScaleY);
 	if (! stricmp(szToken,"ScaleZ"))
-		poSh->SeteGOpType(eSIGeoOp_ScaleZ);
+		poSh->SetGOpType(eSIGeoOp_ScaleZ);
 	if (! stricmp(szToken,"TransX"))
-		poSh->SeteGOpType(eSIGeoOp_TransX);
+		poSh->SetGOpType(eSIGeoOp_TransX);
 	if (! stricmp(szToken,"TransY"))
-		poSh->SeteGOpType(eSIGeoOp_TransY);
+		poSh->SetGOpType(eSIGeoOp_TransY);
 	if (! stricmp(szToken,"TransZ"))
-		poSh->SeteGOpType(eSIGeoOp_TransZ);
+		poSh->SetGOpType(eSIGeoOp_TransZ);
 
-	poSh->poEval = poParseEvaluator(_szDesc);
+	poSh->SetEvaluator( poParseEvaluator(_szDesc) );
 
 	return(poSh);
-  //## end CE3D_ShaderParser::poParse_ShIns_GeometricOperation%1012941685.body
 }
-
+// ----------------------------------------------------------------------------
 CE3D_ShaderInstruction * CE3D_ShaderParser::poParse_ShIns_SetTMU (char *&_szDesc)
 {
-  //## begin CE3D_ShaderParser::poParse_ShIns_SetTMU%1012941686.body preserve=yes
-	if (! _szDesc) return(NULL);
+  	if (! _szDesc) return(NULL);
+
+	uint uiTMU;
+	sscanf(_szDesc,"%i",&uiTMU);
 
 	CE3D_ShIns_SetTMU *poSh = mNew CE3D_ShIns_SetTMU();
-	sscanf(_szDesc,"%i",&poSh->iTMU);
+	poSh->SetTMU(uiTMU);
 
 	return(poSh);
-  //## end CE3D_ShaderParser::poParse_ShIns_SetTMU%1012941686.body
 }
-
-CEvaluator * CE3D_ShaderParser::poParseEvaluator (char *_szDesc)
+// ----------------------------------------------------------------------------
+CEvaluator * CE3D_ShaderParser::poParseEvaluator (char *&_szDesc)
 {
-  //## begin CE3D_ShaderParser::poParseEvaluator%1013026082.body preserve=yes
+  	char	*szToken;
+	float	fValue;
+
+	NextToken(szToken,_szDesc);
+		
+		if (! strcmp(szToken,"EVMult"))
+		{
+			CEval_Mult	*poMult = mNew CEval_Mult;
+			CEvaluator	*poOpA  = poParseEvaluator(_szDesc);
+			if (! poOpA)
+			{
+				mDel poMult;
+				return(NULL);
+			}
+			
+			CEvaluator	*poOpB  = poParseEvaluator(_szDesc);
+			if (! poOpB)
+			{
+				mDel poMult;
+				mDel poOpA;
+				return(NULL);
+			}
+			
+			poMult->SetOperandA(poOpA);
+			poMult->SetOperandB(poOpB);
+			return(poMult);
+		}
+   
+   else if (! strcmp(szToken,"EVSum"))
+		{
+			CEval_Sum	*poSum = mNew CEval_Sum;
+			CEvaluator	*poOpA = poParseEvaluator(_szDesc);
+			if (! poOpA)
+			{
+				mDel poSum;
+				return(NULL);
+			}
+			
+			CEvaluator	*poOpB  = poParseEvaluator(_szDesc);
+			if (! poOpB)
+			{
+				mDel poSum;
+				mDel poOpA;
+				return(NULL);
+			}
+			
+			poSum->SetOperandA(poOpA);
+			poSum->SetOperandB(poOpB);
+			return(poSum);
+		}
+
+   else if (! strcmp(szToken,"EVSin"))
+		{
+			CEval_Sin	*poSin = mNew CEval_Sin;
+			CEvaluator	*poAmp = poParseEvaluator(_szDesc);
+			if (! poAmp)
+			{
+				mDel poSin;
+				return(NULL);
+			}
+			CEvaluator	*poFMult = poParseEvaluator(_szDesc);
+			if (! poFMult)
+			{
+				mDel poSin;
+				mDel poAmp;
+				return(NULL);
+			}
+			
+			CEvaluator	*poPhase  = poParseEvaluator(_szDesc);
+			if (! poPhase)
+			{
+				mDel poSin;
+				mDel poAmp;
+				mDel poFMult;
+				return(NULL);
+			}
+			
+			poSin->SetAmplitude(poAmp);
+			poSin->SetFreqMult (poFMult);
+			poSin->SetPhase    (poPhase);
+
+			return(poSin);
+		}
+
+   else if (! strcmp(szToken,"EVCos"))
+		{
+			CEval_Cos	*poCos = mNew CEval_Cos;
+			CEvaluator	*poAmp = poParseEvaluator(_szDesc);
+			if (! poAmp)
+			{
+				mDel poCos;
+				return(NULL);
+			}
+			CEvaluator	*poFMult = poParseEvaluator(_szDesc);
+			if (! poFMult)
+			{
+				mDel poCos;
+				mDel poAmp;
+				return(NULL);
+			}
+			
+			CEvaluator	*poPhase  = poParseEvaluator(_szDesc);
+			if (! poPhase)
+			{
+				mDel poCos;
+				mDel poAmp;
+				mDel poFMult;
+				return(NULL);
+			}
+			
+			poCos->SetAmplitude(poAmp);
+			poCos->SetFreqMult (poFMult);
+			poCos->SetPhase    (poPhase);
+
+			return(poCos);
+		}
+
+   else if (! strcmp(szToken,"EVSaw"))
+		{
+			CEval_SawTooth	*poSaw = mNew CEval_SawTooth;
+			CEvaluator	*poAmp = poParseEvaluator(_szDesc);
+			if (! poAmp)
+			{
+				mDel poSaw;
+				return(NULL);
+			}
+			CEvaluator	*poFMult = poParseEvaluator(_szDesc);
+			if (! poFMult)
+			{
+				mDel poSaw;
+				mDel poAmp;
+				return(NULL);
+			}
+			
+			CEvaluator	*poPhase  = poParseEvaluator(_szDesc);
+			if (! poPhase)
+			{
+				mDel poSaw;
+				mDel poAmp;
+				mDel poFMult;
+				return(NULL);
+			}
+			
+			poSaw->SetAmplitude(poAmp);
+			poSaw->SetFreqMult (poFMult);
+			poSaw->SetPhase    (poPhase);
+
+			return(poSaw);
+		}
+
+   else if (! strcmp(szToken,"EVSquare"))
+		{
+			CEval_Square	*poSquare = mNew CEval_Square;
+			CEvaluator	*poAmp = poParseEvaluator(_szDesc);
+			if (! poAmp)
+			{
+				mDel poSquare;
+				return(NULL);
+			}
+			CEvaluator	*poFMult = poParseEvaluator(_szDesc);
+			if (! poFMult)
+			{
+				mDel poSquare;
+				mDel poAmp;
+				return(NULL);
+			}
+			
+			CEvaluator	*poPhase  = poParseEvaluator(_szDesc);
+			if (! poPhase)
+			{
+				mDel poSquare;
+				mDel poAmp;
+				mDel poFMult;
+				return(NULL);
+			}
+			
+			poSquare->SetAmplitude(poAmp);
+			poSquare->SetFreqMult (poFMult);
+			poSquare->SetPhase    (poPhase);
+
+			return(poSquare);
+		}
+
+   else if (! strcmp(szToken,"EVTriangle"))
+		{
+			CEval_Triangle	*poTriangle = mNew CEval_Triangle;
+			CEvaluator	*poAmp = poParseEvaluator(_szDesc);
+			if (! poAmp)
+			{
+				mDel poTriangle;
+				return(NULL);
+			}
+			CEvaluator	*poFMult = poParseEvaluator(_szDesc);
+			if (! poFMult)
+			{
+				mDel poTriangle;
+				mDel poAmp;
+				return(NULL);
+			}
+			
+			CEvaluator	*poPhase  = poParseEvaluator(_szDesc);
+			if (! poPhase)
+			{
+				mDel poTriangle;
+				mDel poAmp;
+				mDel poFMult;
+				return(NULL);
+			}
+			
+			poTriangle->SetAmplitude(poAmp);
+			poTriangle->SetFreqMult (poFMult);
+			poTriangle->SetPhase    (poPhase);
+
+			return(poTriangle);
+		}
+
+   else if (! strcmp(szToken,"EVTime"))
+		{
+			CEval_Time *poTime = mNew CEval_Time;			
+			return(poTime);			
+		}
+
+  else  if (sscanf(szToken,"%f",&fValue))
+		{
+			CEval_Const *poConst = mNew CEval_Const;
+			poConst->SetConstant(fValue);
+			return(poConst);
+		}
+	
 	return(NULL);
-  //## end CE3D_ShaderParser::poParseEvaluator%1013026082.body
 }
-
 // Additional Declarations
-  //## begin CE3D_ShaderParser%3C604EBE02A5.declarations preserve=yes
-  //## end CE3D_ShaderParser%3C604EBE02A5.declarations
-
-//## begin module%3C604EBE02A5.epilog preserve=yes
-//## end module%3C604EBE02A5.epilog
+// ----------------------------------------------------------------------------

@@ -1,82 +1,53 @@
-//## begin module%3AF878DE0320.cm preserve=no
-//## end module%3AF878DE0320.cm
 
-//## begin module%3AF878DE0320.cp preserve=no
-//## end module%3AF878DE0320.cp
 
-//## Module: CHFSector_FN%3AF878DE0320; Pseudo Package body
-//## Source file: i:\Projects\GammaE\TerrainData\Sector\HeightField\CHFSector_FN.cpp
 
-//## begin module%3AF878DE0320.additionalIncludes preserve=no
-//## end module%3AF878DE0320.additionalIncludes
 
-//## begin module%3AF878DE0320.includes preserve=yes
-//## end module%3AF878DE0320.includes
+#include "GammaE_Mem.h"
 
 // CHFSector_FN
-#include "TerrainData\Sector\HeightField\CHFSector_FN.h"
-//## begin module%3AF878DE0320.additionalDeclarations preserve=yes
+#include "Sector\HeightField\CHFSector_FN.h"
   CHeight H;
-//## end module%3AF878DE0320.additionalDeclarations
 
 
 // Class CHFSector_FN 
 
 CHFSector_FN::CHFSector_FN()
-  //## begin CHFSector_FN::CHFSector_FN%.hasinit preserve=no
-  //## end CHFSector_FN::CHFSector_FN%.hasinit
-  //## begin CHFSector_FN::CHFSector_FN%.initialization preserve=yes
-  //## end CHFSector_FN::CHFSector_FN%.initialization
-{
-  //## begin CHFSector_FN::CHFSector_FN%.body preserve=yes
-	ulID = MAKE_RIFF_ID('H','S','F','N');
-  //## end CHFSector_FN::CHFSector_FN%.body
+        {
+  	ulID = MAKE_RIFF_ID('H','S','F','N');
 }
 
 
 CHFSector_FN::~CHFSector_FN()
 {
-  //## begin CHFSector_FN::~CHFSector_FN%.body preserve=yes
-  //## end CHFSector_FN::~CHFSector_FN%.body
 }
 
 
 
-//## Other Operations (implementation)
 CSectElem & CHFSector_FN::GetValue (int _X, int _Y)
 {
-  //## begin CHFSector_FN::GetValue%989359135.body preserve=yes
-	H.Set(&((float *)pData)[_Y*Resolution+_X]);
+  	H.Set(&((float *)pData)[_Y*Resolution+_X]);
 	return H;
-  //## end CHFSector_FN::GetValue%989359135.body
 }
 
 void CHFSector_FN::SetValue (int _X, int _Y, CSectElem &_Value)
 {
-  //## begin CHFSector_FN::SetValue%989359136.body preserve=yes
-	CHFSector::SetValue(_X,_Y,_Value);
+  	CHFSector::SetValue(_X,_Y,_Value);
 	((float *)pData)[_Y*Resolution+_X] = *(float *)(_Value.Get());
-  //## end CHFSector_FN::SetValue%989359136.body
 }
 
 CSector * CHFSector_FN::CreateClass ()
 {
-  //## begin CHFSector_FN::CreateClass%989359138.body preserve=yes
-	return (new CHFSector_FN());
-  //## end CHFSector_FN::CreateClass%989359138.body
+  	return (mNew CHFSector_FN());
 }
 
 unsigned long CHFSector_FN::ElemArraySize (int _iResolution)
 {
-  //## begin CHFSector_FN::ElemArraySize%989667593.body preserve=yes
-  	return( _iResolution*_iResolution*4 );
-  //## end CHFSector_FN::ElemArraySize%989667593.body
+    	return( _iResolution*_iResolution*4 );
 }
 
 void CHFSector_FN::GetLODData (int _iLOD, void *_pData)
 {
-  //## begin CHFSector_FN::GetLODData%995233497.body preserve=yes
-	int iNewResolution = ((Resolution & 0xfffffffe) >> _iLOD);
+  	int iNewResolution = ((Resolution & 0xfffffffe) >> _iLOD);
 	if (b21) iNewResolution++;
 
 	int iStep = 1 << _iLOD;
@@ -99,13 +70,11 @@ void CHFSector_FN::GetLODData (int _iLOD, void *_pData)
 		}
 		cY += iStep;
 	}
-  //## end CHFSector_FN::GetLODData%995233497.body
 }
 
 CSectElem & CHFSector_FN::GetValueF (float _fX, float _fY)
 {
-  //## begin CHFSector_FN::GetValueF%1026770434.body preserve=yes
-	#define Height(_X,_Y) ((float *)pData)[_Y*Resolution+_X]
+  	#define Height(_X,_Y) ((float *)pData)[_Y*Resolution+_X]
 
 	if (VGenMethod == eGM_Nearest) return ( GetValue((int)_fX,(int)_fY) );
 
@@ -145,15 +114,10 @@ CSectElem & CHFSector_FN::GetValueF (float _fX, float _fY)
 							return ( GVL_a->CosInterpolate(*GVL_r1,*GVL_r2,fY) );
 							*/
 							break;
-    }
+}
 
 	return H;
-  //## end CHFSector_FN::GetValueF%1026770434.body
 }
 
 // Additional Declarations
-  //## begin CHFSector_FN%3AF878DE0320.declarations preserve=yes
-  //## end CHFSector_FN%3AF878DE0320.declarations
-
-//## begin module%3AF878DE0320.epilog preserve=yes
-//## end module%3AF878DE0320.epilog
+    

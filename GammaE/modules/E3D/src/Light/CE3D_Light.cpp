@@ -2,20 +2,9 @@
 
 CE3D_Light::CE3D_Light()
 {
-	oLitAmb.r  = 1.0f;
-	oLitAmb.g  = 1.0f;
-	oLitAmb.b  = 1.0f;
-	oLitAmb.a  = 1.0f;
-
-	oLitDiff.r = 1.0f;
-	oLitDiff.g = 1.0f;
-	oLitDiff.b = 1.0f;
-	oLitDiff.a = 1.0f;
-
-	oLitSpec.r = 1.0f;
-	oLitSpec.g = 1.0f;
-	oLitSpec.b = 1.0f;
-	oLitSpec.a = 1.0f;
+	oLitAmb = CGColor(1,1,1,1);
+	oLitDiff= CGColor(1,1,1,1);
+	oLitSpec= CGColor(1,1,1,1);
 
 	oPos.V3(0.0f,0.0f,0.0f);
 	oDir.V3(0.0f,0.0f,1.0f);

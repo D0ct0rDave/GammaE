@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="\projects\GammaE\Borland\Collision.lib"/>
+    <OBJFILES value="..\Borland\CCOL_Collider.obj ..\Borland\CCOL_Stack.obj 
+      ..\Borland\CCOL_StackCollisionElem.obj ..\Borland\eCOL_ColliderType.obj 
+      ..\Borland\eCOL_TestType.obj ..\Borland\CCOL_TriList_BVRayTest.obj 
+      ..\Borland\CCOL_CollisionSystem.obj ..\Borland\CCOL_ColState.obj 
+      ..\Borland\CCOL_Scn_TriListGen.obj ..\Borland\CCOL_Triangle.obj 
+      ..\Borland\CCOL_TriList.obj ..\Borland\CCOL_TriListGen.obj 
+      ..\Borland\CCOL_TRN_TriListGen.obj ..\Borland\CCOL_ST_Box.obj 
+      ..\Borland\CCOL_ST_ColTester.obj ..\Borland\CCOL_ST_Point.obj 
+      ..\Borland\CCOL_ST_Sphere.obj ..\Borland\CCOL_ST_Tris.obj 
+      ..\Borland\CCOL_DT_Box.obj ..\Borland\CCOL_DT_ColTester.obj 
+      ..\Borland\CCOL_DT_Point.obj ..\Borland\CCOL_DT_Sphere.obj 
+      ..\Borland\CCOL_DT_Tri.obj ..\Borland\CCOL_MeshTester.obj 
+      ..\Borland\CCOL_MT_CommonMesh.obj ..\Borland\CCOL_MT_TerrainMesh.obj 
+      ..\Borland\CCOL_Mesh.obj ..\Borland\CCOL_Scn_ColTester.obj"/>
+    <RESFILES value=""/>
+    <IDLFILES value=""/>
+    <IDLGENFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES)"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value=""/>
+    <SPARELIBS value=""/>
+    <PACKAGES value=""/>
+    <PATHCPP value=".;Collider;Collider;Collider;Collider;Collider;CollisionUtils;CollisionSystem;CollisionSystem;COL_TriList;COL_TriList;COL_TriList;COL_TriList;COL_TriList;COL_Testers\COL_StaticTest;COL_Testers\COL_StaticTest;COL_Testers\COL_StaticTest;COL_Testers\COL_StaticTest;COL_Testers\COL_StaticTest;COL_Testers\COL_DynamicTest;COL_Testers\COL_DynamicTest;COL_Testers\COL_DynamicTest;COL_Testers\COL_DynamicTest;COL_Testers\COL_DynamicTest;COL_Testers\COL_SceneTest\COL_MeshTest;COL_Testers\COL_SceneTest\COL_MeshTest;COL_Testers\COL_SceneTest\COL_MeshTest;COL_Testers\COL_SceneTest;COL_Testers\COL_SceneTest"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="TLib"/>
+    <USERDEFINES value="WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0"/>
+    <SYSDEFINES value="_MSC_VER=1100;_NO_VCL;_ASSERTE;NO_STRICT"/>
+    <MAINSOURCE value="Collision.bpf"/>
+    <INCLUDEPATH value="COL_Testers\COL_SceneTest;COL_Testers\COL_SceneTest\COL_MeshTest;COL_Testers\COL_DynamicTest;COL_Testers\COL_StaticTest;COL_TriList;CollisionSystem;CollisionUtils;Collider;$(BCB)\include;$(BCB)\include\mfc;$(BCB)\include\atl;$(BCB)\include\vcl;I:\Projects\libs\TexLib\Src"/>
+    <LIBPATH value="COL_Testers\COL_SceneTest;COL_Testers\COL_SceneTest\COL_MeshTest;COL_Testers\COL_DynamicTest;COL_Testers\COL_StaticTest;COL_TriList;CollisionSystem;CollisionUtils;Collider;$(BCB)\lib;$(DEBUGLIBPATH);$(BCB)\lib\psdk"/>
+    <WARNINGS value="-w-8026 -w-8027 -w-8022 -w-8084 -w-8010 -w-8013 -w-8058 -w-par"/>
+    <LISTFILE value=""/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <IDLCFLAGS value="-ICOL_Testers\COL_SceneTest -ICOL_Testers\COL_SceneTest\COL_MeshTest 
+      -ICOL_Testers\COL_DynamicTest -ICOL_Testers\COL_StaticTest -ICOL_TriList 
+      -ICollisionSystem -ICollisionUtils -ICollider -I$(BCB)\include 
+      -I$(BCB)\include\mfc -I$(BCB)\include\atl -I$(BCB)\include\vcl 
+      -II:\Projects\libs\TexLib\Src -src_suffix cpp -DWIN32 -D_DEBUG -D_MBCS 
+      -D_LIB -D_WINDOWS -DNULL=0"/>
+    <CFLAG1 value="-Od -w -VF -X- -a8 -b -k -v -vi -q -s -I.\\ -I..\\ -c -w-8026 -w-8027 
+      -w-8022 -w-8084 -w-8010 -w-8013 -w-8058 -w-par"/>
+    <PFLAGS value="-N2\projects\GammaE\Borland -N0\projects\GammaE\Borland -$YD -$A8"/>
+    <RFLAGS value="/l 0xc0a /d &quot;_DEBUG&quot; /i$(BCB)\include;$(BCB)\include\mfc"/>
+    <AFLAGS value="/mx /w2 /zd"/>
+    <LFLAGS value=""/>
+    <OTHERFILES value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="$(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES)"/>
+    <OTHERFILES value=""/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="Collision.bpf" FORMNAME="" UNITNAME="Collision" CONTAINERID="BPF" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Collider\CCOL_Collider.cpp" FORMNAME="" UNITNAME="CCOL_Collider" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Collider\CCOL_Stack.cpp" FORMNAME="" UNITNAME="CCOL_Stack" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Collider\CCOL_StackCollisionElem.cpp" FORMNAME="" UNITNAME="CCOL_StackCollisionElem" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Collider\eCOL_ColliderType.cpp" FORMNAME="" UNITNAME="eCOL_ColliderType" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Collider\eCOL_TestType.cpp" FORMNAME="" UNITNAME="eCOL_TestType" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CollisionUtils\CCOL_TriList_BVRayTest.cpp" FORMNAME="" UNITNAME="CCOL_TriList_BVRayTest" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CollisionSystem\CCOL_CollisionSystem.cpp" FORMNAME="" UNITNAME="CCOL_CollisionSystem" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CollisionSystem\CCOL_ColState.cpp" FORMNAME="" UNITNAME="CCOL_ColState" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="COL_TriList\CCOL_Scn_TriListGen.cpp" FORMNAME="" UNITNAME="CCOL_Scn_TriListGen" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="COL_TriList\CCOL_Triangle.cpp" FORMNAME="" UNITNAME="CCOL_Triangle" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="COL_TriList\CCOL_TriList.cpp" FORMNAME="" UNITNAME="CCOL_TriList" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="COL_TriList\CCOL_TriListGen.cpp" FORMNAME="" UNITNAME="CCOL_TriListGen" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="COL_TriList\CCOL_TRN_TriListGen.cpp" FORMNAME="" UNITNAME="CCOL_TRN_TriListGen" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="COL_Testers\COL_StaticTest\CCOL_ST_Box.cpp" FORMNAME="" UNITNAME="CCOL_ST_Box" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="COL_Testers\COL_StaticTest\CCOL_ST_ColTester.cpp" FORMNAME="" UNITNAME="CCOL_ST_ColTester" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="COL_Testers\COL_StaticTest\CCOL_ST_Point.cpp" FORMNAME="" UNITNAME="CCOL_ST_Point" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="COL_Testers\COL_StaticTest\CCOL_ST_Sphere.cpp" FORMNAME="" UNITNAME="CCOL_ST_Sphere" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="COL_Testers\COL_StaticTest\CCOL_ST_Tris.cpp" FORMNAME="" UNITNAME="CCOL_ST_Tris" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="COL_Testers\COL_DynamicTest\CCOL_DT_Box.cpp" FORMNAME="" UNITNAME="CCOL_DT_Box" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="COL_Testers\COL_DynamicTest\CCOL_DT_ColTester.cpp" FORMNAME="" UNITNAME="CCOL_DT_ColTester" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="COL_Testers\COL_DynamicTest\CCOL_DT_Point.cpp" FORMNAME="" UNITNAME="CCOL_DT_Point" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="COL_Testers\COL_DynamicTest\CCOL_DT_Sphere.cpp" FORMNAME="" UNITNAME="CCOL_DT_Sphere" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="COL_Testers\COL_DynamicTest\CCOL_DT_Tri.cpp" FORMNAME="" UNITNAME="CCOL_DT_Tri" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MeshTester.cpp" FORMNAME="" UNITNAME="CCOL_MeshTester" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_CommonMesh.cpp" FORMNAME="" UNITNAME="CCOL_MT_CommonMesh" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_TerrainMesh.cpp" FORMNAME="" UNITNAME="CCOL_MT_TerrainMesh" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="COL_Testers\COL_SceneTest\CCOL_Mesh.cpp" FORMNAME="" UNITNAME="CCOL_Mesh" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="COL_Testers\COL_SceneTest\CCOL_Scn_ColTester.cpp" FORMNAME="" UNITNAME="CCOL_Scn_ColTester" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="vctobpr.log" FORMNAME="" UNITNAME="vctobpr" CONTAINERID="" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1033
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=3
+Item0=COL_Testers\COL_SceneTest;COL_Testers\COL_SceneTest\COL_MeshTest;COL_Testers\COL_DynamicTest;COL_Testers\COL_StaticTest;COL_TriList;CollisionSystem;CollisionUtils;Collider;$(BCB)\include;$(BCB)\include\mfc;$(BCB)\include\atl;$(BCB)\include\vcl;I:\Projects\libs\TexLib\Src
+Item1=COL_Testers\COL_SceneTest;COL_Testers\COL_SceneTest\COL_MeshTest;COL_Testers\COL_DynamicTest;COL_Testers\COL_StaticTest;COL_TriList;CollisionSystem;CollisionUtils;Collider;$(BCB)\include;$(BCB)\include\mfc;$(BCB)\include\atl;$(BCB)\include\vcl
+Item2=COL_Testers\COL_SceneTest;COL_Testers\COL_SceneTest\COL_MeshTest;COL_Testers\COL_DynamicTest;COL_Testers\COL_StaticTest;COL_TriList;CollisionSystem;CollisionUtils;Collider;$(BCB)\include;$(BCB)\include\mfc;$(BCB)\include\atl;$(BCB)\include\vcl;
+
+[HistoryLists\hlLibraryPath]
+Count=2
+Item0=COL_Testers\COL_SceneTest;COL_Testers\COL_SceneTest\COL_MeshTest;COL_Testers\COL_DynamicTest;COL_Testers\COL_StaticTest;COL_TriList;CollisionSystem;CollisionUtils;Collider;$(BCB)\lib;$(DEBUGLIBPATH);$(BCB)\lib\psdk
+Item1=COL_Testers\COL_SceneTest;COL_Testers\COL_SceneTest\COL_MeshTest;COL_Testers\COL_DynamicTest;COL_Testers\COL_StaticTest;COL_TriList;CollisionSystem;CollisionUtils;Collider;$(BCB)\lib;$(DEBUGLIBPATH);;$(BCB)\lib\psdk;
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=1
+Item0=WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0
+
+[HistoryLists\hlIntOutputDir]
+Count=2
+Item0=\projects\GammaE\Borland
+Item1=\projects\GammaE\Debug
+
+[HistoryLists\hlFinalOutputDir]
+Count=3
+Item0=\projects\GammaE\Borland\
+Item1=\projects\GammaE\Borland
+Item2=\projects\GammaE\Debug\
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+Launcher=
+UseLauncher=0
+DebugCWD=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteLauncher=
+RemoteCWD=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=0
+
+[CORBA]
+AddServerUnit=1
+AddClientUnit=1
+PrecompiledHeaders=1
+  </IDEOPTIONS>
+</PROJECT>

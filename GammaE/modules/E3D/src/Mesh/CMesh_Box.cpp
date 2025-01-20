@@ -1,34 +1,17 @@
-//## begin module%3A9EC35F0032.cm preserve=no
-//## end module%3A9EC35F0032.cm
 
-//## begin module%3A9EC35F0032.cp preserve=no
-//## end module%3A9EC35F0032.cp
 
-//## Module: CMesh_Box%3A9EC35F0032; Pseudo Package body
-//## Source file: i:\Projects\GammaE\E3D\Mesh\CMesh_Box.cpp
 
-//## begin module%3A9EC35F0032.additionalIncludes preserve=no
-//## end module%3A9EC35F0032.additionalIncludes
 
-//## begin module%3A9EC35F0032.includes preserve=yes
-//## end module%3A9EC35F0032.includes
 
 // CMesh_Box
-#include "E3D\Mesh\CMesh_Box.h"
-//## begin module%3A9EC35F0032.additionalDeclarations preserve=yes
-//## end module%3A9EC35F0032.additionalDeclarations
+#include "Mesh\CMesh_Box.h"
 
 
 // Class CMesh_Box 
 
 CMesh_Box::CMesh_Box()
-  //## begin CMesh_Box::CMesh_Box%.hasinit preserve=no
-  //## end CMesh_Box::CMesh_Box%.hasinit
-  //## begin CMesh_Box::CMesh_Box%.initialization preserve=yes
-  //## end CMesh_Box::CMesh_Box%.initialization
-{
-  //## begin CMesh_Box::CMesh_Box%.body preserve=yes
-
+        {
+  
   	CMesh::Init(8,12,E3D_MESH_TRIS,MESH_FIELD_ALL);	
 
     // Setup vertex data
@@ -52,14 +35,14 @@ CMesh_Box::CMesh_Box()
     VNs[7].V3( 1,-1,-1);
 
 	// Setup colors
-	VCs[0].V4(1,1,1,0);
-	VCs[1].V4(1,1,1,0);
-	VCs[2].V4(1,1,1,0);
-	VCs[3].V4(1,1,1,0);
-	VCs[4].V4(1,1,1,0);
-	VCs[5].V4(1,1,1,0);
-	VCs[6].V4(1,1,1,0);
-	VCs[7].V4(1,1,1,0);
+	VCs[0].Set(1,1,1,1);
+	VCs[1].Set(1,1,1,1);
+	VCs[2].Set(1,1,1,1);
+	VCs[3].Set(1,1,1,1);
+	VCs[4].Set(1,1,1,1);
+	VCs[5].Set(1,1,1,1);
+	VCs[6].Set(1,1,1,1);
+	VCs[7].Set(1,1,1,1);
 
     for (int cNorm = 0;cNorm < usNumVerts;cNorm++) VNs[cNorm].Normalize();
 
@@ -99,20 +82,13 @@ CMesh_Box::CMesh_Box()
     Idxs[10*3+0] = 0;	Idxs[10*3+1] = 4;	Idxs[10*3+2]= 7;	
 	Idxs[11*3+0] = 0;	Idxs[11*3+1] = 7;	Idxs[11*3+2]= 3;	
 
-  //## end CMesh_Box::CMesh_Box%.body
 }
 
 
 CMesh_Box::~CMesh_Box()
 {
-  //## begin CMesh_Box::~CMesh_Box%.body preserve=yes
-  //## end CMesh_Box::~CMesh_Box%.body
 }
 
 
 // Additional Declarations
-  //## begin CMesh_Box%3A9EC35F0032.declarations preserve=yes
-  //## end CMesh_Box%3A9EC35F0032.declarations
-
-//## begin module%3A9EC35F0032.epilog preserve=yes
-//## end module%3A9EC35F0032.epilog
+    

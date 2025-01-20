@@ -1,3 +1,0 @@
-// CONTROL POINT FILE
-LW [-50,-20,0]
-RW [70,-20,0]

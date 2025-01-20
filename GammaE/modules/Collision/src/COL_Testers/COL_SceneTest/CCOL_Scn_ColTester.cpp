@@ -1,67 +1,41 @@
-//## begin module%3C081B0A0386.cm preserve=no
 //	  %X% %Q% %Z% %W%
-//## end module%3C081B0A0386.cm
 
-//## begin module%3C081B0A0386.cp preserve=no
-//## end module%3C081B0A0386.cp
 
-//## Module: CCOL_Scn_ColTester%3C081B0A0386; Pseudo Package body
-//## Source file: i:\Projects\GammaE\Collision\COL_Testers\COL_SceneTest\CCOL_Scn_ColTester.cpp
 
-//## begin module%3C081B0A0386.additionalIncludes preserve=no
-//## end module%3C081B0A0386.additionalIncludes
 
-//## begin module%3C081B0A0386.includes preserve=yes
-//## end module%3C081B0A0386.includes
 
 // CCOL_Scn_ColTester
-#include "Collision\COL_Testers\COL_SceneTest\CCOL_Scn_ColTester.h"
-//## begin module%3C081B0A0386.additionalDeclarations preserve=yes
-//## end module%3C081B0A0386.additionalDeclarations
+#include "COL_Testers\COL_SceneTest\CCOL_Scn_ColTester.h"
 
 
 // Class CCOL_Scn_ColTester 
 
-//## begin CCOL_Scn_ColTester::SGrObj%3C0B94FD011B.attr preserve=no  public: static CObject3D * {UA} NULL
 CObject3D *CCOL_Scn_ColTester::SGrObj = NULL;
-//## end CCOL_Scn_ColTester::SGrObj%3C0B94FD011B.attr
 
-//## begin CCOL_Scn_ColTester::DGrObj%3C0B95080262.attr preserve=no  public: static CObject3D * {UA} NULL
 CObject3D *CCOL_Scn_ColTester::DGrObj = NULL;
-//## end CCOL_Scn_ColTester::DGrObj%3C0B95080262.attr
 
-//## begin CCOL_Scn_ColTester::iNumColMeshes%3C1BF0DC00AB.attr preserve=no  public: static int {UA} 0
 int CCOL_Scn_ColTester::iNumColMeshes = 0;
-//## end CCOL_Scn_ColTester::iNumColMeshes%3C1BF0DC00AB.attr
 
-//## begin CCOL_Scn_ColTester::ColMeshes%3C1FDD78002C.role preserve=no  public: static CCOL_Mesh {n -> 64UHAN}
 CCOL_Mesh CCOL_Scn_ColTester::ColMeshes[64];
-//## end CCOL_Scn_ColTester::ColMeshes%3C1FDD78002C.role
 
 CCOL_Scn_ColTester::~CCOL_Scn_ColTester()
 {
-  //## begin CCOL_Scn_ColTester::~CCOL_Scn_ColTester%.body preserve=yes
-  //## end CCOL_Scn_ColTester::~CCOL_Scn_ColTester%.body
 }
 
 
 
-//## Other Operations (implementation)
 int CCOL_Scn_ColTester::iTestObjects ()
 {
-  //## begin CCOL_Scn_ColTester::iTestObjects%1007160409.body preserve=yes
-	
+  	
 	// Setup Collision tester object
 	iNumColMeshes = 0;
 
 	return ( iTest3DObj_Rec(DGrObj) );
-  //## end CCOL_Scn_ColTester::iTestObjects%1007160409.body
 }
 
 int CCOL_Scn_ColTester::iTest3DObj_Rec (CObject3D *_poObj)
 {
-  //## begin CCOL_Scn_ColTester::iTest3DObj_Rec%1007160413.body preserve=yes
-  	int				iRes;	
+    	int				iRes;	
 
 	switch ( _poObj->eGetTypeID() )
 	{
@@ -96,13 +70,11 @@ int CCOL_Scn_ColTester::iTest3DObj_Rec (CObject3D *_poObj)
 	}
 
 	return(iRes);
-  //## end CCOL_Scn_ColTester::iTest3DObj_Rec%1007160413.body
 }
 
 int CCOL_Scn_ColTester::iTest3DObj (CObject3D* _poObj)
 {
-  //## begin CCOL_Scn_ColTester::iTest3DObj%1007327360.body preserve=yes
-  	if (iNumColMeshes == 64) return(0);
+    	if (iNumColMeshes == 64) return(0);
 
 	float fFrameFact;
 	fFrameFact = CCOL_DT_ColTester::fTestCollision(SGrObj->poGetBoundVol(),_poObj->poGetBoundVol());
@@ -114,25 +86,23 @@ int CCOL_Scn_ColTester::iTest3DObj (CObject3D* _poObj)
 	}
 	else 
 		return(0);
-  //## end CCOL_Scn_ColTester::iTest3DObj%1007327360.body
 }
 
 int CCOL_Scn_ColTester::iTest3DObj_Node (CObject3D_Node* _poObj)
 {
-  //## begin CCOL_Scn_ColTester::iTest3DObj_Node%1007160412.body preserve=yes
-
+  
 	// Look if there is a collision with the complete group
 	if (CCOL_DT_ColTester::fTestCollision(SGrObj->poGetBoundVol(),_poObj->poGetBoundVol()) < 0.0f)
 		return(0);
 
 	int			 iRes;
-	int			 iObj;
+	uint		 uiObj;
 	CObject3D	*pSubObj;
 
 	iRes = 0;
-	for (iObj=0;iObj<_poObj->iNumSubObjs();iObj++)
+	for (uiObj=0;uiObj<_poObj->uiNumSubObjs();uiObj++)
 	{
-		pSubObj = _poObj->poGetObject(iObj);
+		pSubObj = _poObj->poGetObject(uiObj);
 
 		if (pSubObj)
 		{
@@ -141,13 +111,11 @@ int CCOL_Scn_ColTester::iTest3DObj_Node (CObject3D_Node* _poObj)
 	}
 
 	return (iRes);
-  //## end CCOL_Scn_ColTester::iTest3DObj_Node%1007160412.body
 }
 
 int CCOL_Scn_ColTester::iTest3DObj_Transf (CObject3D_Transf* _poObj)
 {
-  //## begin CCOL_Scn_ColTester::iTest3DObj_Transf%1018775601.body preserve=yes
-	if (CCOL_DT_ColTester::fTestCollision(SGrObj->poGetBoundVol(),_poObj->poGetBoundVol()) < 0.0f)
+  	if (CCOL_DT_ColTester::fTestCollision(SGrObj->poGetBoundVol(),_poObj->poGetBoundVol()) < 0.0f)
 		return(0);
 	else
 	{
@@ -167,7 +135,7 @@ int CCOL_Scn_ColTester::iTest3DObj_Transf (CObject3D_Transf* _poObj)
 		oBox.Copy(SGrObj->poGetBoundVol());
 		
 		CMatrix4x4 oInvMat;
-		oInvMat = _poObj->roTransf();
+		oInvMat = _poObj->oTransf();
 		oInvMat.Inverse();
 
 		oBox.Transform(oInvMat);
@@ -217,25 +185,21 @@ int CCOL_Scn_ColTester::iTest3DObj_Transf (CObject3D_Transf* _poObj)
 
 		return(iRes);
 	}
-  //## end CCOL_Scn_ColTester::iTest3DObj_Transf%1018775601.body
 }
 
 int CCOL_Scn_ColTester::iTest3DObj_CompiledLeaf (CObject3D_CompiledLeaf* _poObj)
 {
-  //## begin CCOL_Scn_ColTester::iTest3DObj_CompiledLeaf%1012005359.body preserve=yes
-	if (CCOL_DT_ColTester::fTestCollision(SGrObj->poGetBoundVol(),_poObj->poGetBoundVol()) >= 0.0f)
+  	if (CCOL_DT_ColTester::fTestCollision(SGrObj->poGetBoundVol(),_poObj->poGetBoundVol()) >= 0.0f)
 	{		
 		return(1);
 	}
 	else 
 		return(0);
-  //## end CCOL_Scn_ColTester::iTest3DObj_CompiledLeaf%1012005359.body
 }
 
 int CCOL_Scn_ColTester::iTest3DObj_Leaf (CObject3D_Leaf* _poObj)
 {
-  //## begin CCOL_Scn_ColTester::iTest3DObj_Leaf%1007160411.body preserve=yes
-	if (iNumColMeshes == 64) return(0);
+  	if (iNumColMeshes == 64) return(0);
 
 	float fFrameFact;
 	fFrameFact = CCOL_DT_ColTester::fTestCollision(SGrObj->poGetBoundVol(),_poObj->poGetBoundVol());
@@ -248,13 +212,11 @@ int CCOL_Scn_ColTester::iTest3DObj_Leaf (CObject3D_Leaf* _poObj)
 	else 
 		return(0);
 
-  //## end CCOL_Scn_ColTester::iTest3DObj_Leaf%1007160411.body
 }
 
 int CCOL_Scn_ColTester::iTest3DObj_BSPNode (CObject3D_BSPNode* _poObj)
 {
-  //## begin CCOL_Scn_ColTester::iTest3DObj_BSPNode%1007160410.body preserve=yes
-		
+  		
 	// Look if there is a collision with the complete group
 	int		iResF,iResB;
 	int		iPlaneRes;
@@ -347,12 +309,7 @@ int CCOL_Scn_ColTester::iTest3DObj_BSPNode (CObject3D_BSPNode* _poObj)
 	}
 	
 	return(0);
-  //## end CCOL_Scn_ColTester::iTest3DObj_BSPNode%1007160410.body
 }
 
 // Additional Declarations
-  //## begin CCOL_Scn_ColTester%3C081B0A0386.declarations preserve=yes
-  //## end CCOL_Scn_ColTester%3C081B0A0386.declarations
-
-//## begin module%3C081B0A0386.epilog preserve=yes
-//## end module%3C081B0A0386.epilog
+    

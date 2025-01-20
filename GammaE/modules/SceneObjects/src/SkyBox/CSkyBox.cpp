@@ -1,23 +1,10 @@
-//## begin module%3B59802101A4.cm preserve=no
-//	  %X% %Q% %Z% %W%
-//## end module%3B59802101A4.cm
 
-//## begin module%3B59802101A4.cp preserve=no
-//## end module%3B59802101A4.cp
 
-//## Module: CSkyBox%3B59802101A4; Pseudo Package body
-//## Source file: i:\Projects\GammaE\SceneObjects\SkyBox\CSkyBox.cpp
 
-//## begin module%3B59802101A4.additionalIncludes preserve=no
-//## end module%3B59802101A4.additionalIncludes
 
-//## begin module%3B59802101A4.includes preserve=yes
-//## end module%3B59802101A4.includes
 
 // CSkyBox
-#include "SceneObjects\SkyBox\CSkyBox.h"
-//## begin module%3B59802101A4.additionalDeclarations preserve=yes
-//## end module%3B59802101A4.additionalDeclarations
+#include "SkyBox\CSkyBox.h"
 
 
 // Class CSkyBox 
@@ -28,34 +15,24 @@
 
 
 CSkyBox::CSkyBox()
-  //## begin CSkyBox::CSkyBox%.hasinit preserve=no
-      : poNode(NULL)
-  //## end CSkyBox::CSkyBox%.hasinit
-  //## begin CSkyBox::CSkyBox%.initialization preserve=yes
-  //## end CSkyBox::CSkyBox%.initialization
-{
-  //## begin CSkyBox::CSkyBox%.body preserve=yes
-  //## end CSkyBox::CSkyBox%.body
+        : poNode(NULL)
+      {
 }
 
 
 CSkyBox::~CSkyBox()
 {
-  //## begin CSkyBox::~CSkyBox%.body preserve=yes
-	/*
+  	/*
 	for (int cSide=0;cSide<6;cSide++)
-		Sides = delete CMesh_Rect;		
+		Sides = mDel CMesh_Rect;		
 	*/
-  //## end CSkyBox::~CSkyBox%.body
 }
 
 
 
-//## Other Operations (implementation)
 void CSkyBox::InitSkyBox (float fSize, CVect3& Center, float fRoll, CE3D_Shader* *Materials)
 {
-  //## begin CSkyBox::InitSkyBox%995721543.body preserve=yes
-	poNode = mNew CObject3D_Node;
+  	poNode = mNew CObject3D_Node;
 	
 	// Store the 6 sides of the sky box	
 	for (int cSide=0;cSide<6;cSide++)
@@ -133,20 +110,15 @@ void CSkyBox::InitSkyBox (float fSize, CVect3& Center, float fRoll, CE3D_Shader*
 	// Setup transformation	
 	CMatrix4x4 oMat;
 	
-	oMat.Scale3f(fSize,fSize,fSize);
-	oMat.RotateAxis('z',fRoll);	
+	oMat.Scale(fSize,fSize,fSize);
+	oMat.Rotate('z',fRoll);	
 	oMat.Translate(Center);
 
 	SetTransf(oMat);
 
 	// Setup sky box as object
 	SetObject(poNode);
-  //## end CSkyBox::InitSkyBox%995721543.body
 }
 
 // Additional Declarations
-  //## begin CSkyBox%3B59802101A4.declarations preserve=yes
-  //## end CSkyBox%3B59802101A4.declarations
-
-//## begin module%3B59802101A4.epilog preserve=yes
-//## end module%3B59802101A4.epilog
+    

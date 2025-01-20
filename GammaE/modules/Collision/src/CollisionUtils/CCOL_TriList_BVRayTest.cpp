@@ -1,51 +1,29 @@
-//## begin module%3C16A0340259.cm preserve=no
 //	  %X% %Q% %Z% %W%
-//## end module%3C16A0340259.cm
 
-//## begin module%3C16A0340259.cp preserve=no
-//## end module%3C16A0340259.cp
 
-//## Module: CCOL_TriList_BVRayTest%3C16A0340259; Pseudo Package body
-//## Source file: i:\Projects\GammaE\Collision\CollisionUtils\CCOL_TriList_BVRayTest.cpp
 
-//## begin module%3C16A0340259.additionalIncludes preserve=no
-//## end module%3C16A0340259.additionalIncludes
 
-//## begin module%3C16A0340259.includes preserve=yes
-//## end module%3C16A0340259.includes
 
 // CCOL_TriList_BVRayTest
-#include "Collision\CollisionUtils\CCOL_TriList_BVRayTest.h"
-//## begin module%3C16A0340259.additionalDeclarations preserve=yes
-//## end module%3C16A0340259.additionalDeclarations
+#include "CollisionUtils\CCOL_TriList_BVRayTest.h"
 
 
 // Class CCOL_TriList_BVRayTest 
 
 CCOL_TriList_BVRayTest::CCOL_TriList_BVRayTest()
-  //## begin CCOL_TriList_BVRayTest::CCOL_TriList_BVRayTest%.hasinit preserve=no
-  //## end CCOL_TriList_BVRayTest::CCOL_TriList_BVRayTest%.hasinit
-  //## begin CCOL_TriList_BVRayTest::CCOL_TriList_BVRayTest%.initialization preserve=yes
-  //## end CCOL_TriList_BVRayTest::CCOL_TriList_BVRayTest%.initialization
-{
-  //## begin CCOL_TriList_BVRayTest::CCOL_TriList_BVRayTest%.body preserve=yes
-  //## end CCOL_TriList_BVRayTest::CCOL_TriList_BVRayTest%.body
+        {
 }
 
 
 CCOL_TriList_BVRayTest::~CCOL_TriList_BVRayTest()
 {
-  //## begin CCOL_TriList_BVRayTest::~CCOL_TriList_BVRayTest%.body preserve=yes
-  //## end CCOL_TriList_BVRayTest::~CCOL_TriList_BVRayTest%.body
 }
 
 
 
-//## Other Operations (implementation)
 void CCOL_TriList_BVRayTest::Test (CVect3& _Center, CCOL_TriList& _TriList, int _iRayMask, float* _pa6fDists, int* _pa6iTris)
 {
-  //## begin CCOL_TriList_BVRayTest::Test%1008112117.body preserve=yes
-	CRay	Ray;
+  	CRay	Ray;
 	int		iAxis;
 	CVect3		Axis[6] = {	CVect3( 1.0f,0.0f,0.0f),
 							CVect3(-1.0f,0.0f,0.0f),
@@ -76,13 +54,11 @@ void CCOL_TriList_BVRayTest::Test (CVect3& _Center, CCOL_TriList& _TriList, int 
 				_pa6fDists[iAxis] = MATH_Common::fSqrt(_pa6fDists[iAxis]);
 		}
 	}
-  //## end CCOL_TriList_BVRayTest::Test%1008112117.body
 }
 
-float CCOL_TriList_BVRayTest::fGetRayTriListMinDist (CRay& _Ray, CCOL_TriList& _TriList, CVect3& _Point, int& _iIdx)
+float CCOL_TriList_BVRayTest::fGetRayTriListMinDist (CRay& _ay, CCOL_TriList& _TriList, CVect3& _Point, int& _iIdx)
 {
-  //## begin CCOL_TriList_BVRayTest::fGetRayTriListMinDist%1008112120.body preserve=yes
-	
+  	
 	// <UNMAINTAINED>
 	CTriangle	Tri;
 	
@@ -98,9 +74,9 @@ float CCOL_TriList_BVRayTest::fGetRayTriListMinDist (CRay& _Ray, CCOL_TriList& _
 		Tri.Init(&_TriList.poVXs[3*iTri], _TriList.poVNs[iTri] );
 		Tri.ComputeAll();
 
-		if (MATH_Utils::iTestSegTriIntersection(_Ray,Tri,IPoint))
+		if (MATH_Utils::iTestSegTriIntersection(_ay,Tri,IPoint))
 		{
-			fDist = _Ray.Origin.SqDistance(IPoint);
+			fDist = _ay.Origin.fSqDistance(IPoint);
 			if (fDist<fMinDist)
 			{
 				fMinDist = fDist;
@@ -110,21 +86,15 @@ float CCOL_TriList_BVRayTest::fGetRayTriListMinDist (CRay& _Ray, CCOL_TriList& _
 	}
 	
 	return(fMinDist);
-  //## end CCOL_TriList_BVRayTest::fGetRayTriListMinDist%1008112120.body
 }
 
 // Additional Declarations
-  //## begin CCOL_TriList_BVRayTest%3C16A0340259.declarations preserve=yes
-  //## end CCOL_TriList_BVRayTest%3C16A0340259.declarations
-
-//## begin module%3C16A0340259.epilog preserve=yes
-//## end module%3C16A0340259.epilog
+    
 
 
 // Detached code regions:
 // WARNING: this code will be lost if code is regenerated.
 #if 0
-//## begin CCOL_TriList_BVRayTest::TestBox%1008112118.body preserve=no
 	int		iCorner;
 	int		iTest;
 
@@ -138,7 +108,7 @@ float CCOL_TriList_BVRayTest::fGetRayTriListMinDist (CRay& _Ray, CCOL_TriList& _
 	Extents.Scale(0.5f);
 
 	Ray.Origin.Assign(Center);
-	Ray.Origin.V3 (Center.X() - Extents.X(),Center.Y() - Extents.Y(),Center.Z() - Extents.Z());
+	Ray.Origin.V3 (Center.x - Extents.x,Center.y - Extents.y,Center.z - Extents.z);
 	
 	iTest  = 0;
 	Corner = _pBV.Vol.Points;
@@ -162,9 +132,6 @@ float CCOL_TriList_BVRayTest::fGetRayTriListMinDist (CRay& _Ray, CCOL_TriList& _
 		Corner++;
 	}
 
-//## end CCOL_TriList_BVRayTest::TestBox%1008112118.body
 
-//## begin CCOL_TriList_BVRayTest::fGetAxisCoord%1008534193.body preserve=no
-//## end CCOL_TriList_BVRayTest::fGetSignedDist%1008550246.body
 
 #endif

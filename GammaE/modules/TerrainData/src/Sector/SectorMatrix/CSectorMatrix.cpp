@@ -1,26 +1,15 @@
-//## begin module%3AF9B524038E.cm preserve=no
-//## end module%3AF9B524038E.cm
 
-//## begin module%3AF9B524038E.cp preserve=no
-//## end module%3AF9B524038E.cp
 
-//## Module: CSectorMatrix%3AF9B524038E; Pseudo Package body
-//## Source file: i:\Projects\GammaE\TerrainData\Sector\SectorMatrix\CSectorMatrix.cpp
 
-//## begin module%3AF9B524038E.additionalIncludes preserve=no
-//## end module%3AF9B524038E.additionalIncludes
 
-//## begin module%3AF9B524038E.includes preserve=yes
 #include <assert.h>
 #include <string.h>
 
-#include "File.h"
-//## end module%3AF9B524038E.includes
+#include "Gammae_FileSys.h"
+#include "GammaE_Mem.h"
 
 // CSectorMatrix
-#include "TerrainData\Sector\SectorMatrix\CSectorMatrix.h"
-//## begin module%3AF9B524038E.additionalDeclarations preserve=yes
-//## end module%3AF9B524038E.additionalDeclarations
+#include "Sector\SectorMatrix\CSectorMatrix.h"
 
 
 // Class CSectorMatrix 
@@ -31,29 +20,20 @@
 
 
 CSectorMatrix::CSectorMatrix()
-  //## begin CSectorMatrix::CSectorMatrix%.hasinit preserve=no
-      : SecsPerRow(0), SecsPerCol(0), SectArray(NULL), iDataType(0)
-  //## end CSectorMatrix::CSectorMatrix%.hasinit
-  //## begin CSectorMatrix::CSectorMatrix%.initialization preserve=yes
-  //## end CSectorMatrix::CSectorMatrix%.initialization
-{
-  //## begin CSectorMatrix::CSectorMatrix%.body preserve=yes
-  //## end CSectorMatrix::CSectorMatrix%.body
+        : SecsPerRow(0), SecsPerCol(0), SectArray(NULL), iDataType(0)
+      {
 }
 
 
 CSectorMatrix::~CSectorMatrix()
 {
-  //## begin CSectorMatrix::~CSectorMatrix%.body preserve=yes
-	  Invalidate();
-  //## end CSectorMatrix::~CSectorMatrix%.body
+  	  Invalidate();
 }
 
 
 const CSectorMatrix & CSectorMatrix::operator=(const CSectorMatrix &right)
 {
-  //## begin CSectorMatrix::operator=%.body preserve=yes
-	int cSect;
+  	int cSect;
 
     Init(right.SecsPerRow,right.SecsPerCol);
     Init(right.Resolution,right.b21);
@@ -66,35 +46,32 @@ const CSectorMatrix & CSectorMatrix::operator=(const CSectorMatrix &right)
     {
     	SectArray[cSect] = right.SectArray[cSect]->CreateClass();
 		*SectArray[cSect] = *right.SectArray[cSect];
-    }
+}
 
 	return (*this);
-  //## end CSectorMatrix::operator=%.body
 }
 
 
 
-//## Other Operations (implementation)
 int CSectorMatrix::iLoadWithHandler (FILE *_FD)
 {
-  //## begin CSectorMatrix::iLoadWithHandler%989444559.body preserve=yes
-    unsigned char	ucMajorVersion;
+      unsigned char	ucMajorVersion;
     unsigned char	ucMinorVersion;
 	int 			cI,cJ;
 
 	// Control file descriptor
     if (! _FD)
     {
-		ERROR_SetError("CSECTMAT1011","NULL object file descriptor.");
+		CGSystemLC::I()->Error("CSECTMAT1011","NULL object file descriptor.");
         return(RES_OP_ERROR);
-    }
+}
 
     // Read object version
     if (! fread(&ucMajorVersion,1,1,_FD))
     {
-		ERROR_SetError("CSECTMAT1012","Unable to read object data");
+		CGSystemLC::I()->Error("CSECTMAT1012","Unable to read object data");
         return(RES_OP_ERROR);
-    }
+}
 
 	// Read minor version
     fread(&ucMinorVersion,1,1,_FD);
@@ -102,9 +79,9 @@ int CSectorMatrix::iLoadWithHandler (FILE *_FD)
 	// Control version number
     if ((ucMajorVersion > ucMajVer) || ((ucMajorVersion == ucMajVer) && (ucMinorVersion > ucMinVer)) )
     {
-        ERROR_SetError("CSECTMAT1013","Incorrect object version number");
+        CGSystemLC::I()->Error("CSECTMAT1013","Incorrect object version number");
         return(RES_OP_ERROR);
-    }
+}
 
     // Read object info
     fread(&SecsPerRow,4,1,_FD);
@@ -131,13 +108,16 @@ int CSectorMatrix::iLoadWithHandler (FILE *_FD)
 	for (cJ=0;cJ<SecsPerCol;cJ++)
 		for (cI=0;cI<SecsPerRow;cI++)
 		{	
+			if (SectArray[cJ*SecsPerRow+cI]) 
+				mDel SectArray[cJ*SecsPerRow+cI];
+
 			SectArray[cJ*SecsPerRow+cI] = poSectManager->poCreateClass(_FD);
 
 			if (SectArray[cJ*SecsPerRow+cI])
 			{
 				if (! SectArray[cJ*SecsPerRow+cI]->iLoadWithHandler(_FD) )
 				{
-					ERROR_SetError("CSECTMAT1014","Unable to read sectors data");
+					CGSystemLC::I()->Error("CSECTMAT1014","Unable to read sectors data");
 					return(RES_OP_ERROR);
 				}
 			}
@@ -146,28 +126,26 @@ int CSectorMatrix::iLoadWithHandler (FILE *_FD)
 
 
 	return(RES_OP_OK);
-  //## end CSectorMatrix::iLoadWithHandler%989444559.body
 }
 
 int CSectorMatrix::iSaveWithHandler (FILE *_FD)
 {
-  //## begin CSectorMatrix::iSaveWithHandler%989444560.body preserve=yes
-	unsigned long ulBlockLenght;
+  	unsigned long ulBlockLenght;
 	int			  cI,cJ;
 
 	// Control file descriptor
     if (! _FD)
     {
-		ERROR_SetError("CSECTMAT2011","NULL object file descriptor.");
+		CGSystemLC::I()->Error("CSECTMAT2011","NULL object file descriptor.");
         return(RES_OP_ERROR);
-    }
+}
 
     // Write identifier
     if (! fwrite(&ulID,4,1,_FD))
     {
-        ERROR_SetError("CSECTMAT2012","Unable to save object data");
+        CGSystemLC::I()->Error("CSECTMAT2012","Unable to save object data");
         return(RES_OP_ERROR);
-    }
+}
 	
     // Write block length
     ulBlockLenght = ByteSize();
@@ -203,62 +181,60 @@ int CSectorMatrix::iSaveWithHandler (FILE *_FD)
 		{	
 			if (! SectArray[cJ*SecsPerRow+cI]->iSaveWithHandler(_FD) )
 			{
-				ERROR_SetError("CSECTMAT1014","Unable to read sectors data");
+				CGSystemLC::I()->Error("CSECTMAT1014","Unable to read sectors data");
 				return(RES_OP_ERROR);
 			}
 
 		}
 
 	return(RES_OP_OK);
-  //## end CSectorMatrix::iSaveWithHandler%989444560.body
 }
 
 void CSectorMatrix::Invalidate ()
 {
-  //## begin CSectorMatrix::Invalidate%989444562.body preserve=yes
+  
+	if (SectArray) 
+	{
+		for (int iSect=0;iSect<SecsPerRow*SecsPerCol;iSect++)
+			if (SectArray[iSect])
+				mDel SectArray[iSect];
 
-	if (SectArray) delete[] SectArray;
+		mDel[] SectArray;
+	}
+
 	SectArray  = NULL;
 	SecsPerRow = 0;
 	SecsPerCol = 0;	
 
-  //## end CSectorMatrix::Invalidate%989444562.body
 }
 
 void CSectorMatrix::Init (int _SecsPerRow, int _SecsPerCol)
 {
-  //## begin CSectorMatrix::Init%989530854.body preserve=yes
-	Invalidate();
+  	Invalidate();
 		
 	SecsPerRow = _SecsPerRow;
 	SecsPerCol = _SecsPerCol;
 
-	SectArray = new CSector *[SecsPerRow*SecsPerCol];
-  //## end CSectorMatrix::Init%989530854.body
+	SectArray = mNew CSector *[SecsPerRow*SecsPerCol];
 }
 
 void CSectorMatrix::Init (int _SecsPerRow, int _SecsPerCol, int _SectorRes, int _SectorType, bool _b21)
 {
-  //## begin CSectorMatrix::Init%989530855.body preserve=yes
-	Init(_SectorRes,_b21);
+  	Init(_SectorRes,_b21);
     Init(_SecsPerRow,_SecsPerCol);
-  //## end CSectorMatrix::Init%989530855.body
 }
 
 void CSectorMatrix::Init (int _iRes, bool _b21)
 {
-  //## begin CSectorMatrix::Init%989530858.body preserve=yes
-	Resolution = _iRes;  	
+  	Resolution = _iRes;  	
 	b21 = _b21;
 	
 	if (b21) iLast = Resolution - 1;
-  //## end CSectorMatrix::Init%989530858.body
 }
 
 CSectElem & CSectorMatrix::GetValue (int _X, int _Y)
 {
-  //## begin CSectorMatrix::GetValue%989530859.body preserve=yes
-	assert( SectArray && "No sector array");
+  	assert( SectArray && "No sector array");
 		
 	int cSectX      = (_X/iLast);
 	int cSectY      = (_Y/iLast);
@@ -268,13 +244,11 @@ CSectElem & CSectorMatrix::GetValue (int _X, int _Y)
 	_Y -= cSectY*iLast;
 
 	return( GetValueFromSect(cSect,_X,_Y) );
-  //## end CSectorMatrix::GetValue%989530859.body
 }
 
 void CSectorMatrix::SetValue (int _X, int _Y, CSectElem &_Value)
 {
-  //## begin CSectorMatrix::SetValue%989530860.body preserve=yes
-	assert( SectArray && "No sector array");
+  	assert( SectArray && "No sector array");
 
 	int iNeighFlags = 0;
 	int iFinalFlags = 0;
@@ -305,22 +279,18 @@ void CSectorMatrix::SetValue (int _X, int _Y, CSectElem &_Value)
                 break;
         case 3: SetValueFromSect(cSectY*SecsPerRow+cSectX,iLast,iLast,_Value);
                 break;
-    }
-  //## end CSectorMatrix::SetValue%989530860.body
+}
 }
 
 CSectElem & CSectorMatrix::GetValueFromSect (int _iSect, int _X, int _Y)
 {
-  //## begin CSectorMatrix::GetValueFromSect%989530861.body preserve=yes
-	assert( SectArray && "No sector array");
+  	assert( SectArray && "No sector array");
 	return( SectArray[_iSect]->GetValue(_X,_Y) );
-  //## end CSectorMatrix::GetValueFromSect%989530861.body
 }
 
 void CSectorMatrix::SetValueFromSect (int _iSect, int _X, int _Y, CSectElem &_Value)
 {
-  //## begin CSectorMatrix::SetValueFromSect%989530862.body preserve=yes
-	assert( SectArray && "No sector array");
+  	assert( SectArray && "No sector array");
 	SectArray[_iSect]->SetValue(_X,_Y,_Value);
 
     if (! b21) return;
@@ -340,27 +310,23 @@ void CSectorMatrix::SetValueFromSect (int _iSect, int _X, int _Y, CSectElem &_Va
                 SectArray[_iSect-SecsPerRow  ]->SetValue(_X   ,iLast,_Value);
                 SectArray[_iSect-SecsPerRow-1]->SetValue(iLast,iLast,_Value);
                 break;
-    }
-  //## end CSectorMatrix::SetValueFromSect%989530862.body
+}
 }
 
 unsigned long CSectorMatrix::ByteSize ()
 {
-  //## begin CSectorMatrix::ByteSize%990283800.body preserve=yes
-	unsigned int uiByteSum = 0;
+  	unsigned int uiByteSum = 0;
 	int			 cSect;
 	
 	for (cSect=0;cSect<SecsPerCol*SecsPerRow;cSect++)
 		uiByteSum += SectArray[cSect]->ByteSize();
 
 	return ( DataSize() + uiByteSum );
-  //## end CSectorMatrix::ByteSize%990283800.body
 }
 
 CSector * CSectorMatrix::GenerateLOD (int _iLOD)
 {
-  //## begin CSectorMatrix::GenerateLOD%991155095.body preserve=yes
-	unsigned int	cSect;
+  	unsigned int	cSect;
     CSectorMatrix	*NewObj = (CSectorMatrix *)CreateClass();
 	
 	// Create the new object
@@ -378,21 +344,14 @@ CSector * CSectorMatrix::GenerateLOD (int _iLOD)
     NewObj->Resolution = NewObj->SectArray[0]->GetResolution();
     
 	return(NewObj);
-  //## end CSectorMatrix::GenerateLOD%991155095.body
 }
 
 void CSectorMatrix::SetVGenMethod (EGenerationMethod value)
 {
-  //## begin CSectorMatrix::SetVGenMethod%1026770436.body preserve=yes
-	VGenMethod = value;
+  	VGenMethod = value;
 	for (int cSect=0;cSect<SecsPerCol*SecsPerRow;cSect++)
 		GetSector(cSect)->SetVGenMethod(value);
-  //## end CSectorMatrix::SetVGenMethod%1026770436.body
 }
 
 // Additional Declarations
-  //## begin CSectorMatrix%3AF9B524038E.declarations preserve=yes
-  //## end CSectorMatrix%3AF9B524038E.declarations
-
-//## begin module%3AF9B524038E.epilog preserve=yes
-//## end module%3AF9B524038E.epilog
+    

@@ -1,21 +1,14 @@
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 #include "CMatrix4x4.h"
 #include "MATH_Other/MATH_Common.h"
 #include <string.h>
 #include <math.h>
-//---------------------------------------------------------------------------
-CMatrix4x4::CMatrix4x4()
-{
-}
-CMatrix4x4::~CMatrix4x4()
-{
-}
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // Column stored matrix
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 #define GetAxis(Axis) (Axis - 'x')
 #define M(Row,Col) m[Col*4 + Row]
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 void CMatrix4x4::LoadIdentity()
 {
 	M(0,0) = 1;    M(0,1) = 0;    M(0,2) = 0;    M(0,3) = 0;
@@ -29,29 +22,29 @@ void CMatrix4x4::Set(int Row,int Col,float Value)
 	M(Row,Col) = Value;	
 }
 
-float CMatrix4x4::Get(int Row,int Col)
+float CMatrix4x4::Get(int Row,int Col) const
 {
 	return ( M(Row,Col) );
 }
-//---------------------------------------------------------------------------
-void CMatrix4x4::LoadFromAxis(CVect3 &e1,CVect3 &e2,CVect3 &e3)
+//-----------------------------------------------------------------------------
+void CMatrix4x4::LoadFromAxis(const CVect3& e1,const CVect3& e2,const CVect3& e3)
 {
-    M(0,0) = e1.v[0];	M(0,1) = e1.v[1];	M(0,2) = e1.v[2];	M(0,3) = 0;
-    M(1,0) = e2.v[0];	M(1,1) = e2.v[1];	M(1,2) = e2.v[2];	M(1,3) = 0;
-    M(2,0) = e3.v[0];	M(2,1) = e3.v[1];	M(2,2) = e3.v[2];	M(2,3) = 0;
-    M(3,0) = 0;  		M(3,1) = 0;			M(3,2) = 0;			M(3,3) = 1;
+    M(0,0) = e1.x;	M(0,1) = e1.y;	M(0,2) = e1.z;	M(0,3) = 0;
+    M(1,0) = e2.x;	M(1,1) = e2.y;	M(1,2) = e2.z;	M(1,3) = 0;
+    M(2,0) = e3.x;	M(2,1) = e3.y;	M(2,2) = e3.z;	M(2,3) = 0;
+    M(3,0) = 0;  	M(3,1) = 0;		M(3,2) = 0;		M(3,3) = 1;
 }
-//---------------------------------------------------------------------------
-void CMatrix4x4::Translate(CVect3 &T)
+//-----------------------------------------------------------------------------
+void CMatrix4x4::Translate(const CVect3& T)
 {
 	// From Mesa 3.2: matrix.c glTranslatef
-	M(0,3) += ( M(0,0) * T.v[0] + M(0,1) * T.v[1] + M(0,2) * T.v[2] );
-	M(1,3) += ( M(1,0) * T.v[0] + M(1,1) * T.v[1] + M(1,2) * T.v[2] );
-	M(2,3) += ( M(2,0) * T.v[0] + M(2,1) * T.v[1] + M(2,2) * T.v[2] );
-	M(3,3) += ( M(3,0) * T.v[0] + M(3,1) * T.v[1] + M(3,2) * T.v[2] );
+	M(0,3) += ( M(0,0) * T.x + M(0,1) * T.y + M(0,2) * T.z );
+	M(1,3) += ( M(1,0) * T.x + M(1,1) * T.y + M(1,2) * T.z );
+	M(2,3) += ( M(2,0) * T.x + M(2,1) * T.y + M(2,2) * T.z );
+	M(3,3) += ( M(3,0) * T.x + M(3,1) * T.y + M(3,2) * T.z );
 }
-//---------------------------------------------------------------------------
-void CMatrix4x4::TranslateAxis(char Axis,float Value)
+//-----------------------------------------------------------------------------
+void CMatrix4x4::Translate(char Axis,float Value)
 {
     unsigned int e = GetAxis(Axis);
 
@@ -60,24 +53,24 @@ void CMatrix4x4::TranslateAxis(char Axis,float Value)
     M(2,3) += (M(2,e) * Value);
 	M(3,3) += (M(3,e) * Value);
 }
-//---------------------------------------------------------------------------
-void CMatrix4x4::Translate3f(float x,float y,float z)
+//-----------------------------------------------------------------------------
+void CMatrix4x4::Translate(float x,float y,float z)
 {
 	M(0,3) += ( M(0,0)*x + M(0,1)*y + M(0,2)*z );
 	M(1,3) += ( M(1,0)*x + M(1,1)*y + M(1,2)*z );
 	M(2,3) += ( M(2,0)*x + M(2,1)*y + M(2,2)*z );
 	M(3,3) += ( M(3,0)*x + M(3,1)*y + M(3,2)*z );
 }
-//---------------------------------------------------------------------------
-void CMatrix4x4::Scale(CVect3 &S)
+//-----------------------------------------------------------------------------
+void CMatrix4x4::Scale(const CVect3 &S)
 {
-	M(0,0) *= S.X();	M(0,1) *= S.Y();	M(0,2) *= S.Z();
-    M(1,0) *= S.X();	M(1,1) *= S.Y();	M(1,2) *= S.Z();
-    M(2,0) *= S.X();	M(2,1) *= S.Y();	M(2,2) *= S.Z();
-    M(3,0) *= S.X();	M(3,1) *= S.Y();	M(3,2) *= S.Z();
+	M(0,0) *= S.x;	M(0,1) *= S.y;	M(0,2) *= S.z;
+    M(1,0) *= S.x;	M(1,1) *= S.y;	M(1,2) *= S.z;
+    M(2,0) *= S.x;	M(2,1) *= S.y;	M(2,2) *= S.z;
+    M(3,0) *= S.x;	M(3,1) *= S.y;	M(3,2) *= S.z;
 }
-//---------------------------------------------------------------------------
-void CMatrix4x4::ScaleAxis(char Axis,float Value)
+//-----------------------------------------------------------------------------
+void CMatrix4x4::Scale(char Axis,float Value)
 {
 	unsigned int e = GetAxis(Axis);
 
@@ -86,8 +79,8 @@ void CMatrix4x4::ScaleAxis(char Axis,float Value)
     M(2,e) *= Value;
     M(3,e) *= Value;
 }
-//---------------------------------------------------------------------------
-void CMatrix4x4::Scale3f(float x,float y,float z)
+//-----------------------------------------------------------------------------
+void CMatrix4x4::Scale(float x,float y,float z)
 {
 	M(0,0) *= x;	M(0,1) *= y;	M(0,2) *= z;
     M(1,0) *= x;	M(1,1) *= y;	M(1,2) *= z;
@@ -95,23 +88,23 @@ void CMatrix4x4::Scale3f(float x,float y,float z)
     M(3,0) *= x;	M(3,1) *= y;	M(3,2) *= z;
 }
 
-//---------------------------------------------------------------------------
-void CMatrix4x4::RotateAxis(char Axis,float Value)
+//-----------------------------------------------------------------------------
+void CMatrix4x4::Rotate(char Axis,float Value)
 {
 	CVect3  e;
 
 	switch (Axis)
 	{
-		case 'x':	e.V3(1.0f,0.0f,0.0f);
+		case 'x':	e = CVect3::oX();
 					break;
-		case 'y':	e.V3(0.0f,1.0f,0.0f);
+		case 'y':	e = CVect3::oY();
 					break;
-		case 'z':	e.V3(0.0f,0.0f,1.0f);
+		case 'z':	e = CVect3::oZ();
 					break;
 	}
 
 	TransformVector(e);
-	RotateFromArbitraryAxis(Value,e.X(),e.Y(),e.Z());
+	RotateFromArbitraryAxis(Value,e.x,e.y,e.z);
  /*
     CMatrix4x4 R;
 
@@ -138,14 +131,14 @@ void CMatrix4x4::RotateAxis(char Axis,float Value)
                  R.M(2,0) = 0;    R.M(2,1) = 0;    R.M(2,2) = 1;    R.M(2,3) = 0;
                  R.M(3,0) = 0;    R.M(3,1) = 0;    R.M(3,2) = 0;    R.M(3,3) = 1;
                  break;
-    }
+}
 
 	// Automultiplicarse por R
     MultiplyBy(R);
 */
 }
-//---------------------------------------------------------------------------
-void CMatrix4x4::Rotate3f(float Pitch,float Yaw,float Roll)
+//-----------------------------------------------------------------------------
+void CMatrix4x4::Rotate(float Pitch,float Yaw,float Roll)
 {
 	if ((! Pitch) && (! Yaw) && (!Roll)) return;
 
@@ -155,7 +148,7 @@ void CMatrix4x4::Rotate3f(float Pitch,float Yaw,float Roll)
 		eX.V3(1.0f,0.0f,0.0f);
 
 		TransformVector(eX);
-		RotateFromArbitraryAxis(Pitch,eX.X(),eX.Y(),eX.Z());
+		RotateFromArbitraryAxis(Pitch,eX.x,eX.y,eX.z);
 	}
 
 	if (Yaw)
@@ -163,7 +156,7 @@ void CMatrix4x4::Rotate3f(float Pitch,float Yaw,float Roll)
 		CVect3 eY;
 		eY.V3(0.0f,1.0f,0.0f);
 		TransformVector(eY);
-		RotateFromArbitraryAxis(Yaw,eY.X(),eY.Y(),eY.Z());
+		RotateFromArbitraryAxis(Yaw,eY.x,eY.y,eY.z);
 	}
 	
 	if (Roll)
@@ -171,19 +164,19 @@ void CMatrix4x4::Rotate3f(float Pitch,float Yaw,float Roll)
 		CVect3 eZ;
 		eZ.V3(0.0f,0.0f,1.0f);
 		TransformVector(eZ);			
-		RotateFromArbitraryAxis(Roll,eZ.X(),eZ.Y(),eZ.Z());	
+		RotateFromArbitraryAxis(Roll,eZ.x,eZ.y,eZ.z);	
 	}
 }
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 void CMatrix4x4::RotateFromArbitraryAxis(float Angle,float x,float y,float z)
 {
 	CMatrix4x4 R;
     RotateFromArbitraryAxisMatrix(Angle,x,y,z,R.m);
     MultiplyBy(R);
 }
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // Stolen from Mesa 3.2
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 void CMatrix4x4::RotateFromArbitraryAxisMatrix(float Angle,float x,float y,float z,float *m)
 {
    /* This function contributed by Erich Boleyn (erich@uruk.org) */
@@ -199,7 +192,7 @@ void CMatrix4x4::RotateFromArbitraryAxisMatrix(float Angle,float x,float y,float
       /* generate an identity matrix and return */
       LoadIdentity();
       return;
-   }
+}
 
    x /= mag;
    y /= mag;
@@ -289,17 +282,17 @@ void CMatrix4x4::RotateFromArbitraryAxisMatrix(float Angle,float x,float y,float
    M(3,2) = 0.0F;
    M(3,3) = 1.0F;
 }
-//-------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // Multiplica M * N
-//-------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // Algorithm:
 //	For each row of M
 //		For each col of N
 //          ResMatrix(Row,Col) = DotProduct ( RowVector(M,Row) , ColVector(N,Col) )
-//-------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 //
-//-------------------------------------------------------------------
-void CMatrix4x4::Multiply(CMatrix4x4 &A,CMatrix4x4 &B)
+//-----------------------------------------------------------------------------
+void CMatrix4x4::Multiply(const CMatrix4x4& A,const CMatrix4x4& B)
 {
 	int i,j;
 
@@ -312,12 +305,12 @@ void CMatrix4x4::Multiply(CMatrix4x4 &A,CMatrix4x4 &B)
             		 A.M(i,1)*B.M(1,j) +
                      A.M(i,2)*B.M(2,j) +
                      A.M(i,3)*B.M(3,j);
-        }
 }
-//---------------------------------------------------------------------------
+}
+//-----------------------------------------------------------------------------
 // Computes this * B matrix multiplication
-//---------------------------------------------------------------------------
-void CMatrix4x4::MultiplyBy(CMatrix4x4 &B)
+//-----------------------------------------------------------------------------
+void CMatrix4x4::MultiplyBy(const CMatrix4x4& B)
 {
 	int i,j;
     CMatrix4x4 A =*this;
@@ -331,74 +324,104 @@ void CMatrix4x4::MultiplyBy(CMatrix4x4 &B)
             		A.M(i,1)*B.M(1,j) +
                     A.M(i,2)*B.M(2,j) +
                     A.M(i,3)*B.M(3,j);
-        }
 }
-//---------------------------------------------------------------------------
+}
+//-----------------------------------------------------------------------------
 // Multiplicacion 	Matriz*vector
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 //              a
 // A  - - - -   |  = (A.a,B.a,C.a,D.a)
 // B  - - - - * |
 // C  - - - -   |  =  - - - -
 // D  - - - -   |
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // Dot product entre point4D (x,y,z,1) y matrix
-//---------------------------------------------------------------------------
-void CMatrix4x4::TransformPoint (CVect3 &Vect)
+//-----------------------------------------------------------------------------
+void CMatrix4x4::TransformPoint(CVect3 &Vect) const
 {
-	int i;
+	// Make a copy of the source point
     CVect3 v = Vect;
 
-    // Optimized version
-    for (i=0;i<3;i++)
-    {
-    	// Hacer dot product del vector y la fila
-    	Vect.v[i] = M(i,0) * v.v[0] +
-        		    M(i,1) * v.v[1] +
-                    M(i,2) * v.v[2] +
-                    M(i,3) /* * (v.v[3) = 1) */ ;
-    }
+	// Hacer dot product del vector y la fila
+	Vect.x =M(0,0) * v.x +
+    	    M(0,1) * v.y +
+            M(0,2) * v.z +
+            M(0,3) /* * (v.v[3) = 1) */ ;
+
+	Vect.y =M(1,0) * v.x +
+    	    M(1,1) * v.y +
+            M(1,2) * v.z +
+            M(1,3) /* * (v.v[3) = 1) */ ;
+			  
+	Vect.z =M(2,0) * v.x +
+    	    M(2,1) * v.y +
+            M(2,2) * v.z +
+            M(2,3) /* * (v.v[3) = 1) */ ;
 }
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // Dot product entre vector4D (x,y,z,0) y matrix
-//---------------------------------------------------------------------------
-void CMatrix4x4::TransformVector(CVect3 &Vect)
+//-----------------------------------------------------------------------------
+void CMatrix4x4::TransformVector(CVect3& Vect) const
 {
 	// Make a copy of the source point
 	CVect3 v = Vect;
-	int    i;
+
+	// Hacer dot product del vector y la fila
+	Vect.x =M(0,0) * v.x +
+    	    M(0,1) * v.y +
+            M(0,2) * v.z
+            /* + M(0,3)*(v.v[3]) (v.v[3] = 0) */;
+
+	Vect.y =M(1,0) * v.x +
+    	    M(1,1) * v.y +
+            M(1,2) * v.z
+            /* + M(1,3)*(v.v[3]) (v.v[3] = 0) */;
+
+	Vect.z =M(2,0) * v.x +
+    	    M(2,1) * v.y +
+            M(2,2) * v.z
+            /* + M(2,3)*(v.v[3]) (v.v[3] = 0) */;
+}
+//-----------------------------------------------------------------------------
+// Dot product entre point4D (x,y,z,w) y matrix
+//-----------------------------------------------------------------------------
+void CMatrix4x4::TransformVector(CVect4& Vect) const
+{
+	// Make a copy of the source point
+    CVect4 v = Vect;
+	int i;
 
     // Optimized version
     for (i=0;i<3;i++)
     {
     	// Hacer dot product del vector y la fila
-    	Vect.v[i] = M(i,0) * v.v[0] + 
-					M(i,1) * v.v[1] + 
-					M(i,2) * v.v[2];
-               // + M(i,3) * (v.v[3] = 0) */;
-    }
+    	Vect.v(i) = M(i,0) * v.x +
+        		    M(i,1) * v.y +
+                    M(i,2) * v.z +
+                    M(i,3) * v.w;
 }
-//---------------------------------------------------------------------------
-CVect4 CMatrix4x4::GetRowVector(int Row)
+}
+//-----------------------------------------------------------------------------
+CVect4 CMatrix4x4::GetRowVector(int Row) const
 {
 	CVect4 Res;
-    Res.v[0] = M(Row,0);
-    Res.v[1] = M(Row,1);
-    Res.v[2] = M(Row,2);
-    Res.v[3] = M(Row,3);
+    Res.x = M(Row,0);
+    Res.y = M(Row,1);
+    Res.z = M(Row,2);
+    Res.w = M(Row,3);
     return(Res);
 }
-//---------------------------------------------------------------------------
-CVect4 CMatrix4x4::GetColVector(int Col)
+//-----------------------------------------------------------------------------
+CVect4 CMatrix4x4::GetColVector(int Col) const
 {
 	CVect4 Res;
-    Res.v[0] = M(0,Col);
-    Res.v[1] = M(1,Col);
-    Res.v[2] = M(2,Col);
-    Res.v[3] = M(3,Col);
+    Res.x = M(0,Col);
+    Res.y = M(1,Col);
+    Res.z = M(2,Col);
+    Res.w = M(3,Col);
     return(Res);
 }
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 void CMatrix4x4::SetRowVector(int Row,float x,float y,float z,float w)
 {
     M(Row,0) = x;
@@ -414,7 +437,23 @@ void CMatrix4x4::SetColVector(int Col,float x,float y,float z,float w)
 	M(2,Col) = z;
 	M(3,Col) = w;
 }
-//---------------------------------------------------------------------------
+
+void CMatrix4x4::SetRowVector(int Row,const CVect4& _oR)
+{
+	M(Row,0) = _oR.x;
+	M(Row,1) = _oR.y;
+	M(Row,2) = _oR.z;
+	M(Row,3) = _oR.w;
+}
+
+void CMatrix4x4::SetColVector  (int Col,const CVect4& _oC)
+{
+	M(0,Col) = _oC.x;
+	M(1,Col) = _oC.y;
+	M(2,Col) = _oC.z;
+	M(3,Col) = _oC.w;
+}
+//-----------------------------------------------------------------------------
 void CMatrix4x4::Transpose()
 {
 	// axiliary matrix
@@ -441,8 +480,8 @@ void CMatrix4x4::Transpose()
 	m[2*4+3] = aux[3*4+2];
 	m[3*4+3] = aux[3*4+3];
 }
-//---------------------------------------------------------------------------
-float CMatrix4x4::Determinant()
+//-----------------------------------------------------------------------------
+float CMatrix4x4::Determinant() const
 {
     return(
            (
@@ -456,7 +495,7 @@ float CMatrix4x4::Determinant()
 		   )
 		  );
 }
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 void CMatrix4x4::Complementary()
 {
     unsigned char Matrix3x3SelTable[4][3] = {{1,2,3},{0,2,3},{0,1,3},{0,1,2}};
@@ -496,14 +535,14 @@ void CMatrix4x4::Complementary()
 
             // Store the computed value
             M(cRow,cCol) = O.M(cRow,cCol) * fDet;
-        }
+}
 	}
 }
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 //   -1    1
 // M    =  -  * Adj(M)
 //        |M|
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 void CMatrix4x4::Inverse()
 {
 	float fDet = Determinant();
@@ -521,9 +560,9 @@ void CMatrix4x4::Inverse()
 		for (cCol=0;cCol<4;cCol++)
         	M(cRow,cCol) *= fDet;
 }
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // Performs the inverse of a rotation & translation matrix
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 void CMatrix4x4::RTInverse()
 {		
 	// auxiliary matrix
@@ -554,8 +593,8 @@ void CMatrix4x4::RTInverse()
 	M(1,3) = - (aux[3*4+0] * M(1,0) + aux[3*4+1] * M(1,1) + aux[3*4+2] * M(1,2) );
 	M(2,3) = - (aux[3*4+0] * M(2,0) + aux[3*4+1] * M(2,1) + aux[3*4+2] * M(2,2) );	
 }
-//---------------------------------------------------------------------------
-float CMatrix4x4::f3ColDeterminant(int iCol0,int iCol1, int iCol2)
+//-----------------------------------------------------------------------------
+float CMatrix4x4::f3ColDeterminant(int iCol0,int iCol1, int iCol2) const
 {
 	return(
            (M(0,iCol0)*M(1,iCol1)*M(2,iCol2) + 
@@ -567,6 +606,14 @@ float CMatrix4x4::f3ColDeterminant(int iCol0,int iCol1, int iCol2)
 		    M(0,iCol1)*M(1,iCol0)*M(2,iCol2))
 		  );
 }
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+const CMatrix4x4 CMatrix4x4::operator * (const CMatrix4x4 &B) const
+{
+    CMatrix4x4 A =*this;
+	A.MultiplyBy((CMatrix4x4&)B);
+	return(A);
+}
+//-----------------------------------------------------------------------------
 
-#undef M(Row,Col)
+#undef M
+

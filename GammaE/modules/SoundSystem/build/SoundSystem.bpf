@@ -1,0 +1,17 @@
+USEUNIT(".\Sound\SampleUtils\SampleUtils.cpp");
+USEUNIT(".\Sound\CSample.cpp");
+USEUNIT(".\Sound\CSampleWH.cpp");
+USEUNIT(".\Sound\CSound.cpp");
+USEUNIT(".\Sound\CSoundLayer.cpp");
+USEUNIT(".\Sound\CSoundWH.cpp");
+USEUNIT(".\Sound\CSoundWH_Elem.cpp");
+USEUNIT(".\SoundRender\SoundDrivers\SndDrv_DirectSound\CSoundRenderer_DSound.cpp");
+USEUNIT(".\SoundRender\SoundMixer\CSoundMixer.cpp");
+USEUNIT(".\SoundRender\SoundMixer\CSoundMixPars.cpp");
+USEUNIT(".\SoundRender\CSoundEmiter.cpp");
+USEUNIT(".\SoundRender\CSoundEntity.cpp");
+USEUNIT(".\SoundRender\CSoundReceiver.cpp");
+USEUNIT(".\SoundRender\CSoundRenderer.cpp");
+USEFILE("vctobpr.log");
+
+#define Library

@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="\projects\GammaE\Borland\SceneObjects.lib"/>
+    <OBJFILES value="..\Borland\CConsole.obj ..\Borland\SceneAxis.obj ..\Borland\CSkyDome.obj 
+      ..\Borland\CSkyBox.obj ..\Borland\CLensFlare.obj 
+      ..\Borland\CLensFlare_Elem.obj ..\Borland\CObject3D_Reflector.obj 
+      ..\Borland\CDetailer.obj ..\Borland\CCorona.obj ..\Borland\CCoronaMgr.obj 
+      ..\Borland\CShadowCaster.obj ..\Borland\CTexProjector.obj 
+      ..\Borland\C3DObjWH.obj ..\Borland\CHUDIcon.obj ..\Borland\CHUDLabel.obj 
+      ..\Borland\CHUDMsgBox.obj ..\Borland\CMenuTextGrid.obj"/>
+    <RESFILES value=""/>
+    <IDLFILES value=""/>
+    <IDLGENFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES)"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value=""/>
+    <SPARELIBS value=""/>
+    <PACKAGES value=""/>
+    <PATHCPP value=".;Console;SceneAxis;SkyDome;SkyBox;LensFlare;LensFlare;Reflector;Detailer;CoronaMgr;CoronaMgr;ShadowCaster;TexProjector;3DObjWH;HUDElems;HUDElems;HUDElems;HUDElems"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="TLib"/>
+    <USERDEFINES value="WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;WIN32;_DEBUG;_MBCS;_LIB;WIN32;_DEBUG;_MBCS;_LIB;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0;WIN32;_DEBUG;_MBCS;_LIB;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS"/>
+    <SYSDEFINES value="_NO_VCL;_ASSERTE;NO_STRICT"/>
+    <MAINSOURCE value="SceneObjects.bpf"/>
+    <INCLUDEPATH value="HUDElems;3DObjWH;TexProjector;ShadowCaster;CoronaMgr;Detailer;Reflector;LensFlare;SkyBox;SkyDome;SceneAxis;Console;$(BCB)\include;$(BCB)\include\mfc;$(BCB)\include\atl;$(BCB)\include\vcl;I:\Projects\libs\TexLib\Src"/>
+    <LIBPATH value="HUDElems;3DObjWH;TexProjector;ShadowCaster;CoronaMgr;Detailer;Reflector;LensFlare;SkyBox;SkyDome;SceneAxis;Console;$(BCB)\lib;$(DEBUGLIBPATH);$(BCB)\lib\psdk"/>
+    <WARNINGS value="-w-8026 -w-8027 -w-8022 -w-8084 -w-8010 -w-8013 -w-8058 -w-par"/>
+    <LISTFILE value=""/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <IDLCFLAGS value="-IHUDElems -I3DObjWH -ITexProjector -IShadowCaster -ICoronaMgr -IDetailer 
+      -IReflector -ILensFlare -ISkyBox -ISkyDome -ISceneAxis -IConsole 
+      -I$(BCB)\include -I$(BCB)\include\mfc -I$(BCB)\include\atl 
+      -I$(BCB)\include\vcl -II:\Projects\libs\TexLib\Src -src_suffix cpp -DWIN32 
+      -D_DEBUG -D_MBCS -D_LIB -D_WINDOWS -DNULL=0 -DWIN32 -D_DEBUG -D_MBCS 
+      -D_LIB -D_WINDOWS -DWIN32 -D_DEBUG -D_MBCS -D_LIB -DWIN32 -D_DEBUG -D_MBCS 
+      -D_LIB -DWIN32 -D_DEBUG -D_MBCS -D_LIB -D_WINDOWS -DNULL=0 -DWIN32 
+      -D_DEBUG -D_MBCS -D_LIB -DWIN32 -D_DEBUG -D_MBCS -D_LIB -D_WINDOWS -DNULL=0 
+      -DWIN32 -D_DEBUG -D_MBCS -D_LIB -D_WINDOWS -DNULL=0 -DWIN32 -D_DEBUG 
+      -D_MBCS -D_LIB -D_WINDOWS"/>
+    <CFLAG1 value="-Od -w -VF -X- -a8 -b -k -v -vi -q -s -I.\\ -I..\\ -c -w-8026 -w-8027 
+      -w-8022 -w-8084 -w-8010 -w-8013 -w-8058 -w-par -I../../Src -I.. -I."/>
+    <PFLAGS value="-N2\projects\GammaE\Borland -N0\projects\GammaE\Borland -$YD -$A8"/>
+    <RFLAGS value="/l 0xc0a /d &quot;_DEBUG&quot; /i$(BCB)\include;$(BCB)\include\mfc"/>
+    <AFLAGS value="/mx /w2 /zd"/>
+    <LFLAGS value=""/>
+    <OTHERFILES value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="$(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES)"/>
+    <OTHERFILES value=""/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="SceneObjects.bpf" FORMNAME="" UNITNAME="SceneObjects" CONTAINERID="BPF" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Console\CConsole.cpp" FORMNAME="" UNITNAME="CConsole" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SceneAxis\SceneAxis.cpp" FORMNAME="" UNITNAME="SceneAxis" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SkyDome\CSkyDome.cpp" FORMNAME="" UNITNAME="CSkyDome" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SkyBox\CSkyBox.cpp" FORMNAME="" UNITNAME="CSkyBox" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="LensFlare\CLensFlare.cpp" FORMNAME="" UNITNAME="CLensFlare" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="LensFlare\CLensFlare_Elem.cpp" FORMNAME="" UNITNAME="CLensFlare_Elem" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Reflector\CObject3D_Reflector.cpp" FORMNAME="" UNITNAME="CObject3D_Reflector" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Detailer\CDetailer.cpp" FORMNAME="" UNITNAME="CDetailer" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CoronaMgr\CCorona.cpp" FORMNAME="" UNITNAME="CCorona" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CoronaMgr\CCoronaMgr.cpp" FORMNAME="" UNITNAME="CCoronaMgr" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="ShadowCaster\CShadowCaster.cpp" FORMNAME="" UNITNAME="CShadowCaster" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="TexProjector\CTexProjector.cpp" FORMNAME="" UNITNAME="CTexProjector" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="3DObjWH\C3DObjWH.cpp" FORMNAME="" UNITNAME="C3DObjWH" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="HUDElems\CHUDIcon.cpp" FORMNAME="" UNITNAME="CHUDIcon" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="HUDElems\CHUDLabel.cpp" FORMNAME="" UNITNAME="CHUDLabel" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="HUDElems\CHUDMsgBox.cpp" FORMNAME="" UNITNAME="CHUDMsgBox" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="HUDElems\CMenuTextGrid.cpp" FORMNAME="" UNITNAME="CMenuTextGrid" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="vctobpr.log" FORMNAME="" UNITNAME="vctobpr" CONTAINERID="" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1033
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=3
+Item0=HUDElems;3DObjWH;TexProjector;ShadowCaster;CoronaMgr;Detailer;Reflector;LensFlare;SkyBox;SkyDome;SceneAxis;Console;$(BCB)\include;$(BCB)\include\mfc;$(BCB)\include\atl;$(BCB)\include\vcl;I:\Projects\libs\TexLib\Src
+Item1=HUDElems;3DObjWH;TexProjector;ShadowCaster;CoronaMgr;Detailer;Reflector;LensFlare;SkyBox;SkyDome;SceneAxis;Console;$(BCB)\include;$(BCB)\include\mfc;$(BCB)\include\atl;$(BCB)\include\vcl
+Item2=HUDElems;3DObjWH;TexProjector;ShadowCaster;CoronaMgr;Detailer;Reflector;LensFlare;SkyBox;SkyDome;SceneAxis;Console;$(BCB)\include;$(BCB)\include\mfc;$(BCB)\include\atl;$(BCB)\include\vcl;
+
+[HistoryLists\hlLibraryPath]
+Count=2
+Item0=HUDElems;3DObjWH;TexProjector;ShadowCaster;CoronaMgr;Detailer;Reflector;LensFlare;SkyBox;SkyDome;SceneAxis;Console;$(BCB)\lib;$(DEBUGLIBPATH);$(BCB)\lib\psdk
+Item1=HUDElems;3DObjWH;TexProjector;ShadowCaster;CoronaMgr;Detailer;Reflector;LensFlare;SkyBox;SkyDome;SceneAxis;Console;$(BCB)\lib;$(DEBUGLIBPATH);;$(BCB)\lib\psdk;$(DEBUGLIBPATH);$(DEBUGLIBPATH);$(DEBUGLIBPATH);$(DEBUGLIBPATH);$(DEBUGLIBPATH);$(DEBUGLIBPATH);$(DEBUGLIBPATH);$(DEBUGLIBPATH);
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=1
+Item0=WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;WIN32;_DEBUG;_MBCS;_LIB;WIN32;_DEBUG;_MBCS;_LIB;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0;WIN32;_DEBUG;_MBCS;_LIB;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS;NULL=0;WIN32;_DEBUG;_MBCS;_LIB;_WINDOWS
+
+[HistoryLists\hlIntOutputDir]
+Count=2
+Item0=\projects\GammaE\Borland
+Item1=\projects\GammaE\Debug
+
+[HistoryLists\hlFinalOutputDir]
+Count=3
+Item0=\projects\GammaE\Borland\
+Item1=\projects\GammaE\Borland
+Item2=\projects\GammaE\Debug\
+
+[HistoryLists\hlTlibPageSize]
+Count=1
+Item0=0x0010
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+Launcher=
+UseLauncher=0
+DebugCWD=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteLauncher=
+RemoteCWD=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=0
+
+[CORBA]
+AddServerUnit=1
+AddClientUnit=1
+PrecompiledHeaders=1
+  </IDEOPTIONS>
+</PROJECT>

@@ -1,10 +1,10 @@
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 #ifndef CE3D_LightH
 #define CE3D_LightH
-//---------------------------------------------------------------------------
-#include "math/GammaE_Math.h"
-#include "Color.h"
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+#include "GammaE_Math.h"
+#include "Materials/CGColor.h"
+//-----------------------------------------------------------------------------
 typedef enum
 {
     LT_None,
@@ -20,9 +20,9 @@ class CE3D_Light
 			~CE3D_Light();
 	
 	public:
-			TFColor oLitAmb;
-			TFColor oLitDiff;
-			TFColor oLitSpec;
+			CGColor oLitAmb;
+			CGColor oLitDiff;
+			CGColor oLitSpec;
 			
 			CVect3	oPos;
 			CVect3	oDir;
