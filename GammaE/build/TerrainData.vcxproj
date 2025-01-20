@@ -55,8 +55,8 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>_NULL=0;_MBCS;WIN32;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\modules\TerrainData;$(ProjectDir)..\..;;$(ProjectDir)..;$(ProjectDir)..\..\sdks\FileLib\Src;;$(ProjectDir)..\..\sdks\TexLib\src;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NULL=0;_MBCS;WIN32;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\inc;$(ProjectDir)..\..\..\inc;$(ProjectDir)..\modules\TerrainData\src;$(ProjectDir)..\src;$(ProjectDir)..\..\sdks\FileLib\Src;;$(ProjectDir)..\..\sdks\TexLib\src;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -71,8 +71,8 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>_NULL=0;_MBCS;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\modules\TerrainData;$(ProjectDir)..\..;;$(ProjectDir)..;$(ProjectDir)..\..\sdks\FileLib\Src;;$(ProjectDir)..\..\sdks\TexLib\src;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NULL=0;_MBCS;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\inc;$(ProjectDir)..\..\..\inc;$(ProjectDir)..\modules\TerrainData\src;$(ProjectDir)..\src;$(ProjectDir)..\..\sdks\FileLib\Src;;$(ProjectDir)..\..\sdks\TexLib\src;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -114,7 +114,7 @@
     <ClInclude Include="..\modules\TerrainData\src\Sector\SectorMatrix\CSectorMatrix.h" />
     <ClInclude Include="..\modules\TerrainData\src\Sector\SectorMatrix\CTexMap.h" />
     <ClInclude Include="..\modules\TerrainData\src\Sector\TexMap\CTMSector_8_16.h" />
-    <ClInclude Include="..\modules\TerrainData\src\TexSet\texset.h" />
+    <ClInclude Include="..\modules\TerrainData\src\TexSet\TexSet.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\modules\TerrainData\src\SectElem\CColor.cpp" />

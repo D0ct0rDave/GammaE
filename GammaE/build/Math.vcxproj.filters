@@ -88,16 +88,16 @@
     <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEval_Time.h">
       <Filter>MATH_Evaluator</Filter>
     </ClInclude>
+    <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEval_Triangle.h">
+      <Filter>MATH_Evaluator</Filter>
+    </ClInclude>
     <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEval_Yaw.h">
       <Filter>MATH_Evaluator</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEvaluator.h">
       <Filter>MATH_Evaluator</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Evaluator\ceval_triangle.h">
-      <Filter>MATH_Evaluator</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Evaluator\gammae_math_evaluators.h">
+    <ClInclude Include="..\modules\Math\src\MATH_Evaluator\GammaE_Math_Evaluators.h">
       <Filter>MATH_Evaluator</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Math\src\MATH_Matrix\CMatrix4x4.h">

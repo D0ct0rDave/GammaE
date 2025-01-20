@@ -3,10 +3,12 @@
 #include <stdio.h>
 #include <string.h>
 //-----------------------------------------------------------------------------
+#include "tex.h"
 #include "TexSet.h"
 
 #include "Gammae_FileSys.h"
-//-----------------------------------------------------------------------------
+//---------------------------------------------------------------------------
+#define     MIPMAP_OBJ_IDENTIFIER   MAKE_RIFF_ID('M','I','P','M')
 TTexSet::TTexSet()
 {
     unsigned int cTex;
@@ -15,6 +17,8 @@ TTexSet::TTexSet()
     {
         // Initialize each element of the texture list
         TextureArray[cTex].Used = false;
+        TextureArray[cTex].tex = NULL;
+        TextureArray[cTex].Filename[0] = 0;
 	}
 
     strcpy(Name,TEXSET_DEFAULT_TEXSET_NAME);
@@ -30,9 +34,9 @@ void TTexSet::Invalidate()
     unsigned int cTex;
     for (cTex=0;cTex<TEXSET_MAX_TEXTURES;cTex++)
         if (TextureArray[cTex].Used)
-		{            
-			TextureArray[cTex].Used = false;
-		}
+        {
+            DestroyMipMap(TextureArray[cTex].tex);
+        }
 }
 //-----------------------------------------------------------------------------
 char *TTexSet::GetTextureName(unsigned int TexID)
@@ -95,7 +99,58 @@ int TTexSet::SetMipMap(unsigned int MipMapID,CGMipMap *MipMap)
     TextureArray[MipMapID].Filename[0] = 0;
     return(RES_OP_OK);
 }
-//-----------------------------------------------------------------------------
+//---------------------------------------------------------------------------
+Texture* TTexSet::GetMipMapLOD(unsigned int TexID,unsigned int LOD)
+{
+    // Returns the most detailed LOD in the mipmap identified with TexID
+    if (TexID>=TEXSET_MAX_TEXTURES)
+    {
+        ERROR_SetError("TEXSET0005","Bad texture identifier.");
+        return(RES_OP_ERROR);
+    }
+
+    if (TextureArray[TexID].Used == false)
+    {
+        ERROR_SetError("TEXSET0006","Empty texture.");
+        return(RES_OP_ERROR);
+    }
+
+     if (LOD >= TextureArray[TexID].tex->lods.size())
+     {
+        ERROR_SetError("TEXSET0007","Invalid LOD Mipmap");
+        return(RES_OP_ERROR);
+     }
+
+     return( TextureArray[TexID].tex->lods[LOD] );
+}
+//---------------------------------------------------------------------------
+Texture *TTexSet::GetTexture(unsigned int TexID)
+{
+    // Returns the most detailed LOD in the mipmap identified with TexID
+    return( GetMipMapLOD(TexID,0) );
+}
+//---------------------------------------------------------------------------
+int TTexSet::SetTexture(unsigned int TexID,Texture *Tex)
+{
+    if (TexID>=TEXSET_MAX_TEXTURES)
+    {
+        ERROR_SetError("TEXSET0007","Bad texture identifier.");
+        return(RES_OP_ERROR);
+    }
+
+    MipMap* mipmap = poCreateMipMapFromTexture(Tex);
+    if (mipmap  == NULL)
+    {
+        ERROR_SetError("TEXSET0008","Couldn't create texture mipmap.");
+        return(RES_OP_ERROR);
+    }
+
+    TextureArray[TexID].Used = true;
+    TextureArray[TexID].Filename[0] = 0;
+    TextureArray[TexID].tex = mipmap;
+
+    return(RES_OP_OK);
+}
 unsigned int TTexSet::GetMaxMipMaps()
 {
     unsigned int cTex,LastTex;
@@ -128,7 +183,7 @@ unsigned char TTexSet::GetMaxLODS()
         {
             if (TextureArray[cTex].m_poTex->m_uiNumLODs > uiMaxLODS)
                 uiMaxLODS = TextureArray[cTex].m_poTex->m_uiNumLODs;
-}
+        }
         
     return(uiMaxLODS);
 }
@@ -144,7 +199,7 @@ int TTexSet::Load(char *Filename)
     {
         CGSystemLC::I()->Error("TEXSET-LD00","Null texset filename.");
         return(RES_OP_ERROR);
-}
+    }
 
     fd = fopen(Filename,"rb");
 
@@ -152,27 +207,27 @@ int TTexSet::Load(char *Filename)
     {
         CGSystemLC::I()->Error("TEXSET-LD00","Unable to open TexSet",Filename);
         return(RES_OP_ERROR);
-}
+    }
 
     // Read object identifier
     if (! fread(&ulID,4,1,fd))
     {
         CGSystemLC::I()->Error("TEXSET-LD01","Cannot read TexSet from file");
         return(RES_OP_ERROR);
-}
+    }
 
     if (ulID != TEXSET_OBJ_IDENTIFIER)
     {
         CGSystemLC::I()->Error("TEXSET-LD02","Bad TexSet identifier.");
         return(RES_OP_ERROR);
-}
+    }
 
     // Read block length
     if (! fread(&ulBlockLength,4,1,fd))
     {
         CGSystemLC::I()->Error("TEXSET-LD03","Cannot read TexSet from file");
         return(RES_OP_ERROR);
-}
+    }
 
     // Read texset data
     uiRes = LoadWithHandler(fd);
@@ -193,7 +248,7 @@ int TTexSet::Save(char *Filename)
     {
         CGSystemLC::I()->Error("TEXSET-SV01","Unable to save TexSet file",Filename);
         return(RES_OP_ERROR);
-}
+    }
 
     Res = SaveWithHandler(fd);
 
@@ -203,17 +258,162 @@ int TTexSet::Save(char *Filename)
 //-----------------------------------------------------------------------------
 int TTexSet::LoadWithHandler(FILE *fd)
 {
-	return(0);
+    unsigned int   cI,cJ;
+    unsigned int   BlockLenght;
+
+    unsigned long  ulID;
+    unsigned char  ucMajorVersion;
+    unsigned char  ucMinorVersion;
+    unsigned short usNumMipMaps;
+    unsigned short usMaxMipMaps;
+    unsigned char  ucMaxLODS;
+    unsigned long  BlockLenghtFilePos;
+    unsigned short cTex,usTexNum;
+
+    unsigned long  ulRIFF_BlockLength,ulRIFF_ObjectID;
+
+    int            iRes = RES_OP_OK;
+
+    // Invalidate the texture set and prepare for mipmap loading
+    Invalidate();
+
+    // Read object version
+    fread(&ucMajorVersion,1,1,fd);
+    fread(&ucMinorVersion,1,1,fd);
+
+    if ((ucMajorVersion > TEXSET_MAJOR_VERSION) || ((ucMajorVersion == TEXSET_MAJOR_VERSION) && (ucMinorVersion > TEXSET_MAJOR_VERSION)) )
+    {
+        ERROR_SetError("TEXSET-LD10","Incorrect TexSet version number.");
+        return(RES_OP_ERROR);
+    }
+
+    // Read object name
+    fread(&Name,MAX_CARS_TEXSET_NAME,1,fd); Name[MAX_CARS_TEXSET_NAME-1] = 0;
+
+    fread(&usMaxMipMaps,2,1,fd);
+    fread(&ucMaxLODS   ,1,1,fd);
+    fread(&usNumMipMaps,2,1,fd);
+
+    if (usNumMipMaps > TEXSET_MAX_TEXTURES)
+    {
+        usNumMipMaps = TEXSET_MAX_TEXTURES;
+        ERROR_SetError("WARNING TEXSET-LD11","Number of mipmaps truncated.");
+        iRes = RES_OP_WARNING;
+    }
+
+    // Read mipmap data
+    for (cTex=0;cTex<usNumMipMaps;cTex++)
+    {
+        // Read mipmap number
+        fread(&usTexNum,2,1,fd);
+
+        if (usTexNum<TEXSET_MAX_TEXTURES)
+        {
+            // Read RIFF header
+            fread(&ulRIFF_ObjectID   ,4,1,fd);
+            fread(&ulRIFF_BlockLength,4,1,fd);
+
+            if (ulRIFF_ObjectID == MIPMAP_OBJ_IDENTIFIER)
+            {
+                // Read mipmap
+                MipMap* mipmap = poLoadMipMap(fd);
+
+                if (mipmap == NULL)
+                {
+                    ERROR_SetError("TEXSET-LD12","Error loading mipmap");
+                    return(RES_OP_ERROR);
+                }
+                else
+                {
+                    // Set the current mipmap
+                    SetMipMap(usTexNum, mipmap);
+                }
+            }
+            else
+            {
+                // Skip block
+                fseek(fd,ulRIFF_BlockLength,SEEK_CUR);
+            }
+        }
+        else
+        {
+            ERROR_SetError("WARNING TEXSET-LD13","Unable to load mipmap");
+            iRes = RES_OP_WARNING;
+        }
+    }
+
+    return (iRes);
 }
 //-----------------------------------------------------------------------------
 int TTexSet::SaveWithHandler(FILE *fd)
 {
-	return(0);
+    unsigned int cI,cJ;
+    unsigned int BlockLenght;
+
+    unsigned long  ulID           = TEXSET_OBJ_IDENTIFIER;
+    unsigned char  ucMajorVersion = TEXSET_MAJOR_VERSION;
+    unsigned char  ucMinorVersion = TEXSET_MINOR_VERSION;
+    unsigned int   usNumMipMaps   = GetNumMipMaps();
+    unsigned int   usMaxMipMaps   = TEXSET_MAX_TEXTURES;
+    unsigned char  ucMaxLODS      = GetMaxLODS();
+    unsigned long  ulMipMapDataSize,ulBlockLenghtFilePos;
+    unsigned short cTex;
+
+    // Write identifier
+    fwrite(&ulID,4,1,fd);
+
+    // Write block length
+    ulBlockLenghtFilePos = ftell(fd);     // To be object size modified
+    fwrite(&BlockLenght,4,1,fd);
+
+    // Write object version
+    fwrite(&ucMajorVersion,1,1,fd);
+    fwrite(&ucMinorVersion,1,1,fd);
+
+    // Write header
+    fwrite(&Name,MAX_CARS_TEXSET_NAME,1,fd);
+
+    fwrite(&usMaxMipMaps,2,1,fd);
+    fwrite(&ucMaxLODS   ,1,1,fd);
+    fwrite(&usNumMipMaps,2,1,fd);
+
+    // Write mipmap data
+    for (cTex=0;cTex<usMaxMipMaps;cTex++)
+    {
+        if (TextureArray[cTex].Used)
+        {
+            // write mipmap number
+            fwrite(&cTex,2,1,fd);
+
+            // write mipmap
+            assert(false, "Trying to save mipmap !!");
+            
+            /*
+            if (! SaveMipMapWithHandler(&TextureArray[cTex].tex,fd))
+            {
+                ERROR_SetError("TEXSET-SV10",TEX_fn_ErrorDescription());
+                return(RES_OP_ERROR);
+            }
+            */
+        }
+    }
+    ulMipMapDataSize = ftell(fd) - (ulBlockLenghtFilePos + 4);
+    BlockLenght = ulMipMapDataSize;
+
+    if (fseek (fd,ulBlockLenghtFilePos,SEEK_SET))
+        return(RES_OP_ERROR);
+
+    if (! fwrite(&BlockLenght,4,1,fd))
+        return(RES_OP_ERROR);
+
+    if (fseek (fd,BlockLenght,SEEK_CUR)) // return to current pos
+        return(RES_OP_ERROR);
+
+    return (RES_OP_OK);
 }
 //-----------------------------------------------------------------------------
 int TTexSet::LoadTexSetList(char *Filename)
 {
-/*
     FILE *fd;
     unsigned int cTex;
     char StrBuff[MAX_CARS];
@@ -221,16 +421,14 @@ int TTexSet::LoadTexSetList(char *Filename)
     unsigned int uiNumMipMaps;
     unsigned int uiMipMapNum;
     unsigned int uiLODS;
-    MipMap   MipMap;
-
+    
     if (! Filename)
     {
-        CGSystemLC::I()->Error("TEXSET-LD00","No texset list filename provided.");
+        ERROR_SetError("TEXSET-LD00","No texset list filename provided.");
         return(RES_OP_ERROR);
-}
+    }
 
     // Invalidate the texture set and prepare for mipmap loading
-    InitializeMipMap(&MipMap);
     Invalidate();
 
     fd = fopen(Filename,"rt");
@@ -238,7 +436,7 @@ int TTexSet::LoadTexSetList(char *Filename)
     {
         CGSystemLC::I()->Error("TEXSET-LDL00","Unable to load TexSet list file",Filename);
         return(RES_OP_ERROR);
-}
+    }
 
     // Get TexList identifier
     fgets(StrBuff,MAX_CARS,fd);
@@ -247,7 +445,7 @@ int TTexSet::LoadTexSetList(char *Filename)
         fclose(fd);
         CGSystemLC::I()->Error("TEXSET-LDL00","Bad TexSet list identifier.");
         return(RES_OP_ERROR);
-}
+    }
 
     // Get the maximum number of textures
     fscanf(fd,"%d",uiMaxMipMaps);
@@ -265,32 +463,30 @@ int TTexSet::LoadTexSetList(char *Filename)
 
         if (uiMipMapNum<TEXSET_MAX_TEXTURES)
         {
-            if (! LoadMipMap(&MipMap,StrBuff))
+            MipMap* mipMap = poLoadTextureAsMipmap(StrBuff);
+            if (mipMap == NULL)
             {
                 fclose(fd);
                 CGSystemLC::I()->Error("TEXSET-LDL12","Error loading mipmap");
                 return(RES_OP_ERROR);
-}
+            }
             else
             {
                 // Set the current mipmap
-                SetMipMap(uiMipMapNum,&MipMap);
-}
+                SetMipMap(uiMipMapNum, mipMap);
+            }
 
             if (TextureArray[cTex].Used)
                 fprintf(fd,"%d %s\r\n",cTex,TextureArray[cTex].Filename);
-}
-}
+        }
+    }
 
-    DeallocateMipMap(&MipMap);
     fclose(fd);
-*/
     return (RES_OP_OK);
 }
 //-----------------------------------------------------------------------------
 int TTexSet::SaveTexSetList(char *Filename)
 {
-/*
     FILE *fd;
     unsigned int cTex;
 
@@ -306,7 +502,7 @@ int TTexSet::SaveTexSetList(char *Filename)
             fprintf(fd,"%d %s\r\n",cTex,TextureArray[cTex].Filename);
 
     fclose(fd);
-*/    
+ 
     return (RES_OP_OK);
 }
 //-----------------------------------------------------------------------------

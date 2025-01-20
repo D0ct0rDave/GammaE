@@ -1,444 +1,190 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Scene">
-      <UniqueIdentifier>{B3F7140E-1F0C-3DBF-E88D-E01E546139F0}</UniqueIdentifier>
+    <Filter Include="Console">
+      <UniqueIdentifier>{389F3134-A47E-B0CF-AD96-3BA619F51631}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scene\src">
-      <UniqueIdentifier>{4A577B7A-B6C1-2FF1-FFFF-E0966BA90D46}</UniqueIdentifier>
+    <Filter Include="CoronaMgr">
+      <UniqueIdentifier>{AD249231-198F-46A8-62CD-F74DCE7624FD}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scene\src\3D_Loaders">
-      <UniqueIdentifier>{F9AB96BE-E53A-2088-8E59-34837AC7302E}</UniqueIdentifier>
+    <Filter Include="Detailer">
+      <UniqueIdentifier>{6FEC96B1-5BB9-F1BC-84D2-DF6470FE264B}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scene\src\3D_Loaders\3DMax_ASE">
-      <UniqueIdentifier>{3DCAC5DC-29F0-8F43-1236-150FFEFAB40F}</UniqueIdentifier>
+    <Filter Include="HUD">
+      <UniqueIdentifier>{66F0870B-D2F9-877C-5B75-9E7CC77D937C}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scene\src\3D_Loaders\3DSLoader">
-      <UniqueIdentifier>{29B50579-15DB-CFDF-FE20-55ABEAE5F4AB}</UniqueIdentifier>
+    <Filter Include="HUD\Font">
+      <UniqueIdentifier>{2CE9661F-18B6-C12A-41CF-AFD22DFBF6B8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scene\src\3D_Loaders\BSP2Loader">
-      <UniqueIdentifier>{76EECCC2-E2D1-DB02-EBD4-093F5737A253}</UniqueIdentifier>
+    <Filter Include="HUD\HUDFile">
+      <UniqueIdentifier>{3651C187-A206-3A7D-2BFB-335497AF3081}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scene\src\3D_Loaders\GEMLoader">
-      <UniqueIdentifier>{98F122B1-8417-ED17-6D5D-72E3592212E4}</UniqueIdentifier>
+    <Filter Include="HUD\MsgBox">
+      <UniqueIdentifier>{05C65DA5-F17D-9FF2-5A85-784E465C3AE3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scene\src\3D_Loaders\MD2Loader">
-      <UniqueIdentifier>{625A6761-4E80-31C8-37C6-B693238B5694}</UniqueIdentifier>
+    <Filter Include="LensFlare">
+      <UniqueIdentifier>{E106FEE1-4D71-B258-96AF-63FE025990AD}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scene\src\3D_Loaders\MD3Loader">
-      <UniqueIdentifier>{239761AE-0FBD-2B15-F802-B1E0E4C750E1}</UniqueIdentifier>
+    <Filter Include="LightCaster">
+      <UniqueIdentifier>{7F8DDE88-EB42-577E-7437-5155E0EB4D82}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scene\src\3D_Savers">
-      <UniqueIdentifier>{03A26E2C-6F03-4C3A-F870-92EC64D182F9}</UniqueIdentifier>
+    <Filter Include="Reflector">
+      <UniqueIdentifier>{2B03EF26-976D-A39D-E0AB-54434C5581F2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scene\src\3D_Savers\GEMSaver">
-      <UniqueIdentifier>{6C1D6426-58D8-53D2-0190-CC1CED299E62}</UniqueIdentifier>
+    <Filter Include="SceneAxis">
+      <UniqueIdentifier>{484A857A-B4B4-39F1-FDF2-EA96699C1746}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scene\src\Animation">
-      <UniqueIdentifier>{B934758C-2596-529A-AE03-994C1A648959}</UniqueIdentifier>
+    <Filter Include="ShadowCaster">
+      <UniqueIdentifier>{0D50144A-F9B2-A3EE-A238-DCA48E7A6F71}</UniqueIdentifier>
     </Filter>
-    <Filter Include="SceneObjects">
-      <UniqueIdentifier>{BD798A53-A9DC-19F8-5262-52AE3EA4E57A}</UniqueIdentifier>
+    <Filter Include="SkyBox">
+      <UniqueIdentifier>{45F04ED1-3192-79A7-1A4D-8DFB068E00F8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="SceneObjects\src">
-      <UniqueIdentifier>{54CE96A3-40C7-B5F5-69F9-9A7A55519501}</UniqueIdentifier>
+    <Filter Include="SkyDome">
+      <UniqueIdentifier>{A1102EFB-0DF0-AC96-1608-386D826613F8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="SceneObjects\src\Console">
-      <UniqueIdentifier>{76F9E1C5-621E-3146-8B69-16D677ED2F64}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneObjects\src\CoronaMgr">
-      <UniqueIdentifier>{6B06C2F0-5716-6EC1-C0CF-D2DFACFE5C5A}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneObjects\src\Detailer">
-      <UniqueIdentifier>{6D8E5279-D950-8603-2201-15908E025FE1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneObjects\src\HUD">
-      <UniqueIdentifier>{A4DB5814-906A-E2DD-3989-F6D825F7F283}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneObjects\src\HUD\Font">
-      <UniqueIdentifier>{2A8B22E7-964D-5671-DFFD-E4FD4BFF2E4F}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneObjects\src\HUD\HUDFile">
-      <UniqueIdentifier>{749A70D2-6055-607E-090D-D9C8F5A6AA0E}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneObjects\src\HUD\MsgBox">
-      <UniqueIdentifier>{83DF894A-EFEC-B730-78D3-B31BE4DF83E7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneObjects\src\LensFlare">
-      <UniqueIdentifier>{9FE82DA1-8BF8-D971-F4B1-3E90E0E0C80A}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneObjects\src\LightCaster">
-      <UniqueIdentifier>{BDD68DD3-A991-7D7F-5249-F6C93EE3C70F}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneObjects\src\Reflector">
-      <UniqueIdentifier>{E9E41EE6-D5F4-CAB6-3EAE-2FD52ADDB94F}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneObjects\src\SceneAxis">
-      <UniqueIdentifier>{062CB539-F23B-610A-5BF5-C528472450A3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneObjects\src\ShadowCaster">
-      <UniqueIdentifier>{0BC1ACEA-77D9-9314-4086-23AEAC5D28AE}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneObjects\src\SkyBox">
-      <UniqueIdentifier>{C3FA1D69-2F32-6600-383C-CA23A4F28CF9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneObjects\src\SkyDome">
-      <UniqueIdentifier>{DF6ADE8C-CB8F-2D0D-F4DA-129DE05E2C2B}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneObjects\src\TexProjector">
-      <UniqueIdentifier>{EC9AF086-58B3-D7B0-2160-674A8D376C4A}</UniqueIdentifier>
+    <Filter Include="TexProjector">
+      <UniqueIdentifier>{EE2958E6-DA8C-E78A-8312-20416F54B30D}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\modules\Scene\src\3D_Loaders\3DMax_ASE\ASE_ModelParser.h">
-      <Filter>Scene\src\3D_Loaders\3DMax_ASE</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\3D_Loaders\3DMax_ASE\ASE_Tokens.h">
-      <Filter>Scene\src\3D_Loaders\3DMax_ASE</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\3D_Loaders\3DSLoader\CLoader3DS.h">
-      <Filter>Scene\src\3D_Loaders\3DSLoader</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\3D_Loaders\3DSLoader\T3DS_Chunk.h">
-      <Filter>Scene\src\3D_Loaders\3DSLoader</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\3D_Loaders\BSP2Loader\BSP2Types.h">
-      <Filter>Scene\src\3D_Loaders\BSP2Loader</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\3D_Loaders\BSP2Loader\CLoaderBSP2.h">
-      <Filter>Scene\src\3D_Loaders\BSP2Loader</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\3D_Loaders\C3DLoader.h">
-      <Filter>Scene\src\3D_Loaders</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\3D_Loaders\GEMLoader\CLoaderGEM.h">
-      <Filter>Scene\src\3D_Loaders\GEMLoader</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\3D_Loaders\GEMLoader\GEMFile.h">
-      <Filter>Scene\src\3D_Loaders\GEMLoader</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\3D_Loaders\MD2Loader\CLoaderMD2.h">
-      <Filter>Scene\src\3D_Loaders\MD2Loader</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\3D_Loaders\MD2Loader\MD2LightNormals.h">
-      <Filter>Scene\src\3D_Loaders\MD2Loader</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\3D_Loaders\MD2Loader\MD2Types.h">
-      <Filter>Scene\src\3D_Loaders\MD2Loader</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\3D_Loaders\MD3Loader\CLoaderMD3.h">
-      <Filter>Scene\src\3D_Loaders\MD3Loader</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\3D_Loaders\MD3Loader\MD3Model.h">
-      <Filter>Scene\src\3D_Loaders\MD3Loader</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\3D_Savers\C3DSaver.h">
-      <Filter>Scene\src\3D_Savers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\3D_Savers\GEMSaver\CSaverGEM.h">
-      <Filter>Scene\src\3D_Savers\GEMSaver</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\Animation\CObject3D_AnimCfg.h">
-      <Filter>Scene\src\Animation</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\Animation\CObject3D_AnimCfgGen.h">
-      <Filter>Scene\src\Animation</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\Animation\CObject3D_AnimCfgMgr.h">
-      <Filter>Scene\src\Animation</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\Animation\CObject3D_AnimGen.h">
-      <Filter>Scene\src\Animation</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\Animation\CObject3D_AnimMesh.h">
-      <Filter>Scene\src\Animation</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\Animation\CObject3D_AnimNode.h">
-      <Filter>Scene\src\Animation</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\Animation\CObject3D_AnimTransf.h">
-      <Filter>Scene\src\Animation</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\Animation\TFrameAnimation.h">
-      <Filter>Scene\src\Animation</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\CObject3D.h">
-      <Filter>Scene\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\CObject3D_BSPNode.h">
-      <Filter>Scene\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\CObject3D_Camera.h">
-      <Filter>Scene\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\CObject3D_CompiledLeaf.h">
-      <Filter>Scene\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\CObject3D_Instance.h">
-      <Filter>Scene\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\CObject3D_Leaf.h">
-      <Filter>Scene\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\CObject3D_Link.h">
-      <Filter>Scene\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\CObject3D_Mux.h">
-      <Filter>Scene\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\CObject3D_Node.h">
-      <Filter>Scene\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\CObject3D_ScreenRect.h">
-      <Filter>Scene\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\CObject3D_Switch.h">
-      <Filter>Scene\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\CObject3D_Transf.h">
-      <Filter>Scene\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\GScene.h">
-      <Filter>Scene\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\e3DObjectTypeID.h">
-      <Filter>Scene\src</Filter>
-    </ClInclude>
     <ClInclude Include="..\modules\SceneObjects\src\Console\CConsole.h">
-      <Filter>SceneObjects\src\Console</Filter>
+      <Filter>Console</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\SceneObjects\src\CoronaMgr\CCorona.h">
-      <Filter>SceneObjects\src\CoronaMgr</Filter>
+      <Filter>CoronaMgr</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\SceneObjects\src\CoronaMgr\CCoronaMgr.h">
-      <Filter>SceneObjects\src\CoronaMgr</Filter>
+      <Filter>CoronaMgr</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\SceneObjects\src\Detailer\CDetailer.h">
-      <Filter>SceneObjects\src\Detailer</Filter>
+      <Filter>Detailer</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\SceneObjects\src\GSceneObjects.h">
-      <Filter>SceneObjects\src</Filter>
-    </ClInclude>
+    <ClInclude Include="..\modules\SceneObjects\src\GSceneObjects.h" />
     <ClInclude Include="..\modules\SceneObjects\src\HUD\CHUD.h">
-      <Filter>SceneObjects\src\HUD</Filter>
+      <Filter>HUD</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\SceneObjects\src\HUD\CHUDIcon.h">
-      <Filter>SceneObjects\src\HUD</Filter>
+      <Filter>HUD</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\SceneObjects\src\HUD\CHUDLabel.h">
-      <Filter>SceneObjects\src\HUD</Filter>
+      <Filter>HUD</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\SceneObjects\src\HUD\CHUDObject.h">
-      <Filter>SceneObjects\src\HUD</Filter>
+      <Filter>HUD</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\SceneObjects\src\HUD\CHUDProgressBar.h">
-      <Filter>SceneObjects\src\HUD</Filter>
+      <Filter>HUD</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\SceneObjects\src\HUD\Font\CHUDFont.h">
-      <Filter>SceneObjects\src\HUD\Font</Filter>
+      <Filter>HUD\Font</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\SceneObjects\src\HUD\Font\CHUDFontWH.h">
-      <Filter>SceneObjects\src\HUD\Font</Filter>
+      <Filter>HUD\Font</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\SceneObjects\src\HUD\HUDFile\CHUDFile.h">
-      <Filter>SceneObjects\src\HUD\HUDFile</Filter>
+      <Filter>HUD\HUDFile</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\SceneObjects\src\HUD\MsgBox\CHUDMsgBox.h">
-      <Filter>SceneObjects\src\HUD\MsgBox</Filter>
+      <Filter>HUD\MsgBox</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\SceneObjects\src\HUD\MsgBox\CMenuTextGrid.h">
-      <Filter>SceneObjects\src\HUD\MsgBox</Filter>
+      <Filter>HUD\MsgBox</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\SceneObjects\src\LensFlare\CLensFlare.h">
-      <Filter>SceneObjects\src\LensFlare</Filter>
+      <Filter>LensFlare</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\SceneObjects\src\LensFlare\CLensFlare_Elem.h">
-      <Filter>SceneObjects\src\LensFlare</Filter>
+      <Filter>LensFlare</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\SceneObjects\src\LightCaster\CLightCaster.h">
-      <Filter>SceneObjects\src\LightCaster</Filter>
+      <Filter>LightCaster</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\SceneObjects\src\Reflector\CObject3D_Reflector.h">
-      <Filter>SceneObjects\src\Reflector</Filter>
+      <Filter>Reflector</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\SceneObjects\src\SceneAxis\SceneAxis.h">
-      <Filter>SceneObjects\src\SceneAxis</Filter>
+      <Filter>SceneAxis</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\SceneObjects\src\ShadowCaster\CShadowCaster.h">
-      <Filter>SceneObjects\src\ShadowCaster</Filter>
+      <Filter>ShadowCaster</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\SceneObjects\src\SkyBox\CSkyBox.h">
-      <Filter>SceneObjects\src\SkyBox</Filter>
+      <Filter>SkyBox</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\SceneObjects\src\SkyDome\CSkyDome.h">
-      <Filter>SceneObjects\src\SkyDome</Filter>
+      <Filter>SkyDome</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\SceneObjects\src\TexProjector\CTexProjector.h">
-      <Filter>SceneObjects\src\TexProjector</Filter>
+      <Filter>TexProjector</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\modules\Scene\src\3D_Loaders\3DMax_ASE\ASE_ModelParser.cpp">
-      <Filter>Scene\src\3D_Loaders\3DMax_ASE</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\3D_Loaders\3DMax_ASE\ASE_Tokens.cpp">
-      <Filter>Scene\src\3D_Loaders\3DMax_ASE</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\3D_Loaders\3DSLoader\CLoader3DS.cpp">
-      <Filter>Scene\src\3D_Loaders\3DSLoader</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\3D_Loaders\3DSLoader\T3DS_Chunk.cpp">
-      <Filter>Scene\src\3D_Loaders\3DSLoader</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\3D_Loaders\BSP2Loader\CLoaderBSP2.cpp">
-      <Filter>Scene\src\3D_Loaders\BSP2Loader</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\3D_Loaders\C3DLoader.cpp">
-      <Filter>Scene\src\3D_Loaders</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\3D_Loaders\GEMLoader\CLoaderGEM.cpp">
-      <Filter>Scene\src\3D_Loaders\GEMLoader</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\3D_Loaders\MD2Loader\CLoaderMD2.cpp">
-      <Filter>Scene\src\3D_Loaders\MD2Loader</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\3D_Loaders\MD2Loader\MD2LightNormals.cpp">
-      <Filter>Scene\src\3D_Loaders\MD2Loader</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\3D_Loaders\MD3Loader\CLoaderMD3.cpp">
-      <Filter>Scene\src\3D_Loaders\MD3Loader</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\3D_Savers\C3DSaver.cpp">
-      <Filter>Scene\src\3D_Savers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\3D_Savers\GEMSaver\CSaverGEM.cpp">
-      <Filter>Scene\src\3D_Savers\GEMSaver</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\Animation\CObject3D_AnimCfg.cpp">
-      <Filter>Scene\src\Animation</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\Animation\CObject3D_AnimCfgGen.cpp">
-      <Filter>Scene\src\Animation</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\Animation\CObject3D_AnimCfgMgr.cpp">
-      <Filter>Scene\src\Animation</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\Animation\CObject3D_AnimGen.cpp">
-      <Filter>Scene\src\Animation</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\Animation\CObject3D_AnimMesh.cpp">
-      <Filter>Scene\src\Animation</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\Animation\CObject3D_AnimNode.cpp">
-      <Filter>Scene\src\Animation</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\Animation\CObject3D_AnimTransf.cpp">
-      <Filter>Scene\src\Animation</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\Animation\TFrameAnimation.cpp">
-      <Filter>Scene\src\Animation</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\CObject3D.cpp">
-      <Filter>Scene\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\CObject3D_BSPNode.cpp">
-      <Filter>Scene\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\CObject3D_Camera.cpp">
-      <Filter>Scene\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\CObject3D_CompiledLeaf.cpp">
-      <Filter>Scene\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\CObject3D_Leaf.cpp">
-      <Filter>Scene\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\CObject3D_Link.cpp">
-      <Filter>Scene\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\CObject3D_Mux.cpp">
-      <Filter>Scene\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\CObject3D_Node.cpp">
-      <Filter>Scene\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\CObject3D_ScreenRect.cpp">
-      <Filter>Scene\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\CObject3D_Switch.cpp">
-      <Filter>Scene\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\CObject3D_Transf.cpp">
-      <Filter>Scene\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\e3DObjectTypeID.cpp">
-      <Filter>Scene\src</Filter>
-    </ClCompile>
     <ClCompile Include="..\modules\SceneObjects\src\Console\CConsole.cpp">
-      <Filter>SceneObjects\src\Console</Filter>
+      <Filter>Console</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\SceneObjects\src\CoronaMgr\CCorona.cpp">
-      <Filter>SceneObjects\src\CoronaMgr</Filter>
+      <Filter>CoronaMgr</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\SceneObjects\src\CoronaMgr\CCoronaMgr.cpp">
-      <Filter>SceneObjects\src\CoronaMgr</Filter>
+      <Filter>CoronaMgr</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\SceneObjects\src\Detailer\CDetailer.cpp">
-      <Filter>SceneObjects\src\Detailer</Filter>
+      <Filter>Detailer</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\SceneObjects\src\HUD\CHUD.cpp">
-      <Filter>SceneObjects\src\HUD</Filter>
+      <Filter>HUD</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\SceneObjects\src\HUD\CHUDIcon.cpp">
-      <Filter>SceneObjects\src\HUD</Filter>
+      <Filter>HUD</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\SceneObjects\src\HUD\CHUDLabel.cpp">
-      <Filter>SceneObjects\src\HUD</Filter>
+      <Filter>HUD</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\SceneObjects\src\HUD\CHUDProgressBar.cpp">
-      <Filter>SceneObjects\src\HUD</Filter>
+      <Filter>HUD</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\SceneObjects\src\HUD\Font\CHUDFont.cpp">
-      <Filter>SceneObjects\src\HUD\Font</Filter>
+      <Filter>HUD\Font</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\SceneObjects\src\HUD\Font\CHUDFontWH.cpp">
-      <Filter>SceneObjects\src\HUD\Font</Filter>
+      <Filter>HUD\Font</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\SceneObjects\src\HUD\HUDFile\CHUDFile.cpp">
-      <Filter>SceneObjects\src\HUD\HUDFile</Filter>
+      <Filter>HUD\HUDFile</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\SceneObjects\src\HUD\MsgBox\CHUDMsgBox.cpp">
-      <Filter>SceneObjects\src\HUD\MsgBox</Filter>
+      <Filter>HUD\MsgBox</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\SceneObjects\src\HUD\MsgBox\CMenuTextGrid.cpp">
-      <Filter>SceneObjects\src\HUD\MsgBox</Filter>
+      <Filter>HUD\MsgBox</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\SceneObjects\src\LensFlare\CLensFlare.cpp">
-      <Filter>SceneObjects\src\LensFlare</Filter>
+      <Filter>LensFlare</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\SceneObjects\src\LensFlare\CLensFlare_Elem.cpp">
-      <Filter>SceneObjects\src\LensFlare</Filter>
+      <Filter>LensFlare</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\SceneObjects\src\LightCaster\CLightCaster.cpp">
-      <Filter>SceneObjects\src\LightCaster</Filter>
+      <Filter>LightCaster</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\SceneObjects\src\Reflector\CObject3D_Reflector.cpp">
-      <Filter>SceneObjects\src\Reflector</Filter>
+      <Filter>Reflector</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\SceneObjects\src\SceneAxis\SceneAxis.cpp">
-      <Filter>SceneObjects\src\SceneAxis</Filter>
+      <Filter>SceneAxis</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\SceneObjects\src\ShadowCaster\CShadowCaster.cpp">
-      <Filter>SceneObjects\src\ShadowCaster</Filter>
+      <Filter>ShadowCaster</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\SceneObjects\src\SkyBox\CSkyBox.cpp">
-      <Filter>SceneObjects\src\SkyBox</Filter>
+      <Filter>SkyBox</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\SceneObjects\src\SkyDome\CSkyDome.cpp">
-      <Filter>SceneObjects\src\SkyDome</Filter>
+      <Filter>SkyDome</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\SceneObjects\src\TexProjector\CTexProjector.cpp">
-      <Filter>SceneObjects\src\TexProjector</Filter>
+      <Filter>TexProjector</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

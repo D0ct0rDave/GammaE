@@ -25,7 +25,7 @@ project(project_name)
 
 	-- specific defines for this project
 	defines {
-		"_NULL=0",
+		"NULL=0",
 		"_MBCS" 
 	}
 
@@ -48,9 +48,10 @@ project(project_name)
 
     -- Add include directories (sourceRoot is included by default)
     includedirs {
-        sourceRoot,
-		"$(ProjectDir)../..;",
-		"$(ProjectDir).."
+		"$(ProjectDir)../inc",
+		"$(ProjectDir)../../../inc",
+		"$(ProjectDir)../modules/" .. project_name .. "/src",
+		"$(ProjectDir)../src/"
     }
 
     -- Group files based on their folder structure

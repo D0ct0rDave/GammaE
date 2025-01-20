@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Entities">
+      <UniqueIdentifier>{8AA33B53-7670-965E-9F89-84068BB5CBEC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\CommandInterpreter">
+      <UniqueIdentifier>{8C0FF513-F81C-23FA-8103-1FE5ED0FEFB0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\CommandInterpreter\ExtendedCI">
+      <UniqueIdentifier>{98A7083A-84F9-DF29-6D18-1D3A5909F912}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\EntitySpawner">
+      <UniqueIdentifier>{36B03237-22AA-5B89-0B17-F299F7AFC1F5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{7FA9857C-6BE0-860D-14CD-6C1000E3020F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameRegistry">
+      <UniqueIdentifier>{98529B25-84B5-2ACA-2D3B-6380197DF64C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameRes">
+      <UniqueIdentifier>{69175847-D5F6-D6E2-DE0E-62B94A6D3D44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameRes\Graphic">
+      <UniqueIdentifier>{96F20CDF-027E-7AA3-0B8F-FD977799D6A3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameRes\Input">
+      <UniqueIdentifier>{28F279EA-94B2-F520-5DED-3E9EC96C3AFD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameRes\Path">
+      <UniqueIdentifier>{052B6C3D-F18D-FBE1-9A13-34988655C764}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameRes\Script">
+      <UniqueIdentifier>{8DA54550-7973-3956-6207-AA7C4E7415BB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MessageMgr">
+      <UniqueIdentifier>{D0FFB401-BCB7-F64E-25BF-CFAA1196913F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\modules\Game\src\Entities\CGGEntityRenderMgr.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\Entities\CGGEntityStateRegistry.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\Entities\CGGameEntity.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\Entities\CGGameEntityMgr.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\Entities\CGLiveGameEntity.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\Entities\CommandInterpreter\CGGCICommand.h">
+      <Filter>Entities\CommandInterpreter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\Entities\CommandInterpreter\CGGCIState.h">
+      <Filter>Entities\CommandInterpreter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\Entities\CommandInterpreter\CGGCIStdCommands.h">
+      <Filter>Entities\CommandInterpreter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\Entities\CommandInterpreter\CGGameApplication.h">
+      <Filter>Entities\CommandInterpreter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\Entities\CommandInterpreter\CGGameCommandInterpreter.h">
+      <Filter>Entities\CommandInterpreter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\Entities\CommandInterpreter\CGGameConsoleApp.h">
+      <Filter>Entities\CommandInterpreter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\Entities\CommandInterpreter\ExtendedCI\CGGCIExtendedCommands.h">
+      <Filter>Entities\CommandInterpreter\ExtendedCI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\Entities\CommandInterpreter\ExtendedCI\CGGameExtendedCI.h">
+      <Filter>Entities\CommandInterpreter\ExtendedCI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\Entities\EntitySpawner\CGGameEntitySpawner.h">
+      <Filter>Entities\EntitySpawner</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\GGame.h" />
+    <ClInclude Include="..\modules\Game\src\Game\CGGameBase.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\Game\CGGameMode.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\GameRegistry\CGGameRegistry.h">
+      <Filter>GameRegistry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\GameRegistry\CGVariableRegistry.h">
+      <Filter>GameRegistry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\GameRes\Graphic\CGGraphicInstance.h">
+      <Filter>GameRes\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\GameRes\Graphic\CGGraphicResource.h">
+      <Filter>GameRes\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\GameRes\Graphic\CGGraphicResourceWH.h">
+      <Filter>GameRes\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\GameRes\Input\CGInputHandler.h">
+      <Filter>GameRes\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\GameRes\Path\CGCurvePath.h">
+      <Filter>GameRes\Path</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\GameRes\Path\CGPath.h">
+      <Filter>GameRes\Path</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\GameRes\Path\CGPathDefinitionFileWH.h">
+      <Filter>GameRes\Path</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\GameRes\Path\CGPathResource.h">
+      <Filter>GameRes\Path</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\GameRes\Path\CGPathResourceWH.h">
+      <Filter>GameRes\Path</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\GameRes\Path\CGSpiralPath.h">
+      <Filter>GameRes\Path</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\GameRes\Script\CGScriptInstance.h">
+      <Filter>GameRes\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\GameRes\Script\CGScriptResource.h">
+      <Filter>GameRes\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\GameRes\Script\CGScriptResourceWH.h">
+      <Filter>GameRes\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\GameRes\Script\CGScriptingSystem.h">
+      <Filter>GameRes\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Game\src\MessageMgr\CGGameMessageMgr.h">
+      <Filter>MessageMgr</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\modules\Game\src\Entities\CGGEntityRenderMgr.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\Entities\CGGEntityStateRegistry.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\Entities\CGGameEntity.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\Entities\CGGameEntityMgr.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\Entities\CGLiveGameEntity.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\Entities\CommandInterpreter\CGGCICommand.cpp">
+      <Filter>Entities\CommandInterpreter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\Entities\CommandInterpreter\CGGCIStdCommands.cpp">
+      <Filter>Entities\CommandInterpreter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\Entities\CommandInterpreter\CGGameApplication.cpp">
+      <Filter>Entities\CommandInterpreter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\Entities\CommandInterpreter\CGGameCommandInterpreter.cpp">
+      <Filter>Entities\CommandInterpreter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\Entities\CommandInterpreter\CGGameConsoleApp.cpp">
+      <Filter>Entities\CommandInterpreter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\Entities\CommandInterpreter\ExtendedCI\CGGCIExtendedCommands.cpp">
+      <Filter>Entities\CommandInterpreter\ExtendedCI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\Entities\CommandInterpreter\ExtendedCI\CGGameExtendedCI.cpp">
+      <Filter>Entities\CommandInterpreter\ExtendedCI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\Entities\EntitySpawner\CGGameEntitySpawner.cpp">
+      <Filter>Entities\EntitySpawner</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\Game\CGGameBase.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\Game\CGGameMode.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\GameRegistry\CGVariableRegistry.cpp">
+      <Filter>GameRegistry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\GameRes\Graphic\CGGraphicInstance.cpp">
+      <Filter>GameRes\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\GameRes\Graphic\CGGraphicResource.cpp">
+      <Filter>GameRes\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\GameRes\Graphic\CGGraphicResourceWH.cpp">
+      <Filter>GameRes\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\GameRes\Input\CGInputHandler.cpp">
+      <Filter>GameRes\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\GameRes\Path\CGCurvePath.cpp">
+      <Filter>GameRes\Path</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\GameRes\Path\CGPath.cpp">
+      <Filter>GameRes\Path</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\GameRes\Path\CGPathDefinitionFileWH.cpp">
+      <Filter>GameRes\Path</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\GameRes\Path\CGPathResource.cpp">
+      <Filter>GameRes\Path</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\GameRes\Path\CGPathResourceWH.cpp">
+      <Filter>GameRes\Path</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\GameRes\Path\CGSpiralPath.cpp">
+      <Filter>GameRes\Path</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\GameRes\Script\CGScriptBinding.cpp">
+      <Filter>GameRes\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\GameRes\Script\CGScriptInstance.cpp">
+      <Filter>GameRes\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\GameRes\Script\CGScriptResource.cpp">
+      <Filter>GameRes\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\GameRes\Script\CGScriptResourceWH.cpp">
+      <Filter>GameRes\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\GameRes\Script\CGScriptingSystem.cpp">
+      <Filter>GameRes\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Game\src\MessageMgr\CGGameMessageMgr.cpp">
+      <Filter>MessageMgr</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

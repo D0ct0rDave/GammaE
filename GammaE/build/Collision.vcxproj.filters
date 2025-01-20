@@ -1,1086 +1,223 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="AI">
-      <UniqueIdentifier>{EF725900-DBFE-870B-44AD-880B3058880B}</UniqueIdentifier>
+    <Filter Include="COL_Testers">
+      <UniqueIdentifier>{6CDE6689-D893-DF7E-6188-D955CD3CD682}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\src">
-      <UniqueIdentifier>{8610C3A4-72B2-ED7A-5B6D-01CF47AE74CB}</UniqueIdentifier>
+    <Filter Include="COL_Testers\COL_DynamicTest">
+      <UniqueIdentifier>{9DEACB22-09F8-F908-92DE-F5F3FEEAC5BF}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Collision">
-      <UniqueIdentifier>{B11A655C-1D85-19D3-66C3-CA78D26CF727}</UniqueIdentifier>
+    <Filter Include="COL_Testers\COL_SceneTest">
+      <UniqueIdentifier>{8613DE38-F2D5-11C3-3B86-A04FA787EAA0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Collision\src">
-      <UniqueIdentifier>{48C900EA-B489-7C20-7DC4-C59DE943C1FC}</UniqueIdentifier>
+    <Filter Include="COL_Testers\COL_SceneTest\COL_MeshTest">
+      <UniqueIdentifier>{DF41E672-CB93-BD62-B4B2-FA72A0A3D64B}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Collision\src\COL_Testers">
-      <UniqueIdentifier>{9E30DC75-0AF3-0F00-53A3-9E8CBFA4E8DD}</UniqueIdentifier>
+    <Filter Include="COL_Testers\COL_StaticTest">
+      <UniqueIdentifier>{C0A21438-ACB2-C008-156C-2527019BAFA1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Collision\src\COL_Testers\COL_DynamicTest">
-      <UniqueIdentifier>{CF6033D2-3B7B-9673-849D-A607F0F6BD7A}</UniqueIdentifier>
+    <Filter Include="COL_TriList">
+      <UniqueIdentifier>{8D1BEFA6-F9D0-679C-82C5-6173EE795EA0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Collision\src\COL_Testers\COL_SceneTest">
-      <UniqueIdentifier>{38552E13-A4E4-EFFD-ADE0-D01519EF2A0A}</UniqueIdentifier>
+    <Filter Include="Collider">
+      <UniqueIdentifier>{931D39B5-7FEA-93C0-A803-8268942FC94E}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest">
-      <UniqueIdentifier>{D1348010-BD73-2A8C-66F6-06BE5214E0F6}</UniqueIdentifier>
+    <Filter Include="CollisionSystem">
+      <UniqueIdentifier>{1667BFC1-82F2-2C86-8B03-B07AF70D8986}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Collision\src\COL_Testers\COL_StaticTest">
-      <UniqueIdentifier>{B21A6D5C-9E97-609F-C714-61B3B3F0FC32}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Collision\src\COL_TriList">
-      <UniqueIdentifier>{BF6D6493-2B30-981D-74E0-26AAE0E170FB}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Collision\src\Collider">
-      <UniqueIdentifier>{054D4A35-F146-7387-DAB3-0998C64CD9F3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Collision\src\CollisionSystem">
-      <UniqueIdentifier>{488216B0-B49A-FDD9-7D47-8D73E91E9273}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Collision\src\CollisionUtils">
-      <UniqueIdentifier>{147A31EE-0035-219A-A9EC-99E495866B2A}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game">
-      <UniqueIdentifier>{7FA9857C-6BE0-860D-14CD-6C1000E3020F}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\src">
-      <UniqueIdentifier>{160F4832-02DC-A23D-2BF5-90E51721D8CB}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\src\Entities">
-      <UniqueIdentifier>{8A801275-F696-100B-3F0E-9C2CAB63E192}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\src\Entities\CommandInterpreter">
-      <UniqueIdentifier>{8CCC142D-78B3-D624-2104-3D420DCA4F8B}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\src\Entities\CommandInterpreter\ExtendedCI">
-      <UniqueIdentifier>{9844B8AD-0480-1871-0D75-9500792F9DA1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\src\Entities\EntitySpawner">
-      <UniqueIdentifier>{364D4881-A230-57C1-AB33-85FD17961D12}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\src\Game">
-      <UniqueIdentifier>{7F067613-EBC6-F149-B401-3BC720813626}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\src\GameRegistry">
-      <UniqueIdentifier>{98AF98E1-041C-54DC-CD0F-EC39393B7644}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\src\GameRes">
-      <UniqueIdentifier>{695447EB-554D-663D-7E7F-4BC26AD74549}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\src\GameRes\Graphic">
-      <UniqueIdentifier>{962FE9A8-8254-3829-AB9F-1DB997233747}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\src\GameRes\Input">
-      <UniqueIdentifier>{28EF2226-14E9-4B78-FD55-E288E9EEB1E4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\src\GameRes\Path">
-      <UniqueIdentifier>{058869F9-71F4-24F4-3AE8-BC51A613475C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\src\GameRes\Script">
-      <UniqueIdentifier>{8D420E01-F979-5698-0284-BABB6E3A7D91}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\src\MessageMgr">
-      <UniqueIdentifier>{D01CB7F4-3C7E-9402-C5EB-DAB4314CCBC1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Input">
-      <UniqueIdentifier>{953A660D-014F-8EBE-CAD0-311E36A48AEF}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Input\src">
-      <UniqueIdentifier>{2C3B9774-98A5-4BEB-E1E3-FC904D8D2940}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Input\src\Command">
-      <UniqueIdentifier>{3A20785F-A636-76F5-EFAD-01175B03477D}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Network">
-      <UniqueIdentifier>{8F6A0D6C-FB49-8C07-0462-17DE70C0F268}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Network\src">
-      <UniqueIdentifier>{26D8E932-928D-6228-1B82-5CFF8736592C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneUtils">
-      <UniqueIdentifier>{644B96CC-5003-D819-B90A-B175A5E1720A}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneUtils\src">
-      <UniqueIdentifier>{7B1BF17B-67E9-E481-507D-55A83CEAC0E6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneUtils\src\AnimScnLoader">
-      <UniqueIdentifier>{0A004674-F6BA-3520-9F72-AE6A8B0C80B0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneUtils\src\BSPBuilder">
-      <UniqueIdentifier>{B62BDAC3-22EE-0D4E-6B9E-9CDAD79FE62B}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneUtils\src\Mesh2TriScn">
-      <UniqueIdentifier>{3C7497EB-2884-43BC-913D-A8DA7D6C3255}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneUtils\src\OctreeBuilder">
-      <UniqueIdentifier>{F342B2AD-DFFD-A159-88B5-1AA4744FECE9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneUtils\src\SceneBuilder">
-      <UniqueIdentifier>{DFCD69AA-4BDB-9790-D4C1-937B40CE6347}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneUtils\src\SceneCompiler">
-      <UniqueIdentifier>{13D1A71F-FF8B-97CB-A843-101694DDE15B}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneUtils\src\Scn2TriScnBuilder">
-      <UniqueIdentifier>{FA13EBA1-E664-D6E3-0FC9-C4A5FB78694D}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneUtils\src\ScnBBoxGen">
-      <UniqueIdentifier>{73658789-DF27-BB13-28D8-49A094D993F1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneUtils\src\ScnCoplanarRemover">
-      <UniqueIdentifier>{1EC00735-8A2E-5DB4-D317-18B43FC55250}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneUtils\src\ScnMeshGen">
-      <UniqueIdentifier>{B52B2C2A-21EE-5FB4-6A9E-EE40D69F3892}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneUtils\src\ScnNormalGen">
-      <UniqueIdentifier>{71F87DD5-DD05-ACBB-66EC-A7A6D2F87772}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneUtils\src\ScnPlanarMapper">
-      <UniqueIdentifier>{9158C9A5-7D7E-930C-66C4-18D85289B8D8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneUtils\src\ScnShaderAssigner">
-      <UniqueIdentifier>{41A655E9-2DF7-402B-565B-2FED420BD494}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneUtils\src\ScnStripifier">
-      <UniqueIdentifier>{2F46CFCE-1B01-BF7A-C4B8-37C5B052090B}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneUtils\src\ScnUtils">
-      <UniqueIdentifier>{9F794451-0BB1-8CE8-14BB-F00B8071B3E1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneUtils\src\ScnVisibilityTester">
-      <UniqueIdentifier>{8D596481-7995-67EB-E2A7-7FE2CE021006}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneUtils\src\SeparateTriScene">
-      <UniqueIdentifier>{FCE841F2-68CC-5032-71CF-7E6EDD311783}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneUtils\src\SplitTriScene">
-      <UniqueIdentifier>{53568B8C-3F11-7B38-E8C8-F382D462C5C8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneUtils\src\TransfTriScn">
-      <UniqueIdentifier>{0B67120E-7774-40F4-005B-3CDF6C670CAB}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneUtils\src\TriScnLoader">
-      <UniqueIdentifier>{F4F31776-6001-465C-E9E7-414755F41113}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneUtils\src\TriScnSaver">
-      <UniqueIdentifier>{FEE2BDCD-EAF2-699E-53AC-CEBC3FDB5837}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Sfx">
-      <UniqueIdentifier>{9621880B-022B-887C-8BA6-9E7CF7AE937C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Sfx\src">
-      <UniqueIdentifier>{ADBA66EF-199A-E58A-22B2-70618E104CEC}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Sfx\src\BillBoard">
-      <UniqueIdentifier>{E76EAB89-5385-A91F-9CFC-344108527AA7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Sfx\src\Coronas">
-      <UniqueIdentifier>{B15967A8-1DE5-D46C-26F6-57619200316D}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Sfx\src\ParticleSystems">
-      <UniqueIdentifier>{0878347A-74AF-7C11-7DB9-E034E96FA30A}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Sfx\src\SfxObject">
-      <UniqueIdentifier>{84117FDB-F027-7D71-399F-0893A5F44DF9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Sfx\src\trail">
-      <UniqueIdentifier>{38063BAF-A4C6-B6E5-6D01-0063D980FBC1}</UniqueIdentifier>
+    <Filter Include="CollisionUtils">
+      <UniqueIdentifier>{22FDC92C-0ECB-BD32-F75E-2E59E3CB9997}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\modules\AI\src\CAI_AStar.h">
-      <Filter>AI\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\AI\src\CAI_Cdxastar.h">
-      <Filter>AI\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\AI\src\CAI_Map.h">
-      <Filter>AI\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\AI\src\CAI_MathFuncs.h">
-      <Filter>AI\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\AI\src\GAI.h">
-      <Filter>AI\src</Filter>
-    </ClInclude>
     <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Box.h">
-      <Filter>Collision\src\COL_Testers\COL_DynamicTest</Filter>
+      <Filter>COL_Testers\COL_DynamicTest</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_ColTester.h">
-      <Filter>Collision\src\COL_Testers\COL_DynamicTest</Filter>
+      <Filter>COL_Testers\COL_DynamicTest</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Point.h">
-      <Filter>Collision\src\COL_Testers\COL_DynamicTest</Filter>
+      <Filter>COL_Testers\COL_DynamicTest</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Sphere.h">
-      <Filter>Collision\src\COL_Testers\COL_DynamicTest</Filter>
+      <Filter>COL_Testers\COL_DynamicTest</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Tri.h">
-      <Filter>Collision\src\COL_Testers\COL_DynamicTest</Filter>
+      <Filter>COL_Testers\COL_DynamicTest</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Mesh.h">
-      <Filter>Collision\src\COL_Testers\COL_SceneTest</Filter>
+      <Filter>COL_Testers\COL_SceneTest</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Mesh_ColTester.h">
-      <Filter>Collision\src\COL_Testers\COL_SceneTest</Filter>
+      <Filter>COL_Testers\COL_SceneTest</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Scn_ColTester.h">
-      <Filter>Collision\src\COL_Testers\COL_SceneTest</Filter>
+      <Filter>COL_Testers\COL_SceneTest</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_CommonMesh.h">
-      <Filter>Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest</Filter>
+      <Filter>COL_Testers\COL_SceneTest\COL_MeshTest</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_TerrainMesh.h">
-      <Filter>Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest</Filter>
+      <Filter>COL_Testers\COL_SceneTest\COL_MeshTest</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MeshTester.h">
-      <Filter>Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest</Filter>
+      <Filter>COL_Testers\COL_SceneTest\COL_MeshTest</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_Box.h">
-      <Filter>Collision\src\COL_Testers\COL_StaticTest</Filter>
+      <Filter>COL_Testers\COL_StaticTest</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_ColTester.h">
-      <Filter>Collision\src\COL_Testers\COL_StaticTest</Filter>
+      <Filter>COL_Testers\COL_StaticTest</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_Point.h">
-      <Filter>Collision\src\COL_Testers\COL_StaticTest</Filter>
+      <Filter>COL_Testers\COL_StaticTest</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_Sphere.h">
-      <Filter>Collision\src\COL_Testers\COL_StaticTest</Filter>
+      <Filter>COL_Testers\COL_StaticTest</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_Tris.h">
-      <Filter>Collision\src\COL_Testers\COL_StaticTest</Filter>
+      <Filter>COL_Testers\COL_StaticTest</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\COL_TriList\CCOL_Scn_TriListGen.h">
-      <Filter>Collision\src\COL_TriList</Filter>
+      <Filter>COL_TriList</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\COL_TriList\CCOL_TRN_TriListGen.h">
-      <Filter>Collision\src\COL_TriList</Filter>
+      <Filter>COL_TriList</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\COL_TriList\CCOL_TriList.h">
-      <Filter>Collision\src\COL_TriList</Filter>
+      <Filter>COL_TriList</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\COL_TriList\CCOL_TriListGen.h">
-      <Filter>Collision\src\COL_TriList</Filter>
+      <Filter>COL_TriList</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\COL_TriList\CCOL_Triangle.h">
-      <Filter>Collision\src\COL_TriList</Filter>
+      <Filter>COL_TriList</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\Collider\CCOL_CollidedMeshes.h">
-      <Filter>Collision\src\Collider</Filter>
+      <Filter>Collider</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\Collider\CCOL_Collider.h">
-      <Filter>Collision\src\Collider</Filter>
+      <Filter>Collider</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\Collider\CCOL_Stack.h">
-      <Filter>Collision\src\Collider</Filter>
+      <Filter>Collider</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\Collider\CCOL_StackCollisionElem.h">
-      <Filter>Collision\src\Collider</Filter>
+      <Filter>Collider</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\Collider\eCOL_ColliderType.h">
-      <Filter>Collision\src\Collider</Filter>
+      <Filter>Collider</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\Collider\eCOL_TestType.h">
-      <Filter>Collision\src\Collider</Filter>
+      <Filter>Collider</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\CollisionSystem\CCOL_CSysEntry.h">
-      <Filter>Collision\src\CollisionSystem</Filter>
+      <Filter>CollisionSystem</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\CollisionSystem\CCOL_ColState.h">
-      <Filter>Collision\src\CollisionSystem</Filter>
+      <Filter>CollisionSystem</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\CollisionSystem\CCOL_CollisionSystem.h">
-      <Filter>Collision\src\CollisionSystem</Filter>
+      <Filter>CollisionSystem</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\CollisionUtils\CCOL_TriList_BVRayTest.h">
-      <Filter>Collision\src\CollisionUtils</Filter>
+      <Filter>CollisionUtils</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Collision\src\GCollision.h">
-      <Filter>Collision\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\Entities\CGGEntityRenderMgr.h">
-      <Filter>Game\src\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\Entities\CGGEntityStateRegistry.h">
-      <Filter>Game\src\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\Entities\CGGameEntity.h">
-      <Filter>Game\src\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\Entities\CGGameEntityMgr.h">
-      <Filter>Game\src\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\Entities\CGLiveGameEntity.h">
-      <Filter>Game\src\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\Entities\CommandInterpreter\CGGCICommand.h">
-      <Filter>Game\src\Entities\CommandInterpreter</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\Entities\CommandInterpreter\CGGCIState.h">
-      <Filter>Game\src\Entities\CommandInterpreter</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\Entities\CommandInterpreter\CGGCIStdCommands.h">
-      <Filter>Game\src\Entities\CommandInterpreter</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\Entities\CommandInterpreter\CGGameApplication.h">
-      <Filter>Game\src\Entities\CommandInterpreter</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\Entities\CommandInterpreter\CGGameCommandInterpreter.h">
-      <Filter>Game\src\Entities\CommandInterpreter</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\Entities\CommandInterpreter\CGGameConsoleApp.h">
-      <Filter>Game\src\Entities\CommandInterpreter</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\Entities\CommandInterpreter\ExtendedCI\CGGCIExtendedCommands.h">
-      <Filter>Game\src\Entities\CommandInterpreter\ExtendedCI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\Entities\CommandInterpreter\ExtendedCI\CGGameExtendedCI.h">
-      <Filter>Game\src\Entities\CommandInterpreter\ExtendedCI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\Entities\EntitySpawner\CGGameEntitySpawner.h">
-      <Filter>Game\src\Entities\EntitySpawner</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\GGame.h">
-      <Filter>Game\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\Game\CGGameBase.h">
-      <Filter>Game\src\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\Game\CGGameMode.h">
-      <Filter>Game\src\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\GameRegistry\CGGameRegistry.h">
-      <Filter>Game\src\GameRegistry</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\GameRegistry\CGVariableRegistry.h">
-      <Filter>Game\src\GameRegistry</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\GameRes\Graphic\CGGraphicInstance.h">
-      <Filter>Game\src\GameRes\Graphic</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\GameRes\Graphic\CGGraphicResource.h">
-      <Filter>Game\src\GameRes\Graphic</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\GameRes\Graphic\CGGraphicResourceWH.h">
-      <Filter>Game\src\GameRes\Graphic</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\GameRes\Input\CGInputHandler.h">
-      <Filter>Game\src\GameRes\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\GameRes\Path\CGCurvePath.h">
-      <Filter>Game\src\GameRes\Path</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\GameRes\Path\CGPath.h">
-      <Filter>Game\src\GameRes\Path</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\GameRes\Path\CGPathDefinitionFileWH.h">
-      <Filter>Game\src\GameRes\Path</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\GameRes\Path\CGPathResource.h">
-      <Filter>Game\src\GameRes\Path</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\GameRes\Path\CGPathResourceWH.h">
-      <Filter>Game\src\GameRes\Path</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\GameRes\Path\CGSpiralPath.h">
-      <Filter>Game\src\GameRes\Path</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\GameRes\Script\CGScriptInstance.h">
-      <Filter>Game\src\GameRes\Script</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\GameRes\Script\CGScriptResource.h">
-      <Filter>Game\src\GameRes\Script</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\GameRes\Script\CGScriptResourceWH.h">
-      <Filter>Game\src\GameRes\Script</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\GameRes\Script\CGScriptingSystem.h">
-      <Filter>Game\src\GameRes\Script</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Game\src\MessageMgr\CGGameMessageMgr.h">
-      <Filter>Game\src\MessageMgr</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Input\src\Command\CGCommandBinder.h">
-      <Filter>Input\src\Command</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Input\src\Command\CGCommandBindingLoader.h">
-      <Filter>Input\src\Command</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Input\src\Command\CGCommandRegistry.h">
-      <Filter>Input\src\Command</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Input\src\Command\CGInputRegistry.h">
-      <Filter>Input\src\Command</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Input\src\GInput.h">
-      <Filter>Input\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Network\src\CNETClient.h">
-      <Filter>Network\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Network\src\CNETServer.h">
-      <Filter>Network\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Network\src\CNETSystem.h">
-      <Filter>Network\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Network\src\CNETTimeStampList.h">
-      <Filter>Network\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Network\src\GNetwork.h">
-      <Filter>Network\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\AnimScnLoader\SCNUt_AnimSceneLoader.h">
-      <Filter>SceneUtils\src\AnimScnLoader</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\BSPBuilder\SCNUt_BSPBuilder.h">
-      <Filter>SceneUtils\src\BSPBuilder</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\GSceneUtils.h">
-      <Filter>SceneUtils\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\Mesh2TriScn\SCNUt_Mesh2TriScene.h">
-      <Filter>SceneUtils\src\Mesh2TriScn</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\OctreeBuilder\SCNUt_OctreeBuilder.h">
-      <Filter>SceneUtils\src\OctreeBuilder</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\SCNUt_ExtendedTri.h">
-      <Filter>SceneUtils\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\SCNUt_MaterialTable.h">
-      <Filter>SceneUtils\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\SCNUt_TriScene.h">
-      <Filter>SceneUtils\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\SCNUt_TriSceneAccumulator.h">
-      <Filter>SceneUtils\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\SCNUt_Triangle.h">
-      <Filter>SceneUtils\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\SCNUt_ePolyState.h">
-      <Filter>SceneUtils\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\SceneBuilder\SCNUt_SceneBuilder.h">
-      <Filter>SceneUtils\src\SceneBuilder</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\SceneCompiler\SCNUt_SceneCompiler.h">
-      <Filter>SceneUtils\src\SceneCompiler</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\Scn2TriScnBuilder\SCNUt_Scn2TriScnBuilder.h">
-      <Filter>SceneUtils\src\Scn2TriScnBuilder</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\ScnBBoxGen\SCNUt_ComputeBoundingBox.h">
-      <Filter>SceneUtils\src\ScnBBoxGen</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\ScnCoplanarRemover\SCNUt_CoplanarRemover.h">
-      <Filter>SceneUtils\src\ScnCoplanarRemover</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\ScnMeshGen\SCNUt_MeshGenerator.h">
-      <Filter>SceneUtils\src\ScnMeshGen</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\ScnMeshGen\scnut_meshcompacter.h">
-      <Filter>SceneUtils\src\ScnMeshGen</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\ScnNormalGen\SCNUt_AnimMesh_NormalComputer.h">
-      <Filter>SceneUtils\src\ScnNormalGen</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\ScnPlanarMapper\SCNUt_PlanarMapper.h">
-      <Filter>SceneUtils\src\ScnPlanarMapper</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\ScnShaderAssigner\SCNUt_ShaderAssigner.h">
-      <Filter>SceneUtils\src\ScnShaderAssigner</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_AdjTri.h">
-      <Filter>SceneUtils\src\ScnStripifier</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_AdjTriList.h">
-      <Filter>SceneUtils\src\ScnStripifier</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_AdjTriListBuilder.h">
-      <Filter>SceneUtils\src\ScnStripifier</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_Edge.h">
-      <Filter>SceneUtils\src\ScnStripifier</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_EdgeBuilder.h">
-      <Filter>SceneUtils\src\ScnStripifier</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_EdgeList.h">
-      <Filter>SceneUtils\src\ScnStripifier</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_Stripifier.h">
-      <Filter>SceneUtils\src\ScnStripifier</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\ScnUtils\SCNUt_TriUtils.h">
-      <Filter>SceneUtils\src\ScnUtils</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\ScnVisibilityTester\SCNUt_VisibilityTester.h">
-      <Filter>SceneUtils\src\ScnVisibilityTester</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\SeparateTriScene\SCNUt_TriSceneSeparator.h">
-      <Filter>SceneUtils\src\SeparateTriScene</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\SplitTriScene\SCNUt_TriSceneClassifier.h">
-      <Filter>SceneUtils\src\SplitTriScene</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\SplitTriScene\SCNUt_TriSceneSplitter.h">
-      <Filter>SceneUtils\src\SplitTriScene</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\TTriangle.h">
-      <Filter>SceneUtils\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\TransfTriScn\SCNUt_TransformTriScene.h">
-      <Filter>SceneUtils\src\TransfTriScn</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\TriScnLoader\SCNUt_TriSceneLoader.h">
-      <Filter>SceneUtils\src\TriScnLoader</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\TriScnSaver\SCNUt_TriSceneSaver.h">
-      <Filter>SceneUtils\src\TriScnSaver</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\BillBoard\CGBillboard.h">
-      <Filter>Sfx\src\BillBoard</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\BillBoard\CGBillboardRenderer.h">
-      <Filter>Sfx\src\BillBoard</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\BillBoard\CGBillboard_AxisAlign.h">
-      <Filter>Sfx\src\BillBoard</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\BillBoard\CGBillboard_ScrAlign.h">
-      <Filter>Sfx\src\BillBoard</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\BillBoard\CGBillboard_WorldAlign.h">
-      <Filter>Sfx\src\BillBoard</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\Coronas\CGCorona.h">
-      <Filter>Sfx\src\Coronas</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\Coronas\CGCoronaGenDefFileWH.h">
-      <Filter>Sfx\src\Coronas</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\Coronas\CGCoronaGenStd.h">
-      <Filter>Sfx\src\Coronas</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\Coronas\CGCoronaGenWH.h">
-      <Filter>Sfx\src\Coronas</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\Coronas\CGCoronaGenerator.h">
-      <Filter>Sfx\src\Coronas</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\Coronas\CGCoronaInstance.h">
-      <Filter>Sfx\src\Coronas</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\Coronas\CGCoronaManager.h">
-      <Filter>Sfx\src\Coronas</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\GSfx.h">
-      <Filter>Sfx\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGPSGDefFileWH.h">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGPSGGeneric.h">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGPSGGenericQuad.h">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGPSGGenericQuadCinematic.h">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGPSGGenericQuadOrbit.h">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGPSIManager.h">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGPSysGenWH.h">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGParticle.h">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem.h">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystemGenerator.h">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystemInstance.h">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Coolant.h">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Generic.h">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Generic_Quad.h">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Generic_Stretch.h">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Sparks.h">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\SfxObject\CGSFXObjectManager.h">
-      <Filter>Sfx\src\SfxObject</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\trail\CGTrail.h">
-      <Filter>Sfx\src\trail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\trail\CGTrailGenDefFileWH.h">
-      <Filter>Sfx\src\trail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\trail\CGTrailGenStd.h">
-      <Filter>Sfx\src\trail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\trail\CGTrailGenWH.h">
-      <Filter>Sfx\src\trail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\trail\CGTrailGenerator.h">
-      <Filter>Sfx\src\trail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\trail\CGTrailInstance.h">
-      <Filter>Sfx\src\trail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Sfx\src\trail\CGTrailManager.h">
-      <Filter>Sfx\src\trail</Filter>
-    </ClInclude>
+    <ClInclude Include="..\modules\Collision\src\GCollision.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\modules\AI\src\CAI_AStar.cpp">
-      <Filter>AI\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\AI\src\CAI_Cdxastar.cpp">
-      <Filter>AI\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\AI\src\CAI_Map.cpp">
-      <Filter>AI\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\AI\src\CAI_MathFuncs.cpp">
-      <Filter>AI\src</Filter>
-    </ClCompile>
     <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Box.cpp">
-      <Filter>Collision\src\COL_Testers\COL_DynamicTest</Filter>
+      <Filter>COL_Testers\COL_DynamicTest</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_ColTester.cpp">
-      <Filter>Collision\src\COL_Testers\COL_DynamicTest</Filter>
+      <Filter>COL_Testers\COL_DynamicTest</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Point.cpp">
-      <Filter>Collision\src\COL_Testers\COL_DynamicTest</Filter>
+      <Filter>COL_Testers\COL_DynamicTest</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Sphere.cpp">
-      <Filter>Collision\src\COL_Testers\COL_DynamicTest</Filter>
+      <Filter>COL_Testers\COL_DynamicTest</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Tri.cpp">
-      <Filter>Collision\src\COL_Testers\COL_DynamicTest</Filter>
+      <Filter>COL_Testers\COL_DynamicTest</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Mesh.cpp">
-      <Filter>Collision\src\COL_Testers\COL_SceneTest</Filter>
+      <Filter>COL_Testers\COL_SceneTest</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Mesh_ColTester.cpp">
-      <Filter>Collision\src\COL_Testers\COL_SceneTest</Filter>
+      <Filter>COL_Testers\COL_SceneTest</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Scn_ColTester.cpp">
-      <Filter>Collision\src\COL_Testers\COL_SceneTest</Filter>
+      <Filter>COL_Testers\COL_SceneTest</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_CommonMesh.cpp">
-      <Filter>Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest</Filter>
+      <Filter>COL_Testers\COL_SceneTest\COL_MeshTest</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_TerrainMesh.cpp">
-      <Filter>Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest</Filter>
+      <Filter>COL_Testers\COL_SceneTest\COL_MeshTest</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MeshTester.cpp">
-      <Filter>Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest</Filter>
+      <Filter>COL_Testers\COL_SceneTest\COL_MeshTest</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_Box.cpp">
-      <Filter>Collision\src\COL_Testers\COL_StaticTest</Filter>
+      <Filter>COL_Testers\COL_StaticTest</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_ColTester.cpp">
-      <Filter>Collision\src\COL_Testers\COL_StaticTest</Filter>
+      <Filter>COL_Testers\COL_StaticTest</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_Point.cpp">
-      <Filter>Collision\src\COL_Testers\COL_StaticTest</Filter>
+      <Filter>COL_Testers\COL_StaticTest</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_Sphere.cpp">
-      <Filter>Collision\src\COL_Testers\COL_StaticTest</Filter>
+      <Filter>COL_Testers\COL_StaticTest</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_Tris.cpp">
-      <Filter>Collision\src\COL_Testers\COL_StaticTest</Filter>
+      <Filter>COL_Testers\COL_StaticTest</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\COL_TriList\CCOL_Scn_TriListGen.cpp">
-      <Filter>Collision\src\COL_TriList</Filter>
+      <Filter>COL_TriList</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\COL_TriList\CCOL_TRN_TriListGen.cpp">
-      <Filter>Collision\src\COL_TriList</Filter>
+      <Filter>COL_TriList</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\COL_TriList\CCOL_TriList.cpp">
-      <Filter>Collision\src\COL_TriList</Filter>
+      <Filter>COL_TriList</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\COL_TriList\CCOL_TriListGen.cpp">
-      <Filter>Collision\src\COL_TriList</Filter>
+      <Filter>COL_TriList</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\COL_TriList\CCOL_Triangle.cpp">
-      <Filter>Collision\src\COL_TriList</Filter>
+      <Filter>COL_TriList</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\Collider\CCOL_CollidedMeshes.cpp">
-      <Filter>Collision\src\Collider</Filter>
+      <Filter>Collider</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\Collider\CCOL_Collider.cpp">
-      <Filter>Collision\src\Collider</Filter>
+      <Filter>Collider</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\Collider\CCOL_Stack.cpp">
-      <Filter>Collision\src\Collider</Filter>
+      <Filter>Collider</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\Collider\CCOL_StackCollisionElem.cpp">
-      <Filter>Collision\src\Collider</Filter>
+      <Filter>Collider</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\Collider\eCOL_ColliderType.cpp">
-      <Filter>Collision\src\Collider</Filter>
+      <Filter>Collider</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\Collider\eCOL_TestType.cpp">
-      <Filter>Collision\src\Collider</Filter>
+      <Filter>Collider</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\CollisionSystem\CCOL_CSysEntry.cpp">
-      <Filter>Collision\src\CollisionSystem</Filter>
+      <Filter>CollisionSystem</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\CollisionSystem\CCOL_ColState.cpp">
-      <Filter>Collision\src\CollisionSystem</Filter>
+      <Filter>CollisionSystem</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\CollisionSystem\CCOL_CollisionSystem.cpp">
-      <Filter>Collision\src\CollisionSystem</Filter>
+      <Filter>CollisionSystem</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\CollisionUtils\CCOL_TriList_BVRayTest.cpp">
-      <Filter>Collision\src\CollisionUtils</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\Entities\CGGEntityRenderMgr.cpp">
-      <Filter>Game\src\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\Entities\CGGEntityStateRegistry.cpp">
-      <Filter>Game\src\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\Entities\CGGameEntity.cpp">
-      <Filter>Game\src\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\Entities\CGGameEntityMgr.cpp">
-      <Filter>Game\src\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\Entities\CGLiveGameEntity.cpp">
-      <Filter>Game\src\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\Entities\CommandInterpreter\CGGCICommand.cpp">
-      <Filter>Game\src\Entities\CommandInterpreter</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\Entities\CommandInterpreter\CGGCIStdCommands.cpp">
-      <Filter>Game\src\Entities\CommandInterpreter</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\Entities\CommandInterpreter\CGGameApplication.cpp">
-      <Filter>Game\src\Entities\CommandInterpreter</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\Entities\CommandInterpreter\CGGameCommandInterpreter.cpp">
-      <Filter>Game\src\Entities\CommandInterpreter</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\Entities\CommandInterpreter\CGGameConsoleApp.cpp">
-      <Filter>Game\src\Entities\CommandInterpreter</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\Entities\CommandInterpreter\ExtendedCI\CGGCIExtendedCommands.cpp">
-      <Filter>Game\src\Entities\CommandInterpreter\ExtendedCI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\Entities\CommandInterpreter\ExtendedCI\CGGameExtendedCI.cpp">
-      <Filter>Game\src\Entities\CommandInterpreter\ExtendedCI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\Entities\EntitySpawner\CGGameEntitySpawner.cpp">
-      <Filter>Game\src\Entities\EntitySpawner</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\Game\CGGameBase.cpp">
-      <Filter>Game\src\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\Game\CGGameMode.cpp">
-      <Filter>Game\src\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\GameRegistry\CGVariableRegistry.cpp">
-      <Filter>Game\src\GameRegistry</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\GameRes\Graphic\CGGraphicInstance.cpp">
-      <Filter>Game\src\GameRes\Graphic</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\GameRes\Graphic\CGGraphicResource.cpp">
-      <Filter>Game\src\GameRes\Graphic</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\GameRes\Graphic\CGGraphicResourceWH.cpp">
-      <Filter>Game\src\GameRes\Graphic</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\GameRes\Input\CGInputHandler.cpp">
-      <Filter>Game\src\GameRes\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\GameRes\Path\CGCurvePath.cpp">
-      <Filter>Game\src\GameRes\Path</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\GameRes\Path\CGPath.cpp">
-      <Filter>Game\src\GameRes\Path</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\GameRes\Path\CGPathDefinitionFileWH.cpp">
-      <Filter>Game\src\GameRes\Path</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\GameRes\Path\CGPathResource.cpp">
-      <Filter>Game\src\GameRes\Path</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\GameRes\Path\CGPathResourceWH.cpp">
-      <Filter>Game\src\GameRes\Path</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\GameRes\Path\CGSpiralPath.cpp">
-      <Filter>Game\src\GameRes\Path</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\GameRes\Script\CGScriptBinding.cpp">
-      <Filter>Game\src\GameRes\Script</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\GameRes\Script\CGScriptInstance.cpp">
-      <Filter>Game\src\GameRes\Script</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\GameRes\Script\CGScriptResource.cpp">
-      <Filter>Game\src\GameRes\Script</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\GameRes\Script\CGScriptResourceWH.cpp">
-      <Filter>Game\src\GameRes\Script</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\GameRes\Script\CGScriptingSystem.cpp">
-      <Filter>Game\src\GameRes\Script</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Game\src\MessageMgr\CGGameMessageMgr.cpp">
-      <Filter>Game\src\MessageMgr</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Input\src\Command\CGCommandBinder.cpp">
-      <Filter>Input\src\Command</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Input\src\Command\CGCommandBindingLoader.cpp">
-      <Filter>Input\src\Command</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Input\src\Command\CGCommandRegistry.cpp">
-      <Filter>Input\src\Command</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Input\src\Command\CGInputRegistry.cpp">
-      <Filter>Input\src\Command</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Network\src\CNETClient.cpp">
-      <Filter>Network\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Network\src\CNETServer.cpp">
-      <Filter>Network\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Network\src\CNETSystem.cpp">
-      <Filter>Network\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Network\src\CNETTimeStampList.cpp">
-      <Filter>Network\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\AnimScnLoader\SCNUt_AnimSceneLoader.cpp">
-      <Filter>SceneUtils\src\AnimScnLoader</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\BSPBuilder\SCNUt_BSPBuilder.cpp">
-      <Filter>SceneUtils\src\BSPBuilder</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\Mesh2TriScn\SCNUt_Mesh2TriScene.cpp">
-      <Filter>SceneUtils\src\Mesh2TriScn</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\OctreeBuilder\SCNUt_OctreeBuilder.cpp">
-      <Filter>SceneUtils\src\OctreeBuilder</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\SCNUt_ExtendedTri.cpp">
-      <Filter>SceneUtils\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\SCNUt_MaterialTable.cpp">
-      <Filter>SceneUtils\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\SCNUt_TriScene.cpp">
-      <Filter>SceneUtils\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\SCNUt_TriSceneAccumulator.cpp">
-      <Filter>SceneUtils\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\SCNUt_Triangle.cpp">
-      <Filter>SceneUtils\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\SCNUt_ePolyState.cpp">
-      <Filter>SceneUtils\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\SceneBuilder\SCNUt_SceneBuilder.cpp">
-      <Filter>SceneUtils\src\SceneBuilder</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\SceneCompiler\SCNUt_SceneCompiler.cpp">
-      <Filter>SceneUtils\src\SceneCompiler</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\Scn2TriScnBuilder\SCNUt_Scn2TriScnBuilder.cpp">
-      <Filter>SceneUtils\src\Scn2TriScnBuilder</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\ScnBBoxGen\SCNUt_ComputeBoundingBox.cpp">
-      <Filter>SceneUtils\src\ScnBBoxGen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\ScnCoplanarRemover\SCNUt_CoplanarRemover.cpp">
-      <Filter>SceneUtils\src\ScnCoplanarRemover</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\ScnMeshGen\SCNUt_MeshCompacter.cpp">
-      <Filter>SceneUtils\src\ScnMeshGen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\ScnMeshGen\SCNUt_MeshGenerator.cpp">
-      <Filter>SceneUtils\src\ScnMeshGen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\ScnNormalGen\SCNUt_AnimMesh_NormalComputer.cpp">
-      <Filter>SceneUtils\src\ScnNormalGen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\ScnPlanarMapper\SCNUt_PlanarMapper.cpp">
-      <Filter>SceneUtils\src\ScnPlanarMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\ScnShaderAssigner\SCNUt_ShaderAssigner.cpp">
-      <Filter>SceneUtils\src\ScnShaderAssigner</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_AdjTri.cpp">
-      <Filter>SceneUtils\src\ScnStripifier</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_AdjTriList.cpp">
-      <Filter>SceneUtils\src\ScnStripifier</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_AdjTriListBuilder.cpp">
-      <Filter>SceneUtils\src\ScnStripifier</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_Edge.cpp">
-      <Filter>SceneUtils\src\ScnStripifier</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_EdgeBuilder.cpp">
-      <Filter>SceneUtils\src\ScnStripifier</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_EdgeList.cpp">
-      <Filter>SceneUtils\src\ScnStripifier</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_Stripifier.cpp">
-      <Filter>SceneUtils\src\ScnStripifier</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\ScnUtils\SCNUt_TriUtils.cpp">
-      <Filter>SceneUtils\src\ScnUtils</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\ScnVisibilityTester\SCNUt_VisibilityTester.cpp">
-      <Filter>SceneUtils\src\ScnVisibilityTester</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\SeparateTriScene\SCNUt_TriSceneSeparator.cpp">
-      <Filter>SceneUtils\src\SeparateTriScene</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\SplitTriScene\SCNUt_TriSceneClassifier.cpp">
-      <Filter>SceneUtils\src\SplitTriScene</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\SplitTriScene\SCNUt_TriSceneSplitter.cpp">
-      <Filter>SceneUtils\src\SplitTriScene</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\TransfTriScn\SCNUt_TransformTriScene.cpp">
-      <Filter>SceneUtils\src\TransfTriScn</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\TriScnLoader\SCNUt_TriSceneLoader.cpp">
-      <Filter>SceneUtils\src\TriScnLoader</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SceneUtils\src\TriScnSaver\SCNUt_TriSceneSaver.cpp">
-      <Filter>SceneUtils\src\TriScnSaver</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\BillBoard\CGBillboard.cpp">
-      <Filter>Sfx\src\BillBoard</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\BillBoard\CGBillboardRenderer.cpp">
-      <Filter>Sfx\src\BillBoard</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\BillBoard\CGBillboard_AxisAlign.cpp">
-      <Filter>Sfx\src\BillBoard</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\BillBoard\CGBillboard_ScrAlign.cpp">
-      <Filter>Sfx\src\BillBoard</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\BillBoard\CGBillboard_WorldAlign.cpp">
-      <Filter>Sfx\src\BillBoard</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\Coronas\CGCoronaGenDefFileWH.cpp">
-      <Filter>Sfx\src\Coronas</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\Coronas\CGCoronaGenStd.cpp">
-      <Filter>Sfx\src\Coronas</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\Coronas\CGCoronaGenWH.cpp">
-      <Filter>Sfx\src\Coronas</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\Coronas\CGCoronaGenerator.cpp">
-      <Filter>Sfx\src\Coronas</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\Coronas\CGCoronaInstance.cpp">
-      <Filter>Sfx\src\Coronas</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\Coronas\CGCoronaManager.cpp">
-      <Filter>Sfx\src\Coronas</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGPSGDefFileWH.cpp">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGPSGGeneric.cpp">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGPSGGenericQuad.cpp">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGPSGGenericQuadCinematic.cpp">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGPSGGenericQuadOrbit.cpp">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGPSIManager.cpp">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGPSysGenWH.cpp">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem.cpp">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystemGenerator.cpp">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystemInstance.cpp">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Coolant.cpp">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Generic.cpp">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Generic_Stretch.cpp">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Sparks.cpp">
-      <Filter>Sfx\src\ParticleSystems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\SfxObject\CGSFXObjectManager.cpp">
-      <Filter>Sfx\src\SfxObject</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\trail\CGTrailGenDefFileWH.cpp">
-      <Filter>Sfx\src\trail</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\trail\CGTrailGenStd.cpp">
-      <Filter>Sfx\src\trail</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\trail\CGTrailGenWH.cpp">
-      <Filter>Sfx\src\trail</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\trail\CGTrailGenerator.cpp">
-      <Filter>Sfx\src\trail</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\trail\CGTrailInstance.cpp">
-      <Filter>Sfx\src\trail</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Sfx\src\trail\CGTrailManager.cpp">
-      <Filter>Sfx\src\trail</Filter>
+      <Filter>CollisionUtils</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

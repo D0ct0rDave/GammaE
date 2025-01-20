@@ -4,7 +4,9 @@ caller_script_directory = os.getcwd();
 
 workspace("GammaE_" .. project_name)
 	dofile(caller_script_directory .. "/../common.lua")
-
+	includedirs {
+			"$(ProjectDir)../../sdks/libconfig;"
+		}
 -- Install rules (using a post-build step for example purposes)
 postbuildcommands {
     -- "{MKDIR} %{wks.location}/dist/lib", -- Create output directory

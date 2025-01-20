@@ -1,5 +1,5 @@
 -- Premake5.lua
-project_name = "Collision"
+project_name = "SceneUtils"
 caller_script_directory = os.getcwd();
 
 workspace("GammaE_" .. project_name)

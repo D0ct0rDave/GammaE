@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{9621880B-022B-887C-8BA6-9E7CF7AE937C}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Sfx</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(ProjectDir)\lib\Debug\</OutDir>
+    <IntDir>$(ProjectDir)\obj\Debug\</IntDir>
+    <TargetName>Sfx</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(ProjectDir)\lib\Release\</OutDir>
+    <IntDir>$(ProjectDir)\obj\Release\</IntDir>
+    <TargetName>Sfx</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>NULL=0;_MBCS;WIN32;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\inc;$(ProjectDir)..\..\..\inc;$(ProjectDir)..\modules\Sfx\src;$(ProjectDir)..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>NULL=0;_MBCS;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\inc;$(ProjectDir)..\..\..\inc;$(ProjectDir)..\modules\Sfx\src;$(ProjectDir)..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\modules\Sfx\src\BillBoard\CGBillboard.h" />
+    <ClInclude Include="..\modules\Sfx\src\BillBoard\CGBillboardRenderer.h" />
+    <ClInclude Include="..\modules\Sfx\src\BillBoard\CGBillboard_AxisAlign.h" />
+    <ClInclude Include="..\modules\Sfx\src\BillBoard\CGBillboard_ScrAlign.h" />
+    <ClInclude Include="..\modules\Sfx\src\BillBoard\CGBillboard_WorldAlign.h" />
+    <ClInclude Include="..\modules\Sfx\src\Coronas\CGCorona.h" />
+    <ClInclude Include="..\modules\Sfx\src\Coronas\CGCoronaGenDefFileWH.h" />
+    <ClInclude Include="..\modules\Sfx\src\Coronas\CGCoronaGenStd.h" />
+    <ClInclude Include="..\modules\Sfx\src\Coronas\CGCoronaGenWH.h" />
+    <ClInclude Include="..\modules\Sfx\src\Coronas\CGCoronaGenerator.h" />
+    <ClInclude Include="..\modules\Sfx\src\Coronas\CGCoronaInstance.h" />
+    <ClInclude Include="..\modules\Sfx\src\Coronas\CGCoronaManager.h" />
+    <ClInclude Include="..\modules\Sfx\src\GSfx.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGPSGDefFileWH.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGPSGGeneric.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGPSGGenericQuad.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGPSGGenericQuadCinematic.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGPSGGenericQuadOrbit.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGPSIManager.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGPSysGenWH.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGParticle.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystemGenerator.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystemInstance.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Coolant.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Generic.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Generic_Quad.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Generic_Stretch.h" />
+    <ClInclude Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Sparks.h" />
+    <ClInclude Include="..\modules\Sfx\src\SfxObject\CGSFXObjectManager.h" />
+    <ClInclude Include="..\modules\Sfx\src\trail\CGTrail.h" />
+    <ClInclude Include="..\modules\Sfx\src\trail\CGTrailGenDefFileWH.h" />
+    <ClInclude Include="..\modules\Sfx\src\trail\CGTrailGenStd.h" />
+    <ClInclude Include="..\modules\Sfx\src\trail\CGTrailGenWH.h" />
+    <ClInclude Include="..\modules\Sfx\src\trail\CGTrailGenerator.h" />
+    <ClInclude Include="..\modules\Sfx\src\trail\CGTrailInstance.h" />
+    <ClInclude Include="..\modules\Sfx\src\trail\CGTrailManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\modules\Sfx\src\BillBoard\CGBillboard.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\BillBoard\CGBillboardRenderer.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\BillBoard\CGBillboard_AxisAlign.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\BillBoard\CGBillboard_ScrAlign.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\BillBoard\CGBillboard_WorldAlign.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\Coronas\CGCoronaGenDefFileWH.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\Coronas\CGCoronaGenStd.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\Coronas\CGCoronaGenWH.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\Coronas\CGCoronaGenerator.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\Coronas\CGCoronaInstance.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\Coronas\CGCoronaManager.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGPSGDefFileWH.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGPSGGeneric.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGPSGGenericQuad.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGPSGGenericQuadCinematic.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGPSGGenericQuadOrbit.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGPSIManager.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGPSysGenWH.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystemGenerator.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystemInstance.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Coolant.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Generic.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Generic_Stretch.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Sparks.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\SfxObject\CGSFXObjectManager.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\trail\CGTrailGenDefFileWH.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\trail\CGTrailGenStd.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\trail\CGTrailGenWH.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\trail\CGTrailGenerator.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\trail\CGTrailInstance.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\trail\CGTrailManager.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
