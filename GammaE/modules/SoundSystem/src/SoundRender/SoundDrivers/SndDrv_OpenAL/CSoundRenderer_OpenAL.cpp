@@ -1,40 +1,17 @@
-
 //-----------------------------------------------------------------------------
 
-
-
-
-
-
-
-
-
-
-
-
-#include <al.h>
-#include <alc.h>
-
+#include <al/al.h>
+#include <al/alc.h>
 
 //-----------------------------------------------------------------------------
 #include "SoundRender\SoundDrivers\SndDrv_OpenAL\CSoundRenderer_OpenAL.h"
 #include "SoundRender\SoundDrivers\SndDrv_OpenAL\CSoundEmiter_OpenAL.h"
 
-
-
-
 //-----------------------------------------------------------------------------
 
 CSoundRenderer_OpenAL::CSoundRenderer_OpenAL()
-  
-  
-  
-  
 {
-  
-  
 }
-
 
 CSoundRenderer_OpenAL::~CSoundRenderer_OpenAL()
 {

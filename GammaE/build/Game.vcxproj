@@ -56,7 +56,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>NULL=0;_MBCS;WIN32;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\inc;$(ProjectDir)..\..\..\inc;$(ProjectDir)..\modules\Game\src;$(ProjectDir)..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\inc;$(ProjectDir)..\..\..\inc;$(ProjectDir)..\modules\Game\src;$(ProjectDir)..\src;$(ProjectDir)..\..\SDKS\lua\include;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -72,7 +72,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>NULL=0;_MBCS;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\inc;$(ProjectDir)..\..\..\inc;$(ProjectDir)..\modules\Game\src;$(ProjectDir)..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\inc;$(ProjectDir)..\..\..\inc;$(ProjectDir)..\modules\Game\src;$(ProjectDir)..\src;$(ProjectDir)..\..\SDKS\lua\include;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -150,7 +150,6 @@
     <ClCompile Include="..\modules\Game\src\GameRes\Path\CGPathResource.cpp" />
     <ClCompile Include="..\modules\Game\src\GameRes\Path\CGPathResourceWH.cpp" />
     <ClCompile Include="..\modules\Game\src\GameRes\Path\CGSpiralPath.cpp" />
-    <ClCompile Include="..\modules\Game\src\GameRes\Script\CGScriptBinding.cpp" />
     <ClCompile Include="..\modules\Game\src\GameRes\Script\CGScriptInstance.cpp" />
     <ClCompile Include="..\modules\Game\src\GameRes\Script\CGScriptResource.cpp" />
     <ClCompile Include="..\modules\Game\src\GameRes\Script\CGScriptResourceWH.cpp" />

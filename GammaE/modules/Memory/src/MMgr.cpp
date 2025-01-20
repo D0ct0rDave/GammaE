@@ -1,13 +1,20 @@
-#include <stdlib.h>
 #include "MMgr.h"
 
-void *MEMAlloc(size_t sz)
+#include "stdlib.h"
+#include <assert.h>
+
+void* operator new(size_t sz)
 {
-	return(malloc(sz));
+	if (! sz) return(NULL);
+	void *pData = malloc(sz);
+	
+	assert(pData && "Unable to allocate data");
+	// __FILE__, __LINE__
+	return(pData);	
 }
 
-void MEMFree (void *_P)
+void operator delete(void * _P)
 {
+	assert ( _P && "Attempting to erase a NULL pointer");
 	free(_P);
 }
-

@@ -56,7 +56,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>NULL=0;_MBCS;WIN32;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\inc;$(ProjectDir)..\..\..\inc;$(ProjectDir)..\modules\SoundSystem\src;$(ProjectDir)..\src;$(ProjectDir)..\..\SDKS\FileLib\Src;;$(ProjectDir)..\..\SDKS\libsndfile-0.0.26\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\inc;$(ProjectDir)..\..\..\inc;$(ProjectDir)..\modules\SoundSystem\src;$(ProjectDir)..\src;$(ProjectDir)..\..\SDKS\FileLib\Src;;$(ProjectDir)..\..\SDKS\libsndfile\src;$(ProjectDir)..\..\SDKS\OpenAL 1.1 SDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -72,7 +72,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>NULL=0;_MBCS;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\inc;$(ProjectDir)..\..\..\inc;$(ProjectDir)..\modules\SoundSystem\src;$(ProjectDir)..\src;$(ProjectDir)..\..\SDKS\FileLib\Src;;$(ProjectDir)..\..\SDKS\libsndfile-0.0.26\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\inc;$(ProjectDir)..\..\..\inc;$(ProjectDir)..\modules\SoundSystem\src;$(ProjectDir)..\src;$(ProjectDir)..\..\SDKS\FileLib\Src;;$(ProjectDir)..\..\SDKS\libsndfile\src;$(ProjectDir)..\..\SDKS\OpenAL 1.1 SDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -107,17 +107,8 @@
     <ClInclude Include="..\modules\SoundSystem\src\SoundRender\CSoundEntity.h" />
     <ClInclude Include="..\modules\SoundSystem\src\SoundRender\CSoundReceiver.h" />
     <ClInclude Include="..\modules\SoundSystem\src\SoundRender\CSoundRenderer.h" />
-    <ClInclude Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_BASS\CSR_Bass_Channel.h" />
-    <ClInclude Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_BASS\CSR_Bass_Emiter.h" />
-    <ClInclude Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_BASS\CSoundRenderer_Bass.h" />
-    <ClInclude Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_DirectSound\CSR_DS_Channel.h" />
-    <ClInclude Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_DirectSound\CSR_DS_EmiterPars.h" />
-    <ClInclude Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_DirectSound\CSR_EmiterPars.h" />
-    <ClInclude Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_DirectSound\CSoundEmiter_DSound.h" />
-    <ClInclude Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_DirectSound\CSoundRenderer_DSound.h" />
     <ClInclude Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_OpenAL\CSoundEmiter_OpenAL.h" />
     <ClInclude Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_OpenAL\CSoundRenderer_OpenAL.h" />
-    <ClInclude Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_SDL\CSoundRenderer_SDL.h" />
     <ClInclude Include="..\modules\SoundSystem\src\SoundRender\SoundMixer\CSoundMixPars.h" />
     <ClInclude Include="..\modules\SoundSystem\src\SoundRender\SoundMixer\CSoundMixer.h" />
   </ItemGroup>
@@ -138,17 +129,8 @@
     <ClCompile Include="..\modules\SoundSystem\src\SoundRender\CSoundEntity.cpp" />
     <ClCompile Include="..\modules\SoundSystem\src\SoundRender\CSoundReceiver.cpp" />
     <ClCompile Include="..\modules\SoundSystem\src\SoundRender\CSoundRenderer.cpp" />
-    <ClCompile Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_BASS\CSR_Bass_Channel.cpp" />
-    <ClCompile Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_BASS\CSR_Bass_Emiter.cpp" />
-    <ClCompile Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_BASS\CSoundRenderer_Bass.cpp" />
-    <ClCompile Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_DirectSound\CSR_DS_Channel.cpp" />
-    <ClCompile Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_DirectSound\CSR_DS_EmiterPars.cpp" />
-    <ClCompile Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_DirectSound\CSR_EmiterPars.cpp" />
-    <ClCompile Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_DirectSound\CSoundEmiter_DSound.cpp" />
-    <ClCompile Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_DirectSound\CSoundRenderer_DSound.cpp" />
     <ClCompile Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_OpenAL\CSoundEmiter_OpenAL.cpp" />
     <ClCompile Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_OpenAL\CSoundRenderer_OpenAL.cpp" />
-    <ClCompile Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_SDL\CSoundRenderer_SDL.cpp" />
     <ClCompile Include="..\modules\SoundSystem\src\SoundRender\SoundMixer\CSoundMixPars.cpp" />
     <ClCompile Include="..\modules\SoundSystem\src\SoundRender\SoundMixer\CSoundMixer.cpp" />
   </ItemGroup>

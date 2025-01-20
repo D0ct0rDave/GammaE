@@ -48,9 +48,6 @@
     <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Mesh.h">
       <Filter>COL_Testers\COL_SceneTest</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Mesh_ColTester.h">
-      <Filter>COL_Testers\COL_SceneTest</Filter>
-    </ClInclude>
     <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Scn_ColTester.h">
       <Filter>COL_Testers\COL_SceneTest</Filter>
     </ClInclude>
@@ -93,9 +90,6 @@
     <ClInclude Include="..\modules\Collision\src\COL_TriList\CCOL_Triangle.h">
       <Filter>COL_TriList</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Collision\src\Collider\CCOL_CollidedMeshes.h">
-      <Filter>Collider</Filter>
-    </ClInclude>
     <ClInclude Include="..\modules\Collision\src\Collider\CCOL_Collider.h">
       <Filter>Collider</Filter>
     </ClInclude>
@@ -110,9 +104,6 @@
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\Collider\eCOL_TestType.h">
       <Filter>Collider</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Collision\src\CollisionSystem\CCOL_CSysEntry.h">
-      <Filter>CollisionSystem</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Collision\src\CollisionSystem\CCOL_ColState.h">
       <Filter>CollisionSystem</Filter>
@@ -142,9 +133,6 @@
       <Filter>COL_Testers\COL_DynamicTest</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Mesh.cpp">
-      <Filter>COL_Testers\COL_SceneTest</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Mesh_ColTester.cpp">
       <Filter>COL_Testers\COL_SceneTest</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Scn_ColTester.cpp">
@@ -189,9 +177,6 @@
     <ClCompile Include="..\modules\Collision\src\COL_TriList\CCOL_Triangle.cpp">
       <Filter>COL_TriList</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Collision\src\Collider\CCOL_CollidedMeshes.cpp">
-      <Filter>Collider</Filter>
-    </ClCompile>
     <ClCompile Include="..\modules\Collision\src\Collider\CCOL_Collider.cpp">
       <Filter>Collider</Filter>
     </ClCompile>
@@ -206,9 +191,6 @@
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\Collider\eCOL_TestType.cpp">
       <Filter>Collider</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Collision\src\CollisionSystem\CCOL_CSysEntry.cpp">
-      <Filter>CollisionSystem</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Collision\src\CollisionSystem\CCOL_ColState.cpp">
       <Filter>CollisionSystem</Filter>

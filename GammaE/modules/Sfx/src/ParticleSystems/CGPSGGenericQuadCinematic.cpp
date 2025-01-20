@@ -118,7 +118,7 @@ void CGPSGGenericQuadCinematic::UpdateInstance(CGParticleSystemInstance& _oPSI,f
 	CMesh*			poMesh  = _oPSI.poGetMesh();
 	CVect3			NewPos;
 	CVect3			*pVX = poMesh->VXs;
-	CVect4			*pVC = poMesh->VCs;
+	CGColor			*pVC = poMesh->VCs;
 	uint			uiNumParts = 0;
 
 	for (uint i=0;i<m_uiMaxParticles;i++,poPart++)
@@ -153,10 +153,10 @@ void CGPSGGenericQuadCinematic::UpdateInstance(CGParticleSystemInstance& _oPSI,f
 		pVX[2].V3(-_fA,-_fB,0); pVX[2].Add(oNewPos);
 		pVX[3].V3( _fB,-_fA,0); pVX[3].Add(oNewPos);
 
-		pVC[0].Assign(*(CVect4*)&poPart->m_oColor);
-		pVC[1].Assign(*(CVect4*)&poPart->m_oColor);
-		pVC[2].Assign(*(CVect4*)&poPart->m_oColor);
-		pVC[3].Assign(*(CVect4*)&poPart->m_oColor);
+		pVC[0] = poPart->m_oColor;
+		pVC[1] = poPart->m_oColor;
+		pVC[2] = poPart->m_oColor;
+		pVC[3] = poPart->m_oColor;
 
 		pVX += 4;
 		pVC += 4;

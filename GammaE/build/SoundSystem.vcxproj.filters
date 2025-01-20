@@ -16,17 +16,8 @@
     <Filter Include="SoundRender\SoundDrivers">
       <UniqueIdentifier>{A5685775-918D-A6F5-BAD8-8B85A65CA513}</UniqueIdentifier>
     </Filter>
-    <Filter Include="SoundRender\SoundDrivers\SndDrv_BASS">
-      <UniqueIdentifier>{EDADE08D-D994-A285-82E5-08A36EAB1BEC}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SoundRender\SoundDrivers\SndDrv_DirectSound">
-      <UniqueIdentifier>{A89739A5-14FD-CC2B-9DD5-6E04093AC29A}</UniqueIdentifier>
-    </Filter>
     <Filter Include="SoundRender\SoundDrivers\SndDrv_OpenAL">
       <UniqueIdentifier>{63C773AA-4F19-4B9A-3838-88AA24296483}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SoundRender\SoundDrivers\SndDrv_SDL">
-      <UniqueIdentifier>{07AB5423-7364-BFCD-FCC3-D9A7687C753D}</UniqueIdentifier>
     </Filter>
     <Filter Include="SoundRender\SoundMixer">
       <UniqueIdentifier>{4B24517D-371E-7ACF-208B-10E00C24E03B}</UniqueIdentifier>
@@ -88,38 +79,11 @@
     <ClInclude Include="..\modules\SoundSystem\src\SoundRender\CSoundRenderer.h">
       <Filter>SoundRender</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_BASS\CSR_Bass_Channel.h">
-      <Filter>SoundRender\SoundDrivers\SndDrv_BASS</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_BASS\CSR_Bass_Emiter.h">
-      <Filter>SoundRender\SoundDrivers\SndDrv_BASS</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_BASS\CSoundRenderer_Bass.h">
-      <Filter>SoundRender\SoundDrivers\SndDrv_BASS</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_DirectSound\CSR_DS_Channel.h">
-      <Filter>SoundRender\SoundDrivers\SndDrv_DirectSound</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_DirectSound\CSR_DS_EmiterPars.h">
-      <Filter>SoundRender\SoundDrivers\SndDrv_DirectSound</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_DirectSound\CSR_EmiterPars.h">
-      <Filter>SoundRender\SoundDrivers\SndDrv_DirectSound</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_DirectSound\CSoundEmiter_DSound.h">
-      <Filter>SoundRender\SoundDrivers\SndDrv_DirectSound</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_DirectSound\CSoundRenderer_DSound.h">
-      <Filter>SoundRender\SoundDrivers\SndDrv_DirectSound</Filter>
-    </ClInclude>
     <ClInclude Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_OpenAL\CSoundEmiter_OpenAL.h">
       <Filter>SoundRender\SoundDrivers\SndDrv_OpenAL</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_OpenAL\CSoundRenderer_OpenAL.h">
       <Filter>SoundRender\SoundDrivers\SndDrv_OpenAL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_SDL\CSoundRenderer_SDL.h">
-      <Filter>SoundRender\SoundDrivers\SndDrv_SDL</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\SoundSystem\src\SoundRender\SoundMixer\CSoundMixPars.h">
       <Filter>SoundRender\SoundMixer</Filter>
@@ -177,38 +141,11 @@
     <ClCompile Include="..\modules\SoundSystem\src\SoundRender\CSoundRenderer.cpp">
       <Filter>SoundRender</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_BASS\CSR_Bass_Channel.cpp">
-      <Filter>SoundRender\SoundDrivers\SndDrv_BASS</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_BASS\CSR_Bass_Emiter.cpp">
-      <Filter>SoundRender\SoundDrivers\SndDrv_BASS</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_BASS\CSoundRenderer_Bass.cpp">
-      <Filter>SoundRender\SoundDrivers\SndDrv_BASS</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_DirectSound\CSR_DS_Channel.cpp">
-      <Filter>SoundRender\SoundDrivers\SndDrv_DirectSound</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_DirectSound\CSR_DS_EmiterPars.cpp">
-      <Filter>SoundRender\SoundDrivers\SndDrv_DirectSound</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_DirectSound\CSR_EmiterPars.cpp">
-      <Filter>SoundRender\SoundDrivers\SndDrv_DirectSound</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_DirectSound\CSoundEmiter_DSound.cpp">
-      <Filter>SoundRender\SoundDrivers\SndDrv_DirectSound</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_DirectSound\CSoundRenderer_DSound.cpp">
-      <Filter>SoundRender\SoundDrivers\SndDrv_DirectSound</Filter>
-    </ClCompile>
     <ClCompile Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_OpenAL\CSoundEmiter_OpenAL.cpp">
       <Filter>SoundRender\SoundDrivers\SndDrv_OpenAL</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_OpenAL\CSoundRenderer_OpenAL.cpp">
       <Filter>SoundRender\SoundDrivers\SndDrv_OpenAL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\SoundSystem\src\SoundRender\SoundDrivers\SndDrv_SDL\CSoundRenderer_SDL.cpp">
-      <Filter>SoundRender\SoundDrivers\SndDrv_SDL</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\SoundSystem\src\SoundRender\SoundMixer\CSoundMixPars.cpp">
       <Filter>SoundRender\SoundMixer</Filter>

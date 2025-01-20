@@ -105,7 +105,6 @@
     <ClInclude Include="..\modules\SceneObjects\src\HUD\MsgBox\CMenuTextGrid.h" />
     <ClInclude Include="..\modules\SceneObjects\src\LensFlare\CLensFlare.h" />
     <ClInclude Include="..\modules\SceneObjects\src\LensFlare\CLensFlare_Elem.h" />
-    <ClInclude Include="..\modules\SceneObjects\src\LightCaster\CLightCaster.h" />
     <ClInclude Include="..\modules\SceneObjects\src\Reflector\CObject3D_Reflector.h" />
     <ClInclude Include="..\modules\SceneObjects\src\SceneAxis\SceneAxis.h" />
     <ClInclude Include="..\modules\SceneObjects\src\ShadowCaster\CShadowCaster.h" />
@@ -129,7 +128,6 @@
     <ClCompile Include="..\modules\SceneObjects\src\HUD\MsgBox\CMenuTextGrid.cpp" />
     <ClCompile Include="..\modules\SceneObjects\src\LensFlare\CLensFlare.cpp" />
     <ClCompile Include="..\modules\SceneObjects\src\LensFlare\CLensFlare_Elem.cpp" />
-    <ClCompile Include="..\modules\SceneObjects\src\LightCaster\CLightCaster.cpp" />
     <ClCompile Include="..\modules\SceneObjects\src\Reflector\CObject3D_Reflector.cpp" />
     <ClCompile Include="..\modules\SceneObjects\src\SceneAxis\SceneAxis.cpp" />
     <ClCompile Include="..\modules\SceneObjects\src\ShadowCaster\CShadowCaster.cpp" />

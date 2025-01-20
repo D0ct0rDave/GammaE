@@ -9,6 +9,8 @@
 #ifdef WIN32
 #include <winsock2.h>
 #endif
+
+#define OutputDebugStr
 //-----------------------------------------------------------------------------
 
 #define CONID (('C' << 24) | ('O' << 16) | ('N' << 8) | ('N' << 0))

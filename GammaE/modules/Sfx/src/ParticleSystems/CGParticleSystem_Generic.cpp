@@ -10,24 +10,27 @@ CGParticleSystem_Generic::~CGParticleSystem_Generic()
 {
 }
 // -----------------------------------------------------------------------------
-void CGParticleSystem_Generic::SetColorsFact (CGColor _oInitialColor, CGColor _oFinalColor)
+void CGParticleSystem_Generic::SetColorsPars(CGColor _oInitialColor, CGColor _oFinalColor, float _fRandomness)
 {
-  	RGBAInitialValue.V4(_oInitialColor.r,
-						_oInitialColor.g,
-						_oInitialColor.b,
-						_oInitialColor.a);
+  	RGBAInitialValue = _oInitialColor;
 
-	RGBAFact.Assign(*(CVect4 *)&_oFinalColor);
-	RGBAFact.Sub(*(CVect4 *)&_oInitialColor);
-	RGBAFact.Scale(1.0f /this->fPEnergyFact);
+    RGBAFact.r = (_oFinalColor.r - _oInitialColor.r) / fPEnergyFact;
+    RGBAFact.g = (_oFinalColor.g - _oInitialColor.g) / fPEnergyFact;
+    RGBAFact.b = (_oFinalColor.b - _oInitialColor.b) / fPEnergyFact;
+    RGBAFact.a = (_oFinalColor.a - _oInitialColor.a) / fPEnergyFact;
 }
 // -----------------------------------------------------------------------------
-void CGParticleSystem_Generic::SetSizeFact (float _fSizeFact)
+void CGParticleSystem_Generic::SetSizePars(float _fInitialSize, float _fFinalSize, float _fRandomness)
 {
-  	fPInitialSizeFact = _fSizeFact;
+  	fPInitialSizeFact = _fInitialSize;
 }
 // -----------------------------------------------------------------------------
-void CGParticleSystem_Generic::SetEnergyFact (float _fInitialEnergy, float _fEnergyFact)
+void CGParticleSystem_Generic::SetAnglePars(float _fInitialAngle, float _fFinalAngle, float _fRandomness)
+{
+
+}
+// -----------------------------------------------------------------------------
+void CGParticleSystem_Generic::SetEnergyFact (float _fInitialEnergy, float _fEnergyFact, float _fRandomness)
 {
   	fPInitialEnergyFact = _fInitialEnergy;
 	fPEnergyFact        = _fEnergyFact;

@@ -92,11 +92,8 @@
     <ClInclude Include="..\modules\Terrain\src\TerrainMaterials\CTileBookmark.h" />
     <ClInclude Include="..\modules\Terrain\src\TerrainMath\CLODSelector.h" />
     <ClInclude Include="..\modules\Terrain\src\TerrainMath\CLODSelector_Array.h" />
-    <ClInclude Include="..\modules\Terrain\src\TerrainMath\NewClass.h" />
     <ClInclude Include="..\modules\Terrain\src\TerrainScene\CTerrainCircuit.h" />
     <ClInclude Include="..\modules\Terrain\src\TerrainScene\CTerrainSector.h" />
-    <ClInclude Include="..\modules\Terrain\src\TerrainScene\SceneLoaders\DEFFile\DEFFile.h" />
-    <ClInclude Include="..\modules\Terrain\src\TerrainScene\SceneLoaders\DEFSceneLoader.h" />
     <ClInclude Include="..\modules\Terrain\src\TerrainScene\SceneLoaders\EnvPars\EnvPars.h" />
     <ClInclude Include="..\modules\Terrain\src\TerrainScene\SceneLoaders\TERScene\TERSceneLoader.h" />
     <ClInclude Include="..\modules\Terrain\src\TerrainTesselators\CTerrainTesselator.h" />
@@ -107,11 +104,8 @@
     <ClCompile Include="..\modules\Terrain\src\TerrainMaterials\CTileBookmark.cpp" />
     <ClCompile Include="..\modules\Terrain\src\TerrainMath\CLODSelector.cpp" />
     <ClCompile Include="..\modules\Terrain\src\TerrainMath\CLODSelector_Array.cpp" />
-    <ClCompile Include="..\modules\Terrain\src\TerrainMath\NewClass.cpp" />
     <ClCompile Include="..\modules\Terrain\src\TerrainScene\CTerrainCircuit.cpp" />
     <ClCompile Include="..\modules\Terrain\src\TerrainScene\CTerrainSector.cpp" />
-    <ClCompile Include="..\modules\Terrain\src\TerrainScene\SceneLoaders\DEFFile\DEFFile.cpp" />
-    <ClCompile Include="..\modules\Terrain\src\TerrainScene\SceneLoaders\DEFSceneLoader.cpp" />
     <ClCompile Include="..\modules\Terrain\src\TerrainScene\SceneLoaders\TERScene\TERSceneLoader.cpp" />
     <ClCompile Include="..\modules\Terrain\src\TerrainTesselators\CTerrainTesselator.cpp" />
     <ClCompile Include="..\modules\Terrain\src\TerrainTesselators\CTerrainTesselatorGM.cpp" />

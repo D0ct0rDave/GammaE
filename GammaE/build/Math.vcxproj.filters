@@ -49,28 +49,10 @@
     <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEval_Cos.h">
       <Filter>MATH_Evaluator</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEval_Dist.h">
-      <Filter>MATH_Evaluator</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEval_Dst_X.h">
-      <Filter>MATH_Evaluator</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEval_Dst_Y.h">
-      <Filter>MATH_Evaluator</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEval_Dst_Z.h">
-      <Filter>MATH_Evaluator</Filter>
-    </ClInclude>
     <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEval_Mult.h">
       <Filter>MATH_Evaluator</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEval_Periodic.h">
-      <Filter>MATH_Evaluator</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEval_Pitch.h">
-      <Filter>MATH_Evaluator</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEval_Roll.h">
       <Filter>MATH_Evaluator</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEval_SawTooth.h">
@@ -89,9 +71,6 @@
       <Filter>MATH_Evaluator</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEval_Triangle.h">
-      <Filter>MATH_Evaluator</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEval_Yaw.h">
       <Filter>MATH_Evaluator</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEvaluator.h">
@@ -154,28 +133,10 @@
     <ClCompile Include="..\modules\Math\src\MATH_Evaluator\CEval_Cos.cpp">
       <Filter>MATH_Evaluator</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Evaluator\CEval_Dist.cpp">
-      <Filter>MATH_Evaluator</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Evaluator\CEval_Dst_X.cpp">
-      <Filter>MATH_Evaluator</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Evaluator\CEval_Dst_Y.cpp">
-      <Filter>MATH_Evaluator</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Evaluator\CEval_Dst_Z.cpp">
-      <Filter>MATH_Evaluator</Filter>
-    </ClCompile>
     <ClCompile Include="..\modules\Math\src\MATH_Evaluator\CEval_Mult.cpp">
       <Filter>MATH_Evaluator</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Math\src\MATH_Evaluator\CEval_Periodic.cpp">
-      <Filter>MATH_Evaluator</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Evaluator\CEval_Pitch.cpp">
-      <Filter>MATH_Evaluator</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Evaluator\CEval_Roll.cpp">
       <Filter>MATH_Evaluator</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Math\src\MATH_Evaluator\CEval_SawTooth.cpp">
@@ -194,9 +155,6 @@
       <Filter>MATH_Evaluator</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Math\src\MATH_Evaluator\CEval_Triangle.cpp">
-      <Filter>MATH_Evaluator</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Evaluator\CEval_Yaw.cpp">
       <Filter>MATH_Evaluator</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Math\src\MATH_Evaluator\CEvaluator.cpp">

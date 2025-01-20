@@ -18,7 +18,7 @@ typedef struct{
 	CVect3 Speed;	
 	CVect3 OldSpeed;
 	
-	CVect4 Color;
+	CGColor Color;
 
 	float  fSize;
 	float  fEnergy;

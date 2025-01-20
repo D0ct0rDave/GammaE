@@ -37,9 +37,6 @@
     <Filter Include="MeshDB">
       <UniqueIdentifier>{18BBE0C2-045D-0B99-ED17-1FEDD95892E9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Programs">
-      <UniqueIdentifier>{508629A2-3C53-84AD-656C-72555198B93B}</UniqueIdentifier>
-    </Filter>
     <Filter Include="RenderVars">
       <UniqueIdentifier>{A1EA0A00-8DA2-4C4D-F6A9-25A9E280E73D}</UniqueIdentifier>
     </Filter>
@@ -138,9 +135,6 @@
     <ClInclude Include="..\modules\E3D\src\Light\CE3D_Light.h">
       <Filter>Light</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\E3D\src\Light\LightWH.h">
-      <Filter>Light</Filter>
-    </ClInclude>
     <ClInclude Include="..\modules\E3D\src\Materials\CGColor.h">
       <Filter>Materials</Filter>
     </ClInclude>
@@ -177,9 +171,6 @@
     <ClInclude Include="..\modules\E3D\src\Mesh\CMesh_Sphere.h">
       <Filter>Mesh</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\E3D\src\Mesh\Mesh.h">
-      <Filter>Mesh</Filter>
-    </ClInclude>
     <ClInclude Include="..\modules\E3D\src\Mesh\MeshUtils\MESHUt_BuildNIMesh.h">
       <Filter>Mesh\MeshUtils</Filter>
     </ClInclude>
@@ -194,15 +185,6 @@
     </ClInclude>
     <ClInclude Include="..\modules\E3D\src\MeshDB\CDefferredMeshDB.h">
       <Filter>MeshDB</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\E3D\src\Programs\CE3D_ShaderDefFileWH.h">
-      <Filter>Programs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\E3D\src\Programs\CE3D_ShaderDefWH.h">
-      <Filter>Programs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\E3D\src\Programs\eE3D_ZWrite.h">
-      <Filter>Programs</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\E3D\src\RenderVars\CE3D_RenderVars.h">
       <Filter>RenderVars</Filter>
@@ -273,9 +255,6 @@
     <ClInclude Include="..\modules\E3D\src\Shaders\ShaderUtils\CE3D_ShaderUtils.h">
       <Filter>Shaders\ShaderUtils</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderWarehouse\CE3D_ShWH_Entry.h">
-      <Filter>Shaders\ShaderWarehouse</Filter>
-    </ClInclude>
     <ClInclude Include="..\modules\E3D\src\Shaders\ShaderWarehouse\CE3D_ShaderWH.h">
       <Filter>Shaders\ShaderWarehouse</Filter>
     </ClInclude>
@@ -286,9 +265,6 @@
       <Filter>Viewing\Frustum</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\E3D\src\Viewing\Projector\CE3D_Projector.h">
-      <Filter>Viewing\Projector</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\E3D\src\Viewing\Projector\eE3D_ProjectorType.h">
       <Filter>Viewing\Projector</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\E3D\src\Viewing\Viewport\CE3D_Viewport.h">
@@ -352,9 +328,6 @@
     <ClCompile Include="..\modules\E3D\src\Light\CE3D_Light.cpp">
       <Filter>Light</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\E3D\src\Light\LightWH.cpp">
-      <Filter>Light</Filter>
-    </ClCompile>
     <ClCompile Include="..\modules\E3D\src\Materials\CGColor.cpp">
       <Filter>Materials</Filter>
     </ClCompile>
@@ -391,9 +364,6 @@
     <ClCompile Include="..\modules\E3D\src\Mesh\CMesh_Sphere.cpp">
       <Filter>Mesh</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\E3D\src\Mesh\Mesh.cpp">
-      <Filter>Mesh</Filter>
-    </ClCompile>
     <ClCompile Include="..\modules\E3D\src\Mesh\MeshUtils\MESHUt_BuildNIMesh.cpp">
       <Filter>Mesh\MeshUtils</Filter>
     </ClCompile>
@@ -408,15 +378,6 @@
     </ClCompile>
     <ClCompile Include="..\modules\E3D\src\MeshDB\CDefferredMeshDB.cpp">
       <Filter>MeshDB</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\E3D\src\Programs\CE3D_ShaderDefFileWH.cpp">
-      <Filter>Programs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\E3D\src\Programs\CE3D_ShaderDefWH.cpp">
-      <Filter>Programs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\E3D\src\Programs\eE3D_ZWrite.cpp">
-      <Filter>Programs</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\E3D\src\RenderVars\CE3D_RenderVars.cpp">
       <Filter>RenderVars</Filter>
@@ -484,9 +445,6 @@
     <ClCompile Include="..\modules\E3D\src\Shaders\ShaderUtils\CE3D_ShaderUtils.cpp">
       <Filter>Shaders\ShaderUtils</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderWarehouse\CE3D_ShWH_Entry.cpp">
-      <Filter>Shaders\ShaderWarehouse</Filter>
-    </ClCompile>
     <ClCompile Include="..\modules\E3D\src\Shaders\ShaderWarehouse\CE3D_ShaderWH.cpp">
       <Filter>Shaders\ShaderWarehouse</Filter>
     </ClCompile>
@@ -497,9 +455,6 @@
       <Filter>Viewing\Frustum</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\E3D\src\Viewing\Projector\CE3D_Projector.cpp">
-      <Filter>Viewing\Projector</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\E3D\src\Viewing\Projector\eE3D_ProjectorType.cpp">
       <Filter>Viewing\Projector</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\E3D\src\Viewing\Viewport\CE3D_Viewport.cpp">

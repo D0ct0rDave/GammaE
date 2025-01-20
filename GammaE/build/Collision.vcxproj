@@ -94,7 +94,6 @@
     <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Sphere.h" />
     <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Tri.h" />
     <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Mesh.h" />
-    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Mesh_ColTester.h" />
     <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Scn_ColTester.h" />
     <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_CommonMesh.h" />
     <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_TerrainMesh.h" />
@@ -109,13 +108,11 @@
     <ClInclude Include="..\modules\Collision\src\COL_TriList\CCOL_TriList.h" />
     <ClInclude Include="..\modules\Collision\src\COL_TriList\CCOL_TriListGen.h" />
     <ClInclude Include="..\modules\Collision\src\COL_TriList\CCOL_Triangle.h" />
-    <ClInclude Include="..\modules\Collision\src\Collider\CCOL_CollidedMeshes.h" />
     <ClInclude Include="..\modules\Collision\src\Collider\CCOL_Collider.h" />
     <ClInclude Include="..\modules\Collision\src\Collider\CCOL_Stack.h" />
     <ClInclude Include="..\modules\Collision\src\Collider\CCOL_StackCollisionElem.h" />
     <ClInclude Include="..\modules\Collision\src\Collider\eCOL_ColliderType.h" />
     <ClInclude Include="..\modules\Collision\src\Collider\eCOL_TestType.h" />
-    <ClInclude Include="..\modules\Collision\src\CollisionSystem\CCOL_CSysEntry.h" />
     <ClInclude Include="..\modules\Collision\src\CollisionSystem\CCOL_ColState.h" />
     <ClInclude Include="..\modules\Collision\src\CollisionSystem\CCOL_CollisionSystem.h" />
     <ClInclude Include="..\modules\Collision\src\CollisionUtils\CCOL_TriList_BVRayTest.h" />
@@ -128,7 +125,6 @@
     <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Sphere.cpp" />
     <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Tri.cpp" />
     <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Mesh.cpp" />
-    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Mesh_ColTester.cpp" />
     <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Scn_ColTester.cpp" />
     <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_CommonMesh.cpp" />
     <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_TerrainMesh.cpp" />
@@ -143,13 +139,11 @@
     <ClCompile Include="..\modules\Collision\src\COL_TriList\CCOL_TriList.cpp" />
     <ClCompile Include="..\modules\Collision\src\COL_TriList\CCOL_TriListGen.cpp" />
     <ClCompile Include="..\modules\Collision\src\COL_TriList\CCOL_Triangle.cpp" />
-    <ClCompile Include="..\modules\Collision\src\Collider\CCOL_CollidedMeshes.cpp" />
     <ClCompile Include="..\modules\Collision\src\Collider\CCOL_Collider.cpp" />
     <ClCompile Include="..\modules\Collision\src\Collider\CCOL_Stack.cpp" />
     <ClCompile Include="..\modules\Collision\src\Collider\CCOL_StackCollisionElem.cpp" />
     <ClCompile Include="..\modules\Collision\src\Collider\eCOL_ColliderType.cpp" />
     <ClCompile Include="..\modules\Collision\src\Collider\eCOL_TestType.cpp" />
-    <ClCompile Include="..\modules\Collision\src\CollisionSystem\CCOL_CSysEntry.cpp" />
     <ClCompile Include="..\modules\Collision\src\CollisionSystem\CCOL_ColState.cpp" />
     <ClCompile Include="..\modules\Collision\src\CollisionSystem\CCOL_CollisionSystem.cpp" />
     <ClCompile Include="..\modules\Collision\src\CollisionUtils\CCOL_TriList_BVRayTest.cpp" />

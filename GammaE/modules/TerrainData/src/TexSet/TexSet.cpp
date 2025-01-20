@@ -17,7 +17,7 @@ TTexSet::TTexSet()
     {
         // Initialize each element of the texture list
         TextureArray[cTex].Used = false;
-        TextureArray[cTex].tex = NULL;
+        TextureArray[cTex].m_poTex = NULL;
         TextureArray[cTex].Filename[0] = 0;
 	}
 
@@ -35,7 +35,11 @@ void TTexSet::Invalidate()
     for (cTex=0;cTex<TEXSET_MAX_TEXTURES;cTex++)
         if (TextureArray[cTex].Used)
         {
-            DestroyMipMap(TextureArray[cTex].tex);
+            int index = CMipMapWH::I()->iGetIdx(TextureArray[cTex].m_poTex);
+            if (index != -1)
+            {
+                CMipMapWH::I()->Del(index);
+            }
         }
 }
 //-----------------------------------------------------------------------------
@@ -100,7 +104,8 @@ int TTexSet::SetMipMap(unsigned int MipMapID,CGMipMap *MipMap)
     return(RES_OP_OK);
 }
 //---------------------------------------------------------------------------
-Texture* TTexSet::GetMipMapLOD(unsigned int TexID,unsigned int LOD)
+/*
+Texture* TTexSet::GetMipMapLOD(unsigned int TexID, unsigned int LOD)
 {
     // Returns the most detailed LOD in the mipmap identified with TexID
     if (TexID>=TEXSET_MAX_TEXTURES)
@@ -151,6 +156,7 @@ int TTexSet::SetTexture(unsigned int TexID,Texture *Tex)
 
     return(RES_OP_OK);
 }
+*/
 unsigned int TTexSet::GetMaxMipMaps()
 {
     unsigned int cTex,LastTex;
@@ -258,6 +264,7 @@ int TTexSet::Save(char *Filename)
 //-----------------------------------------------------------------------------
 int TTexSet::LoadWithHandler(FILE *fd)
 {
+    /*
     unsigned int   cI,cJ;
     unsigned int   BlockLenght;
 
@@ -341,8 +348,9 @@ int TTexSet::LoadWithHandler(FILE *fd)
             iRes = RES_OP_WARNING;
         }
     }
-
     return (iRes);
+    */
+    return 0;
 }
 //-----------------------------------------------------------------------------
 int TTexSet::SaveWithHandler(FILE *fd)
@@ -463,7 +471,7 @@ int TTexSet::LoadTexSetList(char *Filename)
 
         if (uiMipMapNum<TEXSET_MAX_TEXTURES)
         {
-            MipMap* mipMap = poLoadTextureAsMipmap(StrBuff);
+            CGMipMap* mipMap = CMipMapWH::I()->poLoad(StrBuff);
             if (mipMap == NULL)
             {
                 fclose(fd);

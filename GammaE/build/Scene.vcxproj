@@ -118,7 +118,6 @@
     <ClInclude Include="..\modules\Scene\src\CObject3D_CompiledLeaf.h" />
     <ClInclude Include="..\modules\Scene\src\CObject3D_Instance.h" />
     <ClInclude Include="..\modules\Scene\src\CObject3D_Leaf.h" />
-    <ClInclude Include="..\modules\Scene\src\CObject3D_Link.h" />
     <ClInclude Include="..\modules\Scene\src\CObject3D_Mux.h" />
     <ClInclude Include="..\modules\Scene\src\CObject3D_Node.h" />
     <ClInclude Include="..\modules\Scene\src\CObject3D_ScreenRect.h" />
@@ -153,7 +152,6 @@
     <ClCompile Include="..\modules\Scene\src\CObject3D_Camera.cpp" />
     <ClCompile Include="..\modules\Scene\src\CObject3D_CompiledLeaf.cpp" />
     <ClCompile Include="..\modules\Scene\src\CObject3D_Leaf.cpp" />
-    <ClCompile Include="..\modules\Scene\src\CObject3D_Link.cpp" />
     <ClCompile Include="..\modules\Scene\src\CObject3D_Mux.cpp" />
     <ClCompile Include="..\modules\Scene\src\CObject3D_Node.cpp" />
     <ClCompile Include="..\modules\Scene\src\CObject3D_ScreenRect.cpp" />

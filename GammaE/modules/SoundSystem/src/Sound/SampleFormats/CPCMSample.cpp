@@ -1,48 +1,22 @@
-
 //-----------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
 
 #include "GammaE_Mem.h"
 #include "GammaE_Misc.h"
 #include <string.h>
 
-#include <sndfile.h>
+#include "sndfile.h"
 
 #ifdef _OPENAL_
 #include <al.h>
 #endif
 
-
 //-----------------------------------------------------------------------------
 #include "Sound\SampleFormats\CPCMSample.h"
 
-
-
-
 //-----------------------------------------------------------------------------
 
-
-
-
-
-
-
-
 CPCMSample::CPCMSample()
-  
-  
-  
-  
+   
 {
   
   pData = NULL;

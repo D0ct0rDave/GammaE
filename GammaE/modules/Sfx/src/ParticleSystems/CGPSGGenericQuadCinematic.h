@@ -38,7 +38,7 @@ class CGPSGGenericQuadCinematic : public CGParticleSystemGenerator
 		}
 
 		/// Sets the size parameters for the generated particles
-		void SetSizePars(float _fInitialSize,float _fRandomSize,float _fSizeSpeed= 0.0f,float _fRandomSizeSpeed = 0.0f,float _fAccelerationSize)
+		void SetSizePars(float _fInitialSize,float _fRandomSize,float _fSizeSpeed= 0.0f,float _fRandomSizeSpeed = 0.0f,float _fAccelerationSize=0.0f)
 		{
 			m_fInitialSize		= _fInitialSize;
 			m_fRandomSize		= _fRandomSize;
@@ -57,7 +57,7 @@ class CGPSGGenericQuadCinematic : public CGParticleSystemGenerator
 		}
 
 		/// Sets the parameters for the spatial placement of the particles over a sphere centered on the instance
-		void SetXPars(float _fXOfs,float _fXRandomOfs,float _fXSpeed= 0.0f,float _fRandomXSpeed= 0.0f,float _fXAcceleration)
+		void SetXPars(float _fXOfs,float _fXRandomOfs,float _fXSpeed= 0.0f,float _fRandomXSpeed= 0.0f,float _fXAcceleration=0.0f)
 		{
 			m_fXOfs				= _fXOfs;
 			m_fXRandomOfs		= _fXRandomOfs;
@@ -67,7 +67,7 @@ class CGPSGGenericQuadCinematic : public CGParticleSystemGenerator
 		}
 
 		/// Sets the parameters for the spatial placement of the particles over a sphere centered on the instance
-		void SetYPars(float _fYOfs,float _fYRandomOfs,float _fYSpeed= 0.0f,float _fRandomYSpeed= 0.0f,float _fYAcceleration)
+		void SetYPars(float _fYOfs,float _fYRandomOfs,float _fYSpeed= 0.0f,float _fRandomYSpeed= 0.0f,float _fYAcceleration=0.0f)
 		{
 			m_fYOfs				= _fYOfs;
 			m_fYRandomOfs		= _fYRandomOfs;
@@ -77,7 +77,7 @@ class CGPSGGenericQuadCinematic : public CGParticleSystemGenerator
 		}
 
 		/// Sets the parameters for the spatial placement of the particles over a sphere centered on the instance
-		void SetZPars(float _fZOfs,float _fZRandomOfs,float _fZSpeed= 0.0f,float _fRandomZSpeed= 0.0f,float _fZAcceleration)
+		void SetZPars(float _fZOfs,float _fZRandomOfs,float _fZSpeed= 0.0f,float _fRandomZSpeed= 0.0f,float _fZAcceleration=0.0f)
 		{
 			m_fZOfs				= _fZOfs;
 			m_fZRandomOfs		= _fZRandomOfs;
@@ -108,10 +108,29 @@ class CGPSGGenericQuadCinematic : public CGParticleSystemGenerator
 		float m_fRandomSizeSpeed;
 		float m_fAccelerationSize;
 
+		float m_fFinalSize;
+		float m_fISRandomness;
+		float m_fFSRandomness;
+
+
+	
 		float m_fInitialAngle;
 		float m_fRandomAngle;
 		float m_fAngleSpeed;
 		float m_fRandomAngleSpeed;
+
+		float m_fFinalAngle;
+		float m_fFARandomness;
+		float m_fIARandomness;
+
+
+
+		float m_fInnerRadius;
+		float m_fIRRandomness;
+		float m_fOuterRadius;
+		float m_fORRandomness;
+
+
 
 		float m_fXOfs;
 		float m_fXRandomOfs;

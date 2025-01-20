@@ -5,10 +5,23 @@ caller_script_directory = os.getcwd();
 workspace("GammaE_" .. project_name)
 	dofile(caller_script_directory .. "/../common.lua")
 
-includedirs {
+	includedirs {
 		"$(ProjectDir)../../SDKS/FileLib/Src;",
-		"$(ProjectDir)../../SDKS/libsndfile-0.0.26/src"		
+		"$(ProjectDir)../../SDKS/libsndfile/src",
+		"$(ProjectDir)../../SDKS/OpenAL 1.1 SDK/include"
 	}
+
+	removefiles { 
+			"**/SndDrv_BASS/*", 
+			"**/SndDrv_DirectSound/*", 
+			"**/SndDrv_SDL/*",
+	}
+
+	-- Exclude	files
+	filter { "files:**_BASS*" }
+	  flags {"ExcludeFromBuild"}
+
+
 
 -- Install rules (using a post-build step for example purposes)
 postbuildcommands {

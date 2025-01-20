@@ -156,7 +156,7 @@ void CGParticleSystem::Render ()
 	bool		bEnableZBuffer = false;
 
 	if (bDisableZBuffer)
-		CGRenderer::I()->SetZPars(eE3D_ZTF_None,eE3D_ZW_Current);
+		CGRenderer::I()->SetZPars(E3D_ZTF_None,E3D_ZW_Current);
 
 			Think( CGRenderer::I()->REStats.DTime );	
 
@@ -171,7 +171,7 @@ void CGParticleSystem::Render ()
 	
 	
 	if (bEnableZBuffer)
-		CGRenderer::I()->SetZPars(eE3D_ZTF_Last,eE3D_ZW_Current);		
+		CGRenderer::I()->SetZPars(E3D_ZTF_Last, E3D_ZW_Current);		
   //## end CGParticleSystem::Render%997390917.body
 }
 

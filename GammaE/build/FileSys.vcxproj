@@ -102,7 +102,6 @@
     <ClInclude Include="..\modules\FileSys\src\Misc\FileSys_Common.h" />
     <ClInclude Include="..\modules\FileSys\src\OSFile\COSFile.h" />
     <ClInclude Include="..\modules\FileSys\src\OSFile\COSFileW32.h" />
-    <ClInclude Include="..\modules\FileSys\src\OSFile\eFileOS_SeekMode.h" />
     <ClInclude Include="..\modules\FileSys\src\OSFile\eOSF_SeekMode.h" />
   </ItemGroup>
   <ItemGroup>
@@ -118,7 +117,6 @@
     <ClCompile Include="..\modules\FileSys\src\Misc\FileSys_Common.cpp" />
     <ClCompile Include="..\modules\FileSys\src\OSFile\COSFile.cpp" />
     <ClCompile Include="..\modules\FileSys\src\OSFile\COSFileW32.cpp" />
-    <ClCompile Include="..\modules\FileSys\src\OSFile\eFileOS_SeekMode.cpp" />
     <ClCompile Include="..\modules\FileSys\src\OSFile\eOSF_SeekMode.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

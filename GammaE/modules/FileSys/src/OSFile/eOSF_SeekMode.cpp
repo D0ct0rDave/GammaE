@@ -5,6 +5,6 @@
 
 
 // eOSF_SeekMode
-#include "FileSys\OSFile\eOSF_SeekMode.h"
+#include "OSFile\eOSF_SeekMode.h"
 
 

@@ -58,9 +58,6 @@
     <ClInclude Include="..\modules\FileSys\src\OSFile\COSFileW32.h">
       <Filter>OSFile</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\FileSys\src\OSFile\eFileOS_SeekMode.h">
-      <Filter>OSFile</Filter>
-    </ClInclude>
     <ClInclude Include="..\modules\FileSys\src\OSFile\eOSF_SeekMode.h">
       <Filter>OSFile</Filter>
     </ClInclude>
@@ -100,9 +97,6 @@
       <Filter>OSFile</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\FileSys\src\OSFile\COSFileW32.cpp">
-      <Filter>OSFile</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\FileSys\src\OSFile\eFileOS_SeekMode.cpp">
       <Filter>OSFile</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\FileSys\src\OSFile\eOSF_SeekMode.cpp">

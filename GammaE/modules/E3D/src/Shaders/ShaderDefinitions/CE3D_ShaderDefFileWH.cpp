@@ -118,6 +118,6 @@ CGTextResource* CE3D_ShaderDefFileWH::poLoadResource(const CGString& _sFilename)
 void CE3D_ShaderDefFileWH::Reload()
 {
 	CE3D_ShaderDefWH::I()->Reset();
-	ParentReload();
+	CGDiskResourceWH<CGTextResource, CE3D_ShaderDefFileWH>::Reload();
 }
 // ----------------------------------------------------------------------------

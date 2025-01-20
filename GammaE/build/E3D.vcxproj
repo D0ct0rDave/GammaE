@@ -112,7 +112,6 @@
     <ClInclude Include="..\modules\E3D\src\E3D_Enums.h" />
     <ClInclude Include="..\modules\E3D\src\GE3D.h" />
     <ClInclude Include="..\modules\E3D\src\Light\CE3D_Light.h" />
-    <ClInclude Include="..\modules\E3D\src\Light\LightWH.h" />
     <ClInclude Include="..\modules\E3D\src\Materials\CGColor.h" />
     <ClInclude Include="..\modules\E3D\src\Materials\CGMipMap.h" />
     <ClInclude Include="..\modules\E3D\src\Materials\CGProgram.h" />
@@ -125,15 +124,11 @@
     <ClInclude Include="..\modules\E3D\src\Mesh\CMesh_Cross.h" />
     <ClInclude Include="..\modules\E3D\src\Mesh\CMesh_Rect.h" />
     <ClInclude Include="..\modules\E3D\src\Mesh\CMesh_Sphere.h" />
-    <ClInclude Include="..\modules\E3D\src\Mesh\Mesh.h" />
     <ClInclude Include="..\modules\E3D\src\Mesh\MeshUtils\MESHUt_BuildNIMesh.h" />
     <ClInclude Include="..\modules\E3D\src\Mesh\MeshUtils\NormalGen.h" />
     <ClInclude Include="..\modules\E3D\src\Mesh\MeshUtils\TexCoordGen.h" />
     <ClInclude Include="..\modules\E3D\src\Mesh\MeshUtils\TransformMesh.h" />
     <ClInclude Include="..\modules\E3D\src\MeshDB\CDefferredMeshDB.h" />
-    <ClInclude Include="..\modules\E3D\src\Programs\CE3D_ShaderDefFileWH.h" />
-    <ClInclude Include="..\modules\E3D\src\Programs\CE3D_ShaderDefWH.h" />
-    <ClInclude Include="..\modules\E3D\src\Programs\eE3D_ZWrite.h" />
     <ClInclude Include="..\modules\E3D\src\RenderVars\CE3D_RenderVars.h" />
     <ClInclude Include="..\modules\E3D\src\Shaders\CE3D_Shader.h" />
     <ClInclude Include="..\modules\E3D\src\Shaders\CE3D_ShaderExtDB.h" />
@@ -157,12 +152,10 @@
     <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\eShInsTexOp_TypeID.h" />
     <ClInclude Include="..\modules\E3D\src\Shaders\ShaderParser\CE3D_ShaderParser.h" />
     <ClInclude Include="..\modules\E3D\src\Shaders\ShaderUtils\CE3D_ShaderUtils.h" />
-    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderWarehouse\CE3D_ShWH_Entry.h" />
     <ClInclude Include="..\modules\E3D\src\Shaders\ShaderWarehouse\CE3D_ShaderWH.h" />
     <ClInclude Include="..\modules\E3D\src\Viewing\Camera\CE3D_Camera.h" />
     <ClInclude Include="..\modules\E3D\src\Viewing\Frustum\CE3D_Frustum.h" />
     <ClInclude Include="..\modules\E3D\src\Viewing\Projector\CE3D_Projector.h" />
-    <ClInclude Include="..\modules\E3D\src\Viewing\Projector\eE3D_ProjectorType.h" />
     <ClInclude Include="..\modules\E3D\src\Viewing\Viewport\CE3D_Viewport.h" />
   </ItemGroup>
   <ItemGroup>
@@ -186,7 +179,6 @@
     <ClCompile Include="..\modules\E3D\src\Drivers\OGL\CE3D_OGL_Win_Renderer.cpp" />
     <ClCompile Include="..\modules\E3D\src\Drivers\OGL\ShaderRenderOGL\CE3D_ShaderRenderer_OGL.cpp" />
     <ClCompile Include="..\modules\E3D\src\Light\CE3D_Light.cpp" />
-    <ClCompile Include="..\modules\E3D\src\Light\LightWH.cpp" />
     <ClCompile Include="..\modules\E3D\src\Materials\CGColor.cpp" />
     <ClCompile Include="..\modules\E3D\src\Materials\CGMipMap.cpp" />
     <ClCompile Include="..\modules\E3D\src\Materials\CGProgram.cpp" />
@@ -199,24 +191,16 @@
     <ClCompile Include="..\modules\E3D\src\Mesh\CMesh_Cross.cpp" />
     <ClCompile Include="..\modules\E3D\src\Mesh\CMesh_Rect.cpp" />
     <ClCompile Include="..\modules\E3D\src\Mesh\CMesh_Sphere.cpp" />
-    <ClCompile Include="..\modules\E3D\src\Mesh\Mesh.cpp" />
     <ClCompile Include="..\modules\E3D\src\Mesh\MeshUtils\MESHUt_BuildNIMesh.cpp" />
     <ClCompile Include="..\modules\E3D\src\Mesh\MeshUtils\NormalGen.cpp" />
     <ClCompile Include="..\modules\E3D\src\Mesh\MeshUtils\TexCoordGen.cpp" />
     <ClCompile Include="..\modules\E3D\src\Mesh\MeshUtils\TransformMesh.cpp" />
     <ClCompile Include="..\modules\E3D\src\MeshDB\CDefferredMeshDB.cpp" />
-    <ClCompile Include="..\modules\E3D\src\Programs\CE3D_ShaderDefFileWH.cpp" />
-    <ClCompile Include="..\modules\E3D\src\Programs\CE3D_ShaderDefWH.cpp" />
-    <ClCompile Include="..\modules\E3D\src\Programs\eE3D_ZWrite.cpp" />
     <ClCompile Include="..\modules\E3D\src\RenderVars\CE3D_RenderVars.cpp" />
     <ClCompile Include="..\modules\E3D\src\Shaders\CE3D_Shader.cpp" />
     <ClCompile Include="..\modules\E3D\src\Shaders\CE3D_ShaderExtDB.cpp" />
-    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderDefinitions\CE3D_ShaderDefFileWH.cpp">
-      <ObjectFileName>$(IntDir)\CE3D_ShaderDefFileWH1.obj</ObjectFileName>
-    </ClCompile>
-    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderDefinitions\CE3D_ShaderDefWH.cpp">
-      <ObjectFileName>$(IntDir)\CE3D_ShaderDefWH1.obj</ObjectFileName>
-    </ClCompile>
+    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderDefinitions\CE3D_ShaderDefFileWH.cpp" />
+    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderDefinitions\CE3D_ShaderDefWH.cpp" />
     <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\CE3D_ShIns_BlendOp.cpp" />
     <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\CE3D_ShIns_Color.cpp" />
     <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\CE3D_ShIns_Extension.cpp" />
@@ -234,12 +218,10 @@
     <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\eShInsTexOp_TypeID.cpp" />
     <ClCompile Include="..\modules\E3D\src\Shaders\ShaderParser\CE3D_ShaderParser.cpp" />
     <ClCompile Include="..\modules\E3D\src\Shaders\ShaderUtils\CE3D_ShaderUtils.cpp" />
-    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderWarehouse\CE3D_ShWH_Entry.cpp" />
     <ClCompile Include="..\modules\E3D\src\Shaders\ShaderWarehouse\CE3D_ShaderWH.cpp" />
     <ClCompile Include="..\modules\E3D\src\Viewing\Camera\CE3D_Camera.cpp" />
     <ClCompile Include="..\modules\E3D\src\Viewing\Frustum\CE3D_Frustum.cpp" />
     <ClCompile Include="..\modules\E3D\src\Viewing\Projector\CE3D_Projector.cpp" />
-    <ClCompile Include="..\modules\E3D\src\Viewing\Projector\eE3D_ProjectorType.cpp" />
     <ClCompile Include="..\modules\E3D\src\Viewing\Viewport\CE3D_Viewport.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
