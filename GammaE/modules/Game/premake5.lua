@@ -9,7 +9,7 @@ workspace("GammaE_" .. project_name)
         sourceRoot .. "/**.cxx",
 	}	
 	includedirs {
-		"$(ProjectDir)../../SDKS/lua/include;"
+		"$(ProjectDir)../../SDKS/lua-5.4.7/include;"
 	}
 	
 	-- Exclude file

@@ -5,9 +5,13 @@ caller_script_directory = os.getcwd();
 workspace("GammaE_" .. project_name)
 	dofile(caller_script_directory .. "/../common.lua")
 
-includedirs {
+	includedirs {
 		"$(ProjectDir)../../sdks/FileLib/Src;",
-		"$(ProjectDir)../../sdks/TexLib/src;"
+		"$(ProjectDir)../../sdks/FreeImage/Dist/x64;"
+	}
+
+	defines {
+		"FREEIMAGE_LIB"
 	}
 
 -- Install rules (using a post-build step for example purposes)

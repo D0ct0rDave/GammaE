@@ -46,9 +46,8 @@ LUALIB_API int luaopen_extensionLib(lua_State *L)
 //-----------------------------------------------------------------------------
 void CGScriptingSystem::Init()
 {
-	lua_State *L;
-
-	L = lua_open();
+	lua_State* L = luaL_newstate();
+	// luaL_openlibs(L);
 	luaopen_base(L);			// load basic libs (eg. print)
 	luaopen_string(L);
 	int i = luaopen_GammaE(L);	// load the wrappered module

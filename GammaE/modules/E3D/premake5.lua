@@ -10,6 +10,10 @@ workspace("GammaE_" .. project_name)
 		"$(ProjectDir)../../sdks/FreeImage/Dist/x64;"
 	}
 
+	defines {
+		"FREEIMAGE_LIB"
+	}
+
 -- Install rules (using a post-build step for example purposes)
 postbuildcommands {
     -- "{MKDIR} %{wks.location}/dist/lib", -- Create output directory

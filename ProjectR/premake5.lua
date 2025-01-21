@@ -16,7 +16,7 @@ project "ProjectR"
 	-- Specify the root directory of the library
     local sourceRoot = os.getcwd()
     frameworkRoot = sourceRoot .. "/../GammaE"
-	p("Framework dir: " .. frameworkRoot)
+	print("Framework dir: " .. frameworkRoot)
 
 	-- Recursively include all .cpp and .h files from the sourceRoot directory
     files {
@@ -37,7 +37,8 @@ project "ProjectR"
 		"NULL=0",
 		"_MBCS",
 		"_OGL_",
-		"_OPENAL_"
+		"_OPENAL_",
+		"FREEIMAGE_LIB",
 	}
 	
     filter { "system:windows" }
@@ -51,7 +52,7 @@ project "ProjectR"
 		"$(ProjectDir)../src/Project",
 		"$(ProjectDir)../src/Modules",	
 		"$(ProjectDir)../../sdks/FreeImage/Dist/x64",
-		"$(ProjectDir)../../sdks/lua5.4/include",
+		"$(ProjectDir)../../sdks/lua-5.4.7/include",
     }
 
 	-- Library directories common for all configurations
@@ -73,9 +74,9 @@ project "ProjectR"
 		"opengl32.lib",
 		"glu32.lib",
 		"libsndfile.lib",
-		"freeimage.lib",
+		"freeimagelib.lib",
 		"libconfig.lib",
-		"lua5.4.lib",
+		"lua.lib",
 		"OpenAL32.lib",
 		"vfw32.lib",
 		"WSOCK32.LIB",

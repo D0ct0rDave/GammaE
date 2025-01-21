@@ -3012,222 +3012,216 @@ SWIG_Lua_dostring(lua_State *L, const char *str) {
 #define SWIGTYPE_p_CSmoother swig_types[271]
 #define SWIGTYPE_p_CSound swig_types[272]
 #define SWIGTYPE_p_CSoundEmiter swig_types[273]
-#define SWIGTYPE_p_CSoundEmiter_DSound swig_types[274]
-#define SWIGTYPE_p_CSoundEmiter_OpenAL swig_types[275]
-#define SWIGTYPE_p_CSoundEntity swig_types[276]
-#define SWIGTYPE_p_CSoundLayer swig_types[277]
-#define SWIGTYPE_p_CSoundMixPars swig_types[278]
-#define SWIGTYPE_p_CSoundMixer swig_types[279]
-#define SWIGTYPE_p_CSoundReceiver swig_types[280]
-#define SWIGTYPE_p_CSoundRenderer swig_types[281]
-#define SWIGTYPE_p_CSoundRenderer_DSound swig_types[282]
-#define SWIGTYPE_p_CSoundRenderer_OpenAL swig_types[283]
-#define SWIGTYPE_p_CSoundWH swig_types[284]
-#define SWIGTYPE_p_CTMSector swig_types[285]
-#define SWIGTYPE_p_CTMSector_8_16 swig_types[286]
-#define SWIGTYPE_p_CTerrainCircuit swig_types[287]
-#define SWIGTYPE_p_CTerrainSector swig_types[288]
-#define SWIGTYPE_p_CTerrainTesselator swig_types[289]
-#define SWIGTYPE_p_CTerrainTesselatorGM swig_types[290]
-#define SWIGTYPE_p_CTexMap swig_types[291]
-#define SWIGTYPE_p_CTexObjWH swig_types[292]
-#define SWIGTYPE_p_CTexProjector swig_types[293]
-#define SWIGTYPE_p_CTexSector swig_types[294]
-#define SWIGTYPE_p_CTile swig_types[295]
-#define SWIGTYPE_p_CTileBookmark swig_types[296]
-#define SWIGTYPE_p_CTriangle swig_types[297]
-#define SWIGTYPE_p_CVect2 swig_types[298]
-#define SWIGTYPE_p_CVect3 swig_types[299]
-#define SWIGTYPE_p_CVect4 swig_types[300]
-#define SWIGTYPE_p_E3D_BlendMode swig_types[301]
-#define SWIGTYPE_p_E3D_ChannelMask swig_types[302]
-#define SWIGTYPE_p_E3D_FogMode swig_types[303]
-#define SWIGTYPE_p_E3D_MeshType swig_types[304]
-#define SWIGTYPE_p_E3D_ProjectorType swig_types[305]
-#define SWIGTYPE_p_E3D_RenderBuffer_Type swig_types[306]
-#define SWIGTYPE_p_E3D_ShaderInstructionType swig_types[307]
-#define SWIGTYPE_p_E3D_StencilAction swig_types[308]
-#define SWIGTYPE_p_E3D_StencilFunc swig_types[309]
-#define SWIGTYPE_p_E3D_ZTestFunc swig_types[310]
-#define SWIGTYPE_p_E3D_ZWrite swig_types[311]
-#define SWIGTYPE_p_ECOL_ColliderType swig_types[312]
-#define SWIGTYPE_p_ECOL_TestType swig_types[313]
-#define SWIGTYPE_p_EGenerationMethod swig_types[314]
-#define SWIGTYPE_p_EImageFormat swig_types[315]
-#define SWIGTYPE_p_EMeshType swig_types[316]
-#define SWIGTYPE_p_FILE swig_types[317]
-#define SWIGTYPE_p_GammaE_Math_Evaluators swig_types[318]
-#define SWIGTYPE_p_MATH_Common swig_types[319]
-#define SWIGTYPE_p_MATH_Utils swig_types[320]
-#define SWIGTYPE_p_Q3triangle_t swig_types[321]
-#define SWIGTYPE_p_SCNUt_AdjTri swig_types[322]
-#define SWIGTYPE_p_SCNUt_AdjTriList swig_types[323]
-#define SWIGTYPE_p_SCNUt_AdjTriListBuilder swig_types[324]
-#define SWIGTYPE_p_SCNUt_AnimMesh_NormalComputer swig_types[325]
-#define SWIGTYPE_p_SCNUt_AnimSceneLoader swig_types[326]
-#define SWIGTYPE_p_SCNUt_BSPBuilder swig_types[327]
-#define SWIGTYPE_p_SCNUt_ComputeBoundingBox swig_types[328]
-#define SWIGTYPE_p_SCNUt_CoplanarRemover swig_types[329]
-#define SWIGTYPE_p_SCNUt_Edge swig_types[330]
-#define SWIGTYPE_p_SCNUt_EdgeBuilder swig_types[331]
-#define SWIGTYPE_p_SCNUt_EdgeList swig_types[332]
-#define SWIGTYPE_p_SCNUt_MaterialTable swig_types[333]
-#define SWIGTYPE_p_SCNUt_Mesh2TriScene swig_types[334]
-#define SWIGTYPE_p_SCNUt_MeshCompacter swig_types[335]
-#define SWIGTYPE_p_SCNUt_MeshGenerator swig_types[336]
-#define SWIGTYPE_p_SCNUt_OctreeBuilder swig_types[337]
-#define SWIGTYPE_p_SCNUt_PlanarMapper swig_types[338]
-#define SWIGTYPE_p_SCNUt_SceneBuilder swig_types[339]
-#define SWIGTYPE_p_SCNUt_SceneCompiler swig_types[340]
-#define SWIGTYPE_p_SCNUt_Scn2TriScnBuilder swig_types[341]
-#define SWIGTYPE_p_SCNUt_ShaderAssigner swig_types[342]
-#define SWIGTYPE_p_SCNUt_Stripifier swig_types[343]
-#define SWIGTYPE_p_SCNUt_TransformTriScene swig_types[344]
-#define SWIGTYPE_p_SCNUt_TriScene swig_types[345]
-#define SWIGTYPE_p_SCNUt_TriSceneAccumulator swig_types[346]
-#define SWIGTYPE_p_SCNUt_TriSceneClassifier swig_types[347]
-#define SWIGTYPE_p_SCNUt_TriSceneLoader swig_types[348]
-#define SWIGTYPE_p_SCNUt_TriSceneSaver swig_types[349]
-#define SWIGTYPE_p_SCNUt_TriSceneSeparator swig_types[350]
-#define SWIGTYPE_p_SCNUt_TriSceneSplitter swig_types[351]
-#define SWIGTYPE_p_SCNUt_TriUtils swig_types[352]
-#define SWIGTYPE_p_SCNUt_Triangle swig_types[353]
-#define SWIGTYPE_p_SCNUt_VisibilityTester swig_types[354]
-#define SWIGTYPE_p_SCNUt_ePolyState swig_types[355]
-#define SWIGTYPE_p_T3DS_Chunk swig_types[356]
-#define SWIGTYPE_p_TDate swig_types[357]
-#define SWIGTYPE_p_TERSceneLoader swig_types[358]
-#define SWIGTYPE_p_TEnvironmentPars swig_types[359]
-#define SWIGTYPE_p_TFrameAnimation swig_types[360]
-#define SWIGTYPE_p_TGMState swig_types[361]
-#define SWIGTYPE_p_THeightFieldData swig_types[362]
-#define SWIGTYPE_p_TMsgLine swig_types[363]
-#define SWIGTYPE_p_TPixelFormatDescriptor swig_types[364]
-#define SWIGTYPE_p_TSpiralPathParams swig_types[365]
-#define SWIGTYPE_p_TTexSet swig_types[366]
-#define SWIGTYPE_p_TTextureEntry swig_types[367]
-#define SWIGTYPE_p_TVertexRef swig_types[368]
-#define SWIGTYPE_p_a_3__float swig_types[369]
-#define SWIGTYPE_p_animNumber_t swig_types[370]
-#define SWIGTYPE_p_anim_t swig_types[371]
-#define SWIGTYPE_p_boneframe_t swig_types[372]
-#define SWIGTYPE_p_bsp_edge swig_types[373]
-#define SWIGTYPE_p_bsp_face swig_types[374]
-#define SWIGTYPE_p_bsp_face_edge swig_types[375]
-#define SWIGTYPE_p_bsp_header swig_types[376]
-#define SWIGTYPE_p_bsp_leaf swig_types[377]
-#define SWIGTYPE_p_bsp_leaf_face swig_types[378]
-#define SWIGTYPE_p_bsp_lump swig_types[379]
-#define SWIGTYPE_p_bsp_node swig_types[380]
-#define SWIGTYPE_p_bsp_plane swig_types[381]
-#define SWIGTYPE_p_bsp_point3f swig_types[382]
-#define SWIGTYPE_p_bsp_point3s swig_types[383]
-#define SWIGTYPE_p_bsp_texinfo swig_types[384]
-#define SWIGTYPE_p_bsp_vis swig_types[385]
-#define SWIGTYPE_p_bsp_vis_offset swig_types[386]
-#define SWIGTYPE_p_char swig_types[387]
-#define SWIGTYPE_p_e3DObjectTypeID swig_types[388]
-#define SWIGTYPE_p_eFile_SeekMode swig_types[389]
-#define SWIGTYPE_p_eGraphBV_TypeID swig_types[390]
-#define SWIGTYPE_p_eLightType swig_types[391]
-#define SWIGTYPE_p_eOSF_SeekMode swig_types[392]
-#define SWIGTYPE_p_eShInsGeoOp_TypeID swig_types[393]
-#define SWIGTYPE_p_eShInsTexOp_TypeID swig_types[394]
-#define SWIGTYPE_p_ext_texinfo swig_types[395]
-#define SWIGTYPE_p_f_int__void swig_types[396]
-#define SWIGTYPE_p_f_p_void__void swig_types[397]
-#define SWIGTYPE_p_f_unsigned_int_unsigned_int_unsigned_int_r_q_const__CGString__void swig_types[398]
-#define SWIGTYPE_p_float swig_types[399]
-#define SWIGTYPE_p_frame_t swig_types[400]
-#define SWIGTYPE_p_int swig_types[401]
-#define SWIGTYPE_p_long swig_types[402]
-#define SWIGTYPE_p_md3_header_t swig_types[403]
-#define SWIGTYPE_p_mesh_header_t swig_types[404]
-#define SWIGTYPE_p_mesh_t swig_types[405]
-#define SWIGTYPE_p_model_t swig_types[406]
-#define SWIGTYPE_p_p_CCOL_Collider swig_types[407]
-#define SWIGTYPE_p_p_CConsole swig_types[408]
-#define SWIGTYPE_p_p_CDetailer swig_types[409]
-#define SWIGTYPE_p_p_CE3D_ShIns_BlendOp swig_types[410]
-#define SWIGTYPE_p_p_CE3D_ShIns_Color swig_types[411]
-#define SWIGTYPE_p_p_CE3D_ShIns_Extension swig_types[412]
-#define SWIGTYPE_p_p_CE3D_ShIns_GeoOp swig_types[413]
-#define SWIGTYPE_p_p_CE3D_ShIns_Program swig_types[414]
-#define SWIGTYPE_p_p_CE3D_ShIns_SetTMU swig_types[415]
-#define SWIGTYPE_p_p_CE3D_ShIns_TexOp swig_types[416]
-#define SWIGTYPE_p_p_CE3D_ShIns_Texture swig_types[417]
-#define SWIGTYPE_p_p_CE3D_ShIns_Wireframe swig_types[418]
-#define SWIGTYPE_p_p_CE3D_ShIns_ZOp swig_types[419]
-#define SWIGTYPE_p_p_CE3D_Shader swig_types[420]
-#define SWIGTYPE_p_p_CE3D_ShaderInstruction swig_types[421]
-#define SWIGTYPE_p_p_CGBillboard swig_types[422]
-#define SWIGTYPE_p_p_CGBillboardRenderer swig_types[423]
-#define SWIGTYPE_p_p_CGBillboard_AxisAlign swig_types[424]
-#define SWIGTYPE_p_p_CGBillboard_ScrAlign swig_types[425]
-#define SWIGTYPE_p_p_CGBillboard_WorldAlign swig_types[426]
-#define SWIGTYPE_p_p_CGCoronaInstance swig_types[427]
-#define SWIGTYPE_p_p_CGParticleSystemInstance swig_types[428]
-#define SWIGTYPE_p_p_CGraphBV swig_types[429]
-#define SWIGTYPE_p_p_CGraphBV_Box swig_types[430]
-#define SWIGTYPE_p_p_CGraphBV_Cylinder swig_types[431]
-#define SWIGTYPE_p_p_CGraphBV_Point swig_types[432]
-#define SWIGTYPE_p_p_CGraphBV_Sphere swig_types[433]
-#define SWIGTYPE_p_p_CHUD swig_types[434]
-#define SWIGTYPE_p_p_CHUDIcon swig_types[435]
-#define SWIGTYPE_p_p_CHUDLabel swig_types[436]
-#define SWIGTYPE_p_p_CHUDMsgBox swig_types[437]
-#define SWIGTYPE_p_p_CHUDObject swig_types[438]
-#define SWIGTYPE_p_p_CHUDProgressBar swig_types[439]
-#define SWIGTYPE_p_p_CLensFlare swig_types[440]
-#define SWIGTYPE_p_p_CMenuTextGrid swig_types[441]
-#define SWIGTYPE_p_p_CMesh swig_types[442]
-#define SWIGTYPE_p_p_CMesh_Box swig_types[443]
-#define SWIGTYPE_p_p_CMesh_Rect swig_types[444]
-#define SWIGTYPE_p_p_CMesh_Sphere swig_types[445]
-#define SWIGTYPE_p_p_CObject3D swig_types[446]
-#define SWIGTYPE_p_p_CObject3D_AnimCfg swig_types[447]
-#define SWIGTYPE_p_p_CObject3D_AnimCfgGen swig_types[448]
-#define SWIGTYPE_p_p_CObject3D_AnimCfgMgr swig_types[449]
-#define SWIGTYPE_p_p_CObject3D_AnimGen swig_types[450]
-#define SWIGTYPE_p_p_CObject3D_AnimMesh swig_types[451]
-#define SWIGTYPE_p_p_CObject3D_AnimNode swig_types[452]
-#define SWIGTYPE_p_p_CObject3D_AnimTransf swig_types[453]
-#define SWIGTYPE_p_p_CObject3D_BSPNode swig_types[454]
-#define SWIGTYPE_p_p_CObject3D_Camera swig_types[455]
-#define SWIGTYPE_p_p_CObject3D_CompiledLeaf swig_types[456]
-#define SWIGTYPE_p_p_CObject3D_Instance swig_types[457]
-#define SWIGTYPE_p_p_CObject3D_Leaf swig_types[458]
-#define SWIGTYPE_p_p_CObject3D_Mux swig_types[459]
-#define SWIGTYPE_p_p_CObject3D_Node swig_types[460]
-#define SWIGTYPE_p_p_CObject3D_Reflector swig_types[461]
-#define SWIGTYPE_p_p_CObject3D_ScreenRect swig_types[462]
-#define SWIGTYPE_p_p_CObject3D_Switch swig_types[463]
-#define SWIGTYPE_p_p_CObject3D_Transf swig_types[464]
-#define SWIGTYPE_p_p_CShadowCaster swig_types[465]
-#define SWIGTYPE_p_p_CSkyBox swig_types[466]
-#define SWIGTYPE_p_p_CSkyDome swig_types[467]
-#define SWIGTYPE_p_p_CTerrainCircuit swig_types[468]
-#define SWIGTYPE_p_p_CTerrainSector swig_types[469]
-#define SWIGTYPE_p_p_CTexProjector swig_types[470]
-#define SWIGTYPE_p_p_char swig_types[471]
-#define SWIGTYPE_p_p_void swig_types[472]
-#define SWIGTYPE_p_short swig_types[473]
-#define SWIGTYPE_p_skin_file_t swig_types[474]
-#define SWIGTYPE_p_skin_mesh_entry_t swig_types[475]
-#define SWIGTYPE_p_skin_t swig_types[476]
-#define SWIGTYPE_p_skin_tag_entry_t swig_types[477]
-#define SWIGTYPE_p_tag_t swig_types[478]
-#define SWIGTYPE_p_tex_coord_t swig_types[479]
-#define SWIGTYPE_p_textureCoordinate_t swig_types[480]
-#define SWIGTYPE_p_triangleVertex_t swig_types[481]
-#define SWIGTYPE_p_triangle_t swig_types[482]
-#define SWIGTYPE_p_unsigned_char swig_types[483]
-#define SWIGTYPE_p_unsigned_int swig_types[484]
-#define SWIGTYPE_p_unsigned_short swig_types[485]
-#define SWIGTYPE_p_vertice_t swig_types[486]
-#define SWIGTYPE_p_void swig_types[487]
-static swig_type_info *swig_types[489];
-static swig_module_info swig_module = {swig_types, 488, 0, 0, 0, 0};
+#define SWIGTYPE_p_CSoundEntity swig_types[274]
+#define SWIGTYPE_p_CSoundLayer swig_types[275]
+#define SWIGTYPE_p_CSoundReceiver swig_types[276]
+#define SWIGTYPE_p_CSoundRenderer swig_types[277]
+#define SWIGTYPE_p_CSoundWH swig_types[278]
+#define SWIGTYPE_p_CTMSector swig_types[279]
+#define SWIGTYPE_p_CTMSector_8_16 swig_types[280]
+#define SWIGTYPE_p_CTerrainCircuit swig_types[281]
+#define SWIGTYPE_p_CTerrainSector swig_types[282]
+#define SWIGTYPE_p_CTerrainTesselator swig_types[283]
+#define SWIGTYPE_p_CTerrainTesselatorGM swig_types[284]
+#define SWIGTYPE_p_CTexMap swig_types[285]
+#define SWIGTYPE_p_CTexObjWH swig_types[286]
+#define SWIGTYPE_p_CTexProjector swig_types[287]
+#define SWIGTYPE_p_CTexSector swig_types[288]
+#define SWIGTYPE_p_CTile swig_types[289]
+#define SWIGTYPE_p_CTileBookmark swig_types[290]
+#define SWIGTYPE_p_CTriangle swig_types[291]
+#define SWIGTYPE_p_CVect2 swig_types[292]
+#define SWIGTYPE_p_CVect3 swig_types[293]
+#define SWIGTYPE_p_CVect4 swig_types[294]
+#define SWIGTYPE_p_E3D_BlendMode swig_types[295]
+#define SWIGTYPE_p_E3D_ChannelMask swig_types[296]
+#define SWIGTYPE_p_E3D_FogMode swig_types[297]
+#define SWIGTYPE_p_E3D_MeshType swig_types[298]
+#define SWIGTYPE_p_E3D_ProjectorType swig_types[299]
+#define SWIGTYPE_p_E3D_RenderBuffer_Type swig_types[300]
+#define SWIGTYPE_p_E3D_ShaderInstructionType swig_types[301]
+#define SWIGTYPE_p_E3D_StencilAction swig_types[302]
+#define SWIGTYPE_p_E3D_StencilFunc swig_types[303]
+#define SWIGTYPE_p_E3D_ZTestFunc swig_types[304]
+#define SWIGTYPE_p_E3D_ZWrite swig_types[305]
+#define SWIGTYPE_p_ECOL_ColliderType swig_types[306]
+#define SWIGTYPE_p_ECOL_TestType swig_types[307]
+#define SWIGTYPE_p_EGenerationMethod swig_types[308]
+#define SWIGTYPE_p_EImageFormat swig_types[309]
+#define SWIGTYPE_p_EMeshType swig_types[310]
+#define SWIGTYPE_p_FILE swig_types[311]
+#define SWIGTYPE_p_GammaE_Math_Evaluators swig_types[312]
+#define SWIGTYPE_p_MATH_Common swig_types[313]
+#define SWIGTYPE_p_MATH_Utils swig_types[314]
+#define SWIGTYPE_p_Q3triangle_t swig_types[315]
+#define SWIGTYPE_p_SCNUt_AdjTri swig_types[316]
+#define SWIGTYPE_p_SCNUt_AdjTriList swig_types[317]
+#define SWIGTYPE_p_SCNUt_AdjTriListBuilder swig_types[318]
+#define SWIGTYPE_p_SCNUt_AnimMesh_NormalComputer swig_types[319]
+#define SWIGTYPE_p_SCNUt_AnimSceneLoader swig_types[320]
+#define SWIGTYPE_p_SCNUt_BSPBuilder swig_types[321]
+#define SWIGTYPE_p_SCNUt_ComputeBoundingBox swig_types[322]
+#define SWIGTYPE_p_SCNUt_CoplanarRemover swig_types[323]
+#define SWIGTYPE_p_SCNUt_Edge swig_types[324]
+#define SWIGTYPE_p_SCNUt_EdgeBuilder swig_types[325]
+#define SWIGTYPE_p_SCNUt_EdgeList swig_types[326]
+#define SWIGTYPE_p_SCNUt_MaterialTable swig_types[327]
+#define SWIGTYPE_p_SCNUt_Mesh2TriScene swig_types[328]
+#define SWIGTYPE_p_SCNUt_MeshCompacter swig_types[329]
+#define SWIGTYPE_p_SCNUt_MeshGenerator swig_types[330]
+#define SWIGTYPE_p_SCNUt_OctreeBuilder swig_types[331]
+#define SWIGTYPE_p_SCNUt_PlanarMapper swig_types[332]
+#define SWIGTYPE_p_SCNUt_SceneBuilder swig_types[333]
+#define SWIGTYPE_p_SCNUt_SceneCompiler swig_types[334]
+#define SWIGTYPE_p_SCNUt_Scn2TriScnBuilder swig_types[335]
+#define SWIGTYPE_p_SCNUt_ShaderAssigner swig_types[336]
+#define SWIGTYPE_p_SCNUt_Stripifier swig_types[337]
+#define SWIGTYPE_p_SCNUt_TransformTriScene swig_types[338]
+#define SWIGTYPE_p_SCNUt_TriScene swig_types[339]
+#define SWIGTYPE_p_SCNUt_TriSceneAccumulator swig_types[340]
+#define SWIGTYPE_p_SCNUt_TriSceneClassifier swig_types[341]
+#define SWIGTYPE_p_SCNUt_TriSceneLoader swig_types[342]
+#define SWIGTYPE_p_SCNUt_TriSceneSaver swig_types[343]
+#define SWIGTYPE_p_SCNUt_TriSceneSeparator swig_types[344]
+#define SWIGTYPE_p_SCNUt_TriSceneSplitter swig_types[345]
+#define SWIGTYPE_p_SCNUt_TriUtils swig_types[346]
+#define SWIGTYPE_p_SCNUt_Triangle swig_types[347]
+#define SWIGTYPE_p_SCNUt_VisibilityTester swig_types[348]
+#define SWIGTYPE_p_SCNUt_ePolyState swig_types[349]
+#define SWIGTYPE_p_T3DS_Chunk swig_types[350]
+#define SWIGTYPE_p_TDate swig_types[351]
+#define SWIGTYPE_p_TERSceneLoader swig_types[352]
+#define SWIGTYPE_p_TEnvironmentPars swig_types[353]
+#define SWIGTYPE_p_TFrameAnimation swig_types[354]
+#define SWIGTYPE_p_TGMState swig_types[355]
+#define SWIGTYPE_p_THeightFieldData swig_types[356]
+#define SWIGTYPE_p_TMsgLine swig_types[357]
+#define SWIGTYPE_p_TPixelFormatDescriptor swig_types[358]
+#define SWIGTYPE_p_TSpiralPathParams swig_types[359]
+#define SWIGTYPE_p_TTexSet swig_types[360]
+#define SWIGTYPE_p_TTextureEntry swig_types[361]
+#define SWIGTYPE_p_TVertexRef swig_types[362]
+#define SWIGTYPE_p_a_3__float swig_types[363]
+#define SWIGTYPE_p_animNumber_t swig_types[364]
+#define SWIGTYPE_p_anim_t swig_types[365]
+#define SWIGTYPE_p_boneframe_t swig_types[366]
+#define SWIGTYPE_p_bsp_edge swig_types[367]
+#define SWIGTYPE_p_bsp_face swig_types[368]
+#define SWIGTYPE_p_bsp_face_edge swig_types[369]
+#define SWIGTYPE_p_bsp_header swig_types[370]
+#define SWIGTYPE_p_bsp_leaf swig_types[371]
+#define SWIGTYPE_p_bsp_leaf_face swig_types[372]
+#define SWIGTYPE_p_bsp_lump swig_types[373]
+#define SWIGTYPE_p_bsp_node swig_types[374]
+#define SWIGTYPE_p_bsp_plane swig_types[375]
+#define SWIGTYPE_p_bsp_point3f swig_types[376]
+#define SWIGTYPE_p_bsp_point3s swig_types[377]
+#define SWIGTYPE_p_bsp_texinfo swig_types[378]
+#define SWIGTYPE_p_bsp_vis swig_types[379]
+#define SWIGTYPE_p_bsp_vis_offset swig_types[380]
+#define SWIGTYPE_p_char swig_types[381]
+#define SWIGTYPE_p_e3DObjectTypeID swig_types[382]
+#define SWIGTYPE_p_eFile_SeekMode swig_types[383]
+#define SWIGTYPE_p_eGraphBV_TypeID swig_types[384]
+#define SWIGTYPE_p_eLightType swig_types[385]
+#define SWIGTYPE_p_eOSF_SeekMode swig_types[386]
+#define SWIGTYPE_p_eShInsGeoOp_TypeID swig_types[387]
+#define SWIGTYPE_p_eShInsTexOp_TypeID swig_types[388]
+#define SWIGTYPE_p_ext_texinfo swig_types[389]
+#define SWIGTYPE_p_f_int__void swig_types[390]
+#define SWIGTYPE_p_f_p_void__void swig_types[391]
+#define SWIGTYPE_p_f_unsigned_int_unsigned_int_unsigned_int_r_q_const__CGString__void swig_types[392]
+#define SWIGTYPE_p_float swig_types[393]
+#define SWIGTYPE_p_frame_t swig_types[394]
+#define SWIGTYPE_p_int swig_types[395]
+#define SWIGTYPE_p_long swig_types[396]
+#define SWIGTYPE_p_md3_header_t swig_types[397]
+#define SWIGTYPE_p_mesh_header_t swig_types[398]
+#define SWIGTYPE_p_mesh_t swig_types[399]
+#define SWIGTYPE_p_model_t swig_types[400]
+#define SWIGTYPE_p_p_CCOL_Collider swig_types[401]
+#define SWIGTYPE_p_p_CConsole swig_types[402]
+#define SWIGTYPE_p_p_CDetailer swig_types[403]
+#define SWIGTYPE_p_p_CE3D_ShIns_BlendOp swig_types[404]
+#define SWIGTYPE_p_p_CE3D_ShIns_Color swig_types[405]
+#define SWIGTYPE_p_p_CE3D_ShIns_Extension swig_types[406]
+#define SWIGTYPE_p_p_CE3D_ShIns_GeoOp swig_types[407]
+#define SWIGTYPE_p_p_CE3D_ShIns_Program swig_types[408]
+#define SWIGTYPE_p_p_CE3D_ShIns_SetTMU swig_types[409]
+#define SWIGTYPE_p_p_CE3D_ShIns_TexOp swig_types[410]
+#define SWIGTYPE_p_p_CE3D_ShIns_Texture swig_types[411]
+#define SWIGTYPE_p_p_CE3D_ShIns_Wireframe swig_types[412]
+#define SWIGTYPE_p_p_CE3D_ShIns_ZOp swig_types[413]
+#define SWIGTYPE_p_p_CE3D_Shader swig_types[414]
+#define SWIGTYPE_p_p_CE3D_ShaderInstruction swig_types[415]
+#define SWIGTYPE_p_p_CGBillboard swig_types[416]
+#define SWIGTYPE_p_p_CGBillboardRenderer swig_types[417]
+#define SWIGTYPE_p_p_CGBillboard_AxisAlign swig_types[418]
+#define SWIGTYPE_p_p_CGBillboard_ScrAlign swig_types[419]
+#define SWIGTYPE_p_p_CGBillboard_WorldAlign swig_types[420]
+#define SWIGTYPE_p_p_CGCoronaInstance swig_types[421]
+#define SWIGTYPE_p_p_CGParticleSystemInstance swig_types[422]
+#define SWIGTYPE_p_p_CGraphBV swig_types[423]
+#define SWIGTYPE_p_p_CGraphBV_Box swig_types[424]
+#define SWIGTYPE_p_p_CGraphBV_Cylinder swig_types[425]
+#define SWIGTYPE_p_p_CGraphBV_Point swig_types[426]
+#define SWIGTYPE_p_p_CGraphBV_Sphere swig_types[427]
+#define SWIGTYPE_p_p_CHUD swig_types[428]
+#define SWIGTYPE_p_p_CHUDIcon swig_types[429]
+#define SWIGTYPE_p_p_CHUDLabel swig_types[430]
+#define SWIGTYPE_p_p_CHUDMsgBox swig_types[431]
+#define SWIGTYPE_p_p_CHUDObject swig_types[432]
+#define SWIGTYPE_p_p_CHUDProgressBar swig_types[433]
+#define SWIGTYPE_p_p_CLensFlare swig_types[434]
+#define SWIGTYPE_p_p_CMenuTextGrid swig_types[435]
+#define SWIGTYPE_p_p_CMesh swig_types[436]
+#define SWIGTYPE_p_p_CMesh_Box swig_types[437]
+#define SWIGTYPE_p_p_CMesh_Rect swig_types[438]
+#define SWIGTYPE_p_p_CMesh_Sphere swig_types[439]
+#define SWIGTYPE_p_p_CObject3D swig_types[440]
+#define SWIGTYPE_p_p_CObject3D_AnimCfg swig_types[441]
+#define SWIGTYPE_p_p_CObject3D_AnimCfgGen swig_types[442]
+#define SWIGTYPE_p_p_CObject3D_AnimCfgMgr swig_types[443]
+#define SWIGTYPE_p_p_CObject3D_AnimGen swig_types[444]
+#define SWIGTYPE_p_p_CObject3D_AnimMesh swig_types[445]
+#define SWIGTYPE_p_p_CObject3D_AnimNode swig_types[446]
+#define SWIGTYPE_p_p_CObject3D_AnimTransf swig_types[447]
+#define SWIGTYPE_p_p_CObject3D_BSPNode swig_types[448]
+#define SWIGTYPE_p_p_CObject3D_Camera swig_types[449]
+#define SWIGTYPE_p_p_CObject3D_CompiledLeaf swig_types[450]
+#define SWIGTYPE_p_p_CObject3D_Instance swig_types[451]
+#define SWIGTYPE_p_p_CObject3D_Leaf swig_types[452]
+#define SWIGTYPE_p_p_CObject3D_Mux swig_types[453]
+#define SWIGTYPE_p_p_CObject3D_Node swig_types[454]
+#define SWIGTYPE_p_p_CObject3D_Reflector swig_types[455]
+#define SWIGTYPE_p_p_CObject3D_ScreenRect swig_types[456]
+#define SWIGTYPE_p_p_CObject3D_Switch swig_types[457]
+#define SWIGTYPE_p_p_CObject3D_Transf swig_types[458]
+#define SWIGTYPE_p_p_CShadowCaster swig_types[459]
+#define SWIGTYPE_p_p_CSkyBox swig_types[460]
+#define SWIGTYPE_p_p_CSkyDome swig_types[461]
+#define SWIGTYPE_p_p_CTerrainCircuit swig_types[462]
+#define SWIGTYPE_p_p_CTerrainSector swig_types[463]
+#define SWIGTYPE_p_p_CTexProjector swig_types[464]
+#define SWIGTYPE_p_p_char swig_types[465]
+#define SWIGTYPE_p_p_void swig_types[466]
+#define SWIGTYPE_p_short swig_types[467]
+#define SWIGTYPE_p_skin_file_t swig_types[468]
+#define SWIGTYPE_p_skin_mesh_entry_t swig_types[469]
+#define SWIGTYPE_p_skin_t swig_types[470]
+#define SWIGTYPE_p_skin_tag_entry_t swig_types[471]
+#define SWIGTYPE_p_tag_t swig_types[472]
+#define SWIGTYPE_p_tex_coord_t swig_types[473]
+#define SWIGTYPE_p_textureCoordinate_t swig_types[474]
+#define SWIGTYPE_p_triangleVertex_t swig_types[475]
+#define SWIGTYPE_p_triangle_t swig_types[476]
+#define SWIGTYPE_p_unsigned_char swig_types[477]
+#define SWIGTYPE_p_unsigned_int swig_types[478]
+#define SWIGTYPE_p_unsigned_short swig_types[479]
+#define SWIGTYPE_p_vertice_t swig_types[480]
+#define SWIGTYPE_p_void swig_types[481]
+static swig_type_info *swig_types[483];
+static swig_module_info swig_module = {swig_types, 482, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -31821,6 +31815,355 @@ static swig_lua_class *swig_CFileSys_MgrMultiZIP_bases[] = {0,0};
 static const char *swig_CFileSys_MgrMultiZIP_base_names[] = {"CFileSys_Manager *",0};
 static swig_lua_class _wrap_class_CFileSys_MgrMultiZIP = { "CFileSys_MgrMultiZIP", "CFileSys_MgrMultiZIP", &SWIGTYPE_p_CFileSys_MgrMultiZIP,_proxy__wrap_new_CFileSys_MgrMultiZIP, swig_delete_CFileSys_MgrMultiZIP, swig_CFileSys_MgrMultiZIP_methods, swig_CFileSys_MgrMultiZIP_attributes, &swig_CFileSys_MgrMultiZIP_Sf_SwigStatic, swig_CFileSys_MgrMultiZIP_meta, swig_CFileSys_MgrMultiZIP_bases, swig_CFileSys_MgrMultiZIP_base_names };
 
+static int _wrap_FILE_BeginRIFFBlock(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    unsigned int arg1 ;
+    FILE *arg2 = (FILE *) 0 ;
+    
+    SWIG_check_num_args("FILE_BeginRIFFBlock",2,2)
+    if(!lua_isnumber(L,1)) SWIG_fail_arg("FILE_BeginRIFFBlock",1,"unsigned int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("FILE_BeginRIFFBlock",2,"FILE *");
+    SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
+    arg1 = (unsigned int)lua_tonumber(L, 1);
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_FILE,0))){
+      SWIG_fail_ptr("FILE_BeginRIFFBlock",2,SWIGTYPE_p_FILE);
+    }
+    
+    FILE_BeginRIFFBlock(arg1,arg2);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_FILE_EndRIFFBlock(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    FILE *arg1 = (FILE *) 0 ;
+    
+    SWIG_check_num_args("FILE_EndRIFFBlock",1,1)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("FILE_EndRIFFBlock",1,"FILE *");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FILE,0))){
+      SWIG_fail_ptr("FILE_EndRIFFBlock",1,SWIGTYPE_p_FILE);
+    }
+    
+    FILE_EndRIFFBlock(arg1);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_ERROR_GetError(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    char *result = 0 ;
+    
+    SWIG_check_num_args("ERROR_GetError",0,0)
+    result = (char *)ERROR_GetError();
+    lua_pushstring(L,(const char *)result); SWIG_arg++;
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_ERROR_GetErrorCode(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    char *result = 0 ;
+    
+    SWIG_check_num_args("ERROR_GetErrorCode",0,0)
+    result = (char *)ERROR_GetErrorCode();
+    lua_pushstring(L,(const char *)result); SWIG_arg++;
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_ERROR_GetErrorMessage(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    char *result = 0 ;
+    
+    SWIG_check_num_args("ERROR_GetErrorMessage",0,0)
+    result = (char *)ERROR_GetErrorMessage();
+    lua_pushstring(L,(const char *)result); SWIG_arg++;
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_ERROR_SetErrorCode(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    char *arg1 = (char *) 0 ;
+    
+    SWIG_check_num_args("ERROR_SetErrorCode",1,1)
+    if(!SWIG_lua_isnilstring(L,1)) SWIG_fail_arg("ERROR_SetErrorCode",1,"char *");
+    arg1 = (char *)lua_tostring(L, 1);
+    ERROR_SetErrorCode(arg1);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_ERROR_SetErrorMessage(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    char *arg1 = (char *) 0 ;
+    
+    SWIG_check_num_args("ERROR_SetErrorMessage",1,1)
+    if(!SWIG_lua_isnilstring(L,1)) SWIG_fail_arg("ERROR_SetErrorMessage",1,"char *");
+    arg1 = (char *)lua_tostring(L, 1);
+    ERROR_SetErrorMessage(arg1);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_ERROR_SetError__SWIG_0(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    char *arg1 = (char *) 0 ;
+    char *arg2 = (char *) 0 ;
+    
+    SWIG_check_num_args("ERROR_SetError",2,2)
+    if(!SWIG_lua_isnilstring(L,1)) SWIG_fail_arg("ERROR_SetError",1,"char *");
+    if(!SWIG_lua_isnilstring(L,2)) SWIG_fail_arg("ERROR_SetError",2,"char *");
+    arg1 = (char *)lua_tostring(L, 1);
+    arg2 = (char *)lua_tostring(L, 2);
+    ERROR_SetError(arg1,arg2);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_ERROR_SetError__SWIG_1(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    char *arg1 = (char *) 0 ;
+    char *arg2 = (char *) 0 ;
+    char *arg3 = (char *) 0 ;
+    
+    SWIG_check_num_args("ERROR_SetError",3,3)
+    if(!SWIG_lua_isnilstring(L,1)) SWIG_fail_arg("ERROR_SetError",1,"char *");
+    if(!SWIG_lua_isnilstring(L,2)) SWIG_fail_arg("ERROR_SetError",2,"char *");
+    if(!SWIG_lua_isnilstring(L,3)) SWIG_fail_arg("ERROR_SetError",3,"char *");
+    arg1 = (char *)lua_tostring(L, 1);
+    arg2 = (char *)lua_tostring(L, 2);
+    arg3 = (char *)lua_tostring(L, 3);
+    ERROR_SetError(arg1,arg2,arg3);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_ERROR_SetError__SWIG_2(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    char *arg1 = (char *) 0 ;
+    char *arg2 = (char *) 0 ;
+    char *arg3 = (char *) 0 ;
+    char *arg4 = (char *) 0 ;
+    
+    SWIG_check_num_args("ERROR_SetError",4,4)
+    if(!SWIG_lua_isnilstring(L,1)) SWIG_fail_arg("ERROR_SetError",1,"char *");
+    if(!SWIG_lua_isnilstring(L,2)) SWIG_fail_arg("ERROR_SetError",2,"char *");
+    if(!SWIG_lua_isnilstring(L,3)) SWIG_fail_arg("ERROR_SetError",3,"char *");
+    if(!SWIG_lua_isnilstring(L,4)) SWIG_fail_arg("ERROR_SetError",4,"char *");
+    arg1 = (char *)lua_tostring(L, 1);
+    arg2 = (char *)lua_tostring(L, 2);
+    arg3 = (char *)lua_tostring(L, 3);
+    arg4 = (char *)lua_tostring(L, 4);
+    ERROR_SetError(arg1,arg2,arg3,arg4);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_ERROR_SetError__SWIG_3(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    char *arg1 = (char *) 0 ;
+    char *arg2 = (char *) 0 ;
+    char *arg3 = (char *) 0 ;
+    char *arg4 = (char *) 0 ;
+    char *arg5 = (char *) 0 ;
+    
+    SWIG_check_num_args("ERROR_SetError",5,5)
+    if(!SWIG_lua_isnilstring(L,1)) SWIG_fail_arg("ERROR_SetError",1,"char *");
+    if(!SWIG_lua_isnilstring(L,2)) SWIG_fail_arg("ERROR_SetError",2,"char *");
+    if(!SWIG_lua_isnilstring(L,3)) SWIG_fail_arg("ERROR_SetError",3,"char *");
+    if(!SWIG_lua_isnilstring(L,4)) SWIG_fail_arg("ERROR_SetError",4,"char *");
+    if(!SWIG_lua_isnilstring(L,5)) SWIG_fail_arg("ERROR_SetError",5,"char *");
+    arg1 = (char *)lua_tostring(L, 1);
+    arg2 = (char *)lua_tostring(L, 2);
+    arg3 = (char *)lua_tostring(L, 3);
+    arg4 = (char *)lua_tostring(L, 4);
+    arg5 = (char *)lua_tostring(L, 5);
+    ERROR_SetError(arg1,arg2,arg3,arg4,arg5);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_ERROR_SetError(lua_State* L) {
+  int argc;
+  int argv[6]={
+    1,2,3,4,5,6
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 2) {
+    int _v = 0;
+    {
+      _v = SWIG_lua_isnilstring(L,argv[0]);
+    }
+    if (_v) {
+      {
+        _v = SWIG_lua_isnilstring(L,argv[1]);
+      }
+      if (_v) {
+        return _wrap_ERROR_SetError__SWIG_0(L);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v = 0;
+    {
+      _v = SWIG_lua_isnilstring(L,argv[0]);
+    }
+    if (_v) {
+      {
+        _v = SWIG_lua_isnilstring(L,argv[1]);
+      }
+      if (_v) {
+        {
+          _v = SWIG_lua_isnilstring(L,argv[2]);
+        }
+        if (_v) {
+          return _wrap_ERROR_SetError__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    {
+      _v = SWIG_lua_isnilstring(L,argv[0]);
+    }
+    if (_v) {
+      {
+        _v = SWIG_lua_isnilstring(L,argv[1]);
+      }
+      if (_v) {
+        {
+          _v = SWIG_lua_isnilstring(L,argv[2]);
+        }
+        if (_v) {
+          {
+            _v = SWIG_lua_isnilstring(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_ERROR_SetError__SWIG_2(L);
+          }
+        }
+      }
+    }
+  }
+  if (argc == 5) {
+    int _v = 0;
+    {
+      _v = SWIG_lua_isnilstring(L,argv[0]);
+    }
+    if (_v) {
+      {
+        _v = SWIG_lua_isnilstring(L,argv[1]);
+      }
+      if (_v) {
+        {
+          _v = SWIG_lua_isnilstring(L,argv[2]);
+        }
+        if (_v) {
+          {
+            _v = SWIG_lua_isnilstring(L,argv[3]);
+          }
+          if (_v) {
+            {
+              _v = SWIG_lua_isnilstring(L,argv[4]);
+            }
+            if (_v) {
+              return _wrap_ERROR_SetError__SWIG_3(L);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'ERROR_SetError'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    ERROR_SetError(char *,char *)\n"
+    "    ERROR_SetError(char *,char *,char *)\n"
+    "    ERROR_SetError(char *,char *,char *,char *)\n"
+    "    ERROR_SetError(char *,char *,char *,char *,char *)\n");
+  lua_error(L);return 0;
+}
+
+
 static int _wrap_TDate_Year_set(lua_State* L) {
   {
     int SWIG_arg = 0;
@@ -32196,6 +32539,227 @@ static swig_lua_namespace swig_TDate_Sf_SwigStatic = {
 static swig_lua_class *swig_TDate_bases[] = {0};
 static const char *swig_TDate_base_names[] = {0};
 static swig_lua_class _wrap_class_TDate = { "TDate", "TDate", &SWIGTYPE_p_TDate,_proxy__wrap_new_TDate, swig_delete_TDate, swig_TDate_methods, swig_TDate_attributes, &swig_TDate_Sf_SwigStatic, swig_TDate_meta, swig_TDate_bases, swig_TDate_base_names };
+
+static int _wrap_GetDate(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    TDate *arg1 = (TDate *) 0 ;
+    
+    SWIG_check_num_args("GetDate",1,1)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("GetDate",1,"TDate *");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_TDate,0))){
+      SWIG_fail_ptr("GetDate",1,SWIGTYPE_p_TDate);
+    }
+    
+    GetDate(arg1);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_GetDateString(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    char *arg1 = (char *) 0 ;
+    
+    SWIG_check_num_args("GetDateString",1,1)
+    if(!SWIG_lua_isnilstring(L,1)) SWIG_fail_arg("GetDateString",1,"char *");
+    arg1 = (char *)lua_tostring(L, 1);
+    GetDateString(arg1);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_ConvertDateToString(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    TDate *arg1 = (TDate *) 0 ;
+    char *arg2 = (char *) 0 ;
+    
+    SWIG_check_num_args("ConvertDateToString",2,2)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ConvertDateToString",1,"TDate *");
+    if(!SWIG_lua_isnilstring(L,2)) SWIG_fail_arg("ConvertDateToString",2,"char *");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_TDate,0))){
+      SWIG_fail_ptr("ConvertDateToString",1,SWIGTYPE_p_TDate);
+    }
+    
+    arg2 = (char *)lua_tostring(L, 2);
+    ConvertDateToString(arg1,arg2);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CB_MsgProcess(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    char *arg1 = (char *) 0 ;
+    
+    SWIG_check_num_args("CB_MsgProcess",1,1)
+    if(!SWIG_lua_isnilstring(L,1)) SWIG_fail_arg("CB_MsgProcess",1,"char *");
+    arg1 = (char *)lua_tostring(L, 1);
+    CB_MsgProcess(arg1);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CB_BeginProcess(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    char *arg1 = (char *) 0 ;
+    
+    SWIG_check_num_args("CB_BeginProcess",1,1)
+    if(!SWIG_lua_isnilstring(L,1)) SWIG_fail_arg("CB_BeginProcess",1,"char *");
+    arg1 = (char *)lua_tostring(L, 1);
+    CB_BeginProcess(arg1);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CB_EndProcess(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    
+    SWIG_check_num_args("CB_EndProcess",0,0)
+    CB_EndProcess();
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CB_UpdateProcess(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    char *arg1 = (char *) 0 ;
+    unsigned int arg2 ;
+    
+    SWIG_check_num_args("CB_UpdateProcess",2,2)
+    if(!SWIG_lua_isnilstring(L,1)) SWIG_fail_arg("CB_UpdateProcess",1,"char *");
+    if(!lua_isnumber(L,2)) SWIG_fail_arg("CB_UpdateProcess",2,"unsigned int");
+    arg1 = (char *)lua_tostring(L, 1);
+    SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+    arg2 = (unsigned int)lua_tonumber(L, 2);
+    CB_UpdateProcess(arg1,arg2);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CB_SetMsgFunction(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    void *arg1 = (void *) 0 ;
+    
+    SWIG_check_num_args("CB_SetMsgFunction",1,1)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CB_SetMsgFunction",1,"void *");
+    arg1=(void *)SWIG_MustGetPtr(L,1,0,0,1,"CB_SetMsgFunction");
+    CB_SetMsgFunction(arg1);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CB_SetBeginFunction(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    void *arg1 = (void *) 0 ;
+    
+    SWIG_check_num_args("CB_SetBeginFunction",1,1)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CB_SetBeginFunction",1,"void *");
+    arg1=(void *)SWIG_MustGetPtr(L,1,0,0,1,"CB_SetBeginFunction");
+    CB_SetBeginFunction(arg1);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CB_SetEndFunction(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    void *arg1 = (void *) 0 ;
+    
+    SWIG_check_num_args("CB_SetEndFunction",1,1)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CB_SetEndFunction",1,"void *");
+    arg1=(void *)SWIG_MustGetPtr(L,1,0,0,1,"CB_SetEndFunction");
+    CB_SetEndFunction(arg1);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CB_SetUpdateFunction(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    void *arg1 = (void *) 0 ;
+    
+    SWIG_check_num_args("CB_SetUpdateFunction",1,1)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CB_SetUpdateFunction",1,"void *");
+    arg1=(void *)SWIG_MustGetPtr(L,1,0,0,1,"CB_SetUpdateFunction");
+    CB_SetUpdateFunction(arg1);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
 
 static int _wrap_new_CBoundingSphere(lua_State* L) {
   {
@@ -108283,1725 +108847,6 @@ static swig_lua_class *swig_CSoundRenderer_bases[] = {0};
 static const char *swig_CSoundRenderer_base_names[] = {0};
 static swig_lua_class _wrap_class_CSoundRenderer = { "CSoundRenderer", "CSoundRenderer", &SWIGTYPE_p_CSoundRenderer,0, swig_delete_CSoundRenderer, swig_CSoundRenderer_methods, swig_CSoundRenderer_attributes, &swig_CSoundRenderer_Sf_SwigStatic, swig_CSoundRenderer_meta, swig_CSoundRenderer_bases, swig_CSoundRenderer_base_names };
 
-static int _wrap_new_CSoundMixPars(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *result = 0 ;
-    
-    SWIG_check_num_args("CSoundMixPars::CSoundMixPars",0,0)
-    result = (CSoundMixPars *)new CSoundMixPars();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundMixPars,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_fLVol_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    float arg2 ;
-    
-    SWIG_check_num_args("CSoundMixPars::fLVol",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::fLVol",1,"CSoundMixPars *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSoundMixPars::fLVol",2,"float");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_fLVol_set",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    arg2 = (float)lua_tonumber(L, 2);
-    if (arg1) (arg1)->fLVol = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_fLVol_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    float result;
-    
-    SWIG_check_num_args("CSoundMixPars::fLVol",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::fLVol",1,"CSoundMixPars *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_fLVol_get",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    result = (float) ((arg1)->fLVol);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_fRVol_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    float arg2 ;
-    
-    SWIG_check_num_args("CSoundMixPars::fRVol",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::fRVol",1,"CSoundMixPars *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSoundMixPars::fRVol",2,"float");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_fRVol_set",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    arg2 = (float)lua_tonumber(L, 2);
-    if (arg1) (arg1)->fRVol = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_fRVol_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    float result;
-    
-    SWIG_check_num_args("CSoundMixPars::fRVol",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::fRVol",1,"CSoundMixPars *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_fRVol_get",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    result = (float) ((arg1)->fRVol);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_iSPos_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    int arg2 ;
-    
-    SWIG_check_num_args("CSoundMixPars::iSPos",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::iSPos",1,"CSoundMixPars *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSoundMixPars::iSPos",2,"int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_iSPos_set",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    arg2 = (int)lua_tonumber(L, 2);
-    if (arg1) (arg1)->iSPos = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_iSPos_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    int result;
-    
-    SWIG_check_num_args("CSoundMixPars::iSPos",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::iSPos",1,"CSoundMixPars *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_iSPos_get",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    result = (int) ((arg1)->iSPos);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_iCLayer_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    int arg2 ;
-    
-    SWIG_check_num_args("CSoundMixPars::iCLayer",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::iCLayer",1,"CSoundMixPars *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSoundMixPars::iCLayer",2,"int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_iCLayer_set",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    arg2 = (int)lua_tonumber(L, 2);
-    if (arg1) (arg1)->iCLayer = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_iCLayer_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    int result;
-    
-    SWIG_check_num_args("CSoundMixPars::iCLayer",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::iCLayer",1,"CSoundMixPars *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_iCLayer_get",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    result = (int) ((arg1)->iCLayer);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_bLUnlock_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    bool arg2 ;
-    
-    SWIG_check_num_args("CSoundMixPars::bLUnlock",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::bLUnlock",1,"CSoundMixPars *");
-    if(!lua_isboolean(L,2)) SWIG_fail_arg("CSoundMixPars::bLUnlock",2,"bool");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_bLUnlock_set",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    arg2 = (lua_toboolean(L, 2)!=0);
-    if (arg1) (arg1)->bLUnlock = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_bLUnlock_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    bool result;
-    
-    SWIG_check_num_args("CSoundMixPars::bLUnlock",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::bLUnlock",1,"CSoundMixPars *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_bLUnlock_get",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    result = (bool) ((arg1)->bLUnlock);
-    lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_bEnd_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    bool arg2 ;
-    
-    SWIG_check_num_args("CSoundMixPars::bEnd",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::bEnd",1,"CSoundMixPars *");
-    if(!lua_isboolean(L,2)) SWIG_fail_arg("CSoundMixPars::bEnd",2,"bool");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_bEnd_set",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    arg2 = (lua_toboolean(L, 2)!=0);
-    if (arg1) (arg1)->bEnd = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_bEnd_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    bool result;
-    
-    SWIG_check_num_args("CSoundMixPars::bEnd",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::bEnd",1,"CSoundMixPars *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_bEnd_get",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    result = (bool) ((arg1)->bEnd);
-    lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_poSound_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    CSound *arg2 = (CSound *) 0 ;
-    
-    SWIG_check_num_args("CSoundMixPars::poSound",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::poSound",1,"CSoundMixPars *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundMixPars::poSound",2,"CSound *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_poSound_set",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CSound,SWIG_POINTER_DISOWN))){
-      SWIG_fail_ptr("CSoundMixPars_poSound_set",2,SWIGTYPE_p_CSound);
-    }
-    
-    if (arg1) (arg1)->poSound = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_poSound_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    CSound *result = 0 ;
-    
-    SWIG_check_num_args("CSoundMixPars::poSound",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::poSound",1,"CSoundMixPars *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_poSound_get",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    result = (CSound *) ((arg1)->poSound);
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSound,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CSoundMixPars(void *obj) {
-CSoundMixPars *arg1 = (CSoundMixPars *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CSoundMixPars(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CSoundMixPars);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CSoundMixPars_attributes[] = {
-    { "fLVol", _wrap_CSoundMixPars_fLVol_get, _wrap_CSoundMixPars_fLVol_set },
-    { "fRVol", _wrap_CSoundMixPars_fRVol_get, _wrap_CSoundMixPars_fRVol_set },
-    { "iSPos", _wrap_CSoundMixPars_iSPos_get, _wrap_CSoundMixPars_iSPos_set },
-    { "iCLayer", _wrap_CSoundMixPars_iCLayer_get, _wrap_CSoundMixPars_iCLayer_set },
-    { "bLUnlock", _wrap_CSoundMixPars_bLUnlock_get, _wrap_CSoundMixPars_bLUnlock_set },
-    { "bEnd", _wrap_CSoundMixPars_bEnd_get, _wrap_CSoundMixPars_bEnd_set },
-    { "poSound", _wrap_CSoundMixPars_poSound_get, _wrap_CSoundMixPars_poSound_set },
-    {0,0,0}
-};
-static swig_lua_method swig_CSoundMixPars_methods[]= {
-    {0,0}
-};
-static swig_lua_method swig_CSoundMixPars_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CSoundMixPars_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CSoundMixPars_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CSoundMixPars_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_CSoundMixPars_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CSoundMixPars_Sf_SwigStatic = {
-    "CSoundMixPars",
-    swig_CSoundMixPars_Sf_SwigStatic_methods,
-    swig_CSoundMixPars_Sf_SwigStatic_attributes,
-    swig_CSoundMixPars_Sf_SwigStatic_constants,
-    swig_CSoundMixPars_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CSoundMixPars_bases[] = {0};
-static const char *swig_CSoundMixPars_base_names[] = {0};
-static swig_lua_class _wrap_class_CSoundMixPars = { "CSoundMixPars", "CSoundMixPars", &SWIGTYPE_p_CSoundMixPars,_proxy__wrap_new_CSoundMixPars, swig_delete_CSoundMixPars, swig_CSoundMixPars_methods, swig_CSoundMixPars_attributes, &swig_CSoundMixPars_Sf_SwigStatic, swig_CSoundMixPars_meta, swig_CSoundMixPars_bases, swig_CSoundMixPars_base_names };
-
-static int _wrap_new_CSoundMixer(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixer *result = 0 ;
-    
-    SWIG_check_num_args("CSoundMixer::CSoundMixer",0,0)
-    result = (CSoundMixer *)new CSoundMixer();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundMixer,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixer_Clear(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    
-    SWIG_check_num_args("CSoundMixer::Clear",0,0)
-    CSoundMixer::Clear();
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixer_SetupBuffer(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    unsigned int arg1 ;
-    unsigned int arg2 ;
-    int arg3 ;
-    
-    SWIG_check_num_args("CSoundMixer::SetupBuffer",3,3)
-    if(!lua_isnumber(L,1)) SWIG_fail_arg("CSoundMixer::SetupBuffer",1,"unsigned int");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSoundMixer::SetupBuffer",2,"unsigned int");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CSoundMixer::SetupBuffer",3,"int");
-    SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
-    arg1 = (unsigned int)lua_tonumber(L, 1);
-    SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-    arg2 = (unsigned int)lua_tonumber(L, 2);
-    arg3 = (int)lua_tonumber(L, 3);
-    CSoundMixer::SetupBuffer(arg1,arg2,arg3);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixer_Mix__SWIG_0(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = 0 ;
-    unsigned int arg2 ;
-    unsigned int arg3 ;
-    
-    SWIG_check_num_args("CSoundMixer::Mix",3,3)
-    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CSoundMixer::Mix",1,"CSoundMixPars &");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSoundMixer::Mix",2,"unsigned int");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CSoundMixer::Mix",3,"unsigned int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixer_Mix",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-    arg2 = (unsigned int)lua_tonumber(L, 2);
-    SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
-    arg3 = (unsigned int)lua_tonumber(L, 3);
-    CSoundMixer::Mix(*arg1,arg2,arg3);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixer_Mix__SWIG_1(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = 0 ;
-    unsigned int arg2 ;
-    
-    SWIG_check_num_args("CSoundMixer::Mix",2,2)
-    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CSoundMixer::Mix",1,"CSoundMixPars &");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSoundMixer::Mix",2,"unsigned int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixer_Mix",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-    arg2 = (unsigned int)lua_tonumber(L, 2);
-    CSoundMixer::Mix(*arg1,arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixer_Mix(lua_State* L) {
-  int argc;
-  int argv[4]={
-    1,2,3,4
-  };
-  
-  argc = lua_gettop(L);
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CSoundMixPars, SWIG_POINTER_NO_NULL)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        return _wrap_CSoundMixer_Mix__SWIG_1(L);
-      }
-    }
-  }
-  if (argc == 3) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CSoundMixPars, SWIG_POINTER_NO_NULL)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        {
-          _v = lua_isnumber(L,argv[2]);
-        }
-        if (_v) {
-          return _wrap_CSoundMixer_Mix__SWIG_0(L);
-        }
-      }
-    }
-  }
-  
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'CSoundMixer_Mix'\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    CSoundMixer::Mix(CSoundMixPars &,unsigned int,unsigned int)\n"
-    "    CSoundMixer::Mix(CSoundMixPars &,unsigned int)\n");
-  lua_error(L);return 0;
-}
-
-
-static int _wrap_CSoundMixer_iMix16M(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = 0 ;
-    CSample *arg2 = (CSample *) 0 ;
-    unsigned int arg3 ;
-    unsigned int arg4 ;
-    int result;
-    
-    SWIG_check_num_args("CSoundMixer::iMix16M",4,4)
-    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CSoundMixer::iMix16M",1,"CSoundMixPars &");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundMixer::iMix16M",2,"CSample *");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CSoundMixer::iMix16M",3,"unsigned int");
-    if(!lua_isnumber(L,4)) SWIG_fail_arg("CSoundMixer::iMix16M",4,"unsigned int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixer_iMix16M",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CSample,0))){
-      SWIG_fail_ptr("CSoundMixer_iMix16M",2,SWIGTYPE_p_CSample);
-    }
-    
-    SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
-    arg3 = (unsigned int)lua_tonumber(L, 3);
-    SWIG_contract_assert((lua_tonumber(L,4)>=0),"number must not be negative");
-    arg4 = (unsigned int)lua_tonumber(L, 4);
-    result = (int)CSoundMixer::iMix16M(*arg1,arg2,arg3,arg4);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixer_iMix16S(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = 0 ;
-    CSample *arg2 = (CSample *) 0 ;
-    unsigned int arg3 ;
-    unsigned int arg4 ;
-    int result;
-    
-    SWIG_check_num_args("CSoundMixer::iMix16S",4,4)
-    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CSoundMixer::iMix16S",1,"CSoundMixPars &");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundMixer::iMix16S",2,"CSample *");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CSoundMixer::iMix16S",3,"unsigned int");
-    if(!lua_isnumber(L,4)) SWIG_fail_arg("CSoundMixer::iMix16S",4,"unsigned int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixer_iMix16S",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CSample,0))){
-      SWIG_fail_ptr("CSoundMixer_iMix16S",2,SWIGTYPE_p_CSample);
-    }
-    
-    SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
-    arg3 = (unsigned int)lua_tonumber(L, 3);
-    SWIG_contract_assert((lua_tonumber(L,4)>=0),"number must not be negative");
-    arg4 = (unsigned int)lua_tonumber(L, 4);
-    result = (int)CSoundMixer::iMix16S(*arg1,arg2,arg3,arg4);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixer_iMix8M(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = 0 ;
-    CSample *arg2 = (CSample *) 0 ;
-    unsigned int arg3 ;
-    unsigned int arg4 ;
-    int result;
-    
-    SWIG_check_num_args("CSoundMixer::iMix8M",4,4)
-    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CSoundMixer::iMix8M",1,"CSoundMixPars &");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundMixer::iMix8M",2,"CSample *");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CSoundMixer::iMix8M",3,"unsigned int");
-    if(!lua_isnumber(L,4)) SWIG_fail_arg("CSoundMixer::iMix8M",4,"unsigned int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixer_iMix8M",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CSample,0))){
-      SWIG_fail_ptr("CSoundMixer_iMix8M",2,SWIGTYPE_p_CSample);
-    }
-    
-    SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
-    arg3 = (unsigned int)lua_tonumber(L, 3);
-    SWIG_contract_assert((lua_tonumber(L,4)>=0),"number must not be negative");
-    arg4 = (unsigned int)lua_tonumber(L, 4);
-    result = (int)CSoundMixer::iMix8M(*arg1,arg2,arg3,arg4);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixer_iMix8S(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = 0 ;
-    CSample *arg2 = (CSample *) 0 ;
-    unsigned int arg3 ;
-    unsigned int arg4 ;
-    int result;
-    
-    SWIG_check_num_args("CSoundMixer::iMix8S",4,4)
-    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CSoundMixer::iMix8S",1,"CSoundMixPars &");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundMixer::iMix8S",2,"CSample *");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CSoundMixer::iMix8S",3,"unsigned int");
-    if(!lua_isnumber(L,4)) SWIG_fail_arg("CSoundMixer::iMix8S",4,"unsigned int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixer_iMix8S",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CSample,0))){
-      SWIG_fail_ptr("CSoundMixer_iMix8S",2,SWIGTYPE_p_CSample);
-    }
-    
-    SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
-    arg3 = (unsigned int)lua_tonumber(L, 3);
-    SWIG_contract_assert((lua_tonumber(L,4)>=0),"number must not be negative");
-    arg4 = (unsigned int)lua_tonumber(L, 4);
-    result = (int)CSoundMixer::iMix8S(*arg1,arg2,arg3,arg4);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixer_pGetBuffer(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    void *result = 0 ;
-    
-    SWIG_check_num_args("CSoundMixer::pGetBuffer",0,0)
-    result = (void *)CSoundMixer::pGetBuffer();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_void,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixer_uiGetBufferSize(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    unsigned int result;
-    
-    SWIG_check_num_args("CSoundMixer::uiGetBufferSize",0,0)
-    result = (unsigned int)CSoundMixer::uiGetBufferSize();
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixer_Finish(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    
-    SWIG_check_num_args("CSoundMixer::Finish",0,0)
-    CSoundMixer::Finish();
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixer_PostProcess(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    
-    SWIG_check_num_args("CSoundMixer::PostProcess",0,0)
-    CSoundMixer::PostProcess();
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CSoundMixer(void *obj) {
-CSoundMixer *arg1 = (CSoundMixer *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CSoundMixer(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CSoundMixer);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CSoundMixer_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_method swig_CSoundMixer_methods[]= {
-    {0,0}
-};
-static swig_lua_method swig_CSoundMixer_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CSoundMixer_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CSoundMixer_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CSoundMixer_Sf_SwigStatic_methods[]= {
-    { "Clear", _wrap_CSoundMixer_Clear},
-    { "SetupBuffer", _wrap_CSoundMixer_SetupBuffer},
-    { "Mix", _wrap_CSoundMixer_Mix},
-    { "iMix16M", _wrap_CSoundMixer_iMix16M},
-    { "iMix16S", _wrap_CSoundMixer_iMix16S},
-    { "iMix8M", _wrap_CSoundMixer_iMix8M},
-    { "iMix8S", _wrap_CSoundMixer_iMix8S},
-    { "pGetBuffer", _wrap_CSoundMixer_pGetBuffer},
-    { "uiGetBufferSize", _wrap_CSoundMixer_uiGetBufferSize},
-    { "Finish", _wrap_CSoundMixer_Finish},
-    { "PostProcess", _wrap_CSoundMixer_PostProcess},
-    {0,0}
-};
-static swig_lua_class* swig_CSoundMixer_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CSoundMixer_Sf_SwigStatic = {
-    "CSoundMixer",
-    swig_CSoundMixer_Sf_SwigStatic_methods,
-    swig_CSoundMixer_Sf_SwigStatic_attributes,
-    swig_CSoundMixer_Sf_SwigStatic_constants,
-    swig_CSoundMixer_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CSoundMixer_bases[] = {0};
-static const char *swig_CSoundMixer_base_names[] = {0};
-static swig_lua_class _wrap_class_CSoundMixer = { "CSoundMixer", "CSoundMixer", &SWIGTYPE_p_CSoundMixer,_proxy__wrap_new_CSoundMixer, swig_delete_CSoundMixer, swig_CSoundMixer_methods, swig_CSoundMixer_attributes, &swig_CSoundMixer_Sf_SwigStatic, swig_CSoundMixer_meta, swig_CSoundMixer_bases, swig_CSoundMixer_base_names };
-
-static int _wrap_new_CSoundEmiter_DSound(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter_DSound *result = 0 ;
-    
-    SWIG_check_num_args("CSoundEmiter_DSound::CSoundEmiter_DSound",0,0)
-    result = (CSoundEmiter_DSound *)new CSoundEmiter_DSound();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundEmiter_DSound,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEmiter_DSound_oSMP_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter_DSound *arg1 = (CSoundEmiter_DSound *) 0 ;
-    CSoundMixPars *arg2 = (CSoundMixPars *) 0 ;
-    
-    SWIG_check_num_args("CSoundEmiter_DSound::oSMP",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEmiter_DSound::oSMP",1,"CSoundEmiter_DSound *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundEmiter_DSound::oSMP",2,"CSoundMixPars *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEmiter_DSound,0))){
-      SWIG_fail_ptr("CSoundEmiter_DSound_oSMP_set",1,SWIGTYPE_p_CSoundEmiter_DSound);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundEmiter_DSound_oSMP_set",2,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    if (arg1) (arg1)->oSMP = *arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEmiter_DSound_oSMP_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter_DSound *arg1 = (CSoundEmiter_DSound *) 0 ;
-    CSoundMixPars *result = 0 ;
-    
-    SWIG_check_num_args("CSoundEmiter_DSound::oSMP",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEmiter_DSound::oSMP",1,"CSoundEmiter_DSound *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEmiter_DSound,0))){
-      SWIG_fail_ptr("CSoundEmiter_DSound_oSMP_get",1,SWIGTYPE_p_CSoundEmiter_DSound);
-    }
-    
-    result = (CSoundMixPars *)& ((arg1)->oSMP);
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundMixPars,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CSoundEmiter_DSound(void *obj) {
-CSoundEmiter_DSound *arg1 = (CSoundEmiter_DSound *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CSoundEmiter_DSound(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CSoundEmiter_DSound);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CSoundEmiter_DSound_attributes[] = {
-    { "oSMP", _wrap_CSoundEmiter_DSound_oSMP_get, _wrap_CSoundEmiter_DSound_oSMP_set },
-    {0,0,0}
-};
-static swig_lua_method swig_CSoundEmiter_DSound_methods[]= {
-    {0,0}
-};
-static swig_lua_method swig_CSoundEmiter_DSound_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CSoundEmiter_DSound_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CSoundEmiter_DSound_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CSoundEmiter_DSound_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_CSoundEmiter_DSound_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CSoundEmiter_DSound_Sf_SwigStatic = {
-    "CSoundEmiter_DSound",
-    swig_CSoundEmiter_DSound_Sf_SwigStatic_methods,
-    swig_CSoundEmiter_DSound_Sf_SwigStatic_attributes,
-    swig_CSoundEmiter_DSound_Sf_SwigStatic_constants,
-    swig_CSoundEmiter_DSound_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CSoundEmiter_DSound_bases[] = {0,0};
-static const char *swig_CSoundEmiter_DSound_base_names[] = {"CSoundEmiter *",0};
-static swig_lua_class _wrap_class_CSoundEmiter_DSound = { "CSoundEmiter_DSound", "CSoundEmiter_DSound", &SWIGTYPE_p_CSoundEmiter_DSound,_proxy__wrap_new_CSoundEmiter_DSound, swig_delete_CSoundEmiter_DSound, swig_CSoundEmiter_DSound_methods, swig_CSoundEmiter_DSound_attributes, &swig_CSoundEmiter_DSound_Sf_SwigStatic, swig_CSoundEmiter_DSound_meta, swig_CSoundEmiter_DSound_bases, swig_CSoundEmiter_DSound_base_names };
-
-static int _wrap_new_CSoundRenderer_DSound(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_DSound *result = 0 ;
-    
-    SWIG_check_num_args("CSoundRenderer_DSound::CSoundRenderer_DSound",0,0)
-    result = (CSoundRenderer_DSound *)new CSoundRenderer_DSound();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundRenderer_DSound,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_DSound_Init(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_DSound *arg1 = (CSoundRenderer_DSound *) 0 ;
-    void *arg2 = (void *) 0 ;
-    int arg3 ;
-    int arg4 ;
-    int arg5 ;
-    int result;
-    
-    SWIG_check_num_args("CSoundRenderer_DSound::Init",5,5)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_DSound::Init",1,"CSoundRenderer_DSound *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundRenderer_DSound::Init",2,"void *");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CSoundRenderer_DSound::Init",3,"int");
-    if(!lua_isnumber(L,4)) SWIG_fail_arg("CSoundRenderer_DSound::Init",4,"int");
-    if(!lua_isnumber(L,5)) SWIG_fail_arg("CSoundRenderer_DSound::Init",5,"int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_DSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_DSound_Init",1,SWIGTYPE_p_CSoundRenderer_DSound);
-    }
-    
-    arg2=(void *)SWIG_MustGetPtr(L,2,0,0,2,"CSoundRenderer_DSound_Init");
-    arg3 = (int)lua_tonumber(L, 3);
-    arg4 = (int)lua_tonumber(L, 4);
-    arg5 = (int)lua_tonumber(L, 5);
-    result = (int)(arg1)->Init(arg2,arg3,arg4,arg5);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_DSound_Finish(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_DSound *arg1 = (CSoundRenderer_DSound *) 0 ;
-    
-    SWIG_check_num_args("CSoundRenderer_DSound::Finish",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_DSound::Finish",1,"CSoundRenderer_DSound *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_DSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_DSound_Finish",1,SWIGTYPE_p_CSoundRenderer_DSound);
-    }
-    
-    (arg1)->Finish();
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_DSound_iLoadDirectSound(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_DSound *arg1 = (CSoundRenderer_DSound *) 0 ;
-    int result;
-    
-    SWIG_check_num_args("CSoundRenderer_DSound::iLoadDirectSound",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_DSound::iLoadDirectSound",1,"CSoundRenderer_DSound *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_DSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_DSound_iLoadDirectSound",1,SWIGTYPE_p_CSoundRenderer_DSound);
-    }
-    
-    result = (int)(arg1)->iLoadDirectSound();
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_DSound_iUnloadDirectSound(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_DSound *arg1 = (CSoundRenderer_DSound *) 0 ;
-    int result;
-    
-    SWIG_check_num_args("CSoundRenderer_DSound::iUnloadDirectSound",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_DSound::iUnloadDirectSound",1,"CSoundRenderer_DSound *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_DSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_DSound_iUnloadDirectSound",1,SWIGTYPE_p_CSoundRenderer_DSound);
-    }
-    
-    result = (int)(arg1)->iUnloadDirectSound();
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_DSound_iCreateBuffers(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_DSound *arg1 = (CSoundRenderer_DSound *) 0 ;
-    int result;
-    
-    SWIG_check_num_args("CSoundRenderer_DSound::iCreateBuffers",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_DSound::iCreateBuffers",1,"CSoundRenderer_DSound *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_DSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_DSound_iCreateBuffers",1,SWIGTYPE_p_CSoundRenderer_DSound);
-    }
-    
-    result = (int)(arg1)->iCreateBuffers();
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_DSound_Render(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_DSound *arg1 = (CSoundRenderer_DSound *) 0 ;
-    float arg2 ;
-    
-    SWIG_check_num_args("CSoundRenderer_DSound::Render",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_DSound::Render",1,"CSoundRenderer_DSound *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSoundRenderer_DSound::Render",2,"float");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_DSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_DSound_Render",1,SWIGTYPE_p_CSoundRenderer_DSound);
-    }
-    
-    arg2 = (float)lua_tonumber(L, 2);
-    (arg1)->Render(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_DSound_TransferData(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_DSound *arg1 = (CSoundRenderer_DSound *) 0 ;
-    
-    SWIG_check_num_args("CSoundRenderer_DSound::TransferData",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_DSound::TransferData",1,"CSoundRenderer_DSound *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_DSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_DSound_TransferData",1,SWIGTYPE_p_CSoundRenderer_DSound);
-    }
-    
-    (arg1)->TransferData();
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_DSound_bComputeVolumeFactors(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_DSound *arg1 = (CSoundRenderer_DSound *) 0 ;
-    CSoundEmiter_DSound *arg2 = (CSoundEmiter_DSound *) 0 ;
-    bool result;
-    
-    SWIG_check_num_args("CSoundRenderer_DSound::bComputeVolumeFactors",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_DSound::bComputeVolumeFactors",1,"CSoundRenderer_DSound *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundRenderer_DSound::bComputeVolumeFactors",2,"CSoundEmiter_DSound *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_DSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_DSound_bComputeVolumeFactors",1,SWIGTYPE_p_CSoundRenderer_DSound);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CSoundEmiter_DSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_DSound_bComputeVolumeFactors",2,SWIGTYPE_p_CSoundEmiter_DSound);
-    }
-    
-    result = (bool)(arg1)->bComputeVolumeFactors(arg2);
-    lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_DSound_poGetFreeEmiter(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_DSound *arg1 = (CSoundRenderer_DSound *) 0 ;
-    CSoundEmiter *result = 0 ;
-    
-    SWIG_check_num_args("CSoundRenderer_DSound::poGetFreeEmiter",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_DSound::poGetFreeEmiter",1,"CSoundRenderer_DSound *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_DSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_DSound_poGetFreeEmiter",1,SWIGTYPE_p_CSoundRenderer_DSound);
-    }
-    
-    result = (CSoundEmiter *)(arg1)->poGetFreeEmiter();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundEmiter,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CSoundRenderer_DSound(void *obj) {
-CSoundRenderer_DSound *arg1 = (CSoundRenderer_DSound *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CSoundRenderer_DSound(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CSoundRenderer_DSound);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CSoundRenderer_DSound_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_method swig_CSoundRenderer_DSound_methods[]= {
-    { "Init", _wrap_CSoundRenderer_DSound_Init},
-    { "Finish", _wrap_CSoundRenderer_DSound_Finish},
-    { "iLoadDirectSound", _wrap_CSoundRenderer_DSound_iLoadDirectSound},
-    { "iUnloadDirectSound", _wrap_CSoundRenderer_DSound_iUnloadDirectSound},
-    { "iCreateBuffers", _wrap_CSoundRenderer_DSound_iCreateBuffers},
-    { "Render", _wrap_CSoundRenderer_DSound_Render},
-    { "TransferData", _wrap_CSoundRenderer_DSound_TransferData},
-    { "bComputeVolumeFactors", _wrap_CSoundRenderer_DSound_bComputeVolumeFactors},
-    { "poGetFreeEmiter", _wrap_CSoundRenderer_DSound_poGetFreeEmiter},
-    {0,0}
-};
-static swig_lua_method swig_CSoundRenderer_DSound_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CSoundRenderer_DSound_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CSoundRenderer_DSound_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CSoundRenderer_DSound_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_CSoundRenderer_DSound_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CSoundRenderer_DSound_Sf_SwigStatic = {
-    "CSoundRenderer_DSound",
-    swig_CSoundRenderer_DSound_Sf_SwigStatic_methods,
-    swig_CSoundRenderer_DSound_Sf_SwigStatic_attributes,
-    swig_CSoundRenderer_DSound_Sf_SwigStatic_constants,
-    swig_CSoundRenderer_DSound_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CSoundRenderer_DSound_bases[] = {0,0};
-static const char *swig_CSoundRenderer_DSound_base_names[] = {"CSoundRenderer *",0};
-static swig_lua_class _wrap_class_CSoundRenderer_DSound = { "CSoundRenderer_DSound", "CSoundRenderer_DSound", &SWIGTYPE_p_CSoundRenderer_DSound,_proxy__wrap_new_CSoundRenderer_DSound, swig_delete_CSoundRenderer_DSound, swig_CSoundRenderer_DSound_methods, swig_CSoundRenderer_DSound_attributes, &swig_CSoundRenderer_DSound_Sf_SwigStatic, swig_CSoundRenderer_DSound_meta, swig_CSoundRenderer_DSound_bases, swig_CSoundRenderer_DSound_base_names };
-
-static int _wrap_new_CSoundEmiter_OpenAL(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter_OpenAL *result = 0 ;
-    
-    SWIG_check_num_args("CSoundEmiter_OpenAL::CSoundEmiter_OpenAL",0,0)
-    result = (CSoundEmiter_OpenAL *)new CSoundEmiter_OpenAL();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundEmiter_OpenAL,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEmiter_OpenAL_uiSourceHandler_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter_OpenAL *arg1 = (CSoundEmiter_OpenAL *) 0 ;
-    unsigned int arg2 ;
-    
-    SWIG_check_num_args("CSoundEmiter_OpenAL::uiSourceHandler",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEmiter_OpenAL::uiSourceHandler",1,"CSoundEmiter_OpenAL *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSoundEmiter_OpenAL::uiSourceHandler",2,"unsigned int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEmiter_OpenAL,0))){
-      SWIG_fail_ptr("CSoundEmiter_OpenAL_uiSourceHandler_set",1,SWIGTYPE_p_CSoundEmiter_OpenAL);
-    }
-    
-    SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-    arg2 = (unsigned int)lua_tonumber(L, 2);
-    if (arg1) (arg1)->uiSourceHandler = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEmiter_OpenAL_uiSourceHandler_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter_OpenAL *arg1 = (CSoundEmiter_OpenAL *) 0 ;
-    unsigned int result;
-    
-    SWIG_check_num_args("CSoundEmiter_OpenAL::uiSourceHandler",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEmiter_OpenAL::uiSourceHandler",1,"CSoundEmiter_OpenAL *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEmiter_OpenAL,0))){
-      SWIG_fail_ptr("CSoundEmiter_OpenAL_uiSourceHandler_get",1,SWIGTYPE_p_CSoundEmiter_OpenAL);
-    }
-    
-    result = (unsigned int) ((arg1)->uiSourceHandler);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEmiter_OpenAL_bPlaying_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter_OpenAL *arg1 = (CSoundEmiter_OpenAL *) 0 ;
-    bool arg2 ;
-    
-    SWIG_check_num_args("CSoundEmiter_OpenAL::bPlaying",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEmiter_OpenAL::bPlaying",1,"CSoundEmiter_OpenAL *");
-    if(!lua_isboolean(L,2)) SWIG_fail_arg("CSoundEmiter_OpenAL::bPlaying",2,"bool");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEmiter_OpenAL,0))){
-      SWIG_fail_ptr("CSoundEmiter_OpenAL_bPlaying_set",1,SWIGTYPE_p_CSoundEmiter_OpenAL);
-    }
-    
-    arg2 = (lua_toboolean(L, 2)!=0);
-    if (arg1) (arg1)->bPlaying = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEmiter_OpenAL_bPlaying_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter_OpenAL *arg1 = (CSoundEmiter_OpenAL *) 0 ;
-    bool result;
-    
-    SWIG_check_num_args("CSoundEmiter_OpenAL::bPlaying",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEmiter_OpenAL::bPlaying",1,"CSoundEmiter_OpenAL *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEmiter_OpenAL,0))){
-      SWIG_fail_ptr("CSoundEmiter_OpenAL_bPlaying_get",1,SWIGTYPE_p_CSoundEmiter_OpenAL);
-    }
-    
-    result = (bool) ((arg1)->bPlaying);
-    lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CSoundEmiter_OpenAL(void *obj) {
-CSoundEmiter_OpenAL *arg1 = (CSoundEmiter_OpenAL *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CSoundEmiter_OpenAL(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CSoundEmiter_OpenAL);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CSoundEmiter_OpenAL_attributes[] = {
-    { "uiSourceHandler", _wrap_CSoundEmiter_OpenAL_uiSourceHandler_get, _wrap_CSoundEmiter_OpenAL_uiSourceHandler_set },
-    { "bPlaying", _wrap_CSoundEmiter_OpenAL_bPlaying_get, _wrap_CSoundEmiter_OpenAL_bPlaying_set },
-    {0,0,0}
-};
-static swig_lua_method swig_CSoundEmiter_OpenAL_methods[]= {
-    {0,0}
-};
-static swig_lua_method swig_CSoundEmiter_OpenAL_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CSoundEmiter_OpenAL_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CSoundEmiter_OpenAL_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CSoundEmiter_OpenAL_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_CSoundEmiter_OpenAL_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CSoundEmiter_OpenAL_Sf_SwigStatic = {
-    "CSoundEmiter_OpenAL",
-    swig_CSoundEmiter_OpenAL_Sf_SwigStatic_methods,
-    swig_CSoundEmiter_OpenAL_Sf_SwigStatic_attributes,
-    swig_CSoundEmiter_OpenAL_Sf_SwigStatic_constants,
-    swig_CSoundEmiter_OpenAL_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CSoundEmiter_OpenAL_bases[] = {0,0};
-static const char *swig_CSoundEmiter_OpenAL_base_names[] = {"CSoundEmiter *",0};
-static swig_lua_class _wrap_class_CSoundEmiter_OpenAL = { "CSoundEmiter_OpenAL", "CSoundEmiter_OpenAL", &SWIGTYPE_p_CSoundEmiter_OpenAL,_proxy__wrap_new_CSoundEmiter_OpenAL, swig_delete_CSoundEmiter_OpenAL, swig_CSoundEmiter_OpenAL_methods, swig_CSoundEmiter_OpenAL_attributes, &swig_CSoundEmiter_OpenAL_Sf_SwigStatic, swig_CSoundEmiter_OpenAL_meta, swig_CSoundEmiter_OpenAL_bases, swig_CSoundEmiter_OpenAL_base_names };
-
-static int _wrap_new_CSoundRenderer_OpenAL(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_OpenAL *result = 0 ;
-    
-    SWIG_check_num_args("CSoundRenderer_OpenAL::CSoundRenderer_OpenAL",0,0)
-    result = (CSoundRenderer_OpenAL *)new CSoundRenderer_OpenAL();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundRenderer_OpenAL,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_OpenAL_Init(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_OpenAL *arg1 = (CSoundRenderer_OpenAL *) 0 ;
-    void *arg2 = (void *) 0 ;
-    int arg3 ;
-    int arg4 ;
-    int arg5 ;
-    int result;
-    
-    SWIG_check_num_args("CSoundRenderer_OpenAL::Init",5,5)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_OpenAL::Init",1,"CSoundRenderer_OpenAL *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundRenderer_OpenAL::Init",2,"void *");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CSoundRenderer_OpenAL::Init",3,"int");
-    if(!lua_isnumber(L,4)) SWIG_fail_arg("CSoundRenderer_OpenAL::Init",4,"int");
-    if(!lua_isnumber(L,5)) SWIG_fail_arg("CSoundRenderer_OpenAL::Init",5,"int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_OpenAL,0))){
-      SWIG_fail_ptr("CSoundRenderer_OpenAL_Init",1,SWIGTYPE_p_CSoundRenderer_OpenAL);
-    }
-    
-    arg2=(void *)SWIG_MustGetPtr(L,2,0,0,2,"CSoundRenderer_OpenAL_Init");
-    arg3 = (int)lua_tonumber(L, 3);
-    arg4 = (int)lua_tonumber(L, 4);
-    arg5 = (int)lua_tonumber(L, 5);
-    result = (int)(arg1)->Init(arg2,arg3,arg4,arg5);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_OpenAL_Render(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_OpenAL *arg1 = (CSoundRenderer_OpenAL *) 0 ;
-    float arg2 ;
-    
-    SWIG_check_num_args("CSoundRenderer_OpenAL::Render",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_OpenAL::Render",1,"CSoundRenderer_OpenAL *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSoundRenderer_OpenAL::Render",2,"float");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_OpenAL,0))){
-      SWIG_fail_ptr("CSoundRenderer_OpenAL_Render",1,SWIGTYPE_p_CSoundRenderer_OpenAL);
-    }
-    
-    arg2 = (float)lua_tonumber(L, 2);
-    (arg1)->Render(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_OpenAL_poAddOmniEmiter(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_OpenAL *arg1 = (CSoundRenderer_OpenAL *) 0 ;
-    CSound *arg2 = (CSound *) 0 ;
-    float arg3 ;
-    CSoundEmiter *result = 0 ;
-    
-    SWIG_check_num_args("CSoundRenderer_OpenAL::poAddOmniEmiter",3,3)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_OpenAL::poAddOmniEmiter",1,"CSoundRenderer_OpenAL *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundRenderer_OpenAL::poAddOmniEmiter",2,"CSound *");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CSoundRenderer_OpenAL::poAddOmniEmiter",3,"float");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_OpenAL,0))){
-      SWIG_fail_ptr("CSoundRenderer_OpenAL_poAddOmniEmiter",1,SWIGTYPE_p_CSoundRenderer_OpenAL);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_OpenAL_poAddOmniEmiter",2,SWIGTYPE_p_CSound);
-    }
-    
-    arg3 = (float)lua_tonumber(L, 3);
-    result = (CSoundEmiter *)(arg1)->poAddOmniEmiter(arg2,arg3);
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundEmiter,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_OpenAL_poGetFreeEmiter(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_OpenAL *arg1 = (CSoundRenderer_OpenAL *) 0 ;
-    CSoundEmiter *result = 0 ;
-    
-    SWIG_check_num_args("CSoundRenderer_OpenAL::poGetFreeEmiter",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_OpenAL::poGetFreeEmiter",1,"CSoundRenderer_OpenAL *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_OpenAL,0))){
-      SWIG_fail_ptr("CSoundRenderer_OpenAL_poGetFreeEmiter",1,SWIGTYPE_p_CSoundRenderer_OpenAL);
-    }
-    
-    result = (CSoundEmiter *)(arg1)->poGetFreeEmiter();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundEmiter,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_OpenAL_InvalidateEmiters(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_OpenAL *arg1 = (CSoundRenderer_OpenAL *) 0 ;
-    
-    SWIG_check_num_args("CSoundRenderer_OpenAL::InvalidateEmiters",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_OpenAL::InvalidateEmiters",1,"CSoundRenderer_OpenAL *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_OpenAL,0))){
-      SWIG_fail_ptr("CSoundRenderer_OpenAL_InvalidateEmiters",1,SWIGTYPE_p_CSoundRenderer_OpenAL);
-    }
-    
-    (arg1)->InvalidateEmiters();
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_OpenAL_UploadSound(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_OpenAL *arg1 = (CSoundRenderer_OpenAL *) 0 ;
-    CSound *arg2 = (CSound *) 0 ;
-    
-    SWIG_check_num_args("CSoundRenderer_OpenAL::UploadSound",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_OpenAL::UploadSound",1,"CSoundRenderer_OpenAL *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundRenderer_OpenAL::UploadSound",2,"CSound *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_OpenAL,0))){
-      SWIG_fail_ptr("CSoundRenderer_OpenAL_UploadSound",1,SWIGTYPE_p_CSoundRenderer_OpenAL);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_OpenAL_UploadSound",2,SWIGTYPE_p_CSound);
-    }
-    
-    (arg1)->UploadSound(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CSoundRenderer_OpenAL(void *obj) {
-CSoundRenderer_OpenAL *arg1 = (CSoundRenderer_OpenAL *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CSoundRenderer_OpenAL(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CSoundRenderer_OpenAL);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CSoundRenderer_OpenAL_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_method swig_CSoundRenderer_OpenAL_methods[]= {
-    { "Init", _wrap_CSoundRenderer_OpenAL_Init},
-    { "Render", _wrap_CSoundRenderer_OpenAL_Render},
-    { "poAddOmniEmiter", _wrap_CSoundRenderer_OpenAL_poAddOmniEmiter},
-    { "poGetFreeEmiter", _wrap_CSoundRenderer_OpenAL_poGetFreeEmiter},
-    { "InvalidateEmiters", _wrap_CSoundRenderer_OpenAL_InvalidateEmiters},
-    { "UploadSound", _wrap_CSoundRenderer_OpenAL_UploadSound},
-    {0,0}
-};
-static swig_lua_method swig_CSoundRenderer_OpenAL_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CSoundRenderer_OpenAL_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CSoundRenderer_OpenAL_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CSoundRenderer_OpenAL_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_CSoundRenderer_OpenAL_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CSoundRenderer_OpenAL_Sf_SwigStatic = {
-    "CSoundRenderer_OpenAL",
-    swig_CSoundRenderer_OpenAL_Sf_SwigStatic_methods,
-    swig_CSoundRenderer_OpenAL_Sf_SwigStatic_attributes,
-    swig_CSoundRenderer_OpenAL_Sf_SwigStatic_constants,
-    swig_CSoundRenderer_OpenAL_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CSoundRenderer_OpenAL_bases[] = {0,0};
-static const char *swig_CSoundRenderer_OpenAL_base_names[] = {"CSoundRenderer *",0};
-static swig_lua_class _wrap_class_CSoundRenderer_OpenAL = { "CSoundRenderer_OpenAL", "CSoundRenderer_OpenAL", &SWIGTYPE_p_CSoundRenderer_OpenAL,_proxy__wrap_new_CSoundRenderer_OpenAL, swig_delete_CSoundRenderer_OpenAL, swig_CSoundRenderer_OpenAL_methods, swig_CSoundRenderer_OpenAL_attributes, &swig_CSoundRenderer_OpenAL_Sf_SwigStatic, swig_CSoundRenderer_OpenAL_meta, swig_CSoundRenderer_OpenAL_bases, swig_CSoundRenderer_OpenAL_base_names };
-
 static int _wrap_new_CSampleWH(lua_State* L) {
   {
     int SWIG_arg = 0;
@@ -114981,8 +113826,10 @@ static swig_lua_const_info swig_SwigModule_constants[]= {
     {SWIG_LUA_CONSTTAB_INT("BSP_AREAS_LUMP", (17))},
     {SWIG_LUA_CONSTTAB_INT("BSP_APORTALS_LUMP", (18))},
     {SWIG_LUA_CONSTTAB_INT("CObject3D_BSPNode_h", (1))},
+    {SWIG_LUA_CONSTTAB_INT("GEM_FILE_IDENTIFIER", ((('G')|('E' << 8)|('M' << 16)|('D' << 24))))},
     {SWIG_LUA_CONSTTAB_INT("GEM_MAJOR_VERSION", (1))},
     {SWIG_LUA_CONSTTAB_INT("GEM_MINOR_VERSION", (0))},
+    {SWIG_LUA_CONSTTAB_INT("GEM_MESH_IDENTIFIER", ((('M')|('E' << 8)|('S' << 16)|('H' << 24))))},
     {SWIG_LUA_CONSTTAB_INT("CLoaderGEM_h", (1))},
     {SWIG_LUA_CONSTTAB_INT("CObject3D_Mux_h", (1))},
     {SWIG_LUA_CONSTTAB_INT("CSaverGEM_h", (1))},
@@ -115095,6 +113942,7 @@ static swig_lua_const_info swig_SwigModule_constants[]= {
     {SWIG_LUA_CONSTTAB_INT("CSLM_TMapSect_h", (1))},
     {SWIG_LUA_CONSTTAB_INT("TEXSET_MAJOR_VERSION", (1))},
     {SWIG_LUA_CONSTTAB_INT("TEXSET_MINOR_VERSION", (0))},
+    {SWIG_LUA_CONSTTAB_INT("TEXSET_OBJ_IDENTIFIER", ((('T')|('S' << 8)|('E' << 16)|('T' << 24))))},
     {SWIG_LUA_CONSTTAB_INT("TEXSET_MAX_TEXTURES", (256))},
     {SWIG_LUA_CONSTTAB_INT("MAX_CARS", (256))},
     {SWIG_LUA_CONSTTAB_INT("MAX_CARS_TEXSET_NAME", (80))},
@@ -115144,12 +113992,6 @@ static swig_lua_const_info swig_SwigModule_constants[]= {
     {SWIG_LUA_CONSTTAB_INT("CSoundLayer_h", (1))},
     {SWIG_LUA_CONSTTAB_INT("CSample_h", (1))},
     {SWIG_LUA_CONSTTAB_INT("CSoundReceiver_h", (1))},
-    {SWIG_LUA_CONSTTAB_INT("CSoundRenderer_DSound_h", (1))},
-    {SWIG_LUA_CONSTTAB_INT("CSoundMixer_h", (1))},
-    {SWIG_LUA_CONSTTAB_INT("CSoundMixPars_h", (1))},
-    {SWIG_LUA_CONSTTAB_INT("CSoundEmiter_DSound_h", (1))},
-    {SWIG_LUA_CONSTTAB_INT("CSoundRenderer_OpenAL_h", (1))},
-    {SWIG_LUA_CONSTTAB_INT("CSoundEmiter_OpenAL_h", (1))},
     {SWIG_LUA_CONSTTAB_INT("CSampleWH_h", (1))},
     {SWIG_LUA_CONSTTAB_INT("CSoundWH_h", (1))},
     {SWIG_LUA_CONSTTAB_INT("GNetwork_h", (1))},
@@ -115220,6 +114062,25 @@ static swig_lua_method swig_SwigModule_methods[]= {
     { "CGraphBV_Manager_eGetBVMode", _wrap_CGraphBV_Manager_eGetBVMode},
     { "CFileUtils_BeginRIFFBlock", _wrap_CFileUtils_BeginRIFFBlock},
     { "CFileUtils_EndRIFFBlock", _wrap_CFileUtils_EndRIFFBlock},
+    { "FILE_BeginRIFFBlock", _wrap_FILE_BeginRIFFBlock},
+    { "FILE_EndRIFFBlock", _wrap_FILE_EndRIFFBlock},
+    { "ERROR_GetError", _wrap_ERROR_GetError},
+    { "ERROR_GetErrorCode", _wrap_ERROR_GetErrorCode},
+    { "ERROR_GetErrorMessage", _wrap_ERROR_GetErrorMessage},
+    { "ERROR_SetErrorCode", _wrap_ERROR_SetErrorCode},
+    { "ERROR_SetErrorMessage", _wrap_ERROR_SetErrorMessage},
+    { "ERROR_SetError", _wrap_ERROR_SetError},
+    { "GetDate", _wrap_GetDate},
+    { "GetDateString", _wrap_GetDateString},
+    { "ConvertDateToString", _wrap_ConvertDateToString},
+    { "CB_MsgProcess", _wrap_CB_MsgProcess},
+    { "CB_BeginProcess", _wrap_CB_BeginProcess},
+    { "CB_EndProcess", _wrap_CB_EndProcess},
+    { "CB_UpdateProcess", _wrap_CB_UpdateProcess},
+    { "CB_SetMsgFunction", _wrap_CB_SetMsgFunction},
+    { "CB_SetBeginFunction", _wrap_CB_SetBeginFunction},
+    { "CB_SetEndFunction", _wrap_CB_SetEndFunction},
+    { "CB_SetUpdateFunction", _wrap_CB_SetUpdateFunction},
     { "CGraphBV_FileIO_pLoadGraphBV", _wrap_CGraphBV_FileIO_pLoadGraphBV},
     { "CGraphBV_FileIO_iSaveGraphBV", _wrap_CGraphBV_FileIO_iSaveGraphBV},
     { "NormalGen_ComputeVertexsNormals", _wrap_NormalGen_ComputeVertexsNormals},
@@ -115288,17 +114149,6 @@ static swig_lua_method swig_SwigModule_methods[]= {
     { "CCOL_ST_Tris_iTestTriangleSphere", _wrap_CCOL_ST_Tris_iTestTriangleSphere},
     { "CCOL_ST_Tris_iTestTriangleBox", _wrap_CCOL_ST_Tris_iTestTriangleBox},
     { "CCOL_ST_Tris_iTestTriangleRay", _wrap_CCOL_ST_Tris_iTestTriangleRay},
-    { "CSoundMixer_Clear", _wrap_CSoundMixer_Clear},
-    { "CSoundMixer_SetupBuffer", _wrap_CSoundMixer_SetupBuffer},
-    { "CSoundMixer_Mix", _wrap_CSoundMixer_Mix},
-    { "CSoundMixer_iMix16M", _wrap_CSoundMixer_iMix16M},
-    { "CSoundMixer_iMix16S", _wrap_CSoundMixer_iMix16S},
-    { "CSoundMixer_iMix8M", _wrap_CSoundMixer_iMix8M},
-    { "CSoundMixer_iMix8S", _wrap_CSoundMixer_iMix8S},
-    { "CSoundMixer_pGetBuffer", _wrap_CSoundMixer_pGetBuffer},
-    { "CSoundMixer_uiGetBufferSize", _wrap_CSoundMixer_uiGetBufferSize},
-    { "CSoundMixer_Finish", _wrap_CSoundMixer_Finish},
-    { "CSoundMixer_PostProcess", _wrap_CSoundMixer_PostProcess},
     { "CNETSystem_Init", _wrap_CNETSystem_Init},
     { "CNETSystem_Finish", _wrap_CNETSystem_Finish},
     { "CNETSystem_CreateServer", _wrap_CNETSystem_CreateServer},
@@ -115684,12 +114534,6 @@ static swig_lua_class* swig_SwigModule_classes[]= {
 &_wrap_class_CSoundEmiter,
 &_wrap_class_CSoundReceiver,
 &_wrap_class_CSoundRenderer,
-&_wrap_class_CSoundMixPars,
-&_wrap_class_CSoundMixer,
-&_wrap_class_CSoundEmiter_DSound,
-&_wrap_class_CSoundRenderer_DSound,
-&_wrap_class_CSoundEmiter_OpenAL,
-&_wrap_class_CSoundRenderer_OpenAL,
 &_wrap_class_CSampleWH,
 &_wrap_class_CSoundWH,
 &_wrap_class_CNETSystem,
@@ -116554,29 +115398,11 @@ static void *_p_CLightMapTo_p_CSectorMatrix(void *x, int *SWIGUNUSEDPARM(newmemo
 static void *_p_CTexMapTo_p_CSectorMatrix(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((CSectorMatrix *)  ((CTexMap *) x));
 }
-static void *_p_CSoundEmiter_DSoundTo_p_CSoundEmiter(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((CSoundEmiter *)  ((CSoundEmiter_DSound *) x));
-}
-static void *_p_CSoundEmiter_OpenALTo_p_CSoundEmiter(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((CSoundEmiter *)  ((CSoundEmiter_OpenAL *) x));
-}
 static void *_p_CSoundEmiterTo_p_CSoundEntity(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((CSoundEntity *)  ((CSoundEmiter *) x));
 }
-static void *_p_CSoundEmiter_DSoundTo_p_CSoundEntity(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((CSoundEntity *) (CSoundEmiter *) ((CSoundEmiter_DSound *) x));
-}
-static void *_p_CSoundEmiter_OpenALTo_p_CSoundEntity(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((CSoundEntity *) (CSoundEmiter *) ((CSoundEmiter_OpenAL *) x));
-}
 static void *_p_CSoundReceiverTo_p_CSoundEntity(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((CSoundEntity *)  ((CSoundReceiver *) x));
-}
-static void *_p_CSoundRenderer_DSoundTo_p_CSoundRenderer(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((CSoundRenderer *)  ((CSoundRenderer_DSound *) x));
-}
-static void *_p_CSoundRenderer_OpenALTo_p_CSoundRenderer(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((CSoundRenderer *)  ((CSoundRenderer_OpenAL *) x));
 }
 static void *_p_CTMSector_8_16To_p_CTMSector(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((CTMSector *)  ((CTMSector_8_16 *) x));
@@ -117035,16 +115861,10 @@ static swig_type_info _swigt__p_CSkyDome = {"_p_CSkyDome", "CSkyDome *", 0, 0, (
 static swig_type_info _swigt__p_CSmoother = {"_p_CSmoother", "CSmoother *", 0, 0, (void*)&_wrap_class_CSmoother, 0};
 static swig_type_info _swigt__p_CSound = {"_p_CSound", "CSound *", 0, 0, (void*)&_wrap_class_CSound, 0};
 static swig_type_info _swigt__p_CSoundEmiter = {"_p_CSoundEmiter", "CSoundEmiter *", 0, 0, (void*)&_wrap_class_CSoundEmiter, 0};
-static swig_type_info _swigt__p_CSoundEmiter_DSound = {"_p_CSoundEmiter_DSound", "CSoundEmiter_DSound *", 0, 0, (void*)&_wrap_class_CSoundEmiter_DSound, 0};
-static swig_type_info _swigt__p_CSoundEmiter_OpenAL = {"_p_CSoundEmiter_OpenAL", "CSoundEmiter_OpenAL *", 0, 0, (void*)&_wrap_class_CSoundEmiter_OpenAL, 0};
 static swig_type_info _swigt__p_CSoundEntity = {"_p_CSoundEntity", "CSoundEntity *", 0, 0, (void*)&_wrap_class_CSoundEntity, 0};
 static swig_type_info _swigt__p_CSoundLayer = {"_p_CSoundLayer", "CSoundLayer *", 0, 0, (void*)&_wrap_class_CSoundLayer, 0};
-static swig_type_info _swigt__p_CSoundMixPars = {"_p_CSoundMixPars", "CSoundMixPars *", 0, 0, (void*)&_wrap_class_CSoundMixPars, 0};
-static swig_type_info _swigt__p_CSoundMixer = {"_p_CSoundMixer", "CSoundMixer *", 0, 0, (void*)&_wrap_class_CSoundMixer, 0};
 static swig_type_info _swigt__p_CSoundReceiver = {"_p_CSoundReceiver", "CSoundReceiver *", 0, 0, (void*)&_wrap_class_CSoundReceiver, 0};
 static swig_type_info _swigt__p_CSoundRenderer = {"_p_CSoundRenderer", "CSoundRenderer *", 0, 0, (void*)&_wrap_class_CSoundRenderer, 0};
-static swig_type_info _swigt__p_CSoundRenderer_DSound = {"_p_CSoundRenderer_DSound", "CSoundRenderer_DSound *", 0, 0, (void*)&_wrap_class_CSoundRenderer_DSound, 0};
-static swig_type_info _swigt__p_CSoundRenderer_OpenAL = {"_p_CSoundRenderer_OpenAL", "CSoundRenderer_OpenAL *", 0, 0, (void*)&_wrap_class_CSoundRenderer_OpenAL, 0};
 static swig_type_info _swigt__p_CSoundWH = {"_p_CSoundWH", "CSoundWH *", 0, 0, (void*)&_wrap_class_CSoundWH, 0};
 static swig_type_info _swigt__p_CTMSector = {"_p_CTMSector", "CTMSector *", 0, 0, (void*)&_wrap_class_CTMSector, 0};
 static swig_type_info _swigt__p_CTMSector_8_16 = {"_p_CTMSector_8_16", "CTMSector_8_16 *", 0, 0, (void*)&_wrap_class_CTMSector_8_16, 0};
@@ -117525,16 +116345,10 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_CSmoother,
   &_swigt__p_CSound,
   &_swigt__p_CSoundEmiter,
-  &_swigt__p_CSoundEmiter_DSound,
-  &_swigt__p_CSoundEmiter_OpenAL,
   &_swigt__p_CSoundEntity,
   &_swigt__p_CSoundLayer,
-  &_swigt__p_CSoundMixPars,
-  &_swigt__p_CSoundMixer,
   &_swigt__p_CSoundReceiver,
   &_swigt__p_CSoundRenderer,
-  &_swigt__p_CSoundRenderer_DSound,
-  &_swigt__p_CSoundRenderer_OpenAL,
   &_swigt__p_CSoundWH,
   &_swigt__p_CTMSector,
   &_swigt__p_CTMSector_8_16,
@@ -118014,17 +116828,11 @@ static swig_cast_info _swigc__p_CSkyBox[] = {  {&_swigt__p_CSkyBox, 0, 0, 0},{0,
 static swig_cast_info _swigc__p_CSkyDome[] = {  {&_swigt__p_CSkyDome, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CSmoother[] = {  {&_swigt__p_CSmoother, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CSound[] = {  {&_swigt__p_CSound, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CSoundEmiter[] = {  {&_swigt__p_CSoundEmiter, 0, 0, 0},  {&_swigt__p_CSoundEmiter_DSound, _p_CSoundEmiter_DSoundTo_p_CSoundEmiter, 0, 0},  {&_swigt__p_CSoundEmiter_OpenAL, _p_CSoundEmiter_OpenALTo_p_CSoundEmiter, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CSoundEmiter_DSound[] = {  {&_swigt__p_CSoundEmiter_DSound, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CSoundEmiter_OpenAL[] = {  {&_swigt__p_CSoundEmiter_OpenAL, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CSoundEntity[] = {  {&_swigt__p_CSoundEntity, 0, 0, 0},  {&_swigt__p_CSoundEmiter, _p_CSoundEmiterTo_p_CSoundEntity, 0, 0},  {&_swigt__p_CSoundEmiter_DSound, _p_CSoundEmiter_DSoundTo_p_CSoundEntity, 0, 0},  {&_swigt__p_CSoundEmiter_OpenAL, _p_CSoundEmiter_OpenALTo_p_CSoundEntity, 0, 0},  {&_swigt__p_CSoundReceiver, _p_CSoundReceiverTo_p_CSoundEntity, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_CSoundEmiter[] = {  {&_swigt__p_CSoundEmiter, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_CSoundEntity[] = {  {&_swigt__p_CSoundEntity, 0, 0, 0},  {&_swigt__p_CSoundEmiter, _p_CSoundEmiterTo_p_CSoundEntity, 0, 0},  {&_swigt__p_CSoundReceiver, _p_CSoundReceiverTo_p_CSoundEntity, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CSoundLayer[] = {  {&_swigt__p_CSoundLayer, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CSoundMixPars[] = {  {&_swigt__p_CSoundMixPars, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CSoundMixer[] = {  {&_swigt__p_CSoundMixer, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CSoundReceiver[] = {  {&_swigt__p_CSoundReceiver, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CSoundRenderer[] = {  {&_swigt__p_CSoundRenderer, 0, 0, 0},  {&_swigt__p_CSoundRenderer_DSound, _p_CSoundRenderer_DSoundTo_p_CSoundRenderer, 0, 0},  {&_swigt__p_CSoundRenderer_OpenAL, _p_CSoundRenderer_OpenALTo_p_CSoundRenderer, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CSoundRenderer_DSound[] = {  {&_swigt__p_CSoundRenderer_DSound, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CSoundRenderer_OpenAL[] = {  {&_swigt__p_CSoundRenderer_OpenAL, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_CSoundRenderer[] = {  {&_swigt__p_CSoundRenderer, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CSoundWH[] = {  {&_swigt__p_CSoundWH, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CTMSector[] = {  {&_swigt__p_CTMSector, 0, 0, 0},  {&_swigt__p_CTMSector_8_16, _p_CTMSector_8_16To_p_CTMSector, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CTMSector_8_16[] = {  {&_swigt__p_CTMSector_8_16, 0, 0, 0},{0, 0, 0, 0}};
@@ -118505,16 +117313,10 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_CSmoother,
   _swigc__p_CSound,
   _swigc__p_CSoundEmiter,
-  _swigc__p_CSoundEmiter_DSound,
-  _swigc__p_CSoundEmiter_OpenAL,
   _swigc__p_CSoundEntity,
   _swigc__p_CSoundLayer,
-  _swigc__p_CSoundMixPars,
-  _swigc__p_CSoundMixer,
   _swigc__p_CSoundReceiver,
   _swigc__p_CSoundRenderer,
-  _swigc__p_CSoundRenderer_DSound,
-  _swigc__p_CSoundRenderer_OpenAL,
   _swigc__p_CSoundWH,
   _swigc__p_CTMSector,
   _swigc__p_CTMSector_8_16,

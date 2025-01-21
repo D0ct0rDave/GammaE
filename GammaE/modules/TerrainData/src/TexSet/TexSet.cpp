@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <string.h>
 //-----------------------------------------------------------------------------
-#include "tex.h"
 #include "TexSet.h"
 
 #include "Gammae_FileSys.h"

@@ -71,7 +71,7 @@ void CGScriptResource::Think(float _fDeltaT,void* _pParams)
 				break;
 
 				case LUA_YIELD:
-					lua_resume (luaState(),0);
+					lua_resume (luaState(),NULL,0,NULL);
 				break;
 			}
 

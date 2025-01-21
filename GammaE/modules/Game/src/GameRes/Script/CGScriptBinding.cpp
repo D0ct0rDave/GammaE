@@ -11,33 +11,6 @@
 	#include "GammaE_Game.h"
 %}
  
-%ignore GEM_FILE_IDENTIFIER;
-%ignore GEM_MESH_IDENTIFIER;
-%ignore TEXSET_OBJ_IDENTIFIER;
-
-%ignore ERROR_GetError;
-%ignore FILE_BeginRIFFBlock;
-%ignore FILE_EndRIFFBlock;
-%ignore ERROR_GetErrorCode;
-%ignore ERROR_GetErrorMessage;
-%ignore ERROR_SetErrorCode;
-%ignore ERROR_SetErrorMessage;
-%ignore ERROR_SetError;
-%ignore ERROR_SetError(char *,char *);
-%ignore ERROR_SetError(char *,char *,char *);
-%ignore CB_MsgProcess;
-
-%ignore CB_BeginProcess;
-%ignore CB_UpdateProcess;
-%ignore CB_EndProcess;
-
-%ignore CB_SetBeginFunction;
-%ignore CB_SetUpdateFunction;
-%ignore CB_SetEndFunction;
-%ignore CB_SetMsgFunction;
-%ignore ConvertDateToString;
-%ignore GetDateString;
-%ignore GetDate;
 
 #include "GammaE_Mem.h"
 #include "GammaE_Misc.h"

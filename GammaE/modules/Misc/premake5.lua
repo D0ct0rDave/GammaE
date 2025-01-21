@@ -7,6 +7,11 @@ workspace("GammaE_" .. project_name)
 	includedirs {
 			"$(ProjectDir)../../sdks/libconfig;"
 		}
+	
+	defines {
+		"LIBCONFIG_STATIC",
+	}	
+
 -- Install rules (using a post-build step for example purposes)
 postbuildcommands {
     -- "{MKDIR} %{wks.location}/dist/lib", -- Create output directory
