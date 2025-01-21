@@ -5,6 +5,9 @@ caller_script_directory = os.getcwd();
 workspace("GammaE_" .. project_name)
 	dofile(caller_script_directory .. "/../common.lua")
 
+	files {
+        sourceRoot .. "/**.cxx",
+	}	
 	includedirs {
 		"$(ProjectDir)../../SDKS/lua/include;"
 	}

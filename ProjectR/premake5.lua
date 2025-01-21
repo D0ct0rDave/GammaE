@@ -50,49 +50,45 @@ project "ProjectR"
 		"$(ProjectDir)../../GammaE/inc",
 		"$(ProjectDir)../src/Project",
 		"$(ProjectDir)../src/Modules",	
-		"$(ProjectDir)../../sdks/FreeImage/Dist",
+		"$(ProjectDir)../../sdks/FreeImage/Dist/x64",
+		"$(ProjectDir)../../sdks/lua5.4/include",
     }
 
 	-- Library directories common for all configurations
 	libdirs
 	{
-		"$(ProjectDir)../../sdks/FreeImage/Dist",
-		"$(ProjectDir)../../sdks/lua",
+		"$(ProjectDir)../../sdks/FreeImage/Dist/x64",
 		"$(ProjectDir)../../sdks/OpenAL 1.1 SDK/libs",
 		"$(ProjectDir)../../sdks/OpenAL 1.1 SDK/libs/Win64",
+		"$(ProjectDir)../../sdks/lua-5.4.7/lib/x64/%{cfg.buildcfg}",	
+		"$(ProjectDir)../../sdks/libsndfile/lib/x64/%{cfg.buildcfg}",
+		"$(ProjectDir)../../sdks/libconfig/lib/x64/%{cfg.buildcfg}",
+		"$(ProjectDir)../../GammaE/build/lib/%{cfg.buildcfg}",		
 	}
 
 	links 
 	{
+		"ddraw.lib",
+		"dxguid.lib",
 		"opengl32.lib",
 		"glu32.lib",
 		"libsndfile.lib",
 		"freeimage.lib",
 		"libconfig.lib",
-		"lua51.lib",
+		"lua5.4.lib",
 		"OpenAL32.lib",
-		"alut.lib",
+		"vfw32.lib",
+		"WSOCK32.LIB",
+		--"alut.lib",
 	}
 
 	-- Configuration-specific settings
     filter "configurations:Debug"
         defines { "DEBUG" }
         symbols "On" -- Generate debug symbols
-		libdirs
-		{
-			"$(ProjectDir)../../GammaE/build/lib/Debug",
-			"$(ProjectDir)../../sdks/libsndfile/lib/x64/Debug",
-			"$(ProjectDir)../../sdks/libconfig/lib/x64/Debug",			
-		}
     filter "configurations:Release"
         defines { "NDEBUG" }
         optimize "On" -- Enable optimizations
-		libdirs
-		{			
-			"$(ProjectDir)../../GammaE/build/lib/Release",
-			"$(ProjectDir)../../sdks/libsndfile/lib/x64/Release",
-			"$(ProjectDir)../../sdks/libconfig/lib/x64/Release",
-		}
     filter {} -- Clear filter for general settings
 
 	------------------------------------------------------------------------------
@@ -153,7 +149,7 @@ project "ProjectR"
 	------------------------------------------------------------------------------
 	-- Add the external project to the solution
     includeLibraries(frameworkRoot)	
-    -- includeProjects(frameworkRoot)
+    includeProjects(frameworkRoot)
 
 
 -- Install rules (using a post-build step for example purposes)

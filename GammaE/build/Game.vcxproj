@@ -150,6 +150,7 @@
     <ClCompile Include="..\modules\Game\src\GameRes\Path\CGPathResource.cpp" />
     <ClCompile Include="..\modules\Game\src\GameRes\Path\CGPathResourceWH.cpp" />
     <ClCompile Include="..\modules\Game\src\GameRes\Path\CGSpiralPath.cpp" />
+    <ClCompile Include="..\modules\Game\src\GameRes\Script\CGScriptBinding_wrap.cxx" />
     <ClCompile Include="..\modules\Game\src\GameRes\Script\CGScriptInstance.cpp" />
     <ClCompile Include="..\modules\Game\src\GameRes\Script\CGScriptResource.cpp" />
     <ClCompile Include="..\modules\Game\src\GameRes\Script\CGScriptResourceWH.cpp" />
