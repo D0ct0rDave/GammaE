@@ -40,7 +40,7 @@ typedef unsigned __int64  uint64_t;
 
 /*	Win32 doesn't seem to have these functions. 
 **	Therefore implement inline versions of these functions here.
-*/
+
 
 __inline long int 
 lrint (double flt)
@@ -89,6 +89,7 @@ llrintf (float flt)
 		
 	return intgr ;
 }
+*/
 
 /* Set to 1 if the compile is GNU GCC. */
 /* #undef COMPILER_IS_GCC */

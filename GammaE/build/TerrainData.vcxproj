@@ -114,7 +114,7 @@
     <ClInclude Include="..\modules\TerrainData\src\Sector\SectorMatrix\CSectorMatrix.h" />
     <ClInclude Include="..\modules\TerrainData\src\Sector\SectorMatrix\CTexMap.h" />
     <ClInclude Include="..\modules\TerrainData\src\Sector\TexMap\CTMSector_8_16.h" />
-    <ClInclude Include="..\modules\TerrainData\src\TexSet\TexSet.h" />
+    <ClInclude Include="..\modules\TerrainData\src\TexSet\texset.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\modules\TerrainData\src\SectElem\CColor.cpp" />

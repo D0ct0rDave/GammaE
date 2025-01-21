@@ -159,9 +159,6 @@
     <ClCompile Include="..\modules\Scene\src\CObject3D_Transf.cpp" />
     <ClCompile Include="..\modules\Scene\src\e3DObjectTypeID.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="..\modules\Scene\src\Animation\CObject3D_AnimatedMesh.cpp_" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

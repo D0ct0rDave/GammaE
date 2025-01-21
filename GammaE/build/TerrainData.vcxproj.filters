@@ -103,7 +103,7 @@
     <ClInclude Include="..\modules\TerrainData\src\Sector\TexMap\CTMSector_8_16.h">
       <Filter>Sector\TexMap</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\TerrainData\src\TexSet\TexSet.h">
+    <ClInclude Include="..\modules\TerrainData\src\TexSet\texset.h">
       <Filter>TexSet</Filter>
     </ClInclude>
   </ItemGroup>

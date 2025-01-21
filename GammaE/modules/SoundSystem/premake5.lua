@@ -17,12 +17,6 @@ workspace("GammaE_" .. project_name)
 			"**/SndDrv_SDL/*",
 	}
 
-	-- Exclude	files
-	filter { "files:**_BASS*" }
-	  flags {"ExcludeFromBuild"}
-
-
-
 -- Install rules (using a post-build step for example purposes)
 postbuildcommands {
     -- "{MKDIR} %{wks.location}/dist/lib", -- Create output directory
