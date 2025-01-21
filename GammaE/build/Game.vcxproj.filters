@@ -219,6 +219,9 @@
     <ClCompile Include="..\modules\Game\src\GameRes\Path\CGSpiralPath.cpp">
       <Filter>GameRes\Path</Filter>
     </ClCompile>
+    <ClCompile Include="..\modules\Game\src\GameRes\Script\CGScriptBinding.cpp">
+      <Filter>GameRes\Script</Filter>
+    </ClCompile>
     <ClCompile Include="..\modules\Game\src\GameRes\Script\CGScriptBinding_wrap.cxx">
       <Filter>GameRes\Script</Filter>
     </ClCompile>

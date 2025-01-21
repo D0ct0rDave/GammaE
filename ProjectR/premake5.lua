@@ -16,7 +16,7 @@ project "ProjectR"
 	-- Specify the root directory of the library
     local sourceRoot = os.getcwd()
     frameworkRoot = sourceRoot .. "/../GammaE"
-	print("Framework dir: " .. frameworkRoot)
+	p("Framework dir: " .. frameworkRoot)
 
 	-- Recursively include all .cpp and .h files from the sourceRoot directory
     files {
@@ -157,3 +157,4 @@ postbuildcommands {
     -- "{MKDIR} %{wks.location}/dist/lib", -- Create output directory
     -- "{COPYFILE} %{cfg.targetdir}/MyLibrary.lib %{wks.location}/dist/lib" -- Copy library to the dist directory
 }
+
