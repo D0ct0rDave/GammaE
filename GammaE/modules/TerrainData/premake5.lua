@@ -7,7 +7,7 @@ workspace("GammaE_" .. project_name)
 
 	includedirs {
 		"$(ProjectDir)../../sdks/FileLib/Src;",
-		"$(ProjectDir)../../sdks/FreeImage/Dist/x64;"
+		"$(ProjectDir)../../sdks/Externals/FreeImage/Dist;"
 	}
 
 	defines {

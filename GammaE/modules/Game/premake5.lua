@@ -5,10 +5,12 @@ caller_script_directory = os.getcwd();
 workspace("GammaE_" .. project_name)
 	dofile(caller_script_directory .. "/../common.lua")
 
-	files {
+	files 
+	{
         sourceRoot .. "/**.cxx",
 	}	
-	includedirs {
+	includedirs 
+	{
 		"$(ProjectDir)../../SDKS/lua-5.4.7/include;"
 	}
 	
@@ -19,7 +21,8 @@ workspace("GammaE_" .. project_name)
 
 
 -- Install rules (using a post-build step for example purposes)
-postbuildcommands {
+postbuildcommands 
+{
     -- "{MKDIR} %{wks.location}/dist/lib", -- Create output directory
     -- "{COPYFILE} %{cfg.targetdir}/MyLibrary.lib %{wks.location}/dist/lib" -- Copy library to the dist directory
 }

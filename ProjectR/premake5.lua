@@ -19,7 +19,8 @@ project "ProjectR"
 	print("Framework dir: " .. frameworkRoot)
 
 	-- Recursively include all .cpp and .h files from the sourceRoot directory
-    files {
+    files 
+	{
         sourceRoot .. "/**.cpp",
         sourceRoot .. "/**.h",
 		sourceRoot .. "/**.txt",
@@ -45,20 +46,26 @@ project "ProjectR"
 		defines { "WIN32" }
 	filter {} -- Reset filter
 
-	includedirs {
+	disablewarnings
+	{
+		"4091",
+	}
+
+	includedirs 
+	{
         -- Add include directories (sourceRoot is included by default)
 		sourceRoot,
 		"$(ProjectDir)../../GammaE/inc",
 		"$(ProjectDir)../src/Project",
 		"$(ProjectDir)../src/Modules",	
-		"$(ProjectDir)../../sdks/FreeImage/Dist/x64",
+		"$(ProjectDir)../../sdks/Externals/FreeImage/Dist;",
 		"$(ProjectDir)../../sdks/lua-5.4.7/include",
     }
 
 	-- Library directories common for all configurations
 	libdirs
 	{
-		"$(ProjectDir)../../sdks/FreeImage/Dist/x64",
+		"$(ProjectDir)../../sdks/Externals/FreeImage/Dist/x64;",
 		"$(ProjectDir)../../sdks/OpenAL 1.1 SDK/libs",
 		"$(ProjectDir)../../sdks/OpenAL 1.1 SDK/libs/Win64",
 		"$(ProjectDir)../../sdks/lua-5.4.7/lib/x64/%{cfg.buildcfg}",	
@@ -74,7 +81,7 @@ project "ProjectR"
 		"opengl32.lib",
 		"glu32.lib",
 		"libsndfile.lib",
-		"freeimagelib.lib",
+		"freeimage.lib",
 		"libconfig.lib",
 		"lua.lib",
 		"OpenAL32.lib",
@@ -94,7 +101,8 @@ project "ProjectR"
 
 	------------------------------------------------------------------------------
 	-- Define the mapping of platforms to project file extensions
-	local platformProjectExtensions = {
+	local platformProjectExtensions = 
+	{
         windows = "vcxproj",
         linux = "makefile",
         macosx = "xcodeproj"
@@ -117,6 +125,7 @@ project "ProjectR"
 
 				print("Adding library: " .. projectFile)
 				links { projectName .. ".lib" }
+				links { projectName }
 			end
 
 			-- Recurse into subdirectories
@@ -140,7 +149,7 @@ project "ProjectR"
 					kind "StaticLib" -- Modify as needed
 					language "C++"
 
-				dependson { projectName }
+				links { projectName }
 			end
 			-- Recurse into subdirectories
 			includeProjects(entry)
@@ -154,7 +163,8 @@ project "ProjectR"
 
 
 -- Install rules (using a post-build step for example purposes)
-postbuildcommands {
+postbuildcommands 
+{
     -- "{MKDIR} %{wks.location}/dist/lib", -- Create output directory
     -- "{COPYFILE} %{cfg.targetdir}/MyLibrary.lib %{wks.location}/dist/lib" -- Copy library to the dist directory
 }

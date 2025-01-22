@@ -1,0 +1,6 @@
+[submodule "SDKS/FreeImage"]
+	path = SDKS/Externals/FreeImage
+	url = https://github.com/danoli3/FreeImage.git
+[submodule "SDKS/Externals/FreeImage"]
+	path = SDKS/Externals/FreeImage
+	url = https://github.com/D0ct0rDave/FreeImage.git

@@ -57,8 +57,9 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>NULL=0;_MBCS;_OGL_;_OPENAL_;FREEIMAGE_LIB;WIN32;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..;$(ProjectDir)..\..\GammaE\inc;$(ProjectDir)..\src\Project;$(ProjectDir)..\src\Modules;$(ProjectDir)..\..\sdks\FreeImage\Dist\x64;$(ProjectDir)..\..\sdks\lua-5.4.7\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..;$(ProjectDir)..\..\GammaE\inc;$(ProjectDir)..\src\Project;$(ProjectDir)..\src\Modules;$(ProjectDir)..\..\sdks\Externals\FreeImage\Dist;;$(ProjectDir)..\..\sdks\lua-5.4.7\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -67,16 +68,17 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;libsndfile.lib;freeimagelib.lib;libconfig.lib;lua.lib;OpenAL32.lib;vfw32.lib;WSOCK32.LIB;AI.lib;Collision.lib;E3D.lib;FileSys.lib;Game.lib;Input.lib;Math.lib;Memory.lib;Misc.lib;Network.lib;Scene.lib;SceneObjects.lib;SceneUtils.lib;Sfx.lib;SoundSystem.lib;Terrain.lib;TerrainData.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\sdks\FreeImage\Dist\x64;$(ProjectDir)..\..\sdks\OpenAL 1.1 SDK\libs;$(ProjectDir)..\..\sdks\OpenAL 1.1 SDK\libs\Win64;$(ProjectDir)..\..\sdks\lua-5.4.7\lib\x64\Debug;$(ProjectDir)..\..\sdks\libsndfile\lib\x64\Debug;$(ProjectDir)..\..\sdks\libconfig\lib\x64\Debug;$(ProjectDir)..\..\GammaE\build\lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;libsndfile.lib;freeimage.lib;libconfig.lib;lua.lib;OpenAL32.lib;vfw32.lib;WSOCK32.LIB;AI.lib;Collision.lib;E3D.lib;FileSys.lib;Game.lib;Input.lib;Math.lib;Memory.lib;Misc.lib;Network.lib;Scene.lib;SceneObjects.lib;SceneUtils.lib;Sfx.lib;SoundSystem.lib;Terrain.lib;TerrainData.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\sdks\Externals\FreeImage\Dist\x64;;$(ProjectDir)..\..\sdks\OpenAL 1.1 SDK\libs;$(ProjectDir)..\..\sdks\OpenAL 1.1 SDK\libs\Win64;$(ProjectDir)..\..\sdks\lua-5.4.7\lib\x64\Debug;$(ProjectDir)..\..\sdks\libsndfile\lib\x64\Debug;$(ProjectDir)..\..\sdks\libconfig\lib\x64\Debug;$(ProjectDir)..\..\GammaE\build\lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>NULL=0;_MBCS;_OGL_;_OPENAL_;FREEIMAGE_LIB;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..;$(ProjectDir)..\..\GammaE\inc;$(ProjectDir)..\src\Project;$(ProjectDir)..\src\Modules;$(ProjectDir)..\..\sdks\FreeImage\Dist\x64;$(ProjectDir)..\..\sdks\lua-5.4.7\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..;$(ProjectDir)..\..\GammaE\inc;$(ProjectDir)..\src\Project;$(ProjectDir)..\src\Modules;$(ProjectDir)..\..\sdks\Externals\FreeImage\Dist;;$(ProjectDir)..\..\sdks\lua-5.4.7\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -89,8 +91,8 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;libsndfile.lib;freeimagelib.lib;libconfig.lib;lua.lib;OpenAL32.lib;vfw32.lib;WSOCK32.LIB;AI.lib;Collision.lib;E3D.lib;FileSys.lib;Game.lib;Input.lib;Math.lib;Memory.lib;Misc.lib;Network.lib;Scene.lib;SceneObjects.lib;SceneUtils.lib;Sfx.lib;SoundSystem.lib;Terrain.lib;TerrainData.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\sdks\FreeImage\Dist\x64;$(ProjectDir)..\..\sdks\OpenAL 1.1 SDK\libs;$(ProjectDir)..\..\sdks\OpenAL 1.1 SDK\libs\Win64;$(ProjectDir)..\..\sdks\lua-5.4.7\lib\x64\Release;$(ProjectDir)..\..\sdks\libsndfile\lib\x64\Release;$(ProjectDir)..\..\sdks\libconfig\lib\x64\Release;$(ProjectDir)..\..\GammaE\build\lib\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;libsndfile.lib;freeimage.lib;libconfig.lib;lua.lib;OpenAL32.lib;vfw32.lib;WSOCK32.LIB;AI.lib;Collision.lib;E3D.lib;FileSys.lib;Game.lib;Input.lib;Math.lib;Memory.lib;Misc.lib;Network.lib;Scene.lib;SceneObjects.lib;SceneUtils.lib;Sfx.lib;SoundSystem.lib;Terrain.lib;TerrainData.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\sdks\Externals\FreeImage\Dist\x64;;$(ProjectDir)..\..\sdks\OpenAL 1.1 SDK\libs;$(ProjectDir)..\..\sdks\OpenAL 1.1 SDK\libs\Win64;$(ProjectDir)..\..\sdks\lua-5.4.7\lib\x64\Release;$(ProjectDir)..\..\sdks\libsndfile\lib\x64\Release;$(ProjectDir)..\..\sdks\libconfig\lib\x64\Release;$(ProjectDir)..\..\GammaE\build\lib\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -154,6 +156,68 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\premake5.lua" />
+    <None Include="..\src\Project\Docs\Bugs.txt" />
+    <None Include="..\src\Project\Docs\Concept.txt" />
+    <None Include="..\src\Project\Docs\Dependencies.txt" />
+    <None Include="..\src\Project\Docs\History.txt" />
+    <None Include="..\src\Project\Docs\Mejoras.txt" />
+    <None Include="..\src\Project\Docs\ProjectR_FrameWork.txt" />
+    <None Include="..\src\Project\Docs\TODO.txt" />
+    <None Include="..\src\Project\Docs\extensiones.txt" />
+    <None Include="..\src\Project\Docs\optimization.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\GammaE\build\AI.vcxproj">
+      <Project>{EF725900-DBFE-870B-44AD-880B3058880B}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GammaE\build\Collision.vcxproj">
+      <Project>{B11A655C-1D85-19D3-66C3-CA78D26CF727}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GammaE\build\E3D.vcxproj">
+      <Project>{41DF870B-ADE8-877C-3664-9E7CA26C937C}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GammaE\build\FileSys.vcxproj">
+      <Project>{040EF50C-70ED-73A8-7905-FF7EE563DA09}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GammaE\build\Game.vcxproj">
+      <Project>{7FA9857C-6BE0-860D-14CD-6C1000E3020F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GammaE\build\Input.vcxproj">
+      <Project>{953A660D-014F-8EBE-CAD0-311E36A48AEF}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GammaE\build\Math.vcxproj">
+      <Project>{AFF4887C-9B2B-8A0D-4418-7010302E060F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GammaE\build\Memory.vcxproj">
+      <Project>{BE94DDC2-AA36-0899-93F1-1BED7F328FE9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GammaE\build\Misc.vcxproj">
+      <Project>{9116897C-7D4D-8A0D-263A-70101250060F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GammaE\build\Network.vcxproj">
+      <Project>{8F6A0D6C-FB49-8C07-0462-17DE70C0F268}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GammaE\build\Scene.vcxproj">
+      <Project>{B3F7140E-1F0C-3DBF-E88D-E01E546139F0}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GammaE\build\SceneObjects.vcxproj">
+      <Project>{BD798A53-A9DC-19F8-5262-52AE3EA4E57A}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GammaE\build\SceneUtils.vcxproj">
+      <Project>{644B96CC-5003-D819-B90A-B175A5E1720A}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GammaE\build\Sfx.vcxproj">
+      <Project>{9621880B-022B-887C-8BA6-9E7CF7AE937C}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GammaE\build\SoundSystem.vcxproj">
+      <Project>{731E6186-DFD3-D97B-68C8-D352D47CD07F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GammaE\build\Terrain.vcxproj">
+      <Project>{7AABC339-E68A-42D5-EFA2-CDAB5B01A936}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GammaE\build\TerrainData.vcxproj">
+      <Project>{34CE6782-A083-E077-2978-DA4E952CD77B}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
