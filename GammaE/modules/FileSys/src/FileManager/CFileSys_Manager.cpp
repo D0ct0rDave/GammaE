@@ -24,12 +24,12 @@ CFileSys_Manager::~CFileSys_Manager()
 
 
 
-int CFileSys_Manager::iOpenFile (char *_szFilename, char* _szMode)
+handler CFileSys_Manager::iOpenFile (char *_szFilename, char* _szMode)
 {
   	OSFILE *poOSFile = mNew OSFILE;	
 	
 	if (poOSFile->iOpenOSF(_szFilename,_szMode))
-		return((int)poOSFile);
+		return((handler)poOSFile);
 	else
 	{
 		mDel poOSFile;
@@ -37,7 +37,7 @@ int CFileSys_Manager::iOpenFile (char *_szFilename, char* _szMode)
 	}
 }
 
-void CFileSys_Manager::CloseFile (int _iHandler)
+void CFileSys_Manager::CloseFile (handler _iHandler)
 {
   	assert(_iHandler);
 
@@ -45,21 +45,21 @@ void CFileSys_Manager::CloseFile (int _iHandler)
 	mDel ((OSFILE*)_iHandler);
 }
 
-int CFileSys_Manager::iReadFile (int _iHandler, void* _pData, int _iSize)
+int CFileSys_Manager::iReadFile (handler _iHandler, void* _pData, int _iSize)
 {
   	assert(_iHandler);
 	assert(_pData);
 	return ( ((OSFILE*)_iHandler)->iReadOSF(_pData,_iSize) );
 }
 
-int CFileSys_Manager::iWriteFile (int _iHandler, void* _pData, int _iSize)
+int CFileSys_Manager::iWriteFile (handler _iHandler, void* _pData, int _iSize)
 {
   	assert(_iHandler);
 	assert(_pData);
 	return ( ((OSFILE*)_iHandler)->iWriteOSF(_pData,_iSize) );
 }
 
-int CFileSys_Manager::iSeekFile (int _iHandler, int _iOffset, eFile_SeekMode _eMode)
+int CFileSys_Manager::iSeekFile (handler _iHandler, int _iOffset, eFile_SeekMode _eMode)
 {
   	assert(_iHandler);
 	switch (_eMode)
@@ -71,13 +71,13 @@ int CFileSys_Manager::iSeekFile (int _iHandler, int _iOffset, eFile_SeekMode _eM
 	return(0);
 }
 
-int CFileSys_Manager::iLengthFile (int _iHandler)
+int CFileSys_Manager::iLengthFile (handler _iHandler)
 {
   	assert(_iHandler);
 	return ( ((OSFILE*)_iHandler)->iLengthOSF() );
 }
 
-int CFileSys_Manager::iPosFile (int _iHandler)
+int CFileSys_Manager::iPosFile (handler _iHandler)
 {
   	assert(_iHandler);
 	return ( ((OSFILE*)_iHandler)->iPosOSF() );

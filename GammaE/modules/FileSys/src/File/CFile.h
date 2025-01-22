@@ -66,7 +66,7 @@ class CFile
   protected:
     // Data Members for Class Attributes
 
-                  int iHandler;
+                  handler iHandler;
       
     // Additional Protected Declarations
             

@@ -29121,7 +29121,7 @@ static int _wrap_CFileSys_Manager_iOpenFile(lua_State* L) {
     CFileSys_Manager *arg1 = (CFileSys_Manager *) 0 ;
     char *arg2 = (char *) 0 ;
     char *arg3 = (char *) 0 ;
-    int result;
+    handler result;
     
     SWIG_check_num_args("CFileSys_Manager::iOpenFile",3,3)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_Manager::iOpenFile",1,"CFileSys_Manager *");
@@ -29134,8 +29134,8 @@ static int _wrap_CFileSys_Manager_iOpenFile(lua_State* L) {
     
     arg2 = (char *)lua_tostring(L, 2);
     arg3 = (char *)lua_tostring(L, 3);
-    result = (int)(arg1)->iOpenFile(arg2,arg3);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+    result = (handler)(arg1)->iOpenFile(arg2,arg3);
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_void,0); SWIG_arg++; 
     return SWIG_arg;
     
     fail: SWIGUNUSED;
@@ -29149,17 +29149,17 @@ static int _wrap_CFileSys_Manager_CloseFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_Manager *arg1 = (CFileSys_Manager *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     
     SWIG_check_num_args("CFileSys_Manager::CloseFile",2,2)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_Manager::CloseFile",1,"CFileSys_Manager *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_Manager::CloseFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_Manager::CloseFile",2,"handler");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CFileSys_Manager,0))){
       SWIG_fail_ptr("CFileSys_Manager_CloseFile",1,SWIGTYPE_p_CFileSys_Manager);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_Manager_CloseFile");
     (arg1)->CloseFile(arg2);
     
     return SWIG_arg;
@@ -29175,14 +29175,14 @@ static int _wrap_CFileSys_Manager_iReadFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_Manager *arg1 = (CFileSys_Manager *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     void *arg3 = (void *) 0 ;
     int arg4 ;
     int result;
     
     SWIG_check_num_args("CFileSys_Manager::iReadFile",4,4)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_Manager::iReadFile",1,"CFileSys_Manager *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_Manager::iReadFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_Manager::iReadFile",2,"handler");
     if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("CFileSys_Manager::iReadFile",3,"void *");
     if(!lua_isnumber(L,4)) SWIG_fail_arg("CFileSys_Manager::iReadFile",4,"int");
     
@@ -29190,7 +29190,7 @@ static int _wrap_CFileSys_Manager_iReadFile(lua_State* L) {
       SWIG_fail_ptr("CFileSys_Manager_iReadFile",1,SWIGTYPE_p_CFileSys_Manager);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_Manager_iReadFile");
     arg3=(void *)SWIG_MustGetPtr(L,3,0,0,3,"CFileSys_Manager_iReadFile");
     arg4 = (int)lua_tonumber(L, 4);
     result = (int)(arg1)->iReadFile(arg2,arg3,arg4);
@@ -29208,14 +29208,14 @@ static int _wrap_CFileSys_Manager_iWriteFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_Manager *arg1 = (CFileSys_Manager *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     void *arg3 = (void *) 0 ;
     int arg4 ;
     int result;
     
     SWIG_check_num_args("CFileSys_Manager::iWriteFile",4,4)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_Manager::iWriteFile",1,"CFileSys_Manager *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_Manager::iWriteFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_Manager::iWriteFile",2,"handler");
     if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("CFileSys_Manager::iWriteFile",3,"void *");
     if(!lua_isnumber(L,4)) SWIG_fail_arg("CFileSys_Manager::iWriteFile",4,"int");
     
@@ -29223,7 +29223,7 @@ static int _wrap_CFileSys_Manager_iWriteFile(lua_State* L) {
       SWIG_fail_ptr("CFileSys_Manager_iWriteFile",1,SWIGTYPE_p_CFileSys_Manager);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_Manager_iWriteFile");
     arg3=(void *)SWIG_MustGetPtr(L,3,0,0,3,"CFileSys_Manager_iWriteFile");
     arg4 = (int)lua_tonumber(L, 4);
     result = (int)(arg1)->iWriteFile(arg2,arg3,arg4);
@@ -29241,14 +29241,14 @@ static int _wrap_CFileSys_Manager_iSeekFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_Manager *arg1 = (CFileSys_Manager *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     int arg3 ;
     eFile_SeekMode arg4 ;
     int result;
     
     SWIG_check_num_args("CFileSys_Manager::iSeekFile",4,4)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_Manager::iSeekFile",1,"CFileSys_Manager *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_Manager::iSeekFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_Manager::iSeekFile",2,"handler");
     if(!lua_isnumber(L,3)) SWIG_fail_arg("CFileSys_Manager::iSeekFile",3,"int");
     if(!lua_isnumber(L,4)) SWIG_fail_arg("CFileSys_Manager::iSeekFile",4,"eFile_SeekMode");
     
@@ -29256,7 +29256,7 @@ static int _wrap_CFileSys_Manager_iSeekFile(lua_State* L) {
       SWIG_fail_ptr("CFileSys_Manager_iSeekFile",1,SWIGTYPE_p_CFileSys_Manager);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_Manager_iSeekFile");
     arg3 = (int)lua_tonumber(L, 3);
     arg4 = (eFile_SeekMode)(int)lua_tonumber(L, 4);
     result = (int)(arg1)->iSeekFile(arg2,arg3,arg4);
@@ -29274,18 +29274,18 @@ static int _wrap_CFileSys_Manager_iLengthFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_Manager *arg1 = (CFileSys_Manager *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     int result;
     
     SWIG_check_num_args("CFileSys_Manager::iLengthFile",2,2)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_Manager::iLengthFile",1,"CFileSys_Manager *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_Manager::iLengthFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_Manager::iLengthFile",2,"handler");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CFileSys_Manager,0))){
       SWIG_fail_ptr("CFileSys_Manager_iLengthFile",1,SWIGTYPE_p_CFileSys_Manager);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_Manager_iLengthFile");
     result = (int)(arg1)->iLengthFile(arg2);
     lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
     return SWIG_arg;
@@ -29301,18 +29301,18 @@ static int _wrap_CFileSys_Manager_iPosFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_Manager *arg1 = (CFileSys_Manager *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     int result;
     
     SWIG_check_num_args("CFileSys_Manager::iPosFile",2,2)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_Manager::iPosFile",1,"CFileSys_Manager *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_Manager::iPosFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_Manager::iPosFile",2,"handler");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CFileSys_Manager,0))){
       SWIG_fail_ptr("CFileSys_Manager_iPosFile",1,SWIGTYPE_p_CFileSys_Manager);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_Manager_iPosFile");
     result = (int)(arg1)->iPosFile(arg2);
     lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
     return SWIG_arg;
@@ -30496,7 +30496,7 @@ static int _wrap_CFileSys_MgrPAK_iOpenFile(lua_State* L) {
     CFileSys_MgrPAK *arg1 = (CFileSys_MgrPAK *) 0 ;
     char *arg2 = (char *) 0 ;
     char *arg3 = (char *) 0 ;
-    int result;
+    handler result;
     
     SWIG_check_num_args("CFileSys_MgrPAK::iOpenFile",3,3)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrPAK::iOpenFile",1,"CFileSys_MgrPAK *");
@@ -30509,8 +30509,8 @@ static int _wrap_CFileSys_MgrPAK_iOpenFile(lua_State* L) {
     
     arg2 = (char *)lua_tostring(L, 2);
     arg3 = (char *)lua_tostring(L, 3);
-    result = (int)(arg1)->iOpenFile(arg2,arg3);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+    result = (handler)(arg1)->iOpenFile(arg2,arg3);
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_void,0); SWIG_arg++; 
     return SWIG_arg;
     
     fail: SWIGUNUSED;
@@ -30524,17 +30524,17 @@ static int _wrap_CFileSys_MgrPAK_CloseFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_MgrPAK *arg1 = (CFileSys_MgrPAK *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     
     SWIG_check_num_args("CFileSys_MgrPAK::CloseFile",2,2)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrPAK::CloseFile",1,"CFileSys_MgrPAK *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_MgrPAK::CloseFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_MgrPAK::CloseFile",2,"handler");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CFileSys_MgrPAK,0))){
       SWIG_fail_ptr("CFileSys_MgrPAK_CloseFile",1,SWIGTYPE_p_CFileSys_MgrPAK);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_MgrPAK_CloseFile");
     (arg1)->CloseFile(arg2);
     
     return SWIG_arg;
@@ -30550,14 +30550,14 @@ static int _wrap_CFileSys_MgrPAK_iReadFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_MgrPAK *arg1 = (CFileSys_MgrPAK *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     void *arg3 = (void *) 0 ;
     int arg4 ;
     int result;
     
     SWIG_check_num_args("CFileSys_MgrPAK::iReadFile",4,4)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrPAK::iReadFile",1,"CFileSys_MgrPAK *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_MgrPAK::iReadFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_MgrPAK::iReadFile",2,"handler");
     if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("CFileSys_MgrPAK::iReadFile",3,"void *");
     if(!lua_isnumber(L,4)) SWIG_fail_arg("CFileSys_MgrPAK::iReadFile",4,"int");
     
@@ -30565,7 +30565,7 @@ static int _wrap_CFileSys_MgrPAK_iReadFile(lua_State* L) {
       SWIG_fail_ptr("CFileSys_MgrPAK_iReadFile",1,SWIGTYPE_p_CFileSys_MgrPAK);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_MgrPAK_iReadFile");
     arg3=(void *)SWIG_MustGetPtr(L,3,0,0,3,"CFileSys_MgrPAK_iReadFile");
     arg4 = (int)lua_tonumber(L, 4);
     result = (int)(arg1)->iReadFile(arg2,arg3,arg4);
@@ -30583,14 +30583,14 @@ static int _wrap_CFileSys_MgrPAK_iWriteFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_MgrPAK *arg1 = (CFileSys_MgrPAK *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     void *arg3 = (void *) 0 ;
     int arg4 ;
     int result;
     
     SWIG_check_num_args("CFileSys_MgrPAK::iWriteFile",4,4)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrPAK::iWriteFile",1,"CFileSys_MgrPAK *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_MgrPAK::iWriteFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_MgrPAK::iWriteFile",2,"handler");
     if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("CFileSys_MgrPAK::iWriteFile",3,"void *");
     if(!lua_isnumber(L,4)) SWIG_fail_arg("CFileSys_MgrPAK::iWriteFile",4,"int");
     
@@ -30598,7 +30598,7 @@ static int _wrap_CFileSys_MgrPAK_iWriteFile(lua_State* L) {
       SWIG_fail_ptr("CFileSys_MgrPAK_iWriteFile",1,SWIGTYPE_p_CFileSys_MgrPAK);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_MgrPAK_iWriteFile");
     arg3=(void *)SWIG_MustGetPtr(L,3,0,0,3,"CFileSys_MgrPAK_iWriteFile");
     arg4 = (int)lua_tonumber(L, 4);
     result = (int)(arg1)->iWriteFile(arg2,arg3,arg4);
@@ -30616,14 +30616,14 @@ static int _wrap_CFileSys_MgrPAK_iSeekFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_MgrPAK *arg1 = (CFileSys_MgrPAK *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     int arg3 ;
     eFile_SeekMode arg4 ;
     int result;
     
     SWIG_check_num_args("CFileSys_MgrPAK::iSeekFile",4,4)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrPAK::iSeekFile",1,"CFileSys_MgrPAK *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_MgrPAK::iSeekFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_MgrPAK::iSeekFile",2,"handler");
     if(!lua_isnumber(L,3)) SWIG_fail_arg("CFileSys_MgrPAK::iSeekFile",3,"int");
     if(!lua_isnumber(L,4)) SWIG_fail_arg("CFileSys_MgrPAK::iSeekFile",4,"eFile_SeekMode");
     
@@ -30631,7 +30631,7 @@ static int _wrap_CFileSys_MgrPAK_iSeekFile(lua_State* L) {
       SWIG_fail_ptr("CFileSys_MgrPAK_iSeekFile",1,SWIGTYPE_p_CFileSys_MgrPAK);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_MgrPAK_iSeekFile");
     arg3 = (int)lua_tonumber(L, 3);
     arg4 = (eFile_SeekMode)(int)lua_tonumber(L, 4);
     result = (int)(arg1)->iSeekFile(arg2,arg3,arg4);
@@ -30649,18 +30649,18 @@ static int _wrap_CFileSys_MgrPAK_iLengthFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_MgrPAK *arg1 = (CFileSys_MgrPAK *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     int result;
     
     SWIG_check_num_args("CFileSys_MgrPAK::iLengthFile",2,2)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrPAK::iLengthFile",1,"CFileSys_MgrPAK *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_MgrPAK::iLengthFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_MgrPAK::iLengthFile",2,"handler");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CFileSys_MgrPAK,0))){
       SWIG_fail_ptr("CFileSys_MgrPAK_iLengthFile",1,SWIGTYPE_p_CFileSys_MgrPAK);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_MgrPAK_iLengthFile");
     result = (int)(arg1)->iLengthFile(arg2);
     lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
     return SWIG_arg;
@@ -30676,18 +30676,18 @@ static int _wrap_CFileSys_MgrPAK_iPosFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_MgrPAK *arg1 = (CFileSys_MgrPAK *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     int result;
     
     SWIG_check_num_args("CFileSys_MgrPAK::iPosFile",2,2)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrPAK::iPosFile",1,"CFileSys_MgrPAK *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_MgrPAK::iPosFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_MgrPAK::iPosFile",2,"handler");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CFileSys_MgrPAK,0))){
       SWIG_fail_ptr("CFileSys_MgrPAK_iPosFile",1,SWIGTYPE_p_CFileSys_MgrPAK);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_MgrPAK_iPosFile");
     result = (int)(arg1)->iPosFile(arg2);
     lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
     return SWIG_arg;
@@ -30776,7 +30776,7 @@ static int _wrap_CFileSys_MgrMultiPAK_iOpenFile(lua_State* L) {
     CFileSys_MgrMultiPAK *arg1 = (CFileSys_MgrMultiPAK *) 0 ;
     char *arg2 = (char *) 0 ;
     char *arg3 = (char *) 0 ;
-    int result;
+    handler result;
     
     SWIG_check_num_args("CFileSys_MgrMultiPAK::iOpenFile",3,3)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrMultiPAK::iOpenFile",1,"CFileSys_MgrMultiPAK *");
@@ -30789,8 +30789,8 @@ static int _wrap_CFileSys_MgrMultiPAK_iOpenFile(lua_State* L) {
     
     arg2 = (char *)lua_tostring(L, 2);
     arg3 = (char *)lua_tostring(L, 3);
-    result = (int)(arg1)->iOpenFile(arg2,arg3);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+    result = (handler)(arg1)->iOpenFile(arg2,arg3);
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_void,0); SWIG_arg++; 
     return SWIG_arg;
     
     fail: SWIGUNUSED;
@@ -30804,17 +30804,17 @@ static int _wrap_CFileSys_MgrMultiPAK_CloseFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_MgrMultiPAK *arg1 = (CFileSys_MgrMultiPAK *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     
     SWIG_check_num_args("CFileSys_MgrMultiPAK::CloseFile",2,2)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrMultiPAK::CloseFile",1,"CFileSys_MgrMultiPAK *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_MgrMultiPAK::CloseFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_MgrMultiPAK::CloseFile",2,"handler");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CFileSys_MgrMultiPAK,0))){
       SWIG_fail_ptr("CFileSys_MgrMultiPAK_CloseFile",1,SWIGTYPE_p_CFileSys_MgrMultiPAK);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_MgrMultiPAK_CloseFile");
     (arg1)->CloseFile(arg2);
     
     return SWIG_arg;
@@ -30830,14 +30830,14 @@ static int _wrap_CFileSys_MgrMultiPAK_iReadFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_MgrMultiPAK *arg1 = (CFileSys_MgrMultiPAK *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     void *arg3 = (void *) 0 ;
     int arg4 ;
     int result;
     
     SWIG_check_num_args("CFileSys_MgrMultiPAK::iReadFile",4,4)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrMultiPAK::iReadFile",1,"CFileSys_MgrMultiPAK *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_MgrMultiPAK::iReadFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_MgrMultiPAK::iReadFile",2,"handler");
     if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("CFileSys_MgrMultiPAK::iReadFile",3,"void *");
     if(!lua_isnumber(L,4)) SWIG_fail_arg("CFileSys_MgrMultiPAK::iReadFile",4,"int");
     
@@ -30845,7 +30845,7 @@ static int _wrap_CFileSys_MgrMultiPAK_iReadFile(lua_State* L) {
       SWIG_fail_ptr("CFileSys_MgrMultiPAK_iReadFile",1,SWIGTYPE_p_CFileSys_MgrMultiPAK);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_MgrMultiPAK_iReadFile");
     arg3=(void *)SWIG_MustGetPtr(L,3,0,0,3,"CFileSys_MgrMultiPAK_iReadFile");
     arg4 = (int)lua_tonumber(L, 4);
     result = (int)(arg1)->iReadFile(arg2,arg3,arg4);
@@ -30863,14 +30863,14 @@ static int _wrap_CFileSys_MgrMultiPAK_iWriteFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_MgrMultiPAK *arg1 = (CFileSys_MgrMultiPAK *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     void *arg3 = (void *) 0 ;
     int arg4 ;
     int result;
     
     SWIG_check_num_args("CFileSys_MgrMultiPAK::iWriteFile",4,4)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrMultiPAK::iWriteFile",1,"CFileSys_MgrMultiPAK *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_MgrMultiPAK::iWriteFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_MgrMultiPAK::iWriteFile",2,"handler");
     if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("CFileSys_MgrMultiPAK::iWriteFile",3,"void *");
     if(!lua_isnumber(L,4)) SWIG_fail_arg("CFileSys_MgrMultiPAK::iWriteFile",4,"int");
     
@@ -30878,7 +30878,7 @@ static int _wrap_CFileSys_MgrMultiPAK_iWriteFile(lua_State* L) {
       SWIG_fail_ptr("CFileSys_MgrMultiPAK_iWriteFile",1,SWIGTYPE_p_CFileSys_MgrMultiPAK);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_MgrMultiPAK_iWriteFile");
     arg3=(void *)SWIG_MustGetPtr(L,3,0,0,3,"CFileSys_MgrMultiPAK_iWriteFile");
     arg4 = (int)lua_tonumber(L, 4);
     result = (int)(arg1)->iWriteFile(arg2,arg3,arg4);
@@ -30896,14 +30896,14 @@ static int _wrap_CFileSys_MgrMultiPAK_iSeekFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_MgrMultiPAK *arg1 = (CFileSys_MgrMultiPAK *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     int arg3 ;
     eFile_SeekMode arg4 ;
     int result;
     
     SWIG_check_num_args("CFileSys_MgrMultiPAK::iSeekFile",4,4)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrMultiPAK::iSeekFile",1,"CFileSys_MgrMultiPAK *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_MgrMultiPAK::iSeekFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_MgrMultiPAK::iSeekFile",2,"handler");
     if(!lua_isnumber(L,3)) SWIG_fail_arg("CFileSys_MgrMultiPAK::iSeekFile",3,"int");
     if(!lua_isnumber(L,4)) SWIG_fail_arg("CFileSys_MgrMultiPAK::iSeekFile",4,"eFile_SeekMode");
     
@@ -30911,7 +30911,7 @@ static int _wrap_CFileSys_MgrMultiPAK_iSeekFile(lua_State* L) {
       SWIG_fail_ptr("CFileSys_MgrMultiPAK_iSeekFile",1,SWIGTYPE_p_CFileSys_MgrMultiPAK);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_MgrMultiPAK_iSeekFile");
     arg3 = (int)lua_tonumber(L, 3);
     arg4 = (eFile_SeekMode)(int)lua_tonumber(L, 4);
     result = (int)(arg1)->iSeekFile(arg2,arg3,arg4);
@@ -30929,18 +30929,18 @@ static int _wrap_CFileSys_MgrMultiPAK_iLengthFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_MgrMultiPAK *arg1 = (CFileSys_MgrMultiPAK *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     int result;
     
     SWIG_check_num_args("CFileSys_MgrMultiPAK::iLengthFile",2,2)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrMultiPAK::iLengthFile",1,"CFileSys_MgrMultiPAK *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_MgrMultiPAK::iLengthFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_MgrMultiPAK::iLengthFile",2,"handler");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CFileSys_MgrMultiPAK,0))){
       SWIG_fail_ptr("CFileSys_MgrMultiPAK_iLengthFile",1,SWIGTYPE_p_CFileSys_MgrMultiPAK);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_MgrMultiPAK_iLengthFile");
     result = (int)(arg1)->iLengthFile(arg2);
     lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
     return SWIG_arg;
@@ -30956,18 +30956,18 @@ static int _wrap_CFileSys_MgrMultiPAK_iPosFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_MgrMultiPAK *arg1 = (CFileSys_MgrMultiPAK *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     int result;
     
     SWIG_check_num_args("CFileSys_MgrMultiPAK::iPosFile",2,2)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrMultiPAK::iPosFile",1,"CFileSys_MgrMultiPAK *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_MgrMultiPAK::iPosFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_MgrMultiPAK::iPosFile",2,"handler");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CFileSys_MgrMultiPAK,0))){
       SWIG_fail_ptr("CFileSys_MgrMultiPAK_iPosFile",1,SWIGTYPE_p_CFileSys_MgrMultiPAK);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_MgrMultiPAK_iPosFile");
     result = (int)(arg1)->iPosFile(arg2);
     lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
     return SWIG_arg;
@@ -31167,7 +31167,7 @@ static int _wrap_CFileSys_MgrZIP_iOpenFile(lua_State* L) {
     CFileSys_MgrZIP *arg1 = (CFileSys_MgrZIP *) 0 ;
     char *arg2 = (char *) 0 ;
     char *arg3 = (char *) 0 ;
-    int result;
+    handler result;
     
     SWIG_check_num_args("CFileSys_MgrZIP::iOpenFile",3,3)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrZIP::iOpenFile",1,"CFileSys_MgrZIP *");
@@ -31180,8 +31180,8 @@ static int _wrap_CFileSys_MgrZIP_iOpenFile(lua_State* L) {
     
     arg2 = (char *)lua_tostring(L, 2);
     arg3 = (char *)lua_tostring(L, 3);
-    result = (int)(arg1)->iOpenFile(arg2,arg3);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+    result = (handler)(arg1)->iOpenFile(arg2,arg3);
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_void,0); SWIG_arg++; 
     return SWIG_arg;
     
     fail: SWIGUNUSED;
@@ -31195,17 +31195,17 @@ static int _wrap_CFileSys_MgrZIP_CloseFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_MgrZIP *arg1 = (CFileSys_MgrZIP *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     
     SWIG_check_num_args("CFileSys_MgrZIP::CloseFile",2,2)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrZIP::CloseFile",1,"CFileSys_MgrZIP *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_MgrZIP::CloseFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_MgrZIP::CloseFile",2,"handler");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CFileSys_MgrZIP,0))){
       SWIG_fail_ptr("CFileSys_MgrZIP_CloseFile",1,SWIGTYPE_p_CFileSys_MgrZIP);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_MgrZIP_CloseFile");
     (arg1)->CloseFile(arg2);
     
     return SWIG_arg;
@@ -31221,14 +31221,14 @@ static int _wrap_CFileSys_MgrZIP_iReadFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_MgrZIP *arg1 = (CFileSys_MgrZIP *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     void *arg3 = (void *) 0 ;
     int arg4 ;
     int result;
     
     SWIG_check_num_args("CFileSys_MgrZIP::iReadFile",4,4)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrZIP::iReadFile",1,"CFileSys_MgrZIP *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_MgrZIP::iReadFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_MgrZIP::iReadFile",2,"handler");
     if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("CFileSys_MgrZIP::iReadFile",3,"void *");
     if(!lua_isnumber(L,4)) SWIG_fail_arg("CFileSys_MgrZIP::iReadFile",4,"int");
     
@@ -31236,7 +31236,7 @@ static int _wrap_CFileSys_MgrZIP_iReadFile(lua_State* L) {
       SWIG_fail_ptr("CFileSys_MgrZIP_iReadFile",1,SWIGTYPE_p_CFileSys_MgrZIP);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_MgrZIP_iReadFile");
     arg3=(void *)SWIG_MustGetPtr(L,3,0,0,3,"CFileSys_MgrZIP_iReadFile");
     arg4 = (int)lua_tonumber(L, 4);
     result = (int)(arg1)->iReadFile(arg2,arg3,arg4);
@@ -31254,14 +31254,14 @@ static int _wrap_CFileSys_MgrZIP_iWriteFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_MgrZIP *arg1 = (CFileSys_MgrZIP *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     void *arg3 = (void *) 0 ;
     int arg4 ;
     int result;
     
     SWIG_check_num_args("CFileSys_MgrZIP::iWriteFile",4,4)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrZIP::iWriteFile",1,"CFileSys_MgrZIP *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_MgrZIP::iWriteFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_MgrZIP::iWriteFile",2,"handler");
     if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("CFileSys_MgrZIP::iWriteFile",3,"void *");
     if(!lua_isnumber(L,4)) SWIG_fail_arg("CFileSys_MgrZIP::iWriteFile",4,"int");
     
@@ -31269,7 +31269,7 @@ static int _wrap_CFileSys_MgrZIP_iWriteFile(lua_State* L) {
       SWIG_fail_ptr("CFileSys_MgrZIP_iWriteFile",1,SWIGTYPE_p_CFileSys_MgrZIP);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_MgrZIP_iWriteFile");
     arg3=(void *)SWIG_MustGetPtr(L,3,0,0,3,"CFileSys_MgrZIP_iWriteFile");
     arg4 = (int)lua_tonumber(L, 4);
     result = (int)(arg1)->iWriteFile(arg2,arg3,arg4);
@@ -31287,14 +31287,14 @@ static int _wrap_CFileSys_MgrZIP_iSeekFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_MgrZIP *arg1 = (CFileSys_MgrZIP *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     int arg3 ;
     eFile_SeekMode arg4 ;
     int result;
     
     SWIG_check_num_args("CFileSys_MgrZIP::iSeekFile",4,4)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrZIP::iSeekFile",1,"CFileSys_MgrZIP *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_MgrZIP::iSeekFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_MgrZIP::iSeekFile",2,"handler");
     if(!lua_isnumber(L,3)) SWIG_fail_arg("CFileSys_MgrZIP::iSeekFile",3,"int");
     if(!lua_isnumber(L,4)) SWIG_fail_arg("CFileSys_MgrZIP::iSeekFile",4,"eFile_SeekMode");
     
@@ -31302,7 +31302,7 @@ static int _wrap_CFileSys_MgrZIP_iSeekFile(lua_State* L) {
       SWIG_fail_ptr("CFileSys_MgrZIP_iSeekFile",1,SWIGTYPE_p_CFileSys_MgrZIP);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_MgrZIP_iSeekFile");
     arg3 = (int)lua_tonumber(L, 3);
     arg4 = (eFile_SeekMode)(int)lua_tonumber(L, 4);
     result = (int)(arg1)->iSeekFile(arg2,arg3,arg4);
@@ -31320,18 +31320,18 @@ static int _wrap_CFileSys_MgrZIP_iLengthFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_MgrZIP *arg1 = (CFileSys_MgrZIP *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     int result;
     
     SWIG_check_num_args("CFileSys_MgrZIP::iLengthFile",2,2)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrZIP::iLengthFile",1,"CFileSys_MgrZIP *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_MgrZIP::iLengthFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_MgrZIP::iLengthFile",2,"handler");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CFileSys_MgrZIP,0))){
       SWIG_fail_ptr("CFileSys_MgrZIP_iLengthFile",1,SWIGTYPE_p_CFileSys_MgrZIP);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_MgrZIP_iLengthFile");
     result = (int)(arg1)->iLengthFile(arg2);
     lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
     return SWIG_arg;
@@ -31347,18 +31347,18 @@ static int _wrap_CFileSys_MgrZIP_iPosFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_MgrZIP *arg1 = (CFileSys_MgrZIP *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     int result;
     
     SWIG_check_num_args("CFileSys_MgrZIP::iPosFile",2,2)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrZIP::iPosFile",1,"CFileSys_MgrZIP *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_MgrZIP::iPosFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_MgrZIP::iPosFile",2,"handler");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CFileSys_MgrZIP,0))){
       SWIG_fail_ptr("CFileSys_MgrZIP_iPosFile",1,SWIGTYPE_p_CFileSys_MgrZIP);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_MgrZIP_iPosFile");
     result = (int)(arg1)->iPosFile(arg2);
     lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
     return SWIG_arg;
@@ -31447,7 +31447,7 @@ static int _wrap_CFileSys_MgrMultiZIP_iOpenFile(lua_State* L) {
     CFileSys_MgrMultiZIP *arg1 = (CFileSys_MgrMultiZIP *) 0 ;
     char *arg2 = (char *) 0 ;
     char *arg3 = (char *) 0 ;
-    int result;
+    handler result;
     
     SWIG_check_num_args("CFileSys_MgrMultiZIP::iOpenFile",3,3)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrMultiZIP::iOpenFile",1,"CFileSys_MgrMultiZIP *");
@@ -31460,8 +31460,8 @@ static int _wrap_CFileSys_MgrMultiZIP_iOpenFile(lua_State* L) {
     
     arg2 = (char *)lua_tostring(L, 2);
     arg3 = (char *)lua_tostring(L, 3);
-    result = (int)(arg1)->iOpenFile(arg2,arg3);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+    result = (handler)(arg1)->iOpenFile(arg2,arg3);
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_void,0); SWIG_arg++; 
     return SWIG_arg;
     
     fail: SWIGUNUSED;
@@ -31475,17 +31475,17 @@ static int _wrap_CFileSys_MgrMultiZIP_CloseFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_MgrMultiZIP *arg1 = (CFileSys_MgrMultiZIP *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     
     SWIG_check_num_args("CFileSys_MgrMultiZIP::CloseFile",2,2)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrMultiZIP::CloseFile",1,"CFileSys_MgrMultiZIP *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_MgrMultiZIP::CloseFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_MgrMultiZIP::CloseFile",2,"handler");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CFileSys_MgrMultiZIP,0))){
       SWIG_fail_ptr("CFileSys_MgrMultiZIP_CloseFile",1,SWIGTYPE_p_CFileSys_MgrMultiZIP);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_MgrMultiZIP_CloseFile");
     (arg1)->CloseFile(arg2);
     
     return SWIG_arg;
@@ -31501,14 +31501,14 @@ static int _wrap_CFileSys_MgrMultiZIP_iReadFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_MgrMultiZIP *arg1 = (CFileSys_MgrMultiZIP *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     void *arg3 = (void *) 0 ;
     int arg4 ;
     int result;
     
     SWIG_check_num_args("CFileSys_MgrMultiZIP::iReadFile",4,4)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrMultiZIP::iReadFile",1,"CFileSys_MgrMultiZIP *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_MgrMultiZIP::iReadFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_MgrMultiZIP::iReadFile",2,"handler");
     if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("CFileSys_MgrMultiZIP::iReadFile",3,"void *");
     if(!lua_isnumber(L,4)) SWIG_fail_arg("CFileSys_MgrMultiZIP::iReadFile",4,"int");
     
@@ -31516,7 +31516,7 @@ static int _wrap_CFileSys_MgrMultiZIP_iReadFile(lua_State* L) {
       SWIG_fail_ptr("CFileSys_MgrMultiZIP_iReadFile",1,SWIGTYPE_p_CFileSys_MgrMultiZIP);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_MgrMultiZIP_iReadFile");
     arg3=(void *)SWIG_MustGetPtr(L,3,0,0,3,"CFileSys_MgrMultiZIP_iReadFile");
     arg4 = (int)lua_tonumber(L, 4);
     result = (int)(arg1)->iReadFile(arg2,arg3,arg4);
@@ -31534,14 +31534,14 @@ static int _wrap_CFileSys_MgrMultiZIP_iWriteFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_MgrMultiZIP *arg1 = (CFileSys_MgrMultiZIP *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     void *arg3 = (void *) 0 ;
     int arg4 ;
     int result;
     
     SWIG_check_num_args("CFileSys_MgrMultiZIP::iWriteFile",4,4)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrMultiZIP::iWriteFile",1,"CFileSys_MgrMultiZIP *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_MgrMultiZIP::iWriteFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_MgrMultiZIP::iWriteFile",2,"handler");
     if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("CFileSys_MgrMultiZIP::iWriteFile",3,"void *");
     if(!lua_isnumber(L,4)) SWIG_fail_arg("CFileSys_MgrMultiZIP::iWriteFile",4,"int");
     
@@ -31549,7 +31549,7 @@ static int _wrap_CFileSys_MgrMultiZIP_iWriteFile(lua_State* L) {
       SWIG_fail_ptr("CFileSys_MgrMultiZIP_iWriteFile",1,SWIGTYPE_p_CFileSys_MgrMultiZIP);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_MgrMultiZIP_iWriteFile");
     arg3=(void *)SWIG_MustGetPtr(L,3,0,0,3,"CFileSys_MgrMultiZIP_iWriteFile");
     arg4 = (int)lua_tonumber(L, 4);
     result = (int)(arg1)->iWriteFile(arg2,arg3,arg4);
@@ -31567,14 +31567,14 @@ static int _wrap_CFileSys_MgrMultiZIP_iSeekFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_MgrMultiZIP *arg1 = (CFileSys_MgrMultiZIP *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     int arg3 ;
     eFile_SeekMode arg4 ;
     int result;
     
     SWIG_check_num_args("CFileSys_MgrMultiZIP::iSeekFile",4,4)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrMultiZIP::iSeekFile",1,"CFileSys_MgrMultiZIP *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_MgrMultiZIP::iSeekFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_MgrMultiZIP::iSeekFile",2,"handler");
     if(!lua_isnumber(L,3)) SWIG_fail_arg("CFileSys_MgrMultiZIP::iSeekFile",3,"int");
     if(!lua_isnumber(L,4)) SWIG_fail_arg("CFileSys_MgrMultiZIP::iSeekFile",4,"eFile_SeekMode");
     
@@ -31582,7 +31582,7 @@ static int _wrap_CFileSys_MgrMultiZIP_iSeekFile(lua_State* L) {
       SWIG_fail_ptr("CFileSys_MgrMultiZIP_iSeekFile",1,SWIGTYPE_p_CFileSys_MgrMultiZIP);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_MgrMultiZIP_iSeekFile");
     arg3 = (int)lua_tonumber(L, 3);
     arg4 = (eFile_SeekMode)(int)lua_tonumber(L, 4);
     result = (int)(arg1)->iSeekFile(arg2,arg3,arg4);
@@ -31600,18 +31600,18 @@ static int _wrap_CFileSys_MgrMultiZIP_iLengthFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_MgrMultiZIP *arg1 = (CFileSys_MgrMultiZIP *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     int result;
     
     SWIG_check_num_args("CFileSys_MgrMultiZIP::iLengthFile",2,2)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrMultiZIP::iLengthFile",1,"CFileSys_MgrMultiZIP *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_MgrMultiZIP::iLengthFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_MgrMultiZIP::iLengthFile",2,"handler");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CFileSys_MgrMultiZIP,0))){
       SWIG_fail_ptr("CFileSys_MgrMultiZIP_iLengthFile",1,SWIGTYPE_p_CFileSys_MgrMultiZIP);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_MgrMultiZIP_iLengthFile");
     result = (int)(arg1)->iLengthFile(arg2);
     lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
     return SWIG_arg;
@@ -31627,18 +31627,18 @@ static int _wrap_CFileSys_MgrMultiZIP_iPosFile(lua_State* L) {
   {
     int SWIG_arg = 0;
     CFileSys_MgrMultiZIP *arg1 = (CFileSys_MgrMultiZIP *) 0 ;
-    int arg2 ;
+    handler arg2 = (handler) 0 ;
     int result;
     
     SWIG_check_num_args("CFileSys_MgrMultiZIP::iPosFile",2,2)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CFileSys_MgrMultiZIP::iPosFile",1,"CFileSys_MgrMultiZIP *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CFileSys_MgrMultiZIP::iPosFile",2,"int");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CFileSys_MgrMultiZIP::iPosFile",2,"handler");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CFileSys_MgrMultiZIP,0))){
       SWIG_fail_ptr("CFileSys_MgrMultiZIP_iPosFile",1,SWIGTYPE_p_CFileSys_MgrMultiZIP);
     }
     
-    arg2 = (int)lua_tonumber(L, 2);
+    arg2=(handler)SWIG_MustGetPtr(L,2,0,0,2,"CFileSys_MgrMultiZIP_iPosFile");
     result = (int)(arg1)->iPosFile(arg2);
     lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
     return SWIG_arg;

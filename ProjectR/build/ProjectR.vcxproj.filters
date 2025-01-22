@@ -46,9 +46,6 @@
     <Filter Include="src\Project\App\Loop\Game\GameUtils\Laser">
       <UniqueIdentifier>{7545C06A-E15F-230C-2A82-33A096DB4A13}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Project\Docs">
-      <UniqueIdentifier>{2B9B0324-1794-2276-40C6-07FB2C1E0282}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Modules\Collision\CGColliderDefinitionFileWH.h">
@@ -221,32 +218,5 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\premake5.lua" />
-    <None Include="..\src\Project\Docs\Bugs.txt">
-      <Filter>src\Project\Docs</Filter>
-    </None>
-    <None Include="..\src\Project\Docs\Concept.txt">
-      <Filter>src\Project\Docs</Filter>
-    </None>
-    <None Include="..\src\Project\Docs\Dependencies.txt">
-      <Filter>src\Project\Docs</Filter>
-    </None>
-    <None Include="..\src\Project\Docs\History.txt">
-      <Filter>src\Project\Docs</Filter>
-    </None>
-    <None Include="..\src\Project\Docs\Mejoras.txt">
-      <Filter>src\Project\Docs</Filter>
-    </None>
-    <None Include="..\src\Project\Docs\ProjectR_FrameWork.txt">
-      <Filter>src\Project\Docs</Filter>
-    </None>
-    <None Include="..\src\Project\Docs\TODO.txt">
-      <Filter>src\Project\Docs</Filter>
-    </None>
-    <None Include="..\src\Project\Docs\extensiones.txt">
-      <Filter>src\Project\Docs</Filter>
-    </None>
-    <None Include="..\src\Project\Docs\optimization.txt">
-      <Filter>src\Project\Docs</Filter>
-    </None>
   </ItemGroup>
 </Project>

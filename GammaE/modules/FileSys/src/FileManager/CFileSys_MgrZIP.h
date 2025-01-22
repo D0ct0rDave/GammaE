@@ -21,19 +21,19 @@ class CFileSys_MgrZIP : public CFileSys_Manager  {
           ~CFileSys_MgrZIP();
 
 
-                virtual int iOpenFile (char *_szFilename, char* _szMode);
+                virtual handler iOpenFile (char *_szFilename, char* _szMode);
 
-            virtual void CloseFile (int _iHandler);
+            virtual void CloseFile (handler _iHandler);
 
-            virtual int iReadFile (int _iHandler, void* _pData, int _iSize);
+            virtual int iReadFile (handler _iHandler, void* _pData, int _iSize);
 
-            virtual int iWriteFile (int _iHandler, void* _pData, int _iSize);
+            virtual int iWriteFile (handler _iHandler, void* _pData, int _iSize);
 
-            virtual int iSeekFile (int _iHandler, int _iOffset, eFile_SeekMode _eMode);
+            virtual int iSeekFile (handler _iHandler, int _iOffset, eFile_SeekMode _eMode);
 
-            virtual int iLengthFile (int _iHandler);
+            virtual int iLengthFile (handler _iHandler);
 
-            virtual int iPosFile (int _iHandler);
+            virtual int iPosFile (handler _iHandler);
 
     // Additional Public Declarations
             
