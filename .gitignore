@@ -414,4 +414,4 @@ CMakeCache.txt
 #old visual studio project files
 *.vcproj
 
-ProjectR/data/FinalData/FreeImage.dll
+/ProjectR/data/FinalData/FreeImage.dll
