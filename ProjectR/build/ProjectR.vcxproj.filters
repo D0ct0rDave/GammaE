@@ -1,6 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="data">
+      <UniqueIdentifier>{5F91957C-4BC8-960D-F4B4-7C10E0CA120F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\FinalData">
+      <UniqueIdentifier>{D2BB7177-BE89-657D-A71D-D6A3938A41E2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\FinalData\data">
+      <UniqueIdentifier>{9BF024E8-0752-02F6-90BF-48A8FC1F39B5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\FinalData\data\hud">
+      <UniqueIdentifier>{CB552D5C-378D-75F3-4097-D916AC4D9CEC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\FinalData\data\scripts">
+      <UniqueIdentifier>{F2DA25E1-5EE8-53C7-E7CE-4FB253DB1F7E}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src">
       <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
     </Filter>
@@ -45,6 +60,9 @@
     </Filter>
     <Filter Include="src\Project\App\Loop\Game\GameUtils\Laser">
       <UniqueIdentifier>{7545C06A-E15F-230C-2A82-33A096DB4A13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Project\Docs">
+      <UniqueIdentifier>{2B9B0324-1794-2276-40C6-07FB2C1E0282}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +235,63 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\data\FinalData\data\hud\hud.txt">
+      <Filter>data\FinalData\data\hud</Filter>
+    </None>
+    <None Include="..\data\FinalData\data\particleshaders.txt">
+      <Filter>data\FinalData\data</Filter>
+    </None>
+    <None Include="..\data\FinalData\data\scripts\CBrainSlug.lua">
+      <Filter>data\FinalData\data\scripts</Filter>
+    </None>
+    <None Include="..\data\FinalData\data\scripts\CEgg.lua">
+      <Filter>data\FinalData\data\scripts</Filter>
+    </None>
+    <None Include="..\data\FinalData\data\scripts\CEgg_scroll.lua">
+      <Filter>data\FinalData\data\scripts</Filter>
+    </None>
+    <None Include="..\data\FinalData\data\scripts\CGameCamera.lua">
+      <Filter>data\FinalData\data\scripts</Filter>
+    </None>
+    <None Include="..\data\FinalData\data\scripts\CPlayer.lua">
+      <Filter>data\FinalData\data\scripts</Filter>
+    </None>
+    <None Include="..\data\FinalData\data\scripts\CUmbrella.lua">
+      <Filter>data\FinalData\data\scripts</Filter>
+    </None>
+    <None Include="..\data\FinalData\data\scripts\cgameflow.lua">
+      <Filter>data\FinalData\data\scripts</Filter>
+    </None>
+    <None Include="..\data\FinalData\data\shaders.txt">
+      <Filter>data\FinalData\data</Filter>
+    </None>
     <None Include="..\premake5.lua" />
+    <None Include="..\src\Project\Docs\Bugs.txt">
+      <Filter>src\Project\Docs</Filter>
+    </None>
+    <None Include="..\src\Project\Docs\Concept.txt">
+      <Filter>src\Project\Docs</Filter>
+    </None>
+    <None Include="..\src\Project\Docs\Dependencies.txt">
+      <Filter>src\Project\Docs</Filter>
+    </None>
+    <None Include="..\src\Project\Docs\History.txt">
+      <Filter>src\Project\Docs</Filter>
+    </None>
+    <None Include="..\src\Project\Docs\Mejoras.txt">
+      <Filter>src\Project\Docs</Filter>
+    </None>
+    <None Include="..\src\Project\Docs\ProjectR_FrameWork.txt">
+      <Filter>src\Project\Docs</Filter>
+    </None>
+    <None Include="..\src\Project\Docs\TODO.txt">
+      <Filter>src\Project\Docs</Filter>
+    </None>
+    <None Include="..\src\Project\Docs\extensiones.txt">
+      <Filter>src\Project\Docs</Filter>
+    </None>
+    <None Include="..\src\Project\Docs\optimization.txt">
+      <Filter>src\Project\Docs</Filter>
+    </None>
   </ItemGroup>
 </Project>

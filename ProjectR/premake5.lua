@@ -1,10 +1,11 @@
 -- Premake5.lua
+FinalDataRoot = "$(ProjectDir)../data/FinalData"
 
 workspace "ProjectR"
     configurations { "Debug", "Release" }
     location "build" -- Where generated files (like Visual Studio solutions) will be stored
     architecture "x86_64"
-	
+
 project "ProjectR"
     kind "WindowedApp" -- Change to "SharedLib" for a shared library
     language "C++"
@@ -12,6 +13,7 @@ project "ProjectR"
     targetdir "$(ProjectDir)/exe/%{cfg.buildcfg}" -- Output directory for binaries
     objdir "$(ProjectDir)/obj/%{cfg.buildcfg}" -- Output directory for intermediate files
 	characterset("ASCII")
+    debugdir(FinalDataRoot)
 
 	-- Specify the root directory of the library
     local sourceRoot = os.getcwd()
@@ -161,11 +163,12 @@ project "ProjectR"
     includeLibraries(frameworkRoot)	
     includeProjects(frameworkRoot)
 
-
 -- Install rules (using a post-build step for example purposes)
-postbuildcommands 
-{
-    -- "{MKDIR} %{wks.location}/dist/lib", -- Create output directory
-    -- "{COPYFILE} %{cfg.targetdir}/MyLibrary.lib %{wks.location}/dist/lib" -- Copy library to the dist directory
-}
 
+project "ProjectR" -- for some reason this is reset, so we need to setup it again
+	print("Final data:" .. FinalDataRoot)
+	postbuildcommands
+	{
+		-- "{MKDIR} %{wks.location}/dist/lib", -- Create output directory
+		"{COPYFILE} $(ProjectDir)../../sdks/Externals/FreeImage/Dist/x64/FreeImage.dll " .. FinalDataRoot	
+	}

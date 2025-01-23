@@ -71,6 +71,9 @@
       <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;libsndfile.lib;freeimage.lib;libconfig.lib;lua.lib;OpenAL32.lib;vfw32.lib;WSOCK32.LIB;AI.lib;Collision.lib;E3D.lib;FileSys.lib;Game.lib;Input.lib;Math.lib;Memory.lib;Misc.lib;Network.lib;Scene.lib;SceneObjects.lib;SceneUtils.lib;Sfx.lib;SoundSystem.lib;Terrain.lib;TerrainData.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)..\..\sdks\Externals\FreeImage\Dist\x64;;$(ProjectDir)..\..\sdks\OpenAL 1.1 SDK\libs;$(ProjectDir)..\..\sdks\OpenAL 1.1 SDK\libs\Win64;$(ProjectDir)..\..\sdks\lua-5.4.7\lib\x64\Debug;$(ProjectDir)..\..\sdks\libsndfile\lib\x64\Debug;$(ProjectDir)..\..\sdks\libconfig\lib\x64\Debug;$(ProjectDir)..\..\GammaE\build\lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /B /Y $(ProjectDir)..\..\sdks\Externals\FreeImage\Dist\x64\FreeImage.dll $(ProjectDir)..\data\FinalData</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -94,6 +97,9 @@
       <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;libsndfile.lib;freeimage.lib;libconfig.lib;lua.lib;OpenAL32.lib;vfw32.lib;WSOCK32.LIB;AI.lib;Collision.lib;E3D.lib;FileSys.lib;Game.lib;Input.lib;Math.lib;Memory.lib;Misc.lib;Network.lib;Scene.lib;SceneObjects.lib;SceneUtils.lib;Sfx.lib;SoundSystem.lib;Terrain.lib;TerrainData.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)..\..\sdks\Externals\FreeImage\Dist\x64;;$(ProjectDir)..\..\sdks\OpenAL 1.1 SDK\libs;$(ProjectDir)..\..\sdks\OpenAL 1.1 SDK\libs\Win64;$(ProjectDir)..\..\sdks\lua-5.4.7\lib\x64\Release;$(ProjectDir)..\..\sdks\libsndfile\lib\x64\Release;$(ProjectDir)..\..\sdks\libconfig\lib\x64\Release;$(ProjectDir)..\..\GammaE\build\lib\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /B /Y $(ProjectDir)..\..\sdks\Externals\FreeImage\Dist\x64\FreeImage.dll $(ProjectDir)..\data\FinalData</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Modules\Collision\CGColliderDefinitionFileWH.h" />
@@ -155,7 +161,26 @@
     <ClCompile Include="..\src\Project\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\data\FinalData\data\hud\hud.txt" />
+    <None Include="..\data\FinalData\data\particleshaders.txt" />
+    <None Include="..\data\FinalData\data\scripts\CBrainSlug.lua" />
+    <None Include="..\data\FinalData\data\scripts\CEgg.lua" />
+    <None Include="..\data\FinalData\data\scripts\CEgg_scroll.lua" />
+    <None Include="..\data\FinalData\data\scripts\CGameCamera.lua" />
+    <None Include="..\data\FinalData\data\scripts\CPlayer.lua" />
+    <None Include="..\data\FinalData\data\scripts\CUmbrella.lua" />
+    <None Include="..\data\FinalData\data\scripts\cgameflow.lua" />
+    <None Include="..\data\FinalData\data\shaders.txt" />
     <None Include="..\premake5.lua" />
+    <None Include="..\src\Project\Docs\Bugs.txt" />
+    <None Include="..\src\Project\Docs\Concept.txt" />
+    <None Include="..\src\Project\Docs\Dependencies.txt" />
+    <None Include="..\src\Project\Docs\History.txt" />
+    <None Include="..\src\Project\Docs\Mejoras.txt" />
+    <None Include="..\src\Project\Docs\ProjectR_FrameWork.txt" />
+    <None Include="..\src\Project\Docs\TODO.txt" />
+    <None Include="..\src\Project\Docs\extensiones.txt" />
+    <None Include="..\src\Project\Docs\optimization.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\GammaE\build\AI.vcxproj">
