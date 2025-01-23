@@ -13,4 +13,15 @@ At this point many improvements and modifications have been added.
 - Network support (from previous a project Word Challenge Multiplayer)
 - Many SFX features included etc.
 
-ProjectR is a new SpaceShooter prototype. The game action  featured a background video which produced the scrolling. The entities where presented moving towards the player
+ProjectR is a new SpaceShooter prototype.
+The game action plays on a screen where a video produces the scroll of the background.The entities move towards the player and this creates the sensation of the player moving forward like in most side scrollers
+One of the things I prototyped was the implementation of entities behavior and game flow using lua scripts, just for the sake of this.
+
+Another experiment was the creation of the HUD created from text data files.
+In general everything is configured using text files, shaders (a la Quake3), config (For input and commands)
+![screenshot1.png](https://raw.githubusercontent.com/D0ct0rDave/GammaE_Engine/refs/heads/ProjectR/repoimages/screenshot0001.png)
+![screenshot2.png](https://raw.githubusercontent.com/D0ct0rDave/GammaE_Engine/refs/heads/ProjectR/repoimages/screenshot0002.png)
+![screenshot3.png](https://raw.githubusercontent.com/D0ct0rDave/GammaE_Engine/refs/heads/ProjectR/repoimages/screenshot0003.png)
+
+Quake console with command interpreter.
+![screenshot0.png](https://raw.githubusercontent.com/D0ct0rDave/GammaE_Engine/refs/heads/ProjectR/repoimages/screenshot0000.png)
