@@ -1,0 +1,146 @@
+General:
+{
+    NumPaths = 3;
+};
+
+Path0:
+{
+    Type = "spiral";
+    LifeTime = 8.000;
+    InitialPos:
+    {
+         x = 536.000;
+         y = 252.000;
+         z = 0.000;
+    };
+
+    Speed:
+    {
+         x = -77.000;
+         y = 0.000;
+         z = 0.000;
+    };
+
+    InitialRadius:
+    {
+         x = 223.000;
+         y = 223.000;
+         z = 0.000;
+    };
+
+    RadiusSpeed:
+    {
+         x = 0.000;
+         y = 0.000;
+         z = 0.000;
+    };
+
+    InitialPhase:
+    {
+         x = 0.855;
+         y = 3.997;
+         z = 0.000;
+    };
+
+    AngularSpeed:
+    {
+         x = 1.222;
+         y = 1.222;
+         z = 0.000;
+    };
+};
+
+Path1:
+{
+    Type = "spiral";
+    LifeTime = 8.000;
+    InitialPos:
+    {
+         x = 520.000;
+         y = 232.000;
+         z = 0.000;
+    };
+
+    Speed:
+    {
+         x = -64.000;
+         y = 0.000;
+         z = 0.000;
+    };
+
+    InitialRadius:
+    {
+         x = 211.000;
+         y = 211.000;
+         z = 0.000;
+    };
+
+    RadiusSpeed:
+    {
+         x = 0.000;
+         y = 0.000;
+         z = 0.000;
+    };
+
+    InitialPhase:
+    {
+         x = 1.431;
+         y = 1.431;
+         z = 0.000;
+    };
+
+    AngularSpeed:
+    {
+         x = 1.169;
+         y = 1.169;
+         z = 0.000;
+    };
+};
+
+Path2:
+{
+    Type = "spiral";
+    LifeTime = 11.000;
+    InitialPos:
+    {
+         x = 728.000;
+         y = 260.000;
+         z = 0.000;
+    };
+
+    Speed:
+    {
+         x = -77.000;
+         y = 0.000;
+         z = 0.000;
+    };
+
+    InitialRadius:
+    {
+         x = 0.000;
+         y = 100.000;
+         z = 0.000;
+    };
+
+    RadiusSpeed:
+    {
+         x = 0.000;
+         y = 0.000;
+         z = 0.000;
+    };
+
+    InitialPhase:
+    {
+         x = 0.000;
+         y = 0.000;
+         z = 0.000;
+    };
+
+    AngularSpeed:
+    {
+         x = 0.000;
+         y = 3.142;
+         z = 0.000;
+    };
+};
+

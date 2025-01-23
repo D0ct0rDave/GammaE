@@ -1,0 +1,112 @@
+// --------------------------------------------------------------------------------------------
+General:
+{
+	NumDefinitions = 4;
+};
+// --------------------------------------------------------------------------------------------
+Definition0:
+{
+	Name = "data/actors/egg/egg.gem";
+	
+	ColliderStructure:
+	{
+		Name = "egg";
+		Type = "composite";
+		NumElems = 2;
+		
+		Composition:
+		{
+			Elem0:
+			{
+				Name = "lolo";
+				Type = "sphere";
+
+				Center:
+				{
+					x = 0.0;
+					y = 0.0;
+					z = 0.0;
+				};
+
+				Radius = 1.5;
+			};
+
+			Elem1:
+			{
+				Name = "lala";
+				Type = "sphere";
+
+				Center:
+				{
+					x = 0.0;
+					y = 1.75;
+					z = 0.0;
+				};
+
+				Radius = 1.0;
+			};
+
+		}; // end of composition
+
+	}; // end of collider structure
+};
+// --------------------------------------------------------------------------------------------
+Definition1:
+{
+	Name = "data/actors/brainslug/brainslug.gem";
+	
+	ColliderStructure:
+	{
+		Name = "brainslug";
+		Type = "sphere";
+		Center:
+		{
+			x = 0.0;
+			y = 0.75;
+			z = 0.0;
+		};
+
+		Radius = 1.2;
+	};
+};
+// --------------------------------------------------------------------------------------------
+Definition2:
+{
+	Name = "data/actors/MarvinPig/MarvinPig.gem";
+
+	ColliderStructure:
+	{
+		Name = "MarvinPig";
+		Type = "sphere";
+
+		Center:
+		{
+			x = 0.0;
+			y = 0.0;
+			z = 0.0;
+		};
+		
+		Radius = 0.5;
+	};
+};
+// --------------------------------------------------------------------------------------------
+Definition3:
+{
+	Name = "data/actors/umbrella/umbrella.gem";
+
+	ColliderStructure:
+	{
+		Name = "umbrella";
+		Type = "sphere";
+
+		Center:
+		{
+			x = 0.0;
+			y = 0.0;
+			z = 0.0;
+		};
+		
+		Radius = 1.0;
+	};
+};
+// --------------------------------------------------------------------------------------------

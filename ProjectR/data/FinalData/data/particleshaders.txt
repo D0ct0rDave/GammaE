@@ -1,0 +1,202 @@
+// ---------------------------------------------------------------------------
+// Particle Materials
+// ---------------------------------------------------------------------------
+
+Material particletex0
+{
+	BlendOp AlphaAdd
+	Texture data/textures/FX/part00.tga
+	{
+		MinFilter	LINEAR
+		MagFilter	LINEAR
+		ClampU		WRAP
+		ClampV		WRAP
+	}	
+}
+
+Material particletex0alpha
+{
+	BlendOp Alpha
+	ZOp
+	{
+		ZWrite Disable
+	}
+	Texture data/textures/FX/particletex0.tga
+}
+
+
+Material particletex1alpha
+{
+	BlendOp Alpha
+	ZOp
+	{
+		ZWrite Disable
+	}
+	
+	Texture data/textures/FX/particletex1.tga
+}
+
+Material particletex2alpha
+{
+	BlendOp AlphaAdd
+	ZOp
+	{
+		ZWrite Disable
+	}
+
+	Texture data/textures/FX/particletex2.tga	
+	{
+		MinFilter	LINEAR
+		MagFilter	LINEAR
+		ClampU		WRAP
+		ClampV		WRAP
+	}	
+}
+
+Material particletex2alpha_
+{
+	BlendOp AlphaAdd
+	Wireframe CabezaBuque
+	{
+		r 1.0
+		g 1.0
+		b 1.0
+		a 1.0
+	}
+}
+
+Material particletex3alpha
+{
+	BlendOp Alpha
+	ZOp
+	{
+		ZWrite Disable
+	}
+	Texture data/textures/FX/particletex3.tga
+}
+
+Material particletex3alphaadd
+{
+	BlendOp AlphaAdd
+	ZOp
+	{
+		ZWrite Disable
+	}
+	Texture data/textures/FX/particletex3.tga
+}
+
+Material particletex4alpha
+{
+	BlendOp Alpha
+	ZOp
+	{
+		ZWrite Disable
+	}
+	Texture data/textures/FX/particletex4.tga
+}
+
+Material particletex0alphaadd
+{
+	BlendOp AlphaAdd
+	ZOp
+	{
+		ZWrite Disable
+	}
+	Texture data/textures/FX/particletex0.tga
+}
+
+Material particletex1alphaadd
+{
+	BlendOp AlphaAdd
+	ZOp
+	{
+		ZWrite Disable
+	}
+	Texture data/textures/FX/particletex1.tga
+}
+
+Material particletex2alphaadd
+{
+	BlendOp AlphaAdd
+	ZOp
+	{
+		ZWrite Disable
+	}
+	Texture data/textures/FX/particletex2.tga
+}
+
+Material particletex3alphadd
+{
+	BlendOp AlphaAdd
+	ZOp
+	{
+		ZWrite Disable
+	}
+	Texture data/textures/FX/particletex3.tga
+}
+
+Material particletex4alphaadd
+{
+	BlendOp AlphaAdd
+	ZOp
+	{
+		ZWrite Disable
+	}
+	
+	Texture data/textures/FX/particletex4.tga
+}
+
+Material particletex6alphaadd
+{
+	BlendOp AlphaAdd
+	ZOp
+	{
+		ZWrite Disable
+	}
+	Texture data/textures/FX/FX_DEBR2.tga
+}
+
+Material particletex20alpha
+{
+	BlendOp Alpha
+	ZOp
+	{
+		ZWrite Disable
+	}
+	Texture data/textures/FX/FX_DEBRIS5.tga
+}
+
+Material particletex21alpha
+{
+	BlendOp Alpha
+	ZOp
+	{
+		ZWrite Disable
+	}
+	Texture data/textures/FX/FX_DEBRIS6.tga
+}
+
+Material test
+{
+	BlendOp AlphaAdd
+	Texture data/textures/FX/part00.tga
+	{
+		MinFilter	LINEAR
+		MagFilter	LINEAR
+		ClampU		WRAP
+		ClampV		WRAP
+	}	
+}
+
+Material SmokeParticle
+{
+	BlendOp Alpha
+	Texture data/textures/FX/part00.tga
+	{
+		MinFilter	LINEAR
+		MagFilter	LINEAR
+		ClampU		WRAP
+		ClampV		WRAP
+	}	
+}
+

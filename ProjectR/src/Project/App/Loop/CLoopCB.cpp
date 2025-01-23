@@ -117,20 +117,34 @@ void CLoopCB_Screenshot(unsigned int Enabled,unsigned int Par1,unsigned int Par2
 		
 		uint uiScrWidth  = CGRenderer::I()->iGetScrTX();
 		uint uiScrHeight = CGRenderer::I()->iGetScrTY();
-		
-		FIBITMAP *bitmap = FreeImage_Allocate(uiScrWidth,uiScrHeight,32,0x000000ff,0x0000ff00,0x00ff0000);
+
+		FIBITMAP *bitmap = FreeImage_Allocate(uiScrWidth,uiScrHeight,32, 0x000000ff, 0x0000ff00, 0x00ff0000);
 		if (bitmap == NULL) return;
 
-		void* data = FreeImage_GetBits(bitmap);
-		CGRenderer::I()->ReadBuffer(0,0,uiScrWidth,uiScrHeight,E3D_RB_Front,data);
+		BYTE* data = FreeImage_GetBits(bitmap);
+		CGRenderer::I()->ReadBuffer(0,0,uiScrWidth,uiScrHeight,E3D_RB_Front,(void*)data);
+
+		{
+			// Swap R&B channels
+			FIBITMAP* rChannel = FreeImage_GetChannel(bitmap, FREE_IMAGE_COLOR_CHANNEL::FICC_RED);
+			FIBITMAP* bChannel = FreeImage_GetChannel(bitmap, FREE_IMAGE_COLOR_CHANNEL::FICC_BLUE);
+
+			if ((rChannel != NULL) && (bChannel != NULL))
+			{
+				FreeImage_SetChannel(bitmap, bChannel, FREE_IMAGE_COLOR_CHANNEL::FICC_RED);
+				FreeImage_SetChannel(bitmap, rChannel, FREE_IMAGE_COLOR_CHANNEL::FICC_BLUE);
+			}
+
+			if (rChannel != NULL) FreeImage_Unload(rChannel);
+			if (bChannel != NULL) FreeImage_Unload(bChannel);
+		}
 		// CGRenderer::I()->ReadBuffer(0,0,uiScrWidth,uiScrHeight,E3D_RB_Z,(void *)Tex.data);		
 
 		static int iIdx = 0;
 		char szStr[MAX_CARS];
 		sprintf(szStr,"screenshot%04d.png",iIdx); iIdx++;
+		FreeImage_Save(FIF_PNG, bitmap, szStr,0);
 
-		FreeImage_Save(FIF_PNG,bitmap,szStr,0);
-		
 		FreeImage_Unload(bitmap);
 	}
 }

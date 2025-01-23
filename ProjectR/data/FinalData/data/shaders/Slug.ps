@@ -1,0 +1,13 @@
+varying vec3 normal;
+// varying vec2 TMU0TexCoords;
+uniform sampler2D TMU0Tex;
+
+void main()
+{
+	vec4 color  = texture2D(TMU0Tex, gl_TexCoord[0]);
+	float f = normal.z;
+	if (f<0.25) f=0.25;
+
+	gl_FragColor = color * vec4(f,f,f,1) * gl_FrontMaterial.diffuse;
+	gl_FragColor.w = 1.0;
+}
