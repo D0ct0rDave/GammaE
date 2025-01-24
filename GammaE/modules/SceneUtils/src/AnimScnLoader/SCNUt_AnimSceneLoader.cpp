@@ -62,8 +62,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
             {
                 StrPos = ParseUtils_SkipLine(StrPos);
             }
-            else
-            if ( !strcmp(Token,"MATERIALS") )
+            else if ( !strcmp(Token,"MATERIALS") )
             {
                 Token = ParseUtils_ParseToken(StrPos);
 
@@ -79,15 +78,14 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
                     // Get the material number
                     Token = ParseUtils_ParseToken(StrPos);
                     sscanf(Token,"%d",&iMatNum);
-                    iMatNum--;                    // Materials are 1 based
+                    iMatNum--;  // Materials are 1 based
 
                     // Get the material
                     Token = ParseUtils_ParseToken(StrPos);
                     m_oMaterials.uiAdd( Token );
                 }
             }
-            else
-            if ( !strcmp(Token,"TRIS") )
+            else if ( !strcmp(Token,"TRIS") )
             {
                 Token = ParseUtils_ParseToken(StrPos);
 
@@ -108,7 +106,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
                     // Read triangle material
                     Token = ParseUtils_ParseToken(StrPos);
                     sscanf(Token,"<%d>",&iMat);
-                    iMat--;                    // Materials are 1 based
+                    iMat--;     // Materials are 1 based
 
                     // Read triangle coordinates
                     Token = StrPos;
@@ -186,8 +184,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
                     poStartupFrame->Tris[iTri].Material = iMat;
                 }
             }
-            else
-            if ( !strcmp(Token,"ANIMFRAMES") )
+            else if ( !strcmp(Token,"ANIMFRAMES") )
             {
                 Token = ParseUtils_ParseToken(StrPos);
 
@@ -195,8 +192,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
 
                 //
             }
-            else
-            if ( !strcmp(Token,"ANIMFRAME") )
+            else if ( !strcmp(Token,"ANIMFRAME") )
             {
                 // skip frame number
                 Token = ParseUtils_ParseToken(StrPos);

@@ -20,8 +20,8 @@ CGParticleSystem_Sparks::CGParticleSystem_Sparks()
 
     fPEnergyFact = 0.05f;
     fPInitialSizeFact = 2.0f;
-    RGBAInitialValue.V4(1.0f,1.0f,0.0f,1.0f);
-    RGBAFact.V4(0.1f,0.25f,0.0f,0.1f);
+    RGBAInitialValue.Set(1.0f,1.0f,0.0f,1.0f);
+    RGBAFact.Set(0.1f,0.25f,0.0f,0.1f);
 }
 
 CGParticleSystem_Sparks::~CGParticleSystem_Sparks()

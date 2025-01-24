@@ -25,12 +25,15 @@ void SCNUt_ShaderAssigner::AssignShader (CE3D_Shader* _poShader, CGSceneNode* _p
 {
     switch ( _poObj->eGetNodeType() )
     {
-        case SNT_Gen:         break;
+        case SNT_Gen:
+		break;
 
-        case SNT_Leaf:            ( (CGSceneLeaf*)_poObj )->SetShader(_poShader);
+        case SNT_Leaf:
+		( (CGSceneLeaf*)_poObj )->SetShader(_poShader);
         break;
 
-        case SNT_Node:            int iSubObj;
+        case SNT_Node:
+		int iSubObj;
         for ( iSubObj = 0; iSubObj < ( (CGSceneGroup*)_poObj )->uiNumSubObjs(); iSubObj++ )
         {
             if ( ( (CGSceneGroup*)_poObj )->poGetObject(iSubObj) )
@@ -38,7 +41,8 @@ void SCNUt_ShaderAssigner::AssignShader (CE3D_Shader* _poShader, CGSceneNode* _p
         }
         break;
 
-        case SNT_Transf:          AssignShader( _poShader, ( (CGSceneTransf*)_poObj )->poGetObject() );
+        case SNT_Transf:
+		AssignShader( _poShader, ( (CGSceneTransf*)_poObj )->poGetObject() );
         break;
 
         case SNT_AnimObject:
@@ -59,14 +63,16 @@ void SCNUt_ShaderAssigner::AssignShader (CE3D_Shader* _poShader, CGSceneNode* _p
         case SNT_AnimInstance:
         break;
 
-        case SNT_BSPNode:     AssignShader( _poShader, ( (CGSceneBSPNode*)_poObj )->poGetBackNode() );
+        case SNT_BSPNode:
+		AssignShader( _poShader, ( (CGSceneBSPNode*)_poObj )->poGetBackNode() );
         AssignShader( _poShader, ( (CGSceneBSPNode*)_poObj )->poGetFrontNode() );
         break;
 
-        case SNT_Mux:                    // iTest3DObj_Mux(_fd,(CGSceneMux*)_poObj);
+        case SNT_Mux:7// iTest3DObj_Mux(_fd,(CGSceneMux*)_poObj);
         break;
 
-        case SNT_CompiledLeaf:    ( (CGSceneCompiledLeaf*)_poObj )->SetShader( _poShader);
+        case SNT_CompiledLeaf:
+		( (CGSceneCompiledLeaf*)_poObj )->SetShader( _poShader);
         break;
 
         default:

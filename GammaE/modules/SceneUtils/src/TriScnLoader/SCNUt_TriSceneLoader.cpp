@@ -58,8 +58,7 @@ SCNUt_TriScene* SCNUt_TriSceneLoader::poLoad (char* _szFilename, SCNUt_MaterialT
             {
                 StrPos = ParseUtils_SkipLine(StrPos);
             }
-            else
-            if ( !strcmp(Token,"MATERIALS") )
+            else if ( !strcmp(Token,"MATERIALS") )
             {
                 Token = ParseUtils_ParseToken(StrPos);
 
@@ -74,7 +73,7 @@ SCNUt_TriScene* SCNUt_TriSceneLoader::poLoad (char* _szFilename, SCNUt_MaterialT
                     // Get the material number
                     Token = ParseUtils_ParseToken(StrPos);
                     sscanf(Token,"%d",&iMatNum);
-                    iMatNum--;                    // Materials are 1 based
+                    iMatNum--;  // Materials are 1 based
 
                     // Get the material
                     Token = ParseUtils_ParseToken(StrPos);
@@ -94,8 +93,7 @@ SCNUt_TriScene* SCNUt_TriSceneLoader::poLoad (char* _szFilename, SCNUt_MaterialT
                     // pszMaterials[iMatNum] = ParseUtils_CreateString(Token);
                 }
             }
-            else
-            if ( !strcmp(Token,"TRIS") )
+            else if ( !strcmp(Token,"TRIS") )
             {
                 Token = ParseUtils_ParseToken(StrPos);
 

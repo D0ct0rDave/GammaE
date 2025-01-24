@@ -48,7 +48,7 @@ SCNUt_EdgeList* SCNUt_EdgeBuilder::poBuild (CGMesh* _poMesh, CGMesh*&_poOutMesh)
     return (poEdgeList);
 }
 
-SCNUt_EdgeList* SCNUt_EdgeBuilder::poBuild_FromIndexedTriMesh (CGMesh* _poMesh)
+SCNUt_EdgeList* SCNUt_EdgeBuilder::poBuildFromIndexedTriMesh (CGMesh* _poMesh)
 {
     SCNUt_EdgeList* poEdgeList;
     int iTri;

@@ -91,20 +91,20 @@ CGSceneNode* SCNUt_OctreeBuilder::poBuildOctreeRec (SCNUt_TriScene& _oScene, int
 
     // Split in depth plane
     oTScnSplitter.ClassifyAndSplitScene(*poVChild[0],oDPlane);
-    poChildScenes[0] = oTScnSplitter.poBackScene;                    // Child 0
-    poChildScenes[1] = oTScnSplitter.poFrontScene;                    // Child 1
+    poChildScenes[0] = oTScnSplitter.poBackScene;           // Child 0
+    poChildScenes[1] = oTScnSplitter.poFrontScene;          // Child 1
 
     oTScnSplitter.ClassifyAndSplitScene(*poVChild[1],oDPlane);
-    poChildScenes[2] = oTScnSplitter.poBackScene;                    // Child 2
-    poChildScenes[3] = oTScnSplitter.poFrontScene;                    // Child 3
+    poChildScenes[2] = oTScnSplitter.poBackScene;           // Child 2
+    poChildScenes[3] = oTScnSplitter.poFrontScene;          // Child 3
 
     oTScnSplitter.ClassifyAndSplitScene(*poVChild[2],oDPlane);
-    poChildScenes[4] = oTScnSplitter.poBackScene;                    // Child 4
-    poChildScenes[5] = oTScnSplitter.poFrontScene;                    // Child 5
+    poChildScenes[4] = oTScnSplitter.poBackScene;           // Child 4
+    poChildScenes[5] = oTScnSplitter.poFrontScene;          // Child 5
 
     oTScnSplitter.ClassifyAndSplitScene(*poVChild[3],oDPlane);
-    poChildScenes[6] = oTScnSplitter.poBackScene;                    // Child 6
-    poChildScenes[7] = oTScnSplitter.poFrontScene;                    // Child 7
+    poChildScenes[6] = oTScnSplitter.poBackScene;           // Child 6
+    poChildScenes[7] = oTScnSplitter.poFrontScene;          // Child 7
     mDel poVChild[0];
     mDel poVChild[1];
     mDel poVChild[2];

@@ -42,8 +42,7 @@ int SortVXs( const void* a, const void* b)
     pVXb = (CVect3*)pCurrentVXs + *( (unsigned short*)b );
 
     if ( pVXa->z < pVXb->z ) return(-1);
-    else
-    if ( pVXa->z > pVXb->z ) return(1);
+    else if ( pVXa->z > pVXb->z ) return(1);
     else return(0);
 }
 

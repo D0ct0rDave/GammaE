@@ -46,7 +46,7 @@ void CGParticleSystem_Generic_Stretch::InitParticle (int iPart)
     P->fSize = fPInitialSizeFact * MATH_fRand();
     P->fEnergy = fPInitialEnergyFact * MATH_fRand();
 
-    P->Color.Assign(RGBAInitialValue);
+    P->Color = RGBAInitialValue;
 }
 
 void CGParticleSystem_Generic_Stretch::UpdateParticle (int iPart)
@@ -72,7 +72,12 @@ void CGParticleSystem_Generic_Stretch::UpdateParticle (int iPart)
     P->Speed.Add(Aux);
 
     // Setup alpha
-    P->Color.Sub(RGBAFact);
+    // P->Color.Sub(RGBAFact);
+
+    P->Color.r -= RGBAFact.r;
+    P->Color.g -= RGBAFact.g;
+    P->Color.b -= RGBAFact.b;
+    P->Color.a -= RGBAFact.a;
 }
 
 void CGParticleSystem_Generic_Stretch::UpdatePS (CMatrix4x4* _ViewMatrix)
@@ -83,7 +88,7 @@ void CGParticleSystem_Generic_Stretch::UpdatePS (CMatrix4x4* _ViewMatrix)
     CVect3 OldPos;
     TParticle_Stretch* P = pParts;
     CVect3* pVX = poMesh->VXs;
-    CVect4* pVC = poMesh->VCs;
+    CGColor* pVC = poMesh->VCs;
     int cPart;
 
     for ( cPart = 0; cPart < iMaxParticles; cPart++ )
@@ -111,10 +116,10 @@ void CGParticleSystem_Generic_Stretch::UpdatePS (CMatrix4x4* _ViewMatrix)
         pVX[3].V3( P->fSize,-P->fSize,0);
         pVX[3].Add(OldPos);
 
-        pVC[0].Assign(P->Color);
-        pVC[1].Assign(P->Color);
-        pVC[2].Assign(P->Color);
-        pVC[3].Assign(P->Color);
+        pVC[0] = P->Color;
+        pVC[1] = P->Color;
+        pVC[2] = P->Color;
+        pVC[3] = P->Color;
 
         pVX += 4;
         pVC += 4;

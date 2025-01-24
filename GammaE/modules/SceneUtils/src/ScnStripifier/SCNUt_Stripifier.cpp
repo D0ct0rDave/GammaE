@@ -244,16 +244,16 @@ int SCNUt_Stripifier::iSelectBestNeigh (SCNUt_AdjTriList* _poATL, int _iSrcTri)
     return(iBestNeigh);
 }
 
-int SCNUt_Stripifier::iGetNonCommonVertex (CGMesh* _SrCGMesh, int _iSrcTri, int _iDstTri)
+int SCNUt_Stripifier::iGetNonCommonVertex (CGMesh* _poSrcMesh, int _iSrcTri, int _iDstTri)
 {
     int cI;
 
     for ( cI = 0; cI < 3; cI++ )
     {
         if (
-            (_SrCGMesh->m_pusIdx[_iDstTri * 3 + cI] != _SrCGMesh->m_pusIdx[_iSrcTri * 3 + 0]) &&
-            (_SrCGMesh->m_pusIdx[_iDstTri * 3 + cI] != _SrCGMesh->m_pusIdx[_iSrcTri * 3 + 1]) &&
-            (_SrCGMesh->m_pusIdx[_iDstTri * 3 + cI] != _SrCGMesh->m_pusIdx[_iSrcTri * 3 + 2])
+            (_poSrcMesh->m_pusIdx[_iDstTri * 3 + cI] != _poSrcMesh->m_pusIdx[_iSrcTri * 3 + 0]) &&
+            (_poSrcMesh->m_pusIdx[_iDstTri * 3 + cI] != _poSrcMesh->m_pusIdx[_iSrcTri * 3 + 1]) &&
+            (_poSrcMesh->m_pusIdx[_iDstTri * 3 + cI] != _poSrcMesh->m_pusIdx[_iSrcTri * 3 + 2])
             )
 
             return (cI);

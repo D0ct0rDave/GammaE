@@ -36,9 +36,9 @@ class CGParticleSystem_Generic : public CGParticleSystem
 
     protected:
 
-        CVect4 RGBAFact;
+        CGColor RGBAFact;
 
-        CVect4 RGBAInitialValue;
+        CGColor RGBAInitialValue;
 
         CVect3 InitialSpeedFact;
 

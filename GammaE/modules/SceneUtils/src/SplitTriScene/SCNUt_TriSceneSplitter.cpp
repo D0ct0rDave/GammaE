@@ -50,8 +50,7 @@ void SCNUt_TriSceneSplitter::SplitScene (SCNUt_TriScene& _poScene, CGPlane& _oPl
         memcpy( poBackScene->Tris,_poScene.Tris,_poScene.NumTris * sizeof(SCNUt_Triangle) );
         return;
     }
-    else
-    if ( !_iBackTris )
+    else if ( !_iBackTris )
     {
         // Copy Input Scene data to BackScene
         memcpy( poFrontScene->Tris,_poScene.Tris,_poScene.NumTris * sizeof(SCNUt_Triangle) );
@@ -377,15 +376,13 @@ void SCNUt_TriSceneSplitter::GetSplitVertexs (SCNUt_Triangle &SrcTri, int &C, in
         A = 0;
         B = 1;
     }
-    else
-    if ( SrcTri.VertexSide[2] == SrcTri.VertexSide[1] )
+    else if ( SrcTri.VertexSide[2] == SrcTri.VertexSide[1] )
     {
         C = 0;
         A = 1;
         B = 2;
     }
-    else
-    if ( SrcTri.VertexSide[2] == SrcTri.VertexSide[0] )
+    else if ( SrcTri.VertexSide[2] == SrcTri.VertexSide[0] )
     {
         // 0 y 2 en el mismo lado, y 1 en el otro
         C = 1;
@@ -410,8 +407,7 @@ void SCNUt_TriSceneSplitter::GetSplitVertexs (SCNUt_Triangle &SrcTri, int &C, in
                 C = 1;
             }
         }
-        else
-        if ( SrcTri.VertexSide[1] == POLYSTATE_OVER )
+        else if ( SrcTri.VertexSide[1] == POLYSTATE_OVER )
         {
             if ( SrcTri.VertexSide[2] == POLYSTATE_FRONT )
             {
@@ -426,8 +422,7 @@ void SCNUt_TriSceneSplitter::GetSplitVertexs (SCNUt_Triangle &SrcTri, int &C, in
                 C = 2;
             }
         }
-        else
-        if ( SrcTri.VertexSide[2] == POLYSTATE_OVER )
+        else if ( SrcTri.VertexSide[2] == POLYSTATE_OVER )
         {
             if ( SrcTri.VertexSide[0] == POLYSTATE_FRONT )
             {
