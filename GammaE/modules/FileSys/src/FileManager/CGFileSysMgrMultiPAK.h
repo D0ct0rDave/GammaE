@@ -22,26 +22,26 @@ class CGFileSysMgrMultiPAK : public CGFileSysManager
 
         ~CGFileSysMgrMultiPAK();
 
-        virtual int iOpenFile(const CGString& _sFilename, EFileOpenMode _eOpenMode);
+        virtual handler hOpenFile(const CGString& _sFilename, EFileOpenMode _eOpenMode);
 
-        virtual void CloseFile(int _iHandler);
+        virtual void CloseFile(handler _iHandler);
 
-        virtual int iReadFile(int _iHandler, pointer _pData, int _uiSize);
+        virtual uint uiReadFile(handler _iHandler, pointer _pData, uint _uiSize);
 
-        virtual int iWriteFile(int _iHandler, pointer _pData, int _uiSize);
+        virtual uint uiWriteFile(handler _iHandler, pointer _pData, uint _uiSize);
 
-        virtual int iSeekFile(int _iHandler, int _iOffset, eFile_SeekMode _eMode);
+        virtual int iSeekFile(handler _iHandler, int _iOffset, EFileSeekMode _eMode);
 
-        virtual int iLengthFile(int _iHandler);
+        virtual uint uiLengthFile(handler _iHandler);
 
-        virtual int iPosFile(int _iHandler);
+        virtual uint uiPosFile(handler _iHandler);
 
-        CGFileSysMgrPAK* GetpoPAK();
-        void SetpoPAK(CGFileSysMgrPAK* value);
+        CGFileSysMgrPAK* poGetPAK();
+        void SetpoPAK(CGFileSysMgrPAK* _poPAK);
 
         // Data Members for Associations
 
-        CGFileSysMgrPAK* poPAK;
+        CGFileSysMgrPAK* m_poPAK;
 
     protected:
 
@@ -50,14 +50,14 @@ class CGFileSysMgrMultiPAK : public CGFileSysManager
     private:
 };
 
-inline CGFileSysMgrPAK* CGFileSysMgrMultiPAK::GetpoPAK ()
+inline CGFileSysMgrPAK* CGFileSysMgrMultiPAK::poGetPAK ()
 {
-    return(poPAK);
+    return(m_poPAK);
 }
 
-inline void CGFileSysMgrMultiPAK::SetpoPAK (CGFileSysMgrPAK* value)
+inline void CGFileSysMgrMultiPAK::SetpoPAK (CGFileSysMgrPAK* _poPAK )
 {
-    poPAK = value;
+    m_poPAK = _poPAK;
 }
 // ----------------------------------------------------------------------------
 #endif

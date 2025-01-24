@@ -84,13 +84,13 @@ void CGShaderDefFileWH::ProcessShaderDefFile(const CGString& _sShaderDefs)
             if ( szShaderFile )
             {
                 uint uiLen = szShaderFile - szShaderDef;
-                char* szShaderDefCopy = (char*)mAlloc(uiLen + 1);
+                char* szShaderDefCopy = (char*)MEMAlloc(uiLen + 1);
                 memcpy(szShaderDefCopy,szShaderDef,uiLen);
                 szShaderDefCopy[uiLen] = 0;
 
                 AddShader(szShaderDefCopy);
 
-                mFree(szShaderDefCopy);
+                MEMFree(szShaderDefCopy);
             }
             else
             {

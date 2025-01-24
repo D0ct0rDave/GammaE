@@ -90,17 +90,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\modules\Network\src\CNETClient.h" />
-    <ClInclude Include="..\modules\Network\src\CNETServer.h" />
-    <ClInclude Include="..\modules\Network\src\CNETSystem.h" />
-    <ClInclude Include="..\modules\Network\src\CNETTimeStampList.h" />
+    <ClInclude Include="..\modules\Network\src\CGNETClient.h" />
+    <ClInclude Include="..\modules\Network\src\CGNETServer.h" />
+    <ClInclude Include="..\modules\Network\src\CGNETSystem.h" />
+    <ClInclude Include="..\modules\Network\src\CGNETTimeStampList.h" />
     <ClInclude Include="..\modules\Network\src\GNetwork.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\modules\Network\src\CNETClient.cpp" />
-    <ClCompile Include="..\modules\Network\src\CNETServer.cpp" />
-    <ClCompile Include="..\modules\Network\src\CNETSystem.cpp" />
-    <ClCompile Include="..\modules\Network\src\CNETTimeStampList.cpp" />
+    <ClCompile Include="..\modules\Network\src\CGNETClient.cpp" />
+    <ClCompile Include="..\modules\Network\src\CGNETServer.cpp" />
+    <ClCompile Include="..\modules\Network\src\CGNETSystem.cpp" />
+    <ClCompile Include="..\modules\Network\src\CGNETTimeStampList.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

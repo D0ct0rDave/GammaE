@@ -279,7 +279,7 @@ template <typename T> T SwigValueInit() {
 
 /* The CastRankLimit says how many bits are used for the cast rank */
 #define SWIG_CASTRANKLIMIT         (1 << 8)
-/* The NewMask denotes the object was created (using new/malloc) */
+/* The NewMask denotes the object was created (using new/MEMAlloc) */
 #define SWIG_NEWOBJMASK            (SWIG_CASTRANKLIMIT  << 1)
 /* The TmpMask is for in/out typemaps that use temporal objects */
 #define SWIG_TMPOBJMASK            (SWIG_NEWOBJMASK << 1)
@@ -744,7 +744,7 @@ extern "C" {
 
 #include "lua.h"
 #include "lauxlib.h"
-#include <stdlib.h>  /* for malloc */
+#include <stdlib.h>  /* for MEMAlloc */
 #include <assert.h>  /* for a few sanity tests */
 
 /* -----------------------------------------------------------------------------

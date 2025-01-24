@@ -155,7 +155,7 @@ int E3D_ASELoader_LoadFile(char* Filename,CGMesh* Obj)
     fseek(fd,0,SEEK_END);
     Lenght = ftell(fd);
 
-    StrBuff = (char *)malloc(Lenght+1);
+    StrBuff = (char *)MEMAlloc(Lenght+1);
     memset((void *)StrBuff,0,Lenght+1);
     if (! StrBuff)
     {

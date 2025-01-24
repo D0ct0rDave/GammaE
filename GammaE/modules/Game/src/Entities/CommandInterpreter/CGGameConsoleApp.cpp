@@ -44,7 +44,7 @@ void CGGameConsoleApp::Init(int _iCols,int _iRows)
     // Sets up the graphic instance for this entity
     GraphicInstance( mNew CGGraphicInstance( mNew CGGraphicResource(poConsole) ) );
 
-    m_pucBuff = (char*)mAlloc(m_iCols * m_iRows);
+    m_pucBuff = (char*)MEMAlloc(m_iCols * m_iRows);
     memset(m_pucBuff,' ',m_iCols * m_iRows);
 
     m_iCurX = 0;

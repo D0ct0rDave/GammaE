@@ -291,7 +291,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
     CGSCNVBoundVolBuilder::I()->Visit(poACfg);
 
     // Free resources
-    mFree (StrBuff);
+    MEMFree (StrBuff);
 
     // Return animated mesh
     return (poACfg);

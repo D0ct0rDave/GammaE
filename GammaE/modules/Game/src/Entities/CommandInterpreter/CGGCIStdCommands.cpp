@@ -109,7 +109,7 @@ ECIState CGGCICommandExec::Exec(CGString& _sPars)
         szLine = szNextLine;
     }
 
-    mFree(szFile);
+    MEMFree(szFile);
     return(CIS_Running);
 }
 // -----------------------------------------------------------------------------

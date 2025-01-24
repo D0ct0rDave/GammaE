@@ -330,7 +330,7 @@ CGSceneNode* CLoader3DS::poLoad(const CGString& _sFilename)
     StreamSize = ftell(fd);
 
     fseek(fd,0,SEEK_SET);
-    Stream = (pointer)mAlloc(StreamSize);
+    Stream = (pointer)MEMAlloc(StreamSize);
     if ( !Stream )
     {
         fclose(fd);
@@ -343,7 +343,7 @@ CGSceneNode* CLoader3DS::poLoad(const CGString& _sFilename)
     // ----------------------------------------------------------------------------
     uiParseChunks(&poObj,Stream,StreamSize);
 
-    mFree(Stream);
+    MEMFree(Stream);
     return(poObj);
 }
 // ----------------------------------------------------------------------------

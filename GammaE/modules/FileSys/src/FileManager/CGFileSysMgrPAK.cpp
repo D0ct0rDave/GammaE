@@ -18,36 +18,36 @@ CGFileSysMgrPAK::~CGFileSysMgrPAK()
 {
 }
 
-int CGFileSysMgrPAK::iOpenFile (const CGString& _sFilename, EFileOpenMode _eOpenMode)
+handler CGFileSysMgrPAK::hOpenFile (const CGString& _sFilename, EFileOpenMode _eOpenMode)
 {
     return(0);
 }
 
-void CGFileSysMgrPAK::CloseFile (int _iHandler)
+void CGFileSysMgrPAK::CloseFile (handler _iHandler)
 {
 }
 
-int CGFileSysMgrPAK::iReadFile (int _iHandler, pointer _pData, int _uiSize)
-{
-    return(0);
-}
-
-int CGFileSysMgrPAK::iWriteFile (int _iHandler, pointer _pData, int _uiSize)
+uint CGFileSysMgrPAK::uiReadFile (handler _iHandler, pointer _pData, uint _uiSize)
 {
     return(0);
 }
 
-int CGFileSysMgrPAK::iSeekFile (int _iHandler, int _iOffset, eFile_SeekMode _eMode)
+uint CGFileSysMgrPAK::uiWriteFile (handler _iHandler, pointer _pData, uint _uiSize)
 {
     return(0);
 }
 
-int CGFileSysMgrPAK::iLengthFile (int _iHandler)
+int CGFileSysMgrPAK::iSeekFile (handler _iHandler, int _iOffset, EFileSeekMode _eMode)
 {
     return(0);
 }
 
-int CGFileSysMgrPAK::iPosFile (int _iHandler)
+uint CGFileSysMgrPAK::uiLengthFile (handler _iHandler)
+{
+    return(0);
+}
+
+uint CGFileSysMgrPAK::uiPosFile (handler _iHandler)
 {
     return(0);
 }

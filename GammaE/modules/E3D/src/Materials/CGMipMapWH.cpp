@@ -76,7 +76,7 @@ void FlipImage(FIBITMAP* dib)
     uint uiHeight = FreeImage_GetHeight(dib);
     uint uiHHeight = uiHeight >> 1;
     uint uiSize = FreeImage_GetPitch(dib);
-    void* pLine = mAlloc(uiSize);
+    void* pLine = MEMAlloc(uiSize);
 
     for ( uint i = 0; i < uiHHeight; i++ )
     {
@@ -88,7 +88,7 @@ void FlipImage(FIBITMAP* dib)
         memcpy(pDLine,pLine,uiSize);
     }
 
-    mFree(pLine);
+    MEMFree(pLine);
 }
 // ----------------------------------------------------------------------------
 void SwapRBChannels(FIBITMAP* dib)
@@ -166,7 +166,7 @@ CGMipMap* CGMipMapWH::poLoadResource(const CGString& _sFilename)
             /*
                uint uiSize = poMMO->m_uiTX*poMMO->m_uiTY;
                unsigned char*pSrc = (unsigned char*)poMMO->m_pLOD[0];
-               unsigned char*pDst = (unsigned char*)mAlloc(uiSize * 4);
+               unsigned char*pDst = (unsigned char*)MEMAlloc(uiSize * 4);
                poMMO->m_pLOD[0] = pDst;
 
                while (uiSize>0)

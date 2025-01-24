@@ -90,17 +90,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\modules\AI\src\CAI_AStar.h" />
-    <ClInclude Include="..\modules\AI\src\CAI_Cdxastar.h" />
-    <ClInclude Include="..\modules\AI\src\CAI_Map.h" />
-    <ClInclude Include="..\modules\AI\src\CAI_MathFuncs.h" />
+    <ClInclude Include="..\modules\AI\src\CGAIAStar.h" />
+    <ClInclude Include="..\modules\AI\src\CGAICdxastar.h" />
+    <ClInclude Include="..\modules\AI\src\CGAIMap.h" />
+    <ClInclude Include="..\modules\AI\src\CGAIMathFuncs.h" />
     <ClInclude Include="..\modules\AI\src\GAI.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\modules\AI\src\CAI_AStar.cpp" />
-    <ClCompile Include="..\modules\AI\src\CAI_Cdxastar.cpp" />
-    <ClCompile Include="..\modules\AI\src\CAI_Map.cpp" />
-    <ClCompile Include="..\modules\AI\src\CAI_MathFuncs.cpp" />
+    <ClCompile Include="..\modules\AI\src\CGAIAStar.cpp" />
+    <ClCompile Include="..\modules\AI\src\CGAICdxastar.cpp" />
+    <ClCompile Include="..\modules\AI\src\CGAIMap.cpp" />
+    <ClCompile Include="..\modules\AI\src\CGAIMathFuncs.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

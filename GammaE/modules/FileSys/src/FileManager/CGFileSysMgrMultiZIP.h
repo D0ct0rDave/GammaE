@@ -22,26 +22,26 @@ class CGFileSysMgrMultiZIP : public CGFileSysManager
 
         ~CGFileSysMgrMultiZIP();
 
-        virtual int iOpenFile(const CGString& _sFilename, EFileOpenMode _eOpenMode);
+        virtual handler hOpenFile(const CGString& _sFilename, EFileOpenMode _eOpenMode);
 
-        virtual void CloseFile(int _iHandler);
+        virtual void CloseFile(handler _iHandler);
 
-        virtual int iReadFile(int _iHandler, pointer _pData, int _uiSize);
+        virtual uint uiReadFile(handler _iHandler, pointer _pData, uint _uiSize);
 
-        virtual int iWriteFile(int _iHandler, pointer _pData, int _uiSize);
+        virtual uint uiWriteFile(handler _iHandler, pointer _pData, uint _uiSize);
 
-        virtual int iSeekFile(int _iHandler, int _iOffset, eFile_SeekMode _eMode);
+        virtual int iSeekFile(handler _iHandler, int _iOffset, EFileSeekMode _eMode);
 
-        virtual int iLengthFile(int _iHandler);
+        virtual uint uiLengthFile(handler _iHandler);
 
-        virtual int iPosFile(int _iHandler);
+        virtual uint uiPosFile(handler _iHandler);
 
-        CGFileSysMgrZIP* GetpoZIP();
-        void SetpoZIP(CGFileSysMgrZIP* value);
+        CGFileSysMgrZIP* poGetZIP();
+        void SetZIP(CGFileSysMgrZIP* _poZIP);
 
         // Data Members for Associations
 
-        CGFileSysMgrZIP* poZIP;
+        CGFileSysMgrZIP* m_poZIP;
 
     protected:
 
@@ -50,14 +50,14 @@ class CGFileSysMgrMultiZIP : public CGFileSysManager
     private:
 };
 
-inline CGFileSysMgrZIP* CGFileSysMgrMultiZIP::GetpoZIP ()
+inline CGFileSysMgrZIP* CGFileSysMgrMultiZIP::poGetZIP ()
 {
-    return(poZIP);
+    return(m_poZIP);
 }
 
-inline void CGFileSysMgrMultiZIP::SetpoZIP (CGFileSysMgrZIP* value)
+inline void CGFileSysMgrMultiZIP::SetZIP (CGFileSysMgrZIP* _poZIP)
 {
-    poZIP = value;
+    m_poZIP = _poZIP;
 }
 // ----------------------------------------------------------------------------
 #endif

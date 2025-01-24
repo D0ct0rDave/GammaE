@@ -60,13 +60,13 @@ void CSector::Init (int _iRes, bool _b21)
     b21 = _b21;
 
     iLast = _iRes - 1;
-    pData = mAlloc( DataSize() );
+    pData = MEMAlloc( DataSize() );
     memset( pData,0,DataSize() );
 }
 
 void CSector::Invalidate ()
 {
-    if ( pData ) mFree(pData);
+    if ( pData ) MEMFree(pData);
 
     pData = NULL;
     Resolution = 0;

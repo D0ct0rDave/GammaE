@@ -20,7 +20,7 @@
 // ----------------------------------------------------------------------------
 bool CGCommandBindingLoader::Init (char* _szFilename)
 {
-    char* StrBuff = ParseUtils_ReadFile(_szFilename);
+    char* StrBuff = Utils::Parse::ReadFile(_szFilename);
     char* StrPos = StrBuff;
     char* Token;
     int iKey;
@@ -32,15 +32,15 @@ bool CGCommandBindingLoader::Init (char* _szFilename)
 
     while ( StrPos )
     {
-        Token = ParseUtils_ParseToken(StrPos);
+        Token = Utils::Parse::ParseToken(StrPos);
 
         if ( !strcmp(Token,"bind") )
         {
-            Token = ParseUtils_ParseToken(StrPos);
+            Token = Utils::Parse::ParseToken(StrPos);
 
             iKey = CGInputRegistry::I()->iInput(Token);
 
-            Token = ParseUtils_ParseToken(StrPos);
+            Token = Utils::Parse::ParseToken(StrPos);
 
             iCmd = CGCommandRegistry::I()->iRetrieveCommand(Token);
 
@@ -49,7 +49,7 @@ bool CGCommandBindingLoader::Init (char* _szFilename)
         }
     }
 
-    mFree(StrBuff);
+    MEMFree(StrBuff);
     return (true);
 }
 // ----------------------------------------------------------------------------

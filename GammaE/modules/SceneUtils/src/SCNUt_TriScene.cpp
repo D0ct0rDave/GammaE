@@ -23,7 +23,7 @@ SCNUt_TriScene::SCNUt_TriScene()
 SCNUt_TriScene::~SCNUt_TriScene()
 {
     if ( Tris != NULL )
-        mFree(Tris);
+        MEMFree(Tris);
     // mDel []Tris;
 }
 
@@ -42,7 +42,7 @@ void SCNUt_TriScene::Init(uint _uiNumTris)
 
     NumTris = _uiNumTris;
     // Tris    = mNew SCNUt_Triangle[NumTris];
-    Tris = (SCNUt_Triangle*)mAlloc ( NumTris * sizeof(SCNUt_Triangle) );
+    Tris = (SCNUt_Triangle*)MEMAlloc ( NumTris * sizeof(SCNUt_Triangle) );
 }
 
 // Additional Declarations

@@ -16,14 +16,14 @@
 // ----------------------------------------------------------------------------
 CGConfigFile::CGConfigFile(const CGString& _sConfigFile) : m_hConfigObj(NULL)
 {
-    config_t* poCfg = (config_t*)mAlloc( sizeof(config_t) );
+    config_t* poCfg = (config_t*)MEMAlloc( sizeof(config_t) );
     config_init(poCfg);
 
     if ( config_read_file( poCfg, _sConfigFile.szString() ) == 0 )
     {
         CGErrorLC::I()->Write( "Line %d, %s\n",config_error_line(poCfg),config_error_text(poCfg) );
         config_destroy(poCfg);
-        mFree(poCfg);
+        MEMFree(poCfg);
 
         return;
     }
@@ -36,7 +36,7 @@ CGConfigFile::~CGConfigFile()
     if ( m_hConfigObj != NULL )
     {
         config_destroy( (config_t*)m_hConfigObj );
-        mFree(m_hConfigObj);
+        MEMFree(m_hConfigObj);
     }
 }
 // ----------------------------------------------------------------------------

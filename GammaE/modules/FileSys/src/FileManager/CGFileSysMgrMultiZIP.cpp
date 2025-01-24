@@ -19,36 +19,36 @@ CGFileSysMgrMultiZIP::~CGFileSysMgrMultiZIP()
 {
 }
 
-int CGFileSysMgrMultiZIP::iOpenFile (const CGString& _sFilename, EFileOpenMode _eOpenMode)
+handler CGFileSysMgrMultiZIP::hOpenFile (const CGString& _sFilename, EFileOpenMode _eOpenMode)
 {
     return(0);
 }
 
-void CGFileSysMgrMultiZIP::CloseFile (int _iHandler)
+void CGFileSysMgrMultiZIP::CloseFile (handler _iHandler)
 {
 }
 
-int CGFileSysMgrMultiZIP::iReadFile (int _iHandler, pointer _pData, int _uiSize)
-{
-    return(0);
-}
-
-int CGFileSysMgrMultiZIP::iWriteFile (int _iHandler, pointer _pData, int _uiSize)
+uint CGFileSysMgrMultiZIP::uiReadFile (handler _iHandler, pointer _pData, uint _uiSize)
 {
     return(0);
 }
 
-int CGFileSysMgrMultiZIP::iSeekFile (int _iHandler, int _iOffset, eFile_SeekMode _eMode)
+uint CGFileSysMgrMultiZIP::uiWriteFile (handler _iHandler, pointer _pData, uint _uiSize)
 {
     return(0);
 }
 
-int CGFileSysMgrMultiZIP::iLengthFile (int _iHandler)
+int CGFileSysMgrMultiZIP::iSeekFile (handler _iHandler, int _iOffset, EFileSeekMode _eMode)
 {
     return(0);
 }
 
-int CGFileSysMgrMultiZIP::iPosFile (int _iHandler)
+uint CGFileSysMgrMultiZIP::uiLengthFile (handler _iHandler)
+{
+    return(0);
+}
+
+uint CGFileSysMgrMultiZIP::uiPosFile (handler _iHandler)
 {
     return(0);
 }

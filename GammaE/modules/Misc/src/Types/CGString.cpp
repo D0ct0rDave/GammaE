@@ -49,7 +49,7 @@ void CGString::Free()
 {
     if ( m_szData != NULL )
     {
-        mFree(m_szData);
+        MEMFree(m_szData);
         m_szData = NULL;
     }
 }
@@ -79,7 +79,7 @@ void CGString::Assign(const char* _szStr)
     uint uiLen = strlen(_szStr);
     if ( uiLen == 0 ) return;
 
-    m_szData = (char*)mAlloc(uiLen + 1);
+    m_szData = (char*)MEMAlloc(uiLen + 1);
     memcpy(m_szData,_szStr,uiLen + 1);
 }
 // ----------------------------------------------------------------------------
@@ -176,7 +176,7 @@ void CGString::Concat(const CGString& _oStr)
     uint uiSLen = this->uiLen();
     uint uiTLen = uiSLen + uiDLen;
 
-    char* szNewStr = (char*)mAlloc(uiTLen + 1);
+    char* szNewStr = (char*)MEMAlloc(uiTLen + 1);
     if ( uiSLen > 0 )
         memcpy( (void*)szNewStr,m_szData,uiSLen );
 

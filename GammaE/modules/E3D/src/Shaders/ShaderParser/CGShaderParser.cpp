@@ -208,7 +208,7 @@ CGShader* CGShaderParser::poParseShader(const CGString& _sShaderDefinition,const
         poShader = poCreateShaderFromTexture(_sShaderName);
     }
 
-    mFree(szShaderStream);
+    MEMFree(szShaderStream);
 
     return(poShader);
 }

@@ -198,6 +198,9 @@
     <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Generic.cpp">
       <Filter>ParticleSystems</Filter>
     </ClCompile>
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Generic_Quad.cpp">
+      <Filter>ParticleSystems</Filter>
+    </ClCompile>
     <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Generic_Stretch.cpp">
       <Filter>ParticleSystems</Filter>
     </ClCompile>

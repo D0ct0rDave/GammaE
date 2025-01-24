@@ -25,6 +25,9 @@
     <Filter Include="LensFlare">
       <UniqueIdentifier>{E106FEE1-4D71-B258-96AF-63FE025990AD}</UniqueIdentifier>
     </Filter>
+    <Filter Include="LightCaster">
+      <UniqueIdentifier>{7F8DDE88-EB42-577E-7437-5155E0EB4D82}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Reflector">
       <UniqueIdentifier>{2B03EF26-976D-A39D-E0AB-54434C5581F2}</UniqueIdentifier>
     </Filter>
@@ -94,6 +97,9 @@
     <ClInclude Include="..\modules\SceneObjects\src\LensFlare\CLensFlare_Elem.h">
       <Filter>LensFlare</Filter>
     </ClInclude>
+    <ClInclude Include="..\modules\SceneObjects\src\LightCaster\CLightCaster.h">
+      <Filter>LightCaster</Filter>
+    </ClInclude>
     <ClInclude Include="..\modules\SceneObjects\src\Reflector\CObject3D_Reflector.h">
       <Filter>Reflector</Filter>
     </ClInclude>
@@ -158,6 +164,9 @@
     </ClCompile>
     <ClCompile Include="..\modules\SceneObjects\src\LensFlare\CLensFlare_Elem.cpp">
       <Filter>LensFlare</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\SceneObjects\src\LightCaster\CLightCaster.cpp">
+      <Filter>LightCaster</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\SceneObjects\src\Reflector\CObject3D_Reflector.cpp">
       <Filter>Reflector</Filter>

@@ -1,204 +1,256 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="MATH_Curve">
-      <UniqueIdentifier>{F3C1070F-DF79-495C-4881-22B83458E44C}</UniqueIdentifier>
+    <Filter Include="BoundingVolume">
+      <UniqueIdentifier>{33F70D13-1FC5-0119-0859-723FF4C5DD7D}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MATH_Evaluator">
-      <UniqueIdentifier>{4150CF92-2D1E-C398-16B2-33BF021F9FFD}</UniqueIdentifier>
+    <Filter Include="Curve">
+      <UniqueIdentifier>{CA86FD0C-369B-25BE-FF1C-C91D6BF021EF}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MATH_Matrix">
-      <UniqueIdentifier>{43B5EA05-AF6A-63FB-385F-5DD2A4135AFF}</UniqueIdentifier>
+    <Filter Include="Evaluator">
+      <UniqueIdentifier>{98A8396D-0413-EEE3-4D51-9F89B9FACB38}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MATH_Other">
-      <UniqueIdentifier>{F02EE00F-DCE6-215D-45EE-FAB831C5BC4D}</UniqueIdentifier>
+    <Filter Include="Matrix">
+      <UniqueIdentifier>{FA1499C2-E6B6-C398-CF71-D7ECBBB24AE9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MATH_Plane">
-      <UniqueIdentifier>{BEC7ED0F-AA7F-2F5D-1387-08B9FF5DCA4D}</UniqueIdentifier>
+    <Filter Include="Other">
+      <UniqueIdentifier>{C7F3D50D-3308-FEBE-FC89-A11E685DFAEF}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MATH_Quaternion">
-      <UniqueIdentifier>{B44D6BEC-20D9-D8B0-29EA-5BA595F434B1}</UniqueIdentifier>
+    <Filter Include="Plane">
+      <UniqueIdentifier>{958CE30D-01A1-0BBF-CA22-AF1E36F607F0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MATH_Ray">
-      <UniqueIdentifier>{9A7947E0-8646-A2EB-AF5F-90939B8BD779}</UniqueIdentifier>
+    <Filter Include="Quaternion">
+      <UniqueIdentifier>{EBB02014-D768-6261-4070-3BBD2C47FD51}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MATH_Segment">
-      <UniqueIdentifier>{615E8599-4DC1-143E-F646-4DF4E288E0C0}</UniqueIdentifier>
+    <Filter Include="Ray">
+      <UniqueIdentifier>{B11C880B-1D26-887C-A6A1-9E7C12AA937C}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MATH_Triangle">
-      <UniqueIdentifier>{6411FEA2-D0D1-79D9-990C-C356058CBEB5}</UniqueIdentifier>
+    <Filter Include="Segment">
+      <UniqueIdentifier>{F8B4FFEB-6494-7E87-6DAC-095ED90AE5E8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MATH_Vector">
-      <UniqueIdentifier>{C13B281B-2DF1-A010-B6E5-9AE7229A9714}</UniqueIdentifier>
+    <Filter Include="Smoother">
+      <UniqueIdentifier>{B6CE9DE6-A29B-F8F1-CBB4-E699B7E02D80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Triangle">
+      <UniqueIdentifier>{DB3AC344-C707-1E50-F020-0CF8DC4C53DE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vector">
+      <UniqueIdentifier>{789BD6D7-643D-01AE-4DF8-1402393988FE}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\modules\Math\src\BoundingVolume\CGBVAABB.h">
+      <Filter>BoundingVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Math\src\BoundingVolume\CGBVCylinder.h">
+      <Filter>BoundingVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Math\src\BoundingVolume\CGBVFrustum.h">
+      <Filter>BoundingVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Math\src\BoundingVolume\CGBVPoint.h">
+      <Filter>BoundingVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Math\src\BoundingVolume\CGBVSphere.h">
+      <Filter>BoundingVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Math\src\BoundingVolume\CGBVUtils.h">
+      <Filter>BoundingVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Math\src\BoundingVolume\CGBoundingVolume.h">
+      <Filter>BoundingVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Math\src\BoundingVolume\GBoundingVolumeType.h">
+      <Filter>BoundingVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Math\src\Curve\CG4PCurve.h">
+      <Filter>Curve</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Math\src\Curve\CGCurve.h">
+      <Filter>Curve</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Math\src\Evaluator\CGEvalBinary.h">
+      <Filter>Evaluator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Math\src\Evaluator\CGEvalConst.h">
+      <Filter>Evaluator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Math\src\Evaluator\CGEvalCos.h">
+      <Filter>Evaluator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Math\src\Evaluator\CGEvalMult.h">
+      <Filter>Evaluator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Math\src\Evaluator\CGEvalPeriodic.h">
+      <Filter>Evaluator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Math\src\Evaluator\CGEvalSawTooth.h">
+      <Filter>Evaluator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Math\src\Evaluator\CGEvalSin.h">
+      <Filter>Evaluator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Math\src\Evaluator\CGEvalSquare.h">
+      <Filter>Evaluator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Math\src\Evaluator\CGEvalSum.h">
+      <Filter>Evaluator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Math\src\Evaluator\CGEvalTime.h">
+      <Filter>Evaluator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Math\src\Evaluator\CGEvalTriangle.h">
+      <Filter>Evaluator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\Math\src\Evaluator\CGEvaluator.h">
+      <Filter>Evaluator</Filter>
+    </ClInclude>
     <ClInclude Include="..\modules\Math\src\GMath.h" />
-    <ClInclude Include="..\modules\Math\src\MATH_Curve\C4PCurve.h">
-      <Filter>MATH_Curve</Filter>
+    <ClInclude Include="..\modules\Math\src\Matrix\CGMatrix4x4.h">
+      <Filter>Matrix</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Curve\CCurve.h">
-      <Filter>MATH_Curve</Filter>
+    <ClInclude Include="..\modules\Math\src\Other\GMathCommon.h">
+      <Filter>Other</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEval_Binary.h">
-      <Filter>MATH_Evaluator</Filter>
+    <ClInclude Include="..\modules\Math\src\Other\GMathIntersect.h">
+      <Filter>Other</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEval_Const.h">
-      <Filter>MATH_Evaluator</Filter>
+    <ClInclude Include="..\modules\Math\src\Other\GMathUtils.h">
+      <Filter>Other</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEval_Cos.h">
-      <Filter>MATH_Evaluator</Filter>
+    <ClInclude Include="..\modules\Math\src\Plane\CGPlane.h">
+      <Filter>Plane</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEval_Mult.h">
-      <Filter>MATH_Evaluator</Filter>
+    <ClInclude Include="..\modules\Math\src\Quaternion\CGQuaternion.h">
+      <Filter>Quaternion</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEval_Periodic.h">
-      <Filter>MATH_Evaluator</Filter>
+    <ClInclude Include="..\modules\Math\src\Ray\CGRay.h">
+      <Filter>Ray</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEval_SawTooth.h">
-      <Filter>MATH_Evaluator</Filter>
+    <ClInclude Include="..\modules\Math\src\Segment\CGSegment.h">
+      <Filter>Segment</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEval_Sin.h">
-      <Filter>MATH_Evaluator</Filter>
+    <ClInclude Include="..\modules\Math\src\Smoother\CGSmoother.h">
+      <Filter>Smoother</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEval_Square.h">
-      <Filter>MATH_Evaluator</Filter>
+    <ClInclude Include="..\modules\Math\src\Triangle\CGTriangle.h">
+      <Filter>Triangle</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEval_Sum.h">
-      <Filter>MATH_Evaluator</Filter>
+    <ClInclude Include="..\modules\Math\src\Vector\CGVect2.h">
+      <Filter>Vector</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEval_Time.h">
-      <Filter>MATH_Evaluator</Filter>
+    <ClInclude Include="..\modules\Math\src\Vector\CGVect3.h">
+      <Filter>Vector</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Evaluator\CEvaluator.h">
-      <Filter>MATH_Evaluator</Filter>
+    <ClInclude Include="..\modules\Math\src\Vector\CGVect4.h">
+      <Filter>Vector</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Evaluator\ceval_triangle.h">
-      <Filter>MATH_Evaluator</Filter>
+    <ClInclude Include="..\modules\Math\src\Vector\CGVector.h">
+      <Filter>Vector</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Evaluator\gammae_math_evaluators.h">
-      <Filter>MATH_Evaluator</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Matrix\CMatrix4x4.h">
-      <Filter>MATH_Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Other\CSmoother.h">
-      <Filter>MATH_Other</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Other\MATH_Common.h">
-      <Filter>MATH_Other</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Other\MATH_Utils.h">
-      <Filter>MATH_Other</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Plane\CPlane.h">
-      <Filter>MATH_Plane</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Quaternion\CQuaternion.h">
-      <Filter>MATH_Quaternion</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Ray\CRay.h">
-      <Filter>MATH_Ray</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Segment\CSegment.h">
-      <Filter>MATH_Segment</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Triangle\CTriangle.h">
-      <Filter>MATH_Triangle</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Vector\CVect2.h">
-      <Filter>MATH_Vector</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Vector\CVect3.h">
-      <Filter>MATH_Vector</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MATH_Vector\CVect4.h">
-      <Filter>MATH_Vector</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Math\src\MMath.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\modules\Math\src\MATH_Curve\C4PCurve.cpp">
-      <Filter>MATH_Curve</Filter>
+    <ClCompile Include="..\modules\Math\src\BoundingVolume\CGBVAABB.cpp">
+      <Filter>BoundingVolume</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Curve\CCurve.cpp">
-      <Filter>MATH_Curve</Filter>
+    <ClCompile Include="..\modules\Math\src\BoundingVolume\CGBVCylinder.cpp">
+      <Filter>BoundingVolume</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Evaluator\CEval_Binary.cpp">
-      <Filter>MATH_Evaluator</Filter>
+    <ClCompile Include="..\modules\Math\src\BoundingVolume\CGBVFrustum.cpp">
+      <Filter>BoundingVolume</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Evaluator\CEval_Const.cpp">
-      <Filter>MATH_Evaluator</Filter>
+    <ClCompile Include="..\modules\Math\src\BoundingVolume\CGBVPoint.cpp">
+      <Filter>BoundingVolume</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Evaluator\CEval_Cos.cpp">
-      <Filter>MATH_Evaluator</Filter>
+    <ClCompile Include="..\modules\Math\src\BoundingVolume\CGBVSphere.cpp">
+      <Filter>BoundingVolume</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Evaluator\CEval_Mult.cpp">
-      <Filter>MATH_Evaluator</Filter>
+    <ClCompile Include="..\modules\Math\src\BoundingVolume\CGBVUtils.cpp">
+      <Filter>BoundingVolume</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Evaluator\CEval_Periodic.cpp">
-      <Filter>MATH_Evaluator</Filter>
+    <ClCompile Include="..\modules\Math\src\BoundingVolume\CGBoundingVolume.cpp">
+      <Filter>BoundingVolume</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Evaluator\CEval_SawTooth.cpp">
-      <Filter>MATH_Evaluator</Filter>
+    <ClCompile Include="..\modules\Math\src\Curve\CG4PCurve.cpp">
+      <Filter>Curve</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Evaluator\CEval_Sin.cpp">
-      <Filter>MATH_Evaluator</Filter>
+    <ClCompile Include="..\modules\Math\src\Curve\CGCurve.cpp">
+      <Filter>Curve</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Evaluator\CEval_Square.cpp">
-      <Filter>MATH_Evaluator</Filter>
+    <ClCompile Include="..\modules\Math\src\Evaluator\CGEvalBinary.cpp">
+      <Filter>Evaluator</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Evaluator\CEval_Sum.cpp">
-      <Filter>MATH_Evaluator</Filter>
+    <ClCompile Include="..\modules\Math\src\Evaluator\CGEvalConst.cpp">
+      <Filter>Evaluator</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Evaluator\CEval_Time.cpp">
-      <Filter>MATH_Evaluator</Filter>
+    <ClCompile Include="..\modules\Math\src\Evaluator\CGEvalCos.cpp">
+      <Filter>Evaluator</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Evaluator\CEval_Triangle.cpp">
-      <Filter>MATH_Evaluator</Filter>
+    <ClCompile Include="..\modules\Math\src\Evaluator\CGEvalMult.cpp">
+      <Filter>Evaluator</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Evaluator\CEvaluator.cpp">
-      <Filter>MATH_Evaluator</Filter>
+    <ClCompile Include="..\modules\Math\src\Evaluator\CGEvalPeriodic.cpp">
+      <Filter>Evaluator</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Evaluator\GammaE_Math_Evaluators.cpp">
-      <Filter>MATH_Evaluator</Filter>
+    <ClCompile Include="..\modules\Math\src\Evaluator\CGEvalSawTooth.cpp">
+      <Filter>Evaluator</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Matrix\CMatrix4x4.cpp">
-      <Filter>MATH_Matrix</Filter>
+    <ClCompile Include="..\modules\Math\src\Evaluator\CGEvalSin.cpp">
+      <Filter>Evaluator</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Other\CSmoother.cpp">
-      <Filter>MATH_Other</Filter>
+    <ClCompile Include="..\modules\Math\src\Evaluator\CGEvalSquare.cpp">
+      <Filter>Evaluator</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Other\MATH_Common.cpp">
-      <Filter>MATH_Other</Filter>
+    <ClCompile Include="..\modules\Math\src\Evaluator\CGEvalSum.cpp">
+      <Filter>Evaluator</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Other\MATH_Utils.cpp">
-      <Filter>MATH_Other</Filter>
+    <ClCompile Include="..\modules\Math\src\Evaluator\CGEvalTime.cpp">
+      <Filter>Evaluator</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Plane\CPlane.cpp">
-      <Filter>MATH_Plane</Filter>
+    <ClCompile Include="..\modules\Math\src\Evaluator\CGEvalTriangle.cpp">
+      <Filter>Evaluator</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Quaternion\CQuaternion.cpp">
-      <Filter>MATH_Quaternion</Filter>
+    <ClCompile Include="..\modules\Math\src\Evaluator\CGEvaluator.cpp">
+      <Filter>Evaluator</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Ray\CRay.cpp">
-      <Filter>MATH_Ray</Filter>
+    <ClCompile Include="..\modules\Math\src\Matrix\CGMatrix4x4.cpp">
+      <Filter>Matrix</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Segment\CSegment.cpp">
-      <Filter>MATH_Segment</Filter>
+    <ClCompile Include="..\modules\Math\src\Other\GMathCommon.cpp">
+      <Filter>Other</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Triangle\CTriangle.cpp">
-      <Filter>MATH_Triangle</Filter>
+    <ClCompile Include="..\modules\Math\src\Other\GMathIntersect.cpp">
+      <Filter>Other</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Vector\CVect2.cpp">
-      <Filter>MATH_Vector</Filter>
+    <ClCompile Include="..\modules\Math\src\Other\GMathUtils.cpp">
+      <Filter>Other</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Vector\CVect3.cpp">
-      <Filter>MATH_Vector</Filter>
+    <ClCompile Include="..\modules\Math\src\Plane\CGPlane.cpp">
+      <Filter>Plane</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MATH_Vector\CVect4.cpp">
-      <Filter>MATH_Vector</Filter>
+    <ClCompile Include="..\modules\Math\src\Quaternion\CGQuaternion.cpp">
+      <Filter>Quaternion</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Math\src\MMath.cpp" />
+    <ClCompile Include="..\modules\Math\src\Ray\CGRay.cpp">
+      <Filter>Ray</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Math\src\Segment\CGSegment.cpp">
+      <Filter>Segment</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Math\src\Smoother\CGSmoother.cpp">
+      <Filter>Smoother</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Math\src\Triangle\CGTriangle.cpp">
+      <Filter>Triangle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Math\src\Vector\CGVect2.cpp">
+      <Filter>Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Math\src\Vector\CGVect3.cpp">
+      <Filter>Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Math\src\Vector\CGVect4.cpp">
+      <Filter>Vector</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -74,11 +74,11 @@ void CGParticleSystem::InitPS (int _iMaxParticles, bool _bZOrder, bool _bDisable
     // ## begin CGParticleSystem::InitPS%997390914.body preserve=yes
     int cPart;
 
-    if ( Particle ) mFree(Particle);
+    if ( Particle ) MEMFree(Particle);
     if ( poMesh ) mDel(poMesh);
 
     iMaxParticles = _iMaxParticles;
-    Particle = mAlloc(iParticleBytes * iMaxParticles);
+    Particle = MEMAlloc(iParticleBytes * iMaxParticles);
     memset(Particle,0,iParticleBytes * iMaxParticles);
 
     // -----------------------------------------------------

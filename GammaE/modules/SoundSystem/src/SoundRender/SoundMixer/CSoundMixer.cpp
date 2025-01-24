@@ -54,9 +54,9 @@ void CSoundMixer::SetupBuffer (unsigned int _uiSamples, unsigned int _iSRate, in
     iBits = _iBits;
     uiBuffSamples = _uiSamples;
     uiBuffSize = uiBuffSamples * (iBits >> 3) * 2;
-    pBuffer = mAlloc(uiBuffSize);
-    pi32bBuffer = (int*)mAlloc(uiBuffSamples * 2 * 4);
-    pSampleBuffer = (int*)mAlloc(uiBuffSamples * 2 * 2);
+    pBuffer = MEMAlloc(uiBuffSize);
+    pi32bBuffer = (int*)MEMAlloc(uiBuffSamples * 2 * 4);
+    pSampleBuffer = (int*)MEMAlloc(uiBuffSamples * 2 * 2);
 
     Clear();                    // Erase buffer contents previously to it's use
 
@@ -280,9 +280,9 @@ unsigned int CSoundMixer::uiGetBufferSize ()
 
 void CSoundMixer::Finish ()
 {
-    if ( pBuffer ) mFree(pBuffer);
-    if ( pSampleBuffer ) mFree(pSampleBuffer);
-    if ( pi32bBuffer ) mFree(pi32bBuffer);
+    if ( pBuffer ) MEMFree(pBuffer);
+    if ( pSampleBuffer ) MEMFree(pSampleBuffer);
+    if ( pi32bBuffer ) MEMFree(pi32bBuffer);
 }
 
 // Additional Declarations

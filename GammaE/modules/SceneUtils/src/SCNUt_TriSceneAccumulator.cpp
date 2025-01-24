@@ -32,7 +32,7 @@ void SCNUt_TriSceneAccumulator::AddTriScene (SCNUt_TriScene* _poScn)
 
         // Allocate space for old + new triangles
         iMaxTris = NumTris + _poScn->NumTris + iRealloc;
-        pTris = (SCNUt_Triangle*)mAlloc( (NumTris + _poScn->NumTris + iRealloc) * sizeof(SCNUt_Triangle) );                    //
+        pTris = (SCNUt_Triangle*)MEMAlloc( (NumTris + _poScn->NumTris + iRealloc) * sizeof(SCNUt_Triangle) );                    //
         // pTris = mNew SCNUt_Triangle[NumTris + _poScn->NumTris + iRealloc];
 
         // Copy old data
@@ -44,7 +44,7 @@ void SCNUt_TriSceneAccumulator::AddTriScene (SCNUt_TriScene* _poScn)
 
         // delete old data
         if ( Tris != NULL )
-            mFree(Tris);
+            MEMFree(Tris);
         // mDel []Tris;
 
         // Update object

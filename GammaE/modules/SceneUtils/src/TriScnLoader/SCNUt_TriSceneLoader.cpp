@@ -195,7 +195,7 @@ SCNUt_TriScene* SCNUt_TriSceneLoader::poLoad (char* _szFilename, SCNUt_MaterialT
         }
     }
 
-    mFree (StrBuff);
+    MEMFree (StrBuff);
     return (poScene);
 }
 

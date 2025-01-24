@@ -71,13 +71,13 @@ inline uint CGDynArray <T>::uiAdd(const T& _oElem)
         T* poNewElems;
 
         m_uiMaxElems += m_uiRealloc;
-        poNewElems = (T*)mAlloc(sizeof(T) * m_uiMaxElems);
+        poNewElems = (T*)MEMAlloc(sizeof(T) * m_uiMaxElems);
         memset(poNewElems,0,sizeof(T) * m_uiMaxElems);
 
         if ( m_poElems )
         {
             memcpy( poNewElems,m_poElems,m_uiNumElems * sizeof(T) );
-            mFree(m_poElems);
+            MEMFree(m_poElems);
         }
 
         m_poElems = poNewElems;
@@ -101,7 +101,7 @@ inline void CGDynArray <T>::Clear ()
 {
     if ( m_poElems )
     {
-        mFree(m_poElems);
+        MEMFree(m_poElems);
         m_poElems = NULL;
     }
 
@@ -117,12 +117,12 @@ inline void CGDynArray <T>::Del (uint _uiElemIdx)
     if ( _uiElemIdx < m_uiNumElems - 1 )
     {
         T* poNewElems;
-        poNewElems = (T*)mAlloc( sizeof(T) * (m_uiNumElems - 1) );
+        poNewElems = (T*)MEMAlloc( sizeof(T) * (m_uiNumElems - 1) );
 
         memcpy( poNewElems,m_poElems,_uiElemIdx * sizeof(T) );
         memcpy( poNewElems + (_uiElemIdx),m_poElems + (_uiElemIdx + 1),(m_uiNumElems - _uiElemIdx - 1) * sizeof(T) );
 
-        mFree(m_poElems);
+        MEMFree(m_poElems);
         m_poElems = poNewElems;
 
         m_uiMaxElems = m_uiNumElems - 1;

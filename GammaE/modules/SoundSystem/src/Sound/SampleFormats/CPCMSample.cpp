@@ -143,7 +143,7 @@ void CPCMSample::Init(char* _szFilename)
         }
 
         // Deallocate "external" data
-        mFree( pSample->pData );
+        MEMFree( pSample->pData );
         pSample->pData = NULL;
 
      #endif
@@ -167,7 +167,7 @@ void CPCMSample::Finish()
 {
     if ( pData )
     {
-        mFree(pData);
+        MEMFree(pData);
         pData = NULL;
     }
 }

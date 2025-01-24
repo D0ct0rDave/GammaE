@@ -22,7 +22,7 @@
 CGLogger::CGLogger(uint _uiBufferSize)
 {
     m_uiBufferSize = _uiBufferSize;
-    m_pucBuffer = (char*)mAlloc(m_uiBufferSize);
+    m_pucBuffer = (char*)MEMAlloc(m_uiBufferSize);
     memset(m_pucBuffer,0,m_uiBufferSize);
 }
 // ----------------------------------------------------------------------------

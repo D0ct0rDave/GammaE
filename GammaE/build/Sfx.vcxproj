@@ -152,6 +152,7 @@
     <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystemInstance.cpp" />
     <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Coolant.cpp" />
     <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Generic.cpp" />
+    <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Generic_Quad.cpp" />
     <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Generic_Stretch.cpp" />
     <ClCompile Include="..\modules\Sfx\src\ParticleSystems\CGParticleSystem_Sparks.cpp" />
     <ClCompile Include="..\modules\Sfx\src\SfxObject\CGSFXObjectManager.cpp" />

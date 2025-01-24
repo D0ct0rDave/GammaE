@@ -22,6 +22,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\modules\Misc\src\GMisc.h" />
+    <ClInclude Include="..\modules\Misc\src\GMiscConst.h" />
+    <ClInclude Include="..\modules\Misc\src\GMiscTypes.h" />
     <ClInclude Include="..\modules\Misc\src\Logging\CGErrorLC.h">
       <Filter>Logging</Filter>
     </ClInclude>
@@ -40,8 +42,6 @@
     <ClInclude Include="..\modules\Misc\src\Logging\CGWarningLC.h">
       <Filter>Logging</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Misc\src\MiscConst.h" />
-    <ClInclude Include="..\modules\Misc\src\MiscTypes.h" />
     <ClInclude Include="..\modules\Misc\src\Resource\CGDiskResourceWH.h">
       <Filter>Resource</Filter>
     </ClInclude>

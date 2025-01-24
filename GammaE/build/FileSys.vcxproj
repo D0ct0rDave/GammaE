@@ -90,36 +90,35 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\modules\FileSys\src\File\CFile.h" />
-    <ClInclude Include="..\modules\FileSys\src\File\FILEMgr.h" />
-    <ClInclude Include="..\modules\FileSys\src\FileManager\CFileSys_Manager.h" />
-    <ClInclude Include="..\modules\FileSys\src\FileManager\CFileSys_MgrMultiPAK.h" />
-    <ClInclude Include="..\modules\FileSys\src\FileManager\CFileSys_MgrMultiZIP.h" />
-    <ClInclude Include="..\modules\FileSys\src\FileManager\CFileSys_MgrPAK.h" />
-    <ClInclude Include="..\modules\FileSys\src\FileManager\CFileSys_MgrZIP.h" />
-    <ClInclude Include="..\modules\FileSys\src\FileManager\OSFile.h" />
-    <ClInclude Include="..\modules\FileSys\src\FileManager\eFile_SeekMode.h" />
-    <ClInclude Include="..\modules\FileSys\src\FileUtils\CFileUtils.h" />
+    <ClInclude Include="..\modules\FileSys\src\File\CGFile.h" />
+    <ClInclude Include="..\modules\FileSys\src\FileManager\CGFileMgr.h" />
+    <ClInclude Include="..\modules\FileSys\src\FileManager\CGFileSysManager.h" />
+    <ClInclude Include="..\modules\FileSys\src\FileManager\CGFileSysMgrDirect.h" />
+    <ClInclude Include="..\modules\FileSys\src\FileManager\CGFileSysMgrMultiPAK.h" />
+    <ClInclude Include="..\modules\FileSys\src\FileManager\CGFileSysMgrMultiZIP.h" />
+    <ClInclude Include="..\modules\FileSys\src\FileManager\CGFileSysMgrPAK.h" />
+    <ClInclude Include="..\modules\FileSys\src\FileManager\CGFileSysMgrZIP.h" />
+    <ClInclude Include="..\modules\FileSys\src\FileUtils\CGFileUtils.h" />
     <ClInclude Include="..\modules\FileSys\src\GFileSys.h" />
-    <ClInclude Include="..\modules\FileSys\src\Misc\FileSys_Common.h" />
-    <ClInclude Include="..\modules\FileSys\src\OSFile\COSFile.h" />
-    <ClInclude Include="..\modules\FileSys\src\OSFile\COSFileW32.h" />
-    <ClInclude Include="..\modules\FileSys\src\OSFile\eOSF_SeekMode.h" />
+    <ClInclude Include="..\modules\FileSys\src\GFileSysEnums.h" />
+    <ClInclude Include="..\modules\FileSys\src\Misc___\CGFileSysCommon.h" />
+    <ClInclude Include="..\modules\FileSys\src\OSFile\CGOSFile.h" />
+    <ClInclude Include="..\modules\FileSys\src\OSFile\CGOSFileW32.h" />
+    <ClInclude Include="..\modules\FileSys\src\OSFile\OSFile.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\modules\FileSys\src\File\CFile.cpp" />
-    <ClCompile Include="..\modules\FileSys\src\File\FILEMgr.cpp" />
-    <ClCompile Include="..\modules\FileSys\src\FileManager\CFileSys_Manager.cpp" />
-    <ClCompile Include="..\modules\FileSys\src\FileManager\CFileSys_MgrMultiPAK.cpp" />
-    <ClCompile Include="..\modules\FileSys\src\FileManager\CFileSys_MgrMultiZIP.cpp" />
-    <ClCompile Include="..\modules\FileSys\src\FileManager\CFileSys_MgrPAK.cpp" />
-    <ClCompile Include="..\modules\FileSys\src\FileManager\CFileSys_MgrZIP.cpp" />
-    <ClCompile Include="..\modules\FileSys\src\FileManager\eFile_SeekMode.cpp" />
-    <ClCompile Include="..\modules\FileSys\src\FileUtils\CFileUtils.cpp" />
-    <ClCompile Include="..\modules\FileSys\src\Misc\FileSys_Common.cpp" />
-    <ClCompile Include="..\modules\FileSys\src\OSFile\COSFile.cpp" />
-    <ClCompile Include="..\modules\FileSys\src\OSFile\COSFileW32.cpp" />
-    <ClCompile Include="..\modules\FileSys\src\OSFile\eOSF_SeekMode.cpp" />
+    <ClCompile Include="..\modules\FileSys\src\File\CGFile.cpp" />
+    <ClCompile Include="..\modules\FileSys\src\FileManager\CGFileMgr.cpp" />
+    <ClCompile Include="..\modules\FileSys\src\FileManager\CGFileSysManager.cpp" />
+    <ClCompile Include="..\modules\FileSys\src\FileManager\CGFileSysMgrDirect.cpp" />
+    <ClCompile Include="..\modules\FileSys\src\FileManager\CGFileSysMgrMultiPAK.cpp" />
+    <ClCompile Include="..\modules\FileSys\src\FileManager\CGFileSysMgrMultiZIP.cpp" />
+    <ClCompile Include="..\modules\FileSys\src\FileManager\CGFileSysMgrPAK.cpp" />
+    <ClCompile Include="..\modules\FileSys\src\FileManager\CGFileSysMgrZIP.cpp" />
+    <ClCompile Include="..\modules\FileSys\src\FileUtils\CGFileUtils.cpp" />
+    <ClCompile Include="..\modules\FileSys\src\Misc___\CGFileSysCommon.cpp" />
+    <ClCompile Include="..\modules\FileSys\src\OSFile\CGOSFile.cpp" />
+    <ClCompile Include="..\modules\FileSys\src\OSFile\CGOSFileW32.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

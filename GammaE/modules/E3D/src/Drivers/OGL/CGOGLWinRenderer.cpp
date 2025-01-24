@@ -1237,7 +1237,7 @@ void CGOGLWinRenderer::SetupPalette (TPixelFormatDescriptor PFD)
 
     nColors = 1 << PFD.cColorBits;
 
-    lpPalette = (TLogPalette*) mAlloc( sizeof(TLogPalette) + ( nColors * sizeof(TPaletteEntry) ) );
+    lpPalette = (TLogPalette*) MEMAlloc( sizeof(TLogPalette) + ( nColors * sizeof(TPaletteEntry) ) );
 
     lpPalette->palVersion = 0x300;
     lpPalette->palNumEntries = nColors;
@@ -1262,7 +1262,7 @@ void CGOGLWinRenderer::SetupPalette (TPixelFormatDescriptor PFD)
         RealizePalette(DC);
     }
 
-    mFree(lpPalette);
+    MEMFree(lpPalette);
 }
 // ----------------------------------------------------------------------------
 void CGOGLWinRenderer::EnableFlatRendering ()

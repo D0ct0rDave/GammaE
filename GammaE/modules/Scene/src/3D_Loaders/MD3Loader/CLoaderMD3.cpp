@@ -148,8 +148,8 @@ void CLoaderMD3::LoadSkinInfo (char* _Filename)
     fseek(fd,0,SEEK_SET);
 
     // Allocate space for structures
-    SkinBookmark.skinmeshes = (skin_mesh_entry_t*)mAlloc(sizeof(skin_mesh_entry_t) * SkinBookmark.iNumSkinMeshes);
-    SkinBookmark.skintags = (skin_tag_entry_t*)mAlloc(sizeof(skin_tag_entry_t) * SkinBookmark.iNumSkinTags  );
+    SkinBookmark.skinmeshes = (skin_mesh_entry_t*)MEMAlloc(sizeof(skin_mesh_entry_t) * SkinBookmark.iNumSkinMeshes);
+    SkinBookmark.skintags = (skin_tag_entry_t*)MEMAlloc(sizeof(skin_tag_entry_t) * SkinBookmark.iNumSkinTags  );
 
     // read skin data
     iCurrentSkin = 0;
@@ -337,13 +337,13 @@ CGSceneNode* CLoaderMD3::pLoadModel (char* Filename)
     //
     // read boneframes
     //
-    boneframes = (boneframe_t*) mAlloc(sizeof(boneframe_t) * header.numBoneFrames);
+    boneframes = (boneframe_t*) MEMAlloc(sizeof(boneframe_t) * header.numBoneFrames);
     fread(boneframes, sizeof(boneframe_t), header.numBoneFrames, md3file);
 
     //
     // read tags
     //
-    tags = (tag_t*) mAlloc(sizeof(tag_t) * header.numBoneFrames * header.numTags);
+    tags = (tag_t*) MEMAlloc(sizeof(tag_t) * header.numBoneFrames * header.numTags);
     fread(tags, sizeof(tag_t), header.numBoneFrames * header.numTags, md3file);
 
     // Create animation transformation node (bones)
@@ -353,8 +353,8 @@ CGSceneNode* CLoaderMD3::pLoadModel (char* Filename)
     AnimModel->Init        (header.numMeshes + 1 + 1);
     AnimModel->CreateStates(header.numBoneFrames);
     // free buffers
-    mFree (tags);
-    mFree (boneframes);
+    MEMFree (tags);
+    MEMFree (boneframes);
 
     // Read meshes
     skin_t skin;
@@ -374,17 +374,17 @@ CGSceneNode* CLoaderMD3::pLoadModel (char* Filename)
 
         // Read triangles
         fseek(md3file, mesh_offset + mesh_header.tri_start, SEEK_SET);
-        Tris = (Q3triangle_t*)mAlloc( mesh_header.numTriangles * sizeof(Q3triangle_t) );
+        Tris = (Q3triangle_t*)MEMAlloc( mesh_header.numTriangles * sizeof(Q3triangle_t) );
         fread(Tris, sizeof(Q3triangle_t), mesh_header.numTriangles, md3file);
 
         // Read tex coords
         fseek(md3file, mesh_offset + mesh_header.texvec_start, SEEK_SET);
-        UVs = (tex_coord_t*) mAlloc(sizeof(tex_coord_t) * mesh_header.numVertexs);
+        UVs = (tex_coord_t*) MEMAlloc(sizeof(tex_coord_t) * mesh_header.numVertexs);
         fread(UVs, sizeof(tex_coord_t), mesh_header.numVertexs, md3file);
 
         // Read vertexes
         fseek(md3file, mesh_offset + mesh_header.vertex_start, SEEK_SET);
-        VXs = (vertice_t*) mAlloc(sizeof(vertice_t) * mesh_header.numVertexs * mesh_header.numMeshFrames);
+        VXs = (vertice_t*) MEMAlloc(sizeof(vertice_t) * mesh_header.numVertexs * mesh_header.numMeshFrames);
         fread(VXs, sizeof(vertice_t), mesh_header.numMeshFrames * mesh_header.numVertexs, md3file);
 
         mesh_offset += mesh_header.meshsize;
@@ -398,9 +398,9 @@ CGSceneNode* CLoaderMD3::pLoadModel (char* Filename)
         AnimModel->AddObject( AnimMesh );
 
         // free auxiliary arrays
-        mFree(Tris);
-        mFree(UVs );
-        mFree(VXs );
+        MEMFree(Tris);
+        MEMFree(UVs );
+        MEMFree(VXs );
     }
 
     fclose (md3file);
@@ -424,7 +424,7 @@ CGSceneNode* CLoaderMD3::pLoad (char* Filename)
 
     // Set skinfilename
     iFilenameLen = strlen(Filename);
-    SkinFilename = (char*) mAlloc(iFilenameLen + 2);
+    SkinFilename = (char*) MEMAlloc(iFilenameLen + 2);
 
     strcpy(SkinFilename,Filename);
 

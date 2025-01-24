@@ -91,14 +91,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\modules\Misc\src\GMisc.h" />
+    <ClInclude Include="..\modules\Misc\src\GMiscConst.h" />
+    <ClInclude Include="..\modules\Misc\src\GMiscTypes.h" />
     <ClInclude Include="..\modules\Misc\src\Logging\CGErrorLC.h" />
     <ClInclude Include="..\modules\Misc\src\Logging\CGLogChannel.h" />
     <ClInclude Include="..\modules\Misc\src\Logging\CGLogger.h" />
     <ClInclude Include="..\modules\Misc\src\Logging\CGStandardLC.h" />
     <ClInclude Include="..\modules\Misc\src\Logging\CGSystemLC.h" />
     <ClInclude Include="..\modules\Misc\src\Logging\CGWarningLC.h" />
-    <ClInclude Include="..\modules\Misc\src\MiscConst.h" />
-    <ClInclude Include="..\modules\Misc\src\MiscTypes.h" />
     <ClInclude Include="..\modules\Misc\src\Resource\CGDiskResourceWH.h" />
     <ClInclude Include="..\modules\Misc\src\Resource\CGReferenceCounter.h" />
     <ClInclude Include="..\modules\Misc\src\Resource\CGResource.h" />

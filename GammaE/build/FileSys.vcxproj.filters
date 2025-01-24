@@ -10,96 +10,91 @@
     <Filter Include="FileUtils">
       <UniqueIdentifier>{F6F5911E-6260-4695-AB9E-F73A174824EA}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Misc">
-      <UniqueIdentifier>{9116897C-7D4D-8A0D-263A-70101250060F}</UniqueIdentifier>
+    <Filter Include="Misc___">
+      <UniqueIdentifier>{AE794A28-1A59-C9C3-2371-549A8FCF2F25}</UniqueIdentifier>
     </Filter>
     <Filter Include="OSFile">
       <UniqueIdentifier>{C7AF2CC6-B351-579C-9C0C-6BF0884DDEEC}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\modules\FileSys\src\File\CFile.h">
+    <ClInclude Include="..\modules\FileSys\src\File\CGFile.h">
       <Filter>File</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\FileSys\src\File\FILEMgr.h">
-      <Filter>File</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\FileSys\src\FileManager\CFileSys_Manager.h">
+    <ClInclude Include="..\modules\FileSys\src\FileManager\CGFileMgr.h">
       <Filter>FileManager</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\FileSys\src\FileManager\CFileSys_MgrMultiPAK.h">
+    <ClInclude Include="..\modules\FileSys\src\FileManager\CGFileSysManager.h">
       <Filter>FileManager</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\FileSys\src\FileManager\CFileSys_MgrMultiZIP.h">
+    <ClInclude Include="..\modules\FileSys\src\FileManager\CGFileSysMgrDirect.h">
       <Filter>FileManager</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\FileSys\src\FileManager\CFileSys_MgrPAK.h">
+    <ClInclude Include="..\modules\FileSys\src\FileManager\CGFileSysMgrMultiPAK.h">
       <Filter>FileManager</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\FileSys\src\FileManager\CFileSys_MgrZIP.h">
+    <ClInclude Include="..\modules\FileSys\src\FileManager\CGFileSysMgrMultiZIP.h">
       <Filter>FileManager</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\FileSys\src\FileManager\OSFile.h">
+    <ClInclude Include="..\modules\FileSys\src\FileManager\CGFileSysMgrPAK.h">
       <Filter>FileManager</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\FileSys\src\FileManager\eFile_SeekMode.h">
+    <ClInclude Include="..\modules\FileSys\src\FileManager\CGFileSysMgrZIP.h">
       <Filter>FileManager</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\FileSys\src\FileUtils\CFileUtils.h">
+    <ClInclude Include="..\modules\FileSys\src\FileUtils\CGFileUtils.h">
       <Filter>FileUtils</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\FileSys\src\GFileSys.h" />
-    <ClInclude Include="..\modules\FileSys\src\Misc\FileSys_Common.h">
-      <Filter>Misc</Filter>
+    <ClInclude Include="..\modules\FileSys\src\GFileSysEnums.h" />
+    <ClInclude Include="..\modules\FileSys\src\Misc___\CGFileSysCommon.h">
+      <Filter>Misc___</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\FileSys\src\OSFile\COSFile.h">
+    <ClInclude Include="..\modules\FileSys\src\OSFile\CGOSFile.h">
       <Filter>OSFile</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\FileSys\src\OSFile\COSFileW32.h">
+    <ClInclude Include="..\modules\FileSys\src\OSFile\CGOSFileW32.h">
       <Filter>OSFile</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\FileSys\src\OSFile\eOSF_SeekMode.h">
+    <ClInclude Include="..\modules\FileSys\src\OSFile\OSFile.h">
       <Filter>OSFile</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\modules\FileSys\src\File\CFile.cpp">
+    <ClCompile Include="..\modules\FileSys\src\File\CGFile.cpp">
       <Filter>File</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\FileSys\src\File\FILEMgr.cpp">
-      <Filter>File</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\FileSys\src\FileManager\CFileSys_Manager.cpp">
+    <ClCompile Include="..\modules\FileSys\src\FileManager\CGFileMgr.cpp">
       <Filter>FileManager</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\FileSys\src\FileManager\CFileSys_MgrMultiPAK.cpp">
+    <ClCompile Include="..\modules\FileSys\src\FileManager\CGFileSysManager.cpp">
       <Filter>FileManager</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\FileSys\src\FileManager\CFileSys_MgrMultiZIP.cpp">
+    <ClCompile Include="..\modules\FileSys\src\FileManager\CGFileSysMgrDirect.cpp">
       <Filter>FileManager</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\FileSys\src\FileManager\CFileSys_MgrPAK.cpp">
+    <ClCompile Include="..\modules\FileSys\src\FileManager\CGFileSysMgrMultiPAK.cpp">
       <Filter>FileManager</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\FileSys\src\FileManager\CFileSys_MgrZIP.cpp">
+    <ClCompile Include="..\modules\FileSys\src\FileManager\CGFileSysMgrMultiZIP.cpp">
       <Filter>FileManager</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\FileSys\src\FileManager\eFile_SeekMode.cpp">
+    <ClCompile Include="..\modules\FileSys\src\FileManager\CGFileSysMgrPAK.cpp">
       <Filter>FileManager</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\FileSys\src\FileUtils\CFileUtils.cpp">
+    <ClCompile Include="..\modules\FileSys\src\FileManager\CGFileSysMgrZIP.cpp">
+      <Filter>FileManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\FileSys\src\FileUtils\CGFileUtils.cpp">
       <Filter>FileUtils</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\FileSys\src\Misc\FileSys_Common.cpp">
-      <Filter>Misc</Filter>
+    <ClCompile Include="..\modules\FileSys\src\Misc___\CGFileSysCommon.cpp">
+      <Filter>Misc___</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\FileSys\src\OSFile\COSFile.cpp">
+    <ClCompile Include="..\modules\FileSys\src\OSFile\CGOSFile.cpp">
       <Filter>OSFile</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\FileSys\src\OSFile\COSFileW32.cpp">
-      <Filter>OSFile</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\FileSys\src\OSFile\eOSF_SeekMode.cpp">
+    <ClCompile Include="..\modules\FileSys\src\OSFile\CGOSFileW32.cpp">
       <Filter>OSFile</Filter>
     </ClCompile>
   </ItemGroup>

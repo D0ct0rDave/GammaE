@@ -90,11 +90,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\modules\Memory\src\GMMgr.h" />
     <ClInclude Include="..\modules\Memory\src\GMem.h" />
-    <ClInclude Include="..\modules\Memory\src\MMgr.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\modules\Memory\src\MMgr.cpp" />
+    <ClCompile Include="..\modules\Memory\src\GMMgr.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

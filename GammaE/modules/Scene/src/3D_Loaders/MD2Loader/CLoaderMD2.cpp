@@ -22,7 +22,7 @@ CLoaderMD2::CLoaderMD2()
 // ----------------------------------------------------------------------------
 CLoaderMD2::~CLoaderMD2()
 {
-    if ( Stream ) mFree(Stream);
+    if ( Stream ) MEMFree(Stream);
 }
 // ----------------------------------------------------------------------------
 int CLoaderMD2::ReadFile (char* Filename)
@@ -39,7 +39,7 @@ int CLoaderMD2::ReadFile (char* Filename)
     StreamSize = ftell(fd);
 
     fseek(fd,0,SEEK_SET);
-    Stream = (char*)mAlloc(StreamSize);
+    Stream = (char*)MEMAlloc(StreamSize);
     if ( !Stream )
     {
         fclose(fd);
@@ -171,7 +171,7 @@ unsigned short* CLoaderMD2::GetVertexConversionTable (CGMesh &Mesh)
 {
     CGVect3 NewVX;
     int cVert,cMD2Vert;
-    unsigned short* NewIdxs = (unsigned short*)mAlloc( Mesh.m_usNumVXs * sizeof(unsigned short) );
+    unsigned short* NewIdxs = (unsigned short*)MEMAlloc( Mesh.m_usNumVXs * sizeof(unsigned short) );
 
     // Obtener los nuevos indices en funcion de los antiguos
     for ( cVert = 0; cVert < Mesh.m_usNumVXs; cVert++ )
@@ -240,7 +240,7 @@ void CLoaderMD2::ParseFrameSet (CGSceneAnimMesh &AnimMesh, CGMesh &Mesh)
         }
     }
 
-    mFree ( NewIdxs );
+    MEMFree ( NewIdxs );
 }
 // ----------------------------------------------------------------------------
 CGSceneNode* CLoaderMD2::pLoad (char* Filename)

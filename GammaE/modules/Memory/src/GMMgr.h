@@ -18,8 +18,8 @@ void operator delete(void* _P);
 
 #define mDel delete
 #define mNew new
-#define mAlloc malloc
-#define mFree  free
+#define MEMAlloc malloc
+#define MEMFree free
 
 // ----------------------------------------------------------------------------
 #endif // MMgrH
