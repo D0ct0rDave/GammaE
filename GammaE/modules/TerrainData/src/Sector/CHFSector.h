@@ -1,61 +1,58 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef CHFSector_h
 #define CHFSector_h 1
-
-
 
 // CSector
 #include "Sector\CSector.h"
 // CHeight
 #include "SectElem\CHeight.h"
 
+class CHFSector : public CSector
+{
+    public:
+        CHFSector();
 
+        virtual ~CHFSector();
 
+        virtual float GetMaxHeight();
 
+        virtual float GetMinHeight();
 
-class CHFSector : public CSector  {
-    
-  public:
-          CHFSector();
+        virtual void RecomputeMaxMins();
 
-          virtual ~CHFSector();
+        // Sets the value of a specific element inside the data
+        virtual void SetValue(int _X, int _Y, CSectElem &_Value);
 
+        // Additional Public Declarations
 
-                virtual float GetMaxHeight ();
+    protected:
+        // Additional Protected Declarations
 
-            virtual float GetMinHeight ();
+    private:
+        // Data Members for Class Attributes
 
-            virtual void RecomputeMaxMins ();
+        float MaxHeight;
 
-            //	Sets the value of a specific element inside the data
-      virtual void SetValue (int _X, int _Y, CSectElem &_Value);
+        float MinHeight;
 
-    // Additional Public Declarations
-            
-  protected:
-    // Additional Protected Declarations
-            
-  private:
-    // Data Members for Class Attributes
+        bool bRecomputeMaxMins;
 
-                  float MaxHeight;
-      
-                  float MinHeight;
-      
-                  bool bRecomputeMaxMins;
-      
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+        // Additional Private Declarations
+
+    private:                    // Additional Implementation Declarations
 };
 
-
-// Class CHFSector 
-
-
+// Class CHFSector
 
 #endif

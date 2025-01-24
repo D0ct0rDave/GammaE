@@ -1,4 +1,13 @@
-// ------------------------------------------------------------
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
 #ifndef BSP2TypesH
 #define BSP2TypesH
 // ------------------------------------------------------------
@@ -26,135 +35,135 @@
 // ------------------------------------------------------------
 
 #ifdef _MSC_
-#pragma pack(push,bsp2File);
-#pragma pack(1)
+    #pragma pack(push,bsp2File);
+    #pragma pack(1)
 #endif
 
 // ------------------------------------------------------------
 
 struct bsp_point3f
 {
-   float x;
-   float y;
-   float z;
+    float x;
+    float y;
+    float z;
 };
 
 struct bsp_point3s
 {
-   short x;
-   short y;
-   short z;
+    short x;
+    short y;
+    short z;
 };
 
 struct bsp_lump
 {
-   unsigned int offset;
-   unsigned int lenght;
+    uint offset;
+    uint lenght;
 };
 
 struct bsp_header
 {
-   unsigned int magic;
-   unsigned int version;
-   bsp_lump lump[19];
+    uint magic;
+    uint version;
+    bsp_lump lump[19];
 };
 
 struct bsp_edge
 {
-   unsigned short start;
-   unsigned short end;
+    unsigned short start;
+    unsigned short end;
 };
 
 struct bsp_face
 {
-   unsigned short plane;
-   unsigned short plane_side;
+    unsigned short plane;
+    unsigned short plane_side;
 
-   unsigned int first_edge;
-   unsigned short num_edges;
+    uint first_edge;
+    unsigned short num_edges;
 
-   unsigned short texture_info;
+    unsigned short texture_info;
 
-   unsigned char lightmap_styles[4];
-   unsigned int lightmap_offset;
+    unsigned char lightmap_styles[4];
+    uint lightmap_offset;
 };
 
 struct bsp_face_edge
 {
-   unsigned int index;
+    uint index;
 };
 
 struct bsp_plane
 {
-   bsp_point3f normal;
-   float distance;
-   unsigned int type;          // 0:X ,1:Y ,2:Z, 3:any
+    bsp_point3f normal;
+    float distance;
+    uint type;                    // 0:X ,1:Y ,2:Z, 3:any
 };
 
 struct bsp_node
 {
-   unsigned int plane;
-   int front_child;            // negative idxs are leafs: leaf = -(idx+1)
-   int back_child;
+    uint plane;
+    int front_child;                    // negative idxs are leafs: leaf = -(idx+1)
+    int back_child;
 
-   bsp_point3s bbox_min;
-   bsp_point3s bbox_max;
+    bsp_point3s bbox_min;
+    bsp_point3s bbox_max;
 
-   unsigned short first_face;
-   unsigned short num_faces;
+    unsigned short first_face;
+    unsigned short num_faces;
 };
 
 struct bsp_leaf
 {
-   unsigned int brush_or;
-   unsigned short cluster;
-   unsigned short area;
+    uint brush_or;
+    unsigned short cluster;
+    unsigned short area;
 
-   bsp_point3s bbox_min;
-   bsp_point3s bbox_max;
+    bsp_point3s bbox_min;
+    bsp_point3s bbox_max;
 
-   unsigned short first_leaf_face;
-   unsigned short num_leaf_faces;
+    unsigned short first_leaf_face;
+    unsigned short num_leaf_faces;
 
-   unsigned short first_leaf_brush;
-   unsigned short num_leaf_brushes;
+    unsigned short first_leaf_brush;
+    unsigned short num_leaf_brushes;
 };
 
 struct bsp_leaf_face
 {
-   unsigned short index;
+    unsigned short index;
 };
 
 struct bsp_texinfo
 {
-   bsp_point3f u_axis;
-   float u_offset;
-   bsp_point3f v_axis;
-   float v_offset;
+    bsp_point3f u_axis;
+    float u_offset;
+    bsp_point3f v_axis;
+    float v_offset;
 
-   unsigned int flags;
-   unsigned int value;
+    uint flags;
+    uint value;
 
-   char texture_name[32];
-   unsigned int next_texinfo;
+    char texture_name[32];
+    uint next_texinfo;
 };
 
 struct bsp_vis_offset
 {
-   unsigned int pvs;
-   unsigned int phs;
+    uint pvs;
+    uint phs;
 };
 
 struct bsp_vis
 {
-   unsigned int iNumVisOfs;
-   bsp_vis_offset *pVisOfs;
+    uint iNumVisOfs;
+    bsp_vis_offset* pVisOfs;
 };
 
 #ifdef _MSC_
-#pragma pack(pop,bsp2File);
+    #pragma pack(pop,bsp2File);
 #endif
 
 // ------------------------------------------------------------
-#endif // ifndef BSP2TypesH
+#endif
 // ------------------------------------------------------------

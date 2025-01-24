@@ -1,88 +1,84 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef CTile_h
 #define CTile_h 1
 
-
-
 // CSectElem
 #include "SectElem\CSectElem.h"
 
+class CTile : public CSectElem
+{
+    public:
+        CTile();
 
+        ~CTile();
 
+        virtual unsigned long ByteSize();
 
-class CTile : public CSectElem  {
-    
-  public:
-          CTile();
+        virtual void* Get();
 
-          ~CTile();
+        virtual void Set(void* _Value);
 
+        virtual CSectElem* CreateClass();
 
-                virtual unsigned long ByteSize ();
+        int GetTileIdx();
+        void SetTileIdx(int value);
 
-            virtual void * Get ();
+        int GetTransitionType();
+        void SetTransitionType(int value);
 
-            virtual void Set (void *_Value);
+        int GetTransTileIdx();
+        void SetTransTileIdx(int value);
 
-            virtual CSectElem * CreateClass ();
+        int GetRotationType();
+        void SetRotationType(int value);
 
-    
-            int GetTileIdx ();
-      void SetTileIdx (int value);
+        bool GetInvisible();
+        void SetInvisible(bool value);
 
-            int GetTransitionType ();
-      void SetTransitionType (int value);
+        int GetOldTransition();
+        void SetOldTransition(int value);
 
-            int GetTransTileIdx ();
-      void SetTransTileIdx (int value);
+        // Data Members for Class Attributes
 
-            int GetRotationType ();
-      void SetRotationType (int value);
+        int TileIdx;
 
-            bool GetInvisible ();
-      void SetInvisible (bool value);
+        int TransitionType;
 
-            int GetOldTransition ();
-      void SetOldTransition (int value);
+        int TransTileIdx;
 
-    // Data Members for Class Attributes
+        int RotationType;
 
-            int TileIdx;
-      
-            int TransitionType;
-      
-            int TransTileIdx;
-      
-            int RotationType;
-      
-            bool Invisible;
-      
-            int OldTransition;
-      
-    // Additional Public Declarations
-            
-  protected:
-    // Additional Protected Declarations
-            
-  private:
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+        bool Invisible;
+
+        int OldTransition;
+
+        // Additional Public Declarations
+
+    protected:
+        // Additional Protected Declarations
+
+    private:
+        // Additional Private Declarations
+
+    private:                    // Additional Implementation Declarations
 };
 
-
-// Class CTile 
-
+// Class CTile
 
 inline int CTile::GetTransTileIdx ()
 {
-    return TransTileIdx;
+    return(TransTileIdx);
 }
-
-
 
 #endif

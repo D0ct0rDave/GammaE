@@ -1,11 +1,17 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef CSLM_LMapSect_h
 #define CSLM_LMapSect_h 1
-
-
 
 // CSectorLoaderManager
 #include "Sector\SectorMatrix\CSectorLoaderManager\CSectorLoaderManager.h"
@@ -16,35 +22,26 @@
 // CLMSector_RGB24
 #include "Sector\LightMap\CLMSector_RGB24.h"
 
+class CSLM_LMapSect : public CSectorLoaderManager
+{
+    public:
+        CSLM_LMapSect();
 
+        ~CSLM_LMapSect();
 
+        virtual CSector* poCreateClass(FILE* _FD);
 
+        // Additional Public Declarations
 
-class CSLM_LMapSect : public CSectorLoaderManager  {
-    
-  public:
-          CSLM_LMapSect();
+    protected:
+        // Additional Protected Declarations
 
-          ~CSLM_LMapSect();
+    private:
+        // Additional Private Declarations
 
-
-                virtual CSector * poCreateClass (FILE *_FD);
-
-    // Additional Public Declarations
-            
-  protected:
-    // Additional Protected Declarations
-            
-  private:
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+    private:                    // Additional Implementation Declarations
 };
 
-
-// Class CSLM_LMapSect 
-
-
+// Class CSLM_LMapSect
 
 #endif

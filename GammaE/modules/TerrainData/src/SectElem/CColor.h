@@ -1,83 +1,80 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef CColor_h
 #define CColor_h 1
 
-
-
 // CSectElem
 #include "SectElem\CSectElem.h"
 
+class CColor : public CSectElem
+{
+    public:
+        CColor();
 
+        ~CColor();
 
+        virtual unsigned long ByteSize();
 
-class CColor : public CSectElem  {
-    
-  public:
-          CColor();
+        virtual CSectElem & Sum(CSectElem &a, CSectElem &b);
 
-          ~CColor();
+        virtual CSectElem & Mult(CSectElem &a, CSectElem &b);
 
+        virtual CSectElem & LinInterpolate(CSectElem &a, CSectElem &b, float fFactor);
 
-                virtual unsigned long ByteSize ();
+        virtual CSectElem & CosInterpolate(CSectElem &a, CSectElem &b, float fFactor);
 
-            virtual CSectElem & Sum (CSectElem &a, CSectElem &b);
+        virtual void* Get();
 
-            virtual CSectElem & Mult (CSectElem &a, CSectElem &b);
+        virtual void Set(void* _Value);
 
-            virtual CSectElem & LinInterpolate (CSectElem &a, CSectElem &b, float fFactor);
+        virtual CSectElem* CreateClass();
 
-            virtual CSectElem & CosInterpolate (CSectElem &a, CSectElem &b, float fFactor);
+        virtual CSectElem & Clear();
 
-            virtual void * Get ();
+        virtual CSectElem & Add(CSectElem &a);
 
-            virtual void Set (void *_Value);
+        virtual CSectElem & Mult(CSectElem &a);
 
-            virtual CSectElem * CreateClass ();
+        virtual CSectElem & Scale(float a);
 
-            virtual CSectElem & Clear ();
+        // Additional Public Declarations
 
-            virtual CSectElem & Add (CSectElem &a);
+    protected:
+        // Additional Protected Declarations
 
-            virtual CSectElem & Mult (CSectElem &a);
+    private:
+        // Data Members for Class Attributes
 
-            virtual CSectElem & Scale (float a);
+        float Value[4];
 
-    // Additional Public Declarations
-            
-  protected:
-    // Additional Protected Declarations
-            
-  private:
-    // Data Members for Class Attributes
+        // Additional Private Declarations
 
-                  float Value[4];
-      
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+    private:                    // Additional Implementation Declarations
 };
 
+// Class CColor
 
-// Class CColor 
-
-
-inline void * CColor::Get ()
+inline void* CColor::Get ()
 {
-    	return((void*)Value);
+    return( (void*)Value );
 }
 
-inline void CColor::Set (void *_Value)
+inline void CColor::Set (void* _Value)
 {
-  	Value[0] = ((float *)_Value)[0];
-	Value[1] = ((float *)_Value)[1];
-	Value[2] = ((float *)_Value)[2];
-	Value[3] = ((float *)_Value)[3];
+    Value[0] = ( (float*)_Value )[0];
+    Value[1] = ( (float*)_Value )[1];
+    Value[2] = ( (float*)_Value )[2];
+    Value[3] = ( (float*)_Value )[3];
 }
-
-
 
 #endif

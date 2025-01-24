@@ -1,13 +1,19 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef SCNUt_OctreeBuilder_h
 #define SCNUt_OctreeBuilder_h 1
 
-
-
-// CObject3D
+// CGSceneNode
 #include "GammaE_Scene.h"
 // SCNUt_TriScene
 #include "SCNUt_TriScene.h"
@@ -24,44 +30,34 @@
 // SCNUt_ComputeBoundingBox
 #include "ScnBBoxGen\SCNUt_ComputeBoundingBox.h"
 
-
-
-
-
-class SCNUt_OctreeBuilder 
+class SCNUt_OctreeBuilder
 {
-    
-  public:
-          SCNUt_OctreeBuilder();
+    public:
+        SCNUt_OctreeBuilder();
 
-          ~SCNUt_OctreeBuilder();
+        ~SCNUt_OctreeBuilder();
 
+        CGSceneNode* poBuildOctree(SCNUt_TriScene& _oScene, SCNUt_MaterialTable &_oMatTable);
 
-                CObject3D * poBuildOctree (SCNUt_TriScene& _oScene, SCNUt_MaterialTable &_oMatTable);
+        CGSceneNode* poBuildOctreeRec(SCNUt_TriScene& _oScene, int _iCurrentSubs, SCNUt_MaterialTable &_oMatTable);
 
-            CObject3D * poBuildOctreeRec (SCNUt_TriScene& _oScene, int _iCurrentSubs, SCNUt_MaterialTable &_oMatTable);
+        // Data Members for Class Attributes
 
-    // Data Members for Class Attributes
+        int iMaxSubdivisions;
 
-                  int iMaxSubdivisions;
-      
-                  int iMinTrisPerNode;
-      
-    // Additional Public Declarations
-            
-  protected:
-    // Additional Protected Declarations
-            
-  private:
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+        int iMinTrisPerNode;
+
+        // Additional Public Declarations
+
+    protected:
+        // Additional Protected Declarations
+
+    private:
+        // Additional Private Declarations
+
+    private:                    // Additional Implementation Declarations
 };
 
-
-// Class SCNUt_OctreeBuilder 
-
-
+// Class SCNUt_OctreeBuilder
 
 #endif

@@ -1,28 +1,44 @@
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
 #include "TexCoordGen.h"
-//-----------------------------------------------------------------------------
-void TexCoordGen_ComputeUVOrthoMapping(CMesh &Mesh)
+// ----------------------------------------------------------------------------
+namespace MeshUtils {
+// ----------------------------------------------------------------------------
+void ComputeUVOrthoMapping(CGMesh &Mesh)
 {
-	unsigned int	cVect;
-	CGraphBV		*BVol;
-    CVect3 			Center;    
-    float			UOffset;
+    /*
+       // DMC REFACT
+       uint CGVect;
+       CGraphBV* BVol;
+       CGVect3 Center;
+       float UOffset;
 
-    if (! Mesh.Idxs) return;
+       if ( !Mesh.m_pusIdx ) return;
 
-    // We need the Min and Max mesh points
-    BVol = Mesh.GetBoundVol();
+       // We need the Min and Max mesh points
+       BVol = Mesh.poGetBoundVol();
 
-    // Get the center point
-	Center = BVol->GetCenter();
+       // Get the center point
+       Center = BVol->GetCenter();
 
-    // Compute UV coordinates
-	for (cVect=0;cVect<Mesh.usNumVerts;cVect++)
-	{
-    	if (Mesh.VXs[cVect].z - Center.z < 0) UOffset = 0.5; else UOffset = 0;
+       // Compute UV coordinates
+       for ( CGVect = 0; CGVect < Mesh.m_uiNumVXs; CGVect++ )
+       {
+        if ( Mesh.m_poVX[CGVect].z - Center.z < 0 ) UOffset = 0.5; else UOffset = 0;
 
-        Mesh.UVs[cVect].x = UOffset + ((0.5f + (Mesh.VXs[cVect].x - Center.x)/BVol->GetRange(0) )/2.0f);
-        Mesh.UVs[cVect].y =            (0.5f + (Mesh.VXs[cVect].y - Center.y)/BVol->GetRange(1) );
+        Mesh.m_poUV[CGVect].x = UOffset + ( ( 0.5f + ( Mesh.m_poVX[CGVect].x - Center.x ) / BVol->GetRange(0) ) / 2.0f );
+        Mesh.m_poUV[CGVect].y = ( 0.5f + ( Mesh.m_poVX[CGVect].y - Center.y ) / BVol->GetRange(1) );
+       }
+     */
 }
-}
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+}; // MeshUtils
+// ----------------------------------------------------------------------------

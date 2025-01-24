@@ -1,42 +1,52 @@
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 #include "CHUDIcon.h"
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 CHUDIcon::CHUDIcon()
 {
-  	eGraphBV_TypeID eOldType = CGraphBV_Manager::eGetBVMode();
-	CGraphBV_Manager::SetBVMode(eGraphBV_Box);
-	
-		CMesh_Rect	*poMesh;
-		poMesh = mNew CMesh_Rect;
-		
-		poLeaf = mNew CObject3D_Leaf;
-		poLeaf->SetMesh(poMesh);
+    eGraphBV_TypeID eOldType = CGraphBV_Manager::eGetBVMode();
+    CGraphBV_Manager::SetBVMode(eGraphBV_Box);
 
-		SetObject(poLeaf);
+    CGMeshRect* poMesh;
+    poMesh = mNew CGMeshRect;
 
-	CGraphBV_Manager::SetBVMode(eOldType);	
-	ComputeBoundVol();
+    poLeaf = mNew CGSceneLeaf;
+    poLeaf->SetMesh(poMesh);
+
+    SetObject(poLeaf);
+
+    CGraphBV_Manager::SetBVMode(eOldType);
+    ComputeBoundVol();
 }
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 CGraphBV* CHUDIcon::poCreateBoundVol ()
 {
-  	eGraphBV_TypeID eOldType = CGraphBV_Manager::eGetBVMode();
-	CGraphBV_Manager::SetBVMode(eGraphBV_Box);
+    eGraphBV_TypeID eOldType = CGraphBV_Manager::eGetBVMode();
+    CGraphBV_Manager::SetBVMode(eGraphBV_Box);
 
-  		CGraphBV* poBVol = CGraphBV_Manager::poCreate();
-	
-	CGraphBV_Manager::SetBVMode(eOldType);	
+    CGraphBV* poBVol = CGraphBV_Manager::poCreate();
 
-	return(poBVol);
+    CGraphBV_Manager::SetBVMode(eOldType);
+
+    return(poBVol);
 }
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 CHUDIcon::~CHUDIcon()
 {
-	// CObject3D_Mux::~CObject3D_Mux();
+    // CGSceneMux::~CGSceneMux();
 }
-//-----------------------------------------------------------------------------
-void CHUDIcon::SetIcon(CE3D_Shader *_poShader)
+// -----------------------------------------------------------------------------
+void CHUDIcon::SetIcon(CE3D_Shader* _poShader)
 {
-	poLeaf->SetShader(_poShader);
+    poLeaf->SetShader(_poShader);
 }
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------

@@ -1,59 +1,57 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef CDetailer_h
 #define CDetailer_h 1
 
-
-
-// CObject3D_Leaf
+// CGSceneLeaf
 #include "GammaE_Scene.h"
 
+class CDetailer : public CGSceneLeaf
+{
+    public:
+        CDetailer();
 
+        virtual ~CDetailer();
 
+        void Init(int _iMaxTris);
 
-class CDetailer : public CObject3D_Leaf  {
-    
-  public:
-          CDetailer();
+        void SetCamPos(CVect3& _oCamPos);
 
-          virtual ~CDetailer();
+        virtual void SetVertexTris(CVect3* _poVXs, int _iNumTris);
 
+        void CreateTextureContents(CGMipMap* _pMipMap);
 
-                void Init (int _iMaxTris);
+        CE3D_Shader* poCreateMaterial();
 
-            void SetCamPos (CVect3& _oCamPos);
+        virtual void Render();
 
-            virtual void SetVertexTris (CVect3* _poVXs, int _iNumTris);
+        // Additional Public Declarations
 
-            void CreateTextureContents (CGMipMap *_pMipMap);
+    protected:
+        // Data Members for Class Attributes
 
-            CE3D_Shader * poCreateMaterial ();
+        CVect3 oCamPos;
 
-            virtual void Render ();
+        CGMipMap* poTex;
 
-    // Additional Public Declarations
-            
-  protected:
-    // Data Members for Class Attributes
+        // Additional Protected Declarations
 
-                  CVect3 oCamPos;
-      
-                  CGMipMap *poTex;
-      
-    // Additional Protected Declarations
-            
-  private:
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+    private:
+        // Additional Private Declarations
+
+    private:                    // Additional Implementation Declarations
 };
 
-
-// Class CDetailer 
-
-
+// Class CDetailer
 
 #endif

@@ -1,55 +1,70 @@
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
 #ifndef CGColorH
 #define CGColorH
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 #include "GammaE_Misc.h"
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 class CGColor
 {
     public:
-        CGColor() : r(0),g(0),b(0),a(0) {};
-        CGColor(float _r,float _g,float _b,float _a) { Set(_r,_g,_b,_a); };
+        CGColor() : r(0),g(0),b(0),a(0)
+        {
+        }
+        CGColor(float _r,float _g,float _b,float _a)
+        {
+            Set(_r,_g,_b,_a);
+        }
 
-        /// Sets the color from its components
+        // / Sets the color from its components
         void Set(float _r,float _g,float _b,float _a)
         {
-			r = _r;
-			g = _g;
-			b = _b;
-			a = _a;
-        };
+            r = _r;
+            g = _g;
+            b = _b;
+            a = _a;
+        }
 
-		CGColor(uint _uiColor)
-		{
-			Set(_uiColor);
-		}
-		
-		/// Sets the color from its components
-		void Set(uint _uiColor)
-		{	
-			const float _1_OVER_255 = 1.0f / 255.0f;
+        CGColor(uint _uiColor)
+        {
+            Set(_uiColor);
+        }
 
-			r = (float)((_uiColor & 0x000000ff)    ) * _1_OVER_255;
-			g = (float)((_uiColor & 0x0000ff00)>> 8) * _1_OVER_255;
-			b = (float)((_uiColor & 0x00ff0000)>>16) * _1_OVER_255;
-			a = (float)((_uiColor & 0xff000000)>>24) * _1_OVER_255;
-		}
+        // / Sets the color from its components
+        void Set(uint _uiColor)
+        {
+            const float _1_OVER_255 = 1.0f / 255.0f;
 
-		/// Performs the linear interpolation of the given colors by a factor
-		void Lerp(const CGColor& _oIni,const CGColor& _oEnd,float _fFact);
+            r = (float)( (_uiColor & 0x000000ff) ) * _1_OVER_255;
+            g = (float)( (_uiColor & 0x0000ff00) >> 8 ) * _1_OVER_255;
+            b = (float)( (_uiColor & 0x00ff0000) >> 16 ) * _1_OVER_255;
+            a = (float)( (_uiColor & 0xff000000) >> 24 ) * _1_OVER_255;
+        }
 
-		/// Returns a pointer to the data
-        float* v() const { return( (float*)&r ); };
+        // / Performs the linear interpolation of the given colors by a factor
+        void Lerp(const CGColor& _oIni,const CGColor& _oEnd,float _fFact);
 
-		// Since changes to fields are doesn't have side effects,
-		// no set/get functions are needed.
-		float r;
-		float g;
-		float b;
-		float a;
+        // / Returns a pointer to the data
+        float* v() const
+        {
+            return( (float*)&r );
+        }
+
+        // Since changes to fields are doesn't have side effects,
+        // no set/get functions are needed.
+        float r;
+        float g;
+        float b;
+        float a;
 };
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 #endif
-//-----------------------------------------------------------------------------
-
- 
+// ----------------------------------------------------------------------------

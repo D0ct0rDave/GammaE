@@ -1,114 +1,79 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
 #include <assert.h>
 
-
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 #include "SoundRender\CSoundRenderer.h"
 
-
-
-
-//-----------------------------------------------------------------------------
-
-
-
-
+// -----------------------------------------------------------------------------
 
 CSoundRenderer::CSoundRenderer()
-  
-      : iMaxEmiters(0), poReceiver(NULL), fGlbVol(1.0f)
-  
-  
-  
-{
-  
-  
-}
 
+    : iMaxEmiters(0), poReceiver(NULL), fGlbVol(1.0f)
+{
+}
 
 CSoundRenderer::~CSoundRenderer()
 {
-  
-  
 }
 
-
-
-
-CSoundEmiter * CSoundRenderer::poAddEmiter (CSound* _poSound, float _fVol, CVect3& _oPos, float _fRadius)
+CSoundEmiter* CSoundRenderer::poAddEmiter (CSound* _poSound, float _fVol, CVect3& _oPos, float _fRadius)
 {
-  
-	CSoundEmiter* poSndEmiter = poAddOmniEmiter(_poSound,_fVol);
-	if (!poSndEmiter) return (NULL);
+    CSoundEmiter* poSndEmiter = poAddOmniEmiter(_poSound,_fVol);
+    if ( !poSndEmiter ) return (NULL);
 
-	poSndEmiter->iType	      = 1;
-	poSndEmiter->Pos.Assign(_oPos);
-	poSndEmiter->fRadius      = _fRadius;
+    poSndEmiter->iType = 1;
+    poSndEmiter->Pos.Assign(_oPos);
+    poSndEmiter->fRadius = _fRadius;
 
-	return( poSndEmiter );
-  
+    return(poSndEmiter);
 }
 
-CSoundEmiter * CSoundRenderer::poAddOmniEmiter (CSound* _poSound, float _fVol)
+CSoundEmiter* CSoundRenderer::poAddOmniEmiter (CSound* _poSound, float _fVol)
 {
-  
-	CSoundEmiter* poSndEmiter = poGetFreeEmiter();
-	if (!poSndEmiter) return (NULL);
+    CSoundEmiter* poSndEmiter = poGetFreeEmiter();
+    if ( !poSndEmiter ) return (NULL);
 
-	poSndEmiter->fVol		  = _fVol;
-	poSndEmiter->iType	      = 0;
+    poSndEmiter->fVol = _fVol;
+    poSndEmiter->iType = 0;
 
+    poSndEmiter->Speed = poReceiver->Speed;
+    poSndEmiter->Pos = poReceiver->Pos;
+    poSndEmiter->Dir = poReceiver->Dir;
+    poSndEmiter->fRadius = 1e6f;
 
-	poSndEmiter->Speed = poReceiver->Speed;
-	poSndEmiter->Pos  = poReceiver->Pos;
-	poSndEmiter->Dir = poReceiver->Dir;
-	poSndEmiter->fRadius      = 1e6f;
+    poSndEmiter->poSound = _poSound;
 
-	poSndEmiter->poSound      = _poSound;
-	
-	return( poSndEmiter );
-  
+    return(poSndEmiter);
 }
 
 void CSoundRenderer::SetReceiver (CSoundReceiver* _poReceiver)
 {
-  
-	poReceiver = _poReceiver;
-  
+    poReceiver = _poReceiver;
 }
 
-CSoundReceiver * CSoundRenderer::poGetReceiver ()
+CSoundReceiver* CSoundRenderer::poGetReceiver ()
 {
-  
-	return (poReceiver);
-  
+    return (poReceiver);
 }
 
-//-----------------------------------------------------------------------------
-  
-CSoundEmiter * CSoundRenderer::poAddDirEmiter (CSound* _poSound, float _fVol, CVect3& _oPos, float _fRadius, CVect3& _oDir)
+// -----------------------------------------------------------------------------
+
+CSoundEmiter* CSoundRenderer::poAddDirEmiter (CSound* _poSound, float _fVol, CVect3& _oPos, float _fRadius, CVect3& _oDir)
 {
-	CSoundEmiter* poSndEmiter = poAddEmiter(_poSound,_fVol,_oPos,_fRadius);
-	if (!poSndEmiter) return (NULL);
-	
-	poSndEmiter->iType	      = 2;
-	poSndEmiter->Dir.Assign ( _oDir );
+    CSoundEmiter* poSndEmiter = poAddEmiter(_poSound,_fVol,_oPos,_fRadius);
+    if ( !poSndEmiter ) return (NULL);
 
-	return(poSndEmiter);
+    poSndEmiter->iType = 2;
+    poSndEmiter->Dir.Assign ( _oDir );
+
+    return(poSndEmiter);
 }
-  
-
-
-

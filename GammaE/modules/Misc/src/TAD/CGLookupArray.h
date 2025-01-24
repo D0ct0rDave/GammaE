@@ -1,156 +1,163 @@
-//-----------------------------------------------------------------------------
-#ifndef CGLookupArray_h
-#define CGLookupArray_h 1
-//-----------------------------------------------------------------------------
-#include "TAD/CGDynArray.h"
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
+#ifndef CGLookupArrayH
+#define CGLookupArrayH
+// ----------------------------------------------------------------------------
+#include "CGDynArray.h"
 #include "Types/CGString.h"
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 template <class T>
-class CGLookupArray 
-{ 
-	protected:
+class CGLookupArray
+{
+    protected:
 
-		class CLookupEntry
-		{
-			public:
-				CLookupEntry()
-				{
-				
-				}
+        class CLookupEntry
+        {
+            public:
+                CLookupEntry()
+                {
+                }
 
-				CLookupEntry(const CGString& _sVarName,const T& _oValue)
-				{
-					m_sName = _sVarName;
-					m_oData = _oValue;
-				};
-		
-				CGString	m_sName;
-				T			m_oData;
-		};
+                CLookupEntry(const CGString& _sVarName,const T& _oValue)
+                {
+                    m_sName = _sVarName;
+                    m_oData = _oValue;
+                }
 
-	public:    
+                CGString m_sName;
+                T m_oData;
+        };
 
-		~CGLookupArray()
-		{
-		};
+    public:
 
-		uint uiAddVar (const CGString& _sVarName,const T& _oValue)
-		{
-			// If the var exists just replace it
-			int iIdx = iGetIdx(_sVarName);
+        ~CGLookupArray()
+        {
+        }
 
-			if (iIdx == -1)
-			{			
-				CLookupEntry oEntry(_sVarName,_oValue);
-				return( m_oVars.uiAdd(oEntry) );
-			}
-			else
-			{
-				SetElem(iIdx,_oValue);
-				return(iIdx);
-			}
-		}
+        uint uiAddVar (const CGString& _sVarName,const T& _oValue)
+        {
+            // If the var exists just replace it
+            int iIdx = iGetIdx(_sVarName);
 
-		T oGetVar(const CGString& _sVarName) const
-		{
-			for (uint i=0;i<uiNumElems();i++)
-			{
-				if (m_oVars[i].m_sName == _sVarName)
-					return ( m_oVars[i].m_oData );
-			}
+            if ( iIdx == -1 )
+            {
+                CLookupEntry oEntry(_sVarName,_oValue);
+                return( m_oVars.uiAdd(oEntry) );
+            }
+            else
+            {
+                SetElem(iIdx,_oValue);
+                return(iIdx);
+            }
+        }
 
-			return ((T)0);
-		}
+        T oGetVar(const CGString& _sVarName) const
+        {
+            for ( uint i = 0; i < uiNumElems(); i++ )
+            {
+                if ( m_oVars[i].m_sName == _sVarName )
+                    return (m_oVars[i].m_oData);
+            }
 
-		void SetVar(const CGString& _sVarName,const T& _oValue)
-		{
-			for (uint i=0;i<uiNumElems();i++)
-			{
-				if (m_oVars[i].m_sName == _sVarName)
-				{
-					m_oVars[i].m_oData = _oValue;
-					return;
-				}
-			}
-		}		
+            return ( (T)0 );
+        }
 
-		T& oGetElem(uint _uiIdx)
-		{
-			return( m_oVars[_uiIdx].m_oData );
-		};
-		
-		T& operator[](const uint _uiIdx)
-		{
-			return ( m_oVars[_uiIdx].m_oData );
-		}
+        void SetVar(const CGString& _sVarName,const T& _oValue)
+        {
+            for ( uint i = 0; i < uiNumElems(); i++ )
+            {
+                if ( m_oVars[i].m_sName == _sVarName )
+                {
+                    m_oVars[i].m_oData = _oValue;
+                    return;
+                }
+            }
+        }
 
-		int iGetElemIdx(const T& _oData)
-		{
-			for (uint i=0;i<uiNumElems();i++)
-				if (m_oVars[i].m_oData == _oData)
-					return ( i );
-			
-			return( -1 );
-		};
+        T& oGetElem(uint _uiIdx)
+        {
+            return(m_oVars[_uiIdx].m_oData);
+        }
 
-		int iGetIdx(const CGString& _sVarName)
-		{
-			for (uint i=0;i<uiNumElems();i++)
-			{
-				if (m_oVars[i].m_sName == _sVarName)
-					return ( i );
-			}
+        T& operator[](const uint _uiIdx)
+        {
+            return (m_oVars[_uiIdx].m_oData);
+        }
 
-			return( -1 );
-		};
+        int iGetElemIdx(const T& _oData)
+        {
+            for ( uint i = 0; i < uiNumElems(); i++ )
+                if ( m_oVars[i].m_oData == _oData )
+                    return (i);
 
-		void SetElem(uint _uiIdx,const T& _oData)
-		{
-			m_oVars[_uiIdx].m_oData = _oData;
-		};
+            return(-1);
+        }
 
-		const CGString& sGetVarName(const T& _oObj)
-		{
-			for (uint i=0;i<uiNumElems();i++)
-			{
-				if (_oObj == m_oVars[i].m_oData )
-					return ( m_oVars[i].m_sName );
-			}
+        int iGetIdx(const CGString& _sVarName)
+        {
+            for ( uint i = 0; i < uiNumElems(); i++ )
+            {
+                if ( m_oVars[i].m_sName == _sVarName )
+                    return (i);
+            }
 
-			static CGString sNULLString = "NULL";
-			return (sNULLString);
-		}
+            return(-1);
+        }
 
-		const CGString& sGetElemName(uint _uiElem)
-		{
-			return ( m_oVars[_uiElem].m_sName );
-		}
+        void SetElem(uint _uiIdx,const T& _oData)
+        {
+            m_oVars[_uiIdx].m_oData = _oData;
+        }
 
-		void Del(uint _uiElemIdx)
-		{
-			m_oVars.Del(_uiElemIdx);
-		}
+        const CGString& sGetVarName(const T& _oObj)
+        {
+            for ( uint i = 0; i < uiNumElems(); i++ )
+            {
+                if ( _oObj == m_oVars[i].m_oData )
+                    return (m_oVars[i].m_sName);
+            }
 
-		uint uiMaxElems() const
-		{ 
-			return ( m_oVars.uiMaxElems() );
-		};
+            static CGString sNULLString = "NULL";
+            return (sNULLString);
+        }
 
-		uint uiNumElems() const
-		{
-			return ( m_oVars.uiNumElems() );
-		};
-		
-		void Clear ()
-		{
-			m_oVars.Clear();
-		}
+        const CGString& sGetElemName(uint _uiElem)
+        {
+            return (m_oVars[_uiElem].m_sName);
+        }
 
-	protected:
+        void Del(uint _uiElemIdx)
+        {
+            m_oVars.Del(_uiElemIdx);
+        }
 
-		CGDynArray<CLookupEntry> m_oVars;
+        uint uiMaxElems() const
+        {
+            return ( m_oVars.uiMaxElems() );
+        }
+
+        uint uiNumElems() const
+        {
+            return ( m_oVars.uiNumElems() );
+        }
+
+        void Clear ()
+        {
+            m_oVars.Clear();
+        }
+
+    protected:
+
+        CGDynArray <CLookupEntry> m_oVars;
 };
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 #endif
-//-----------------------------------------------------------------------------
-
+// ----------------------------------------------------------------------------

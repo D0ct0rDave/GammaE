@@ -1,156 +1,82 @@
-
-//-----------------------------------------------------------------------------
-
-
-
-
-
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 
 #ifndef CSoundMixer_h
 #define CSoundMixer_h 1
 
-
-
-
-
-
-
-//-----------------------------------------------------------------------------
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 #include "SoundRender\SoundMixer\CSoundMixPars.h"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-class CSoundMixer 
+class CSoundMixer
 {
-  
-  
+    public:
 
-  public:
-    
-      CSoundMixer();
+        CSoundMixer();
 
-    
-      ~CSoundMixer();
+        ~CSoundMixer();
 
+        static void Clear();
 
-    
-      
-      static void Clear ();
+        static void SetupBuffer(unsigned int _uiSamples, unsigned int _iSRate, int _iBits);
 
-      
-      static void SetupBuffer (unsigned int _uiSamples, unsigned int _iSRate, int _iBits);
+        static void Mix(CSoundMixPars& _oSMP, unsigned int _uiSamples, unsigned int _uiCurDSmpPos = 0);
 
-      
-      static void Mix (CSoundMixPars& _oSMP, unsigned int _uiSamples, unsigned int _uiCurDSmpPos = 0);
+        static int iMix16M(CSoundMixPars& _oSMP, CSample* _poSample,unsigned int _uiSamples, unsigned int _uiCurDSmpPos);
 
-      
-      static int iMix16M(CSoundMixPars& _oSMP, CSample* _poSample,unsigned int _uiSamples, unsigned int _uiCurDSmpPos);
+        static int iMix16S(CSoundMixPars& _oSMP, CSample* _poSample,unsigned int _uiSamples, unsigned int _uiCurDSmpPos);
 
-      
-      static int iMix16S(CSoundMixPars& _oSMP, CSample* _poSample,unsigned int _uiSamples, unsigned int _uiCurDSmpPos);
+        static int iMix8M(CSoundMixPars& _oSMP, CSample* _poSample,unsigned int _uiSamples, unsigned int _uiCurDSmpPos);
 
-      
-      static int iMix8M (CSoundMixPars& _oSMP, CSample* _poSample,unsigned int _uiSamples, unsigned int _uiCurDSmpPos);
+        static int iMix8S(CSoundMixPars& _oSMP, CSample* _poSample,unsigned int _uiSamples, unsigned int _uiCurDSmpPos);
 
-      
-      static int iMix8S (CSoundMixPars& _oSMP, CSample* _poSample,unsigned int _uiSamples, unsigned int _uiCurDSmpPos);
+        static void* pGetBuffer();
 
-      
-      static void* pGetBuffer ();
+        static unsigned int uiGetBufferSize();
 
-      
-      static unsigned int uiGetBufferSize ();
+        static void Finish();
 
-      
-      static void Finish ();
+        // -----------------------------------------------------------------------------
 
-    //-----------------------------------------------------------------------------
+        // -----------------------------------------------------------------------------
 
-      
-      
-      
-      
+        static void PostProcess();
 
-    //-----------------------------------------------------------------------------
-      
-      static void PostProcess();
-      
+    protected:
+        // -----------------------------------------------------------------------------
 
-  protected:
-    //-----------------------------------------------------------------------------
-      
-      
+    private:
+        // -----------------------------------------------------------------------------
 
-  private:
-    //-----------------------------------------------------------------------------
+        static void* pBuffer;
 
-      
-      
-      static void *pBuffer;
-      
+        static int* pi32bBuffer;
 
-      
-      
-      static int *pi32bBuffer;
-      
+        static unsigned int uiBuffSize;
 
-      
-      
-      static unsigned int uiBuffSize;
-      
+        static unsigned int uiBuffSamples;
 
-      
-      
-      static unsigned int uiBuffSamples;
-      
+        static int iSRate;
 
-      
-      
-      static int iSRate;
-      
+        static int iBits;
 
-      
-      
-      static int iBits;
-      
+        // -----------------------------------------------------------------------------
 
-      
-      
-      
+        static void* pSampleBuffer;
 
-    //-----------------------------------------------------------------------------
-      
-      static void* pSampleBuffer;
-      
-
-  private: 
-    //-----------------------------------------------------------------------------
-      
-      
-
+    private:
+        // -----------------------------------------------------------------------------
 };
 
-
-
-
-//-----------------------------------------------------------------------------
-
-
-
-
+// -----------------------------------------------------------------------------
 
 #endif

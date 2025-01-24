@@ -1,11 +1,17 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef CTerrainTesselator_h
 #define CTerrainTesselator_h 1
-
-
 
 // CTileBookmark
 #include "TerrainMaterials\CTileBookmark.h"
@@ -14,77 +20,65 @@
 // GammaE_TerrainData
 #include "GammaE_TerrainData.h"
 
-
-
-
-
-class CTerrainTesselator 
+class CTerrainTesselator
 {
-    
-  public:
-          CTerrainTesselator();
+    public:
+        CTerrainTesselator();
 
-          ~CTerrainTesselator();
+        ~CTerrainTesselator();
 
+        virtual void Render();
 
-                virtual void Render ();
+        virtual void SetData(CHFSector* _HF, CLMSector* _LM, CTMSector* _TM, CTileBookmark* _TB, float* _fLODs, int* _iLODs, float _fXYScale);
 
-            virtual void SetData (CHFSector* _HF, CLMSector* _LM, CTMSector* _TM, CTileBookmark* _TB, float *_fLODs, int *_iLODs, float _fXYScale);
+        void SetCameraPos(CVect3 _Pos);
 
-            void SetCameraPos (CVect3 _Pos);
+        CLODSelector* GetTileLODSel();
+        void SetTileLODSel(CLODSelector* value);
 
-    
-                  CLODSelector * GetTileLODSel ();
-      void SetTileLODSel (CLODSelector * value);
+        // Data Members for Associations
 
-    // Data Members for Associations
+        CLODSelector* TileLODSel;
 
-                  CLODSelector *TileLODSel;
-      
-    // Additional Public Declarations
-            
-  protected:
-    // Data Members for Class Attributes
+        // Additional Public Declarations
 
-                  float *fLODs;
-      
-                  int *iLODs;
-      
-                  CHFSector *HF;
-      
-                  CLMSector *LM;
-      
-                  CTMSector *TM;
-      
-                  CTileBookmark *TB;
-      
-                  CVect3 Cam;
-      
-                  float fXYScale;
-      
-    // Additional Protected Declarations
-            
-  private:
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+    protected:
+        // Data Members for Class Attributes
+
+        float* fLODs;
+
+        int* iLODs;
+
+        CHFSector* HF;
+
+        CLMSector* LM;
+
+        CTMSector* TM;
+
+        CTileBookmark* TB;
+
+        CVect3 Cam;
+
+        float fXYScale;
+
+        // Additional Protected Declarations
+
+    private:
+        // Additional Private Declarations
+
+    private:                    // Additional Implementation Declarations
 };
 
+// Class CTerrainTesselator
 
-// Class CTerrainTesselator 
-
-
-inline CLODSelector * CTerrainTesselator::GetTileLODSel ()
+inline CLODSelector* CTerrainTesselator::GetTileLODSel ()
 {
-    return TileLODSel;
+    return(TileLODSel);
 }
 
-inline void CTerrainTesselator::SetTileLODSel (CLODSelector * value)
+inline void CTerrainTesselator::SetTileLODSel (CLODSelector* value)
 {
     TileLODSel = value;
 }
-
-
 
 #endif

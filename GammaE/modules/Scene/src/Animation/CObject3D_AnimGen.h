@@ -1,54 +1,56 @@
-//	  %X% %Q% %Z% %W%
-
-#ifndef CObject3D_AnimGen_h
-#define CObject3D_AnimGen_h 1
-
-// CObject3D
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
+#ifndef CGSceneAnimGenH
+#define CGSceneAnimGenH
+// ----------------------------------------------------------------------------
 #include "CObject3D.h"
-
-class CObject3D_AnimGen : public CObject3D
+// ----------------------------------------------------------------------------
+class CGSceneAnimGen : public CGSceneNode
 {
+    public:
+        CGSceneAnimGen();
 
-public: CObject3D_AnimGen();
+        ~CGSceneAnimGen();
 
-    ~CObject3D_AnimGen();
+        virtual void SetAnimState(int _iSrc, int _iDst, float _fFactor) = 0;
 
-    virtual void SetAnimState (int _iSrc, int _iDst, float _fFactor) = 0;
+        CGraphBV* poCreateBoundVol ()
+        {
+            return( CGraphBV_Manager::poCreate() );
+        }
 
-    CGraphBV *poCreateBoundVol ()
-    {
-        return( CGraphBV_Manager::poCreate() );
-    };
+        virtual CGraphBV* poGetStateBVol(int _iState) = 0;
 
-    virtual CGraphBV *poGetStateBVol (int _iState) = 0;
+        int iGetNumStates();
 
-    int iGetNumStates ();
+        int iGetLastFrame();
 
-    int iGetLastFrame ();
+    protected:
 
-     // Additional Public Declarations
-protected:
-    // Data Members for Class Attributes
+        int iNumStates;
 
-    int iNumStates;
+    private:
 
-     // Additional Protected Declarations
-private:
-     // Additional Private Declarations
-private:
-    // Additional Implementation Declarations
+    private:
 };
-
-// Class CObject3D_AnimGen
-
-inline int CObject3D_AnimGen::iGetNumStates ()
+// ----------------------------------------------------------------------------
+inline int CGSceneAnimGen::iGetNumStates ()
 {
-    return( iNumStates );
+    return(iNumStates);
 }
-
-inline int CObject3D_AnimGen::iGetLastFrame ()
+// ----------------------------------------------------------------------------
+inline int CGSceneAnimGen::iGetLastFrame ()
 {
-    return( 0 );
+    return(0);
 }
-
-#endif // ifndef CObject3D_AnimGen_h
+// ----------------------------------------------------------------------------
+#endif
+// ----------------------------------------------------------------------------

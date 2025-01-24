@@ -1,63 +1,59 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef SCNUt_TriSceneSeparator_h
 #define SCNUt_TriSceneSeparator_h 1
-
-
 
 // SCNUt_TriScene
 #include "SCNUt_TriScene.h"
 // SCNUt_MeshCompacter
 #include "ScnMeshGen\SCNUt_MeshCompacter.h"
 
-
-
-
-
-class SCNUt_TriSceneSeparator 
+class SCNUt_TriSceneSeparator
 {
-    
-  public:
-          SCNUt_TriSceneSeparator();
+    public:
+        SCNUt_TriSceneSeparator();
 
-          ~SCNUt_TriSceneSeparator();
+        ~SCNUt_TriSceneSeparator();
 
+        int SeparateScene(SCNUt_TriScene &Scene);
 
-                int SeparateScene (SCNUt_TriScene &Scene);
+        int iProcessTriScene(SCNUt_TriScene &Scene);
 
-            int iProcessTriScene (SCNUt_TriScene &Scene);
+        int iGetTrisWithMat(int _iMat);
 
-            int iGetTrisWithMat (int _iMat);
+        // Data Members for Class Attributes
 
-    // Data Members for Class Attributes
+        int NumMeshes;
 
-                  int NumMeshes;
-      
-                  SCNUt_TriScene *Meshes;
-      
-                  int *piTriMat;
-      
-                  int *piMatIdx;
-      
-                  int iMaxMats;
-      
-    // Additional Public Declarations
-            
-  protected:
-    // Additional Protected Declarations
-            
-  private:
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+        SCNUt_TriScene* Meshes;
+
+        int* piTriMat;
+
+        int* piMatIdx;
+
+        int iMaxMats;
+
+        // Additional Public Declarations
+
+    protected:
+        // Additional Protected Declarations
+
+    private:
+        // Additional Private Declarations
+
+    private:                    // Additional Implementation Declarations
 };
 
-
-// Class SCNUt_TriSceneSeparator 
-
-
+// Class SCNUt_TriSceneSeparator
 
 #endif

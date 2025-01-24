@@ -1,82 +1,79 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef CLensFlare_h
 #define CLensFlare_h 1
 
-
-
 // CLensFlare_Elem
 #include "LensFlare\CLensFlare_Elem.h"
-// CObject3D
+// CGSceneNode
 #include "GammaE_Scene.h"
 
+class CLensFlare : public CGSceneNode
+{
+    public:
+        CLensFlare();
 
+        virtual ~CLensFlare();
 
+        void InitLensFlare(int _iNumElems, CVect3 _SunPos);
 
+        void SetupFlareElem(int _iElem, float _fSize, float _fDist, CGColor _Color, CE3D_Shader* _pMat);
 
-class CLensFlare : public CObject3D  {
-    
-  public:
-          CLensFlare();
+        void UpdateMesh();
 
-          virtual ~CLensFlare();
+        virtual void Render();
 
+        virtual CGraphBV* poGetBV();
 
-                void InitLensFlare (int _iNumElems, CVect3 _SunPos);
+        virtual void ComputeBoundVol();
 
-            void SetupFlareElem (int _iElem, float _fSize, float _fDist, CGColor _Color, CE3D_Shader *_pMat);
+        bool bVisible();
 
-            void UpdateMesh ();
+        void UpdateState();
 
-            virtual void Render ();
+        // Additional Public Declarations
 
-            virtual CGraphBV* poGetBoundVol ();
+    protected:
+        // Additional Protected Declarations
 
-            virtual void ComputeBoundVol ();
+    private:
+        // Data Members for Class Attributes
 
-            bool bVisible ();
+        CLensFlare_Elem* FlareElems;
 
-            void UpdateState ();
+        int iNumElems;
 
-    // Additional Public Declarations
-            
-  protected:
-    // Additional Protected Declarations
-            
-  private:
-    // Data Members for Class Attributes
+        CGMeshRect* MeshArray;
 
-                  CLensFlare_Elem* FlareElems;
-      
-                  int iNumElems;
-      
-                  CMesh_Rect *MeshArray;
-      
-                  int iLensFlareState;
-      
-                  float fVisFact;
-      
-                  CVect3 oPrjSun;
-      
-                  CVect3 oSunPos;
-      
-                  CVect3 oScrPos;
-      
-                  CMatrix4x4 oViewMat;
-      
-                  CMatrix4x4 oPrjMat;
-      
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+        int iLensFlareState;
+
+        float fVisFact;
+
+        CVect3 oPrjSun;
+
+        CVect3 oSunPos;
+
+        CVect3 oScrPos;
+
+        CMatrix4x4 oViewMat;
+
+        CMatrix4x4 oPrjMat;
+
+        // Additional Private Declarations
+
+    private:                    // Additional Implementation Declarations
 };
 
-
-// Class CLensFlare 
-
-
+// Class CLensFlare
 
 #endif

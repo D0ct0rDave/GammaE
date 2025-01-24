@@ -1,87 +1,109 @@
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
 #ifndef GEMFileH
 #define GEMFileH
-//-----------------------------------------------------------------------------
-#include "e3DObjectTypeID.h"
-
-#define             GEM_FILE_IDENTIFIER         MAKE_RIFF_ID('G','E','M','D')
+// ----------------------------------------------------------------------------
+#include "GSceneEnums.h"
+#include "GammaE_Misc.h"
+// ----------------------------------------------------------------------------
+const uint GEM_FILE_IDENTIFIER = MAKE_RIFF_ID('G','E','M','D');
 
 #define             GEM_MAJOR_VERSION           1
-#define             GEM_MINOR_VERSION           0
+#define             GEM_MINOR_VERSION           1
 
-#define             GEM_MESH_IDENTIFIER         MAKE_RIFF_ID('M','E','S','H')
-
-inline unsigned int GEMFile_Translate_TypeID2FileID(unsigned int uiTypeID)
+const uint GEM_NULL_IDENTIFIER = MAKE_RIFF_ID('N','U','L','L');
+const uint GEM_LEAF_IDENTIFIER = MAKE_RIFF_ID('L','E','A','F');
+const uint GEM_NODE_IDENTIFIER = MAKE_RIFF_ID('N','O','D','E');
+const uint GEM_GROUP_IDENTIFIER = MAKE_RIFF_ID('G','R','U','P');
+const uint GEM_TRANSF_IDENTIFIER = MAKE_RIFF_ID('X','F','R','M');
+const uint GEM_ANIMOBJ_IDENTIFIER = MAKE_RIFF_ID('A','O','B','J');
+const uint GEM_ANIMNODE_IDENTIFIER = MAKE_RIFF_ID('A','N','O','D');
+const uint GEM_ANIMMESH_IDENTIFIER = MAKE_RIFF_ID('A','M','S','H');
+const uint GEM_ANIMTRANSF_IDENTIFIER = MAKE_RIFF_ID('A','T','R','A');
+const uint GEM_ANIMCFG_IDENTIFIER = MAKE_RIFF_ID('A','C','F','G');
+const uint GEM_ANIMINST_IDENTIFIER = MAKE_RIFF_ID('A','I','N','S');
+const uint GEM_CAMERA_IDENTIFIER = MAKE_RIFF_ID('C','A','M',' ');
+const uint GEM_BSPNODE_IDENTIFIER = MAKE_RIFF_ID('B','S','P','N');
+const uint GEM_MUX_IDENTIFIER = MAKE_RIFF_ID('M','U','X',' ');
+const uint GEM_MESH_IDENTIFIER = MAKE_RIFF_ID('M','E','S','H');
+// ----------------------------------------------------------------------------
+inline uint GEMFile_Translate_TypeID2FileID(ESceneNodeType _eType)
 {
-    switch (uiTypeID)
+    switch ( _eType )
     {
-        case e3DObj_NULL:           return ( MAKE_RIFF_ID('N','U','L','L') );
+        case SNT_NULL:           return (GEM_NULL_IDENTIFIER);
 
-        case e3DObj_Gen:            return ( MAKE_RIFF_ID('G','E','N',' ') );
+        case SNT_Node:           return (GEM_NODE_IDENTIFIER);
 
-        case e3DObj_Leaf:           return ( MAKE_RIFF_ID('L','E','A','F') );
+        case SNT_Leaf:           return (GEM_LEAF_IDENTIFIER);
 
-        case e3DObj_Node:           return ( MAKE_RIFF_ID('N','O','D','E') );
+        case SNT_Group:          return (GEM_GROUP_IDENTIFIER);
+
+        case SNT_Camera:         return (GEM_CAMERA_IDENTIFIER);
+
+        case SNT_BSPNode:        return (GEM_BSPNODE_IDENTIFIER);
+
+        case SNT_Mux:            return (GEM_MUX_IDENTIFIER);
 
         // Animation nodes
-        case e3DObj_AnimGen:        return ( MAKE_RIFF_ID('A','G','E','N') );
+        case SNT_AnimObject:     return (GEM_ANIMOBJ_IDENTIFIER);
 
-        case e3DObj_AnimNode:       return ( MAKE_RIFF_ID('A','N','O','D') );
+        case SNT_AnimNode:       return (GEM_ANIMNODE_IDENTIFIER);
 
-        case e3DObj_AnimMesh:       return ( MAKE_RIFF_ID('A','M','S','H') );
+        case SNT_AnimMesh:       return (GEM_ANIMMESH_IDENTIFIER);
 
-        case e3DObj_AnimTransf:     return ( MAKE_RIFF_ID('A','T','R','A') );
+        case SNT_AnimTransf:     return (GEM_ANIMTRANSF_IDENTIFIER);
 
-        case e3DObj_AnimCfg:        return ( MAKE_RIFF_ID('A','C','F','G') );
+        case SNT_AnimCfg:        return (GEM_ANIMCFG_IDENTIFIER);
 
-        case e3DObj_AnimCfgMgr:     return ( MAKE_RIFF_ID('A','C','M','G') );
+        case SNT_AnimInstance:   return (GEM_ANIMINST_IDENTIFIER);
 
-        case e3DObj_Camera:         return ( MAKE_RIFF_ID('C','A','M',' ') );
-
-        case e3DObj_BSPNode:        return ( MAKE_RIFF_ID('B','S','P','N') );
-
-        case e3DObj_Mux:            return ( MAKE_RIFF_ID('M','U','X',' ') );
-
-        default:    return ( 0 );
+        default:    return (0);
     }
-
 }
-
-inline unsigned int GEMFile_Translate_FileID2TypeID2(unsigned int uiFileID)
+// ----------------------------------------------------------------------------
+inline ESceneNodeType GEMFile_Translate_FileID2TypeID2(uint uiFileID)
 {
-    switch (uiFileID)
+    switch ( uiFileID )
     {
-        case MAKE_RIFF_ID('N','U','L','L'): return ( e3DObj_NULL         );
+        case MAKE_RIFF_ID('N','U','L','L'): return (SNT_NULL);
 
-        case MAKE_RIFF_ID('G','E','N',' '): return ( e3DObj_Gen          );
+        case MAKE_RIFF_ID('N','O','D','E'): return (SNT_Node);
 
-        case MAKE_RIFF_ID('L','E','A','F'): return ( e3DObj_Leaf         );
+        case MAKE_RIFF_ID('L','E','A','F'): return (SNT_Leaf);
 
-        case MAKE_RIFF_ID('N','O','D','E'): return ( e3DObj_Node         );
+        case MAKE_RIFF_ID('G','R','U','P'): return (SNT_Group);
 
         // Animation nodes
-        case MAKE_RIFF_ID('A','G','E','N'): return ( e3DObj_AnimGen      );
+        case MAKE_RIFF_ID('A','O','B','J'): return (SNT_AnimObject);
 
-        case MAKE_RIFF_ID('A','N','O','D'): return ( e3DObj_AnimNode     );
+        case MAKE_RIFF_ID('A','N','O','D'): return (SNT_AnimNode);
 
-        case MAKE_RIFF_ID('A','M','S','H'): return ( e3DObj_AnimMesh     );
+        case MAKE_RIFF_ID('A','M','S','H'): return (SNT_AnimMesh);
 
-        case MAKE_RIFF_ID('A','T','R','A'): return ( e3DObj_AnimTransf   );
+        case MAKE_RIFF_ID('A','T','R','A'): return (SNT_AnimTransf);
 
-        case MAKE_RIFF_ID('A','C','F','G'): return ( e3DObj_AnimCfg      );
+        case MAKE_RIFF_ID('A','C','F','G'): return (SNT_AnimCfg);
 
-        case MAKE_RIFF_ID('A','C','M','G'): return ( e3DObj_AnimCfgMgr   );
+        case MAKE_RIFF_ID('A','I','N','S'): return (SNT_AnimInstance);
 
-        case MAKE_RIFF_ID('C','A','M',' '): return ( e3DObj_Camera       );
+        case MAKE_RIFF_ID('C','A','M',' '): return (SNT_Camera);
 
-        case MAKE_RIFF_ID('B','S','P','N'): return ( e3DObj_BSPNode      );
+        case MAKE_RIFF_ID('B','S','P','N'): return (SNT_BSPNode);
 
-        case MAKE_RIFF_ID('M','U','X',' '): return ( e3DObj_Mux          );
+        case MAKE_RIFF_ID('M','U','X',' '): return (SNT_Mux);
 
-        default:    return ( 0 );
+        default:    return (SNT_NULL);
     }
 }
-
-//-----------------------------------------------------------------------------
-#endif // ifndef GEMFileH
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+#endif
+// ----------------------------------------------------------------------------

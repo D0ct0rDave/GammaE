@@ -1,187 +1,121 @@
-
-
-
-
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
 #include <string.h>
 
-// CObject3D_AnimMesh
-#include "Animation\CObject3D_AnimMesh.h"
+// CGSceneAnimMesh
+#include "Animation\CGSceneAnimMesh.h"
 
-
-// Class CObject3D_AnimMesh 
-
-
-
-
-
-
-CObject3D_AnimMesh::CObject3D_AnimMesh()
-        : pMeshStates(NULL), pNMeshStates(NULL), iNumStateVXs(0), pBVolStates(NULL), Leaf(NULL)
-      {
-  	TypeID = e3DObj_AnimMesh;	
-	BVol		= CGraphBV_Manager::poCreate();
-}
-
-
-CObject3D_AnimMesh::~CObject3D_AnimMesh()
+// --------------------------------------------------------------------------------
+CGSceneAnimMesh::CGSceneAnimMesh() :
+    m_poFrameVXs(NULL),
+    m_poFrameVNs(NULL),
+    m_poMesh(NULL)
 {
-      int iState;
-
-	if (Leaf) Leaf->Deref();
-
-	if (pBVolStates)
-	{	
-		for (iState=0;iState<iNumStates;iState++)
-			mDel pBVolStates[iState];
-		
-		mDel []pBVolStates;
-	}
-	
-	if (pMeshStates)  mDel []pMeshStates;
-	if (pNMeshStates) mDel []pNMeshStates;
-	
-	if (BVol) mDel BVol;
+    m_eTypeID = OBJ3D_AnimMesh;
 }
-
-
-
-void CObject3D_AnimMesh::SetAnimState (int _iSrc, int _iDst, float _fFactor)
+// --------------------------------------------------------------------------------
+CGSceneAnimMesh::~CGSceneAnimMesh()
 {
-  	assert (pMeshStates && "NULL Mesh state array");
-	assert (pBVolStates && "NULL Bounding Volume State array");
-	assert (Leaf        && "NULL Leaf Mesh");	
+    m_poFrameBVol.Clear();
 
-	if (iNumStates == 1)
-	{
-		memcpy(Leaf->poGetMesh()->VXs,pMeshStates ,iNumStateVXs*sizeof(CVect3));
-		memcpy(Leaf->poGetMesh()->VNs,pNMeshStates,iNumStateVXs*sizeof(CVect3));		
-
-		BVol->Copy(pBVolStates[0]);
-		Leaf->poGetMesh()->BVol->Copy(BVol);
-	}
-	else
-	{
-		if (_iSrc>= iNumStates) _iSrc = iNumStates-1;
-		if (_iDst>= iNumStates) _iDst = iNumStates-1;
-		if (_fFactor == 1.0f)	_iSrc = _iDst;			// Optimization
-	
-		if ((_iSrc != _iDst) && (_fFactor>0.0f))
-		{
-			int				cVert;
-			CVect3			*pSrcVX  = pMeshStates + iNumStateVXs*_iSrc;
-			CVect3			*pDstVX  = pMeshStates + iNumStateVXs*_iDst;
-			CVect3			*pMeshVX = Leaf->poGetMesh()->VXs;
-			for (cVert=0;cVert<iNumStateVXs;cVert++)
-			{	
-				pMeshVX->Interpolate(*pSrcVX,*pDstVX,_fFactor);				
-				
-				pSrcVX ++;
-				pDstVX ++;
-				pMeshVX++;
-			}
-
-			/*
-			// No se nota tanto la diferecia
-			CVect3			*pSrcVN  = pNMeshStates + iNumStateVXs*_iSrc;
-			CVect3			*pDstVN  = pNMeshStates + iNumStateVXs*_iDst;
-			CVect3			*pMeshVN = Leaf->poGetMesh()->VNs;
-			for (cVert=0;cVert<iNumStateVXs;cVert++)
-			{	
-
-				pMeshVN->Interpolate(*pSrcVN,*pDstVN,_fFactor);
-
-				pSrcVN ++;
-				pDstVN ++;
-				pMeshVN++;
-			}
-			*/			
-			memcpy(Leaf->poGetMesh()->VNs,pNMeshStates + iNumStateVXs*_iSrc,iNumStateVXs*sizeof(CVect3));
-
-
-			CVect3 oSMax,oSMin,oDMax,oDMin,oMax,oMin;		
-			CVect3 oSCen = pBVolStates[_iSrc]->GetCenter();
-			CVect3 oDCen = pBVolStates[_iDst]->GetCenter();
-			CVect3 oSExt = pBVolStates[_iSrc]->GetExtents();
-			CVect3 oDExt = pBVolStates[_iDst]->GetExtents();
-			oSMax.Assign(oSCen);	oSMax.Add(oSExt);
-			oSMin.Assign(oSCen);	oSMin.Sub(oSExt);
-			oDMax.Assign(oDCen);	oDMax.Add(oDExt);
-			oDMin.Assign(oDCen);	oDMin.Sub(oDExt);
-
-			oMax.Interpolate(oSMax,oDMax,_fFactor);
-			oMin.Interpolate(oSMin,oDMin,_fFactor);
-
-			BVol->Init(oMax,oMin);
-			Leaf->poGetMesh()->BVol->Copy(BVol);			
-		}
-		else
-		{		
-			// Src copy:		
-			BVol->Copy(pBVolStates[_iSrc]);			
-			Leaf->poGetMesh()->BVol->Copy(BVol);
-						
-			// Copy of the vertexs
-			memcpy(Leaf->poGetMesh()->VXs,pMeshStates  + iNumStateVXs*_iSrc,iNumStateVXs*sizeof(CVect3));
-			
-			// Copy of the normals
-			memcpy(Leaf->poGetMesh()->VNs,pNMeshStates + iNumStateVXs*_iSrc,iNumStateVXs*sizeof(CVect3));
-		}
-	}
+    if ( m_poFrameVXs ) mDel [] m_poFrameVXs;
+    if ( m_poFrameVNs ) mDel [] m_poFrameVNs;
 }
-
-void CObject3D_AnimMesh::CreateStates (int _iNumStates, int _iNumStateVXs)
+// --------------------------------------------------------------------------------
+#if 0
+void CGSceneAnimMesh::SetAnimState (int _iSrc, int _iDst, float _fFactor)
 {
-  	int				iState;
+    assert (pMeshStates && "NULL Mesh state array");
+    assert (pBVolStates && "NULL Bounding Volume State array");
+    assert (Leaf && "NULL Leaf Mesh");
 
-	iNumStates   = _iNumStates;
-	iNumStateVXs = _iNumStateVXs;
+    if ( iNumStates == 1 )
+    {
+        memcpy( Leaf->poGetMesh()->VXs,pMeshStates,iNumStateVXs * sizeof(CGVect3) );
+        memcpy( Leaf->poGetMesh()->VNs,pNMeshStates,iNumStateVXs * sizeof(CGVect3) );
 
-	pMeshStates  = mNew CVect3[_iNumStateVXs*_iNumStates];	// Vertexs
-	pNMeshStates = mNew CVect3[_iNumStateVXs*_iNumStates];	// Normals
+        BVol->Copy(pBVolStates[0]);
+        Leaf->poGetMesh()->BVol->Copy(BVol);
+    }
+    else
+    {
+        if ( _iSrc >= iNumStates ) _iSrc = iNumStates - 1;
+        if ( _iDst >= iNumStates ) _iDst = iNumStates - 1;
+        if ( _fFactor == 1.0f ) _iSrc = _iDst;                     // Optimization
 
-	// OPTIMIZE (SIZE): Memory sucker!
-	pBVolStates = mNew CGraphBV *[_iNumStates];
+        if ( (_iSrc != _iDst) && (_fFactor > 0.0f) )
+        {
+            int cVert;
+            CGVect3* pSrcVX = pMeshStates + iNumStateVXs * _iSrc;
+            CGVect3* pDstVX = pMeshStates + iNumStateVXs * _iDst;
+            CGVect3* pMeshVX = Leaf->poGetMesh()->VXs;
+            for ( cVert = 0; cVert < iNumStateVXs; cVert++ )
+            {
+                pMeshVX->Interpolate(*pSrcVX,*pDstVX,_fFactor);
 
-	for (iState=0;iState<_iNumStates;iState++)
-		pBVolStates[iState] = CGraphBV_Manager::poCreate();
+                pSrcVX++;
+                pDstVX++;
+                pMeshVX++;
+            }
+
+            /*
+               // No se nota tanto la diferecia
+               CGVect3			*pSrcVN  = pNMeshStates + iNumStateVXs*_iSrc;
+               CGVect3			*pDstVN  = pNMeshStates + iNumStateVXs*_iDst;
+               CGVect3			*pMeshVN = Leaf->poGetMesh()->VNs;
+               for (cVert=0;cVert<iNumStateVXs;cVert++)
+               {
+
+                pMeshVN->Interpolate(*pSrcVN,*pDstVN,_fFactor);
+
+                pSrcVN ++;
+                pDstVN ++;
+                pMeshVN++;
+               }
+             */
+            memcpy( Leaf->poGetMesh()->VNs,pNMeshStates + iNumStateVXs * _iSrc,iNumStateVXs * sizeof(CGVect3) );
+
+            CGVect3 oSMax,oSMin,oDMax,oDMin,oMax,oMin;
+            CGVect3 oSCen = pBVolStates[_iSrc]->GetCenter();
+            CGVect3 oDCen = pBVolStates[_iDst]->GetCenter();
+            CGVect3 oSExt = pBVolStates[_iSrc]->GetExtents();
+            CGVect3 oDExt = pBVolStates[_iDst]->GetExtents();
+            oSMax.Assign(oSCen);
+            oSMax.Add(oSExt);
+            oSMin.Assign(oSCen);
+            oSMin.Sub(oSExt);
+            oDMax.Assign(oDCen);
+            oDMax.Add(oDExt);
+            oDMin.Assign(oDCen);
+            oDMin.Sub(oDExt);
+
+            oMax.Interpolate(oSMax,oDMax,_fFactor);
+            oMin.Interpolate(oSMin,oDMin,_fFactor);
+
+            BVol->Init(oMax,oMin);
+            Leaf->poGetMesh()->BVol->Copy(BVol);
+        }
+        else
+        {
+            // Src copy:
+            BVol->Copy(pBVolStates[_iSrc]);
+            Leaf->poGetMesh()->BVol->Copy(BVol);
+
+            // Copy of the vertexs
+            memcpy( Leaf->poGetMesh()->VXs,pMeshStates + iNumStateVXs * _iSrc,iNumStateVXs * sizeof(CGVect3) );
+
+            // Copy of the normals
+            memcpy( Leaf->poGetMesh()->VNs,pNMeshStates + iNumStateVXs * _iSrc,iNumStateVXs * sizeof(CGVect3) );
+        }
+    }
 }
-
-void CObject3D_AnimMesh::Render ()
-{
-  	assert (Leaf && "NULL Leaf Mesh");
-	Leaf->Render();
-}
-
-CGraphBV* CObject3D_AnimMesh::poGetBoundVol ()
-{
-  	return (BVol);
-}
-
-void CObject3D_AnimMesh::ComputeBoundVol ()
-{
-  	assert (pBVolStates && "NULL Bounding Volume State array");
-
-	for (int iState=0;iState<iNumStates;iState++)
-		pBVolStates[iState]->Compute(&pMeshStates[iState * iNumStateVXs],iNumStateVXs);
-
-	BVol->Copy(pBVolStates[0]);	
-}
-
-void CObject3D_AnimMesh::SetLeaf (CObject3D_Leaf *_pLeafMesh)
-{
-  	assert (_pLeafMesh && "Assigning NULL Leaf mesh");
-
-	Leaf = _pLeafMesh;
-	Leaf->Ref();
-}
-
-CGraphBV * CObject3D_AnimMesh::poGetStateBVol (int _iState)
-{
-  	assert (pBVolStates && "NULL Bounding Volume State array");
-
-	if (_iState >= iNumStates) _iState = iNumStates-1;
-	return ( pBVolStates[_iState] );
-}
-
-// Additional Declarations
-    
+#endif
+// --------------------------------------------------------------------------------

@@ -1,7 +1,17 @@
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
+
 #include "MD2LightNormals.h"
 
-float avertexnormals[NUMVERTEXNORMALS][3] =
-{
+float avertexnormals[NUMVERTEXNORMALS][3] = {
     {-0.525731f, 0.000000f, 0.850651f},
     {-0.442863f, 0.238856f, 0.864188f},
     {-0.295242f, 0.000000f, 0.955423f},

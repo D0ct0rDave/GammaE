@@ -1,10 +1,20 @@
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
 // SCNUt_MeshCompacter
 #include "ScnMeshGen\SCNUt_MeshCompacter.h"
 #include <stdlib.h>
 #include <string.h>
 // ----------------------------------------------------------------------------
-// Class SCNUt_MeshCompacter 
+// Class SCNUt_MeshCompacter
 SCNUt_MeshCompacter::SCNUt_MeshCompacter()
 {
 }
@@ -13,99 +23,99 @@ SCNUt_MeshCompacter::~SCNUt_MeshCompacter()
 {
 }
 // ----------------------------------------------------------------------------
-CMesh* SCNUt_MeshCompacter::poCompactMesh(const SCNUt_TriScene& _oScene)
+CGMesh* SCNUt_MeshCompacter::poCompactMesh(const SCNUt_TriScene& _oScene)
 {
-	CCompactMeshData oCompactData;
-	CompactMesh(_oScene,&oCompactData);
-	
-	oCompactData.m_oInvTable.Clear();	
-	return ( oCompactData.m_poMesh );
+    CCompactMeshData oCompactData;
+    CompactMesh(_oScene,&oCompactData);
+
+    oCompactData.m_oInvTable.Clear();
+    return (oCompactData.m_poMesh);
 }
 // ----------------------------------------------------------------------------
 void SCNUt_MeshCompacter::CompactMesh(const SCNUt_TriScene& _oScene,CCompactMeshData* _poData)
 {
-  	CMesh *Mesh;
-	CMesh *AuxMesh;
+    CGMesh* Mesh;
+    CGMesh* AuxMesh;
 
-	int cIdx,cTri,cVert;
-	int iOldNumVertexs;
-	
-	//----------------------------------
-	// Create an auxiliary mesh
-	//----------------------------------
-	AuxMesh = mNew CMesh();
-	AuxMesh->Init(_oScene.NumTris*3,_oScene.NumTris,E3D_MESH_TRIS,MESH_FIELD_ALL);
+    int cIdx,cTri,cVert;
+    int iOldNumVertexs;
 
-	//----------------------------------
-	// Generate the new compact mesh
-	//----------------------------------
-	unsigned short usOldNumVertexs	= AuxMesh->usNumVerts;
-	AuxMesh->usNumVerts				= 0;
+    // ----------------------------------
+    // Create an auxiliary mesh
+    // ----------------------------------
+    AuxMesh = mNew CGMesh();
+    AuxMesh->Init(_oScene.NumTris * 3,_oScene.NumTris,E3D_MESH_TRIS,MESH_FIELD_ALL);
 
-	unsigned short* usIdx	 = AuxMesh->Idxs;
-	unsigned short  usCurIdx = 0;
+    // ----------------------------------
+    // Generate the new compact mesh
+    // ----------------------------------
+    unsigned short usOldNumVertexs = AuxMesh->m_usNumVXs;
+    AuxMesh->m_usNumVXs = 0;
 
-	for (cTri=0;cTri<_oScene.NumTris;cTri++)
-	{
-		for (cVert = 0;cVert<3;cVert++)
-		{
-		    uint uiOldNumVertexs = AuxMesh->usNumVerts;
+    unsigned short* usIdx = AuxMesh->m_pusIdx;
+    unsigned short usCurIdx = 0;
 
-			*usIdx = uiInsertVertex(AuxMesh,
-									_oScene.Tris[cTri].VXs[cVert],
-			                 		_oScene.Tris[cTri].UVs[cVert],
-									_oScene.Tris[cTri].VCs[cVert],
-									_oScene.Tris[cTri].VNs[cVert]);
+    for ( cTri = 0; cTri < _oScene.NumTris; cTri++ )
+    {
+        for ( cVert = 0; cVert < 3; cVert++ )
+        {
+            uint uiOldNumVertexs = AuxMesh->m_usNumVXs;
 
-			// In case a new vertex has been inserted, add the original index to the inverse table
-			if (uiOldNumVertexs != AuxMesh->usNumVerts)
-			{
-			    TVertexRef oVR;
-			    oVR.m_uiTri = cTri;
-			    oVR.m_uiVX  = cVert;
+            *usIdx = uiInsertVertex(AuxMesh,
+                                    _oScene.Tris[cTri].VXs[cVert],
+                                    _oScene.Tris[cTri].UVs[cVert],
+                                    _oScene.Tris[cTri].VCs[cVert],
+                                    _oScene.Tris[cTri].VNs[cVert]);
 
-				_poData->m_oInvTable.uiAdd(oVR);
+            // In case a new vertex has been inserted, add the original index to the inverse table
+            if ( uiOldNumVertexs != AuxMesh->m_usNumVXs )
+            {
+                TVertexRef oVR;
+                oVR.m_uiTri = cTri;
+                oVR.m_uiVX = cVert;
+
+                _poData->m_oInvTable.uiAdd(oVR);
             }
 
-			usIdx++;
-			usCurIdx++;
-		}
-	}
-	//----------------------------------
-	// Create and Setup the reduced mesh
-	//----------------------------------
-	Mesh = mNew CMesh();
-	Mesh->Init(AuxMesh->usNumVerts,_oScene.NumTris,E3D_MESH_TRIS,MESH_FIELD_ALL);
+            usIdx++;
+            usCurIdx++;
+        }
+    }
+    // ----------------------------------
+    // Create and Setup the reduced mesh
+    // ----------------------------------
+    Mesh = mNew CGMesh();
+    Mesh->Init(AuxMesh->m_usNumVXs,_oScene.NumTris,E3D_MESH_TRIS,MESH_FIELD_ALL);
 
-	// Copy data
-	memcpy(Mesh->VXs ,AuxMesh->VXs  ,AuxMesh->usNumVerts*sizeof(CVect3));
-	memcpy(Mesh->UVs ,AuxMesh->UVs  ,AuxMesh->usNumVerts*sizeof(CVect2));
-	memcpy(Mesh->VCs ,AuxMesh->VCs  ,AuxMesh->usNumVerts*sizeof(CVect4));
-	memcpy(Mesh->VNs ,AuxMesh->VNs  ,AuxMesh->usNumVerts*sizeof(CVect3));
-	memcpy(Mesh->Idxs,AuxMesh->Idxs	,AuxMesh->usNumIdxs *sizeof(unsigned short));
+    // Copy data
+    memcpy( Mesh->m_poVX,AuxMesh->m_poVX,AuxMesh->m_usNumVXs * sizeof(CVect3) );
+    memcpy( Mesh->m_poUV,AuxMesh->m_poUV,AuxMesh->m_usNumVXs * sizeof(CVect2) );
+    memcpy( Mesh->m_poVC,AuxMesh->m_poVC,AuxMesh->m_usNumVXs * sizeof(CVect4) );
+    memcpy( Mesh->m_poVN,AuxMesh->m_poVN,AuxMesh->m_usNumVXs * sizeof(CVect3) );
+    memcpy( Mesh->m_pusIdx,AuxMesh->m_pusIdx,AuxMesh->m_uiNumIdxs * sizeof(unsigned short) );
 
-	AuxMesh->usNumVerts = usOldNumVertexs;
-	mDel AuxMesh;
+    AuxMesh->m_usNumVXs = usOldNumVertexs;
+    mDel AuxMesh;
 
-	//----------------------------------
-	_poData->m_poMesh = Mesh;
+    // ----------------------------------
+    _poData->m_poMesh = Mesh;
 }
 // ----------------------------------------------------------------------------
-uint SCNUt_MeshCompacter::uiInsertVertex(CMesh *Mesh, CVect3 &VX, CVect2& UV, CVect4 &VC, CVect3 &VN)
+uint SCNUt_MeshCompacter::uiInsertVertex(CGMesh* Mesh, CVect3 &VX, CVect2& UV, CVect4 &VC, CVect3 &VN)
 {
-	// Search for the specified vertex tuplet <VX,VU>
-	for (uint i=0;i<Mesh->usNumVerts;i++)
-	{
-		if (Mesh->VXs[i].bEqual(VX) && Mesh->UVs[i].bEqual(UV))
-			return(i);
-	}
+    // Search for the specified vertex tuplet <VX,VU>
+    for ( uint i = 0; i < Mesh->m_usNumVXs; i++ )
+    {
+        if ( Mesh->m_poVX[i].bEqual(VX) && Mesh->m_poUV[i].bEqual(UV) )
+            return(i);
+    }
 
-	Mesh->VXs[Mesh->usNumVerts] = VX;
-	Mesh->UVs[Mesh->usNumVerts] = UV;
-	Mesh->VCs[Mesh->usNumVerts] = (CGColor&)VC;
-	Mesh->VNs[Mesh->usNumVerts] = VN;
-	Mesh->usNumVerts++;
+    Mesh->m_poVX[Mesh->m_usNumVXs] = VX;
+    Mesh->m_poUV[Mesh->m_usNumVXs] = UV;
+    Mesh->m_poVC[Mesh->m_usNumVXs] = (CGColor &)VC;
+    Mesh->m_poVN[Mesh->m_usNumVXs] = VN;
+    Mesh->m_usNumVXs++;
 
-	return(Mesh->usNumVerts - 1);
+    return(Mesh->m_usNumVXs - 1);
 }
 // ----------------------------------------------------------------------------

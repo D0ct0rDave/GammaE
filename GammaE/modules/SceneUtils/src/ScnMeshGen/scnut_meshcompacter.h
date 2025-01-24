@@ -1,3 +1,13 @@
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
 #ifndef SCNUt_MeshCompacter_h
 #define SCNUt_MeshCompacter_h 1
@@ -8,36 +18,37 @@
 // SCNUt_TriScene
 #include "SCNUt_TriScene.h"
 // ----------------------------------------------------------------------------
-typedef struct{
-	uint m_uiTri;
-	uint m_uiVX;
+typedef struct
+{
+    uint m_uiTri;
+    uint m_uiVX;
 }TVertexRef;
 
 class CCompactMeshData
 {
-	public:
-		
-		CMesh*				m_poMesh;
-		
-		// Inverse table
-		CGDynArray<TVertexRef>	m_oInvTable;	
+    public:
+
+        CGMesh* m_poMesh;
+
+        // Inverse table
+        CGDynArray <TVertexRef> m_oInvTable;
 };
 // ----------------------------------------------------------------------------
-//	Toma una escena con n triángulos y 3*n vertices, y
-//	genera una malla de m <=3*n vertices.
-class SCNUt_MeshCompacter 
+// Toma una escena con n triángulos y 3*n vertices, y
+// genera una malla de m <=3*n vertices.
+class SCNUt_MeshCompacter
 {
-	public:
+    public:
 
-		SCNUt_MeshCompacter();
-		~SCNUt_MeshCompacter();
+        SCNUt_MeshCompacter();
+        ~SCNUt_MeshCompacter();
 
-		CMesh* poCompactMesh(const SCNUt_TriScene& _oScene);
-		void CompactMesh(const SCNUt_TriScene& _oScene,CCompactMeshData* _poData);
+        CGMesh* poCompactMesh(const SCNUt_TriScene& _oScene);
+        void CompactMesh(const SCNUt_TriScene& _oScene,CCompactMeshData* _poData);
 
-	protected:
+    protected:
 
-		uint uiInsertVertex(CMesh *Mesh, CVect3 &VX, CVect2& UV, CVect4 &VC, CVect3 &VN);
+        uint uiInsertVertex(CGMesh* Mesh, CVect3 &VX, CVect2& UV, CVect4 &VC, CVect3 &VN);
 };
 // ----------------------------------------------------------------------------
 #endif

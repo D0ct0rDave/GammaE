@@ -1,49 +1,61 @@
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
 #ifndef CGTrailManager_h
 #define CGTrailManager_h 1
 // ----------------------------------------------------------------------------
-// CObject3D_Node
+// CGSceneNode
 #include "GammaE_Scene.h"
 #include "CGTrailInstance.h"
 // ----------------------------------------------------------------------------
 DECLARE_SINGLETON(CGTrailManager)
 {
-	friend class CGTrailManagerNode;
-	
-	public:
+    friend class CGTrailManagerNode;
 
-		/// Initializes the trail manager
-		void Init();
+    public:
 
-		/// Retrieve a trail instance and allow the user to handle it.
-		CGTrailInstance* poGet(const CGString& _sType);
+        // / Initializes the trail manager
+        void Init();
 
-		/// Returns the scene node that renders all the trail instances
-		CObject3D*	poGetNode() { return(m_poSceneNode); };
-							
-    protected:        
+        // / Retrieve a trail instance and allow the user to handle it.
+        CGTrailInstance* poGet(const CGString& _sType);
 
-		/// Performs an update step over all the active instances of the manager
-		void Update(float _fDeltaT);
+        // / Returns the scene node that renders all the trail instances
+        CGSceneNode* poGetNode()
+        {
+            return(m_poSceneNode);
+        }
 
-		//
-		class CGGenInstsPair
-		{
-			public:
-				CGTrailGenerator*			m_poTG;
-				CGStArray<CGTrailInstance*>	m_oInsts;
-		};
+    protected:
 
-		// The list of generator / instances pairs
-		CGLookupArray<CGGenInstsPair*>		m_oGIList;
-		
-		// The billboard renderer shared among all the generators
-		CGBillboardRenderer*				m_poRenderer;
+        // / Performs an update step over all the active instances of the manager
+        void Update(float _fDeltaT);
 
-		// The scene node with the trail instances geometry
-		CObject3D*							m_poSceneNode;
+        //
+        class CGGenInstsPair
+        {
+            public:
+                CGTrailGenerator* m_poTG;
+                CGStArray <CGTrailInstance*> m_oInsts;
+        };
+
+        // The list of generator / instances pairs
+        CGLookupArray <CGGenInstsPair*> m_oGIList;
+
+        // The billboard renderer shared among all the generators
+        CGBillboardRenderer* m_poRenderer;
+
+        // The scene node with the trail instances geometry
+        CGSceneNode* m_poSceneNode;
 };
 // ----------------------------------------------------------------------------
 #endif
 // ----------------------------------------------------------------------------
-

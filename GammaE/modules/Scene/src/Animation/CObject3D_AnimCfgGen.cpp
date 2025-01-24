@@ -1,13 +1,19 @@
-// CObject3D_AnimCfgGen
-#include "Animation\CObject3D_AnimCfgGen.h"
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------CGSceneAnimCfgGen
+#include "Animation\CGSceneAnimCfgGen.h"
 
-// Class CObject3D_AnimCfgGen
-
-CObject3D_AnimCfgGen::CObject3D_AnimCfgGen()
+CGSceneAnimCfgGen::CGSceneAnimCfgGen()
 {
 }
 
-CObject3D_AnimCfgGen::~CObject3D_AnimCfgGen()
+CGSceneAnimCfgGen::~CGSceneAnimCfgGen()
 {
 }
-// Additional Declarations

@@ -1,43 +1,41 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef CGBillboard_ScrAlign_h
 #define CGBillboard_ScrAlign_h 1
 
-
-
 // CGBillboard
 #include "Billboard\CGBillboard.h"
 
+class CGBillboard_ScrAlign : public CGBillboard
+{
+    public:
+        CGBillboard_ScrAlign();
 
+        virtual ~CGBillboard_ScrAlign();
 
+        virtual void Render();
 
-class CGBillboard_ScrAlign : public CGBillboard  {
-    
-  public:
-          CGBillboard_ScrAlign();
+        // Additional Public Declarations
 
-          virtual ~CGBillboard_ScrAlign();
+    protected:
+        // Additional Protected Declarations
 
+    private:
+        // Additional Private Declarations
 
-                virtual void Render ();
-
-    // Additional Public Declarations
-            
-  protected:
-    // Additional Protected Declarations
-            
-  private:
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+    private:                    // Additional Implementation Declarations
 };
 
-
-// Class CGBillboard_ScrAlign 
-
-
+// Class CGBillboard_ScrAlign
 
 #endif

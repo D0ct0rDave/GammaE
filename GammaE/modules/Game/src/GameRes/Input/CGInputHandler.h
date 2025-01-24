@@ -1,4 +1,14 @@
 // -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 #ifndef CGInputHandlerH
 #define CGInputHandlerH
 // -----------------------------------------------------------------------------
@@ -6,23 +16,25 @@
 // -----------------------------------------------------------------------------
 class CGInputHandler
 {
-public:
-		CGInputHandler() {};
-		
-		/// Register a usable command on the input handler
-		void Register(const CGString& _rsCommand);
-		
-		/// Retrieves the value of a registered command
-		void SetValue(const CGString& _rsCommand,float _fValue);
+    public:
+        CGInputHandler()
+        {
+        }
 
-		/// Retrieves the value of a registered command
-		float fGetValue(const CGString& _rsCommand) const;
+        // / Register a usable command on the input handler
+        void Register(const CGString& _rsCommand);
 
-		/// Erases all the commands registered on the command handler
-		void Clear();
+        // / Retrieves the value of a registered command
+        void SetValue(const CGString& _rsCommand,float _fValue);
 
-protected:
-		CGLookupArray <float> m_oCommandList;
+        // / Retrieves the value of a registered command
+        float fGetValue(const CGString& _rsCommand) const;
+
+        // / Erases all the commands registered on the command handler
+        void Clear();
+
+    protected:
+        CGLookupArray <float> m_oCommandList;
 };
 // -----------------------------------------------------------------------------
 #endif

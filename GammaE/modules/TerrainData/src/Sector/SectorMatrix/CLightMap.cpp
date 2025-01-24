@@ -1,56 +1,57 @@
-
-
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
 #include "GammaE_Mem.h"
 
 // CLightMap
 #include "Sector\SectorMatrix\CLightMap.h"
 
-
-// Class CLightMap 
+// Class CLightMap
 
 CLightMap::CLightMap()
-        {
-     	ulID = MAKE_RIFF_ID('L','M','A','P');
-	poSectManager = mNew  CSLM_LMapSect();
+{
+    ulID = MAKE_RIFF_ID('L','M','A','P');
+    poSectManager = mNew CSLM_LMapSect();
 }
-
 
 CLightMap::~CLightMap()
 {
-  	mDel poSectManager;
+    mDel poSectManager;
 }
-
-
 
 unsigned long CLightMap::DataSize ()
 {
-  	return(0);
+    return(0);
 }
 
-CSector * CLightMap::CreateClass ()
+CSector* CLightMap::CreateClass ()
 {
-  	return (mNew CLightMap());
+    return ( mNew CLightMap() );
 }
 
 void CLightMap::Init (int _SecsPerRow, int _SecsPerCol, int _SectorRes, int _SectorType, bool _b21)
 {
-  	int cSect;
+    int cSect;
 
-	CSectorMatrix::Init(_SecsPerRow,_SecsPerCol,_SectorRes,_SectorType,_b21);
+    CSectorMatrix::Init(_SecsPerRow,_SecsPerCol,_SectorRes,_SectorType,_b21);
 
-	// Create sector
-	switch (_SectorType)
-	{
-		case 0:	for (cSect=0;cSect<SecsPerCol*SecsPerRow;cSect++)
-				{
-					SectArray[cSect] = mNew CLMSector_RGB24();
-					SectArray[cSect]->Init(_SectorRes,_b21);
-				}
-				break;
-	}
+    // Create sector
+    switch ( _SectorType )
+    {
+        case 0: for ( cSect = 0; cSect < SecsPerCol * SecsPerRow; cSect++ )
+        {
+            SectArray[cSect] = mNew CLMSector_RGB24();
+            SectArray[cSect]->Init(_SectorRes,_b21);
+        }
+        break;
+    }
 }
 
 // Additional Declarations
-    

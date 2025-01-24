@@ -1,11 +1,17 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef CCOL_CollisionSystem_h
 #define CCOL_CollisionSystem_h 1
-
-
 
 // CCOL_Collider
 #include "Collider\CCOL_Collider.h"
@@ -18,59 +24,49 @@
 // CCOL_MT_CommonMesh
 #include "COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_CommonMesh.h"
 
-
-
-
-
-class CCOL_CollisionSystem 
+class CCOL_CollisionSystem
 {
-    
-  public:
-          CCOL_CollisionSystem();
+    public:
+        CCOL_CollisionSystem();
 
-          ~CCOL_CollisionSystem();
+        ~CCOL_CollisionSystem();
 
+        void Init(int _iMaxColliders);
 
-                void Init (int _iMaxColliders);
+        void Reset();
 
-            void Reset ();
+        int iAddObject(CCOL_Collider* _poColObj);
 
-            int iAddObject (CCOL_Collider* _poColObj);
+        void CheckCollisions(float _fDelta);
 
-            void CheckCollisions (float _fDelta);
+        bool bCheckCollision(CCOL_Collider& _Src, float _fDelta);
 
-            bool bCheckCollision (CCOL_Collider& _Src, float _fDelta);
+        // Data Members for Associations
 
-    // Data Members for Associations
+        CCOL_Collider* * poColliders;
 
-                        CCOL_Collider** poColliders;
-      
-    // Additional Public Declarations
-            
-  protected:
+        // Additional Public Declarations
 
-                bool bTestBroadCD (CCOL_Collider& _Src, CCOL_Collider& _Dst);
+    protected:
 
-            bool bTestNarrowCD (CCOL_Collider& _Src, CCOL_Collider& _Dst);
+        bool bTestBroadCD(CCOL_Collider& _Src, CCOL_Collider& _Dst);
 
-    // Data Members for Class Attributes
+        bool bTestNarrowCD(CCOL_Collider& _Src, CCOL_Collider& _Dst);
 
-                  int iMaxColliders;
-      
-                  int iNumColliders;
-      
-    // Additional Protected Declarations
-            
-  private:
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+        // Data Members for Class Attributes
+
+        int iMaxColliders;
+
+        int iNumColliders;
+
+        // Additional Protected Declarations
+
+    private:
+        // Additional Private Declarations
+
+    private:   // Additional Implementation Declarations
 };
 
-
-// Class CCOL_CollisionSystem 
-
-
+// Class CCOL_CollisionSystem
 
 #endif

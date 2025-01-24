@@ -1,97 +1,95 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef CShadowCaster_h
 #define CShadowCaster_h 1
-
-
 
 // CTexProjector
 #include "TexProjector\CTexProjector.h"
 // CE3D_Shader
 #include "GammaE_E3D.h"
-// CObject3D
+// CGSceneNode
 #include "GammaE_Scene.h"
 
+class CShadowCaster : public CGSceneNode
+{
+    public:
+        CShadowCaster();
 
+        virtual ~CShadowCaster();
 
+        void Init(int _iRes);
 
-class CShadowCaster : public CObject3D  {
-    
-  public:
-          CShadowCaster();
+        void Setup(CVect3& _oLightPos, CGSceneNode* _poBlockerObj, CGMesh* * _poRecObjs, int _iNumRecObjs);
 
-          virtual ~CShadowCaster();
+        virtual CGraphBV* poGetBV();
 
+        virtual void ComputeBoundVol();
 
-                void Init (int _iRes);
+        void ComputeLightCamera();
 
-            void Setup (CVect3& _oLightPos, CObject3D* _poBlockerObj, CMesh** _poRecObjs, int _iNumRecObjs);
+        void ComputeLightViewport(CE3D_Viewport& _oVpt);
 
-            virtual CGraphBV* poGetBoundVol ();
+        void ComputeLightProjection();
 
-            virtual void ComputeBoundVol ();
+        void ComputeTextureProjection();
 
-            void ComputeLightCamera ();
+        void UploadShadowMap();
 
-            void ComputeLightViewport (CE3D_Viewport& _oVpt);
+        void RenderShadowMap();
 
-            void ComputeLightProjection ();
+        virtual void Render();
 
-            void ComputeTextureProjection ();
+        // Data Members for Class Attributes
 
-            void UploadShadowMap ();
+        CMatrix4x4 oCamMat;
 
-            void RenderShadowMap ();
+        // Data Members for Associations
 
-            virtual void Render ();
+        CTexProjector oTexProj;
 
-    // Data Members for Class Attributes
+        CE3D_Shader* poShader;
 
-                  CMatrix4x4 oCamMat;
-      
-    // Data Members for Associations
+        // Additional Public Declarations
 
-                        CTexProjector oTexProj;
-      
-                        CE3D_Shader *poShader;
-      
-    // Additional Public Declarations
-            
-  protected:
-    // Data Members for Class Attributes
+    protected:
+        // Data Members for Class Attributes
 
-                  CObject3D* poBlockerObj;
-      
-                  CVect3 oLPos;
-      
-                  CMesh* *poRecObjs;
-      
-                  int iNumRecObjs;
-      
-                  int iRes;
-      
-                  CGTextureObj *poTexObj;
-      
-                  CMatrix4x4 oPrjMat;
-      
-                  CMatrix4x4 oPrjTexMat;
-      
-                  unsigned char *pucAuxTexData;
-      
-    // Additional Protected Declarations
-            
-  private:
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+        CGSceneNode* poBlockerObj;
+
+        CVect3 oLPos;
+
+        CGMesh* * poRecObjs;
+
+        int iNumRecObjs;
+
+        int iRes;
+
+        CGTextureObj* poTexObj;
+
+        CMatrix4x4 oPrjMat;
+
+        CMatrix4x4 oPrjTexMat;
+
+        unsigned char* pucAuxTexData;
+
+        // Additional Protected Declarations
+
+    private:
+        // Additional Private Declarations
+
+    private:                    // Additional Implementation Declarations
 };
 
-
-// Class CShadowCaster 
-
-
+// Class CShadowCaster
 
 #endif

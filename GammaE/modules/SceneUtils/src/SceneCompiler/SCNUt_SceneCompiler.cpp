@@ -1,173 +1,181 @@
-
-
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
 #include "GammaE_Mem.h"
 
 // SCNUt_SceneCompiler
 #include "SceneCompiler\SCNUt_SceneCompiler.h"
 
-
-// Class SCNUt_SceneCompiler 
-
+// Class SCNUt_SceneCompiler
 
 SCNUt_SceneCompiler::SCNUt_SceneCompiler()
-        : bNULLMaterials(true)
-      {
+    : bNULLMaterials(true)
+{
 }
-
 
 SCNUt_SceneCompiler::~SCNUt_SceneCompiler()
 {
 }
 
-
-
-void SCNUt_SceneCompiler::CompileScene (CObject3D* _poScn)
+void SCNUt_SceneCompiler::CompileScene (CGSceneNode* _poScn)
 {
-  	int						iObj;
-	CObject3D				*poSubObj;
-	CCompiledMesh			*poCMesh;
-	CObject3D_CompiledLeaf	*poCLeaf;
-	CObject3D_Leaf			*poLeaf;
+    int iObj;
+    CGSceneNode* poSubObj;
+    CGCompiledMesh* poCGMesh;
+    CGSceneCompiledLeaf* poCLeaf;
+    CGSceneLeaf* poLeaf;
 
-	switch ( _poScn->eGetTypeID() )
-	{
-		case e3DObj_Gen:			break;
-		case e3DObj_Leaf:			break;
+    switch ( _poScn->eGetNodeType() )
+    {
+        case SNT_Gen:         break;
 
-		case e3DObj_Node:
-		{
-			for (iObj=0;iObj<((CObject3D_Node*)_poScn)->uiNumSubObjs();iObj++)
-			{
-				poSubObj = ((CObject3D_Node*)_poScn)->poGetObject(iObj);
+        case SNT_Leaf:            break;
 
-				if (poSubObj)
-				{
-					if (poSubObj->eGetTypeID() == e3DObj_Leaf)
-					{
-						poLeaf = (CObject3D_Leaf*)poSubObj;
+        case SNT_Node:
+        {
+            for ( iObj = 0; iObj < ( (CGSceneGroup*)_poScn )->uiNumSubObjs(); iObj++ )
+            {
+                poSubObj = ( (CGSceneGroup*)_poScn )->poGetObject(iObj);
 
-						// Generate a compiled mesh
-						poCMesh = CGRenderer::I()->poCompileMesh( poLeaf->poGetMesh(),poLeaf->poGetShader() );
+                if ( poSubObj )
+                {
+                    if ( poSubObj->eGetNodeType() == SNT_Leaf )
+                    {
+                        poLeaf = (CGSceneLeaf*)poSubObj;
 
-						// Create and setup the compiled node
-						poCLeaf = mNew CObject3D_CompiledLeaf;						
-						
-						poCLeaf->SetShader(bNULLMaterials?NULL:poLeaf->poGetShader());
-							
-						poCLeaf->SetCMesh(poCMesh);
+                        // Generate a compiled mesh
+                        poCGMesh = CGRenderer::I()->poCompileMesh( poLeaf->poGetMesh(),poLeaf->poGetShader() );
 
-						// Substitute the old non-compiled leaf node
-						((CObject3D_Node*)_poScn)->SetObject(poCLeaf,iObj);
+                        // Create and setup the compiled node
+                        poCLeaf = mNew CGSceneCompiledLeaf;
 
-						// We didn't need the old node anymore
-						poLeaf->Deref();
-					}
-					else
-						CompileScene(poSubObj);
-				}
-			}
-		}
-		break;
-		case e3DObj_Transf:
-		{
-			poSubObj = ((CObject3D_Transf*)_poScn)->poGetObject();
-			if ( poSubObj->eGetTypeID() == e3DObj_Leaf)
-			{
-						poLeaf = (CObject3D_Leaf*) poSubObj;
+                        poCLeaf->SetShader( bNULLMaterials?NULL:poLeaf->poGetShader() );
 
-						// Generate a compiled mesh
-						poCMesh = CGRenderer::I()->poCompileMesh( poLeaf->poGetMesh(),poLeaf->poGetShader() );
+                        poCLeaf->SetCGMesh(poCGMesh);
 
-						// Create and setup the compiled node
-						poCLeaf = mNew CObject3D_CompiledLeaf;						
-						
-						poCLeaf->SetShader(bNULLMaterials?NULL:poLeaf->poGetShader());
-							
-						poCLeaf->SetCMesh(poCMesh);
+                        // Substitute the old non-compiled leaf node
+                        ( (CGSceneGroup*)_poScn )->SetObject(poCLeaf,iObj);
 
-						// Substitute the old non-compiled leaf node
-						((CObject3D_Transf*)_poScn)->SetObject(poCLeaf);
+                        // We didn't need the old node anymore
+                        poLeaf->Deref();
+                    }
+                    else
+                        CompileScene(poSubObj);
+                }
+            }
+        }
+        break;
 
-						// We didn't need the old node anymore
-						poCLeaf->Deref();
-			}
-			else
-			{
-				CompileScene(poSubObj);
-			}
-		}
-		break;
+        case SNT_Transf:
+        {
+            poSubObj = ( (CGSceneTransf*)_poScn )->poGetObject();
+            if ( poSubObj->eGetNodeType() == SNT_Leaf )
+            {
+                poLeaf = (CGSceneLeaf*) poSubObj;
 
-		case e3DObj_AnimGen:		break;
-		case e3DObj_AnimNode:		break;
-		case e3DObj_AnimMesh:		break;
-		case e3DObj_AnimTransf:		break;
-		case e3DObj_AnimCfg:		break;
-		case e3DObj_AnimCfgMgr:		break;
-		case e3DObj_BSPNode:
-		{
-			// Back node
-			poSubObj = ((CObject3D_BSPNode*)_poScn)->poGetBackNode();
-			if (poSubObj)
-			{
-				if ( poSubObj->eGetTypeID() == e3DObj_Leaf)
-				{
-					poLeaf = (CObject3D_Leaf*)poSubObj;
+                // Generate a compiled mesh
+                poCGMesh = CGRenderer::I()->poCompileMesh( poLeaf->poGetMesh(),poLeaf->poGetShader() );
 
-					// Generate a compiled mesh
-					poCMesh = CGRenderer::I()->poCompileMesh( poLeaf->poGetMesh(),poLeaf->poGetShader() );
+                // Create and setup the compiled node
+                poCLeaf = mNew CGSceneCompiledLeaf;
 
-					// Create and setup the compiled node
-					poCLeaf = mNew CObject3D_CompiledLeaf;
-					poCLeaf->SetShader( bNULLMaterials?NULL:poLeaf->poGetShader());
-					poCLeaf->SetCMesh(poCMesh);
+                poCLeaf->SetShader( bNULLMaterials?NULL:poLeaf->poGetShader() );
 
-					// Substitute the old non-compiled leaf node
-					((CObject3D_BSPNode*)_poScn)->SetBackNode(poSubObj);
+                poCLeaf->SetCGMesh(poCGMesh);
 
-					// We didn't need the old node anymore
-					poLeaf->Deref();
-				}
-				else					
-					CompileScene( poSubObj );
-			}
-			
+                // Substitute the old non-compiled leaf node
+                ( (CGSceneTransf*)_poScn )->SetObject(poCLeaf);
 
-			// Front node
-			poSubObj = ((CObject3D_BSPNode*)_poScn)->poGetFrontNode();
-			if (poSubObj )
-			{
-				if (poSubObj->eGetTypeID() == e3DObj_Leaf)
-				{
-					poLeaf = (CObject3D_Leaf*)poSubObj;
+                // We didn't need the old node anymore
+                poCLeaf->Deref();
+            }
+            else
+            {
+                CompileScene(poSubObj);
+            }
+        }
+        break;
 
-					// Generate a compiled mesh
-					poCMesh = CGRenderer::I()->poCompileMesh( poLeaf->poGetMesh(),poLeaf->poGetShader() );
+        case SNT_AnimObject:      break;
 
-					// Create and setup the compiled node
-					poCLeaf = mNew CObject3D_CompiledLeaf;
-					poCLeaf->SetShader( bNULLMaterials?NULL:poLeaf->poGetShader());
-					poCLeaf->SetCMesh(poCMesh);
+        case SNT_AnimNode:        break;
 
-					// Substitute the old non-compiled leaf node
-					((CObject3D_BSPNode*)_poScn)->SetFrontNode(poSubObj);
+        case SNT_AnimMesh:        break;
 
-					// We didn't need the old node anymore
-					poLeaf->Deref();
-				}
-				else					
-					CompileScene( poSubObj );
-			}
+        case SNT_AnimTransf:      break;
 
-		}
-									break;
-		case e3DObj_Mux:    		//iTest3DObj_Mux(_fd,(CObject3D_Mux*)_pObj);
-									break;
-		default:					break;
-	}
+        case SNT_AnimCfg:         break;
+
+        case SNT_AnimInstance:    break;
+
+        case SNT_BSPNode:
+        {
+            // Back node
+            poSubObj = ( (CGSceneBSPNode*)_poScn )->poGetBackNode();
+            if ( poSubObj )
+            {
+                if ( poSubObj->eGetNodeType() == SNT_Leaf )
+                {
+                    poLeaf = (CGSceneLeaf*)poSubObj;
+
+                    // Generate a compiled mesh
+                    poCGMesh = CGRenderer::I()->poCompileMesh( poLeaf->poGetMesh(),poLeaf->poGetShader() );
+
+                    // Create and setup the compiled node
+                    poCLeaf = mNew CGSceneCompiledLeaf;
+                    poCLeaf->SetShader( bNULLMaterials?NULL:poLeaf->poGetShader() );
+                    poCLeaf->SetCGMesh(poCGMesh);
+
+                    // Substitute the old non-compiled leaf node
+                    ( (CGSceneBSPNode*)_poScn )->SetBackNode(poSubObj);
+
+                    // We didn't need the old node anymore
+                    poLeaf->Deref();
+                }
+                else
+                    CompileScene( poSubObj );
+            }
+
+            // Front node
+            poSubObj = ( (CGSceneBSPNode*)_poScn )->poGetFrontNode();
+            if ( poSubObj )
+            {
+                if ( poSubObj->eGetNodeType() == SNT_Leaf )
+                {
+                    poLeaf = (CGSceneLeaf*)poSubObj;
+
+                    // Generate a compiled mesh
+                    poCGMesh = CGRenderer::I()->poCompileMesh( poLeaf->poGetMesh(),poLeaf->poGetShader() );
+
+                    // Create and setup the compiled node
+                    poCLeaf = mNew CGSceneCompiledLeaf;
+                    poCLeaf->SetShader( bNULLMaterials?NULL:poLeaf->poGetShader() );
+                    poCLeaf->SetCGMesh(poCGMesh);
+
+                    // Substitute the old non-compiled leaf node
+                    ( (CGSceneBSPNode*)_poScn )->SetFrontNode(poSubObj);
+
+                    // We didn't need the old node anymore
+                    poLeaf->Deref();
+                }
+                else
+                    CompileScene( poSubObj );
+            }
+        }
+        break;
+
+        case SNT_Mux:                    // iTest3DObj_Mux(_fd,(CGSceneMux*)_pObj);
+        break;
+
+        default:                    break;
+    }
 }
 
 // Additional Declarations
-    

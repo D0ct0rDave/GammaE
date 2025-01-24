@@ -1,117 +1,114 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef CTerrainTesselatorGM_h
 #define CTerrainTesselatorGM_h 1
-
-
 
 // CTerrainTesselator
 #include "TerrainTesselators\CTerrainTesselator.h"
 // GammaE_E3D
 #include "GammaE_E3D.h"
 
+class CTerrainTesselatorGM : public CTerrainTesselator
+{
+    public:
+        CTerrainTesselatorGM();
 
+        ~CTerrainTesselatorGM();
 
+        void Init(int iMaxVertexs);
 
+        void Invalidate();
 
-class CTerrainTesselatorGM : public CTerrainTesselator  {
-    
-  public:
-          CTerrainTesselatorGM();
+        void GenerateVertexData();
 
-          ~CTerrainTesselatorGM();
+        void GenerateVertexColorData();
 
+        void GenerateLightData();
 
-                void Init (int iMaxVertexs);
+        void GenerateGlobalCoordData();
 
-            void Invalidate ();
+        int GetTileLOD(float fDistance, int iMaxLODs);
 
-            void GenerateVertexData ();
+        void TesselateGrid();
 
-            void GenerateVertexColorData ();
+        virtual void Render();
 
-            void GenerateLightData ();
+        void SetupRenderVariables();
 
-            void GenerateGlobalCoordData ();
+        void GenerateHeightData();
 
-            int GetTileLOD (float fDistance, int iMaxLODs);
+        void GenerateHeightData_Inner(float fFactor);
 
-            void TesselateGrid ();
+        void GenerateHeightData_Horizontal_3pN(int iNeight, int iY);
 
-            virtual void Render ();
+        void GenerateHeightData_Vertical_3pN(int iNeight, int iX);
 
-            void SetupRenderVariables ();
+        void GenerateHeightData_Horizontal_N(int iNeight, int iY);
 
-            void GenerateHeightData ();
+        void GenerateHeightData_Vertical_N(int iNeight, int iX);
 
-            void GenerateHeightData_Inner (float fFactor);
+        void GenerateHeightData_Horizontal(int iY, int iRes, float fFactor);
 
-            void GenerateHeightData_Horizontal_3pN (int iNeight, int iY);
+        void GenerateHeightData_Vertical(int iX, int iRes, float fFactor);
 
-            void GenerateHeightData_Vertical_3pN (int iNeight, int iX);
+        void SetupTileMaterial();
 
-            void GenerateHeightData_Horizontal_N (int iNeight, int iY);
+        void SetTileLODPar(float _fTileLODPar);
 
-            void GenerateHeightData_Vertical_N (int iNeight, int iX);
+        void SetBoundVol(CGraphBV* _BVol);
 
-            void GenerateHeightData_Horizontal (int iY, int iRes, float fFactor);
+        // Additional Public Declarations
 
-            void GenerateHeightData_Vertical (int iX, int iRes, float fFactor);
+    protected:
+        // Data Members for Class Attributes
 
-            void SetupTileMaterial ();
+        float* HData;
 
-            void SetTileLODPar (float _fTileLODPar);
+        float* LData;
 
-            void SetBoundVol (CGraphBV *_BVol);
+        CVect3* VXs;
 
-    // Additional Public Declarations
-            
-  protected:
-    // Data Members for Class Attributes
+        CGColor* VCs;
 
-                  float *HData;
-      
-                  float *LData;
-      
-                  CVect3 *VXs;
-      
-                  CGColor*VCs;
-      
-                  CVect2 *UVs;
-      
-                  unsigned short *Idxs;
-      
-                  int MaxVertexs;
-      
-                  CMesh *Mesh;
-      
-            //	Global variable
-            unsigned int uiSectorRes;
-      
-                  float fTileLODPar;
-      
-                  CE3D_Shader *poTileMaterial;
-      
-                  CE3D_ShIns_Texture TileTex;
-      
-                  CE3D_ShIns_TexOp TileOp;
-      
-                  CEval_Const TileMatFunc;
-      
-    // Additional Protected Declarations
-            
-  private:
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+        CVect2* UVs;
+
+        unsigned short* Idxs;
+
+        int MaxVertexs;
+
+        CGMesh* Mesh;
+
+        // Global variable
+        unsigned int uiSectorRes;
+
+        float fTileLODPar;
+
+        CE3D_Shader* poTileMaterial;
+
+        CE3D_ShIns_Texture TileTex;
+
+        CE3D_ShIns_TexOp TileOp;
+
+        CEval_Const TileMatFunc;
+
+        // Additional Protected Declarations
+
+    private:
+        // Additional Private Declarations
+
+    private:                    // Additional Implementation Declarations
 };
 
-
-// Class CTerrainTesselatorGM 
-
-
+// Class CTerrainTesselatorGM
 
 #endif

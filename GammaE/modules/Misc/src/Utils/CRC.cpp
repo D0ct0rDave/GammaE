@@ -1,4 +1,13 @@
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
 /* crc32h.c -- package to compute 32-bit CRC one byte at a time using   */
 /*             the high-bit first (Big-Endian) bit ordering convention  */
 /*                                                                      */
@@ -32,54 +41,58 @@
 /*                                                                      */
 /*  The table lookup technique was adapted from the algorithm described */
 /*  by Avram Perez, Byte-wise CRC Calculations, IEEE Micro 3, 40 (1983).*/
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 #include "CRC.h"
-//-----------------------------------------------------------------------------
-#define POLYNOMIAL 0x04c11db7L
+// ----------------------------------------------------------------------------
 
+namespace Utils {
+// ----------------------------------------------------------------------------
+#define POLYNOMIAL 0x04c11db7L
 static unsigned long crc_table[256];
 static bool crc_initialized = false;
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 void gen_crc_table()
 {
-	register int i, j; 
-	register uint crc_accum;
+    register int i, j;
+    register uint crc_accum;
 
-	for ( i = 0;  i < 256;  i++ )
-    { 
-		crc_accum = ( (uint) i << 24 );
-		for ( j = 0;  j < 8;  j++ )
-        {
-			if ( crc_accum & 0x80000000L )
-				crc_accum = ( crc_accum << 1 ) ^ POLYNOMIAL;
-			else
-				crc_accum = ( crc_accum << 1 );
-		}
-        
-		crc_table[i] = crc_accum;
-	}
-
-	return;
-}
-
-//-----------------------------------------------------------------------------
-uint uiCRCGenerate(const char *data_blk_ptr,int data_blk_size)
-{
-	register int i, j;
-	register int crc_accum = 0;
-
-	if (! crc_initialized)
-	{
-		gen_crc_table();
-		crc_initialized = true;
-	}
-
-	for ( j = 0;  j < data_blk_size;  j++ )
+    for ( i = 0; i < 256; i++ )
     {
-		i = ( (int) ( crc_accum >> 24) ^ *data_blk_ptr++ ) & 0xff;
-        crc_accum = ( crc_accum << 8 ) ^ crc_table[i];
-	}
+        crc_accum = ( (uint) i << 24 );
+        for ( j = 0; j < 8; j++ )
+        {
+            if ( crc_accum & 0x80000000L )
+                crc_accum = (crc_accum << 1) ^ POLYNOMIAL;
+            else
+                crc_accum = (crc_accum << 1);
+        }
 
-	return crc_accum;
+        crc_table[i] = crc_accum;
+    }
+
+    return;
 }
-//-----------------------------------------------------------------------------
+
+// ----------------------------------------------------------------------------
+uint uiCRCGenerate(const char* data_blk_ptr,int data_blk_size)
+{
+    register int i, j;
+    register int crc_accum = 0;
+
+    if ( !crc_initialized )
+    {
+        gen_crc_table();
+        crc_initialized = true;
+    }
+
+    for ( j = 0; j < data_blk_size; j++ )
+    {
+        i = ( (int) (crc_accum >> 24) ^ *data_blk_ptr++ ) & 0xff;
+        crc_accum = (crc_accum << 8) ^ crc_table[i];
+    }
+
+    return(crc_accum);
+}
+// ----------------------------------------------------------------------------
+}; // namespace Utils
+// ----------------------------------------------------------------------------

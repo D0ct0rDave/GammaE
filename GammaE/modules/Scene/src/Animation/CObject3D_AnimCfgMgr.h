@@ -1,51 +1,54 @@
-//	  %X% %Q% %Z% %W%
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
 
-#ifndef CObject3D_AnimCfgMgr_h
-#define CObject3D_AnimCfgMgr_h 1
+#ifndef CGSceneAnimCfgMgrH
+#define CGSceneAnimCfgMgrH
 
-// CObject3D_AnimCfgGen
-#include "Animation\CObject3D_AnimCfgGen.h"
-// CObject3D_AnimCfg
-#include "Animation\CObject3D_AnimCfg.h"
+// CGSceneAnimCfgGen
+#include "Animation\CGSceneAnimCfgGen.h"
+// CGSceneAnimCfg
+#include "Animation\CGSceneAnimCfg.h"
 
-class CObject3D_AnimCfgMgr : public CObject3D_AnimCfgGen
+class CGSceneAnimCfgMgr : public CGSceneAnimCfgGen
 {
+    public:
+        CGSceneAnimCfgMgr();
 
-public: CObject3D_AnimCfgMgr();
+        virtual ~CGSceneAnimCfgMgr();
 
-    virtual ~CObject3D_AnimCfgMgr();
+        void Init(int _iMaxAnimObjs);
 
-    void Init (int _iMaxAnimObjs);
+        virtual void SetFrameAnim(int _iFrameAnim);
 
-    virtual void SetFrameAnim (int _iFrameAnim);
+        virtual CGraphBV* poGetBoundVol();
 
-    virtual CGraphBV *poGetBoundVol ();
+        virtual void ComputeBoundVol();
 
-    virtual void ComputeBoundVol ();
+        virtual void Render();
 
-    virtual void Render ();
+        int AddAnimObj(CGSceneAnimCfg* _pAnimObj);
 
-    int AddAnimObj (CObject3D_AnimCfg *_pAnimObj);
+        int iNumAnimObjs;
 
-    // Data Members for Class Attributes
+        int iMaxAnimObjs;
 
-    int iNumAnimObjs;
+        CGSceneAnimCfg* * pAnimObjs;
 
-    int iMaxAnimObjs;
+        int iCurrentFrame;
 
-    CObject3D_AnimCfg * *pAnimObjs;
+    protected:
 
-    int iCurrentFrame;
+    private:
 
-     // Additional Public Declarations
-protected:
-     // Additional Protected Declarations
-private:
-     // Additional Private Declarations
-private:
-    // Additional Implementation Declarations
+    private:
 };
 
-// Class CObject3D_AnimCfgMgr
-
-#endif // ifndef CObject3D_AnimCfgMgr_h
+#endif

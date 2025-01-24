@@ -1,81 +1,101 @@
-//	  %X% %Q% %Z% %W%
-
-#ifndef CObject3D_AnimCfg_h
-#define CObject3D_AnimCfg_h 1
-
-// CObject3D_AnimCfgGen
-#include "Animation\CObject3D_AnimCfgGen.h"
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
+#ifndef CGSceneAnimCfgH
+#define CGSceneAnimCfgH
+// --------------------------------------------------------------------------------CGSceneAnimCfgGen
 // TFrameAnimation
-#include "Animation\TFrameAnimation.h"
-// CObject3D_AnimGen
-#include "Animation\CObject3D_AnimGen.h"
-
-class CObject3D_AnimCfg : public CObject3D_AnimCfgGen
+// CGSceneAnimGen
+#include "CObject3D.h"
+#include "Animation/CGSceneAnimObject.h"
+// --------------------------------------------------------------------------------
+class CAnimAction
 {
+    public:
 
-public: CObject3D_AnimCfg();
-
-    virtual ~CObject3D_AnimCfg();
-
-    void CreateFrameAnims (int _iNumFrameAnims);
-
-    void SetupFrameAnim (int _iFrameAnim, int _iInitialFrame, int _iFinalFrame, float _fFrameAnimTime, bool _bLoop);
-
-    virtual void SetFrameAnim (int iFrameAnim);
-
-    virtual CGraphBV *poGetBoundVol ();
-
-    virtual void ComputeBoundVol ();
-
-    virtual void Render ();
-
-    CObject3D_AnimGen *GetAnimObj ();
-
-    void SetAnimObj (CObject3D_AnimGen *_poAnimObj);
-
-    TFrameAnimation *GetFrameAnim ();
-
-    // Data Members for Class Attributes
-
-    int iNumFrameAnims;
-
-    int iCurrentFrameAnim;
-
-    float fCurrentTime;
-
-    int iLastFrame;
-
-    // Data Members for Associations
-
-    CObject3D_AnimGen *AnimObj;
-
-    TFrameAnimation *FrameAnim;
-
-     // Additional Public Declarations
-protected:
-     // Additional Protected Declarations
-private:
-     // Additional Private Declarations
-private:
-    // Additional Implementation Declarations
+        uint m_uiIniFrame;
+        uint m_uiEndFrame;
+        float m_fFrameTime;
+        bool m_bLoop;
 };
-
-// Class CObject3D_AnimCfg
-
-inline CObject3D_AnimGen *CObject3D_AnimCfg::GetAnimObj ()
+// --------------------------------------------------------------------------------
+class CGSceneAnimCfg
 {
-    return( AnimObj );
-}
+    public:
+        CGSceneAnimCfg();
 
-inline void CObject3D_AnimCfg::SetAnimObj (CObject3D_AnimGen *_poAnimObj)
-{
-    AnimObj = _poAnimObj;
-    AnimObj->Ref();
-}
+        virtual ~CGSceneAnimCfg();
 
-inline TFrameAnimation *CObject3D_AnimCfg::GetFrameAnim ()
-{
-    return FrameAnim;
-}
+        // / Sets up the configuration for an specific action
+        uint uiAddAction(const CGString& _sActionName,uint _uiInitialFrame, uint _uiFinalFrame, float _fFrameAnimTime, bool _bLoop)
+        {
+            CAnimAction oAnim;                    // = mNew CAnimAction;
 
-#endif // ifndef CObject3D_AnimCfg_h
+            oAnim.m_uiIniFrame = _uiInitialFrame;
+            oAnim.m_uiEndFrame = _uiFinalFrame;
+            oAnim.m_fFrameTime = _fFrameAnimTime;
+            oAnim.m_bLoop = _bLoop;
+
+            return ( m_oActions.uiAddVar(_sActionName, oAnim ) );
+        }
+
+        // / Retrieve the current number of actions this config object stores
+        uint uiNumActions()
+        {
+            return ( m_oActions.uiNumElems() );
+        }
+
+        // / Retrieves the animated object associated to this config object
+        CGSceneAnimObject* poGetAnimObj()
+        {
+            return (m_poAnimObj);
+        }
+
+        // / Sets the animated object associated to this config object
+        void SetAnimObj (CGSceneAnimObject* _poAnimObj)
+        {
+            m_poAnimObj = _poAnimObj;
+        }
+
+        // / Retrieves the parameters associated to a given action by number
+        CAnimAction& oGetFrameAnim(uint _uiAction)
+        {
+            return ( m_oActions.oGetElem(_uiAction) );
+        }
+
+        // / Retrieves the parameters associated to a given action by name
+        CAnimAction& oGetFrameAnim(const CGString& _sActionName)
+        {
+            int iActionIdx = m_oActions.iGetIdx(_sActionName);
+
+            if ( iActionIdx >= 0 )
+                return ( oGetFrameAnim(iActionIdx) );
+        }
+
+        // / Retrieve the name associated to a given action
+        const CGString& sGetActionName(uint _uiAction)
+        {
+            return( m_oActions.sGetElemName(_uiAction) );
+        }
+
+        // General Processing Functionalities
+        virtual void Accept(CGSceneVisitor* _poVisitor)
+        {
+            _poVisitor->Visit(this);
+        }
+
+    protected:
+
+        CGLookupArray <CAnimAction> m_oActions;
+        CGSceneAnimObject* m_poAnimObj;
+};
+// --------------------------------------------------------------------------------
+#endif
+// --------------------------------------------------------------------------------

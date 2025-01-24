@@ -1,70 +1,74 @@
-// CObject3D_AnimCfgMgr
-#include "Animation\CObject3D_AnimCfgMgr.h"
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------CGSceneAnimCfgMgr
+#include "Animation\CGSceneAnimCfgMgr.h"
 #include <string.h>
 
-// Class CObject3D_AnimCfgMgr
-
-CObject3D_AnimCfgMgr::CObject3D_AnimCfgMgr()
+CGSceneAnimCfgMgr::CGSceneAnimCfgMgr()
     : iNumAnimObjs(0), iMaxAnimObjs(0), pAnimObjs(NULL), iCurrentFrame(0)
 {
     TypeID = e3DObj_AnimCfgMgr;
 }
 
-CObject3D_AnimCfgMgr::~CObject3D_AnimCfgMgr()
+CGSceneAnimCfgMgr::~CGSceneAnimCfgMgr()
 {
 }
 
-void CObject3D_AnimCfgMgr::Init (int _iMaxAnimObjs)
+void CGSceneAnimCfgMgr::Init (int _iMaxAnimObjs)
 {
     iMaxAnimObjs = _iMaxAnimObjs;
     iNumAnimObjs = 0;
-    pAnimObjs = mNew CObject3D_AnimCfg *[iMaxAnimObjs];
+    pAnimObjs = mNew CGSceneAnimCfg *[iMaxAnimObjs];
     memset(pAnimObjs,0,4 * iMaxAnimObjs);
 }
 
-void CObject3D_AnimCfgMgr::SetFrameAnim (int _iFrameAnim)
+void CGSceneAnimCfgMgr::SetFrameAnim (int _iFrameAnim)
 {
     assert (pAnimObjs && "NULL Animation object array");
 
     iCurrentFrame = _iFrameAnim;
 
-    for(int iObj = 0; iObj < iNumAnimObjs; iObj++)
+    for ( int iObj = 0; iObj < iNumAnimObjs; iObj++ )
         pAnimObjs[iObj]->SetFrameAnim(_iFrameAnim);
 }
 
-CGraphBV *CObject3D_AnimCfgMgr::poGetBoundVol ()
+CGraphBV* CGSceneAnimCfgMgr::poGetBoundVol ()
 {
     assert (pAnimObjs && "NULL Animation object array");
 
-     // WARNING!: Esto no es correcto!
+    // WARNING!: Esto no es correcto!
     return ( pAnimObjs[iCurrentFrame]->poGetBoundVol() );
-
 }
 
-void CObject3D_AnimCfgMgr::ComputeBoundVol ()
+void CGSceneAnimCfgMgr::ComputeBoundVol ()
 {
     assert (pAnimObjs && "NULL Animation object array");
 
-    for(int iObj = 0; iObj < iNumAnimObjs; iObj++)
+    for ( int iObj = 0; iObj < iNumAnimObjs; iObj++ )
         pAnimObjs[iObj]->ComputeBoundVol();
 }
 
-void CObject3D_AnimCfgMgr::Render ()
+void CGSceneAnimCfgMgr::Render ()
 {
     assert (pAnimObjs && "NULL Animation object array");
 
-    for(int iObj = 0; iObj < iNumAnimObjs; iObj++)
+    for ( int iObj = 0; iObj < iNumAnimObjs; iObj++ )
         pAnimObjs[iObj]->Render();
 }
 
-int CObject3D_AnimCfgMgr::AddAnimObj (CObject3D_AnimCfg *_pAnimObj)
+int CGSceneAnimCfgMgr::AddAnimObj (CGSceneAnimCfg* _pAnimObj)
 {
     assert (pAnimObjs && "NULL Animation object array");
 
     pAnimObjs[iNumAnimObjs++] = _pAnimObj;
     _pAnimObj->Ref();
 
-    return ( iNumAnimObjs - 1 );
+    return (iNumAnimObjs - 1);
 }
-
-// Additional Declarations

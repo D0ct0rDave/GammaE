@@ -1,49 +1,48 @@
-
-
-
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
 // SCNUt_AnimMesh_NormalComputer
 #include "ScnNormalGen\SCNUt_AnimMesh_NormalComputer.h"
-SCNUt_AnimMesh_NormalComputer	glbAnimMesh_NormalGenerator;
+SCNUt_AnimMesh_NormalComputer glbAnimMesh_NormalGenerator;
 
-
-// Class SCNUt_AnimMesh_NormalComputer 
+// Class SCNUt_AnimMesh_NormalComputer
 
 SCNUt_AnimMesh_NormalComputer::SCNUt_AnimMesh_NormalComputer()
-        {
+{
 }
-
 
 SCNUt_AnimMesh_NormalComputer::~SCNUt_AnimMesh_NormalComputer()
 {
 }
 
-
-
-void SCNUt_AnimMesh_NormalComputer::Generate (CObject3D_AnimMesh *_pObj)
+void SCNUt_AnimMesh_NormalComputer::Generate (CGSceneAnimMesh* _pObj)
 {
-  	assert (_pObj && "NULL Animated Mesh Object");
+    assert (_pObj && "NULL Animated Mesh Object");
 
-	CObject3D_Leaf *pLeaf     = _pObj->GetLeaf();
-	CMesh		   *pLeafMesh = pLeaf->poGetMesh();
-	
-	CVect3		   *pOldVXs   = pLeafMesh->VXs;
-	CVect3		   *pOldVNs   = pLeafMesh->VNs;
+    CGMesh* pLeafMesh = _pObj->poGetMesh();
 
-	int				iState;	
+    CVect3* pOldVXs = pLeafMesh->m_poVX;
+    CVect3* pOldVNs = pLeafMesh->m_poVN;
 
-	for (iState=0;iState<_pObj->iGetNumStates();iState++)
-	{
-		pLeafMesh->VXs = _pObj->pMeshStates  + _pObj->iGetNumStateVXs()*iState;
-		pLeafMesh->VNs = _pObj->pNMeshStates + _pObj->iGetNumStateVXs()*iState;
-		
-		NormalGen_ComputeVertexsNormals(*pLeafMesh);
-	}
+    int iState;
 
-	pLeafMesh->VXs = pOldVXs;
-	pLeafMesh->VNs = pOldVNs;
+    for ( iState = 0; iState < _pObj->uiGetNumKeyFrames(); iState++ )
+    {
+        pLeafMesh->m_poVX = _pObj->poGetVertexs() + _pObj->uiGetNumFrameVXs() * iState;
+        pLeafMesh->m_poVN = _pObj->poGetNormals() + _pObj->uiGetNumFrameVXs() * iState;
+
+        NormalGen_ComputeVertexsNormals(*pLeafMesh);
+    }
+
+    pLeafMesh->m_poVX = pOldVXs;
+    pLeafMesh->m_poVN = pOldVNs;
 }
 
 // Additional Declarations
-    

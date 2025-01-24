@@ -1,65 +1,63 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef CSkyDome_h
 #define CSkyDome_h 1
 
-
-
-// CObject3D_Leaf
+// CGSceneLeaf
 #include "GammaE_Scene.h"
 
+class CSkyDome : public CGSceneLeaf
+{
+    public:
+        CSkyDome();
 
+        virtual ~CSkyDome();
 
+        void SetRotation(float _fRot);
 
-class CSkyDome : public CObject3D_Leaf  {
-    
-  public:
-          CSkyDome();
+        void SetRadius(float _fRadius);
 
-          virtual ~CSkyDome();
+        void SetAxis(CVect3 _Axis);
 
+        void SetPosition(CVect3 _Pos);
 
-                void SetRotation (float _fRot);
+        void CreateDome(bool _bFogAffected, int _iNumVSlices, int _iNumHSlices, int _iStartVSlice, int _iEndVSlice, float _fUTiling, float _fVTiling);
 
-            void SetRadius (float _fRadius);
+        virtual void Render();
 
-            void SetAxis (CVect3 _Axis);
+        // Additional Public Declarations
 
-            void SetPosition (CVect3 _Pos);
+    protected:
+        // Additional Protected Declarations
 
-            void CreateDome (bool _bFogAffected, int _iNumVSlices, int _iNumHSlices, int _iStartVSlice, int _iEndVSlice, float _fUTiling, float _fVTiling);
+    private:
+        // Data Members for Class Attributes
 
-            virtual void Render ();
+        float fRadius;
 
-    // Additional Public Declarations
-            
-  protected:
-    // Additional Protected Declarations
-            
-  private:
-    // Data Members for Class Attributes
+        float fRot;
 
-                  float fRadius;
-      
-                  float fRot;
-      
-                  CVect3 Axis;
-      
-                  CVect3 Pos;
-      
-                  bool FogAffected;
-      
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+        CVect3 Axis;
+
+        CVect3 Pos;
+
+        bool FogAffected;
+
+        // Additional Private Declarations
+
+    private:                    // Additional Implementation Declarations
 };
 
-
-// Class CSkyDome 
-
-
+// Class CSkyDome
 
 #endif

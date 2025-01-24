@@ -1,57 +1,64 @@
-//	  %X% %Q% %Z% %W%
-
-#ifndef CObject3D_AnimNode_h
-#define CObject3D_AnimNode_h 1
-
-// CObject3D_AnimGen
-#include "Animation\CObject3D_AnimGen.h"
-
-class CObject3D_AnimNode : public CObject3D_AnimGen
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
+#ifndef CGSceneAnimNodeH
+#define CGSceneAnimNodeH
+// --------------------------------------------------------------------------------
+#include "GammaE_Misc.h"
+#include "Animation\CGSceneAnimObject.h"
+// --------------------------------------------------------------------------------
+class CGSceneAnimNode : public CGSceneAnimObject
 {
+    public:
 
-public: CObject3D_AnimNode();
+        CGSceneAnimNode();
+        virtual ~CGSceneAnimNode();
 
-    virtual ~CObject3D_AnimNode();
+        // / Adds a new animation object to the animation node
+        uint uiAddObject(CGSceneAnimObject* _poObj)
+        {
+            return ( m_poObjs.uiAdd(_poObj) );
+        }
 
-    virtual CGraphBV *poGetBoundVol ();
+        // / Retrieves the specific animation object
+        CGSceneAnimObject* poGetAnimObject(uint _uiObj)
+        {
+            return(m_poObjs[_uiObj]);
+        }
 
-    virtual void ComputeBoundVol ();
+        // / Retrieves the number of child animated objects
+        uint uiNumAnimObjects()
+        {
+            return ( m_poObjs.uiNumElems() );
+        }
 
-    virtual void Render ();
+        // / Clears all the array of animated objects
+        void Clear()
+        {
+            m_poObjs.Clear();
+        }
 
-    virtual void SetAnimState (int _iSrc, int _iDst, float _fFactor);
+        // / Recomputes the bounding volumes
+        virtual void ComputeBoundVols();
 
-    virtual CGraphBV *poGetStateBVol (int _iState);
+        // General Processing Functionalities
+        virtual void Accept(CGSceneVisitor* _poVisitor)
+        {
+            _poVisitor->Visit(this);
+        }
 
-    void Init (int _iMaxObjs);
+    protected:
 
-    int AddObject (CObject3D_AnimGen *_poObj);
-
-    void CreateStates (int _iNumStates);
-
-    void Clear ();
-
-    CObject3D *poGetObject (int _iObj);
-
-    // Data Members for Class Attributes
-
-    CObject3D * *poObjs;
-
-    int iNumObjs;
-
-    int iMaxObjs;
-
-    CGraphBV * *poBVolStates;
-
-     // Additional Public Declarations
-protected:
-     // Additional Protected Declarations
-private:
-     // Additional Private Declarations
-private:
-    // Additional Implementation Declarations
+        CGDynArray <CGSceneAnimObject*> m_poObjs;
 };
 
-// Class CObject3D_AnimNode
-
-#endif // ifndef CObject3D_AnimNode_h
+// --------------------------------------------------------------------------------
+#endif
+// --------------------------------------------------------------------------------

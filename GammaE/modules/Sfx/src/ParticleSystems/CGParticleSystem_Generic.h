@@ -1,4 +1,14 @@
 // -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 #ifndef CGParticleSystem_Generic_h
 #define CGParticleSystem_Generic_h 1
 // -----------------------------------------------------------------------------
@@ -7,12 +17,12 @@
 
 // -----------------------------------------------------------------------------
 class CGParticleSystem_Generic : public CGParticleSystem
-{   
-	public:
-		
-		CGParticleSystem_Generic();
+{
+    public:
 
-		virtual ~CGParticleSystem_Generic();
+        CGParticleSystem_Generic();
+
+        virtual ~CGParticleSystem_Generic();
 
         void SetColorsPars(CGColor _oInitialColor, CGColor _oFinalColor,float _fRandomness);
 
@@ -23,26 +33,23 @@ class CGParticleSystem_Generic : public CGParticleSystem
         void SetEnergyFact(float _fInitialEnergy, float _fEnergyFact,float _fRandomness);
 
         void SetSpeedFact(float _fSpeedFact);
-        
 
-  protected:
+    protected:
 
-		CGColor RGBAFact;
+        CVect4 RGBAFact;
 
-		CGColor RGBAInitialValue;
+        CVect4 RGBAInitialValue;
 
-		CVect3 InitialSpeedFact;
+        CVect3 InitialSpeedFact;
 
-		float fPEnergyFact;
+        float fPEnergyFact;
 
-		float fPInitialEnergyFact;
+        float fPInitialEnergyFact;
 
-		float fPInitialSpeedFact;
+        float fPInitialSpeedFact;
 
-		float fPInitialSizeFact;
-           
+        float fPInitialSizeFact;
 };
 // -----------------------------------------------------------------------------
 #endif
 // -----------------------------------------------------------------------------
-

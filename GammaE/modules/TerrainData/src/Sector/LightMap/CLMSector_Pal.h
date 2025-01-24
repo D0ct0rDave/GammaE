@@ -1,57 +1,55 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef CLMSector_Pal_h
 #define CLMSector_Pal_h 1
 
-
-
 // CLMSector
 #include "Sector\CLMSector.h"
 
+class CLMSector_Pal : public CLMSector
+{
+    public:
+        CLMSector_Pal();
 
+        virtual ~CLMSector_Pal();
 
+        virtual CSectElem & GetValue(int _X, int _Y);
 
-class CLMSector_Pal : public CLMSector  {
-    
-  public:
-          CLMSector_Pal();
+        virtual void SetValue(int _X, int _Y, CSectElem &_Value);
 
-          virtual ~CLMSector_Pal();
+        virtual unsigned long DataSize();
 
+        virtual CSector* CreateClass();
 
-                virtual CSectElem & GetValue (int _X, int _Y);
+        void set_Pal(char* _Pal);
 
-            virtual void SetValue (int _X, int _Y, CSectElem &_Value);
+        virtual unsigned long ElemArraySize(int _iResolution);
 
-            virtual unsigned long DataSize ();
+        // Additional Public Declarations
 
-            virtual CSector * CreateClass ();
+    protected:
+        // Additional Protected Declarations
 
-            void set_Pal (char *_Pal);
+    private:
+        // Data Members for Class Attributes
 
-            virtual unsigned long ElemArraySize (int _iResolution);
+        char Pal[768];
 
-    // Additional Public Declarations
-            
-  protected:
-    // Additional Protected Declarations
-            
-  private:
-    // Data Members for Class Attributes
+        // Additional Private Declarations
 
-                  char Pal[768];
-      
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+    private:                    // Additional Implementation Declarations
 };
 
-
-// Class CLMSector_Pal 
-
-
+// Class CLMSector_Pal
 
 #endif

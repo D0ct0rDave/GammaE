@@ -1,67 +1,76 @@
-//	  %X% %Q% %Z% %W%
-
-#ifndef CLoader3DS_h
-#define CLoader3DS_h 1
-
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
+#ifndef CLoader3DSH
+#define CLoader3DSH
+// ----------------------------------------------------------------------------
 #include "GammaE_E3D.h"
+#include "GammaE_Misc.h"
 
-// CObject3D
-#include "..\..\CObject3D.h"
-// CObject3D_Node
-#include "..\..\CObject3D_Node.h"
-// CObject3D_Leaf
-#include "..\..\CObject3D_Leaf.h"
-// T3DS_Chunk
-#include "T3DS_Chunk.h"
-// C3DLoader
-#include "..\C3DLoader.h"
+#include "CGSceneNode.h"
+#include "CGSceneGroup.h"
+#include "CGSceneLeaf.h"
+#include "3D_Loaders\C3DLoader.h"
 
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+typedef struct T3DS_Chunk
+{
+    unsigned short m_usID;
+    uint m_uiLen;
+    pointer m_pData;
+}T3DS_Chunk;
+// ----------------------------------------------------------------------------
 
-#define     MAX_TRIMESHOBJS     4096    //	4 KMeshes
+#define     MAX_TRIMESHOBJS     4096     // 4 KMeshes
 
+// ----------------------------------------------------------------------------
 class CLoader3DS : public C3DLoader
 {
+    public:
+        CLoader3DS();
 
-public: CLoader3DS();
+        ~CLoader3DS();
 
-    ~CLoader3DS();
+        // / Load a 3DS file and returns the scene contained in the file.
+        virtual CGSceneNode* poLoad(const CGString& _sFilename);
 
-    void ReadChunk (char *Stream, T3DS_Chunk &Chunk);
+    protected:
 
-    void ParseLocalAxis (char *Buffer, CMatrix4x4 &Matrix);
+        // / Reads a chunk of data from the given stream.
+        void ReadChunk(pointer _pStream, T3DS_Chunk* _poChunk);
 
-    CVect3 *ParseVertexCoordinates (char *Buffer, unsigned short &usNumVertexs);
+        // / Reads a matrix from the given stream.
+        void ParseLocalAxis(pointer _pStream, CGMatrix4x4* _poMatrix);
 
-    CVect2 *ParseTextureCoordinates (char *Buffer, unsigned short &usNumUVCoords);
+        // / Retrieves an array of vertex coords from the given stream.
+        CGVect3* poParseVertexCoordinates(pointer _pStream, unsigned short* _pusNumVertexs);
 
-    unsigned short *ParseFaces (char *Buffer, unsigned short & usNumFaces);
+        // / Retrieves an array of texture coords from the given stream.
+        CGVect2* poParseTextureCoordinates(pointer _pStream, unsigned short* _pusNumUVCoords);
 
-    CMesh *CreateMeshFromFields (int iNumFaces, int iNumVertexs, unsigned short *Idxs, CVect3 *VXs, CVect2 *UVs);
+        // / Retrieves an array of faces from the given stream.
+        unsigned short* pusParseFaces(pointer _pStream, unsigned short* _usNumFaces);
 
-    int ParseChunks (CObject3D * *Node, char *Stream, unsigned int StreamSize);
+        // / Creates a mesh from the input fields.
+        CGMesh* poCreateMeshFromFields(uint _uiNumFaces, uint _uiNumVertexs, unsigned short* _pusIdxs, CGVect3* _poVXs, CGVect2* _poUVs);
 
-    virtual CObject3D *pLoad (char *Filename);
+        // /
+        uint uiParseChunks(CGSceneNode* * _poNode, pointer _pStream, uint _uiStreamSize);
 
-    void ParseMaterial (char *pBuffer);
+        void ParseMaterial(pointer _pStream);
 
-     // Additional Public Declarations
-protected:
-     // Additional Protected Declarations
-private:
-    // Data Members for Class Attributes
+    protected:
 
-    CE3D_Shader *pMatTable[1024];
-
-    int iMaxMats;
-
-    int iCurMat;
-
-     // Additional Private Declarations
-private:
-    // Additional Implementation Declarations
+        CGDynArray <CGShader*> m_oMatTable;
+        uint m_uiCurMat;
 };
-
-// Class CLoader3DS
-
-#endif // ifndef CLoader3DS_h
+// ----------------------------------------------------------------------------
+#endif
+// ----------------------------------------------------------------------------

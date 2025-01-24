@@ -1,11 +1,17 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef CTerrainSector_h
 #define CTerrainSector_h 1
-
-
 
 // CTileBookmark
 #include "TerrainMaterials\CTileBookmark.h"
@@ -13,80 +19,74 @@
 #include "TerrainTesselators\CTerrainTesselator.h"
 // GammaE_TerrainData
 #include "GammaE_TerrainData.h"
-// CObject3D
+// CGSceneNode
 #include "GammaE_Scene.h"
 
-
-
-
-
-class CTerrainSector : public CObject3D
+class CTerrainSector : public CGSceneNode
 {
-    
-  public:
-          CTerrainSector();
+    public:
+        CTerrainSector();
 
-          virtual ~CTerrainSector();
+        virtual ~CTerrainSector();
 
+        virtual void Render();
 
-                virtual void Render ();
-			
-			virtual CGraphBV* poCreateBoundVol();
+        virtual CGraphBV* poCreateBoundVol();
 
-            virtual void ComputeBoundVol ();
+        virtual void ComputeBoundVol();
 
-            virtual CGraphBV* poGetBoundVol ();
+        virtual CGraphBV* poGetBV();
 
-            void SetMaxsMins (CVect3& _Maxs, CVect3& _Mins);
+        void SetMaxsMins(CVect3& _Maxs, CVect3& _Mins);
 
-    // Data Members for Class Attributes
+        // Data Members for Class Attributes
 
-                  CHFSector *HF;
-      
-                  CLMSector *LM;
-      
-                  CTMSector *TM;
-      
-                  CTileBookmark *TB;
-      
-                  CTerrainTesselator *Tess;
-      
-                  float fXYScale;
-      
-    // Additional Public Declarations
-            
-  protected:
-    // Additional Protected Declarations
-            
-  private:
-    
-            float * GetfLODs ();
+        CHFSector* HF;
 
-    // Data Members for Class Attributes
+        CLMSector* LM;
 
-            float *fLODs;
-      
-                  int *iLODs;
-      
-                  CVect3 Mins;
-      
-                  CVect3 Maxs;
-      
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+        CTMSector* TM;
+
+        CTileBookmark* TB;
+
+        CTerrainTesselator* Tess;
+
+        float fXYScale;
+
+        // Additional Public Declarations
+        // General Processing Functionalities
+        virtual void Accept(CGSceneVisitor* _poVisitor)
+        {
+            _poVisitor->Visit(this);
+        }
+
+    protected:
+        // Additional Protected Declarations
+
+    private:
+
+        float* GetfLODs();
+
+        // Data Members for Class Attributes
+
+        float* fLODs;
+
+        int* iLODs;
+
+        CVect3 Mins;
+
+        CVect3 Maxs;
+
+        // Additional Private Declarations
+
+    private:                    // Additional Implementation Declarations
 };
 
+// Class CTerrainSector
 
-// Class CTerrainSector 
-
-
-inline float * CTerrainSector::GetfLODs ()
+inline float* CTerrainSector::GetfLODs ()
 {
-    return fLODs;
+    return(fLODs);
 }
-
-
 
 #endif

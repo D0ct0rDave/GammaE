@@ -1,70 +1,67 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef CSoundRenderer_Bass_h
 #define CSoundRenderer_Bass_h 1
-
-
 
 // CSoundRenderer
 #include "SoundRender\CSoundRenderer.h"
 // CSR_Bass_Emiter
 #include "SoundRender\SoundDrivers\SndDrv_BASS\CSR_Bass_Emiter.h"
 
+class CSoundRenderer_Bass : public CSoundRenderer
+{
+    public:
+        CSoundRenderer_Bass();
 
+        ~CSoundRenderer_Bass();
 
+        virtual int Init(void* _HndDeviceContext, int _iSndBits, int _iSndSRate, int _iMaxEmiters);
 
+        virtual void Render(float _fDelta);
 
-class CSoundRenderer_Bass : public CSoundRenderer  {
-    
-  public:
-          CSoundRenderer_Bass();
+        void ProcessEmiters();
 
-          ~CSoundRenderer_Bass();
+        void UploadSample(CSample* _pSample);
 
+        void UpdateBassEmiter_Layers(CSR_Bass_Emiter* _pBEmiter);
 
-                virtual int Init (void *_HndDeviceContext, int _iSndBits, int _iSndSRate, int _iMaxEmiters);
+        void UpdateBassEmiter_3D(CSR_Bass_Emiter* _pBEmiter);
 
-            virtual void Render (float _fDelta);
+        virtual int iAddEmiter(CSoundEmiter* _pEmiter);
 
-            void ProcessEmiters ();
+        virtual void RemoveEmiter(int _iIdx);
 
-            void UploadSample (CSample *_pSample);
+        virtual void UnlockEmiter(int _iIdx);
 
-            void UpdateBassEmiter_Layers (CSR_Bass_Emiter *_pBEmiter);
+        // Additional Public Declarations
 
-            void UpdateBassEmiter_3D (CSR_Bass_Emiter *_pBEmiter);
+    protected:
+        // Additional Protected Declarations
 
-            virtual int iAddEmiter (CSoundEmiter *_pEmiter);
+    private:
+        // Data Members for Class Attributes
 
-            virtual void RemoveEmiter (int _iIdx);
+        CSR_Bass_Emiter* pBassEmiter;
 
-            virtual void UnlockEmiter (int _iIdx);
+        int iMaxChannels;
 
-    // Additional Public Declarations
-            
-  protected:
-    // Additional Protected Declarations
-            
-  private:
-    // Data Members for Class Attributes
+        int iNumChannels;
 
-                  CSR_Bass_Emiter* pBassEmiter;
-      
-                  int iMaxChannels;
-      
-                  int iNumChannels;
-      
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+        // Additional Private Declarations
+
+    private:   // Additional Implementation Declarations
 };
 
-
-// Class CSoundRenderer_Bass 
-
-
+// Class CSoundRenderer_Bass
 
 #endif

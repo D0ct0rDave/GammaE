@@ -1,36 +1,46 @@
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 #ifndef CGGameEntityMgr_h
 #define CGGameEntityMgr_h 1
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 #include "GammaE_Misc.h"
 #include "CGGameEntity.h"
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 DECLARE_SINGLETON(CGGameEntityMgr)
 {
-  public:
-		/// Registers the given game entity and returns its index
-		uint uiRegister(CGGameEntity* _poEntity);
-		
-		/// Removes the given game entity
-		void Remove(CGGameEntity* _poEntity);
-		
-		/// Removes the entity associated by its index
-		void Remove(uint _uiEntityIdx);
+    public:
+        // / Registers the given game entity and returns its index
+        uint uiRegister(CGGameEntity * _poEntity);
 
-		/// Returns the number of registered entities
-		uint uiNumEntities();
+        // / Removes the given game entity
+        void Remove(CGGameEntity * _poEntity);
 
-		/// Retrieves an entity by its index
-		CGGameEntity* poGetEntity(uint _uiEntityIdx);
-		
-		/// Retrieves an entity by its global uid
-		CGGameEntity* poGetEntity(const CGString& _sEntity);
+        // / Removes the entity associated by its index
+        void Remove(uint _uiEntityIdx);
 
-		virtual void Think (float _fDeltaT);
+        // / Returns the number of registered entities
+        uint uiNumEntities();
 
-  protected:
-	    CGLookupArray<CGGameEntity*> m_oEL;
+        // / Retrieves an entity by its index
+        CGGameEntity* poGetEntity(uint _uiEntityIdx);
+
+        // / Retrieves an entity by its global uid
+        CGGameEntity* poGetEntity(const CGString& _sEntity);
+
+        virtual void Think (float _fDeltaT);
+
+    protected:
+        CGLookupArray <CGGameEntity*> m_oEL;
 };
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 #endif
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------

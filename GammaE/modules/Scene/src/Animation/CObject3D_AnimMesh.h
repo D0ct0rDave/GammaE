@@ -1,77 +1,78 @@
-//	  %X% %Q% %Z% %W%
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
+#ifndef CGSceneAnimMeshH
+#define CGSceneAnimMeshH
+// --------------------------------------------------------------------------------CGSceneLeaf
+#include "CGSceneLeaf.h"
 
-
-
-#ifndef CObject3D_AnimMesh_h
-#define CObject3D_AnimMesh_h 1
-
-
-
-// CObject3D_Leaf
-#include "CObject3D_Leaf.h"
-// CObject3D_AnimGen
-#include "Animation\CObject3D_AnimGen.h"
-
-
-
-
-class CObject3D_AnimMesh : public CObject3D_AnimGen
+// CGSceneAnimGen
+#include "Animation\CGSceneAnimObject.h"
+// --------------------------------------------------------------------------------
+class CGSceneAnimMesh : public CGSceneAnimObject
 {
-	public:
-        CObject3D_AnimMesh();
+    public:
+        CGSceneAnimMesh();
+        virtual ~CGSceneAnimMesh();
 
-        virtual ~CObject3D_AnimMesh();
+        // / Sets up the data inside the animated object
+        void Setup(CGMesh* _poStartupMesh,CGVect3* _poVXs,CGVect3* _poVNs)
+        {
+            m_poMesh = _poStartupMesh;
+            m_poFrameVXs = _poVXs;
+            m_poFrameVNs = _poVNs;
+        }
 
+        // / Recompute the bounding volume of all the frames
+        virtual void ComputeBoundVols()
+        {
+            assert(false && "Not implemented!!");
+        }
 
-		virtual void SetAnimState (int _iSrc, int _iDst, float _fFactor);
+        // / Returns the number of vertices per frame
+        uint uiGetNumFrameVXs()
+        {
+            return (m_poMesh->m_usNumVXs);
+        }
 
-        virtual void CreateStates (int _iNumStates, int _iNumStateVXs);
+        // / Retrieves the startup frame
+        CGMesh* poGetMesh()
+        {
+            return(m_poMesh);
+        }
 
-        virtual void Render ();
+        // / Retrieves the array of vertices
+        CGVect3* poGetVertexs()
+        {
+            return (m_poFrameVXs);
+        }
 
-        virtual CGraphBV* poGetBoundVol ();
+        // / Retrieves the array where the normals are stored
+        CGVect3* poGetNormals()
+        {
+            return (m_poFrameVNs);
+        }
 
-        virtual void ComputeBoundVol ();
+        // General Processing Functionalities
+        virtual void Accept(CGSceneVisitor* _poVisitor)
+        {
+            _poVisitor->Visit(this);
+        }
 
-        void SetLeaf (CObject3D_Leaf *_pLeafMesh);
+    protected:
 
-        virtual CGraphBV * poGetStateBVol (int _iState);
+        CGVect3* m_poFrameVXs;
+        CGVect3* m_poFrameVNs;
 
-        int iGetNumStateVXs ();
-
-    
-        CObject3D_Leaf * GetLeaf ();
-
-    // Data Members for Class Attributes
-
-        CVect3 *pMeshStates;
-      
-        CVect3 *pNMeshStates;
-      
-        int iNumStateVXs;
-      
-        CGraphBV* *pBVolStates;
-      
-    // Data Members for Associations
-
-        CObject3D_Leaf *Leaf;
+        CGMesh* m_poMesh;
 };
-
-
-// Class CObject3D_AnimMesh 
-
-
-inline int CObject3D_AnimMesh::iGetNumStateVXs ()
-{
-  	return (iNumStateVXs);
-}
-
-
-inline CObject3D_Leaf * CObject3D_AnimMesh::GetLeaf ()
-{
-    return Leaf;
-}
-
-
-
+// --------------------------------------------------------------------------------
 #endif
+// --------------------------------------------------------------------------------

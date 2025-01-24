@@ -1,51 +1,48 @@
-// CObject3D_AnimTransf
-#include "Animation\CObject3D_AnimTransf.h"
-
-// Class CObject3D_AnimTransf
-
-CObject3D_AnimTransf::CObject3D_AnimTransf()
-    : pTransStates(NULL)
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
+#include "Animation\CGSceneAnimTransf.h"
+// --------------------------------------------------------------------------------
+CGSceneAnimTransf::CGSceneAnimTransf() :
+    m_poTransforms(NULL)
 {
-    TypeID = e3DObj_AnimTransf;
+    m_eTypeID = OBJ3D_AnimTransf;
 }
-
-CObject3D_AnimTransf::~CObject3D_AnimTransf()
+// --------------------------------------------------------------------------------
+CGSceneAnimTransf::~CGSceneAnimTransf()
 {
-    if (pTransStates) mDel [] pTransStates;
+    if ( m_poTransforms )
+        mDel [] m_poTransforms;
 }
-
-void CObject3D_AnimTransf::CreateStates (int _iNumStates)
-{
-    iNumStates   = _iNumStates;
-    pTransStates = mNew CMatrix4x4[iNumStates];
-}
-
-CGraphBV *CObject3D_AnimTransf::poGetBoundVol ()
-{
-    return ( BVol );
-}
-
-void CObject3D_AnimTransf::ComputeBoundVol ()
-{
+/*
+   void CGSceneAnimTransf::ComputeBoundVol ()
+   {
     if (!BVol)
     {
-   CVect3 Max,Min;
+        CGVect3 Max,Min;
 
-   Max.V3(0,0,0);
-   Min.V3(0,0,0);
+        Max.V3(0,0,0);
+        Min.V3(0,0,0);
 
         BVol = CGraphBV_Manager::poCreate();
         BVol->Init(Max,Min);
     }
-}
+   }
 
-void CObject3D_AnimTransf::Render ()
-{
-   CGRenderer::I()->MultiplyMatrix(&Trans);
-}
+   void CGSceneAnimTransf::Render ()
+   {
+    CGRenderer::I()->MultiplyMatrix(&Trans);
+   }
 
-void CObject3D_AnimTransf::SetAnimState (int _iSrc, int _iDst, float _fFactor)
-{
+   void CGSceneAnimTransf::SetAnimState (int _iSrc, int _iDst, float _fFactor)
+   {
     assert (pTransStates       && "NULL Transform state array");
 
     // HACK!!! No slerp quaternion code
@@ -57,25 +54,24 @@ void CObject3D_AnimTransf::SetAnimState (int _iSrc, int _iDst, float _fFactor)
     }
     else
     {
-        if (_iSrc >= iNumStates) _iSrc = iNumStates - 1;
+        if (_iSrc >= iNumStates) _iSrc = iNumStates-1;
+        if (_iDst >= iNumStates) _iDst = iNumStates-1;
 
-        if (_iDst >= iNumStates) _iDst = iNumStates - 1;
-
-        if ( ( _iSrc != _iDst ) && ( _fFactor > 0.0f ) )
+        if ((_iSrc != _iDst) && (_fFactor>0.0f))
         {
             if (_fFactor < 1.0f)
             {
-   CQuaternion SrcQuat,DstQuat,ResQuat;
-   CVect4 SrcPos,DstPos,ResPos;
+                CQuaternion SrcQuat,DstQuat,ResQuat;
+                CVect4 SrcPos,DstPos,ResPos;
 
-                 // Interpolate rotations
+                // Interpolate rotations
                 SrcQuat.FromMatrix( pTransStates[_iSrc] );
                 DstQuat.FromMatrix( pTransStates[_iDst] );
 
                 ResQuat.Slerp(SrcQuat,DstQuat,_fFactor);
                 Trans = ResQuat.ToMatrix();
 
-                 // Interpolate positions
+                // Interpolate positions
                 SrcPos = pTransStates[_iSrc].GetColVector(3);
                 DstPos = pTransStates[_iDst].GetColVector(3);
 
@@ -93,13 +89,6 @@ void CObject3D_AnimTransf::SetAnimState (int _iSrc, int _iDst, float _fFactor)
         else
             Trans = pTransStates[_iSrc];
     }
-} // SetAnimState
-
-CGraphBV *CObject3D_AnimTransf::poGetStateBVol (int _iState)
-{
-
-    return ( BVol );
-
-}
-
-// Additional Declarations
+   }
+ */
+// --------------------------------------------------------------------------------

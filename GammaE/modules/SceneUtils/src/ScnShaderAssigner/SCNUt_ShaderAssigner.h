@@ -1,45 +1,42 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef SCNUt_ShaderAssigner_h
 #define SCNUt_ShaderAssigner_h 1
 
-
 #include "GammaE_Scene.h"
 
-// CObject3D
+// CGSceneNode
 
-
-
-
-
-class SCNUt_ShaderAssigner 
+class SCNUt_ShaderAssigner
 {
-    
-  public:
-          SCNUt_ShaderAssigner();
+    public:
+        SCNUt_ShaderAssigner();
 
-          ~SCNUt_ShaderAssigner();
+        ~SCNUt_ShaderAssigner();
 
+        void AssignShader(CE3D_Shader* _poShader, CGSceneNode* _poObj);
 
-                void AssignShader (CE3D_Shader* _poShader, CObject3D* _poObj);
+        // Additional Public Declarations
 
-    // Additional Public Declarations
-            
-  protected:
-    // Additional Protected Declarations
-            
-  private:
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+    protected:
+        // Additional Protected Declarations
+
+    private:
+        // Additional Private Declarations
+
+    private:                    // Additional Implementation Declarations
 };
 
-
-// Class SCNUt_ShaderAssigner 
-
-
+// Class SCNUt_ShaderAssigner
 
 #endif

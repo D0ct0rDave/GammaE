@@ -1,47 +1,53 @@
-//	  %X% %Q% %Z% %W%
-
-#ifndef CObject3D_AnimTransf_h
-#define CObject3D_AnimTransf_h 1
-
-// CObject3D_AnimGen
-#include "Animation\CObject3D_AnimGen.h"
-
-class CObject3D_AnimTransf : public CObject3D_AnimGen
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
+#ifndef CGSceneAnimTransfH
+#define CGSceneAnimTransfH
+// --------------------------------------------------------------------------------
+#include "Animation\CGSceneAnimObject.h"
+// --------------------------------------------------------------------------------
+class CGSceneAnimTransf : public CGSceneAnimObject
 {
+    public:
+        CGSceneAnimTransf();
+        virtual ~CGSceneAnimTransf();
 
-public: CObject3D_AnimTransf();
+        // / Sets up the data inside the animated object
+        void Setup(CGMatrix4x4* _poTransforms)
+        {
+            m_poTransforms = _poTransforms;
+        }
 
-    virtual ~CObject3D_AnimTransf();
+        // / Retrieves the array of transform for this animated object
+        CGMatrix4x4* poGetTransforms()
+        {
+            return(m_poTransforms);
+        }
 
-    void CreateStates (int _iNumStates);
+        // / Recompute the bounding volume of all the frames
+        virtual void ComputeBoundVols()
+        {
+            assert(false && "Not implemented!!");
+        }
 
-    virtual CGraphBV *poGetBoundVol ();
+        // General Processing Functionalities
+        virtual void Accept(CGSceneVisitor* _poVisitor)
+        {
+            _poVisitor->Visit(this);
+        }
 
-    virtual void ComputeBoundVol ();
+    protected:
 
-    virtual void Render ();
-
-    virtual void SetAnimState (int _iSrc, int _iDst, float _fFactor);
-
-    virtual CGraphBV *poGetStateBVol (int _iState);
-
-    // Data Members for Class Attributes
-
-    CMatrix4x4 *pTransStates;
-
-     // Additional Public Declarations
-protected:
-     // Additional Protected Declarations
-private:
-    // Data Members for Class Attributes
-
-    CMatrix4x4 Trans;
-
-     // Additional Private Declarations
-private:
-    // Additional Implementation Declarations
+        // Array to store the transform keyframes
+        CGMatrix4x4* m_poTransforms;
 };
-
-// Class CObject3D_AnimTransf
-
-#endif // ifndef CObject3D_AnimTransf_h
+// --------------------------------------------------------------------------------
+#endif
+// --------------------------------------------------------------------------------

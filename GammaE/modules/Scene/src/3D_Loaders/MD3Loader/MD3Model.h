@@ -1,109 +1,118 @@
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
+
 #ifndef MD3ModelH
 #define MD3ModelH
 
 typedef struct
 {
-   char id[4];                 // id = IDP3
-   int version;                // version = 15
-   char filename[68];
-   int numBoneFrames;
-   int numTags;
-   int numMeshes;
-   int numMaxSkins;
-   int headerlength;
-   int tag_start;
-   int tag_end;
-   int filesize;
+    char id[4];                    // id = IDP3
+    int version;                    // version = 15
+    char filename[68];
+    int numBoneFrames;
+    int numTags;
+    int numMeshes;
+    int numMaxSkins;
+    int headerlength;
+    int tag_start;
+    int tag_end;
+    int filesize;
 } md3_header_t;
 
 typedef struct
 {
-   float mins[3];
-   float maxs[3];
-   float position[3];
-   float scale;
-   char creator[16];
+    float mins[3];
+    float maxs[3];
+    float position[3];
+    float scale;
+    char creator[16];
 } boneframe_t;
 
 typedef struct
 {
-   char name[64];
-   float position[3];
-   float rotation[3][3];
+    char name[64];
+    float position[3];
+    float rotation[3][3];
 } tag_t;
 
 typedef struct
 {
-   char id[4];
-   char name[68];
-   int numMeshFrames;
-   int numSkins;
-   int numVertexs;
-   int numTriangles;
-   int tri_start;
-   int headersize;
-   int texvec_start;
-   int vertex_start;
-   int meshsize;
+    char id[4];
+    char name[68];
+    int numMeshFrames;
+    int numSkins;
+    int numVertexs;
+    int numTriangles;
+    int tri_start;
+    int headersize;
+    int texvec_start;
+    int vertex_start;
+    int meshsize;
 } mesh_header_t;
 
 typedef struct
 {
-   char name[68];
-
+    char name[68];
 } skin_t;
 
 typedef struct
 {
-   char name[68];
+    char name[68];
 }skin_tag_entry_t;
 
 typedef struct
 {
-   char name[68];
-   char texture[68];
+    char name[68];
+    char texture[68];
 } skin_mesh_entry_t;
 
 typedef struct
 {
-   skin_mesh_entry_t *skinmeshes;
-   int iNumSkinMeshes;
-   skin_tag_entry_t  *skintags;
-   int iNumSkinTags;
-
+    skin_mesh_entry_t* skinmeshes;
+    int iNumSkinMeshes;
+    skin_tag_entry_t* skintags;
+    int iNumSkinTags;
 } skin_file_t;
 
 typedef struct
 {
-   int vertex[3];
+    int vertex[3];
 } Q3triangle_t;
 
 typedef struct
 {
-   float texvec[2];
+    float texvec[2];
 } tex_coord_t;
 
 typedef struct
 {
-   signed short Vec[3];
-   unsigned char Normal[2];
+    signed short Vec[3];
+    unsigned char Normal[2];
 } vertice_t;
 
 typedef struct
 {
-   mesh_header_t mesh_h;
-   skin_t          *skins;
-   Q3triangle_t        *triangles;
-   tex_coord_t     *tex_coords;
-   vertice_t       *vertices;
+    mesh_header_t mesh_h;
+    skin_t* skins;
+    Q3triangle_t* triangles;
+    tex_coord_t* tex_coords;
+    vertice_t* vertices;
 
-     //CTexture		texture;
-    unsigned char settexture;   // 1 - On 0 - Off
+    // CTexture		texture;
+    unsigned char settexture;                    // 1 - On 0 - Off
 } mesh_t;
 
 typedef struct
 {
-   int first_frame, num_frames, looping_frames, frames_per_second;
+    int first_frame, num_frames, looping_frames, frames_per_second;
 } anim_t;
 
 typedef enum
@@ -146,4 +155,4 @@ typedef enum
     MAX_ANIMATIONS
 } animNumber_t;
 
-#endif // ifndef MD3ModelH
+#endif

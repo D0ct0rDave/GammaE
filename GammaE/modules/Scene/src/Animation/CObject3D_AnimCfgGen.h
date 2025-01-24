@@ -1,34 +1,39 @@
-//	  %X% %Q% %Z% %W%
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
 
-#ifndef CObject3D_AnimCfgGen_h
-#define CObject3D_AnimCfgGen_h 1
+#ifndef CGSceneAnimCfgGenH
+#define CGSceneAnimCfgGenH
 
 // CObject3D
 #include "CObject3D.h"
 
-class CObject3D_AnimCfgGen : public CObject3D
+class CGSceneAnimCfgGen : public CGSceneNode
 {
+    public:
+        CGSceneAnimCfgGen();
 
-public: CObject3D_AnimCfgGen();
+        virtual ~CGSceneAnimCfgGen();
 
-    virtual ~CObject3D_AnimCfgGen();
+        virtual CGraphBV* poCreateBoundVol ()
+        {
+            return( CGraphBV_Manager::poCreate() );
+        }
 
-    virtual CGraphBV *poCreateBoundVol ()
-    {
-        return( CGraphBV_Manager::poCreate() );
-    };
+        virtual void SetFrameAnim(int iFrameAnim) = 0;
 
-    virtual void SetFrameAnim (int iFrameAnim) = 0;
+    protected:
 
-     // Additional Public Declarations
-protected:
-     // Additional Protected Declarations
-private:
-     // Additional Private Declarations
-private:
-    // Additional Implementation Declarations
+    private:
+
+    private:
 };
-
-// Class CObject3D_AnimCfgGen
 
 #endif

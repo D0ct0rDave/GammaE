@@ -1,70 +1,79 @@
-//	  %X% %Q% %Z% %W%
-
-#ifndef CLoaderGEM_h
-#define CLoaderGEM_h 1
-
-// GammaE_FileSys
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
+#ifndef CLoaderGEMH
+#define CLoaderGEMH
+// --------------------------------------------------------------------------------GammaE_FileSys
 #include "GammaE_FileSys.h"
-// CMesh
+// CGMesh
 #include "GammaE_E3D.h"
 
-#include "..\C3DLoader.h"
-#include "..\..\CObject3D.h"
-#include "..\..\CObject3D_Leaf.h"
-#include "..\..\CObject3D_Node.h"
-#include "..\..\CObject3D_Transf.h"
-#include "..\..\Animation\CObject3D_AnimNode.h"
-#include "..\..\Animation\CObject3D_AnimMesh.h"
-#include "..\..\Animation\CObject3D_AnimTransf.h"
-#include "..\..\Animation\CObject3D_AnimCfg.h"
-#include "..\..\Animation\CObject3D_AnimCfgMgr.h"
-#include "..\..\CObject3D_BSPNode.h"
-#include "..\..\CObject3D_Mux.h"
+#include "3D_Loaders/C3DLoader.h"
+#include "CGSceneNode.h"
+#include "CGSceneLeaf.h"
+#include "CGSceneNode.h"
+#include "CGSceneTransf.h"
+/*
+ #include "Animation\CGSceneAnimNode.h"
+ #include "Animation\CGSceneAnimMesh.h"
+ #include "Animation\CGSceneAnimTransf.h"
+ #include "Animation\CGSceneAnimCfg.h"
+ #include "Animation\CGSceneAnimInstance.h"
+ */
+// #include "Animation\CGSceneAnimCfgMgr.h"
+#include "CGSceneBSPNode.h"
+#include "CGSceneMux.h"
 
 class CLoaderGEM : public C3DLoader
 {
+    public:
+        CLoaderGEM();
+        ~CLoaderGEM();
 
-public: CLoaderGEM();
+        virtual CGSceneNode* poLoad(const CGString& _sFilename);
+        virtual CGSceneNode* poLoad(const CGFile& _oFile);
 
-    ~CLoaderGEM();
+    protected:
 
-    virtual CObject3D *pLoad (char *Filename);
+        CGSceneNode* poLoad();
 
-    CObject3D *pLoad (CFile & _oFile);
+        CGSceneNode* poLoad3DObject();
 
-    CObject3D *pLoad3DObject (CFile & _oFile);
+        CGMesh* poLoadMesh();
 
-    CMesh *pLoadMesh (CFile & _oFile);
+        CGSceneLeaf* poLoad3DObj_Leaf();
 
-    CObject3D_Leaf *pLoad3DObj_Leaf (CFile & _oFile);
+        CGSceneGroup* poLoad3DObj_Node();
 
-    CObject3D_Node *pLoad3DObj_Node (CFile & _oFile);
+        CGSceneTransf* poLoad3DObj_Transf();
 
-    CObject3D_Transf *pLoad3DObj_Transf (CFile & _oFile);
+        CGSceneAnimNode* poLoad3DObj_AnimNode();
 
-    CObject3D_AnimNode *pLoad3DObj_AnimNode (CFile & _oFile);
+        CGSceneAnimMesh* poLoad3DObj_AnimMesh();
 
-    CObject3D_AnimMesh *pLoad3DObj_AnimMesh (CFile & _oFile);
+        CGSceneAnimTransf* poLoad3DObj_AnimTransf();
 
-    CObject3D_AnimTransf *pLoad3DObj_AnimTransf (CFile & _oFile);
+        CGSceneAnimCfg* poLoad3DObj_AnimCfg();
 
-    CObject3D_AnimCfg *pLoad3DObj_AnimCfg (CFile & _oFile);
+        CGSceneAnimCfgMgr* poLoad3DObj_AnimCfgMgr();
 
-    CObject3D_AnimCfgMgr *pLoad3DObj_AnimCfgMgr (CFile & _oFile);
+        CGSceneBSPNode* poLoad3DObj_BSPNode();
 
-    CObject3D_BSPNode *pLoad3DObj_BSPNode (CFile & _oFile);
+        CGSceneMux* poLoad3DObj_Mux();
 
-    CObject3D_Mux *pLoad3DObj_Mux (CFile & _oFile);
+        CGSceneAnimObject* poLoad3DObj_AnimObject();
 
-     // Additional Public Declarations
-protected:
-     // Additional Protected Declarations
-private:
-     // Additional Private Declarations
-private:
-    // Additional Implementation Declarations
+    protected:
+
+        CGFile* m_poFile;
 };
-
-// Class CLoaderGEM
-
-#endif // ifndef CLoaderGEM_h
+// --------------------------------------------------------------------------------
+#endif
+// --------------------------------------------------------------------------------

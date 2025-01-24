@@ -1,74 +1,100 @@
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 #ifndef CGGCIStdCommands_h
 #define CGGCIStdCommands_h 1
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 #include "CGGCICommand.h"
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 class CGGameCommandInterpreter;
 
 class CGGCICommandHelp : public CGGCICommand
 {
-	public: CGGCICommandHelp(CGGameCommandInterpreter* _poCI) : CGGCICommand(_poCI) {};
-			virtual ECIState Exec(CGString& _sPars);
-			virtual const CGString& sCommand();
-			virtual const CGString& sHelpString();	
+    public: CGGCICommandHelp(CGGameCommandInterpreter* _poCI) : CGGCICommand(_poCI)
+    {
+    }
+        virtual ECIState Exec(CGString& _sPars);
+        virtual const CGString& sCommand();
+        virtual const CGString& sHelpString();
 };
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 class CGGCICommandExec : public CGGCICommand
 {
-	public:	CGGCICommandExec(CGGameCommandInterpreter* _poCI) : CGGCICommand(_poCI) {};
-			virtual ECIState Exec(CGString& _sPars);
-			virtual const CGString& sCommand();
-			virtual const CGString& sHelpString();	
+    public: CGGCICommandExec(CGGameCommandInterpreter* _poCI) : CGGCICommand(_poCI)
+    {
+    }
+        virtual ECIState Exec(CGString& _sPars);
+        virtual const CGString& sCommand();
+        virtual const CGString& sHelpString();
 };
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 class CGGCICommandNop : public CGGCICommand
 {
-	public: CGGCICommandNop(CGGameCommandInterpreter* _poCI) : CGGCICommand(_poCI) {};
-			virtual ECIState Exec(CGString& _sPars);
-			virtual const CGString& sCommand();
-			virtual const CGString& sHelpString();	
+    public: CGGCICommandNop(CGGameCommandInterpreter* _poCI) : CGGCICommand(_poCI)
+    {
+    }
+        virtual ECIState Exec(CGString& _sPars);
+        virtual const CGString& sCommand();
+        virtual const CGString& sHelpString();
 };
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 class CGGCICommandEcho : public CGGCICommand
 {
-	public: CGGCICommandEcho(CGGameCommandInterpreter* _poCI) : CGGCICommand(_poCI) {};
-			virtual ECIState Exec(CGString& _sPars);
-			virtual const CGString& sCommand();
-			virtual const CGString& sHelpString();	
+    public: CGGCICommandEcho(CGGameCommandInterpreter* _poCI) : CGGCICommand(_poCI)
+    {
+    }
+        virtual ECIState Exec(CGString& _sPars);
+        virtual const CGString& sCommand();
+        virtual const CGString& sHelpString();
 };
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 class CGGCICommandDelay : public CGGCICommand
 {
-	public: CGGCICommandDelay(CGGameCommandInterpreter* _poCI) : CGGCICommand(_poCI) {};
-			virtual ECIState Exec(CGString& _sPars);
-			virtual const CGString& sCommand();
-			virtual const CGString& sHelpString();	
+    public: CGGCICommandDelay(CGGameCommandInterpreter* _poCI) : CGGCICommand(_poCI)
+    {
+    }
+        virtual ECIState Exec(CGString& _sPars);
+        virtual const CGString& sCommand();
+        virtual const CGString& sHelpString();
 };
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 class CGGCICommandCls : public CGGCICommand
 {
-	public: CGGCICommandCls(CGGameCommandInterpreter* _poCI) : CGGCICommand(_poCI) {};
-			virtual ECIState Exec(CGString& _sPars);
-			virtual const CGString& sCommand();
-			virtual const CGString& sHelpString();	
+    public: CGGCICommandCls(CGGameCommandInterpreter* _poCI) : CGGCICommand(_poCI)
+    {
+    }
+        virtual ECIState Exec(CGString& _sPars);
+        virtual const CGString& sCommand();
+        virtual const CGString& sHelpString();
 };
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 class CGGCICommandBind : public CGGCICommand
 {
-	public: CGGCICommandBind(CGGameCommandInterpreter* _poCI) : CGGCICommand(_poCI) {};
-			virtual ECIState Exec(CGString& _sPars);
-			virtual const CGString& sCommand();
-			virtual const CGString& sHelpString();	
+    public: CGGCICommandBind(CGGameCommandInterpreter* _poCI) : CGGCICommand(_poCI)
+    {
+    }
+        virtual ECIState Exec(CGString& _sPars);
+        virtual const CGString& sCommand();
+        virtual const CGString& sHelpString();
 };
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 class CGGCICommandSet : public CGGCICommand
 {
-	public: CGGCICommandSet(CGGameCommandInterpreter* _poCI) : CGGCICommand(_poCI) {};
-			virtual ECIState Exec(CGString& _sPars);
-			virtual const CGString& sCommand();
-			virtual const CGString& sHelpString();	
+    public: CGGCICommandSet(CGGameCommandInterpreter* _poCI) : CGGCICommand(_poCI)
+    {
+    }
+        virtual ECIState Exec(CGString& _sPars);
+        virtual const CGString& sCommand();
+        virtual const CGString& sHelpString();
 };
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 #endif
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
