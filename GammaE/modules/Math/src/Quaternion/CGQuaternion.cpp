@@ -195,4 +195,3 @@ void CGQuaternion::FromComponents(CGVect3& _Vect,float _fRotation)
     quat[3] = _fRotation;
 }
 // ----------------------------------------------------------------------------
-

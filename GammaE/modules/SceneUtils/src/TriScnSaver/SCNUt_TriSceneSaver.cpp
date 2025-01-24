@@ -54,7 +54,7 @@ void SCNUt_TriSceneSaver::Save(char* _szFilename,SCNUt_TriScene* _poScn,SCNUt_Ma
         {
             CE3D_Shader* poShader = _poMT->poGet(i);
             const char* szName = CE3D_ShaderWH::I()->sGetName( poShader ).szString();
-            oFile.WriteText("		%d %s\n",i + 1,szName);               // 1 based
+            oFile.WriteText("		%d %s\n",i + 1,szName);          // 1 based
         }
     }
 
@@ -69,7 +69,7 @@ void SCNUt_TriSceneSaver::Save(char* _szFilename,SCNUt_TriScene* _poScn,SCNUt_Ma
     {
         oFile.WriteText("		{\n");
         //
-        oFile.WriteText("			<%d>\n",_poScn->Tris[i].Material + 1);            // 1 based
+        oFile.WriteText("			<%d>\n",_poScn->Tris[i].Material + 1);    // 1 based
         oFile.WriteText("			<%.4f %.4f %.4f><%.4f %.4f %.4f><%.4f %.4f %.4f>\n",
                         _poScn->Tris[i].VXs[0].x,_poScn->Tris[i].VXs[0].y,_poScn->Tris[i].VXs[0].z,
                         _poScn->Tris[i].VXs[1].x,_poScn->Tris[i].VXs[1].y,_poScn->Tris[i].VXs[1].z,

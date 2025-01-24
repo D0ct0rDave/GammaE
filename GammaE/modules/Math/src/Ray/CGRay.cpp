@@ -60,8 +60,8 @@ CGVect3 CGRay::GetPerpendicular (CGVect3& _Point)
     // PO - XO = PX
     //
     // /P     \
-    //	
-	//          /  |      |
+    //    //
+    // /  |      |
     // /    |	  > This module is the distance from the point to the line
     // /      |      |
     // O________X___  /

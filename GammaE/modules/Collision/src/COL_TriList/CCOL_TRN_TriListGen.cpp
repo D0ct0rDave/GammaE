@@ -12,7 +12,6 @@
 // CCOL_TRN_TriListGen
 #include "COL_TriList\CCOL_TRN_TriListGen.h"
 
-
 inline void TEST_Triangle(CVect3* _poVXs,int _iMat,int &_iTris,CCOL_TriList& _oTriList,CVect3 &_oPos,float _fSqrRadius)
 {
     _oTriList.iAddTri(_poVXs,_poVXs[0],_iMat,0.0f);

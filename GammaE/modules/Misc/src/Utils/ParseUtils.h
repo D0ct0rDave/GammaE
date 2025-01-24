@@ -22,7 +22,7 @@
 #endif
 
 // ----------------------------------------------------------------------------
-namespace Utils{
+namespace Utils {
 // ----------------------------------------------------------------------------
 char* ParseUtils_CreateString(const char* String);
 char* ParseUtils_ReadFile(const char* Filename);

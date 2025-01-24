@@ -13,13 +13,14 @@ for /F "tokens=*" %%A in (files.txt) do (
 	rem c:\utils\sed\bin\sed -i "/}; \/\/ namespace GammaE \/\/ namespace/d" %%A
 	
 	rem change // / -> //
-	c:\utils\sed\bin\sed -i "s/\/\/ \//\/\//g" %%A
+	rem c:\utils\sed\bin\sed -i "s/\/\/ \//\/\//g" %%A
 	
 	rem remove lines with "// %X% %Q% %Z% %W%"
-	c:\utils\sed\bin\sed -i "/%X% %Q% %Z% %W%/d" %%A
-	
+	c:\utils\sed\bin\sed -i "/\%X\% \%Q\% \%Z\% \%W\%/d" %%A
+	rem c:\utils\sed\bin\sed '/\%X\%.*\%Q\%.*\%Z\%.*\%W\%/d' file_path
+
 	rem change // / -> //
-	c:\utils\sed\bin\sed -i "s/\/\/ -----------------------------------------------------------------------------\r\n\/\/ -----------------------------------------------------------------------------/\/\/ -----------------------------------------------------------------------------\r\n/g" %%A
+	rem c:\utils\sed\bin\sed -i "s/\/\/ -----------------------------------------------------------------------------\r\n\/\/ -----------------------------------------------------------------------------/\/\/ -----------------------------------------------------------------------------\r\n/g" %%A
 )
 rem c:\utils\SimpleSearchReplace\ssr.exe 0 \ / files.txt  (sed -i /keyword/substitution/command)
 c:\utils\sed\bin\sed -i "s/\\/\//g" files.txt

@@ -82,9 +82,9 @@ class CSoundRenderer
 inline void CSoundRenderer::SetGlobalVolume (float _fGlbVol)
 {
     if ( _fGlbVol < 0.0f )
-		fGlbVol = 0.0f;
+        fGlbVol = 0.0f;
     else if ( _fGlbVol > 1.0f )
-		fGlbVol = 1.0f;
+        fGlbVol = 1.0f;
     else fGlbVol = _fGlbVol;
 }
 

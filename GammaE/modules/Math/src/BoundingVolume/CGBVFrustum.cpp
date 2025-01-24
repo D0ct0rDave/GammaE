@@ -37,14 +37,14 @@ void CGBVFrustum::Init(const CGMatrix4x4& _oTransf,float _fVFov,float _fHFov,flo
      |
      +x  ---------+------------ x-
                 /|\
-             --/-+-\-- Near m_oPlane
+             --/-+-\-- Near Plane
               /  |  \
-       Left m_oPlane  /   |   \  Right m_oPlane
+Left Plane   /   |   \  Right Plane
             /    |    \
            /	 |     \
-        --/------+------\-- Far m_oPlane
-     |
-     |
+        --/------+------\-- Far Plane
+			     |
+			     |
                 -z
      */
 
