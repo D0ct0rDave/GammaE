@@ -1,0 +1,388 @@
+// ---------------------------------------------------------------------------
+// In game materials
+// ---------------------------------------------------------------------------
+Material huevo
+{
+	program data/shaders/test
+	BlendOp Copy
+	Texture data/actors/egg/huevo.tga
+}
+
+Material data/textures/Fonts/MessageFont
+{
+	GeoOp TransY
+			EVSin
+				0.125
+				EVTime
+				2
+
+	GeoOp ScaleY 
+		EVSum 
+			0.5
+			EVSin
+				0.125
+				EVTime
+				2
+
+	BlendOp Alpha
+	Texture data/textures/Fonts/LetterSetFont.tga
+	{
+		MinFilter	LINEAR
+		MagFilter	LINEAR
+		ClampU		WRAP
+		ClampV		WRAP
+	}
+}
+
+Material LetterSetFont
+{
+	BlendOp Alpha
+	Texture data/textures/Fonts/LetterSetFont.tga
+	{
+		MinFilter	LINEAR
+		MagFilter	LINEAR
+		ClampU		WRAP
+		ClampV		WRAP
+	}
+}
+
+Material data/textures/Fonts/NumericFont
+{
+	BlendOp Alpha
+	Texture data/textures/Fonts/NumericFont.tga
+	{
+		MinFilter	LINEAR
+		MagFilter	LINEAR
+		ClampU		WRAP
+		ClampV		WRAP
+	}
+}
+
+Material BlankLetterIcon
+{
+	BlendOp Alpha
+	Texture data/textures/InGame/BlankLetterIcon.tga
+	{
+		MinFilter	LINEAR
+		MagFilter	LINEAR
+		ClampU		WRAP
+		ClampV		WRAP
+	}	
+}
+
+Material Range0
+{
+	BlendOp Alpha
+	Texture data/textures/avatars/avatar00.tga
+	{
+		MinFilter	LINEAR
+		MagFilter	LINEAR
+		ClampU		WRAP
+		ClampV		WRAP
+	}	
+}
+
+Material corona
+{
+	BlendOp Add
+	ZOp
+	{
+		ZWrite Disable
+	}
+
+	Texture data/textures/FX/FX_FL13.tga
+	{
+		MinFilter	LINEAR
+		MagFilter	LINEAR
+		ClampU		WRAP
+		ClampV		WRAP
+	}	
+}
+
+Material GameBackground__
+{
+	BlendOp Copy
+
+	ZOp
+	{
+		ZFunc		Always
+		ZWrite		Disable
+	}
+
+	Color Black
+	{
+		r 0.0
+		g 0.0
+		b 0.0
+		a 1.0
+	}
+}
+
+
+Material GameBackground
+{
+	BlendOp Copy
+	ZOp
+	{
+		ZFunc		Always
+		ZWrite		Disable
+	}
+
+	Texture VideoFrame
+	{
+		MinFilter	LINEAR
+		MagFilter	LINEAR
+		ClampU		WRAP
+		ClampV		WRAP
+	}	
+}
+
+Material ProgressBar
+{
+	BlendOp Alpha
+	Texture data/textures/InGame/progressbar.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	NEAREST
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material ProgressBarFrame
+{
+	BlendOp Alpha
+	Texture data/textures/InGame/ProgressBarFrame.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	NEAREST
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+// ---------------------------------------------------------------------------
+// Console materials
+// ---------------------------------------------------------------------------
+Material console_back_default
+{
+	BlendOp Alpha
+	Texture data/textures/CmdInterpreter/Background.tga
+	{
+		MinFilter	LINEAR
+		MagFilter	LINEAR
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material console_font_default
+{
+	BlendOp Alpha
+	Texture data/textures/CmdInterpreter/font2.tga
+	{
+		MinFilter	LINEAR
+		MagFilter	LINEAR
+		ClampU		WRAP
+		ClampV		WRAP
+	}
+}
+// ---------------------------------------------------------------------------
+Material wireframe
+{
+	BlendOp Copy
+	Wireframe teta
+	{
+		r 1
+		g 1
+		b 1
+		a 1
+	}
+}
+// ---------------------------------------------------------------------------
+Material verde_
+{
+	BlendOp Copy
+	Wireframe teta
+	{
+		r 1
+		g 1
+		b 1
+		a 1
+	}
+}
+
+Material verde
+{
+	BlendOp Alpha
+	ZOp
+	{
+		ZFunc	LEqual
+		ZWrite	Enable
+	}
+
+	Program data/shaders/slug
+
+	Texture data/actors/brainslug/topitos.tga
+	{
+		MinFilter	LINEAR
+		MagFilter	LINEAR
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material blanco_
+{
+	BlendOp Copy
+
+	Texture data/textures/destello.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	NEAREST
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+// ---------------------------------------------------------------------------
+// Marvin materials
+// ---------------------------------------------------------------------------
+Material white
+{
+	BlendOp Alpha
+	ZOp
+	{
+		ZFunc	LEqual
+		ZWrite	Enable
+	}
+
+	Program data/shaders/test
+
+	Texture data/actors/marvinpig/white.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	NEAREST
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material blanco
+{
+	BlendOp Alpha
+	ZOp
+	{
+		ZFunc	LEqual
+		ZWrite	Enable
+	}
+
+	Program data/shaders/test
+
+	Texture data/actors/marvinpig/blanco.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	NEAREST
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material negro
+{
+	BlendOp Alpha
+	ZOp
+	{
+		ZFunc	LEqual
+		ZWrite	Enable
+	}
+
+	Program data/shaders/test
+
+	Texture data/actors/marvinpig/negro.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	NEAREST
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material pink1
+{
+	BlendOp Alpha
+	ZOp
+	{
+		ZFunc	LEqual
+		ZWrite	Enable
+	}
+
+	Program data/shaders/test
+
+	Texture data/actors/marvinpig/pink1.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	NEAREST
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material tela
+{
+	BlendOp Alpha
+	ZOp
+	{
+		ZFunc	LEqual
+		ZWrite	Enable
+	}
+
+	Program data/shaders/test
+
+	Texture data/actors/umbrella/tela.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	NEAREST
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material mango
+{
+	BlendOp Alpha
+	ZOp
+	{
+		ZFunc	LEqual
+		ZWrite	Enable
+	}
+
+	Program data/shaders/test
+
+	Texture data/actors/umbrella/mango.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	NEAREST
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+
+Material alambre
+{
+	BlendOp Alpha
+	ZOp
+	{
+		ZFunc	LEqual
+		ZWrite	Enable
+	}
+
+	Program data/shaders/test
+
+	Texture data/actors/umbrella/alambre.tga
+	{
+		MinFilter	NEAREST
+		MagFilter	NEAREST
+		ClampU		REPEAT
+		ClampV		REPEAT
+	}
+}
+// ---------------------------------------------------------------------------

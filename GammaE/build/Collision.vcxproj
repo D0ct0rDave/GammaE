@@ -55,8 +55,9 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>_NULL=0;_MBCS;WIN32;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Collision;$(ProjectDir)..\..;;$(ProjectDir)..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>NULL=0;_MBCS;WIN32;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\inc;$(ProjectDir)..\..\..\inc;$(ProjectDir)..\modules\Collision\src;$(ProjectDir)..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -71,8 +72,9 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>_NULL=0;_MBCS;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Collision;$(ProjectDir)..\..;;$(ProjectDir)..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>NULL=0;_MBCS;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\inc;$(ProjectDir)..\..\..\inc;$(ProjectDir)..\modules\Collision\src;$(ProjectDir)..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -88,70 +90,65 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\Collision\COL_Testers\COL_DynamicTest\CCOL_DT_Box.h" />
-    <ClInclude Include="..\Collision\COL_Testers\COL_DynamicTest\CCOL_DT_ColTester.h" />
-    <ClInclude Include="..\Collision\COL_Testers\COL_DynamicTest\CCOL_DT_Point.h" />
-    <ClInclude Include="..\Collision\COL_Testers\COL_DynamicTest\CCOL_DT_Sphere.h" />
-    <ClInclude Include="..\Collision\COL_Testers\COL_DynamicTest\CCOL_DT_Tri.h" />
-    <ClInclude Include="..\Collision\COL_Testers\COL_SceneTest\CCOL_Mesh.h" />
-    <ClInclude Include="..\Collision\COL_Testers\COL_SceneTest\CCOL_Scn_ColTester.h" />
-    <ClInclude Include="..\Collision\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_CommonMesh.h" />
-    <ClInclude Include="..\Collision\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_TerrainMesh.h" />
-    <ClInclude Include="..\Collision\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MeshTester.h" />
-    <ClInclude Include="..\Collision\COL_Testers\COL_StaticTest\CCOL_ST_Box.h" />
-    <ClInclude Include="..\Collision\COL_Testers\COL_StaticTest\CCOL_ST_ColTester.h" />
-    <ClInclude Include="..\Collision\COL_Testers\COL_StaticTest\CCOL_ST_Point.h" />
-    <ClInclude Include="..\Collision\COL_Testers\COL_StaticTest\CCOL_ST_Sphere.h" />
-    <ClInclude Include="..\Collision\COL_Testers\COL_StaticTest\CCOL_ST_Tris.h" />
-    <ClInclude Include="..\Collision\COL_TriList\CCOL_Scn_TriListGen.h" />
-    <ClInclude Include="..\Collision\COL_TriList\CCOL_TRN_TriListGen.h" />
-    <ClInclude Include="..\Collision\COL_TriList\CCOL_TriList.h" />
-    <ClInclude Include="..\Collision\COL_TriList\CCOL_TriListGen.h" />
-    <ClInclude Include="..\Collision\COL_TriList\CCOL_Triangle.h" />
-    <ClInclude Include="..\Collision\Collider\CCOL_CollidedMeshes.h" />
-    <ClInclude Include="..\Collision\Collider\CCOL_Collider.h" />
-    <ClInclude Include="..\Collision\Collider\CCOL_Stack.h" />
-    <ClInclude Include="..\Collision\Collider\CCOL_StackCollisionElem.h" />
-    <ClInclude Include="..\Collision\Collider\eCOL_ColliderType.h" />
-    <ClInclude Include="..\Collision\Collider\eCOL_TestType.h" />
-    <ClInclude Include="..\Collision\CollisionSystem\CCOL_CSysEntry.h" />
-    <ClInclude Include="..\Collision\CollisionSystem\CCOL_ColState.h" />
-    <ClInclude Include="..\Collision\CollisionSystem\CCOL_CollisionSystem.h" />
-    <ClInclude Include="..\Collision\CollisionUtils\CCOL_TriList_BVRayTest.h" />
-    <ClInclude Include="..\Collision\GammaE_Collision.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Box.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_ColTester.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Point.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Sphere.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Tri.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Mesh.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Scn_ColTester.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_CommonMesh.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_TerrainMesh.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MeshTester.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_Box.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_ColTester.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_Point.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_Sphere.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_Tris.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_TriList\CCOL_Scn_TriListGen.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_TriList\CCOL_TRN_TriListGen.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_TriList\CCOL_TriList.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_TriList\CCOL_TriListGen.h" />
+    <ClInclude Include="..\modules\Collision\src\COL_TriList\CCOL_Triangle.h" />
+    <ClInclude Include="..\modules\Collision\src\Collider\CCOL_Collider.h" />
+    <ClInclude Include="..\modules\Collision\src\Collider\CCOL_Stack.h" />
+    <ClInclude Include="..\modules\Collision\src\Collider\CCOL_StackCollisionElem.h" />
+    <ClInclude Include="..\modules\Collision\src\Collider\eCOL_ColliderType.h" />
+    <ClInclude Include="..\modules\Collision\src\Collider\eCOL_TestType.h" />
+    <ClInclude Include="..\modules\Collision\src\CollisionSystem\CCOL_ColState.h" />
+    <ClInclude Include="..\modules\Collision\src\CollisionSystem\CCOL_CollisionSystem.h" />
+    <ClInclude Include="..\modules\Collision\src\CollisionUtils\CCOL_TriList_BVRayTest.h" />
+    <ClInclude Include="..\modules\Collision\src\GCollision.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Collision\COL_Testers\COL_DynamicTest\CCOL_DT_Box.cpp" />
-    <ClCompile Include="..\Collision\COL_Testers\COL_DynamicTest\CCOL_DT_ColTester.cpp" />
-    <ClCompile Include="..\Collision\COL_Testers\COL_DynamicTest\CCOL_DT_Point.cpp" />
-    <ClCompile Include="..\Collision\COL_Testers\COL_DynamicTest\CCOL_DT_Sphere.cpp" />
-    <ClCompile Include="..\Collision\COL_Testers\COL_DynamicTest\CCOL_DT_Tri.cpp" />
-    <ClCompile Include="..\Collision\COL_Testers\COL_SceneTest\CCOL_Mesh.cpp" />
-    <ClCompile Include="..\Collision\COL_Testers\COL_SceneTest\CCOL_Scn_ColTester.cpp" />
-    <ClCompile Include="..\Collision\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_CommonMesh.cpp" />
-    <ClCompile Include="..\Collision\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_TerrainMesh.cpp" />
-    <ClCompile Include="..\Collision\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MeshTester.cpp" />
-    <ClCompile Include="..\Collision\COL_Testers\COL_StaticTest\CCOL_ST_Box.cpp" />
-    <ClCompile Include="..\Collision\COL_Testers\COL_StaticTest\CCOL_ST_ColTester.cpp" />
-    <ClCompile Include="..\Collision\COL_Testers\COL_StaticTest\CCOL_ST_Point.cpp" />
-    <ClCompile Include="..\Collision\COL_Testers\COL_StaticTest\CCOL_ST_Sphere.cpp" />
-    <ClCompile Include="..\Collision\COL_Testers\COL_StaticTest\CCOL_ST_Tris.cpp" />
-    <ClCompile Include="..\Collision\COL_TriList\CCOL_Scn_TriListGen.cpp" />
-    <ClCompile Include="..\Collision\COL_TriList\CCOL_TRN_TriListGen.cpp" />
-    <ClCompile Include="..\Collision\COL_TriList\CCOL_TriList.cpp" />
-    <ClCompile Include="..\Collision\COL_TriList\CCOL_TriListGen.cpp" />
-    <ClCompile Include="..\Collision\COL_TriList\CCOL_Triangle.cpp" />
-    <ClCompile Include="..\Collision\Collider\CCOL_CollidedMeshes.cpp" />
-    <ClCompile Include="..\Collision\Collider\CCOL_Collider.cpp" />
-    <ClCompile Include="..\Collision\Collider\CCOL_Stack.cpp" />
-    <ClCompile Include="..\Collision\Collider\CCOL_StackCollisionElem.cpp" />
-    <ClCompile Include="..\Collision\Collider\eCOL_ColliderType.cpp" />
-    <ClCompile Include="..\Collision\Collider\eCOL_TestType.cpp" />
-    <ClCompile Include="..\Collision\CollisionSystem\CCOL_CSysEntry.cpp" />
-    <ClCompile Include="..\Collision\CollisionSystem\CCOL_ColState.cpp" />
-    <ClCompile Include="..\Collision\CollisionSystem\CCOL_CollisionSystem.cpp" />
-    <ClCompile Include="..\Collision\CollisionUtils\CCOL_TriList_BVRayTest.cpp" />
-    <ClCompile Include="..\Collision\GammaE_Collision.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Box.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_ColTester.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Point.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Sphere.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_DynamicTest\CCOL_DT_Tri.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Mesh.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\CCOL_Scn_ColTester.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_CommonMesh.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_TerrainMesh.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MeshTester.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_Box.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_ColTester.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_Point.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_Sphere.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_Testers\COL_StaticTest\CCOL_ST_Tris.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_TriList\CCOL_Scn_TriListGen.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_TriList\CCOL_TRN_TriListGen.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_TriList\CCOL_TriList.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_TriList\CCOL_TriListGen.cpp" />
+    <ClCompile Include="..\modules\Collision\src\COL_TriList\CCOL_Triangle.cpp" />
+    <ClCompile Include="..\modules\Collision\src\Collider\CCOL_Collider.cpp" />
+    <ClCompile Include="..\modules\Collision\src\Collider\CCOL_Stack.cpp" />
+    <ClCompile Include="..\modules\Collision\src\Collider\CCOL_StackCollisionElem.cpp" />
+    <ClCompile Include="..\modules\Collision\src\Collider\eCOL_ColliderType.cpp" />
+    <ClCompile Include="..\modules\Collision\src\Collider\eCOL_TestType.cpp" />
+    <ClCompile Include="..\modules\Collision\src\CollisionSystem\CCOL_ColState.cpp" />
+    <ClCompile Include="..\modules\Collision\src\CollisionSystem\CCOL_CollisionSystem.cpp" />
+    <ClCompile Include="..\modules\Collision\src\CollisionUtils\CCOL_TriList_BVRayTest.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

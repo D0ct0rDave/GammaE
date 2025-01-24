@@ -10,11 +10,20 @@
     <Filter Include="Detailer">
       <UniqueIdentifier>{6FEC96B1-5BB9-F1BC-84D2-DF6470FE264B}</UniqueIdentifier>
     </Filter>
+    <Filter Include="HUD">
+      <UniqueIdentifier>{66F0870B-D2F9-877C-5B75-9E7CC77D937C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HUD\Font">
+      <UniqueIdentifier>{2CE9661F-18B6-C12A-41CF-AFD22DFBF6B8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HUD\HUDFile">
+      <UniqueIdentifier>{3651C187-A206-3A7D-2BFB-335497AF3081}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HUD\MsgBox">
+      <UniqueIdentifier>{05C65DA5-F17D-9FF2-5A85-784E465C3AE3}</UniqueIdentifier>
+    </Filter>
     <Filter Include="LensFlare">
       <UniqueIdentifier>{E106FEE1-4D71-B258-96AF-63FE025990AD}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="LightCaster">
-      <UniqueIdentifier>{7F8DDE88-EB42-577E-7437-5155E0EB4D82}</UniqueIdentifier>
     </Filter>
     <Filter Include="Reflector">
       <UniqueIdentifier>{2B03EF26-976D-A39D-E0AB-54434C5581F2}</UniqueIdentifier>
@@ -36,85 +45,136 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\SceneObjects\Console\CConsole.h">
+    <ClInclude Include="..\modules\SceneObjects\src\Console\CConsole.h">
       <Filter>Console</Filter>
     </ClInclude>
-    <ClInclude Include="..\SceneObjects\CoronaMgr\CCorona.h">
+    <ClInclude Include="..\modules\SceneObjects\src\CoronaMgr\CCorona.h">
       <Filter>CoronaMgr</Filter>
     </ClInclude>
-    <ClInclude Include="..\SceneObjects\CoronaMgr\CCoronaMgr.h">
+    <ClInclude Include="..\modules\SceneObjects\src\CoronaMgr\CCoronaMgr.h">
       <Filter>CoronaMgr</Filter>
     </ClInclude>
-    <ClInclude Include="..\SceneObjects\Detailer\CDetailer.h">
+    <ClInclude Include="..\modules\SceneObjects\src\Detailer\CDetailer.h">
       <Filter>Detailer</Filter>
     </ClInclude>
-    <ClInclude Include="..\SceneObjects\GammaE_ScnObj.h" />
-    <ClInclude Include="..\SceneObjects\LensFlare\CLensFlare.h">
+    <ClInclude Include="..\modules\SceneObjects\src\GSceneObjects.h" />
+    <ClInclude Include="..\modules\SceneObjects\src\HUD\CHUD.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\SceneObjects\src\HUD\CHUDIcon.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\SceneObjects\src\HUD\CHUDLabel.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\SceneObjects\src\HUD\CHUDObject.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\SceneObjects\src\HUD\CHUDProgressBar.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\SceneObjects\src\HUD\Font\CHUDFont.h">
+      <Filter>HUD\Font</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\SceneObjects\src\HUD\Font\CHUDFontWH.h">
+      <Filter>HUD\Font</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\SceneObjects\src\HUD\HUDFile\CHUDFile.h">
+      <Filter>HUD\HUDFile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\SceneObjects\src\HUD\MsgBox\CHUDMsgBox.h">
+      <Filter>HUD\MsgBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\SceneObjects\src\HUD\MsgBox\CMenuTextGrid.h">
+      <Filter>HUD\MsgBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\SceneObjects\src\LensFlare\CLensFlare.h">
       <Filter>LensFlare</Filter>
     </ClInclude>
-    <ClInclude Include="..\SceneObjects\LensFlare\CLensFlare_Elem.h">
+    <ClInclude Include="..\modules\SceneObjects\src\LensFlare\CLensFlare_Elem.h">
       <Filter>LensFlare</Filter>
     </ClInclude>
-    <ClInclude Include="..\SceneObjects\LightCaster\CLightCaster.h">
-      <Filter>LightCaster</Filter>
-    </ClInclude>
-    <ClInclude Include="..\SceneObjects\Reflector\CObject3D_Reflector.h">
+    <ClInclude Include="..\modules\SceneObjects\src\Reflector\CObject3D_Reflector.h">
       <Filter>Reflector</Filter>
     </ClInclude>
-    <ClInclude Include="..\SceneObjects\SceneAxis\SceneAxis.h">
+    <ClInclude Include="..\modules\SceneObjects\src\SceneAxis\SceneAxis.h">
       <Filter>SceneAxis</Filter>
     </ClInclude>
-    <ClInclude Include="..\SceneObjects\ShadowCaster\CShadowCaster.h">
+    <ClInclude Include="..\modules\SceneObjects\src\ShadowCaster\CShadowCaster.h">
       <Filter>ShadowCaster</Filter>
     </ClInclude>
-    <ClInclude Include="..\SceneObjects\SkyBox\CSkyBox.h">
+    <ClInclude Include="..\modules\SceneObjects\src\SkyBox\CSkyBox.h">
       <Filter>SkyBox</Filter>
     </ClInclude>
-    <ClInclude Include="..\SceneObjects\SkyDome\CSkyDome.h">
+    <ClInclude Include="..\modules\SceneObjects\src\SkyDome\CSkyDome.h">
       <Filter>SkyDome</Filter>
     </ClInclude>
-    <ClInclude Include="..\SceneObjects\TexProjector\CTexProjector.h">
+    <ClInclude Include="..\modules\SceneObjects\src\TexProjector\CTexProjector.h">
       <Filter>TexProjector</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\SceneObjects\Console\CConsole.cpp">
+    <ClCompile Include="..\modules\SceneObjects\src\Console\CConsole.cpp">
       <Filter>Console</Filter>
     </ClCompile>
-    <ClCompile Include="..\SceneObjects\CoronaMgr\CCorona.cpp">
+    <ClCompile Include="..\modules\SceneObjects\src\CoronaMgr\CCorona.cpp">
       <Filter>CoronaMgr</Filter>
     </ClCompile>
-    <ClCompile Include="..\SceneObjects\CoronaMgr\CCoronaMgr.cpp">
+    <ClCompile Include="..\modules\SceneObjects\src\CoronaMgr\CCoronaMgr.cpp">
       <Filter>CoronaMgr</Filter>
     </ClCompile>
-    <ClCompile Include="..\SceneObjects\Detailer\CDetailer.cpp">
+    <ClCompile Include="..\modules\SceneObjects\src\Detailer\CDetailer.cpp">
       <Filter>Detailer</Filter>
     </ClCompile>
-    <ClCompile Include="..\SceneObjects\LensFlare\CLensFlare.cpp">
+    <ClCompile Include="..\modules\SceneObjects\src\HUD\CHUD.cpp">
+      <Filter>HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\SceneObjects\src\HUD\CHUDIcon.cpp">
+      <Filter>HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\SceneObjects\src\HUD\CHUDLabel.cpp">
+      <Filter>HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\SceneObjects\src\HUD\CHUDProgressBar.cpp">
+      <Filter>HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\SceneObjects\src\HUD\Font\CHUDFont.cpp">
+      <Filter>HUD\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\SceneObjects\src\HUD\Font\CHUDFontWH.cpp">
+      <Filter>HUD\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\SceneObjects\src\HUD\HUDFile\CHUDFile.cpp">
+      <Filter>HUD\HUDFile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\SceneObjects\src\HUD\MsgBox\CHUDMsgBox.cpp">
+      <Filter>HUD\MsgBox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\SceneObjects\src\HUD\MsgBox\CMenuTextGrid.cpp">
+      <Filter>HUD\MsgBox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\SceneObjects\src\LensFlare\CLensFlare.cpp">
       <Filter>LensFlare</Filter>
     </ClCompile>
-    <ClCompile Include="..\SceneObjects\LensFlare\CLensFlare_Elem.cpp">
+    <ClCompile Include="..\modules\SceneObjects\src\LensFlare\CLensFlare_Elem.cpp">
       <Filter>LensFlare</Filter>
     </ClCompile>
-    <ClCompile Include="..\SceneObjects\LightCaster\CLightCaster.cpp">
-      <Filter>LightCaster</Filter>
-    </ClCompile>
-    <ClCompile Include="..\SceneObjects\Reflector\CObject3D_Reflector.cpp">
+    <ClCompile Include="..\modules\SceneObjects\src\Reflector\CObject3D_Reflector.cpp">
       <Filter>Reflector</Filter>
     </ClCompile>
-    <ClCompile Include="..\SceneObjects\SceneAxis\SceneAxis.cpp">
+    <ClCompile Include="..\modules\SceneObjects\src\SceneAxis\SceneAxis.cpp">
       <Filter>SceneAxis</Filter>
     </ClCompile>
-    <ClCompile Include="..\SceneObjects\ShadowCaster\CShadowCaster.cpp">
+    <ClCompile Include="..\modules\SceneObjects\src\ShadowCaster\CShadowCaster.cpp">
       <Filter>ShadowCaster</Filter>
     </ClCompile>
-    <ClCompile Include="..\SceneObjects\SkyBox\CSkyBox.cpp">
+    <ClCompile Include="..\modules\SceneObjects\src\SkyBox\CSkyBox.cpp">
       <Filter>SkyBox</Filter>
     </ClCompile>
-    <ClCompile Include="..\SceneObjects\SkyDome\CSkyDome.cpp">
+    <ClCompile Include="..\modules\SceneObjects\src\SkyDome\CSkyDome.cpp">
       <Filter>SkyDome</Filter>
     </ClCompile>
-    <ClCompile Include="..\SceneObjects\TexProjector\CTexProjector.cpp">
+    <ClCompile Include="..\modules\SceneObjects\src\TexProjector\CTexProjector.cpp">
       <Filter>TexProjector</Filter>
     </ClCompile>
   </ItemGroup>

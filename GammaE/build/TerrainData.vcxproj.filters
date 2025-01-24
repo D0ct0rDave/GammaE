@@ -27,163 +27,163 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\TerrainData\GammaE_TerrainData.h" />
-    <ClInclude Include="..\TerrainData\SectElem\CColor.h">
+    <ClInclude Include="..\modules\TerrainData\src\GTerrainData.h" />
+    <ClInclude Include="..\modules\TerrainData\src\SectElem\CColor.h">
       <Filter>SectElem</Filter>
     </ClInclude>
-    <ClInclude Include="..\TerrainData\SectElem\CHeight.h">
+    <ClInclude Include="..\modules\TerrainData\src\SectElem\CHeight.h">
       <Filter>SectElem</Filter>
     </ClInclude>
-    <ClInclude Include="..\TerrainData\SectElem\CLightElem.h">
+    <ClInclude Include="..\modules\TerrainData\src\SectElem\CLightElem.h">
       <Filter>SectElem</Filter>
     </ClInclude>
-    <ClInclude Include="..\TerrainData\SectElem\CSectElem.h">
+    <ClInclude Include="..\modules\TerrainData\src\SectElem\CSectElem.h">
       <Filter>SectElem</Filter>
     </ClInclude>
-    <ClInclude Include="..\TerrainData\SectElem\CTile.h">
+    <ClInclude Include="..\modules\TerrainData\src\SectElem\CTile.h">
       <Filter>SectElem</Filter>
     </ClInclude>
-    <ClInclude Include="..\TerrainData\Sector\CHFSector.h">
+    <ClInclude Include="..\modules\TerrainData\src\Sector\CHFSector.h">
       <Filter>Sector</Filter>
     </ClInclude>
-    <ClInclude Include="..\TerrainData\Sector\CLMSector.h">
+    <ClInclude Include="..\modules\TerrainData\src\Sector\CLMSector.h">
       <Filter>Sector</Filter>
     </ClInclude>
-    <ClInclude Include="..\TerrainData\Sector\CSector.h">
+    <ClInclude Include="..\modules\TerrainData\src\Sector\CSector.h">
       <Filter>Sector</Filter>
     </ClInclude>
-    <ClInclude Include="..\TerrainData\Sector\CSector21.h">
+    <ClInclude Include="..\modules\TerrainData\src\Sector\CSector21.h">
       <Filter>Sector</Filter>
     </ClInclude>
-    <ClInclude Include="..\TerrainData\Sector\CTMSector.h">
+    <ClInclude Include="..\modules\TerrainData\src\Sector\CTMSector.h">
       <Filter>Sector</Filter>
     </ClInclude>
-    <ClInclude Include="..\TerrainData\Sector\CTexSector.h">
+    <ClInclude Include="..\modules\TerrainData\src\Sector\CTexSector.h">
       <Filter>Sector</Filter>
     </ClInclude>
-    <ClInclude Include="..\TerrainData\Sector\HeightField\CHFSector_FN.h">
+    <ClInclude Include="..\modules\TerrainData\src\Sector\HeightField\CHFSector_FN.h">
       <Filter>Sector\HeightField</Filter>
     </ClInclude>
-    <ClInclude Include="..\TerrainData\Sector\LightMap\CLMSector_Gray.h">
+    <ClInclude Include="..\modules\TerrainData\src\Sector\LightMap\CLMSector_Gray.h">
       <Filter>Sector\LightMap</Filter>
     </ClInclude>
-    <ClInclude Include="..\TerrainData\Sector\LightMap\CLMSector_Pal.h">
+    <ClInclude Include="..\modules\TerrainData\src\Sector\LightMap\CLMSector_Pal.h">
       <Filter>Sector\LightMap</Filter>
     </ClInclude>
-    <ClInclude Include="..\TerrainData\Sector\LightMap\CLMSector_RGB24.h">
+    <ClInclude Include="..\modules\TerrainData\src\Sector\LightMap\CLMSector_RGB24.h">
       <Filter>Sector\LightMap</Filter>
     </ClInclude>
-    <ClInclude Include="..\TerrainData\Sector\SectorMatrix\CHeightField.h">
+    <ClInclude Include="..\modules\TerrainData\src\Sector\SectorMatrix\CHeightField.h">
       <Filter>Sector\SectorMatrix</Filter>
     </ClInclude>
-    <ClInclude Include="..\TerrainData\Sector\SectorMatrix\CLightMap.h">
+    <ClInclude Include="..\modules\TerrainData\src\Sector\SectorMatrix\CLightMap.h">
       <Filter>Sector\SectorMatrix</Filter>
     </ClInclude>
-    <ClInclude Include="..\TerrainData\Sector\SectorMatrix\CSectorLoaderManager\CSLM_HFieldSect.h">
+    <ClInclude Include="..\modules\TerrainData\src\Sector\SectorMatrix\CSectorLoaderManager\CSLM_HFieldSect.h">
       <Filter>Sector\SectorMatrix\CSectorLoaderManager</Filter>
     </ClInclude>
-    <ClInclude Include="..\TerrainData\Sector\SectorMatrix\CSectorLoaderManager\CSLM_LMapSect.h">
+    <ClInclude Include="..\modules\TerrainData\src\Sector\SectorMatrix\CSectorLoaderManager\CSLM_LMapSect.h">
       <Filter>Sector\SectorMatrix\CSectorLoaderManager</Filter>
     </ClInclude>
-    <ClInclude Include="..\TerrainData\Sector\SectorMatrix\CSectorLoaderManager\CSLM_TMapSect.h">
+    <ClInclude Include="..\modules\TerrainData\src\Sector\SectorMatrix\CSectorLoaderManager\CSLM_TMapSect.h">
       <Filter>Sector\SectorMatrix\CSectorLoaderManager</Filter>
     </ClInclude>
-    <ClInclude Include="..\TerrainData\Sector\SectorMatrix\CSectorLoaderManager\CSLM_TexSect.h">
+    <ClInclude Include="..\modules\TerrainData\src\Sector\SectorMatrix\CSectorLoaderManager\CSLM_TexSect.h">
       <Filter>Sector\SectorMatrix\CSectorLoaderManager</Filter>
     </ClInclude>
-    <ClInclude Include="..\TerrainData\Sector\SectorMatrix\CSectorLoaderManager\CSectorLoaderManager.h">
+    <ClInclude Include="..\modules\TerrainData\src\Sector\SectorMatrix\CSectorLoaderManager\CSectorLoaderManager.h">
       <Filter>Sector\SectorMatrix\CSectorLoaderManager</Filter>
     </ClInclude>
-    <ClInclude Include="..\TerrainData\Sector\SectorMatrix\CSectorMatrix.h">
+    <ClInclude Include="..\modules\TerrainData\src\Sector\SectorMatrix\CSectorMatrix.h">
       <Filter>Sector\SectorMatrix</Filter>
     </ClInclude>
-    <ClInclude Include="..\TerrainData\Sector\SectorMatrix\CTexMap.h">
+    <ClInclude Include="..\modules\TerrainData\src\Sector\SectorMatrix\CTexMap.h">
       <Filter>Sector\SectorMatrix</Filter>
     </ClInclude>
-    <ClInclude Include="..\TerrainData\Sector\TexMap\CTMSector_8_16.h">
+    <ClInclude Include="..\modules\TerrainData\src\Sector\TexMap\CTMSector_8_16.h">
       <Filter>Sector\TexMap</Filter>
     </ClInclude>
-    <ClInclude Include="..\TerrainData\TexSet\TexSet.h">
+    <ClInclude Include="..\modules\TerrainData\src\TexSet\texset.h">
       <Filter>TexSet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\TerrainData\SectElem\CColor.cpp">
+    <ClCompile Include="..\modules\TerrainData\src\SectElem\CColor.cpp">
       <Filter>SectElem</Filter>
     </ClCompile>
-    <ClCompile Include="..\TerrainData\SectElem\CHeight.cpp">
+    <ClCompile Include="..\modules\TerrainData\src\SectElem\CHeight.cpp">
       <Filter>SectElem</Filter>
     </ClCompile>
-    <ClCompile Include="..\TerrainData\SectElem\CLightElem.cpp">
+    <ClCompile Include="..\modules\TerrainData\src\SectElem\CLightElem.cpp">
       <Filter>SectElem</Filter>
     </ClCompile>
-    <ClCompile Include="..\TerrainData\SectElem\CSectElem.cpp">
+    <ClCompile Include="..\modules\TerrainData\src\SectElem\CSectElem.cpp">
       <Filter>SectElem</Filter>
     </ClCompile>
-    <ClCompile Include="..\TerrainData\SectElem\CTile.cpp">
+    <ClCompile Include="..\modules\TerrainData\src\SectElem\CTile.cpp">
       <Filter>SectElem</Filter>
     </ClCompile>
-    <ClCompile Include="..\TerrainData\Sector\CHFSector.cpp">
+    <ClCompile Include="..\modules\TerrainData\src\Sector\CHFSector.cpp">
       <Filter>Sector</Filter>
     </ClCompile>
-    <ClCompile Include="..\TerrainData\Sector\CLMSector.cpp">
+    <ClCompile Include="..\modules\TerrainData\src\Sector\CLMSector.cpp">
       <Filter>Sector</Filter>
     </ClCompile>
-    <ClCompile Include="..\TerrainData\Sector\CSector.cpp">
+    <ClCompile Include="..\modules\TerrainData\src\Sector\CSector.cpp">
       <Filter>Sector</Filter>
     </ClCompile>
-    <ClCompile Include="..\TerrainData\Sector\CSector21.cpp">
+    <ClCompile Include="..\modules\TerrainData\src\Sector\CSector21.cpp">
       <Filter>Sector</Filter>
     </ClCompile>
-    <ClCompile Include="..\TerrainData\Sector\CTMSector.cpp">
+    <ClCompile Include="..\modules\TerrainData\src\Sector\CTMSector.cpp">
       <Filter>Sector</Filter>
     </ClCompile>
-    <ClCompile Include="..\TerrainData\Sector\CTexSector.cpp">
+    <ClCompile Include="..\modules\TerrainData\src\Sector\CTexSector.cpp">
       <Filter>Sector</Filter>
     </ClCompile>
-    <ClCompile Include="..\TerrainData\Sector\HeightField\CHFSector_FN.cpp">
+    <ClCompile Include="..\modules\TerrainData\src\Sector\HeightField\CHFSector_FN.cpp">
       <Filter>Sector\HeightField</Filter>
     </ClCompile>
-    <ClCompile Include="..\TerrainData\Sector\LightMap\CLMSector_Gray.cpp">
+    <ClCompile Include="..\modules\TerrainData\src\Sector\LightMap\CLMSector_Gray.cpp">
       <Filter>Sector\LightMap</Filter>
     </ClCompile>
-    <ClCompile Include="..\TerrainData\Sector\LightMap\CLMSector_Pal.cpp">
+    <ClCompile Include="..\modules\TerrainData\src\Sector\LightMap\CLMSector_Pal.cpp">
       <Filter>Sector\LightMap</Filter>
     </ClCompile>
-    <ClCompile Include="..\TerrainData\Sector\LightMap\CLMSector_RGB24.cpp">
+    <ClCompile Include="..\modules\TerrainData\src\Sector\LightMap\CLMSector_RGB24.cpp">
       <Filter>Sector\LightMap</Filter>
     </ClCompile>
-    <ClCompile Include="..\TerrainData\Sector\SectorMatrix\CHeightField.cpp">
+    <ClCompile Include="..\modules\TerrainData\src\Sector\SectorMatrix\CHeightField.cpp">
       <Filter>Sector\SectorMatrix</Filter>
     </ClCompile>
-    <ClCompile Include="..\TerrainData\Sector\SectorMatrix\CLightMap.cpp">
+    <ClCompile Include="..\modules\TerrainData\src\Sector\SectorMatrix\CLightMap.cpp">
       <Filter>Sector\SectorMatrix</Filter>
     </ClCompile>
-    <ClCompile Include="..\TerrainData\Sector\SectorMatrix\CSectorLoaderManager\CSLM_HFieldSect.cpp">
+    <ClCompile Include="..\modules\TerrainData\src\Sector\SectorMatrix\CSectorLoaderManager\CSLM_HFieldSect.cpp">
       <Filter>Sector\SectorMatrix\CSectorLoaderManager</Filter>
     </ClCompile>
-    <ClCompile Include="..\TerrainData\Sector\SectorMatrix\CSectorLoaderManager\CSLM_LMapSect.cpp">
+    <ClCompile Include="..\modules\TerrainData\src\Sector\SectorMatrix\CSectorLoaderManager\CSLM_LMapSect.cpp">
       <Filter>Sector\SectorMatrix\CSectorLoaderManager</Filter>
     </ClCompile>
-    <ClCompile Include="..\TerrainData\Sector\SectorMatrix\CSectorLoaderManager\CSLM_TMapSect.cpp">
+    <ClCompile Include="..\modules\TerrainData\src\Sector\SectorMatrix\CSectorLoaderManager\CSLM_TMapSect.cpp">
       <Filter>Sector\SectorMatrix\CSectorLoaderManager</Filter>
     </ClCompile>
-    <ClCompile Include="..\TerrainData\Sector\SectorMatrix\CSectorLoaderManager\CSLM_TexSect.cpp">
+    <ClCompile Include="..\modules\TerrainData\src\Sector\SectorMatrix\CSectorLoaderManager\CSLM_TexSect.cpp">
       <Filter>Sector\SectorMatrix\CSectorLoaderManager</Filter>
     </ClCompile>
-    <ClCompile Include="..\TerrainData\Sector\SectorMatrix\CSectorLoaderManager\CSectorLoaderManager.cpp">
+    <ClCompile Include="..\modules\TerrainData\src\Sector\SectorMatrix\CSectorLoaderManager\CSectorLoaderManager.cpp">
       <Filter>Sector\SectorMatrix\CSectorLoaderManager</Filter>
     </ClCompile>
-    <ClCompile Include="..\TerrainData\Sector\SectorMatrix\CSectorMatrix.cpp">
+    <ClCompile Include="..\modules\TerrainData\src\Sector\SectorMatrix\CSectorMatrix.cpp">
       <Filter>Sector\SectorMatrix</Filter>
     </ClCompile>
-    <ClCompile Include="..\TerrainData\Sector\SectorMatrix\CTexMap.cpp">
+    <ClCompile Include="..\modules\TerrainData\src\Sector\SectorMatrix\CTexMap.cpp">
       <Filter>Sector\SectorMatrix</Filter>
     </ClCompile>
-    <ClCompile Include="..\TerrainData\Sector\TexMap\CTMSector_8_16.cpp">
+    <ClCompile Include="..\modules\TerrainData\src\Sector\TexMap\CTMSector_8_16.cpp">
       <Filter>Sector\TexMap</Filter>
     </ClCompile>
-    <ClCompile Include="..\TerrainData\TexSet\TexSet.cpp">
+    <ClCompile Include="..\modules\TerrainData\src\TexSet\TexSet.cpp">
       <Filter>TexSet</Filter>
     </ClCompile>
   </ItemGroup>

@@ -55,8 +55,9 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>_NULL=0;_MBCS;WIN32;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Terrain;$(ProjectDir)..\..;;$(ProjectDir)..;$(ProjectDir)..\..\sdks\FileLib\Src;;$(ProjectDir)..\..\sdks\TexLib\src;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>NULL=0;_MBCS;WIN32;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\inc;$(ProjectDir)..\..\..\inc;$(ProjectDir)..\modules\Terrain\src;$(ProjectDir)..\src;$(ProjectDir)..\..\sdks\FileLib\Src;;$(ProjectDir)..\..\sdks\TexLib\src;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -71,8 +72,9 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>_NULL=0;_MBCS;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Terrain;$(ProjectDir)..\..;;$(ProjectDir)..;$(ProjectDir)..\..\sdks\FileLib\Src;;$(ProjectDir)..\..\sdks\TexLib\src;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>NULL=0;_MBCS;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\inc;$(ProjectDir)..\..\..\inc;$(ProjectDir)..\modules\Terrain\src;$(ProjectDir)..\src;$(ProjectDir)..\..\sdks\FileLib\Src;;$(ProjectDir)..\..\sdks\TexLib\src;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -88,30 +90,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\Terrain\GammaE_Terrain.h" />
-    <ClInclude Include="..\Terrain\TerrainMaterials\CTileBookmark.h" />
-    <ClInclude Include="..\Terrain\TerrainMath\CLODSelector.h" />
-    <ClInclude Include="..\Terrain\TerrainMath\CLODSelector_Array.h" />
-    <ClInclude Include="..\Terrain\TerrainMath\NewClass.h" />
-    <ClInclude Include="..\Terrain\TerrainScene\CTerrainCircuit.h" />
-    <ClInclude Include="..\Terrain\TerrainScene\CTerrainSector.h" />
-    <ClInclude Include="..\Terrain\TerrainScene\SceneLoaders\EnvPars\EnvPars.h" />
-    <ClInclude Include="..\Terrain\TerrainScene\SceneLoaders\TERScene\TERSceneLoader.h" />
-    <ClInclude Include="..\Terrain\TerrainTesselators\CTerrainTesselator.h" />
-    <ClInclude Include="..\Terrain\TerrainTesselators\CTerrainTesselatorGM.h" />
-    <ClInclude Include="..\Terrain\TerrainTesselators\CTerrainTesselatorTileGM.h" />
+    <ClInclude Include="..\modules\Terrain\src\GTerrain.h" />
+    <ClInclude Include="..\modules\Terrain\src\TerrainMaterials\CTileBookmark.h" />
+    <ClInclude Include="..\modules\Terrain\src\TerrainMath\CLODSelector.h" />
+    <ClInclude Include="..\modules\Terrain\src\TerrainMath\CLODSelector_Array.h" />
+    <ClInclude Include="..\modules\Terrain\src\TerrainScene\CTerrainCircuit.h" />
+    <ClInclude Include="..\modules\Terrain\src\TerrainScene\CTerrainSector.h" />
+    <ClInclude Include="..\modules\Terrain\src\TerrainScene\SceneLoaders\EnvPars\EnvPars.h" />
+    <ClInclude Include="..\modules\Terrain\src\TerrainScene\SceneLoaders\TERScene\TERSceneLoader.h" />
+    <ClInclude Include="..\modules\Terrain\src\TerrainTesselators\CTerrainTesselator.h" />
+    <ClInclude Include="..\modules\Terrain\src\TerrainTesselators\CTerrainTesselatorGM.h" />
+    <ClInclude Include="..\modules\Terrain\src\TerrainTesselators\CTerrainTesselatorTileGM.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Terrain\TerrainMaterials\CTileBookmark.cpp" />
-    <ClCompile Include="..\Terrain\TerrainMath\CLODSelector.cpp" />
-    <ClCompile Include="..\Terrain\TerrainMath\CLODSelector_Array.cpp" />
-    <ClCompile Include="..\Terrain\TerrainMath\NewClass.cpp" />
-    <ClCompile Include="..\Terrain\TerrainScene\CTerrainCircuit.cpp" />
-    <ClCompile Include="..\Terrain\TerrainScene\CTerrainSector.cpp" />
-    <ClCompile Include="..\Terrain\TerrainScene\SceneLoaders\TERScene\TERSceneLoader.cpp" />
-    <ClCompile Include="..\Terrain\TerrainTesselators\CTerrainTesselator.cpp" />
-    <ClCompile Include="..\Terrain\TerrainTesselators\CTerrainTesselatorGM.cpp" />
-    <ClCompile Include="..\Terrain\TerrainTesselators\CTerrainTesselatorTileGM.cpp" />
+    <ClCompile Include="..\modules\Terrain\src\TerrainMaterials\CTileBookmark.cpp" />
+    <ClCompile Include="..\modules\Terrain\src\TerrainMath\CLODSelector.cpp" />
+    <ClCompile Include="..\modules\Terrain\src\TerrainMath\CLODSelector_Array.cpp" />
+    <ClCompile Include="..\modules\Terrain\src\TerrainScene\CTerrainCircuit.cpp" />
+    <ClCompile Include="..\modules\Terrain\src\TerrainScene\CTerrainSector.cpp" />
+    <ClCompile Include="..\modules\Terrain\src\TerrainScene\SceneLoaders\TERScene\TERSceneLoader.cpp" />
+    <ClCompile Include="..\modules\Terrain\src\TerrainTesselators\CTerrainTesselator.cpp" />
+    <ClCompile Include="..\modules\Terrain\src\TerrainTesselators\CTerrainTesselatorGM.cpp" />
+    <ClCompile Include="..\modules\Terrain\src\TerrainTesselators\CTerrainTesselatorTileGM.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

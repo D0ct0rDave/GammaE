@@ -1,0 +1,76 @@
+General:
+{
+	Units = "640x480";
+	NumElems = 4;
+};
+
+Object1:
+{
+	Name = "score";
+	Type = "label";
+	X = 30.0;
+	Y = 30.0;
+	TX = 200.0;
+	TY = 64.0;
+	Font = "LetterSetFont";
+	Text = "Test";
+
+	Color:
+	{
+		R = 1.0;
+		G = 1.0;
+		B = 0.0;
+		A = 1.0;
+	};
+};
+
+Object0:
+{
+	Name = "foto";
+	Type = "icon";
+	X  = 500.0;
+	Y  = 350.0;
+	TX = 64.0;
+	TY = 64.0;
+	Icon = "Range0";
+};
+
+Object2:
+{
+	Name = "timer";
+	Type = "label";
+	X = 400.0;
+	Y = 30.0;
+	TX = 200.0;
+	TY = 48.0;
+	Font = "LetterSetFont";
+	Text = "00:00";
+
+	Color:
+	{
+		R = 1.0;
+		G = 1.0;
+		B = 1.0;
+		A = 1.0;
+	};
+};
+
+Object3:
+{
+	Name = "FPS";
+	Type = "label";
+	X = 40.0;
+	Y = 430.0;
+	TX = 200.0;
+	TY = 48.0;
+	Font = "LetterSetFont";
+	Text = "FPS 00:00";
+
+	Color:
+	{
+		R = 1.0;
+		G = 1.0;
+		B = 0.0;
+		A = 1.0;
+	};
+};

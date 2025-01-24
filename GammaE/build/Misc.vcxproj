@@ -55,8 +55,9 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>_NULL=0;_MBCS;WIN32;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Misc;$(ProjectDir)..\..;;$(ProjectDir)..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>NULL=0;_MBCS;WIN32;DEBUG;LIBCONFIG_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\inc;$(ProjectDir)..\..\..\inc;$(ProjectDir)..\modules\Misc\src;$(ProjectDir)..\src;$(ProjectDir)..\..\sdks\libconfig;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -71,8 +72,9 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>_NULL=0;_MBCS;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Misc;$(ProjectDir)..\..;;$(ProjectDir)..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>NULL=0;_MBCS;WIN32;NDEBUG;LIBCONFIG_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\inc;$(ProjectDir)..\..\..\inc;$(ProjectDir)..\modules\Misc\src;$(ProjectDir)..\src;$(ProjectDir)..\..\sdks\libconfig;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -88,30 +90,57 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\Misc\Console\ConsoleIO.h" />
-    <ClInclude Include="..\Misc\GammaE_Misc.h" />
-    <ClInclude Include="..\Misc\ParseUtils\ParseUtils.h" />
-    <ClInclude Include="..\Misc\TAD\CCircularArray.h" />
-    <ClInclude Include="..\Misc\TAD\CDynArray.h" />
-    <ClInclude Include="..\Misc\TAD\CHashTable.h" />
-    <ClInclude Include="..\Misc\TAD\CLookupArray.h" />
-    <ClInclude Include="..\Misc\TAD\CLookupEntry.h" />
-    <ClInclude Include="..\Misc\TAD\CStArray.h" />
-    <ClInclude Include="..\Misc\Timing\CChrono.h" />
-    <ClInclude Include="..\Misc\Timming\Chronos.h" />
+    <ClInclude Include="..\modules\Misc\src\GMisc.h" />
+    <ClInclude Include="..\modules\Misc\src\Logging\CGErrorLC.h" />
+    <ClInclude Include="..\modules\Misc\src\Logging\CGLogChannel.h" />
+    <ClInclude Include="..\modules\Misc\src\Logging\CGLogger.h" />
+    <ClInclude Include="..\modules\Misc\src\Logging\CGStandardLC.h" />
+    <ClInclude Include="..\modules\Misc\src\Logging\CGSystemLC.h" />
+    <ClInclude Include="..\modules\Misc\src\Logging\CGWarningLC.h" />
+    <ClInclude Include="..\modules\Misc\src\MiscConst.h" />
+    <ClInclude Include="..\modules\Misc\src\MiscTypes.h" />
+    <ClInclude Include="..\modules\Misc\src\Resource\CGDiskResourceWH.h" />
+    <ClInclude Include="..\modules\Misc\src\Resource\CGReferenceCounter.h" />
+    <ClInclude Include="..\modules\Misc\src\Resource\CGResource.h" />
+    <ClInclude Include="..\modules\Misc\src\Resource\CGResourceWH.h" />
+    <ClInclude Include="..\modules\Misc\src\TAD\CGCircularArray.h" />
+    <ClInclude Include="..\modules\Misc\src\TAD\CGDynArray.h" />
+    <ClInclude Include="..\modules\Misc\src\TAD\CGHashTable.h" />
+    <ClInclude Include="..\modules\Misc\src\TAD\CGLookupArray.h" />
+    <ClInclude Include="..\modules\Misc\src\TAD\CGSingleton.h" />
+    <ClInclude Include="..\modules\Misc\src\TAD\CGStArray.h" />
+    <ClInclude Include="..\modules\Misc\src\Timing\CGChrono.h" />
+    <ClInclude Include="..\modules\Misc\src\Types\CGString.h" />
+    <ClInclude Include="..\modules\Misc\src\Types\CGTextResource.h" />
+    <ClInclude Include="..\modules\Misc\src\Utils\CGConfigFile.h" />
+    <ClInclude Include="..\modules\Misc\src\Utils\CRC.h" />
+    <ClInclude Include="..\modules\Misc\src\Utils\MiscUtils.h" />
+    <ClInclude Include="..\modules\Misc\src\Utils\ParseUtils.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Misc\Console\ConsoleIO.cpp" />
-    <ClCompile Include="..\Misc\GammaE_Misc.cpp" />
-    <ClCompile Include="..\Misc\ParseUtils\ParseUtils.cpp" />
-    <ClCompile Include="..\Misc\TAD\CCircularArray.cpp" />
-    <ClCompile Include="..\Misc\TAD\CDynArray.cpp" />
-    <ClCompile Include="..\Misc\TAD\CHashTable.cpp" />
-    <ClCompile Include="..\Misc\TAD\CLookupArray.cpp" />
-    <ClCompile Include="..\Misc\TAD\CLookupEntry.cpp" />
-    <ClCompile Include="..\Misc\TAD\CStArray.cpp" />
-    <ClCompile Include="..\Misc\Timing\CChrono.cpp" />
-    <ClCompile Include="..\Misc\Timming\Chronos.cpp" />
+    <ClCompile Include="..\modules\Misc\src\Logging\CGErrorLC.cpp" />
+    <ClCompile Include="..\modules\Misc\src\Logging\CGLogChannel.cpp" />
+    <ClCompile Include="..\modules\Misc\src\Logging\CGLogger.cpp" />
+    <ClCompile Include="..\modules\Misc\src\Logging\CGStandardLC.cpp" />
+    <ClCompile Include="..\modules\Misc\src\Logging\CGSystemLC.cpp" />
+    <ClCompile Include="..\modules\Misc\src\Logging\CGWarningLC.cpp" />
+    <ClCompile Include="..\modules\Misc\src\Resource\CGDiskResourceWH.cpp" />
+    <ClCompile Include="..\modules\Misc\src\Resource\CGReferenceCounter.cpp" />
+    <ClCompile Include="..\modules\Misc\src\Resource\CGResource.cpp" />
+    <ClCompile Include="..\modules\Misc\src\Resource\CGResourceWH.cpp" />
+    <ClCompile Include="..\modules\Misc\src\TAD\CGCircularArray.cpp" />
+    <ClCompile Include="..\modules\Misc\src\TAD\CGDynArray.cpp" />
+    <ClCompile Include="..\modules\Misc\src\TAD\CGHashTable.cpp" />
+    <ClCompile Include="..\modules\Misc\src\TAD\CGLookupArray.cpp" />
+    <ClCompile Include="..\modules\Misc\src\TAD\CGSingleton.cpp" />
+    <ClCompile Include="..\modules\Misc\src\TAD\CGStArray.cpp" />
+    <ClCompile Include="..\modules\Misc\src\Timing\CGChrono.cpp" />
+    <ClCompile Include="..\modules\Misc\src\Types\CGString.cpp" />
+    <ClCompile Include="..\modules\Misc\src\Types\CGTextResource.cpp" />
+    <ClCompile Include="..\modules\Misc\src\Utils\CGConfigFile.cpp" />
+    <ClCompile Include="..\modules\Misc\src\Utils\CRC.cpp" />
+    <ClCompile Include="..\modules\Misc\src\Utils\MiscUtils.cpp" />
+    <ClCompile Include="..\modules\Misc\src\Utils\ParseUtils.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{644B96CC-5003-D819-B90A-B175A5E1720A}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>SceneUtils</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(ProjectDir)\lib\Debug\</OutDir>
+    <IntDir>$(ProjectDir)\obj\Debug\</IntDir>
+    <TargetName>SceneUtils</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(ProjectDir)\lib\Release\</OutDir>
+    <IntDir>$(ProjectDir)\obj\Release\</IntDir>
+    <TargetName>SceneUtils</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>NULL=0;_MBCS;WIN32;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\inc;$(ProjectDir)..\..\..\inc;$(ProjectDir)..\modules\SceneUtils\src;$(ProjectDir)..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>NULL=0;_MBCS;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\inc;$(ProjectDir)..\..\..\inc;$(ProjectDir)..\modules\SceneUtils\src;$(ProjectDir)..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\modules\SceneUtils\src\AnimScnLoader\SCNUt_AnimSceneLoader.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\BSPBuilder\SCNUt_BSPBuilder.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\GSceneUtils.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\Mesh2TriScn\SCNUt_Mesh2TriScene.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\OctreeBuilder\SCNUt_OctreeBuilder.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\SCNUt_ExtendedTri.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\SCNUt_MaterialTable.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\SCNUt_TriScene.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\SCNUt_TriSceneAccumulator.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\SCNUt_Triangle.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\SCNUt_ePolyState.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\SceneBuilder\SCNUt_SceneBuilder.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\SceneCompiler\SCNUt_SceneCompiler.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\Scn2TriScnBuilder\SCNUt_Scn2TriScnBuilder.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnBBoxGen\SCNUt_ComputeBoundingBox.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnCoplanarRemover\SCNUt_CoplanarRemover.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnMeshGen\SCNUt_MeshGenerator.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnMeshGen\scnut_meshcompacter.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnNormalGen\SCNUt_AnimMesh_NormalComputer.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnPlanarMapper\SCNUt_PlanarMapper.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnShaderAssigner\SCNUt_ShaderAssigner.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_AdjTri.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_AdjTriList.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_AdjTriListBuilder.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_Edge.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_EdgeBuilder.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_EdgeList.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_Stripifier.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnUtils\SCNUt_TriUtils.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnVisibilityTester\SCNUt_VisibilityTester.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\SeparateTriScene\SCNUt_TriSceneSeparator.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\SplitTriScene\SCNUt_TriSceneClassifier.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\SplitTriScene\SCNUt_TriSceneSplitter.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\TTriangle.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\TransfTriScn\SCNUt_TransformTriScene.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\TriScnLoader\SCNUt_TriSceneLoader.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\TriScnSaver\SCNUt_TriSceneSaver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\modules\SceneUtils\src\AnimScnLoader\SCNUt_AnimSceneLoader.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\BSPBuilder\SCNUt_BSPBuilder.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\Mesh2TriScn\SCNUt_Mesh2TriScene.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\OctreeBuilder\SCNUt_OctreeBuilder.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\SCNUt_ExtendedTri.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\SCNUt_MaterialTable.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\SCNUt_TriScene.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\SCNUt_TriSceneAccumulator.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\SCNUt_Triangle.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\SCNUt_ePolyState.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\SceneBuilder\SCNUt_SceneBuilder.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\SceneCompiler\SCNUt_SceneCompiler.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\Scn2TriScnBuilder\SCNUt_Scn2TriScnBuilder.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnBBoxGen\SCNUt_ComputeBoundingBox.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnCoplanarRemover\SCNUt_CoplanarRemover.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnMeshGen\SCNUt_MeshCompacter.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnMeshGen\SCNUt_MeshGenerator.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnNormalGen\SCNUt_AnimMesh_NormalComputer.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnPlanarMapper\SCNUt_PlanarMapper.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnShaderAssigner\SCNUt_ShaderAssigner.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_AdjTri.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_AdjTriList.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_AdjTriListBuilder.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_Edge.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_EdgeBuilder.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_EdgeList.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_Stripifier.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnUtils\SCNUt_TriUtils.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\ScnVisibilityTester\SCNUt_VisibilityTester.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\SeparateTriScene\SCNUt_TriSceneSeparator.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\SplitTriScene\SCNUt_TriSceneClassifier.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\SplitTriScene\SCNUt_TriSceneSplitter.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\TransfTriScn\SCNUt_TransformTriScene.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\TriScnLoader\SCNUt_TriSceneLoader.cpp" />
+    <ClCompile Include="..\modules\SceneUtils\src\TriScnSaver\SCNUt_TriSceneSaver.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

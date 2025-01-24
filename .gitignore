@@ -33,7 +33,10 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
-
+[Cc]OMPILED
+[Dd]oc
+[Dd]ocs
+[Bb]orlandLib
 # Visual Studio 2015/2017 cache/options directory
 .vs/
 # Uncomment if you have tasks that create the project's static files in wwwroot
@@ -411,10 +414,4 @@ CMakeCache.txt
 #old visual studio project files
 *.vcproj
 
-#whitelist libsnd directory
-!./SDKS/libsnd-0.0.26/Win32/*
-./SDKS/libsnd-0.0.26/Win32/LibSndFile/lib/*
-./SDKS/libsnd-0.0.26/Win32/LibSndFile/obj/*
-./SDKS/libsnd-0.0.26/Win32/LibSndFile/.vs/*
-./SDKS/libsnd-0.0.26/Win32/LibSndFile/*.user
-./SDKS/libsnd-0.0.26/Win32/LibSndFile/*.opt
+/ProjectR/data/FinalData/FreeImage.dll

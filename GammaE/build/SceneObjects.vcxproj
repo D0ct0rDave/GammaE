@@ -55,8 +55,9 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>_NULL=0;_MBCS;WIN32;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\SceneObjects;$(ProjectDir)..\..;;$(ProjectDir)..;$(ProjectDir)..\..\sdks\FileLib\Src;;$(ProjectDir)..\..\sdks\TexLib\src;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>NULL=0;_MBCS;WIN32;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\inc;$(ProjectDir)..\..\..\inc;$(ProjectDir)..\modules\SceneObjects\src;$(ProjectDir)..\src;$(ProjectDir)..\..\sdks\FileLib\Src;;$(ProjectDir)..\..\sdks\TexLib\src;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -71,8 +72,9 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>_NULL=0;_MBCS;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\SceneObjects;$(ProjectDir)..\..;;$(ProjectDir)..;$(ProjectDir)..\..\sdks\FileLib\Src;;$(ProjectDir)..\..\sdks\TexLib\src;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>NULL=0;_MBCS;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\inc;$(ProjectDir)..\..\..\inc;$(ProjectDir)..\modules\SceneObjects\src;$(ProjectDir)..\src;$(ProjectDir)..\..\sdks\FileLib\Src;;$(ProjectDir)..\..\sdks\TexLib\src;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -88,35 +90,52 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\SceneObjects\Console\CConsole.h" />
-    <ClInclude Include="..\SceneObjects\CoronaMgr\CCorona.h" />
-    <ClInclude Include="..\SceneObjects\CoronaMgr\CCoronaMgr.h" />
-    <ClInclude Include="..\SceneObjects\Detailer\CDetailer.h" />
-    <ClInclude Include="..\SceneObjects\GammaE_ScnObj.h" />
-    <ClInclude Include="..\SceneObjects\LensFlare\CLensFlare.h" />
-    <ClInclude Include="..\SceneObjects\LensFlare\CLensFlare_Elem.h" />
-    <ClInclude Include="..\SceneObjects\LightCaster\CLightCaster.h" />
-    <ClInclude Include="..\SceneObjects\Reflector\CObject3D_Reflector.h" />
-    <ClInclude Include="..\SceneObjects\SceneAxis\SceneAxis.h" />
-    <ClInclude Include="..\SceneObjects\ShadowCaster\CShadowCaster.h" />
-    <ClInclude Include="..\SceneObjects\SkyBox\CSkyBox.h" />
-    <ClInclude Include="..\SceneObjects\SkyDome\CSkyDome.h" />
-    <ClInclude Include="..\SceneObjects\TexProjector\CTexProjector.h" />
+    <ClInclude Include="..\modules\SceneObjects\src\Console\CConsole.h" />
+    <ClInclude Include="..\modules\SceneObjects\src\CoronaMgr\CCorona.h" />
+    <ClInclude Include="..\modules\SceneObjects\src\CoronaMgr\CCoronaMgr.h" />
+    <ClInclude Include="..\modules\SceneObjects\src\Detailer\CDetailer.h" />
+    <ClInclude Include="..\modules\SceneObjects\src\GSceneObjects.h" />
+    <ClInclude Include="..\modules\SceneObjects\src\HUD\CHUD.h" />
+    <ClInclude Include="..\modules\SceneObjects\src\HUD\CHUDIcon.h" />
+    <ClInclude Include="..\modules\SceneObjects\src\HUD\CHUDLabel.h" />
+    <ClInclude Include="..\modules\SceneObjects\src\HUD\CHUDObject.h" />
+    <ClInclude Include="..\modules\SceneObjects\src\HUD\CHUDProgressBar.h" />
+    <ClInclude Include="..\modules\SceneObjects\src\HUD\Font\CHUDFont.h" />
+    <ClInclude Include="..\modules\SceneObjects\src\HUD\Font\CHUDFontWH.h" />
+    <ClInclude Include="..\modules\SceneObjects\src\HUD\HUDFile\CHUDFile.h" />
+    <ClInclude Include="..\modules\SceneObjects\src\HUD\MsgBox\CHUDMsgBox.h" />
+    <ClInclude Include="..\modules\SceneObjects\src\HUD\MsgBox\CMenuTextGrid.h" />
+    <ClInclude Include="..\modules\SceneObjects\src\LensFlare\CLensFlare.h" />
+    <ClInclude Include="..\modules\SceneObjects\src\LensFlare\CLensFlare_Elem.h" />
+    <ClInclude Include="..\modules\SceneObjects\src\Reflector\CObject3D_Reflector.h" />
+    <ClInclude Include="..\modules\SceneObjects\src\SceneAxis\SceneAxis.h" />
+    <ClInclude Include="..\modules\SceneObjects\src\ShadowCaster\CShadowCaster.h" />
+    <ClInclude Include="..\modules\SceneObjects\src\SkyBox\CSkyBox.h" />
+    <ClInclude Include="..\modules\SceneObjects\src\SkyDome\CSkyDome.h" />
+    <ClInclude Include="..\modules\SceneObjects\src\TexProjector\CTexProjector.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\SceneObjects\Console\CConsole.cpp" />
-    <ClCompile Include="..\SceneObjects\CoronaMgr\CCorona.cpp" />
-    <ClCompile Include="..\SceneObjects\CoronaMgr\CCoronaMgr.cpp" />
-    <ClCompile Include="..\SceneObjects\Detailer\CDetailer.cpp" />
-    <ClCompile Include="..\SceneObjects\LensFlare\CLensFlare.cpp" />
-    <ClCompile Include="..\SceneObjects\LensFlare\CLensFlare_Elem.cpp" />
-    <ClCompile Include="..\SceneObjects\LightCaster\CLightCaster.cpp" />
-    <ClCompile Include="..\SceneObjects\Reflector\CObject3D_Reflector.cpp" />
-    <ClCompile Include="..\SceneObjects\SceneAxis\SceneAxis.cpp" />
-    <ClCompile Include="..\SceneObjects\ShadowCaster\CShadowCaster.cpp" />
-    <ClCompile Include="..\SceneObjects\SkyBox\CSkyBox.cpp" />
-    <ClCompile Include="..\SceneObjects\SkyDome\CSkyDome.cpp" />
-    <ClCompile Include="..\SceneObjects\TexProjector\CTexProjector.cpp" />
+    <ClCompile Include="..\modules\SceneObjects\src\Console\CConsole.cpp" />
+    <ClCompile Include="..\modules\SceneObjects\src\CoronaMgr\CCorona.cpp" />
+    <ClCompile Include="..\modules\SceneObjects\src\CoronaMgr\CCoronaMgr.cpp" />
+    <ClCompile Include="..\modules\SceneObjects\src\Detailer\CDetailer.cpp" />
+    <ClCompile Include="..\modules\SceneObjects\src\HUD\CHUD.cpp" />
+    <ClCompile Include="..\modules\SceneObjects\src\HUD\CHUDIcon.cpp" />
+    <ClCompile Include="..\modules\SceneObjects\src\HUD\CHUDLabel.cpp" />
+    <ClCompile Include="..\modules\SceneObjects\src\HUD\CHUDProgressBar.cpp" />
+    <ClCompile Include="..\modules\SceneObjects\src\HUD\Font\CHUDFont.cpp" />
+    <ClCompile Include="..\modules\SceneObjects\src\HUD\Font\CHUDFontWH.cpp" />
+    <ClCompile Include="..\modules\SceneObjects\src\HUD\HUDFile\CHUDFile.cpp" />
+    <ClCompile Include="..\modules\SceneObjects\src\HUD\MsgBox\CHUDMsgBox.cpp" />
+    <ClCompile Include="..\modules\SceneObjects\src\HUD\MsgBox\CMenuTextGrid.cpp" />
+    <ClCompile Include="..\modules\SceneObjects\src\LensFlare\CLensFlare.cpp" />
+    <ClCompile Include="..\modules\SceneObjects\src\LensFlare\CLensFlare_Elem.cpp" />
+    <ClCompile Include="..\modules\SceneObjects\src\Reflector\CObject3D_Reflector.cpp" />
+    <ClCompile Include="..\modules\SceneObjects\src\SceneAxis\SceneAxis.cpp" />
+    <ClCompile Include="..\modules\SceneObjects\src\ShadowCaster\CShadowCaster.cpp" />
+    <ClCompile Include="..\modules\SceneObjects\src\SkyBox\CSkyBox.cpp" />
+    <ClCompile Include="..\modules\SceneObjects\src\SkyDome\CSkyDome.cpp" />
+    <ClCompile Include="..\modules\SceneObjects\src\TexProjector\CTexProjector.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,0 +1,393 @@
+// --------------------------------------------------------------------------------------------
+General:
+{
+	NumDefinitions = 9;
+};
+// --------------------------------------------------------------------------------------------
+Definition0:
+{
+	Name = "smoke";
+	Type = "generic";
+	NumParticles = 100;
+	Energy = 1.0;
+	RandomEnergy = 0.5;
+	Shader = "SmokeParticle";
+
+	IColor:
+	{
+		r = 0.5;
+		g = 0.5;
+		b = 0.5;
+		a = 1.0;
+	};
+	
+	FColor:
+	{
+		r = 1.0;
+		g = 1.0;
+		b = 1.0;
+		a = 0.0;
+	};	
+	
+	IRCFactor = 0.0;
+	FRCFactor = 0.0;
+	
+	ISize  = 0.5;
+	FSize  = 1.0;
+	IRSize = 0.0;
+	FRSize = 0.0;
+	
+	IAngle  = 0.0;
+	FAngle  = 3.1415;
+	IRAngle = 0.003;
+	FRAngle = 0.003;
+	
+	IRadius  = 0.5;
+	FRadius  = 1.0;
+	IRRadius  = 0.0;
+	FRRadius  = 0.0;
+};
+// --------------------------------------------------------------------------------------------
+Definition1:
+{
+	Name = "orbital";
+	Type = "orbit";
+	NumParticles = 100;
+	Energy = 1.0;
+	RandomEnergy = 0.0;
+	Shader = "SmokeParticle";
+
+	IColor:
+	{
+		r = 0.5;
+		g = 0.5;
+		b = 0.5;
+		a = 1.0;
+	};
+	
+	FColor:
+	{
+		r = 1.0;
+		g = 1.0;
+		b = 1.0;
+		a = 0.0;
+	};	
+	
+	IRCFactor = 0.0;
+	FRCFactor = 0.0;
+	
+	ISize  = 0.125;
+	FSize  = 0.25;
+	IRSize = 0.0;
+	FRSize = 0.0;
+	
+	IAngle  = 0.0;
+	FAngle  = 3.1415;
+	IRAngle = 0.003;
+	FRAngle = 0.003;
+	
+	IRadius  = 2.5;
+	FRadius  = 3.0;
+	IRRadius  = 0.0;
+	FRRadius  = 0.0;
+};
+// --------------------------------------------------------------------------------------------
+Definition2:
+{
+	Name = "PES2smoke";
+	Type = "generic";
+	NumParticles = 100;
+	Energy = 1.0;
+	RandomEnergy = 0.5;
+	Shader = "SmokeParticle";
+
+	IColor:
+	{
+		r = 1.0;
+		g = 0.5;
+		b = 0.5;
+		a = 1.0;
+	};
+	
+	FColor:
+	{
+		r = 1.0;
+		g = 1.0;
+		b = 1.0;
+		a = 0.0;
+	};	
+	
+	IRCFactor = 0.0;
+	FRCFactor = 0.0;
+	
+	ISize  = 0.5;
+	FSize  = 1.0;
+	IRSize = 0.0;
+	FRSize = 0.0;
+	
+	IAngle  = 0.0;
+	FAngle  = 3.1415;
+	IRAngle = 0.003;
+	FRAngle = 0.003;
+	
+	IRadius  = 0.5;
+	FRadius  = 1.0;
+	IRRadius  = 0.0;
+	FRRadius  = 0.0;
+};
+// --------------------------------------------------------------------------------------------
+Definition3:
+{
+	Name = "test";
+	Type = "generic";
+	NumParticles = 25;
+	Energy = 2.0;
+	RandomEnergy = 0.25;
+	Shader = "test";
+
+	IColor:
+	{
+		r = 1.0;
+		g = 0.45;
+		b = 0.0;
+		a = 1.0;
+	};
+	
+	FColor:
+	{
+		r = 1.0;
+		g = 0.0;
+		b = 0.0;
+		a = 0.0;
+	};	
+	
+	IRCFactor = 0.0;
+	FRCFactor = 0.0;
+	
+	ISize  = 0.125;
+	FSize  = 0.75;
+	IRSize = 0.125;
+	FRSize = 0.75;
+	
+	IAngle  = 0.0;
+	FAngle  = 6.3;
+	IRAngle = 0.003;
+	FRAngle = 0.003;
+	
+	IRadius   = 0.0;
+	FRadius   = 1.5;
+	IRRadius  = 0.0;
+	FRRadius  = 0.5;
+};
+// --------------------------------------------------------------------------------------------
+Definition4:
+{
+	Name = "debris";
+	Type = "generic";
+	NumParticles = 10;
+	Energy = 5.0;
+	RandomEnergy = 1.0;
+	Shader = "Particle_debris0";
+
+	IColor:
+	{
+		r = 0.0;
+		g = 0.6;
+		b = 1.0;
+		a = 1.0;
+	};
+	
+	FColor:
+	{
+		r = 0.0;
+		g = 0.0;
+		b = 1.0;
+		a = 0.0;
+	};	
+	
+	IRCFactor = 0.0;
+	FRCFactor = 0.0;
+	
+	ISize  = 0.25;
+	FSize  = 0.5;
+	IRSize = 0.0;
+	FRSize = 0.0;
+	
+	IAngle  = 0.0;
+	FAngle  = 3.1415;
+	IRAngle = 0.003;
+	FRAngle = 0.003;
+	
+	IRadius   = 0.0;
+	FRadius   = 0.0;
+	IRRadius  = 0.0;
+	FRRadius  = 0.0;
+};
+// --------------------------------------------------------------------------------------------
+Definition5:
+{
+	Name = "explosion";
+	Type = "generic";
+	NumParticles = 10;
+	Energy = 5.0;
+	RandomEnergy = 1.0;
+	Shader = "Particle_smoke2";
+
+	IColor:
+	{
+		r = 0.0;
+		g = 0.6;
+		b = 1.0;
+		a = 1.0;
+	};
+	
+	FColor:
+	{
+		r = 0.0;
+		g = 0.0;
+		b = 1.0;
+		a = 0.0;
+	};	
+	
+	IRCFactor = 0.0;
+	FRCFactor = 0.0;
+	
+	ISize  = 0.25;
+	FSize  = 0.5;
+	IRSize = 0.0;
+	FRSize = 0.0;
+	
+	IAngle  = 0.0;
+	FAngle  = 3.1415;
+	IRAngle = 0.003;
+	FRAngle = 0.003;
+	
+	IRadius   = 0.0;
+	FRadius   = 0.0;
+	IRRadius  = 0.0;
+	FRRadius  = 0.0;
+};
+// --------------------------------------------------------------------------------------------
+Definition6:
+{
+	Name = "smoke1";
+	Type = "generic";
+	NumParticles = 40;
+	Energy = 1.0;
+	RandomEnergy = 0.5;
+	Shader = "Particle_smoke2";
+
+	IColor:
+	{
+		r = 0.1;
+		g = 0.1;
+		b = 0.1;
+		a = 1.0;
+	};
+	
+	FColor:
+	{
+		r = 0.45;
+		g = 0.45;
+		b = 0.45;
+		a = 0.0;
+	};	
+
+	ISize  = 1.0;
+	FSize  = 3.0;
+	IRSize = 0.0;
+	FRSize = 0.0;
+	
+	IAngle  = 0.0;
+	FAngle  = 3.1415;
+	IRAngle = 1.0;
+	FRAngle = 1.0;
+
+	IRadius   = 0.0;
+	FRadius   = 0.0;
+	IRRadius  = 0.0;
+	FRRadius  = 5.0;
+};
+// --------------------------------------------------------------------------------------------
+Definition7:
+{
+	Name = "explosion0";
+	Type = "generic";
+	NumParticles = 4;
+	Energy = 1.0;
+	RandomEnergy = 0.5;
+	Shader = "Particle_fire2";
+
+	IColor:
+	{
+		r = 0.1;
+		g = 0.1;
+		b = 0.1;
+		a = 1.0;
+	};
+	
+	FColor:
+	{
+		r = 0.45;
+		g = 0.45;
+		b = 0.45;
+		a = 0.0;
+	};	
+
+	ISize  = 1.0;
+	FSize  = 3.0;
+	IRSize = 0.0;
+	FRSize = 0.0;
+	
+	IAngle  = 0.0;
+	FAngle  = 3.1415;
+	IRAngle = 1.0;
+	FRAngle = 1.0;
+
+	IRadius   = 0.0;
+	FRadius   = 0.0;
+	IRRadius  = 0.0;
+	FRRadius  = 5.0;
+};
+// --------------------------------------------------------------------------------------------
+Definition8:
+{
+	Name = "explosion1";
+	Type = "generic";
+	NumParticles = 4;
+	Energy = 1.0;
+	RandomEnergy = 0.5;
+	Shader = "Particle_fire3";
+
+	IColor:
+	{
+		r = 0.1;
+		g = 0.1;
+		b = 0.1;
+		a = 1.0;
+	};
+	
+	FColor:
+	{
+		r = 0.45;
+		g = 0.45;
+		b = 0.45;
+		a = 0.0;
+	};	
+
+	ISize  = 1.0;
+	FSize  = 3.0;
+	IRSize = 0.0;
+	FRSize = 0.0;
+	
+	IAngle  = 0.0;
+	FAngle  = 3.1415;
+	IRAngle = 1.0;
+	FRAngle = 1.0;
+
+	IRadius   = 0.0;
+	FRadius   = 0.0;
+	IRRadius  = 0.0;
+	FRRadius  = 5.0;
+};
+// --------------------------------------------------------------------------------------------

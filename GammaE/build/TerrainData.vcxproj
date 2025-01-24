@@ -55,8 +55,9 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>_NULL=0;_MBCS;WIN32;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\TerrainData;$(ProjectDir)..\..;;$(ProjectDir)..;$(ProjectDir)..\..\sdks\FileLib\Src;;$(ProjectDir)..\..\sdks\TexLib\src;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>NULL=0;_MBCS;WIN32;DEBUG;FREEIMAGE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\inc;$(ProjectDir)..\..\..\inc;$(ProjectDir)..\modules\TerrainData\src;$(ProjectDir)..\src;$(ProjectDir)..\..\sdks\FileLib\Src;;$(ProjectDir)..\..\sdks\Externals\FreeImage\Dist;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -71,8 +72,9 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>_NULL=0;_MBCS;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\TerrainData;$(ProjectDir)..\..;;$(ProjectDir)..;$(ProjectDir)..\..\sdks\FileLib\Src;;$(ProjectDir)..\..\sdks\TexLib\src;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>NULL=0;_MBCS;WIN32;NDEBUG;FREEIMAGE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\inc;$(ProjectDir)..\..\..\inc;$(ProjectDir)..\modules\TerrainData\src;$(ProjectDir)..\src;$(ProjectDir)..\..\sdks\FileLib\Src;;$(ProjectDir)..\..\sdks\Externals\FreeImage\Dist;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -88,61 +90,61 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\TerrainData\GammaE_TerrainData.h" />
-    <ClInclude Include="..\TerrainData\SectElem\CColor.h" />
-    <ClInclude Include="..\TerrainData\SectElem\CHeight.h" />
-    <ClInclude Include="..\TerrainData\SectElem\CLightElem.h" />
-    <ClInclude Include="..\TerrainData\SectElem\CSectElem.h" />
-    <ClInclude Include="..\TerrainData\SectElem\CTile.h" />
-    <ClInclude Include="..\TerrainData\Sector\CHFSector.h" />
-    <ClInclude Include="..\TerrainData\Sector\CLMSector.h" />
-    <ClInclude Include="..\TerrainData\Sector\CSector.h" />
-    <ClInclude Include="..\TerrainData\Sector\CSector21.h" />
-    <ClInclude Include="..\TerrainData\Sector\CTMSector.h" />
-    <ClInclude Include="..\TerrainData\Sector\CTexSector.h" />
-    <ClInclude Include="..\TerrainData\Sector\HeightField\CHFSector_FN.h" />
-    <ClInclude Include="..\TerrainData\Sector\LightMap\CLMSector_Gray.h" />
-    <ClInclude Include="..\TerrainData\Sector\LightMap\CLMSector_Pal.h" />
-    <ClInclude Include="..\TerrainData\Sector\LightMap\CLMSector_RGB24.h" />
-    <ClInclude Include="..\TerrainData\Sector\SectorMatrix\CHeightField.h" />
-    <ClInclude Include="..\TerrainData\Sector\SectorMatrix\CLightMap.h" />
-    <ClInclude Include="..\TerrainData\Sector\SectorMatrix\CSectorLoaderManager\CSLM_HFieldSect.h" />
-    <ClInclude Include="..\TerrainData\Sector\SectorMatrix\CSectorLoaderManager\CSLM_LMapSect.h" />
-    <ClInclude Include="..\TerrainData\Sector\SectorMatrix\CSectorLoaderManager\CSLM_TMapSect.h" />
-    <ClInclude Include="..\TerrainData\Sector\SectorMatrix\CSectorLoaderManager\CSLM_TexSect.h" />
-    <ClInclude Include="..\TerrainData\Sector\SectorMatrix\CSectorLoaderManager\CSectorLoaderManager.h" />
-    <ClInclude Include="..\TerrainData\Sector\SectorMatrix\CSectorMatrix.h" />
-    <ClInclude Include="..\TerrainData\Sector\SectorMatrix\CTexMap.h" />
-    <ClInclude Include="..\TerrainData\Sector\TexMap\CTMSector_8_16.h" />
-    <ClInclude Include="..\TerrainData\TexSet\TexSet.h" />
+    <ClInclude Include="..\modules\TerrainData\src\GTerrainData.h" />
+    <ClInclude Include="..\modules\TerrainData\src\SectElem\CColor.h" />
+    <ClInclude Include="..\modules\TerrainData\src\SectElem\CHeight.h" />
+    <ClInclude Include="..\modules\TerrainData\src\SectElem\CLightElem.h" />
+    <ClInclude Include="..\modules\TerrainData\src\SectElem\CSectElem.h" />
+    <ClInclude Include="..\modules\TerrainData\src\SectElem\CTile.h" />
+    <ClInclude Include="..\modules\TerrainData\src\Sector\CHFSector.h" />
+    <ClInclude Include="..\modules\TerrainData\src\Sector\CLMSector.h" />
+    <ClInclude Include="..\modules\TerrainData\src\Sector\CSector.h" />
+    <ClInclude Include="..\modules\TerrainData\src\Sector\CSector21.h" />
+    <ClInclude Include="..\modules\TerrainData\src\Sector\CTMSector.h" />
+    <ClInclude Include="..\modules\TerrainData\src\Sector\CTexSector.h" />
+    <ClInclude Include="..\modules\TerrainData\src\Sector\HeightField\CHFSector_FN.h" />
+    <ClInclude Include="..\modules\TerrainData\src\Sector\LightMap\CLMSector_Gray.h" />
+    <ClInclude Include="..\modules\TerrainData\src\Sector\LightMap\CLMSector_Pal.h" />
+    <ClInclude Include="..\modules\TerrainData\src\Sector\LightMap\CLMSector_RGB24.h" />
+    <ClInclude Include="..\modules\TerrainData\src\Sector\SectorMatrix\CHeightField.h" />
+    <ClInclude Include="..\modules\TerrainData\src\Sector\SectorMatrix\CLightMap.h" />
+    <ClInclude Include="..\modules\TerrainData\src\Sector\SectorMatrix\CSectorLoaderManager\CSLM_HFieldSect.h" />
+    <ClInclude Include="..\modules\TerrainData\src\Sector\SectorMatrix\CSectorLoaderManager\CSLM_LMapSect.h" />
+    <ClInclude Include="..\modules\TerrainData\src\Sector\SectorMatrix\CSectorLoaderManager\CSLM_TMapSect.h" />
+    <ClInclude Include="..\modules\TerrainData\src\Sector\SectorMatrix\CSectorLoaderManager\CSLM_TexSect.h" />
+    <ClInclude Include="..\modules\TerrainData\src\Sector\SectorMatrix\CSectorLoaderManager\CSectorLoaderManager.h" />
+    <ClInclude Include="..\modules\TerrainData\src\Sector\SectorMatrix\CSectorMatrix.h" />
+    <ClInclude Include="..\modules\TerrainData\src\Sector\SectorMatrix\CTexMap.h" />
+    <ClInclude Include="..\modules\TerrainData\src\Sector\TexMap\CTMSector_8_16.h" />
+    <ClInclude Include="..\modules\TerrainData\src\TexSet\texset.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\TerrainData\SectElem\CColor.cpp" />
-    <ClCompile Include="..\TerrainData\SectElem\CHeight.cpp" />
-    <ClCompile Include="..\TerrainData\SectElem\CLightElem.cpp" />
-    <ClCompile Include="..\TerrainData\SectElem\CSectElem.cpp" />
-    <ClCompile Include="..\TerrainData\SectElem\CTile.cpp" />
-    <ClCompile Include="..\TerrainData\Sector\CHFSector.cpp" />
-    <ClCompile Include="..\TerrainData\Sector\CLMSector.cpp" />
-    <ClCompile Include="..\TerrainData\Sector\CSector.cpp" />
-    <ClCompile Include="..\TerrainData\Sector\CSector21.cpp" />
-    <ClCompile Include="..\TerrainData\Sector\CTMSector.cpp" />
-    <ClCompile Include="..\TerrainData\Sector\CTexSector.cpp" />
-    <ClCompile Include="..\TerrainData\Sector\HeightField\CHFSector_FN.cpp" />
-    <ClCompile Include="..\TerrainData\Sector\LightMap\CLMSector_Gray.cpp" />
-    <ClCompile Include="..\TerrainData\Sector\LightMap\CLMSector_Pal.cpp" />
-    <ClCompile Include="..\TerrainData\Sector\LightMap\CLMSector_RGB24.cpp" />
-    <ClCompile Include="..\TerrainData\Sector\SectorMatrix\CHeightField.cpp" />
-    <ClCompile Include="..\TerrainData\Sector\SectorMatrix\CLightMap.cpp" />
-    <ClCompile Include="..\TerrainData\Sector\SectorMatrix\CSectorLoaderManager\CSLM_HFieldSect.cpp" />
-    <ClCompile Include="..\TerrainData\Sector\SectorMatrix\CSectorLoaderManager\CSLM_LMapSect.cpp" />
-    <ClCompile Include="..\TerrainData\Sector\SectorMatrix\CSectorLoaderManager\CSLM_TMapSect.cpp" />
-    <ClCompile Include="..\TerrainData\Sector\SectorMatrix\CSectorLoaderManager\CSLM_TexSect.cpp" />
-    <ClCompile Include="..\TerrainData\Sector\SectorMatrix\CSectorLoaderManager\CSectorLoaderManager.cpp" />
-    <ClCompile Include="..\TerrainData\Sector\SectorMatrix\CSectorMatrix.cpp" />
-    <ClCompile Include="..\TerrainData\Sector\SectorMatrix\CTexMap.cpp" />
-    <ClCompile Include="..\TerrainData\Sector\TexMap\CTMSector_8_16.cpp" />
-    <ClCompile Include="..\TerrainData\TexSet\TexSet.cpp" />
+    <ClCompile Include="..\modules\TerrainData\src\SectElem\CColor.cpp" />
+    <ClCompile Include="..\modules\TerrainData\src\SectElem\CHeight.cpp" />
+    <ClCompile Include="..\modules\TerrainData\src\SectElem\CLightElem.cpp" />
+    <ClCompile Include="..\modules\TerrainData\src\SectElem\CSectElem.cpp" />
+    <ClCompile Include="..\modules\TerrainData\src\SectElem\CTile.cpp" />
+    <ClCompile Include="..\modules\TerrainData\src\Sector\CHFSector.cpp" />
+    <ClCompile Include="..\modules\TerrainData\src\Sector\CLMSector.cpp" />
+    <ClCompile Include="..\modules\TerrainData\src\Sector\CSector.cpp" />
+    <ClCompile Include="..\modules\TerrainData\src\Sector\CSector21.cpp" />
+    <ClCompile Include="..\modules\TerrainData\src\Sector\CTMSector.cpp" />
+    <ClCompile Include="..\modules\TerrainData\src\Sector\CTexSector.cpp" />
+    <ClCompile Include="..\modules\TerrainData\src\Sector\HeightField\CHFSector_FN.cpp" />
+    <ClCompile Include="..\modules\TerrainData\src\Sector\LightMap\CLMSector_Gray.cpp" />
+    <ClCompile Include="..\modules\TerrainData\src\Sector\LightMap\CLMSector_Pal.cpp" />
+    <ClCompile Include="..\modules\TerrainData\src\Sector\LightMap\CLMSector_RGB24.cpp" />
+    <ClCompile Include="..\modules\TerrainData\src\Sector\SectorMatrix\CHeightField.cpp" />
+    <ClCompile Include="..\modules\TerrainData\src\Sector\SectorMatrix\CLightMap.cpp" />
+    <ClCompile Include="..\modules\TerrainData\src\Sector\SectorMatrix\CSectorLoaderManager\CSLM_HFieldSect.cpp" />
+    <ClCompile Include="..\modules\TerrainData\src\Sector\SectorMatrix\CSectorLoaderManager\CSLM_LMapSect.cpp" />
+    <ClCompile Include="..\modules\TerrainData\src\Sector\SectorMatrix\CSectorLoaderManager\CSLM_TMapSect.cpp" />
+    <ClCompile Include="..\modules\TerrainData\src\Sector\SectorMatrix\CSectorLoaderManager\CSLM_TexSect.cpp" />
+    <ClCompile Include="..\modules\TerrainData\src\Sector\SectorMatrix\CSectorLoaderManager\CSectorLoaderManager.cpp" />
+    <ClCompile Include="..\modules\TerrainData\src\Sector\SectorMatrix\CSectorMatrix.cpp" />
+    <ClCompile Include="..\modules\TerrainData\src\Sector\SectorMatrix\CTexMap.cpp" />
+    <ClCompile Include="..\modules\TerrainData\src\Sector\TexMap\CTMSector_8_16.cpp" />
+    <ClCompile Include="..\modules\TerrainData\src\TexSet\TexSet.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
