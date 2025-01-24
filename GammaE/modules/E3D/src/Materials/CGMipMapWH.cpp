@@ -119,7 +119,8 @@ CGMipMapWH::CGMipMapWH() : m_sAlternatePath("")
 {
     FreeImage_Initialise();
 }
-// ----------------------------------------------------------------------------If mipmap texture not found, please implement the return of a null texture.
+// ----------------------------------------------------------------------------
+// If mipmap texture not found, please implement the return of a null texture.
 // ----------------------------------------------------------------------------
 CGMipMap* CGMipMapWH::poLoadResource(const CGString& _sFilename)
 {

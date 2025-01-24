@@ -7,7 +7,7 @@
  *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
  *  \par GammaE License
  */
-// ----------------------------------------------------------------------------AStar.cpp : Implementation of CAStar
+
 #include "CGAStar.h"
 // ----------------------------------------------------------------------------
 

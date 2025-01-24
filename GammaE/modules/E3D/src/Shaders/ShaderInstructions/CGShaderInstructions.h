@@ -10,7 +10,8 @@
 // ----------------------------------------------------------------------------
 #ifndef CGShaderInstsH
 #define CGShaderInstsH
-// ----------------------------------------------------------------------------CGShInsBlendOp
+// ----------------------------------------------------------------------------
+// CGShInsBlendOp
 #include "Shaders\ShaderInstructions\CGShInsBlendOp.h"
 // CGShInsSetTMU
 #include "Shaders\ShaderInstructions\CGShInsSetTMU.h"

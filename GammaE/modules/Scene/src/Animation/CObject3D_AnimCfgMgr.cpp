@@ -7,7 +7,7 @@
  *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
  *  \par GammaE License
  */
-// ----------------------------------------------------------------------------CGSceneAnimCfgMgr
+// ----------------------------------------------------------------------------
 #include "Animation\CGSceneAnimCfgMgr.h"
 #include <string.h>
 

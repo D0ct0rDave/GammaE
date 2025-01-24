@@ -12,7 +12,8 @@
 #define CGCommandRegistryH
 // ----------------------------------------------------------------------------
 #include "GammaE_Misc.h"
-// ----------------------------------------------------------------------------Registers commands and the callbacks for these commands.
+// ----------------------------------------------------------------------------
+// Registers commands and the callbacks for these commands.
 // ----------------------------------------------------------------------------
 typedef void (*TDispatchCommandCallback)(uint _uiCmdPar0,uint _uiCmdPar1,uint _uiCmdPar2,const CGString& _sCmdPars);
 // ----------------------------------------------------------------------------

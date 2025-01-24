@@ -36,7 +36,8 @@ void CGShaderExtDB::Invalidate ()
 {
     oExtDB.Invalidate();
 }
-// ----------------------------------------------------------------------------epilog: singleton initializer through static instantiation
+// ----------------------------------------------------------------------------
+// epilog: singleton initializer through static instantiation
 // ----------------------------------------------------------------------------
 static CGShaderExtDB oInstance;
 // ----------------------------------------------------------------------------

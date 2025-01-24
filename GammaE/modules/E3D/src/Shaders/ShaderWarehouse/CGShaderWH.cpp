@@ -10,7 +10,7 @@
 // ----------------------------------------------------------------------------
 #include "GammaE_Mem.h"
 #include <string.h>
-// ----------------------------------------------------------------------------CGShaderWH
+// ----------------------------------------------------------------------------
 #include "Shaders\ShaderWarehouse\CGShaderWH.h"
 #include "Shaders\ShaderDefinitions\CGShaderDefWH.h"
 #include "Shaders\ShaderParser\CGShaderParser.h"

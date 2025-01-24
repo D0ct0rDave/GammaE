@@ -38,7 +38,6 @@ void CGSCNVRenderer::Render(CGSceneNode* _poNode)
 void CGSCNVRenderer::Visit(CGSceneNode* _poNode)
 {
 }
-// ----------------------------------------------------------------------------Visitor for BSP Nodes
 // ----------------------------------------------------------------------------
 void CGSCNVRenderer::Visit(CGSceneBSPNode* _poNode)
 {
