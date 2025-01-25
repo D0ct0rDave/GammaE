@@ -27,18 +27,18 @@ void CGraphBV_Point::Transform (CMatrix4x4& M)
     M.TransformPoint(Point);
 }
 
-void CGraphBV_Point::Compute (CVect3* VXs, int iNumVXs)
+void CGraphBV_Point::Compute (CGVect3* VXs, int iNumVXs)
 {
     if ( iNumVXs <= 0 ) return;
 
-    Point.V3(0.0f,0.0f,0.0f);
+    Point.Set(0.0f,0.0f,0.0f);
     for ( int iVX = 0; iVX < iNumVXs; iVX++ )
         Point.Add(VXs[iVX]);
 
     Point.Scale(1.0f / (float)iNumVXs);
 }
 
-CVect3 & CGraphBV_Point::GetCenter ()
+CGVect3 & CGraphBV_Point::GetCenter ()
 {
     return (Point);
 }
@@ -53,19 +53,19 @@ int CGraphBV_Point::TestFrustum (CE3D_Frustum& _Frustum)
     return ( _Frustum.TestPoint(Point) );
 }
 
-void CGraphBV_Point::Init (CVect3 Max, CVect3 Min)
+void CGraphBV_Point::Init (CGVect3 Max, CGVect3 Min)
 {
     Point.Assign(Max);
     Point.Add(Min);
     Point.Scale(0.5f);
 }
 
-int CGraphBV_Point::TestInside (CVect3& _Pos)
+int CGraphBV_Point::TestInside (CGVect3& _Pos)
 {
     return ( _Pos.bEqual(Point) );
 }
 
-CVect3* CGraphBV_Point::pGetPoint ()
+CGVect3* CGraphBV_Point::pGetPoint ()
 {
     return(&Point);
 }

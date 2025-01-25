@@ -86,7 +86,7 @@ void CGPSGGenericQuadCinematic::InitParticle(CGPSGGenericQuadCinematicParticle* 
     _poPart->m_oDir.Normalize();
 
     // Set position
-    _poPart->m_oPos = CVect3::oZero();
+    _poPart->m_oPos = CGVect3::oZero();
 }
 // -----------------------------------------------------------------------------
 void CGPSGGenericQuadCinematic::UpdateParticle(CGPSGGenericQuadCinematicParticle* _poPart,float _fDeltaT)
@@ -126,8 +126,8 @@ void CGPSGGenericQuadCinematic::UpdateInstance(CGParticleSystemInstance& _oPSI,f
     CGPSGGenericQuadCinematicParticle* poPart = (CGPSGGenericQuadCinematicParticle*)_oPSI.poGetParticlePool();
 
     CGMesh* poMesh = _oPSI.poGetMesh();
-    CVect3 NewPos;
-    CVect3* pVX = poMesh->m_poVX;
+    CGVect3 NewPos;
+    CGVect3* pVX = poMesh->m_poVX;
     CVect4* pVC = poMesh->m_poVC;
     uint uiNumParts = 0;
 
@@ -151,20 +151,20 @@ void CGPSGGenericQuadCinematic::UpdateInstance(CGParticleSystemInstance& _oPSI,f
 
         // La direccion debería estar también transformada ????
         // Generate the geometry for this particle
-        CVect3 oNewPos;
+        CGVect3 oNewPos;
         oNewPos.LineEq(poPart->m_oPos,poPart->m_oDir,poPart->m_fRadius);
         _oViewMatrix.TransformPoint(oNewPos);
 
         float _fA = MATH_fCos(poPart->m_fAngle) * poPart->m_fSize;
         float _fB = MATH_fSin(poPart->m_fAngle) * poPart->m_fSize;
 
-        pVX[0].V3( _fA, _fB,0);
+        pVX[0].Set( _fA, _fB,0);
         pVX[0].Add(oNewPos);
-        pVX[1].V3(-_fB, _fA,0);
+        pVX[1].Set(-_fB, _fA,0);
         pVX[1].Add(oNewPos);
-        pVX[2].V3(-_fA,-_fB,0);
+        pVX[2].Set(-_fA,-_fB,0);
         pVX[2].Add(oNewPos);
-        pVX[3].V3( _fB,-_fA,0);
+        pVX[3].Set( _fB,-_fA,0);
         pVX[3].Add(oNewPos);
 
         pVC[0] = poPart->m_oColor;

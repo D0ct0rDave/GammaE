@@ -23,7 +23,7 @@ CLightCaster::~CLightCaster()
 {
 }
 
-void CLightCaster::SetupLight (CVect3& _oLightPos, CVect3 _oLightDir)
+void CLightCaster::SetupLight (CGVect3& _oLightPos, CGVect3 _oLightDir)
 {
 }
 

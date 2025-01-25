@@ -80,10 +80,10 @@ class CGSFXObjectManager : public CGSingleton <BASECLASS>
         handler hGet(uint _uiType);
 
         // / Self handled sfx object
-        handler hGet(const CGString& _sType,float _fEnergy,const CVect3& _oPos);
+        handler hGet(const CGString& _sType,float _fEnergy,const CGVect3& _oPos);
 
         // / Self handled sfx object
-        handler hGet(uint _uiType,float _fEnergy,const CVect3& _oPos);
+        handler hGet(uint _uiType,float _fEnergy,const CGVect3& _oPos);
 
         // / Retrieves the scene node for a specific sfx object
         CGSceneNode* poGetInstanceNode(handler _hSfxObj);
@@ -98,10 +98,10 @@ class CGSFXObjectManager : public CGSingleton <BASECLASS>
         void Enable(handler _hSfxObj,bool _bEnable);
 
         // / Sets the position of a given sfx objecft
-        void SetPos(handler _hSfxObj,const CVect3& _oNewPos);
+        void SetPos(handler _hSfxObj,const CGVect3& _oNewPos);
 
         // / Sets the direction of a given sfx object
-        void SetDir(handler _hSfxObj,const CVect3& _oNewDir);
+        void SetDir(handler _hSfxObj,const CGVect3& _oNewDir);
 
         // / Retrieves the scene node of the SFX Object Manager
         CGSceneNode* poGetManagerNode()
@@ -219,7 +219,7 @@ handler CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASEC
 }
 // ----------------------------------------------------------------------------
 template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
-handler CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::hGet(const CGString& _sType,float _fEnergy,const CVect3& _oPos)
+handler CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::hGet(const CGString& _sType,float _fEnergy,const CGVect3& _oPos)
 {
     int iIdx = m_oPool.iGetIdx(_sType);
     if ( iIdx == -1 ) return(NULL);
@@ -228,7 +228,7 @@ handler CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASEC
 }
 // ----------------------------------------------------------------------------
 template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
-handler CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::hGet(uint _uiType,float _fEnergy,const CVect3& _oPos)
+handler CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::hGet(uint _uiType,float _fEnergy,const CGVect3& _oPos)
 {
     TSFXInstanceData* poInst = m_oPool.oGetElem(_uiType)->m_oInsts.poGet();
 
@@ -274,14 +274,14 @@ void CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLAS
 }
 // ----------------------------------------------------------------------------
 template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
-void CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::SetPos(handler _hSfxObj,const CVect3& _oNewPos)
+void CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::SetPos(handler _hSfxObj,const CGVect3& _oNewPos)
 {
     TSFXInstanceData* poInst = (TSFXInstanceData*)_hSfxObj;
     poInst->m_poInstance->SetPos(_oNewPos);
 }
 // ----------------------------------------------------------------------------
 template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
-void CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::SetDir(handler _hSfxObj,const CVect3& _oNewDir)
+void CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::SetDir(handler _hSfxObj,const CGVect3& _oNewDir)
 {
     TSFXInstanceData* poInst = (TSFXInstanceData*)_hSfxObj;
     poInst->m_poInstance->SetDir(_oNewDir);

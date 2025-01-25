@@ -121,14 +121,14 @@ void CMenuTextGrid::WriteChar(float _fX,float _fY, CGColor _oColor,char _cA)
 
     // Get data pointers
     CVect2* poUV = m_poUV + 4 * m_uiNumPrims;
-    CVect3* poVX = m_poVX + 4 * m_uiNumPrims;
+    CGVect3* poVX = m_poVX + 4 * m_uiNumPrims;
     CGColor* poVC = m_poVC + 4 * m_uiNumPrims;
 
     // Setup vertices
-    poVX[0].V3(_fX,_fY,0.0f);
-    poVX[1].V3(_fX,_fY + 1.0f,0.0f);
-    poVX[2].V3(_fX + 1.0f,_fY + 1.0f,0.0f);
-    poVX[3].V3(_fX + 1.0f,_fY,0.0f);
+    poVX[0].Set(_fX,_fY,0.0f);
+    poVX[1].Set(_fX,_fY + 1.0f,0.0f);
+    poVX[2].Set(_fX + 1.0f,_fY + 1.0f,0.0f);
+    poVX[3].Set(_fX + 1.0f,_fY,0.0f);
 
     // Setup tex coords
     poUV[0].V2(fU,fV       );

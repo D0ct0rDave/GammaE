@@ -50,7 +50,7 @@ static bool bClip (float _fDenom, float _fNumer, float& _fT0, float& _fT1)
     }
 }
 // -----------------------------------------------------------------------------
-bool bFindIntersection (CVect3& _oOrigin,CVect3& _oDir,CVect3& _oExt,float &_fT0,float &_fT1)
+bool bFindIntersection (CGVect3& _oOrigin,CGVect3& _oDir,CGVect3& _oExt,float &_fT0,float &_fT1)
 {
     float fSaveT0 = _fT0, fSaveT1 = _fT1;
 
@@ -77,9 +77,9 @@ CCOL_DT_Box::~CCOL_DT_Box()
 {
 }
 
-float CCOL_DT_Box::fTestSphere (CVect3& _oSMaxs, CVect3& _oSMins, CVect3& _oDCenter, float _fDRadius)
+float CCOL_DT_Box::fTestSphere (CGVect3& _oSMaxs, CGVect3& _oSMins, CGVect3& _oDCenter, float _fDRadius)
 {
-    CVect3 DMaxs,DMins;
+    CGVect3 DMaxs,DMins;
 
     // Setup destination bounding box
     DMaxs.Assign( _oDCenter );
@@ -91,16 +91,16 @@ float CCOL_DT_Box::fTestSphere (CVect3& _oSMaxs, CVect3& _oSMins, CVect3& _oDCen
     return( fTestBox(_oSMaxs,_oSMins,DMaxs,DMins) );
 }
 
-float CCOL_DT_Box::fTestBox (CVect3& _oSMaxs, CVect3& _oSMins, CVect3& _oDMaxs, CVect3& _oDMins)
+float CCOL_DT_Box::fTestBox (CGVect3& _oSMaxs, CGVect3& _oSMins, CGVect3& _oDMaxs, CGVect3& _oDMins)
 {
     // Check if they were colliding in the previous frame
     if ( CCOL_ST_Box::iTestBox(_oSMaxs,_oSMins,_oDMaxs,_oDMins) ) return(0.0f);
 
     int i;
-    CVect3 vA;
-    CVect3 vB;
-    CVect3 vBA;
-    CVect3 u0,u1;
+    CGVect3 vA;
+    CGVect3 vB;
+    CGVect3 vBA;
+    CGVect3 u0,u1;
     float fU0,fU1;
 
     // Velocities
@@ -122,9 +122,9 @@ float CCOL_DT_Box::fTestBox (CVect3& _oSMaxs, CVect3& _oSMins, CVect3& _oDMaxs, 
     if ( (vBA.x == 0) && (vBA.y == 0) && (vBA.z == 0) ) return(NOCOLLISION_TIME);
 
     // First time of overlap along each axis
-    u0.V3(-1.0f,-1.0f,-1.0f);
+    u0.Set(-1.0f,-1.0f,-1.0f);
     // Last time of overlap along each axis
-    u1.V3(1.0f,1.0f,1.0f);
+    u1.Set(1.0f,1.0f,1.0f);
 
     // Find the possible first and last times of overlap along each axis
     for ( i = 0; i < 3; i++ )
@@ -270,7 +270,7 @@ float CCOL_DT_Box::fTestBox (CVect3& _oSMaxs, CVect3& _oSMins, CVect3& _oDMaxs, 
      */
 }
 
-float CCOL_DT_Box::fTestPoint (CVect3& _oSMaxs, CVect3& _oSMins, CVect3& _oDPoint)
+float CCOL_DT_Box::fTestPoint (CGVect3& _oSMaxs, CGVect3& _oSMins, CGVect3& _oDPoint)
 {
     if ( CCOL_ST_Box::iTestPoint(_oSMaxs,_oSMins,_oDPoint) )
         return(0.0f);
@@ -291,9 +291,9 @@ float CCOL_DT_Box::fTestPoint (CVect3& _oSMaxs, CVect3& _oSMins, CVect3& _oDPoin
     // El segmento tiene como vector director respecto al sistema de coordenadas de la caja
     // el mismo vector velocidad de Dst respecto a Src, es decir, CCOL_ColState::DSSp
 
-    CVect3 oPI;     // Initial Point
-    CVect3 oBoxC;   // Box center
-    CVect3 oBExt;   // Box extents
+    CGVect3 oPI;     // Initial Point
+    CGVect3 oBoxC;   // Box center
+    CGVect3 oBExt;   // Box extents
 
     // Compute box center
     oBoxC.Interpolate(_oSMaxs,_oSMins,0.5f);

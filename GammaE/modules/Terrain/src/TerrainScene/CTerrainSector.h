@@ -37,7 +37,7 @@ class CTerrainSector : public CGSceneNode
 
         virtual CGraphBV* poGetBV();
 
-        void SetMaxsMins(CVect3& _Maxs, CVect3& _Mins);
+        void SetMaxsMins(CGVect3& _Maxs, CGVect3& _Mins);
 
         // Data Members for Class Attributes
 
@@ -73,9 +73,9 @@ class CTerrainSector : public CGSceneNode
 
         int* iLODs;
 
-        CVect3 Mins;
+        CGVect3 Mins;
 
-        CVect3 Maxs;
+        CGVect3 Maxs;
 
         // Additional Private Declarations
 

@@ -25,9 +25,9 @@ class CDetailer : public CGSceneLeaf
 
         void Init(int _iMaxTris);
 
-        void SetCamPos(CVect3& _oCamPos);
+        void SetCamPos(CGVect3& _oCamPos);
 
-        virtual void SetVertexTris(CVect3* _poVXs, int _iNumTris);
+        virtual void SetVertexTris(CGVect3* _poVXs, int _iNumTris);
 
         void CreateTextureContents(CGMipMap* _pMipMap);
 
@@ -40,7 +40,7 @@ class CDetailer : public CGSceneLeaf
     protected:
         // Data Members for Class Attributes
 
-        CVect3 oCamPos;
+        CGVect3 oCamPos;
 
         CGMipMap* poTex;
 

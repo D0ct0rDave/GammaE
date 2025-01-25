@@ -28,7 +28,7 @@ class SCNUt_Triangle
         // Data Members for Class Attributes
 
         // // XYZ coordinates
-        CVect3 VXs[3];
+        CGVect3 VXs[3];
 
         // // UV coordinates
         CVect2 UVs[3];
@@ -37,7 +37,7 @@ class SCNUt_Triangle
         CVect4 VCs[3];
 
         // // Vertex normals (if any)
-        CVect3 VNs[3];
+        CGVect3 VNs[3];
 
         int Material;
 

@@ -31,7 +31,7 @@ class CTerrainTesselator
 
         virtual void SetData(CHFSector* _HF, CLMSector* _LM, CTMSector* _TM, CTileBookmark* _TB, float* _fLODs, int* _iLODs, float _fXYScale);
 
-        void SetCameraPos(CVect3 _Pos);
+        void SetCameraPos(CGVect3 _Pos);
 
         CLODSelector* GetTileLODSel();
         void SetTileLODSel(CLODSelector* value);
@@ -57,7 +57,7 @@ class CTerrainTesselator
 
         CTileBookmark* TB;
 
-        CVect3 Cam;
+        CGVect3 Cam;
 
         float fXYScale;
 

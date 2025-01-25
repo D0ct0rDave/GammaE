@@ -25,19 +25,19 @@ class CGraphBV_Point : public CGraphBV
 
         virtual void Transform(CMatrix4x4& M);
 
-        virtual void Compute(CVect3* VXs, int iNumVXs);
+        virtual void Compute(CGVect3* VXs, int iNumVXs);
 
-        virtual CVect3 & GetCenter();
+        virtual CGVect3 & GetCenter();
 
         virtual float GetRange(int iAxis);
 
         virtual int TestFrustum(CE3D_Frustum& _Frustum);
 
-        virtual void Init(CVect3 Max, CVect3 Min);
+        virtual void Init(CGVect3 Max, CGVect3 Min);
 
-        virtual int TestInside(CVect3& _Pos);
+        virtual int TestInside(CGVect3& _Pos);
 
-        CVect3* pGetPoint();
+        CGVect3* pGetPoint();
 
         // Additional Public Declarations
 
@@ -47,7 +47,7 @@ class CGraphBV_Point : public CGraphBV
     private:
         // Data Members for Class Attributes
 
-        CVect3 Point;
+        CGVect3 Point;
 
         // Additional Private Declarations
 

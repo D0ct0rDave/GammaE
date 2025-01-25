@@ -25,9 +25,9 @@ SCNUt_VisibilityTester::~SCNUt_VisibilityTester()
 {
 }
 
-bool SCNUt_VisibilityTester::bIsVisible (SCNUt_TriScene* _poTScn, CVect3& _oIni, CVect3& _oEnd)
+bool SCNUt_VisibilityTester::bIsVisible (SCNUt_TriScene* _poTScn, CGVect3& _oIni, CGVect3& _oEnd)
 {
-    CRay oRay;
+    CGRay oRay;
 
     oRay.InitFromPoints(_oIni,_oEnd);
     oRay.Dir.Normalize();
@@ -35,7 +35,7 @@ bool SCNUt_VisibilityTester::bIsVisible (SCNUt_TriScene* _poTScn, CVect3& _oIni,
     return( bRayToPos(oRay,_oEnd,_poTScn) );
 }
 
-bool SCNUt_VisibilityTester::bRayToPos (CRay& _oRay, CVect3& _oPos, SCNUt_TriScene* _poTScn)
+bool SCNUt_VisibilityTester::bRayToPos (CGRay& _oRay, CGVect3& _oPos, SCNUt_TriScene* _poTScn)
 {
     if ( !_poTScn ) return(false);
     if ( !_poTScn->NumTris ) return(false);
@@ -44,7 +44,7 @@ bool SCNUt_VisibilityTester::bRayToPos (CRay& _oRay, CVect3& _oPos, SCNUt_TriSce
     // For all those triangles, compute intersection point,
     int iTri;
     CTriangle oTri;
-    CVect3 oPoint;
+    CGVect3 oPoint;
     float fMaxDist;
     float fCurDist;
 

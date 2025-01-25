@@ -25,13 +25,13 @@ class SCNUt_VisibilityTester
 
         ~SCNUt_VisibilityTester();
 
-        bool bIsVisible(SCNUt_TriScene* _poTScn, CVect3& _oIni, CVect3& _oEnd);
+        bool bIsVisible(SCNUt_TriScene* _poTScn, CGVect3& _oIni, CGVect3& _oEnd);
 
         // Additional Public Declarations
 
     protected:
 
-        bool bRayToPos(CRay& _oRay, CVect3& _oPos, SCNUt_TriScene* _poTScn);
+        bool bRayToPos(CGRay& _oRay, CGVect3& _oPos, SCNUt_TriScene* _poTScn);
 
         // Additional Protected Declarations
 

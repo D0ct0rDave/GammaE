@@ -220,10 +220,10 @@ void CConsole::CreateCharMatrix ()
         for ( cI = 0; cI < Cols; cI++ )
         {
             // row 0 has the greatest Y (0), last row is the lowest Y (-1)
-            MatrixMesh->m_poVX [iIdx + 0].V3( (float)(cI) / Cols,(float)(cJ) / Rows, 0 );
-            MatrixMesh->m_poVX [iIdx + 1].V3( (float)(cI) / Cols,(float)(cJ + 1) / Rows, 0 );
-            MatrixMesh->m_poVX [iIdx + 2].V3( (float)(cI + 1) / Cols,(float)(cJ + 1) / Rows, 0 );
-            MatrixMesh->m_poVX [iIdx + 3].V3( (float)(cI + 1) / Cols,(float)(cJ) / Rows, 0 );
+            MatrixMesh->m_poVX [iIdx + 0].Set( (float)(cI) / Cols,(float)(cJ) / Rows, 0 );
+            MatrixMesh->m_poVX [iIdx + 1].Set( (float)(cI) / Cols,(float)(cJ + 1) / Rows, 0 );
+            MatrixMesh->m_poVX [iIdx + 2].Set( (float)(cI + 1) / Cols,(float)(cJ + 1) / Rows, 0 );
+            MatrixMesh->m_poVX [iIdx + 3].Set( (float)(cI + 1) / Cols,(float)(cJ) / Rows, 0 );
 
             MatrixMesh->m_poUV [iIdx + 0].V2(0.0f,0.0f);
             MatrixMesh->m_poUV [iIdx + 1].V2(0.0f,0.0f);

@@ -22,7 +22,7 @@ float fCamDist;
 float fCamSunAngle;
 
 // -----------------------------------------------------------------------------
-float fGetVisibilityFactor(CVect3 &_oPrjPos,float _fFlareCamZ)
+float fGetVisibilityFactor(CGVect3 &_oPrjPos,float _fFlareCamZ)
 {
 #define         ZBUFFER_RECT_HSIZE          2
 #define         ZBUFFER_RECT_VSIZE          2
@@ -85,7 +85,7 @@ CLensFlare::~CLensFlare()
     if ( MeshArray ) mDel [] MeshArray;
 }
 
-void CLensFlare::InitLensFlare (int _iNumElems, CVect3 _SunPos)
+void CLensFlare::InitLensFlare (int _iNumElems, CGVect3 _SunPos)
 {
     // Setup lens flare properties
     oSunPos.Assign(_SunPos);
@@ -116,12 +116,12 @@ void CLensFlare::SetupFlareElem (int _iElem, float _fSize, float _fDist, CGColor
 void CLensFlare::UpdateMesh ()
 {
     int cElem;
-    CVect3 NewPos;
-    CVect3* pVX;
+    CGVect3 NewPos;
+    CGVect3* pVX;
     CGColor* pVC;
 
     float fAlpha;
-    CVect3 oSunScr;
+    CGVect3 oSunScr;
     float fSize,fDist,fDistFact;
 
     // ---------------------------
@@ -133,7 +133,7 @@ void CLensFlare::UpdateMesh ()
     // Get direction from projected sun position to the screen center
     // (Center - oPrjSun)
 
-    oSunScr.V3(-oPrjSun.x,-oPrjSun.y,0.0f);
+    oSunScr.Set(-oPrjSun.x,-oPrjSun.y,0.0f);
 
     // fDistFact = oPrjSun.Module() / sqrt(2);
     // fDistFact = oPrjSun.Module() * _1_OVER_SQRT_2
@@ -163,13 +163,13 @@ void CLensFlare::UpdateMesh ()
         NewPos.LineEq(oPrjSun,oSunScr, fDist );
 
         // Set screen coordinates (normalized)
-        pVX[3].V3(-fSize * fInvRatio,-fSize,0);
+        pVX[3].Set(-fSize * fInvRatio,-fSize,0);
         pVX[3].Add(NewPos);
-        pVX[2].V3(-fSize * fInvRatio, fSize,0);
+        pVX[2].Set(-fSize * fInvRatio, fSize,0);
         pVX[2].Add(NewPos);
-        pVX[1].V3( fSize * fInvRatio, fSize,0);
+        pVX[1].Set( fSize * fInvRatio, fSize,0);
         pVX[1].Add(NewPos);
-        pVX[0].V3( fSize * fInvRatio,-fSize,0);
+        pVX[0].Set( fSize * fInvRatio,-fSize,0);
         pVX[0].Add(NewPos);
 
         // Set vertex color
@@ -245,7 +245,7 @@ bool CLensFlare::bVisible ()
     // Get camera-sun distance
     // ------------------------------------------------------
     CE3D_Camera* pCam = CGRenderer::I()->GetCamera();
-    CVect3 oSunCam;
+    CGVect3 oSunCam;
 
     oSunCam.Assign( pCam->m_oPos );
     oSunCam.Sub(oSunPos);

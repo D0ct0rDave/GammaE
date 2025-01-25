@@ -45,10 +45,10 @@ CGParticleSystemInstance::CGParticleSystemInstance(CGParticleSystemGenerator* _p
         m_poMesh->m_poUV[i * 4 + 2].V2(1.0f,1.0f);
         m_poMesh->m_poUV[i * 4 + 3].V2(1.0f,0.0f);
 
-        m_poMesh->m_poVX[i * 4 + 0].V3(0.0f,0.0f,10000.0f);
-        m_poMesh->m_poVX[i * 4 + 1].V3(0.0f,0.0f,10000.0f);
-        m_poMesh->m_poVX[i * 4 + 2].V3(0.0f,0.0f,10000.0f);
-        m_poMesh->m_poVX[i * 4 + 3].V3(0.0f,0.0f,10000.0f);
+        m_poMesh->m_poVX[i * 4 + 0].Set(0.0f,0.0f,10000.0f);
+        m_poMesh->m_poVX[i * 4 + 1].Set(0.0f,0.0f,10000.0f);
+        m_poMesh->m_poVX[i * 4 + 2].Set(0.0f,0.0f,10000.0f);
+        m_poMesh->m_poVX[i * 4 + 3].Set(0.0f,0.0f,10000.0f);
     }
 
     // Create leaf object

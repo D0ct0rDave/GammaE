@@ -69,7 +69,7 @@ void CTexProjector::Setup (CGMesh* _oSrCGMesh, CE3D_Shader* _poShader, CMatrix4x
        }
 
        // Project coordinates
-       CVect3	oUV;
+       CGVect3	oUV;
        int		iV;
        for (iV=0;iV<_oSrCGMesh->usNumVerts;iV++)
        {
@@ -85,7 +85,7 @@ void CTexProjector::Setup (CGMesh* _oSrCGMesh, CE3D_Shader* _poShader, CMatrix4x
     SetMesh  (&oAuxMesh);
 }
 
-void CTexProjector::Setup (CGMesh* _oSrCGMesh, CE3D_Shader* _poShader, CVect3& _oPos, CVect3& _oDir, float _fXSize, float _fYSize)
+void CTexProjector::Setup (CGMesh* _oSrCGMesh, CE3D_Shader* _poShader, CGVect3& _oPos, CGVect3& _oDir, float _fXSize, float _fYSize)
 {
     // Compute projection matrix
     CMatrix4x4 oPrjMat;

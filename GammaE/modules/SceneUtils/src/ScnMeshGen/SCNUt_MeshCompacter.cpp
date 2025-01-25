@@ -88,10 +88,10 @@ void SCNUt_MeshCompacter::CompactMesh(const SCNUt_TriScene& _oScene,CCompactMesh
     Mesh->Init(AuxMesh->m_usNumVXs,_oScene.NumTris,E3D_MESH_TRIS,MESH_FIELD_ALL);
 
     // Copy data
-    memcpy( Mesh->m_poVX,AuxMesh->m_poVX,AuxMesh->m_usNumVXs * sizeof(CVect3) );
+    memcpy( Mesh->m_poVX,AuxMesh->m_poVX,AuxMesh->m_usNumVXs * sizeof(CGVect3) );
     memcpy( Mesh->m_poUV,AuxMesh->m_poUV,AuxMesh->m_usNumVXs * sizeof(CVect2) );
     memcpy( Mesh->m_poVC,AuxMesh->m_poVC,AuxMesh->m_usNumVXs * sizeof(CVect4) );
-    memcpy( Mesh->m_poVN,AuxMesh->m_poVN,AuxMesh->m_usNumVXs * sizeof(CVect3) );
+    memcpy( Mesh->m_poVN,AuxMesh->m_poVN,AuxMesh->m_usNumVXs * sizeof(CGVect3) );
     memcpy( Mesh->m_pusIdx,AuxMesh->m_pusIdx,AuxMesh->m_uiNumIdxs * sizeof(unsigned short) );
 
     AuxMesh->m_usNumVXs = usOldNumVertexs;
@@ -101,7 +101,7 @@ void SCNUt_MeshCompacter::CompactMesh(const SCNUt_TriScene& _oScene,CCompactMesh
     _poData->m_poMesh = Mesh;
 }
 // ----------------------------------------------------------------------------
-uint SCNUt_MeshCompacter::uiInsertVertex(CGMesh* Mesh, CVect3 &VX, CVect2& UV, CVect4 &VC, CVect3 &VN)
+uint SCNUt_MeshCompacter::uiInsertVertex(CGMesh* Mesh, CGVect3 &VX, CVect2& UV, CVect4 &VC, CGVect3 &VN)
 {
     // Search for the specified vertex tuplet <VX,VU>
     for ( uint i = 0; i < Mesh->m_usNumVXs; i++ )

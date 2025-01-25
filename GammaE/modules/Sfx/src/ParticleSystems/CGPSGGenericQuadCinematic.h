@@ -22,8 +22,8 @@ class CGPSGGenericQuadCinematicParticle : public CGParticle
         float m_fDRadius;
 
         // Precomputed vars
-        CVect3 m_oPos;
-        CVect3 m_oDir;
+        CGVect3 m_oPos;
+        CGVect3 m_oDir;
         float m_fIEnergy;
 };
 // -----------------------------------------------------------------------------

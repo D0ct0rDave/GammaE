@@ -29,7 +29,7 @@ class CCorona
 
         CE3D_Shader* poMat;
 
-        CVect3 oPos;
+        CGVect3 oPos;
 
         float fXYSize;
 

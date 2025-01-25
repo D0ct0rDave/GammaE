@@ -18,7 +18,7 @@ CGSceneTransf::CGSceneTransf() :
     m_eNodeType = SNT_Transf;
 
     m_oPos.V3 (0.0f,0.0f,0.0f);
-    m_oSide.V3(1.0f,0.0f,0.0f);
+    m_oSide.Set(1.0f,0.0f,0.0f);
     m_oDir.V3 (0.0f,1.0f,0.0f);
     m_oUp.V3  (0.0f,0.0f,1.0f);
 
@@ -92,10 +92,10 @@ void CGSceneTransf::SetTransf (const CGMatrix4x4& _oTransf)
     CVect4 oD = _oTransf.GetColVector(1);                    // Y
     CVect4 oU = _oTransf.GetColVector(2);                    // Z
 
-    m_oPos.V3(oP.x,oP.y,oP.z);
-    m_oSide.V3(oS.x,oS.y,oS.z);
-    m_oDir.V3(oD.x,oD.y,oD.z);
-    m_oUp.V3(oU.x,oU.y,oU.z);
+    m_oPos.Set(oP.x,oP.y,oP.z);
+    m_oSide.Set(oS.x,oS.y,oS.z);
+    m_oDir.Set(oD.x,oD.y,oD.z);
+    m_oUp.Set(oU.x,oU.y,oU.z);
 
     m_oTransf = _oTransf;
 

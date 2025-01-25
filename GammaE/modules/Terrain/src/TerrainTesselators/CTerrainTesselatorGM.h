@@ -76,7 +76,7 @@ class CTerrainTesselatorGM : public CTerrainTesselator
 
         float* LData;
 
-        CVect3* VXs;
+        CGVect3* VXs;
 
         CGColor* VCs;
 

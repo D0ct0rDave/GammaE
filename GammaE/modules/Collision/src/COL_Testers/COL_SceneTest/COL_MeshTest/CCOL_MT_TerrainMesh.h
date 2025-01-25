@@ -29,9 +29,9 @@ class CCOL_MT_TerrainMesh : public CCOL_MeshTester
 
         virtual int iTestCollision(CGMesh* _poMesh, int _iMat, CGraphBV* _poBVol, CCOL_TriList& _oTriList);
 
-        int iGetTriangles(int _iX, int _iY, int _iRad, CVect3* _pVXs);
+        int iGetTriangles(int _iX, int _iY, int _iRad, CGVect3* _pVXs);
 
-        void GetTriangle(int _iX, int _iY, CVect3* _pa6VXs);
+        void GetTriangle(int _iX, int _iY, CGVect3* _pa6VXs);
 
         float GetHeight(int iX, int iY);
 

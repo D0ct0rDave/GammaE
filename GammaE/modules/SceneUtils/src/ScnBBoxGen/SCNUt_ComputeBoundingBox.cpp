@@ -23,13 +23,13 @@ SCNUt_ComputeBoundingBox::~SCNUt_ComputeBoundingBox()
 
 CBoundingBox* SCNUt_ComputeBoundingBox::poComputeBoundingBox (SCNUt_TriScene* _poScene)
 {
-    CVect3 oMaxs,oMins;
-    oMaxs.V3(-1e6f,-1e6f,-1e6f);
-    oMins.V3( 1e6f, 1e6f, 1e6f);
+    CGVect3 oMaxs,oMins;
+    oMaxs.Set(-1e6f,-1e6f,-1e6f);
+    oMins.Set( 1e6f, 1e6f, 1e6f);
 
     int iTri;
     int iVX;
-    CVect3* poVX;
+    CGVect3* poVX;
     for ( iTri = 0; iTri < _poScene->NumTris; iTri++ )
     {
         poVX = _poScene->Tris[iTri].VXs;

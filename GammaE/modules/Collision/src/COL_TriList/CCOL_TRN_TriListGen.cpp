@@ -12,7 +12,7 @@
 // CCOL_TRN_TriListGen
 #include "COL_TriList\CCOL_TRN_TriListGen.h"
 
-inline void TEST_Triangle(CVect3* _poVXs,int _iMat,int &_iTris,CCOL_TriList& _oTriList,CVect3 &_oPos,float _fSqrRadius)
+inline void TEST_Triangle(CGVect3* _poVXs,int _iMat,int &_iTris,CCOL_TriList& _oTriList,CGVect3 &_oPos,float _fSqrRadius)
 {
     _oTriList.iAddTri(_poVXs,_poVXs[0],_iMat,0.0f);
     _iTris++;
@@ -20,7 +20,7 @@ inline void TEST_Triangle(CVect3* _poVXs,int _iMat,int &_iTris,CCOL_TriList& _oT
 
     /*
        CTriangle	oTri;
-       CVect3		oNorm;
+       CGVect3		oNorm;
        float		fSqrDist;
 
        oTri.Init(_poVXs);
@@ -125,7 +125,7 @@ void CCOL_TRN_TriListGen::SetSector (int iSect, CHFSector* HFSect)
     HFs[iSect] = HFSect;
 }
 
-int CCOL_TRN_TriListGen::GetTriList (CCOL_TriList& _oTriList, CVect3& _oPos, float _fRadius)
+int CCOL_TRN_TriListGen::GetTriList (CCOL_TriList& _oTriList, CGVect3& _oPos, float _fRadius)
 {
     if ( !_oTriList.iFreeTris() ) return(0);
 
@@ -149,8 +149,8 @@ int CCOL_TRN_TriListGen::GetTriList (CCOL_TriList& _oTriList, CVect3& _oPos, flo
     float fXIni,fYIni;
     float fXEnd,fYEnd;
     float fH[4];
-    CVect3 VXs[3];
-    CVect3 VN;
+    CGVect3 VXs[3];
+    CGVect3 VN;
 
     // Clamp
     if ( iX < 0 ) iX = 0;
@@ -177,15 +177,15 @@ int CCOL_TRN_TriListGen::GetTriList (CCOL_TriList& _oTriList, CVect3& _oPos, flo
         fH[3] = GetHeight(iX + 1,iY + 1);
 
         // First tri
-        VXs[0].V3(fXIni,fYIni,fH[0]);
-        VXs[1].V3(fXEnd,fYIni,fH[1]);
-        VXs[2].V3(fXIni,fYEnd,fH[2]);
+        VXs[0].Set(fXIni,fYIni,fH[0]);
+        VXs[1].Set(fXEnd,fYIni,fH[1]);
+        VXs[2].Set(fXIni,fYEnd,fH[2]);
         TEST_Triangle(VXs,-1,iNumTris,_oTriList,_oPos,fSqRadius);
 
         // Second tri
-        VXs[0].V3(fXEnd,fYIni,fH[1]);
-        VXs[1].V3(fXEnd,fYEnd,fH[3]);
-        VXs[2].V3(fXIni,fYEnd,fH[2]);
+        VXs[0].Set(fXEnd,fYIni,fH[1]);
+        VXs[1].Set(fXEnd,fYEnd,fH[3]);
+        VXs[2].Set(fXIni,fYEnd,fH[2]);
         TEST_Triangle(VXs,-1,iNumTris,_oTriList,_oPos,fSqRadius);
 
         return(iNumTris);
@@ -213,15 +213,15 @@ int CCOL_TRN_TriListGen::GetTriList (CCOL_TriList& _oTriList, CVect3& _oPos, flo
                 fH[3] = GetHeight(cI + 1,cJ + 1);
 
                 // First tri
-                VXs[0].V3(fXIni,fYIni,fH[0]);
-                VXs[1].V3(fXEnd,fYIni,fH[1]);
-                VXs[2].V3(fXIni,fYEnd,fH[2]);
+                VXs[0].Set(fXIni,fYIni,fH[0]);
+                VXs[1].Set(fXEnd,fYIni,fH[1]);
+                VXs[2].Set(fXIni,fYEnd,fH[2]);
                 TEST_Triangle(VXs,-1,iNumTris,_oTriList,_oPos,fSqRadius);
 
                 // Second tri
-                VXs[0].V3(fXEnd,fYIni,fH[1]);
-                VXs[1].V3(fXEnd,fYEnd,fH[3]);
-                VXs[2].V3(fXIni,fYEnd,fH[2]);
+                VXs[0].Set(fXEnd,fYIni,fH[1]);
+                VXs[1].Set(fXEnd,fYEnd,fH[3]);
+                VXs[2].Set(fXIni,fYEnd,fH[2]);
 
                 TEST_Triangle(VXs,-1,iNumTris,_oTriList,_oPos,fSqRadius);
 
@@ -238,7 +238,7 @@ int CCOL_TRN_TriListGen::GetTriList (CCOL_TriList& _oTriList, CVect3& _oPos, flo
     }
 }
 
-int CCOL_TRN_TriListGen::GetTrisFromMesh (CCOL_TriList& _oTriList, CGMesh* _poMesh, int _iMat, CVect3& _oPos, float _fRadius)
+int CCOL_TRN_TriListGen::GetTrisFromMesh (CCOL_TriList& _oTriList, CGMesh* _poMesh, int _iMat, CGVect3& _oPos, float _fRadius)
 {
     return( GetTriList(_oTriList,_oPos,_fRadius) );
 }

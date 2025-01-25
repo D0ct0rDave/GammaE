@@ -217,12 +217,12 @@ CObject3D* CGVLoaderGEM::poLoad(CFile* _poFile)
             Mesh->Init(Mesh->usNumVerts,Mesh->usNumPrims,Mesh->eMeshType,uiMeshMask);
 
             // mesh components
-            if ( Mesh->VXs ) _oFile.iRead( Mesh->VXs,Mesh->usNumVerts * sizeof(CVect3) );
+            if ( Mesh->VXs ) _oFile.iRead( Mesh->VXs,Mesh->usNumVerts * sizeof(CGVect3) );
             if ( Mesh->UVs ) _oFile.iRead( Mesh->UVs,Mesh->usNumVerts * sizeof(CVect2) );
             if ( Mesh->VCs ) _oFile.iRead( Mesh->VCs,Mesh->usNumVerts * sizeof(CVect4) );
-            if ( Mesh->VNs ) _oFile.iRead( Mesh->VNs,Mesh->usNumVerts * sizeof(CVect3) );
+            if ( Mesh->VNs ) _oFile.iRead( Mesh->VNs,Mesh->usNumVerts * sizeof(CGVect3) );
             if ( Mesh->UVs2 ) _oFile.iRead( Mesh->UVs2,Mesh->usNumVerts * sizeof(CVect2) );
-            if ( Mesh->TNs ) _oFile.iRead( Mesh->TNs,Mesh->usNumPrims * sizeof(CVect3) );
+            if ( Mesh->TNs ) _oFile.iRead( Mesh->TNs,Mesh->usNumPrims * sizeof(CGVect3) );
             if ( Mesh->Idxs ) _oFile.iRead( Mesh->Idxs,Mesh->usNumIdxs * sizeof(unsigned short) );
 
             // Save the mesh bounding volume
@@ -287,16 +287,16 @@ CObject3D* CGVLoaderGEM::poLoad(CFile* _poFile)
         {
             CGSceneTransf* pObj = mNew CGSceneTransf();
 
-            CVect3 oDir;
-            CVect3 oSide;
-            CVect3 oUp;
-            CVect3 oPos;
+            CGVect3 oDir;
+            CGVect3 oSide;
+            CGVect3 oUp;
+            CGVect3 oPos;
 
             // Read node transformation parameters
-            _oFile.iRead( &oPos,sizeof(CVect3) );
-            _oFile.iRead( &oDir,sizeof(CVect3) );
-            _oFile.iRead( &oSide,sizeof(CVect3) );
-            _oFile.iRead( &oUp,sizeof(CVect3) );
+            _oFile.iRead( &oPos,sizeof(CGVect3) );
+            _oFile.iRead( &oDir,sizeof(CGVect3) );
+            _oFile.iRead( &oSide,sizeof(CGVect3) );
+            _oFile.iRead( &oUp,sizeof(CGVect3) );
 
             // Read attached object
             pObj->SetObject( pLoad3DObject(_oFile) );
@@ -356,8 +356,8 @@ CObject3D* CGVLoaderGEM::poLoad(CFile* _poFile)
             pObj->CreateStates(iNumStates,iNumStateVXs);
 
             // Load the the vertexs and normals state array
-            _oFile.iRead( pObj->pMeshStates,iNumStates * iNumStateVXs * sizeof(CVect3) );
-            _oFile.iRead( pObj->pNMeshStates,iNumStates * iNumStateVXs * sizeof(CVect3) );
+            _oFile.iRead( pObj->pMeshStates,iNumStates * iNumStateVXs * sizeof(CGVect3) );
+            _oFile.iRead( pObj->pNMeshStates,iNumStates * iNumStateVXs * sizeof(CGVect3) );
 
             // Load the the bounding volume state array
             for ( iState = 0; iState < iNumStates; iState++ )

@@ -12,20 +12,20 @@
     #define NULL 0
 #endif
 // ----------------------------------------------------------------------------
-#include "CGMap.h"
+#include "CGAIMap.h"
 // ----------------------------------------------------------------------------
 // ////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 // ////////////////////////////////////////////////////////////////////
 
-CGMap::CGMap()
+CGAIMap::CGAIMap()
 {
     m_Width = 0;
     m_Height = 0;
     lTiles = NULL;
 }
 
-CGMap::~CGMap()
+CGAIMap::~CGAIMap()
 {
     if ( lTiles != NULL )
     {
@@ -33,7 +33,7 @@ CGMap::~CGMap()
     }
 }
 
-long CGMap::GetTile(long x, long y)
+long CGAIMap::GetTile(long x, long y)
 {
     if ( lTiles == NULL )
     {
@@ -48,7 +48,7 @@ long CGMap::GetTile(long x, long y)
     return(lTiles[x + m_Width * y]);
 }
 
-void CGMap::SetTile(long x, long y, long t)
+void CGAIMap::SetTile(long x, long y, long t)
 {
     if ( lTiles == NULL )
     {
@@ -63,7 +63,7 @@ void CGMap::SetTile(long x, long y, long t)
     lTiles[x + m_Width * y] = t;
 }
 
-void CGMap::NewMap(long width, long height)
+void CGAIMap::NewMap(long width, long height)
 {
     if ( lTiles != NULL )
     {

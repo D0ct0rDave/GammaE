@@ -18,9 +18,9 @@
 // ----------------------------------------------------------------------------
 CCOL_Collider::CCOL_Collider() : UserID(-1), ColID(-1), GrObj(NULL), ColType(COL_CT_None), StTest(COL_TT_None), DynTest(COL_TT_None), TriListGen(NULL)
 {
-    Pos.V3(0.0f,0.0f,0.0f);
-    OldPos.V3(0.0f,0.0f,0.0f);
-    Speed.V3(0.0f,0.0f,0.0f);
+    Pos.Set(0.0f,0.0f,0.0f);
+    OldPos.Set(0.0f,0.0f,0.0f);
+    Speed.Set(0.0f,0.0f,0.0f);
 }
 // ----------------------------------------------------------------------------
 CCOL_Collider::~CCOL_Collider()

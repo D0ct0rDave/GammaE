@@ -12,7 +12,7 @@
 #ifndef CGGraphicResourceH
 #define CGGraphicResourceH
 // -----------------------------------------------------------------------------
-class CVect3;
+class CGVect3;
 class CGSceneNode;
 // -----------------------------------------------------------
 #include "GammaE_Math.h"
@@ -23,7 +23,7 @@ class CGControlPoint
 {
     public:
         CGString m_sName;
-        CVect3 m_oPos;
+        CGVect3 m_oPos;
 
         unsigned char m_ucCPType;
         unsigned char m_ucSubType;

@@ -64,12 +64,12 @@ void CDetailer::Init (int _iMaxTris)
     poMesh->m_usNumVXs = 0;
 }
 
-void CDetailer::SetCamPos (CVect3& _oCamPos)
+void CDetailer::SetCamPos (CGVect3& _oCamPos)
 {
     oCamPos.Assign( _oCamPos);
 }
 
-void CDetailer::SetVertexTris (CVect3* _poVXs, int _iNumTris)
+void CDetailer::SetVertexTris (CGVect3* _poVXs, int _iNumTris)
 {
     poMesh->m_uiNumIdxs = 0;
     poMesh->m_uiNumPrims = _iNumTris;
@@ -83,7 +83,7 @@ void CDetailer::SetVertexTris (CVect3* _poVXs, int _iNumTris)
 
     int cI;
     float fDist;
-    CVect3* poVX = poMesh->m_poVX;
+    CGVect3* poVX = poMesh->m_poVX;
     CVect2* poUV = poMesh->m_poUV;
     CGColor* poVC = poMesh->m_poVC;
 

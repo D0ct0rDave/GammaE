@@ -22,16 +22,16 @@ CCOL_TriList_BVRayTest::~CCOL_TriList_BVRayTest()
 {
 }
 
-void CCOL_TriList_BVRayTest::Test (CVect3& _Center, CCOL_TriList& _TriList, int _iRayMask, float* _pa6fDists, int* _pa6iTris)
+void CCOL_TriList_BVRayTest::Test (CGVect3& _Center, CCOL_TriList& _TriList, int _iRayMask, float* _pa6fDists, int* _pa6iTris)
 {
-    CRay Ray;
+    CGRay Ray;
     int iAxis;
-    CVect3 Axis[6] = { CVect3( 1.0f,0.0f,0.0f),
-                       CVect3(-1.0f,0.0f,0.0f),
-                       CVect3(0.0f, 1.0f,0.0f),
-                       CVect3(0.0f,-1.0f,0.0f),
-                       CVect3(0.0f,0.0f, 1.0f),
-                       CVect3(0.0f,0.0f,-1.0f)};
+    CGVect3 Axis[6] = { CGVect3( 1.0f,0.0f,0.0f),
+                       CGVect3(-1.0f,0.0f,0.0f),
+                       CGVect3(0.0f, 1.0f,0.0f),
+                       CGVect3(0.0f,-1.0f,0.0f),
+                       CGVect3(0.0f,0.0f, 1.0f),
+                       CGVect3(0.0f,0.0f,-1.0f)};
 
     // Init ray origin as the center ob the BV object
     Ray.Origin.Assign(_Center);
@@ -57,12 +57,12 @@ void CCOL_TriList_BVRayTest::Test (CVect3& _Center, CCOL_TriList& _TriList, int 
     }
 }
 
-float CCOL_TriList_BVRayTest::fGetRayTriListMinDist (CRay& _ay, CCOL_TriList& _TriList, CVect3& _Point, int& _iIdx)
+float CCOL_TriList_BVRayTest::fGetRayTriListMinDist (CGRay& _ay, CCOL_TriList& _TriList, CGVect3& _Point, int& _iIdx)
 {
     // <UNMAINTAINED>
     CTriangle Tri;
 
-    CVect3 IPoint;              // Intersection point
+    CGVect3 IPoint;              // Intersection point
     int iTri;
     float fDist;
     float fMinDist;
@@ -96,10 +96,10 @@ float CCOL_TriList_BVRayTest::fGetRayTriListMinDist (CRay& _ay, CCOL_TriList& _T
 int iCorner;
 int iTest;
 
-CRay Ray;
-CVect3* Corner;
-CVect3 Center;
-CVect3 Extents;
+CGRay Ray;
+CGVect3* Corner;
+CGVect3 Center;
+CGVect3 Extents;
 
 Center = _pBV.GetCenter();
 Extents = _pBV.GetExtents();
@@ -115,15 +115,15 @@ for ( iCorner = 0; iCorner < 8; iCorner++ )
     Ray.Origin.Assign(*Corner);
 
     // Test in X direction
-    Ray.Dir.V3(1.0f,0.0f,0.0f);
+    Ray.Dir.Set(1.0f,0.0f,0.0f);
     _pa24fDists[iTest] = fGetRayTriListMinDist(Ray,_TriList,*Corner,_pa24iTris[iTest]);
     iTest++;
 
-    Ray.Dir.V3(0.0f,1.0f,0.0f);
+    Ray.Dir.Set(0.0f,1.0f,0.0f);
     _pa24fDists[iTest] = fGetRayTriListMinDist(Ray,_TriList,*Corner,_pa24iTris[iTest]);
     iTest++;
 
-    Ray.Dir.V3(0.0f,0.0f,1.0f);
+    Ray.Dir.Set(0.0f,0.0f,1.0f);
     _pa24fDists[iTest] = fGetRayTriListMinDist(Ray,_TriList,*Corner,_pa24iTris[iTest]);
     iTest++;
 

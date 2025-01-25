@@ -12,9 +12,9 @@
 
 // CGraphBV_Box
 #include "BoundingVolume\GraphBoundVol\CGraphBV_Box.h"
-static CVect3 oXAxis(1.0f,0.0f,0.0f);
-static CVect3 oYAxis(0.0f,1.0f,0.0f);
-static CVect3 oZAxis(0.0f,0.0f,1.0f);
+static CGVect3 oXAxis(1.0f,0.0f,0.0f);
+static CGVect3 oYAxis(0.0f,1.0f,0.0f);
+static CGVect3 oZAxis(0.0f,0.0f,1.0f);
 
 // Class CGraphBV_Box
 
@@ -30,10 +30,10 @@ CGraphBV_Box::~CGraphBV_Box()
 void CGraphBV_Box::Transform (CMatrix4x4& M)
 {
     unsigned int cV;
-    CVect3 Mins,Maxs;
+    CGVect3 Mins,Maxs;
 
-    Mins.V3( 1e10f, 1e10f, 1e10f);
-    Maxs.V3(-1e10f,-1e10f,-1e10f);
+    Mins.Set( 1e10f, 1e10f, 1e10f);
+    Maxs.Set(-1e10f,-1e10f,-1e10f);
 
     for ( cV = 0; cV < 8; cV++ )
     {
@@ -53,13 +53,13 @@ void CGraphBV_Box::Transform (CMatrix4x4& M)
     ComputeAll();
 }
 
-void CGraphBV_Box::Compute (CVect3* VXs, int iNumVXs)
+void CGraphBV_Box::Compute (CGVect3* VXs, int iNumVXs)
 {
     unsigned short cV;
-    CVect3 Mins,Maxs;
+    CGVect3 Mins,Maxs;
 
-    Mins.V3( 1e10f, 1e10f, 1e10f);
-    Maxs.V3(-1e10f,-1e10f,-1e10f);
+    Mins.Set( 1e10f, 1e10f, 1e10f);
+    Maxs.Set(-1e10f,-1e10f,-1e10f);
 
     for ( cV = 0; cV < iNumVXs; cV++ )
     {
@@ -81,7 +81,7 @@ float CGraphBV_Box::GetRange (int iAxis)
     return (oExtents.v(iAxis) * 2);
 }
 
-CVect3 & CGraphBV_Box::GetCenter ()
+CGVect3 & CGraphBV_Box::GetCenter ()
 {
     return(oCenter);
 }
@@ -91,7 +91,7 @@ int CGraphBV_Box::TestFrustum (CE3D_Frustum& _Frustum)
     return ( _Frustum.TestBBox(Vol.m_oMaxs,Vol.m_oMins) );
 }
 
-void CGraphBV_Box::Init (CVect3 Max, CVect3 Min)
+void CGraphBV_Box::Init (CGVect3 Max, CGVect3 Min)
 {
     Vol.Init(Max,Min);
     ComputeAll();
@@ -102,17 +102,17 @@ CBoundingBox* CGraphBV_Box::pGetBox ()
     return (&Vol);
 }
 
-int CGraphBV_Box::TestInside (CVect3& _Pos)
+int CGraphBV_Box::TestInside (CGVect3& _Pos)
 {
     return ( _Pos.bInside( Vol.m_oMaxs,Vol.m_oMins ) );
 }
 
-CVect3 & CGraphBV_Box::GetExtents ()
+CGVect3 & CGraphBV_Box::GetExtents ()
 {
     return(oExtents);
 }
 
-CVect3 & CGraphBV_Box::GetAxis (int _iAxis)
+CGVect3 & CGraphBV_Box::GetAxis (int _iAxis)
 {
     assert( ( (_iAxis >= 0) && (_iAxis <= 2) ) && "Incorrect axis" );
 
@@ -127,12 +127,12 @@ CVect3 & CGraphBV_Box::GetAxis (int _iAxis)
     return(oXAxis);
 }
 
-CVect3 & CGraphBV_Box::oGetMax ()
+CGVect3 & CGraphBV_Box::oGetMax ()
 {
     return(Vol.m_oMaxs);
 }
 
-CVect3 & CGraphBV_Box::oGetMin ()
+CGVect3 & CGraphBV_Box::oGetMin ()
 {
     return(Vol.m_oMins);
 }

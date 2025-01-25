@@ -28,8 +28,8 @@ void SCNUt_AnimMesh_NormalComputer::Generate (CGSceneAnimMesh* _pObj)
 
     CGMesh* pLeafMesh = _pObj->poGetMesh();
 
-    CVect3* pOldVXs = pLeafMesh->m_poVX;
-    CVect3* pOldVNs = pLeafMesh->m_poVN;
+    CGVect3* pOldVXs = pLeafMesh->m_poVX;
+    CGVect3* pOldVNs = pLeafMesh->m_poVN;
 
     int iState;
 

@@ -100,10 +100,10 @@
     <ClInclude Include="..\modules\SceneUtils\src\ScnCoplanarRemover\SCNUt_CoplanarRemover.h">
       <Filter>ScnCoplanarRemover</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\ScnMeshGen\SCNUt_MeshGenerator.h">
+    <ClInclude Include="..\modules\SceneUtils\src\ScnMeshGen\SCNUt_MeshCompacter.h">
       <Filter>ScnMeshGen</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\ScnMeshGen\scnut_meshcompacter.h">
+    <ClInclude Include="..\modules\SceneUtils\src\ScnMeshGen\SCNUt_MeshGenerator.h">
       <Filter>ScnMeshGen</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\SceneUtils\src\ScnNormalGen\SCNUt_AnimMesh_NormalComputer.h">
@@ -112,7 +112,7 @@
     <ClInclude Include="..\modules\SceneUtils\src\ScnPlanarMapper\SCNUt_PlanarMapper.h">
       <Filter>ScnPlanarMapper</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\SceneUtils\src\ScnShaderAssigner\SCNUt_ShaderAssigner.h">
+    <ClInclude Include="..\modules\SceneUtils\src\ScnShaderAssigner\ScnUt_ShaderAssigner.h">
       <Filter>ScnShaderAssigner</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_AdjTri.h">

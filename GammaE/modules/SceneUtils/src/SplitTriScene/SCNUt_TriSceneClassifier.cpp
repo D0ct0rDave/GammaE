@@ -180,7 +180,7 @@ SCNUt_ePolyState SCNUt_TriSceneClassifier::ClassifyTriangle (SCNUt_Triangle& Src
 void SCNUt_TriSceneClassifier::ClassifyTriangleVertexs (SCNUt_Triangle* SrcTri, CGPlane &Plane)
 {
     unsigned int uiVert;
-    CVect3 TriSegment;
+    CGVect3 TriSegment;
 
     for ( uiVert = 0; uiVert < 3; uiVert++ )
     {

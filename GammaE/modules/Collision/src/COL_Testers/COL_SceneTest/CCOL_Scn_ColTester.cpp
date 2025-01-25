@@ -155,7 +155,7 @@ int CCOL_Scn_ColTester::iTest3DObj_Transf (CGSceneTransf* _poObj)
         oBox.Transform(oInvMat);
 
         // Backup data
-        CVect3 oSIPos,oSFPos,oSSpd,oDIPos,oDFPos,oDSpd,oDSSp;
+        CGVect3 oSIPos,oSFPos,oSSpd,oDIPos,oDFPos,oDSpd,oDSSp;
         oSIPos.Assign(CCOL_ColState::SrcIPos);
         oSFPos.Assign(CCOL_ColState::SrcFPos);
         oSSpd.Assign (CCOL_ColState::SrcSp  );

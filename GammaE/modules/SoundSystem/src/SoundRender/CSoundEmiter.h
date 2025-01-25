@@ -37,7 +37,7 @@ class CSoundEmiter : public CSoundEntity
 
         int iType;
 
-        CVect3 Dir;
+        CGVect3 Dir;
 
         // -----------------------------------------------------------------------------
 

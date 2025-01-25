@@ -30,10 +30,10 @@ int CCOL_Mesh_ColTester::iTestCollision (CMesh* _pMesh, CGraphBV* _BVol, CCOL_Tr
 
     int cTri;
     CTriangle Tri;
-    CVect3 VXs[3];
-    CVect3 VN;
-    CVect3* pVXs;
-    CVect3* pVNs;
+    CGVect3 VXs[3];
+    CGVect3 VN;
+    CGVect3* pVXs;
+    CGVect3* pVNs;
     float fSqDist;
     int iTris = 0;
 

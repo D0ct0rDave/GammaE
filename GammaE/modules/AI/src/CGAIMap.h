@@ -11,7 +11,7 @@
 #ifndef CAI_MapH
 #define CAI_MapH
 // ----------------------------------------------------------------------------
-class CGMap
+class CGAIMap
 {
     public:
 
@@ -20,8 +20,8 @@ class CGMap
         long GetTile(long x, long y);
         long m_Height;
         long m_Width;
-        CGMap();
-        virtual ~CGMap();
+        CGAIMap();
+        virtual ~CGAIMap();
 
         long* lTiles;
 };

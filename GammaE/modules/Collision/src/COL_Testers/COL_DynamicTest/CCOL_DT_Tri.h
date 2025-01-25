@@ -29,7 +29,7 @@ class CCOL_DT_Tri
 
         static float fTestBox(CGraphBV_Box& _Box, CTriangle& _Tri);
 
-        static float fTestPoint(CVect3& _oPoint, CTriangle& _Tri);
+        static float fTestPoint(CGVect3& _oPoint, CTriangle& _Tri);
 
         // Additional Public Declarations
 

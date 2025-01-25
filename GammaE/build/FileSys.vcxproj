@@ -98,6 +98,7 @@
     <ClInclude Include="..\modules\FileSys\src\FileManager\CGFileSysMgrMultiZIP.h" />
     <ClInclude Include="..\modules\FileSys\src\FileManager\CGFileSysMgrPAK.h" />
     <ClInclude Include="..\modules\FileSys\src\FileManager\CGFileSysMgrZIP.h" />
+    <ClInclude Include="..\modules\FileSys\src\FileManager\OSFile.h" />
     <ClInclude Include="..\modules\FileSys\src\FileUtils\CGFileUtils.h" />
     <ClInclude Include="..\modules\FileSys\src\GFileSys.h" />
     <ClInclude Include="..\modules\FileSys\src\GFileSysEnums.h" />

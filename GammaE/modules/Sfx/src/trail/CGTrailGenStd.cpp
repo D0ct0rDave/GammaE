@@ -16,16 +16,16 @@ class CGTrailStd : public CGTrail
 {
     public:
         CGTrailStd(uint _uiMaxPoints);
-        virtual void SetPos(const CVect3& _oPos);
+        virtual void SetPos(const CGVect3& _oPos);
         virtual void Update(float _fDeltaT);
 
-        void AddPoint(const CVect3& _oPos);
+        void AddPoint(const CGVect3& _oPos);
 
     public:
         // /
         CCurve m_oCurve;
-        CGStArray <CVect3> m_oPoints;
-        CGStArray <CVect3> m_fTimes;
+        CGStArray <CGVect3> m_oPoints;
+        CGStArray <CGVect3> m_fTimes;
         CCurve m_oTimeCurve;
 
         // runtime fields
@@ -37,7 +37,7 @@ class CGTrailStd : public CGTrail
         float m_fInitialUpdateTime;
         float m_fUpdateTime;
 
-        CVect3 m_oLastPoint;
+        CGVect3 m_oLastPoint;
 };
 // ----------------------------------------------------------------------------
 CGTrailStd::CGTrailStd(uint _uiMaxPoints)
@@ -48,10 +48,10 @@ CGTrailStd::CGTrailStd(uint _uiMaxPoints)
     m_oTimeCurve.Init(m_fTimes.poBuff(),_uiMaxPoints);
 }
 // ----------------------------------------------------------------------------
-void CGTrailStd::SetPos(const CVect3& _oPos)
+void CGTrailStd::SetPos(const CGVect3& _oPos)
 {
     // Update head conditions
-    CVect3 oPos(_oPos.x * 2.1f - 1.0f, _oPos.y * 1.8f - 1.0f,-2.0f);
+    CGVect3 oPos(_oPos.x * 2.1f - 1.0f, _oPos.y * 1.8f - 1.0f,-2.0f);
 
     // Time to update ?
     if ( m_fUpdateTime <= 0.0f )
@@ -89,7 +89,7 @@ void CGTrailStd::SetPos(const CVect3& _oPos)
     }
 }
 // ----------------------------------------------------------------------------
-void CGTrailStd::AddPoint(const CVect3& _oPos)
+void CGTrailStd::AddPoint(const CGVect3& _oPos)
 {
     if ( m_oPoints.uiNumElems() == m_oPoints.uiMaxElems() )
     {
@@ -109,7 +109,7 @@ void CGTrailStd::AddPoint(const CVect3& _oPos)
     m_oPoints.iAdd(_oPos);
 
     // Set point initial energy
-    CVect3 oT;
+    CGVect3 oT;
     oT.x = m_fIniEnergy;
     m_fTimes.iAdd( oT );
 
@@ -182,12 +182,12 @@ void CGTrailGenStd::UpdateInstance(CGTrailInstance* _poInst,float _fDeltaT)
     if ( poTrail->m_oPoints.uiNumElems() < 4 ) return;
 
     // Generate geometry
-    CVect3 oVX[4];
+    CGVect3 oVX[4];
     CVect2 oUV[4];
     CGColor oVC[4];
 
-    CVect3 oP1,oU1;
-    CVect3 oT;
+    CGVect3 oP1,oU1;
+    CGVect3 oT;
     float fFact;
     CGColor oColor1;
 
@@ -196,13 +196,13 @@ void CGTrailGenStd::UpdateInstance(CGTrailInstance* _poInst,float _fDeltaT)
     float fStep = 1.0f / (float)uiNumSubdivisions;
     float fX = 1.0f;
 
-    CVect3 oP0 = poTrail->m_oCurve.oPos( 1.0f );
+    CGVect3 oP0 = poTrail->m_oCurve.oPos( 1.0f );
 
     uint uiNumBBs = 0;
     bool bLastBB = false;
     while ( (bLastBB == false) && (uiNumBBs < uiNumSubdivisions) )
     {
-        CVect3 oP1 = poTrail->m_oCurve.oPos(fX - fStep);
+        CGVect3 oP1 = poTrail->m_oCurve.oPos(fX - fStep);
         oT = poTrail->m_oTimeCurve.oPos(fX - fStep);
         fFact = 1.0f - (oT.x / poTrail->m_fIniEnergy);
 
@@ -275,8 +275,8 @@ void CGTrailGenStd::UpdateInstance(CGTrailInstance* _poInst,float _fDeltaT)
        // Draw control points
        for (uint i=0;i<poTrail->m_oPoints.uiNumElems();i++)
        {
-        CVect3 oX = CVect3::oX();
-        CVect3 oY = CVect3::oY();
+        CGVect3 oX = CGVect3::oX();
+        CGVect3 oY = CGVect3::oY();
         oX.Scale(0.05f);
         oY.Scale(0.05f);
 

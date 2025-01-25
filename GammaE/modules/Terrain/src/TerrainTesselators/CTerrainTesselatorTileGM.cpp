@@ -207,7 +207,7 @@ void CTerrainTesselatorTileGM::RenderTiling ()
 
 CE3D_Shader* CTerrainTesselatorTileGM::GetTileMaterial (int iX, int iY)
 {
-    static CVect3 TileCenter;
+    static CGVect3 TileCenter;
     static int i,j;
     static unsigned int uiLOD;
     static unsigned int uiTexIndex;
@@ -218,7 +218,7 @@ CE3D_Shader* CTerrainTesselatorTileGM::GetTileMaterial (int iX, int iY)
     j = ( ( (float)iY + 0.5f ) * Tile_fMeters );
 
     // Get center point from the tile
-    TileCenter.V3(i * fXYScale,j * fXYScale,HData[j * uiSectorRes + i]);
+    TileCenter.Set(i * fXYScale,j * fXYScale,HData[j * uiSectorRes + i]);
 
     // Get the distance from the tile to the camera
     fDistance = TileCenter.fDistance(Cam);

@@ -26,7 +26,7 @@ CSkyBox::~CSkyBox()
      */
 }
 
-void CSkyBox::InitSkyBox (float fSize, CVect3& Center, float fRoll, CE3D_Shader* * Materials)
+void CSkyBox::InitSkyBox (float fSize, CGVect3& Center, float fRoll, CE3D_Shader* * Materials)
 {
     poNode = mNew CGSceneGroup;
 
@@ -47,57 +47,57 @@ void CSkyBox::InitSkyBox (float fSize, CVect3& Center, float fRoll, CE3D_Shader*
     }
 
     // Front/back
-    MeshSides[0]->m_poVX[0].V3( 1,-1,-1);
-    MeshSides[0]->m_poVX[1].V3(-1,-1,-1);
-    MeshSides[0]->m_poVX[2].V3(-1,-1, 1);
-    MeshSides[0]->m_poVX[3].V3( 1,-1, 1);
+    MeshSides[0]->m_poVX[0].Set( 1,-1,-1);
+    MeshSides[0]->m_poVX[1].Set(-1,-1,-1);
+    MeshSides[0]->m_poVX[2].Set(-1,-1, 1);
+    MeshSides[0]->m_poVX[3].Set( 1,-1, 1);
     MeshSides[0]->m_poUV[0].V2(1,1);
     MeshSides[0]->m_poUV[1].V2(0,1);
     MeshSides[0]->m_poUV[2].V2(0,0);
     MeshSides[0]->m_poUV[3].V2(1,0);
 
-    MeshSides[1]->m_poVX[0].V3( 1, 1, 1);
-    MeshSides[1]->m_poVX[1].V3(-1, 1, 1);
-    MeshSides[1]->m_poVX[2].V3(-1, 1,-1);
-    MeshSides[1]->m_poVX[3].V3( 1, 1,-1);
+    MeshSides[1]->m_poVX[0].Set( 1, 1, 1);
+    MeshSides[1]->m_poVX[1].Set(-1, 1, 1);
+    MeshSides[1]->m_poVX[2].Set(-1, 1,-1);
+    MeshSides[1]->m_poVX[3].Set( 1, 1,-1);
     MeshSides[1]->m_poUV[0].V2(0,0);
     MeshSides[1]->m_poUV[1].V2(1,0);
     MeshSides[1]->m_poUV[2].V2(1,1);
     MeshSides[1]->m_poUV[3].V2(0,1);
 
     // Right/Left
-    MeshSides[2]->m_poVX[0].V3(-1, 1,-1);
-    MeshSides[2]->m_poVX[1].V3(-1, 1, 1);
-    MeshSides[2]->m_poVX[2].V3(-1,-1, 1);
-    MeshSides[2]->m_poVX[3].V3(-1,-1,-1);
+    MeshSides[2]->m_poVX[0].Set(-1, 1,-1);
+    MeshSides[2]->m_poVX[1].Set(-1, 1, 1);
+    MeshSides[2]->m_poVX[2].Set(-1,-1, 1);
+    MeshSides[2]->m_poVX[3].Set(-1,-1,-1);
     MeshSides[2]->m_poUV[0].V2(0,1);
     MeshSides[2]->m_poUV[1].V2(0,0);
     MeshSides[2]->m_poUV[2].V2(1,0);
     MeshSides[2]->m_poUV[3].V2(1,1);
 
-    MeshSides[3]->m_poVX[0].V3( 1, 1, 1);
-    MeshSides[3]->m_poVX[1].V3( 1, 1,-1);
-    MeshSides[3]->m_poVX[2].V3( 1,-1,-1);
-    MeshSides[3]->m_poVX[3].V3( 1,-1, 1);
+    MeshSides[3]->m_poVX[0].Set( 1, 1, 1);
+    MeshSides[3]->m_poVX[1].Set( 1, 1,-1);
+    MeshSides[3]->m_poVX[2].Set( 1,-1,-1);
+    MeshSides[3]->m_poVX[3].Set( 1,-1, 1);
     MeshSides[3]->m_poUV[0].V2(1,0);
     MeshSides[3]->m_poUV[1].V2(1,1);
     MeshSides[3]->m_poUV[2].V2(0,1);
     MeshSides[3]->m_poUV[3].V2(0,0);
 
     // Up/Down
-    MeshSides[4]->m_poVX[0].V3(-1, 1, 1);
-    MeshSides[4]->m_poVX[1].V3( 1, 1, 1);
-    MeshSides[4]->m_poVX[2].V3( 1,-1, 1);
-    MeshSides[4]->m_poVX[3].V3(-1,-1, 1);
+    MeshSides[4]->m_poVX[0].Set(-1, 1, 1);
+    MeshSides[4]->m_poVX[1].Set( 1, 1, 1);
+    MeshSides[4]->m_poVX[2].Set( 1,-1, 1);
+    MeshSides[4]->m_poVX[3].Set(-1,-1, 1);
     MeshSides[4]->m_poUV[0].V2(0,1);
     MeshSides[4]->m_poUV[1].V2(0,0);
     MeshSides[4]->m_poUV[2].V2(1,0);
     MeshSides[4]->m_poUV[3].V2(1,1);
 
-    MeshSides[5]->m_poVX[0].V3( 1, 1,-1);
-    MeshSides[5]->m_poVX[1].V3(-1, 1,-1);
-    MeshSides[5]->m_poVX[2].V3(-1,-1,-1);
-    MeshSides[5]->m_poVX[3].V3( 1,-1,-1);
+    MeshSides[5]->m_poVX[0].Set( 1, 1,-1);
+    MeshSides[5]->m_poVX[1].Set(-1, 1,-1);
+    MeshSides[5]->m_poVX[2].Set(-1,-1,-1);
+    MeshSides[5]->m_poVX[3].Set( 1,-1,-1);
     MeshSides[5]->m_poUV[0].V2(0,0);
     MeshSides[5]->m_poUV[1].V2(1,0);
     MeshSides[5]->m_poUV[2].V2(1,1);

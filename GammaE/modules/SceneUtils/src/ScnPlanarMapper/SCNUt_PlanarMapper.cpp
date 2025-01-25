@@ -36,7 +36,7 @@ void SCNUt_PlanarMapper::PlanarMap (SCNUt_TriScene& _oTriScn)
     poBBox = oBBoxCmp.poComputeBoundingBox(&oTriScene);
 
     // Get object dimensions
-    CVect3 oDims;
+    CGVect3 oDims;
     oDims.Assign(poBBox->m_oMaxs);
     oDims.Sub   (poBBox->m_oMins);
 
@@ -46,7 +46,7 @@ void SCNUt_PlanarMapper::PlanarMap (SCNUt_TriScene& _oTriScn)
     for ( int iTri = 0; iTri < _oTriScn.NumTris; iTri++ )
     {
         // Mirar la componente Z de la normal del triángulo
-        CVect3 oNormal;
+        CGVect3 oNormal;
         oNormal.Normal( _oTriScn.Tris[iTri].VXs[0],
                         _oTriScn.Tris[iTri].VXs[1],
                         _oTriScn.Tris[iTri].VXs[2]);

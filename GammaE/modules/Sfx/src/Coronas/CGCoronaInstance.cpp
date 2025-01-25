@@ -17,7 +17,7 @@ CGCoronaInstance::CGCoronaInstance(CGCoronaGenerator* _poTG)
     m_poInstanceData = m_poTG->poCreateInstanceData();
 }
 // ----------------------------------------------------------------------------
-void CGCoronaInstance::SetPos(const CVect3& _oNewPos)
+void CGCoronaInstance::SetPos(const CGVect3& _oNewPos)
 {
     m_poInstanceData->SetPos(_oNewPos);
 }

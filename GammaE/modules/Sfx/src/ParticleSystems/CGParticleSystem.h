@@ -86,8 +86,8 @@ class CGParticleSystem : public CGSceneLeaf  // ## Inherits: <unnamed>%3B72F7930
         // Data Members for Class Attributes
 
         // ## Attribute: PSSpeed%3B74706500E6
-        // ## begin CGParticleSystem::PSSpeed%3B74706500E6.attr preserve=no  public: CVect3 {UA}
-        CVect3 PSSpeed;
+        // ## begin CGParticleSystem::PSSpeed%3B74706500E6.attr preserve=no  public: CGVect3 {UA}
+        CGVect3 PSSpeed;
         // ## end CGParticleSystem::PSSpeed%3B74706500E6.attr
 
         // Additional Public Declarations

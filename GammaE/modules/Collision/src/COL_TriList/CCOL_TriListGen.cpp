@@ -29,7 +29,7 @@ CCOL_TriListGen::~CCOL_TriListGen()
 {
 }
 
-int CCOL_TriListGen::GetTriList (CCOL_TriList& _oTriList, CVect3& _oPos, float _fRadius)
+int CCOL_TriListGen::GetTriList (CCOL_TriList& _oTriList, CGVect3& _oPos, float _fRadius)
 {
     return(0);
 }
@@ -41,7 +41,7 @@ void CCOL_TriListGen::SetMeshes (CGMesh* * _poMeshes, int* _piMats, int _iNumMes
     iNumMeshes = _iNumMeshes;
 }
 
-int CCOL_TriListGen::GetTrisFromMesh (CCOL_TriList& _oTriList, CGMesh* _poMesh, int _iMat, CVect3& _oPos, float _fRadius)
+int CCOL_TriListGen::GetTrisFromMesh (CCOL_TriList& _oTriList, CGMesh* _poMesh, int _iMat, CGVect3& _oPos, float _fRadius)
 {
     return(0);
 }

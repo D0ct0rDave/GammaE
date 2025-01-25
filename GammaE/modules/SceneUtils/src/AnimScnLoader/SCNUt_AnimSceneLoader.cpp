@@ -33,8 +33,8 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
     int iTris,iTri;
     int iNumFrames;
 
-    CVect3 VXa,VXb,VXc;
-    CVect3 VNa,VNb,VNc;
+    CGVect3 VXa,VXb,VXc;
+    CGVect3 VNa,VNb,VNc;
     CVect4 VCa,VCb,VCc;
     CVect2 UVa,UVb,UVc;
 
@@ -255,10 +255,10 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
     oMC.CompactMesh(*poStartupFrame,&oCD);
 
     // Build anim mesh
-    CVect3* poVXs = mNew CVect3[ oFrames.uiNumElems() * oCD.m_oInvTable.uiNumElems() ];
-    CVect3* poVNs = mNew CVect3[ oFrames.uiNumElems() * oCD.m_oInvTable.uiNumElems() ];
-    CVect3* poVX = poVXs;
-    CVect3* poVN = poVNs;
+    CGVect3* poVXs = mNew CGVect3[ oFrames.uiNumElems() * oCD.m_oInvTable.uiNumElems() ];
+    CGVect3* poVNs = mNew CGVect3[ oFrames.uiNumElems() * oCD.m_oInvTable.uiNumElems() ];
+    CGVect3* poVX = poVXs;
+    CGVect3* poVN = poVNs;
 
     for ( uint j = 0; j < oFrames.uiNumElems(); j++ )
     {

@@ -144,7 +144,7 @@ SCNUt_TriScene* CLoaderMD2::ParseModel ()
             uiVPos = Triangles[cTri].vertexIndices[iVert];
             uiTPos = Triangles[cTri].textureIndices[iVert];
 
-            MD2Mesh->Tris[cTri].VXs[cVert].V3(
+            MD2Mesh->Tris[cTri].VXs[cVert].Set(
                 Vertexs[uiVPos].vertex[0] * Frame->scale[0] + Frame->translate[0],
                 Vertexs[uiVPos].vertex[1] * Frame->scale[1] + Frame->translate[1],
                 Vertexs[uiVPos].vertex[2] * Frame->scale[2] + Frame->translate[2]);
@@ -179,7 +179,7 @@ unsigned short* CLoaderMD2::GetVertexConversionTable (CGMesh &Mesh)
         // Buscar el vertice MD2 al que corresponde el vértice actual
         cMD2Vert = 0;
         do {
-            NewVX.V3(
+            NewVX.Set(
                 Vertexs[cMD2Vert].vertex[0] * Frame->scale[0] + Frame->translate[0],
                 Vertexs[cMD2Vert].vertex[1] * Frame->scale[1] + Frame->translate[1],
                 Vertexs[cMD2Vert].vertex[2] * Frame->scale[2] + Frame->translate[2]
@@ -226,7 +226,7 @@ void CLoaderMD2::ParseFrameSet (CGSceneAnimMesh &AnimMesh, CGMesh &Mesh)
         // Convert from MD2 frames to engine frames
         for ( cVert = 0; cVert < Mesh.m_usNumVXs; cVert++ )
         {
-            NewVX.V3(
+            NewVX.Set(
                 Vertexs[ NewIdxs[cVert] ].vertex[0] * Frame->scale[0] + Frame->translate[0],
                 Vertexs[ NewIdxs[cVert] ].vertex[1] * Frame->scale[1] + Frame->translate[1],
                 Vertexs[ NewIdxs[cVert] ].vertex[2] * Frame->scale[2] + Frame->translate[2]

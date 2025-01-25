@@ -27,9 +27,9 @@ class CSkyDome : public CGSceneLeaf
 
         void SetRadius(float _fRadius);
 
-        void SetAxis(CVect3 _Axis);
+        void SetAxis(CGVect3 _Axis);
 
-        void SetPosition(CVect3 _Pos);
+        void SetPosition(CGVect3 _Pos);
 
         void CreateDome(bool _bFogAffected, int _iNumVSlices, int _iNumHSlices, int _iStartVSlice, int _iEndVSlice, float _fUTiling, float _fVTiling);
 
@@ -47,9 +47,9 @@ class CSkyDome : public CGSceneLeaf
 
         float fRot;
 
-        CVect3 Axis;
+        CGVect3 Axis;
 
-        CVect3 Pos;
+        CGVect3 Pos;
 
         bool FogAffected;
 

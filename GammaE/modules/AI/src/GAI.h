@@ -11,10 +11,10 @@
 #ifndef GAIH
 #define GAIH
 // ----------------------------------------------------------------------------
-#include "CGMathFuncs.h"
-#include "CGMap.h"
-#include "CGCdxastar.h"
-#include "CGAStar.h"
+#include "CGAIMathFuncs.h"
+#include "CGAIMap.h"
+#include "CGAICdxastar.h"
+#include "CGAIAStar.h"
 // ----------------------------------------------------------------------------
 #endif
 // ----------------------------------------------------------------------------

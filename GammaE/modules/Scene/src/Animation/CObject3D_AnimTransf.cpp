@@ -28,8 +28,8 @@ CGSceneAnimTransf::~CGSceneAnimTransf()
     {
         CGVect3 Max,Min;
 
-        Max.V3(0,0,0);
-        Min.V3(0,0,0);
+        Max.Set(0,0,0);
+        Min.Set(0,0,0);
 
         BVol = CGraphBV_Manager::poCreate();
         BVol->Init(Max,Min);

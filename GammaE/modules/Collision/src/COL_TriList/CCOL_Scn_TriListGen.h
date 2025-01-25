@@ -25,9 +25,9 @@ class CCOL_Scn_TriListGen : public CCOL_TriListGen
 
         ~CCOL_Scn_TriListGen();
 
-        virtual int GetTriList(CCOL_TriList& _oTriList, CVect3& _oPos, float _fRadius);
+        virtual int GetTriList(CCOL_TriList& _oTriList, CGVect3& _oPos, float _fRadius);
 
-        virtual int GetTrisFromMesh(CCOL_TriList& _oTriList, CGMesh* _poMesh, int _iMat, CVect3& _oPos, float _fRadius);
+        virtual int GetTrisFromMesh(CCOL_TriList& _oTriList, CGMesh* _poMesh, int _iMat, CGVect3& _oPos, float _fRadius);
 
         // Additional Public Declarations
 

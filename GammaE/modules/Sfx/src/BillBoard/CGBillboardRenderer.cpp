@@ -59,7 +59,7 @@ void CGBillboardRenderer::Begin(CE3D_Shader* _poShader)
     m_uiCurList = m_oBBRL.iAdd(oNode);
 }
 // ----------------------------------------------------------------------------
-void CGBillboardRenderer::AddBillboards(CVect3* _poVX,CVect2* _poUV,CGColor* _poVC,uint _uiNumBillboards)
+void CGBillboardRenderer::AddBillboards(CGVect3* _poVX,CVect2* _poUV,CGColor* _poVC,uint _uiNumBillboards)
 {
     // / WARNING: Sanity checks here!!!
     for ( uint i = 0; i < _uiNumBillboards; i++ )
@@ -118,7 +118,7 @@ void CGBillboardRenderer::Render()
     m_oMeshes.Clear();
 
     // Build the meshes
-    CVect3* poVX = m_oGeoPool.m_poVX;
+    CGVect3* poVX = m_oGeoPool.m_poVX;
     CVect2* poUV = m_oGeoPool.m_poUV;
     CGColor* poVC = m_oGeoPool.m_poVC;
 

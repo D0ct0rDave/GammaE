@@ -29,7 +29,7 @@ class CShadowCaster : public CGSceneNode
 
         void Init(int _iRes);
 
-        void Setup(CVect3& _oLightPos, CGSceneNode* _poBlockerObj, CGMesh* * _poRecObjs, int _iNumRecObjs);
+        void Setup(CGVect3& _oLightPos, CGSceneNode* _poBlockerObj, CGMesh* * _poRecObjs, int _iNumRecObjs);
 
         virtual CGraphBV* poGetBV();
 
@@ -66,7 +66,7 @@ class CShadowCaster : public CGSceneNode
 
         CGSceneNode* poBlockerObj;
 
-        CVect3 oLPos;
+        CGVect3 oLPos;
 
         CGMesh* * poRecObjs;
 

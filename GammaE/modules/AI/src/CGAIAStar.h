@@ -11,18 +11,18 @@
 #ifndef CGAStarH
 #define CGAStarH
 // ----------------------------------------------------------------------------
-#include "CGCDXAStar.h"
+#include "CGAICDXAStar.h"
 // ----------------------------------------------------------------------------
 #ifndef NULL
     #define NULL 0
 #endif
 // ----------------------------------------------------------------------------
 
-class CGAStar
+class CGAIAStar
 {
     public:
 
-        CGAStar()
+        CGAIAStar()
         {
             pAStar = NULL;
             bAllow8Directions = true;
@@ -30,7 +30,7 @@ class CGAStar
             Height = 1;
         }
 
-        ~CGAStar()
+        ~CGAIAStar()
         {
             if ( pAStar != NULL )
             {
@@ -54,8 +54,8 @@ class CGAStar
         long lNodeGetY();
         void Allow8Directions(bool bAllowed);
 
-        CGMap map;
-        CGDXAStar* pAStar;
+        CGAIMap map;
+        CGAIDXAStar* pAStar;
         bool bAllow8Directions;
 };
 

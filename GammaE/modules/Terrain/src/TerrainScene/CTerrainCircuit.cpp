@@ -110,7 +110,7 @@ void CTerrainCircuit::Render ()
 void CTerrainCircuit::ComputeVISLODMatrix ()
 {
     int cI,cJ,cSect;
-    CVect3 SectorCenter;
+    CGVect3 SectorCenter;
     float fSectorDistance;
     CMatrix4x4 M;
 

@@ -51,7 +51,7 @@ void CGPathDefinitionFileWH::ProcessPathDefFile(const CGString& _sPathDefFilenam
             for ( uint i = 0; i < uiNumPoints; i++ )
             {
                 CGString sVar = sDef + ".Point" + CGString(i);
-                CVect3 oP;
+                CGVect3 oP;
 
                 oP.x = oCfg.fGetFloat(sVar + ".x",0.0f);
                 oP.y = oCfg.fGetFloat(sVar + ".y",0.0f);

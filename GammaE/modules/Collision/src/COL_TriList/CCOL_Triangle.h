@@ -25,9 +25,9 @@ class CCOL_Triangle
 
         // Data Members for Class Attributes
 
-        CVect3 oVXs[3];
+        CGVect3 oVXs[3];
 
-        CVect3 oVN;
+        CGVect3 oVN;
 
         int iMat;
 

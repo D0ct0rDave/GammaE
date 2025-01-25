@@ -25,6 +25,7 @@
 #define SOCK_CONNTYPE SOCK_DGRAM
 #define SOCK_PROTO    IPPROTO_UDP
 // ----------------------------------------------------------------------------
+#define OutputDebugStr
 // ----------------------------------------------------------------------------
 
 typedef struct TNETPacket

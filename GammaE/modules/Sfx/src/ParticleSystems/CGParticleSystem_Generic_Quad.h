@@ -16,10 +16,10 @@
 // -----------------------------------------------------------------------------
 typedef struct
 {
-    CVect3 Pos;
+    CGVect3 Pos;
 
-    CVect3 Speed;
-    CVect3 OldSpeed;
+    CGVect3 Speed;
+    CGVect3 OldSpeed;
 
     CVect4 Color;
 

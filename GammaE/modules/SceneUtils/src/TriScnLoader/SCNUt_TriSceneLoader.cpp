@@ -34,8 +34,8 @@ SCNUt_TriScene* SCNUt_TriSceneLoader::poLoad (char* _szFilename, SCNUt_MaterialT
     int iMat,iMatNum;
     int iTris,iTri;
 
-    CVect3 VXa,VXb,VXc;
-    CVect3 VNa,VNb,VNc;
+    CGVect3 VXa,VXb,VXc;
+    CGVect3 VNa,VNb,VNc;
     CVect4 VCa,VCb,VCc;
     CVect2 UVa,UVb,UVc;
 

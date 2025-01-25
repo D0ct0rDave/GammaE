@@ -27,27 +27,27 @@ class CGraphBV
 
         virtual void Transform(CMatrix4x4& M);
 
-        virtual void Compute(CVect3* VXs, int iNumVXs);
+        virtual void Compute(CGVect3* VXs, int iNumVXs);
 
         virtual float GetRange(int iAxis);
 
-        virtual CVect3 & GetCenter();
+        virtual CGVect3 & GetCenter();
 
         virtual int TestFrustum(CE3D_Frustum& _Frustum);
 
-        virtual void Init(CVect3 Max, CVect3 Min);
+        virtual void Init(CGVect3 Max, CGVect3 Min);
 
         virtual void Copy(CGraphBV* Src);
 
         eGraphBV_TypeID eGetTypeID();
 
-        virtual int TestInside(CVect3& _Pos);
+        virtual int TestInside(CGVect3& _Pos);
 
-        virtual CVect3 & GetExtents();
+        virtual CGVect3 & GetExtents();
 
-        virtual CVect3 & oGetMax();
+        virtual CGVect3 & oGetMax();
 
-        virtual CVect3 & oGetMin();
+        virtual CGVect3 & oGetMin();
 
         // Additional Public Declarations
 

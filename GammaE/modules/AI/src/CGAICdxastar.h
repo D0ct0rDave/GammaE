@@ -24,7 +24,7 @@
 #ifndef  CAI_CDXAStarH
 #define CAI_CDXAStarH
 
-#include "CGMap.h"
+#include "CGAIMap.h"
 
 #define SHIFT 0         // change this to reflect the the size.
                         // Ex. 64x64 tile equals 2^6. or a shift of 6
@@ -34,7 +34,7 @@
 // ////////////////////////////////////////////////////////////////////////////////
 // CDXAStar Class
 // ////////////////////////////////////////////////////////////////////////////////
-class CGDXAStar
+class CGAIDXAStar
 {
     struct NODE                    // node structure
     {long f, h;
@@ -54,9 +54,9 @@ class CGDXAStar
     public:
 
         // Modify only these 3 public member functions to support Your favorite Map
-        CGDXAStar(CGMap* pMap, int forbiddenTiles);
-        ~CGDXAStar();
-        void InitAstarTileMap(CGMap* pMap, int forbiddenTiles);
+        CGAIDXAStar(CGAIMap* pMap, int forbiddenTiles);
+        ~CGAIDXAStar();
+        void InitAstarTileMap(CGAIMap* pMap, int forbiddenTiles);
 
         // Must be called and be true
         // before getting the node entries. It frees the lists,

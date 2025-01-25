@@ -15,17 +15,17 @@
 class CGCoronaStd : public CGCorona
 {
     public:
-        virtual void SetPos(const CVect3& _oPos);
+        virtual void SetPos(const CGVect3& _oPos);
 
     public:
         float m_fTime;
-        CVect3 m_oPos;
+        CGVect3 m_oPos;
 
         float m_fSize;
         CGColor m_oColor;
 };
 // ----------------------------------------------------------------------------
-void CGCoronaStd::SetPos(const CVect3& _oPos)
+void CGCoronaStd::SetPos(const CGVect3& _oPos)
 {
     m_oPos = _oPos;
 }
@@ -73,15 +73,15 @@ void CGCoronaGenStd::UpdateInstance(CGCoronaInstance* _poInst,float _fDeltaT)
     CGRenderer::I()->GetCameraMatrix(&oCameraMatrix);
 
     // Generate the geometry for this corona
-    CVect3 oNewPos = poCorona->m_oPos;
+    CGVect3 oNewPos = poCorona->m_oPos;
     oCameraMatrix.TransformPoint(oNewPos);
 
-    CVect3 oX = CVect3::oX();
+    CGVect3 oX = CGVect3::oX();
     oX.Scale(poCorona->m_fSize);
-    CVect3 oY = CVect3::oY();
+    CGVect3 oY = CGVect3::oY();
     oY.Scale(poCorona->m_fSize);
 
-    CVect3 oVX[4];
+    CGVect3 oVX[4];
     CVect2 oUV[4];
     CGColor oVC[4];
 

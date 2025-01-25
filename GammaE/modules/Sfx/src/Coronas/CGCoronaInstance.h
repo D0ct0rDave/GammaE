@@ -22,7 +22,7 @@ class CGCoronaInstance : public CGSceneTransf
         CGCoronaInstance(CGCoronaGenerator* _poTG);
 
         // / Updates the corona with a new position
-        void SetPos(const CVect3& _oNewPos);
+        void SetPos(const CGVect3& _oNewPos);
 
         // / Updates the corona
         virtual void Render();

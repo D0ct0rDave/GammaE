@@ -149,8 +149,8 @@ CGMesh* SCNUt_Stripifier::poStripify (CGMesh* _poMesh, SCNUt_AdjTriList* _poATL)
     poResMesh = mNew CGMesh;
     poResMesh->Init(_poMesh->m_usNumVXs,iStripIdx - 2,E3D_MESH_TRISTRIPS,MESH_FIELD_ALL);
 
-    memcpy( poResMesh->m_poVX,_poMesh->m_poVX,_poMesh->m_usNumVXs * sizeof(CVect3) );
-    memcpy( poResMesh->m_poVN,_poMesh->m_poVN,_poMesh->m_usNumVXs * sizeof(CVect3) );
+    memcpy( poResMesh->m_poVX,_poMesh->m_poVX,_poMesh->m_usNumVXs * sizeof(CGVect3) );
+    memcpy( poResMesh->m_poVN,_poMesh->m_poVN,_poMesh->m_usNumVXs * sizeof(CGVect3) );
     memcpy( poResMesh->m_poVC,_poMesh->m_poVC,_poMesh->m_usNumVXs * sizeof(CVect4) );
     memcpy( poResMesh->m_poUV,_poMesh->m_poUV,_poMesh->m_usNumVXs * sizeof(CVect2) );
     memcpy( poResMesh->m_pusIdx,PMesh->m_pusIdx,iStripIdx * sizeof(short) );

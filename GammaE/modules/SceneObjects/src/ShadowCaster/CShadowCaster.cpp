@@ -66,7 +66,7 @@ void CShadowCaster::Init (int _iRes)
     poShader->PushInstruction(poTop);
 }
 
-void CShadowCaster::Setup (CVect3& _oLightPos, CGSceneNode* _poBlockerObj, CGMesh* * _poRecObjs, int _iNumRecObjs)
+void CShadowCaster::Setup (CGVect3& _oLightPos, CGSceneNode* _poBlockerObj, CGMesh* * _poRecObjs, int _iNumRecObjs)
 {
     oLPos.Assign(_oLightPos);
     poBlockerObj = _poBlockerObj;
@@ -105,7 +105,7 @@ void CShadowCaster::ComputeLightCamera ()
 
     /*
        // Compute camera viewing matrix
-       CVect3 oDir,oSide,oUp;
+       CGVect3 oDir,oSide,oUp;
 
        oDir.Assign(poBlockerObj->poGetBoundVol()->GetCenter());
        oDir.Sub   (oLPos);
@@ -144,7 +144,7 @@ void CShadowCaster::ComputeLightViewport (CE3D_Viewport& _oVpt)
 void CShadowCaster::ComputeLightProjection ()
 {
     CGraphBV_Box oBox;
-    CVect3* poPnt = oBox.Vol.m_oPoints;
+    CGVect3* poPnt = oBox.Vol.m_oPoints;
     oBox.Copy( poBlockerObj->poGetBV() );
 
     // Transform bounding volume points

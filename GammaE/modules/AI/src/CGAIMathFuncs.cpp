@@ -9,14 +9,14 @@
  */
 // ----------------------------------------------------------------------------
 // ////////////////////////////////////////////////////////////////////
-#include "CGMathFuncs.h"
+#include "CGAIMathFuncs.h"
+#include "GammaE_Math.h"
 #include <math.h>
-// #include <cmath>                    // for trigonometry functions
 // ----------------------------------------------------------------------------
 // ////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 // ////////////////////////////////////////////////////////////////////
-long CGMathFuncs::Angle2D(long x1, long y1, long x2, long y2)
+long CGAIMathFuncs::Angle2D(long x1, long y1, long x2, long y2)
 {
     double rc = 0.0;
     double rc2 = 0.0;
@@ -41,7 +41,7 @@ long CGMathFuncs::Angle2D(long x1, long y1, long x2, long y2)
 
     rc = (fy2 - fy1) / (fx2 - fx1);
 
-    rc2 = atan(rc);
+    rc2 = Math::fArcTan(rc);  // atan(rc);
 
     rc2 = rc2 * 180 / 3.141592654; // convert Rad to Degrees
 
@@ -71,13 +71,13 @@ long CGMathFuncs::Angle2D(long x1, long y1, long x2, long y2)
     return(lrc);
 }
 // ----------------------------------------------------------------------------
-long CGMathFuncs::AbsAngleDiff(long a1, long a2)
+long CGAIMathFuncs::AbsAngleDiff(long a1, long a2)
 {
     long d1 = 0;
     long d2 = 0;
 
-    a1 = abs(a1 % 360);
-    a2 = abs(a2 % 360);
+    a1 = Math::fAbs((float)(a1 % 360));
+    a2 = Math::fAbs((float)(a2 % 360));
 
     if ( a2 > a1 )
     {
@@ -102,17 +102,17 @@ long CGMathFuncs::AbsAngleDiff(long a1, long a2)
     }
 }
 // ----------------------------------------------------------------------------
-long CGMathFuncs::Distance2D(long x1, long y1, long x2, long y2)
+long CGAIMathFuncs::Distance2D(long x1, long y1, long x2, long y2)
 {
     long ld = 0;
 
     ld = ( (x2 - x1) * (x2 - x1) ) + ( (y2 - y1) * (y2 - y1) );
-    ld = (long) sqrt( (float)ld );
+    ld = (long)Math::fSqrt( (float)ld );
 
     return(ld);
 }
 // ----------------------------------------------------------------------------
-long CGMathFuncs::AngleAdd(long Angle, long lAdd)
+long CGAIMathFuncs::AngleAdd(long Angle, long lAdd)
 {
     long NewAngle = 0;
 
@@ -122,7 +122,7 @@ long CGMathFuncs::AngleAdd(long Angle, long lAdd)
     return(NewAngle);
 }
 // ----------------------------------------------------------------------------
-long CGMathFuncs::AngleDec(long Angle, long lAdd)
+long CGAIMathFuncs::AngleDec(long Angle, long lAdd)
 {
     long NewAngle = 0;
 
@@ -132,7 +132,7 @@ long CGMathFuncs::AngleDec(long Angle, long lAdd)
     return(NewAngle);
 }
 // ----------------------------------------------------------------------------
-long CGMathFuncs::GetRotatedX(long x, long y, long Angle)
+long CGAIMathFuncs::GetRotatedX(long x, long y, long Angle)
 {
     long rc = 0;
 
@@ -142,16 +142,16 @@ long CGMathFuncs::GetRotatedX(long x, long y, long Angle)
 
     a = Angle;
 
-    a = a * 3.14159265358979 / 180;
+    a = a * _PI_OVER_180_;
 
-    drc = (double) x * cos(a) - (double) y * sin(a);
+    drc = (double) x * Math::fCos(a) - (double) y * Math::fSin(a);
 
     rc = (long) drc;
 
     return(rc);
 }
 // ----------------------------------------------------------------------------
-long CGMathFuncs::GetRotatedY(long x, long y, long Angle)
+long CGAIMathFuncs::GetRotatedY(long x, long y, long Angle)
 {
     long rc = 0;
 
@@ -161,9 +161,9 @@ long CGMathFuncs::GetRotatedY(long x, long y, long Angle)
 
     a = Angle;
 
-    a = a * 3.14159265358979 / 180;
+    a = a * _PI_OVER_180_;
 
-    drc = (double) x * sin(a) + (double) y * cos(a);
+    drc = (double) x * Math::fSin(a) + (double) y * Math::fCos(a);
 
     rc = (long) drc;
 

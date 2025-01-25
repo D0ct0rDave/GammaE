@@ -19,25 +19,25 @@ class CCOL_ColState
     public:
 
         // / The initial position of the source entity at the start of the frame
-        static CVect3 SrcIPos;
+        static CGVect3 SrcIPos;
 
         // / The final position of the source entity at the end of the frame
-        static CVect3 SrcFPos;
+        static CGVect3 SrcFPos;
 
         // / The initial position of the destination entity at the start of the frame
-        static CVect3 DstIPos;
+        static CGVect3 DstIPos;
 
         // / The final position of the destination entity at the end of the frame
-        static CVect3 DstFPos;
+        static CGVect3 DstFPos;
 
         // / Speed of the source entity this frame
-        static CVect3 SrcSp;
+        static CGVect3 SrcSp;
 
         // / Speed of the destination entity this frame
-        static CVect3 DstSp;
+        static CGVect3 DstSp;
 
         // / Destination to Source relative speed
-        static CVect3 DSSp;
+        static CGVect3 DSSp;
 
         // / Delta Time this frame
         static float fDeltaT;

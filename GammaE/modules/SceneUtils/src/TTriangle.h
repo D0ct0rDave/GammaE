@@ -37,7 +37,7 @@ class TTriangle
         // Data Members for Class Attributes
 
         // // XYZ coordinates
-        CVect3 VXs[3];
+        CGVect3 VXs[3];
 
         // // UV coordinates
         CVect2 UVs[3];
@@ -46,7 +46,7 @@ class TTriangle
         CVect4 VCs[3];
 
         // // Vertex normals (if any)
-        CVect3 VNs[3];
+        CGVect3 VNs[3];
 
         int Material;
 

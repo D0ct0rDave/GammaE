@@ -32,12 +32,12 @@ void CSkyDome::SetRadius (float _fRadius)
     fRadius = _fRadius;
 }
 
-void CSkyDome::SetAxis (CVect3 _Axis)
+void CSkyDome::SetAxis (CGVect3 _Axis)
 {
     Axis.Assign(_Axis);
 }
 
-void CSkyDome::SetPosition (CVect3 _Pos)
+void CSkyDome::SetPosition (CGVect3 _Pos)
 {
     Pos.Assign(_Pos);
 }
@@ -95,11 +95,11 @@ void CSkyDome::CreateDome (bool _bFogAffected, int _iNumVSlices, int _iNumHSlice
             y2 = cs_t2 * sn_t3;
             z2 = sn_t2;
 
-            poMesh->m_poVX[iIdx].V3(x1,y1,z1);
+            poMesh->m_poVX[iIdx].Set(x1,y1,z1);
             poMesh->m_poUV[iIdx].V2(u * _fUTiling,v * _fVTiling);
             iIdx++;
 
-            poMesh->m_poVX[iIdx].V3(x2,y2,z2);
+            poMesh->m_poVX[iIdx].Set(x2,y2,z2);
             poMesh->m_poUV[iIdx].V2(u * _fUTiling,(v + fVStep) * _fVTiling);
 
             iIdx++;

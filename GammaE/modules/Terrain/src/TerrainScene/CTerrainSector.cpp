@@ -36,10 +36,10 @@ void CTerrainSector::Render ()
         // Get local camera
         CMatrix4x4 M;
         CVect4 Pos;
-        CVect3 CamPos;
+        CGVect3 CamPos;
         CGRenderer::I()->GetWorldMatrix(&M);
         Pos = M.GetColVector(3);
-        CamPos.V3(-Pos.x,-Pos.y,-Pos.z);
+        CamPos.Set(-Pos.x,-Pos.y,-Pos.z);
 
         CGRenderer::I()->DisableDefferredMode();
 
@@ -75,7 +75,7 @@ CGraphBV* CTerrainSector::poGetBV ()
     return (m_poBV);
 }
 
-void CTerrainSector::SetMaxsMins (CVect3& _Maxs, CVect3& _Mins)
+void CTerrainSector::SetMaxsMins (CGVect3& _Maxs, CGVect3& _Mins)
 {
     Maxs.Assign(_Maxs);
     Mins.Assign(_Mins);

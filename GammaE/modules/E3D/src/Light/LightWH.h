@@ -24,7 +24,7 @@ class CLightWareHouse
         void RemoveLight(CLight* Light);
         void Invalidate();
         CLight* GetLight(unsigned int LightID);
-        TFColor ComputeLighting(CVect3 &Vertex,CVect3 &Normal);
+        TFColor ComputeLighting(CGVect3 &Vertex,CGVect3 &Normal);
     private:
         unsigned int FindFreeLightEntry();
         unsigned int FindLight(CLight* Light);

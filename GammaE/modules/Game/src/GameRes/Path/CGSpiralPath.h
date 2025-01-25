@@ -18,14 +18,14 @@
 
 typedef struct TSpiralPathParams
 {
-    CVect3 m_oInitialPos;
-    CVect3 m_oSpeed;
+    CGVect3 m_oInitialPos;
+    CGVect3 m_oSpeed;
 
-    CVect3 m_oInitialRadius;
-    CVect3 m_oRadiusSpeed;
+    CGVect3 m_oInitialRadius;
+    CGVect3 m_oRadiusSpeed;
 
-    CVect3 m_oInitialPhase;
-    CVect3 m_oAngularSpeed;
+    CGVect3 m_oInitialPhase;
+    CGVect3 m_oAngularSpeed;
 
     float m_fPathTime;
 
@@ -45,7 +45,7 @@ class CGSpiralPath : public CGPath
         }
 
         // / Retrieves the position of the path for a given factor between  (0..1)
-        virtual const CVect3& oPos(float _fFact);
+        virtual const CGVect3& oPos(float _fFact);
 
         // / Retrieves the total path time
         virtual float fTime()

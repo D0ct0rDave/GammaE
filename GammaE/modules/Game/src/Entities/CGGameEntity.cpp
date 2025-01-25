@@ -84,7 +84,7 @@ void CGGameEntity::OnExitState(TEntityState _eState)
 {
 }
 // -----------------------------------------------------------------------------
-void CGGameEntity::UpdatePos(const CVect3& _oNewPos)
+void CGGameEntity::UpdatePos(const CGVect3& _oNewPos)
 {
     if ( m_poGraph )
     {

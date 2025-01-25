@@ -25,7 +25,7 @@ class CTexProjector : public CGSceneLeaf
 
         void Setup(CGMesh* _oSrCGMesh, CE3D_Shader* _poShader, CMatrix4x4& _oPrjMatrix);
 
-        void Setup(CGMesh* _oSrCGMesh, CE3D_Shader* _poShader, CVect3& _oPos, CVect3& _oDir, float _fXSize, float _fYSize);
+        void Setup(CGMesh* _oSrCGMesh, CE3D_Shader* _poShader, CGVect3& _oPos, CGVect3& _oDir, float _fXSize, float _fYSize);
 
         // Additional Public Declarations
 

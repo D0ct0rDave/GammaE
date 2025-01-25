@@ -23,11 +23,11 @@ class CCOL_ST_Point
 
         ~CCOL_ST_Point();
 
-        static int iTestSphere(const CVect3& _oSPoint, const CVect3& _oDCenter, float _fDRadius);
+        static int iTestSphere(const CGVect3& _oSPoint, const CGVect3& _oDCenter, float _fDRadius);
 
-        static int iTestBox(const CVect3& _oSPoint, const CVect3& _oDMaxs, const CVect3& _oDMins);
+        static int iTestBox(const CGVect3& _oSPoint, const CGVect3& _oDMaxs, const CGVect3& _oDMins);
 
-        static int iTestPoint(const CVect3& _oSPoint, const CVect3& _oDPoint);
+        static int iTestPoint(const CGVect3& _oSPoint, const CGVect3& _oDPoint);
 
         // Additional Public Declarations
 

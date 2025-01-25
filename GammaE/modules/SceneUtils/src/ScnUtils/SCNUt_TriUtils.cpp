@@ -89,7 +89,7 @@ void SCNUt_TriUtils::ChangeWinding (SCNUt_Triangle& _oTri)
     _oTri.VertexSide[2] = AuxTri.VertexSide[1];
 }
 
-void SCNUt_TriUtils::GetQ2UVCoords (CVect3& _oPnt, CVect3& _oXAxis, CVect3& _oYAxis, float _fUOfs, float _fVOfs, float _fUScl, float _fVScl, float* _pfU, float* _pfV)
+void SCNUt_TriUtils::GetQ2UVCoords (CGVect3& _oPnt, CGVect3& _oXAxis, CGVect3& _oYAxis, float _fUOfs, float _fVOfs, float _fUScl, float _fVScl, float* _pfU, float* _pfV)
 {
     // ----------------------------------------------------------
     *_pfU = (_oPnt.x * _oXAxis.x +

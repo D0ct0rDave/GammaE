@@ -18,11 +18,11 @@
 
 typedef struct
 {
-    CVect3 Pos;
-    CVect3 OldPos;
+    CGVect3 Pos;
+    CGVect3 OldPos;
 
-    CVect3 Speed;
-    CVect3 OldSpeed;
+    CGVect3 Speed;
+    CGVect3 OldSpeed;
 
     CGColor Color;
 

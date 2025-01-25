@@ -249,7 +249,7 @@ CGSceneNode* CLoaderBSP2::poGenerateNode (bsp_node* _pNode)
         CGVect3 oPNormal;
 
         bsp_plane* pPlane = &pPlanes[ _pNode->plane ];
-        oPNormal.V3(pPlane->normal.x,
+        oPNormal.Set(pPlane->normal.x,
                     pPlane->normal.y,
                     pPlane->normal.z);
         oOrigin.Assign(oPNormal);
@@ -409,13 +409,13 @@ void CLoaderBSP2::AddFace (bsp_face* pFace, SCNUt_TriSceneAccumulator* _pTScn)
         i2 = iVXs[iEdge   ];
 
         #ifdef _EVERSE_WINDING_
-        pTri->VXs[2].V3(pVXs[i0].x,pVXs[i0].y,pVXs[i0].z);
-        pTri->VXs[1].V3(pVXs[i1].x,pVXs[i1].y,pVXs[i1].z);
-        pTri->VXs[0].V3(pVXs[i2].x,pVXs[i2].y,pVXs[i2].z);
+        pTri->VXs[2].Set(pVXs[i0].x,pVXs[i0].y,pVXs[i0].z);
+        pTri->VXs[1].Set(pVXs[i1].x,pVXs[i1].y,pVXs[i1].z);
+        pTri->VXs[0].Set(pVXs[i2].x,pVXs[i2].y,pVXs[i2].z);
         #else
-        pTri->VXs[0].V3(pVXs[i0].x,pVXs[i0].y,pVXs[i0].z);
-        pTri->VXs[1].V3(pVXs[i1].x,pVXs[i1].y,pVXs[i1].z);
-        pTri->VXs[2].V3(pVXs[i2].x,pVXs[i2].y,pVXs[i2].z);
+        pTri->VXs[0].Set(pVXs[i0].x,pVXs[i0].y,pVXs[i0].z);
+        pTri->VXs[1].Set(pVXs[i1].x,pVXs[i1].y,pVXs[i1].z);
+        pTri->VXs[2].Set(pVXs[i2].x,pVXs[i2].y,pVXs[i2].z);
         #endif
 
         pTri->UVs[0].V2( COMPUTE_UCOORD(pTri->VXs[0],pETI),COMPUTE_VCOORD(pTri->VXs[0],pETI) );

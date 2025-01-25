@@ -12,9 +12,9 @@
 
 // CCOL_DT_Point
 #include "COL_Testers\COL_DynamicTest\CCOL_DT_Point.h"
-CVect3 SrcIP,SrcFP,SrcSp;
-CVect3 DstIP,DstFP,DstSp;
-CVect3 DSSpeed;
+CGVect3 SrcIP,SrcFP,SrcSp;
+CGVect3 DstIP,DstFP,DstSp;
+CGVect3 DSSpeed;
 
 inline void SaveStateVars()
 {
@@ -68,7 +68,7 @@ CCOL_DT_Point::~CCOL_DT_Point()
 {
 }
 
-float CCOL_DT_Point::fTestSphere (const CVect3& _oSPoint, const CVect3& _oDCenter, float _fDRadius)
+float CCOL_DT_Point::fTestSphere (const CGVect3& _oSPoint, const CGVect3& _oDCenter, float _fDRadius)
 {
     float fRes;
     SaveStateVars();
@@ -82,21 +82,21 @@ float CCOL_DT_Point::fTestSphere (const CVect3& _oSPoint, const CVect3& _oDCente
     return(fRes);
 }
 
-float CCOL_DT_Point::fTestBox (const CVect3& _oSPoint, const CVect3& _oDMaxs, const CVect3& _oDMins)
+float CCOL_DT_Point::fTestBox (const CGVect3& _oSPoint, const CGVect3& _oDMaxs, const CGVect3& _oDMins)
 {
     float fRes;
     SaveStateVars();
     SwapStateVars();
 
     // Setup vars
-    fRes = CCOL_DT_Box::fTestPoint( (CVect3 &)_oDMaxs,(CVect3 &)_oDMins,(CVect3 &)_oSPoint );
+    fRes = CCOL_DT_Box::fTestPoint( (CGVect3 &)_oDMaxs,(CGVect3 &)_oDMins,(CGVect3 &)_oSPoint );
 
     RestoreStateVars();
 
     return(fRes);
 }
 
-float CCOL_DT_Point::fTestPoint (const CVect3& _oSPoint, float _fDRadius, const CVect3& _oDCenter)
+float CCOL_DT_Point::fTestPoint (const CGVect3& _oSPoint, float _fDRadius, const CGVect3& _oDCenter)
 {
     return(-1.0f);
 }

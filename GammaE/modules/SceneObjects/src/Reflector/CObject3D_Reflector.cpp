@@ -95,12 +95,12 @@ void CGSceneReflector::Render ()
 void CGSceneReflector::SetupReflectionMatrix (CMatrix4x4 &_oMat)
 {
     CPlane Plane;
-    CVect3 Normal;
+    CGVect3 Normal;
     float D;
 
     Plane.GenerateFromPoints(Mirror->m_poVX[0],Mirror->m_poVX[1],Mirror->m_poVX[2]);
     Normal.Assign( Plane.Normal() );
-    // Normal.V3(0,0,1);
+    // Normal.Set(0,0,1);
     D = -1.0f * Plane.D();
 
     _oMat.Set(0,0,1.0f - 2.0f * Normal.x * Normal.x);

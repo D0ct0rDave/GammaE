@@ -12,7 +12,7 @@
 
 // CCOL_Scn_TriListGen
 #include "COL_TriList\CCOL_Scn_TriListGen.h"
-inline void TEST_Triangle(CVect3* _poVXs,int _iTri,int &_iTris,CGMesh* _poMesh,int _iMat, CCOL_TriList& _oTriList,CVect3 &_oPos,float _fSqrRadius)
+inline void TEST_Triangle(CGVect3* _poVXs,int _iTri,int &_iTris,CGMesh* _poMesh,int _iMat, CCOL_TriList& _oTriList,CGVect3 &_oPos,float _fSqrRadius)
 {
     CTriangle oTri;
     float fSqrDist;
@@ -44,7 +44,7 @@ CCOL_Scn_TriListGen::~CCOL_Scn_TriListGen()
 {
 }
 
-int CCOL_Scn_TriListGen::GetTriList (CCOL_TriList& _oTriList, CVect3& _oPos, float _fRadius)
+int CCOL_Scn_TriListGen::GetTriList (CCOL_TriList& _oTriList, CGVect3& _oPos, float _fRadius)
 {
     if ( !iNumMeshes ) return(0);
 
@@ -58,13 +58,13 @@ int CCOL_Scn_TriListGen::GetTriList (CCOL_TriList& _oTriList, CVect3& _oPos, flo
     return(iNumTris);
 }
 
-int CCOL_Scn_TriListGen::GetTrisFromMesh (CCOL_TriList& _oTriList, CGMesh* _poMesh, int _iMat, CVect3& _oPos, float _fRadius)
+int CCOL_Scn_TriListGen::GetTrisFromMesh (CCOL_TriList& _oTriList, CGMesh* _poMesh, int _iMat, CGVect3& _oPos, float _fRadius)
 {
     if ( !_oTriList.iFreeTris() ) return(0);
 
     int cTri;
-    CVect3 VXs[3];
-    CVect3* pVXs;
+    CGVect3 VXs[3];
+    CGVect3* pVXs;
     int iTris = 0;
     float fSqRadius = _SQ_( _fRadius );
 

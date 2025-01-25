@@ -15,7 +15,7 @@
 
 // SCNUt_CoplanarRemover
 #include "ScnCoplanarRemover\SCNUt_CoplanarRemover.h"
-int ClassifyTriangles(CVect3* _poSrcVXs,CVect3* _poDstVXs)
+int ClassifyTriangles(CGVect3* _poSrcVXs,CGVect3* _poDstVXs)
 {
     int iInside = 0;
 
@@ -27,7 +27,7 @@ int ClassifyTriangles(CVect3* _poSrcVXs,CVect3* _poDstVXs)
     oDstTri.Init(_poDstVXs);
     oDstTri.ComputeAll();
 
-    CVect3 oDiff;
+    CGVect3 oDiff;
     oDiff.Assign(oDstTri.Normal);
     oDiff.Sub   (oSrcTri.Normal);
     if ( oDiff.fModule() < 0.1f ) return(0);

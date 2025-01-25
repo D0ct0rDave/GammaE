@@ -24,13 +24,13 @@
 //
 // $Revision: 1.1 $
 // ////////////////////////////////////////////////////////////////////////////////
-#include "CGCDXAStar.h"
+#include "CGAICDXAStar.h"
 #include <stdlib.h>
 // ----------------------------------------------------------------------------
 // //////////////////////////////////////////////////////////////////////////////
 // Constructor Destructor                           //
 // //////////////////////////////////////////////////////////////////////////////
-CGDXAStar::CGDXAStar(CGMap* pMap, int forbiddenTiles)
+CGAIDXAStar::CGAIDXAStar(CGAIMap* pMap, int forbiddenTiles)
 {
     Stack = ( STACK* )calloc( 1,sizeof(STACK) );
     is8Directions = true;
@@ -46,7 +46,7 @@ CGDXAStar::CGDXAStar(CGMap* pMap, int forbiddenTiles)
 }
 
 // //////////////////////////////////////////////////////////////////////////////
-CGDXAStar::~CGDXAStar()
+CGAIDXAStar::~CGAIDXAStar()
 {
     FreeNodes();
     free(Stack);
@@ -57,7 +57,7 @@ CGDXAStar::~CGDXAStar()
 // //////////////////////////////////////////////////////////////////////////////
 // Public Member Functions                        //
 // //////////////////////////////////////////////////////////////////////////////
-void CGDXAStar::InitAstarTileMap(CGMap* pMap, int forbiddenTiles)
+void CGAIDXAStar::InitAstarTileMap(CGAIMap* pMap, int forbiddenTiles)
 {
     COLS = pMap->m_Width + 2;                    // note the cols should be 2 more than the map size
     ROWS = pMap->m_Height + 2;                    // because if we have a point at the extremes and we check
@@ -92,7 +92,7 @@ void CGDXAStar::InitAstarTileMap(CGMap* pMap, int forbiddenTiles)
 
 // //////////////////////////////////////////////////////////////////////////////
 
-bool CGDXAStar::NewPath(int sx,int sy, int dx,int dy)
+bool CGAIDXAStar::NewPath(int sx,int sy, int dx,int dy)
 {
     if ( FreeTile(dx,dy) && FreeTile(sx,sy) && ( TileNum(sx,sy) != TileNum(dx,dy) ) )
     {
@@ -107,7 +107,7 @@ bool CGDXAStar::NewPath(int sx,int sy, int dx,int dy)
 
 // //////////////////////////////////////////////////////////////////////////////
 
-bool CGDXAStar::ReachedGoal(void)                    // check it's return value before getting
+bool CGAIDXAStar::ReachedGoal(void)                    // check it's return value before getting
 {                                      // the node entries
     if ( !isPath ) return(true);                    // this looks a little bit strange
     if ( &PATH == NULL ) return(true);
@@ -119,7 +119,7 @@ bool CGDXAStar::ReachedGoal(void)                    // check it's return value 
 
 // //////////////////////////////////////////////////////////////////////////////
 
-int CGDXAStar::TileNum(int x, int y)
+int CGAIDXAStar::TileNum(int x, int y)
 {
     return( (y) * COLS + (x) + COLS + 1 );                        // The reason I add COLS+1 to
     // tile number is because I want the tile number to start at the 2nd
@@ -131,7 +131,7 @@ int CGDXAStar::TileNum(int x, int y)
 
 // //////////////////////////////////////////////////////////////////////////////
 
-int CGDXAStar::FreeTile(int x, int y)                    // returns 1 if tile is free(nothing on it).
+int CGAIDXAStar::FreeTile(int x, int y)                    // returns 1 if tile is free(nothing on it).
 {                    // Note: if TileMap[equation]==0 it means free so just !(not) it.
     long i = 0;
     long j = 0;
@@ -168,7 +168,7 @@ int CGDXAStar::FreeTile(int x, int y)                    // returns 1 if tile is
 // Private Member Functions                        //
 // //////////////////////////////////////////////////////////////////////////////
 
-void CGDXAStar::FreeNodes(void)
+void CGAIDXAStar::FreeNodes(void)
 {
     NODE* Node, * OldNode;
 
@@ -197,7 +197,7 @@ void CGDXAStar::FreeNodes(void)
 
 // //////////////////////////////////////////////////////////////////////////////
 
-void CGDXAStar::BoundaryTiles(void)                    // This function places 1 around the boundary
+void CGAIDXAStar::BoundaryTiles(void)                    // This function places 1 around the boundary
 {                             // so that we don't go there. Also we don't
     int c, index = 0;                    // have to treat the boundaries as a special case
 
@@ -223,7 +223,7 @@ void CGDXAStar::BoundaryTiles(void)                    // This function places 1
 // A* Algorithm                                 //
 // //////////////////////////////////////////////////////////////////////////////
 
-void CGDXAStar::FindPath(int sx, int sy, int dx, int dy)
+void CGAIDXAStar::FindPath(int sx, int sy, int dx, int dy)
 {
     NODE* Node, * BestNode;
     int TileNumDest;
@@ -258,8 +258,8 @@ void CGDXAStar::FindPath(int sx, int sy, int dx, int dy)
 
 // //////////////////////////////////////////////////////////////////////////////
 
-CGDXAStar::NODE
-* CGDXAStar::ReturnBestNode(void)
+CGAIDXAStar::NODE
+* CGAIDXAStar::ReturnBestNode(void)
 {
     NODE* tmp;
 
@@ -288,7 +288,7 @@ CGDXAStar::NODE
 
 // //////////////////////////////////////////////////////////////////////////////
 
-void CGDXAStar::GenerateSuccessors(NODE* BestNode, int dx, int dy)
+void CGAIDXAStar::GenerateSuccessors(NODE* BestNode, int dx, int dy)
 {
     int x, y;
     // If diagonal movements are not allowed, remove the "if" cases for diagonal pathfinding
@@ -396,7 +396,7 @@ void CGDXAStar::GenerateSuccessors(NODE* BestNode, int dx, int dy)
 
 // //////////////////////////////////////////////////////////////////////////////
 
-void CGDXAStar::GenerateSucc(NODE* BestNode,int x, int y, int dx, int dy)
+void CGAIDXAStar::GenerateSucc(NODE* BestNode,int x, int y, int dx, int dy)
 {
     int g, TileNumS, c = 0;
     NODE* Old, * Successor;
@@ -456,8 +456,8 @@ void CGDXAStar::GenerateSucc(NODE* BestNode,int x, int y, int dx, int dy)
 
 // //////////////////////////////////////////////////////////////////////////////
 
-CGDXAStar::NODE
-* CGDXAStar::CheckOPEN(int tilenum)
+CGAIDXAStar::NODE
+* CGAIDXAStar::CheckOPEN(int tilenum)
 {
     NODE* tmp;
 
@@ -474,8 +474,8 @@ CGDXAStar::NODE
 
 // //////////////////////////////////////////////////////////////////////////////
 
-CGDXAStar::NODE
-* CGDXAStar::CheckCLOSED(int tilenum)
+CGAIDXAStar::NODE
+* CGAIDXAStar::CheckCLOSED(int tilenum)
 {
     NODE* tmp;
 
@@ -493,7 +493,7 @@ CGDXAStar::NODE
 
 // //////////////////////////////////////////////////////////////////////////////
 
-void CGDXAStar::Insert(NODE* Successor)
+void CGAIDXAStar::Insert(NODE* Successor)
 {
     NODE* tmp1, * tmp2;
     int f;
@@ -521,7 +521,7 @@ void CGDXAStar::Insert(NODE* Successor)
 
 // //////////////////////////////////////////////////////////////////////////////
 
-void CGDXAStar::PropagateDown(NODE* Old)
+void CGAIDXAStar::PropagateDown(NODE* Old)
 {
     int c, g;
     NODE* Child, * Father;
@@ -562,7 +562,7 @@ void CGDXAStar::PropagateDown(NODE* Old)
 // STACK FUNCTIONS                               //
 // //////////////////////////////////////////////////////////////////////////////
 
-void CGDXAStar::Push(NODE* Node)
+void CGAIDXAStar::Push(NODE* Node)
 {
     STACK* tmp;
 
@@ -574,8 +574,8 @@ void CGDXAStar::Push(NODE* Node)
 
 // //////////////////////////////////////////////////////////////////////////////
 
-CGDXAStar::NODE
-* CGDXAStar::Pop(void)
+CGAIDXAStar::NODE
+* CGAIDXAStar::Pop(void)
 {
     NODE* tmp;
     STACK* tmpSTK;

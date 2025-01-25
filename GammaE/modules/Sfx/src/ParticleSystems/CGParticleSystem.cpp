@@ -32,14 +32,14 @@
 #include "CGParticleSystem.h"
 // ## begin module%3B72F78101D1.additionalDeclarations preserve=yes
 
-CVect3* pCurrentVXs = NULL;
+CGVect3* pCurrentVXs = NULL;
 
 int SortVXs( const void* a, const void* b)
 {
-    static CVect3* pVXa,* pVXb;
+    static CGVect3* pVXa,* pVXb;
 
-    pVXa = (CVect3*)pCurrentVXs + *( (unsigned short*)a );
-    pVXb = (CVect3*)pCurrentVXs + *( (unsigned short*)b );
+    pVXa = (CGVect3*)pCurrentVXs + *( (unsigned short*)a );
+    pVXb = (CGVect3*)pCurrentVXs + *( (unsigned short*)b );
 
     if ( pVXa->z < pVXb->z ) return(-1);
     else if ( pVXa->z > pVXb->z ) return(1);
@@ -103,10 +103,10 @@ void CGParticleSystem::InitPS (int _iMaxParticles, bool _bZOrder, bool _bDisable
         poMesh->UVs[cPart * 4 + 2].V2(1.0f,1.0f);
         poMesh->UVs[cPart * 4 + 3].V2(1.0f,0.0f);
 
-        poMesh->VXs[cPart * 4 + 0].V3(0.0f,0.0f,10000.0f);
-        poMesh->VXs[cPart * 4 + 1].V3(0.0f,0.0f,10000.0f);
-        poMesh->VXs[cPart * 4 + 2].V3(0.0f,0.0f,10000.0f);
-        poMesh->VXs[cPart * 4 + 3].V3(0.0f,0.0f,10000.0f);
+        poMesh->VXs[cPart * 4 + 0].Set(0.0f,0.0f,10000.0f);
+        poMesh->VXs[cPart * 4 + 1].Set(0.0f,0.0f,10000.0f);
+        poMesh->VXs[cPart * 4 + 2].Set(0.0f,0.0f,10000.0f);
+        poMesh->VXs[cPart * 4 + 3].Set(0.0f,0.0f,10000.0f);
     }
 
     // -----------------------------------------------------

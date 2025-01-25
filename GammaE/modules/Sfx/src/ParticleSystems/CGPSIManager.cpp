@@ -79,7 +79,7 @@ CGParticleSystemInstance* CGPSIManager::poGet(const CGString& _sType)
     return( poGet(iIdx) );
 }
 // ----------------------------------------------------------------------------
-CGSceneTransf* CGPSIManager::poGet(const CGString& _sType,float _fEnergy,const CVect3& _oPos)
+CGSceneTransf* CGPSIManager::poGet(const CGString& _sType,float _fEnergy,const CGVect3& _oPos)
 {
     int iIdx = m_oPool.iGetIdx(_sType);
     return( poGet(iIdx,_fEnergy,_oPos) );
@@ -98,7 +98,7 @@ CGParticleSystemInstance* CGPSIManager::poGet(uint _uiType)
     return(poInst->m_poPSI);
 }
 // ----------------------------------------------------------------------------
-CGSceneTransf* CGPSIManager::poGet(uint _uiType,float _fEnergy,const CVect3& _oPos)
+CGSceneTransf* CGPSIManager::poGet(uint _uiType,float _fEnergy,const CGVect3& _oPos)
 {
     TPSIData* poInst = poGetFreeInstance(_uiType);
     if ( poInst == NULL ) return(NULL);

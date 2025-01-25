@@ -14,7 +14,7 @@
 #ifndef CGMathFuncsH
 #define CGMathFuncsH
 // ----------------------------------------------------------------------------
-class CGMathFuncs
+class CGAIMathFuncs
 {
     public:
 

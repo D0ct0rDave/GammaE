@@ -28,9 +28,9 @@ class CCOL_TriList
 
         int iFreeTris();
 
-        int iAddTri(CVect3* _poVX, CVect3& _oVN, int _iMat, float _fFrameFact);
+        int iAddTri(CGVect3* _poVX, CGVect3& _oVN, int _iMat, float _fFrameFact);
 
-        int iAddTri(CVect3& _oVX0, CVect3& _oVX1, CVect3& _oVX2, CVect3& _oVN, int _iMat, float _fFrameFact);
+        int iAddTri(CGVect3& _oVX0, CGVect3& _oVX1, CGVect3& _oVX2, CGVect3& _oVN, int _iMat, float _fFrameFact);
 
         // Data Members for Class Attributes
 
@@ -38,9 +38,9 @@ class CCOL_TriList
 
         int iNumTris;
 
-        CVect3* poVXs;
+        CGVect3* poVXs;
 
-        CVect3* poVNs;
+        CGVect3* poVNs;
 
         int* piMats;
 
@@ -69,12 +69,12 @@ inline int CCOL_TriList::iFreeTris ()
     return(iMaxTris - iNumTris);
 }
 
-inline int CCOL_TriList::iAddTri (CVect3* _poVX, CVect3& _oVN, int _iMat, float _fFrameFact)
+inline int CCOL_TriList::iAddTri (CGVect3* _poVX, CGVect3& _oVN, int _iMat, float _fFrameFact)
 {
     return ( iAddTri (_poVX[0],_poVX[1],_poVX[2],_oVN,_iMat,_fFrameFact) );
 }
 
-inline int CCOL_TriList::iAddTri (CVect3& _oVX0, CVect3& _oVX1, CVect3& _oVX2, CVect3& _oVN, int _iMat, float _fFrameFact)
+inline int CCOL_TriList::iAddTri (CGVect3& _oVX0, CGVect3& _oVX1, CGVect3& _oVX2, CGVect3& _oVN, int _iMat, float _fFrameFact)
 {
     assert (poVXs && "NULL triangle vertex array");
 

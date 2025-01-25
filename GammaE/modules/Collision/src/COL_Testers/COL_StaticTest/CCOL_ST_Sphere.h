@@ -25,11 +25,11 @@ class CCOL_ST_Sphere
 
         ~CCOL_ST_Sphere();
 
-        static int iTestSphere(CVect3& _oSCenter, float _fSRadius, CVect3& _oDCenter, float _fDRadius);
+        static int iTestSphere(CGVect3& _oSCenter, float _fSRadius, CGVect3& _oDCenter, float _fDRadius);
 
-        static int iTestBox(CVect3& _oSCenter, float _fSRadius, CVect3& _oDMaxs, CVect3& _oDMins);
+        static int iTestBox(CGVect3& _oSCenter, float _fSRadius, CGVect3& _oDMaxs, CGVect3& _oDMins);
 
-        static int iTestPoint(CVect3& _oSCenter, float _fSRadius, CVect3& _oDPoint);
+        static int iTestPoint(CGVect3& _oSCenter, float _fSRadius, CGVect3& _oDPoint);
 
         // Additional Public Declarations
 

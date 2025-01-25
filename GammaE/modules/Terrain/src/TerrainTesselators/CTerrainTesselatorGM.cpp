@@ -114,7 +114,7 @@ void CTerrainTesselatorGM::GenerateVertexData ()
     unsigned int cI,cJ;
     float fSpaceXCur,fSpaceYCur;
     float* pH = HData;
-    CVect3* pVX = VXs;
+    CGVect3* pVX = VXs;
     float fSpaceStep;
 
     // Spatial distance betweem two adjacent vertexs
@@ -137,9 +137,9 @@ void CTerrainTesselatorGM::GenerateVertexData ()
         fSpaceYCur += fSpaceStep;
     }
 
-    CVect3 Maxs,Mins;
-    Mins.V3( 0,0,HF->GetMinHeight() );
-    Maxs.V3( fSpaceStep * (uiSectorRes & 0xfffffffe),fSpaceStep * (uiSectorRes & 0xfffffffe),HF->GetMaxHeight() );
+    CGVect3 Maxs,Mins;
+    Mins.Set( 0,0,HF->GetMinHeight() );
+    Maxs.Set( fSpaceStep * (uiSectorRes & 0xfffffffe),fSpaceStep * (uiSectorRes & 0xfffffffe),HF->GetMaxHeight() );
     Mesh->poGetBoundVol()->Init(Maxs,Mins);
 }
 
@@ -551,7 +551,7 @@ void CTerrainTesselatorGM::GenerateHeightData_Vertical (int iX, int iRes, float 
 void CTerrainTesselatorGM::SetupTileMaterial ()
 {
     float fDist;
-    CVect3 Center;
+    CGVect3 Center;
     CTile       &Tile = (CTile &)TM->GetValue(0,0);
     float fSectorSize = (HF->GetResolution() & 0xfffffffe) * fXYScale;
 
@@ -561,9 +561,9 @@ void CTerrainTesselatorGM::SetupTileMaterial ()
     // Pos = (Y*Res)+ X
     // Pos = Res * (Res/2) + Res/2
     // Pos = (Res + 1)*Res / 2
-    Center.V3(fSectorSize * 0.5f,fSectorSize * 0.5f,HData[ (uiSectorRes + 1) * (uiSectorRes >> 1) ]);
+    Center.Set(fSectorSize * 0.5f,fSectorSize * 0.5f,HData[ (uiSectorRes + 1) * (uiSectorRes >> 1) ]);
 
-    CVect3 oDiff;
+    CGVect3 oDiff;
     oDiff.Assign(Center);
     oDiff.Sub(Cam);
     if ( oDiff.x > oDiff.y ) fDist = oDiff.y;

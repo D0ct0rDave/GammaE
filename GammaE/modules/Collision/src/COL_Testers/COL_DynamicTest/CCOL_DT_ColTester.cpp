@@ -28,7 +28,7 @@ float CCOL_DT_ColTester::fTestCollision (CGraphBV* SrcObj, CGraphBV* DstObj)
 {
     CBoundingSphere* SS,* DS;
     CBoundingBox* SB,* DB;
-    CVect3* SP,* DP;
+    CGVect3* SP,* DP;
     int iFlags;
 
     float fRes;

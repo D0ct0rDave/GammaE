@@ -12,16 +12,16 @@
 // -----------------------------------------------------------------------------
 void NormalizeMeshRect(CGMesh* _poMesh)
 {
-    CVect3 oTrans(1,1,0);
+    CGVect3 oTrans(1,1,0);
     MeshTransform_Translate(*_poMesh,oTrans);
 
-    CVect3 oScale(0.5f,0.5f,1.0f);
+    CGVect3 oScale(0.5f,0.5f,1.0f);
     MeshTransform_Scale    (*_poMesh,oScale);
 }
 // -----------------------------------------------------------------------------
 void TranslateMesh(CGMesh* _poMesh,int _iRow,int _iCol)
 {
-    CVect3 oTrans(_iCol,_iRow,0.0f);
+    CGVect3 oTrans(_iCol,_iRow,0.0f);
     MeshTransform_Translate(*_poMesh,oTrans);
 }
 // -----------------------------------------------------------------------------

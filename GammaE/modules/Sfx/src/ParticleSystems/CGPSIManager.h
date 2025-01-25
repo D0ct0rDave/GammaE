@@ -36,10 +36,10 @@ DECLARE_SINGLETON(CGPSIManager)
         CGParticleSystemInstance* poGet(uint _uiType);
 
         // / Self handled particle systems
-        CGSceneTransf* poGet(const CGString& _sType,float _fEnergy,const CVect3& _oPos);
+        CGSceneTransf* poGet(const CGString& _sType,float _fEnergy,const CGVect3& _oPos);
 
         // / Self handled particle systems
-        CGSceneTransf* poGet(uint _uiType,float _fEnergy,const CVect3& _oPos);
+        CGSceneTransf* poGet(uint _uiType,float _fEnergy,const CGVect3& _oPos);
 
         // / Releases the particle system instance
         void Release(CGParticleSystemInstance * _poPSI);

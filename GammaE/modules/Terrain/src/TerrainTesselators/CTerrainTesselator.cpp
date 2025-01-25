@@ -39,7 +39,7 @@ void CTerrainTesselator::SetData (CHFSector* _HF, CLMSector* _LM, CTMSector* _TM
     fXYScale = _fXYScale;
 }
 
-void CTerrainTesselator::SetCameraPos (CVect3 _Pos)
+void CTerrainTesselator::SetCameraPos (CGVect3 _Pos)
 {
     Cam = _Pos;
 }

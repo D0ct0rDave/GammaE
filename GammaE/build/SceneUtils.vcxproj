@@ -106,11 +106,11 @@
     <ClInclude Include="..\modules\SceneUtils\src\Scn2TriScnBuilder\SCNUt_Scn2TriScnBuilder.h" />
     <ClInclude Include="..\modules\SceneUtils\src\ScnBBoxGen\SCNUt_ComputeBoundingBox.h" />
     <ClInclude Include="..\modules\SceneUtils\src\ScnCoplanarRemover\SCNUt_CoplanarRemover.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnMeshGen\SCNUt_MeshCompacter.h" />
     <ClInclude Include="..\modules\SceneUtils\src\ScnMeshGen\SCNUt_MeshGenerator.h" />
-    <ClInclude Include="..\modules\SceneUtils\src\ScnMeshGen\scnut_meshcompacter.h" />
     <ClInclude Include="..\modules\SceneUtils\src\ScnNormalGen\SCNUt_AnimMesh_NormalComputer.h" />
     <ClInclude Include="..\modules\SceneUtils\src\ScnPlanarMapper\SCNUt_PlanarMapper.h" />
-    <ClInclude Include="..\modules\SceneUtils\src\ScnShaderAssigner\SCNUt_ShaderAssigner.h" />
+    <ClInclude Include="..\modules\SceneUtils\src\ScnShaderAssigner\ScnUt_ShaderAssigner.h" />
     <ClInclude Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_AdjTri.h" />
     <ClInclude Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_AdjTriList.h" />
     <ClInclude Include="..\modules\SceneUtils\src\ScnStripifier\SCNUt_AdjTriListBuilder.h" />

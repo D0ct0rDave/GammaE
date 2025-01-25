@@ -17,7 +17,7 @@
 class CGCorona
 {
     public:
-        virtual void SetPos(const CVect3& _oPos) = 0;
+        virtual void SetPos(const CGVect3& _oPos) = 0;
 };
 // ----------------------------------------------------------------------------
 #endif

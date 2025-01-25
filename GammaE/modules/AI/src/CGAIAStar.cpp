@@ -8,18 +8,18 @@
  *  \par GammaE License
  */
 
-#include "CGAStar.h"
+#include "CGAIAStar.h"
 // ----------------------------------------------------------------------------
 
 // ///////////////////////////////////////////////////////////////////////////
 // CAStar
 
-void CGAStar::Allow8Directions(bool bAllowed)
+void CGAIAStar::Allow8Directions(bool bAllowed)
 {
     bAllow8Directions = bAllowed;
 }
 
-long CGAStar::lNodeGetY()
+long CGAIAStar::lNodeGetY()
 {
     if ( map.lTiles == NULL ) return(-1);
     if ( pAStar == NULL ) return(-1);
@@ -27,7 +27,7 @@ long CGAStar::lNodeGetY()
     return ( pAStar->NodeGetY() );
 }
 
-long CGAStar::lNodeGetX()
+long CGAIAStar::lNodeGetX()
 {
     if ( map.lTiles == NULL ) return(-1);
     if ( pAStar == NULL ) return(-1);
@@ -35,7 +35,7 @@ long CGAStar::lNodeGetX()
     return ( pAStar->NodeGetX() );
 }
 
-void CGAStar::NextPathNode()
+void CGAIAStar::NextPathNode()
 {
     if ( map.lTiles == NULL ) return;
     if ( pAStar == NULL ) return;
@@ -43,7 +43,7 @@ void CGAStar::NextPathNode()
     pAStar->PathNextNode();
 }
 
-bool CGAStar::bGoalReached()
+bool CGAIAStar::bGoalReached()
 {
     if ( map.lTiles == NULL ) return(false);
     if ( pAStar == NULL ) return(false);
@@ -51,13 +51,13 @@ bool CGAStar::bGoalReached()
     return ( pAStar->ReachedGoal() );
 }
 
-bool CGAStar::bFindAPath(long x1, long y1, long x2, long y2)
+bool CGAIAStar::bFindAPath(long x1, long y1, long x2, long y2)
 {
     if ( map.lTiles == NULL ) return(false);
 
     if ( pAStar != NULL ) delete pAStar;
     pAStar = NULL;
-    pAStar = new CGDXAStar(&map, 1);
+    pAStar = new CGAIDXAStar(&map, 1);
     if ( pAStar == NULL ) return(false);
 
     pAStar->is8Directions = this->bAllow8Directions;
@@ -75,27 +75,27 @@ bool CGAStar::bFindAPath(long x1, long y1, long x2, long y2)
         return(true);
 }
 
-long CGAStar::lGetTile(long x, long y)
+long CGAIAStar::lGetTile(long x, long y)
 {
     return ( map.GetTile(x, y) );
 }
 
-void CGAStar::SetTile(long x, long y, long t)
+void CGAIAStar::SetTile(long x, long y, long t)
 {
     map.SetTile(x, y, t);
 }
 
-void CGAStar::NewMap(long width, long height)
+void CGAIAStar::NewMap(long width, long height)
 {
     map.NewMap(width, height);
 }
 
-void CGAStar::SetWidth(long lWidth)
+void CGAIAStar::SetWidth(long lWidth)
 {
     Width = lWidth;
 }
 
-void CGAStar::SetHeight(long lHeight)
+void CGAIAStar::SetHeight(long lHeight)
 {
     Height = lHeight;
 }

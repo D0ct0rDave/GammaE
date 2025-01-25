@@ -34,7 +34,7 @@ void CGParticleSystem_Generic_Stretch::InitParticle (int iPart)
     TParticle_Stretch* P = &pParts[iPart];
 
     P->Pos.V3   (0,0,0);
-    P->OldPos.V3(0,0,0);
+    P->OldPos.Set(0,0,0);
 
     P->OldSpeed.V3   ( MATH_fRand(),MATH_fRand(),MATH_fRand() );
     P->OldSpeed.Sub  (0.5f,0.5f,0.5f);
@@ -51,8 +51,8 @@ void CGParticleSystem_Generic_Stretch::InitParticle (int iPart)
 
 void CGParticleSystem_Generic_Stretch::UpdateParticle (int iPart)
 {
-    static CVect3 Gravity(0,0,-9.8f);
-    static CVect3 Aux;
+    static CGVect3 Gravity(0,0,-9.8f);
+    static CGVect3 Aux;
 
     TParticle_Stretch* P = &pParts[iPart];
     P->fEnergy -= fPEnergyFact;
@@ -84,10 +84,10 @@ void CGParticleSystem_Generic_Stretch::UpdatePS (CMatrix4x4* _ViewMatrix)
 {
     if ( fPSEnergy <= 0 ) return;
 
-    CVect3 NewPos;
-    CVect3 OldPos;
+    CGVect3 NewPos;
+    CGVect3 OldPos;
     TParticle_Stretch* P = pParts;
-    CVect3* pVX = poMesh->VXs;
+    CGVect3* pVX = poMesh->VXs;
     CGColor* pVC = poMesh->VCs;
     int cPart;
 
@@ -107,13 +107,13 @@ void CGParticleSystem_Generic_Stretch::UpdatePS (CMatrix4x4* _ViewMatrix)
         OldPos.Assign( P->OldPos );
         _ViewMatrix->TransformPoint(OldPos);
 
-        pVX[0].V3(-P->fSize,-P->fSize,0);
+        pVX[0].Set(-P->fSize,-P->fSize,0);
         pVX[0].Add(NewPos);
-        pVX[1].V3(-P->fSize, P->fSize,0);
+        pVX[1].Set(-P->fSize, P->fSize,0);
         pVX[1].Add(NewPos);
-        pVX[2].V3( P->fSize, P->fSize,0);
+        pVX[2].Set( P->fSize, P->fSize,0);
         pVX[2].Add(OldPos);
-        pVX[3].V3( P->fSize,-P->fSize,0);
+        pVX[3].Set( P->fSize,-P->fSize,0);
         pVX[3].Add(OldPos);
 
         pVC[0] = P->Color;

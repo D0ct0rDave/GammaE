@@ -19,8 +19,8 @@ CHUDProgressBar::CHUDProgressBar()
     CGSceneLeaf* poLeaf = NULL;
     CGMesh* poMesh = NULL;
 
-    CVect3 oTrans(1.0f,1.0f,0.0f);
-    CVect3 oScale(0.5f,0.5f,1.0f);
+    CGVect3 oTrans(1.0f,1.0f,0.0f);
+    CGVect3 oScale(0.5f,0.5f,1.0f);
 
     // ------------------------------
     // Create the progress bar mesh

@@ -42,6 +42,9 @@
     <ClInclude Include="..\modules\FileSys\src\FileManager\CGFileSysMgrZIP.h">
       <Filter>FileManager</Filter>
     </ClInclude>
+    <ClInclude Include="..\modules\FileSys\src\FileManager\OSFile.h">
+      <Filter>FileManager</Filter>
+    </ClInclude>
     <ClInclude Include="..\modules\FileSys\src\FileUtils\CGFileUtils.h">
       <Filter>FileUtils</Filter>
     </ClInclude>

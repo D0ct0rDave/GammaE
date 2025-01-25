@@ -9,9 +9,6 @@ for /F "tokens=*" %%A in (files.txt) do (
 	c:\utils\sed\bin\sed -i "/namespace GammaE {/d" %%A
 	c:\utils\sed\bin\sed -i "/}; \/\/ namespace GammaE \/\/ namespace/d" %%A
 	c:\utils\sed\bin\sed -i "s/\/\/ \//\/\/\//g" %%A
-	
-	\/\/ \/ 
-	
 	// -----------------------------------------------------------------------------
 	// -----------------------------------------------------------------------------
 

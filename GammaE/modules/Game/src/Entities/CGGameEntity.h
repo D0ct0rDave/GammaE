@@ -239,7 +239,7 @@ class CGGameEntity
         }
 
         // / Updates the position of the entity updating the graphic instance and collision data if available
-        virtual void UpdatePos(const CVect3& _oNewPos);
+        virtual void UpdatePos(const CGVect3& _oNewPos);
 
     protected:
 

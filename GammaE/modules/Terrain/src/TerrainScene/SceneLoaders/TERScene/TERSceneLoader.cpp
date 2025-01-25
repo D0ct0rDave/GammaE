@@ -291,7 +291,7 @@ CSkyBox* TERSceneLoader::poCreateSkyBox ()
     int iTex = 0;
 
     CSkyBox* pSkyBox = NULL;
-    CVect3 SkyBoxCenter;
+    CGVect3 SkyBoxCenter;
 
     CE3D_ShaderUtils::SetupTilingFlags(E3D_TEX_WRAP_REPEAT,E3D_TEX_WRAP_REPEAT);
     for ( int cMat = 0; cMat < 6; cMat++ )
@@ -309,7 +309,7 @@ CSkyBox* TERSceneLoader::poCreateSkyBox ()
     {
         // We have a perfectly defined Sky Box, only if we have the 6 side materials
         pSkyBox = mNew CSkyBox;
-        SkyBoxCenter.V3( (HF->iGetSecsPerRow() * fSectorSize) / 2,
+        SkyBoxCenter.Set( (HF->iGetSecsPerRow() * fSectorSize) / 2,
                         (HF->iGetSecsPerCol() * fSectorSize) / 2,
                         EnvPars.fBKZTranslation );
 
@@ -325,8 +325,8 @@ CSkyDome* TERSceneLoader::poCreateSkyDome ()
     CGMipMap* Tex;
 
     CSkyDome* pSkyDome;
-    CVect3 SkyDomeCenter;
-    CVect3 SkyDomeAxis;
+    CGVect3 SkyDomeCenter;
+    CGVect3 SkyDomeAxis;
 
     CE3D_ShaderUtils::SetupTilingFlags(E3D_TEX_WRAP_REPEAT,E3D_TEX_WRAP_REPEAT);
 
@@ -344,7 +344,7 @@ CSkyDome* TERSceneLoader::poCreateSkyDome ()
     pSkyDome->SetAxis    (SkyDomeAxis);
     pSkyDome->SetRotation(EnvPars.fSDRollRotation);
 
-    SkyDomeCenter.V3(   0.0f,
+    SkyDomeCenter.Set(   0.0f,
                         0.0f,
                         /*
                            (HF->iGetSecsPerRow()*fSectorSize)/2,
@@ -367,7 +367,7 @@ CSkyDome* TERSceneLoader::poCreateSkyDome ()
 CGSceneNode* TERSceneLoader::poGenerateScene ()
 {
     unsigned int cSect,cSectX,cSectY;
-    CVect3 Maxs,Mins;
+    CGVect3 Maxs,Mins;
     float fResolution;
     float fSize;
 
@@ -397,8 +397,8 @@ CGSceneNode* TERSceneLoader::poGenerateScene ()
             fResolution = (float)(poSect->HF->GetResolution() & 0xfffffffe);
             fSize = fResolution * fXYScale;
 
-            Maxs.V3( (cSectX + 1) * fSize,(cSectY + 1) * fSize,poSect->HF->GetMaxHeight() );
-            Mins.V3( (cSectX) * fSize,(cSectY) * fSize,poSect->HF->GetMinHeight() );
+            Maxs.Set( (cSectX + 1) * fSize,(cSectY + 1) * fSize,poSect->HF->GetMaxHeight() );
+            Mins.Set( (cSectX) * fSize,(cSectY) * fSize,poSect->HF->GetMinHeight() );
             poSect->SetMaxsMins(Maxs,Mins);
 
             // Add sector to the circuit

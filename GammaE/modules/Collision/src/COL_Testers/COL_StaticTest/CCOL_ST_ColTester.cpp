@@ -27,7 +27,7 @@ int CCOL_ST_ColTester::iTestCollision (CGraphBV* SrcObj, CGraphBV* DstObj)
 {
     CBoundingSphere* SS,* DS;
     CBoundingBox* SB,* DB;
-    CVect3* SP,* DP;
+    CGVect3* SP,* DP;
     int iFlags = 0;
 
     // Get source Bounding Volume
@@ -108,7 +108,7 @@ int CCOL_ST_ColTester::iTestPlane (CGraphBV* _SrcObj, CPlane& Plane)
 {
     CBoundingSphere* SS;
     CBoundingBox* SB;
-    CVect3* SP;
+    CGVect3* SP;
 
     switch ( _SrcObj->eGetTypeID() )
     {

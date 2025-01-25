@@ -31,9 +31,9 @@ class CSoundRenderer
 
         virtual void Render(float _fDelta) = 0;
 
-        virtual CSoundEmiter* poAddDirEmiter(CSound* _poSound, float _fVol, CVect3& _oPos, float _fRadius, CVect3& _oDir);
+        virtual CSoundEmiter* poAddDirEmiter(CSound* _poSound, float _fVol, CGVect3& _oPos, float _fRadius, CGVect3& _oDir);
 
-        virtual CSoundEmiter* poAddEmiter(CSound* _poSound, float _fVol, CVect3& _oPos, float _fRadius);
+        virtual CSoundEmiter* poAddEmiter(CSound* _poSound, float _fVol, CGVect3& _oPos, float _fRadius);
 
         virtual CSoundEmiter* poAddOmniEmiter(CSound* _poSound, float _fVol);
 

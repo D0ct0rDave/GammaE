@@ -286,7 +286,7 @@ void SCNUt_TriSceneSplitter::GenerateTriangleFromFactor (SCNUt_Triangle &SrcTri,
     DstTri.Material = SrcTri.Material;
 }
 
-float SCNUt_TriSceneSplitter::GetSplitFactor (CVect3 &pA, CVect3 &pB, CGPlane &Plane)
+float SCNUt_TriSceneSplitter::GetSplitFactor (CGVect3 &pA, CGVect3 &pB, CGPlane &Plane)
 {
     // -----------------------------------------------------------------------------
     // Ray-plane intersection. Substitute the line equation inside plane equation
@@ -315,7 +315,7 @@ float SCNUt_TriSceneSplitter::GetSplitFactor (CVect3 &pA, CVect3 &pB, CGPlane &P
     // Ax0 + By0 + Cz0 = Dot procutc between Plane normal and a point belonging to the line
     // -----------------------------------------------------------------------------
 
-    CVect3 vDirector;
+    CGVect3 vDirector;
     float fDotProduct;
     float fLambdaNumerator;
     float fSegLen;

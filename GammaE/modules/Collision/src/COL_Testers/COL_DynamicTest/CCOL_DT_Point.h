@@ -27,11 +27,11 @@ class CCOL_DT_Point
 
         ~CCOL_DT_Point();
 
-        static float fTestSphere(const CVect3& _oSPoint, const CVect3& _oDCenter, float _fDRadius);
+        static float fTestSphere(const CGVect3& _oSPoint, const CGVect3& _oDCenter, float _fDRadius);
 
-        static float fTestBox(const CVect3& _oSPoint, const CVect3& _oDMaxs, const CVect3& _oDMins);
+        static float fTestBox(const CGVect3& _oSPoint, const CGVect3& _oDMaxs, const CGVect3& _oDMins);
 
-        static float fTestPoint(const CVect3& _oSPoint, float _fDRadius, const CVect3& _oDCenter);
+        static float fTestPoint(const CGVect3& _oSPoint, float _fDRadius, const CGVect3& _oDCenter);
 
         // Additional Public Declarations
 

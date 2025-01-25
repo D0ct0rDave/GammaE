@@ -39,9 +39,9 @@ int CCOL_MT_TerrainMesh::iTestCollision (CGMesh* _poMesh, int _iMat, CGraphBV* _
 
     // (limite de sector si puede ser).
     CTriangle Tri;
-    CVect3 VXs[2048];
-    CVect3 Normal;
-    CVect3 Pos;
+    CGVect3 VXs[2048];
+    CGVect3 Normal;
+    CGVect3 Pos;
     int iNumTris;
 
     int iIX,iIY,iFX,iFY,iXRange,iYRange,iSteps,iS;
@@ -135,8 +135,8 @@ int CCOL_MT_TerrainMesh::iTestCollision (CGMesh* _poMesh, int _iMat, CGraphBV* _
     }
     return (iNumTris);
     /*
-       CVect3		VXs[2048];
-       CVect3		Normal;
+       CGVect3		VXs[2048];
+       CGVect3		Normal;
        CTriangle	Tri;
        int			iNumTris,iTri;
        int			iSelTris;
@@ -235,7 +235,7 @@ int CCOL_MT_TerrainMesh::iTestCollision (CGMesh* _poMesh, int _iMat, CGraphBV* _
      */
 }
 
-int CCOL_MT_TerrainMesh::iGetTriangles (int _iX, int _iY, int _iRad, CVect3* _pVXs)
+int CCOL_MT_TerrainMesh::iGetTriangles (int _iX, int _iY, int _iRad, CGVect3* _pVXs)
 {
     int iIX,iFX;
     int iIY,iFY;
@@ -256,7 +256,7 @@ int CCOL_MT_TerrainMesh::iGetTriangles (int _iX, int _iY, int _iRad, CVect3* _pV
     return( 2 * (2 * _iRad + 1) * (2 * _iRad + 1) );
 }
 
-void CCOL_MT_TerrainMesh::GetTriangle (int _iX, int _iY, CVect3* _pa6VXs)
+void CCOL_MT_TerrainMesh::GetTriangle (int _iX, int _iY, CGVect3* _pa6VXs)
 {
     float fH[4];
     float fIX,fFX;
@@ -273,13 +273,13 @@ void CCOL_MT_TerrainMesh::GetTriangle (int _iX, int _iY, CVect3* _pa6VXs)
     fIY = _iY * fInvRatio;
     fFY = fIY + fInvRatio;
 
-    _pa6VXs[0].V3(fIX,fIY,fH[0]);
-    _pa6VXs[1].V3(fIX,fFY,fH[2]);
-    _pa6VXs[2].V3(fFX,fFY,fH[3]);
+    _pa6VXs[0].Set(fIX,fIY,fH[0]);
+    _pa6VXs[1].Set(fIX,fFY,fH[2]);
+    _pa6VXs[2].Set(fFX,fFY,fH[3]);
 
-    _pa6VXs[3].V3(fIX,fIY,fH[0]);
-    _pa6VXs[4].V3(fFX,fFY,fH[3]);
-    _pa6VXs[5].V3(fFX,fIY,fH[1]);
+    _pa6VXs[3].Set(fIX,fIY,fH[0]);
+    _pa6VXs[4].Set(fFX,fFY,fH[3]);
+    _pa6VXs[5].Set(fFX,fIY,fH[1]);
 }
 
 float CCOL_MT_TerrainMesh::GetHeight (int iX, int iY)

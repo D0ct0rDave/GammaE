@@ -53,14 +53,14 @@ class CGGraphicInstance
         }
 
         // / Set's up the position of the instance
-        void Pos(const CVect3& _oPos)
+        void Pos(const CGVect3& _oPos)
         {
             m_oPos = _oPos;
             m_bDirty = true;
         }
 
         // / Retrieves the position of the instance
-        CVect3& oPos()
+        CGVect3& oPos()
         {
             return (m_oPos);
         }
@@ -155,7 +155,7 @@ class CGGraphicInstance
         float m_fYaw;
         float m_fRoll;
 
-        CVect3 m_oPos;
+        CGVect3 m_oPos;
         bool m_bDirty;
         CMatrix4x4 m_oMat;
 

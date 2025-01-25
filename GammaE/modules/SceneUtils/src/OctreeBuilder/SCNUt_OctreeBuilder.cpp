@@ -46,8 +46,8 @@ CGSceneNode* SCNUt_OctreeBuilder::poBuildOctreeRec (SCNUt_TriScene& _oScene, int
 
     poBox = oCBBox.poComputeBoundingBox(&_oScene);
 
-    CVect3 oCenter;
-    CVect3 oHMP,oVMP,oDMP;                    // Horizontal middle point, Vertical Middle Point,Depth Middle Point
+    CGVect3 oCenter;
+    CGVect3 oHMP,oVMP,oDMP;                    // Horizontal middle point, Vertical Middle Point,Depth Middle Point
 
     // Get the center point of the BBox
     oCenter.Assign(poBox->m_oMaxs);

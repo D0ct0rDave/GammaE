@@ -32,8 +32,8 @@ class CGPSGGenericQuadParticle : public CGParticle
         float m_fDRadius;
 
         // Precomputed vars
-        CVect3 m_oPos;                    // This should be always WORLD coordinates
-        CVect3 m_oDir;                    // This should be always WORLD coordinates
+        CGVect3 m_oPos;                    // This should be always WORLD coordinates
+        CGVect3 m_oDir;                    // This should be always WORLD coordinates
         float m_fIEnergy;
 };
 // -----------------------------------------------------------------------------

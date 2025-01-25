@@ -88,7 +88,7 @@ void CGPSGGenericQuad::InitParticle(CGPSGGenericQuadParticle* _poPart)
     // Set position
     CMatrix4x4 oWorldMat;
     CGRenderer::I()->GetWorldMatrix(&oWorldMat);
-    _poPart->m_oPos = CVect3::oZero();
+    _poPart->m_oPos = CGVect3::oZero();
 
     oWorldMat.TransformPoint( _poPart->m_oPos );
 }
@@ -133,8 +133,8 @@ void CGPSGGenericQuad::UpdateInstance(CGParticleSystemInstance& _oPSI,float _fDe
     CGPSGGenericQuadParticle* poPart = (CGPSGGenericQuadParticle*)_oPSI.poGetParticlePool();
 
     CGMesh* poMesh = _oPSI.poGetMesh();
-    CVect3 NewPos;
-    CVect3* pVX = poMesh->m_poVX;
+    CGVect3 NewPos;
+    CGVect3* pVX = poMesh->m_poVX;
     CGColor* pVC = poMesh->m_poVC;
     uint uiNumParts = 0;
 
@@ -160,20 +160,20 @@ void CGPSGGenericQuad::UpdateInstance(CGParticleSystemInstance& _oPSI,float _fDe
 
         // La dirección debería estar también transformada ????
         // Generate the geometry for this particle
-        CVect3 oNewPos;
+        CGVect3 oNewPos;
         oNewPos.LineEq(poPart->m_oPos,poPart->m_oDir,poPart->m_fRadius);
         oCameraMatrix.TransformPoint(oNewPos);
 
         float _fA = MATH_fCos(poPart->m_fAngle) * poPart->m_fSize;
         float _fB = MATH_fSin(poPart->m_fAngle) * poPart->m_fSize;
 
-        pVX[0].V3( _fA, _fB,0);
+        pVX[0].Set( _fA, _fB,0);
         pVX[0].Add(oNewPos);
-        pVX[1].V3(-_fB, _fA,0);
+        pVX[1].Set(-_fB, _fA,0);
         pVX[1].Add(oNewPos);
-        pVX[2].V3(-_fA,-_fB,0);
+        pVX[2].Set(-_fA,-_fB,0);
         pVX[2].Add(oNewPos);
-        pVX[3].V3( _fB,-_fA,0);
+        pVX[3].Set( _fB,-_fA,0);
         pVX[3].Add(oNewPos);
 
         pVC[0] = poPart->m_oColor;

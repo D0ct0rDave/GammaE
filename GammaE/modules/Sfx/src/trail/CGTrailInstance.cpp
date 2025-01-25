@@ -17,7 +17,7 @@ CGTrailInstance::CGTrailInstance(CGTrailGenerator* _poTG)
     m_poInstanceData = m_poTG->poCreateInstanceData();
 }
 // ----------------------------------------------------------------------------
-void CGTrailInstance::SetPos(const CVect3& _oNewPos)
+void CGTrailInstance::SetPos(const CGVect3& _oNewPos)
 {
     m_poInstanceData->SetPos(_oNewPos);
 }

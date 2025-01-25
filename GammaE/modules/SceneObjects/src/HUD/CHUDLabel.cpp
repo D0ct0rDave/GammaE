@@ -43,14 +43,14 @@ void CHUDLabel::InternalInit(uint _uiMaxChars)
                  E3D_MESH_NIQUADS,
                  MESH_FIELD_VERTEXS | MESH_FIELD_UVCOORDS | MESH_FIELD_COLORS);
 
-    CVect3* poVX = poMesh->m_poVX;
+    CGVect3* poVX = poMesh->m_poVX;
 
     for ( uint cI = 0; cI < uiMaxChars; cI++ )
     {
-        poVX[0].V3(cI,0.0f,0.0f);
-        poVX[1].V3(cI,1.0f,0.0f);
-        poVX[2].V3(cI + 1,1.0f,0.0f);
-        poVX[3].V3(cI + 1,0.0f,0.0f);
+        poVX[0].Set(cI,0.0f,0.0f);
+        poVX[1].Set(cI,1.0f,0.0f);
+        poVX[2].Set(cI + 1,1.0f,0.0f);
+        poVX[3].Set(cI + 1,0.0f,0.0f);
 
         poVX += 4;
     }
@@ -102,15 +102,15 @@ void CHUDLabel::SetMaxChars(uint _uiMaxChars)
                  E3D_MESH_NIQUADS,
                  MESH_FIELD_VERTEXS | MESH_FIELD_UVCOORDS | MESH_FIELD_COLORS);
 
-    CVect3* poVX = poMesh->m_poVX;
+    CGVect3* poVX = poMesh->m_poVX;
     CGColor* poVC = poMesh->m_poVC;
 
     for ( uint cI = 0; cI < uiMaxChars; cI++ )
     {
-        poVX[0].V3(cI,0.0f,0.0f);
-        poVX[1].V3(cI,1.0f,0.0f);
-        poVX[2].V3(cI + 1,1.0f,0.0f);
-        poVX[3].V3(cI + 1,0.0f,0.0f);
+        poVX[0].Set(cI,0.0f,0.0f);
+        poVX[1].Set(cI,1.0f,0.0f);
+        poVX[2].Set(cI + 1,1.0f,0.0f);
+        poVX[3].Set(cI + 1,0.0f,0.0f);
 
         poVC[0].Set(oColor.r,oColor.g,oColor.b,oColor.a);
         poVC[1].Set(oColor.r,oColor.g,oColor.b,oColor.a);
@@ -174,17 +174,17 @@ void CHUDLabel::WriteChar(char _cA,float _fOfsX,float _fW)
 
     // Setup UV coords
     CVect2* poUV = poLeaf->poGetMesh()->m_poUV + 4 * poLeaf->poGetMesh()->m_uiNumPrims;
-    CVect3* poVX = poLeaf->poGetMesh()->m_poVX + 4 * poLeaf->poGetMesh()->m_uiNumPrims;
+    CGVect3* poVX = poLeaf->poGetMesh()->m_poVX + 4 * poLeaf->poGetMesh()->m_uiNumPrims;
 
     poUV[0].V2(u1,v1);
     poUV[1].V2(u1,v2);
     poUV[2].V2(u2,v2);
     poUV[3].V2(u2,v1);
 
-    poVX[0].V3(_fOfsX,0.0f,0.0f);
-    poVX[1].V3(_fOfsX,1.0f,0.0f);
-    poVX[2].V3(_fOfsX + _fW,1.0f,0.0f);
-    poVX[3].V3(_fOfsX + _fW,0.0f,0.0f);
+    poVX[0].Set(_fOfsX,0.0f,0.0f);
+    poVX[1].Set(_fOfsX,1.0f,0.0f);
+    poVX[2].Set(_fOfsX + _fW,1.0f,0.0f);
+    poVX[3].Set(_fOfsX + _fW,0.0f,0.0f);
 }
 // -----------------------------------------------------------------------------
 void CHUDLabel::SetText(const CGString& _sText)

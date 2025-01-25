@@ -23,7 +23,7 @@ class CLightCaster : public CGSceneLeaf
 
         ~CLightCaster();
 
-        void SetupLight(CVect3& _oLightPos, CVect3 _oLightDir);
+        void SetupLight(CGVect3& _oLightPos, CGVect3 _oLightDir);
 
         // Additional Public Declarations
 

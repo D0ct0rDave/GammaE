@@ -35,8 +35,8 @@ void caca()
     CGCoronaManager2::I()->Release(h);
     CGCoronaManager2::I()->bEnabled(h);
     CGCoronaManager2::I()->Enable(h,false);
-    CGCoronaManager2::I()->SetPos( h,CVect3::oZero() );
-    CGCoronaManager2::I()->SetDir( h,CVect3::oZero() );
+    CGCoronaManager2::I()->SetPos( h,CGVect3::oZero() );
+    CGCoronaManager2::I()->SetDir( h,CGVect3::oZero() );
     CGCoronaManager2::I()->poGetManagerNode();
     CGCoronaManager2::I()->Update(0.0f);
 }

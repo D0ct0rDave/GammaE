@@ -13,7 +13,7 @@
 // CCOL_DT_Tri
 #include "COL_Testers\COL_DynamicTest\CCOL_DT_Tri.h"
 
-void ProjectTriangle (CVect3& _oD, CTriangle& _oTri, float& _fMin, float& _fMax)
+void ProjectTriangle (CGVect3& _oD, CTriangle& _oTri, float& _fMin, float& _fMax)
 {
     float fU,fV,fW;
 
@@ -24,9 +24,9 @@ void ProjectTriangle (CVect3& _oD, CTriangle& _oTri, float& _fMin, float& _fMax)
     MATH_Utils::GetMaxMins(fU,fV,fW,_fMax,_fMin);
 }
 
-void ProjectBox (CVect3& _oD, CGraphBV_Box& _oBox, float& _fMin, float& _fMax)
+void ProjectBox (CGVect3& _oD, CGraphBV_Box& _oBox, float& _fMin, float& _fMax)
 {
-    CVect3 oBExt = _oBox.GetExtents();
+    CGVect3 oBExt = _oBox.GetExtents();
     float fDdC = _oD.fDotProd( _oBox.GetCenter() );
     float fR = oBExt.x * MATH_fAbs( _oD.fDotProd( _oBox.GetAxis(0) ) ) +
                oBExt.y* MATH_fAbs( _oD.fDotProd( _oBox.GetAxis(1) ) ) +
@@ -126,7 +126,7 @@ float CCOL_DT_Tri::fTestBox (CGraphBV_Box& _Box, CTriangle& _Tri)
     // Copyright (c) 2000, 2001.  All Rights Reserved
 
     // Get object velocities
-    CVect3 TriVel,BoxVel;
+    CGVect3 TriVel,BoxVel;
     TriVel.Assign(CCOL_ColState::DstFPos);
     TriVel.Sub   (CCOL_ColState::DstIPos);
     BoxVel.Assign(CCOL_ColState::SrcFPos);
@@ -136,8 +136,8 @@ float CCOL_DT_Tri::fTestBox (CGraphBV_Box& _Box, CTriangle& _Tri)
     float fSpeed;
     float fTFirst,fTLast,fDdC;
     float fTMax = 1.0f;
-    CVect3 W,D, akE[3];
-    CVect3 BExt;
+    CGVect3 W,D, akE[3];
+    CGVect3 BExt;
 
     // process as if triangle is stationary, box is moving
     W.Assign(BoxVel);
@@ -213,14 +213,14 @@ float CCOL_DT_Tri::fTestBox (CGraphBV_Box& _Box, CTriangle& _Tri)
     }
 }
 
-float CCOL_DT_Tri::fTestPoint (CVect3& _oPoint, CTriangle& _Tri)
+float CCOL_DT_Tri::fTestPoint (CGVect3& _oPoint, CTriangle& _Tri)
 {
     if ( CCOL_ColState::DSSp.fSqModule() == 0.0f ) return(-1.0f);
 
-    CVect3 oPI;             // Initial Point
-    CRay oRay;              // Ray segment
-    CVect3 oPrj;            // Projected point
-    CVect3 oDir;
+    CGVect3 oPI;             // Initial Point
+    CGRay oRay;              // Ray segment
+    CGVect3 oPrj;            // Projected point
+    CGVect3 oDir;
     CTriangle oATri;        // AuxTri
 
     // Point initial position in Triangle Ref system

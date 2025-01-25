@@ -56,8 +56,8 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneBSPNode* _poNode)
        poSubObjs[0] = _poNode->poGetFrontNode();
        poSubObjs[1] = _poNode->poGetBackNode();
 
-       Mins.V3( 1e10f, 1e10f, 1e10f);
-       Maxs.V3(-1e10f,-1e10f,-1e10f);
+       Mins.Set( 1e10f, 1e10f, 1e10f);
+       Maxs.Set(-1e10f,-1e10f,-1e10f);
 
        for ( uint cObj = 0; cObj < 2; cObj++ )
        {
@@ -132,8 +132,8 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneGroup* _poNode)
        CGVect3 Maxs,Mins,Center;
        CGraphBV* poBV;
 
-       Mins.V3( 1e10f, 1e10f, 1e10f);
-       Maxs.V3(-1e10f,-1e10f,-1e10f);
+       Mins.Set( 1e10f, 1e10f, 1e10f);
+       Maxs.Set(-1e10f,-1e10f,-1e10f);
 
        for ( uint cObj = 0; cObj < _poNode->uiNumSubObjs(); cObj++ )
        {
@@ -235,8 +235,8 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneAnimTransf* _poNode)
 
        CGVect3 Max,Min;
 
-       Max.V3(0,0,0);
-       Min.V3(0,0,0);
+       Max.Set(0,0,0);
+       Min.Set(0,0,0);
 
        BVol = CGraphBV_Manager::poCreate();
        BVol->Init(Max,Min);

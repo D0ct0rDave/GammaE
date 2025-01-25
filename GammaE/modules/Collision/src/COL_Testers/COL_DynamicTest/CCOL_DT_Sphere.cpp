@@ -51,12 +51,12 @@ CCOL_DT_Sphere::~CCOL_DT_Sphere()
 {
 }
 
-float CCOL_DT_Sphere::fTestSphere (const CVect3& _oSCenter, float _fSRadius, const CVect3& _oDCenter, float _fDRadius)
+float CCOL_DT_Sphere::fTestSphere (const CGVect3& _oSCenter, float _fSRadius, const CGVect3& _oDCenter, float _fDRadius)
 {
-    CVect3 vA;
-    CVect3 vB;
-    CVect3 BA;
-    CVect3 vBA;
+    CGVect3 vA;
+    CGVect3 vB;
+    CGVect3 BA;
+    CGVect3 vBA;
 
     float fRadiiSum;
     float fSqRadiiSum;
@@ -122,9 +122,9 @@ float CCOL_DT_Sphere::fTestSphere (const CVect3& _oSCenter, float _fSRadius, con
         return (-1.0f);
 }
 
-float CCOL_DT_Sphere::fTestBox (const CVect3& _oSCenter, float _fSRadius, const CVect3& _oDMaxs, const CVect3& _oDMins)
+float CCOL_DT_Sphere::fTestBox (const CGVect3& _oSCenter, float _fSRadius, const CGVect3& _oDMaxs, const CGVect3& _oDMins)
 {
-    CVect3 DCenter;
+    CGVect3 DCenter;
     float DRadius;
 
     DCenter.Assign(_oDMaxs);
@@ -138,10 +138,10 @@ float CCOL_DT_Sphere::fTestBox (const CVect3& _oSCenter, float _fSRadius, const 
     /*
        if (CCOL_ST_Sphere::iTestBox(_oSCenter,_fSRadius,_oDMaxs,_oDMins)) return(0.0f);
 
-       CVect3 vA;
-       CVect3 vB;
-       CVect3 BA;
-       CVect3 vBA;
+       CGVect3 vA;
+       CGVect3 vB;
+       CGVect3 BA;
+       CGVect3 vBA;
 
        float fRadiiSum;
        float fSqRadiiSum;
@@ -151,17 +151,17 @@ float CCOL_DT_Sphere::fTestBox (const CVect3& _oSCenter, float _fSRadius, const 
        CSegment oSeg;
        oSeg.Init(CCOL_ColState::SrcIPos,CCOL_ColState::SrcFPos);
 
-       CVect3 BoxCenter;
+       CGVect3 BoxCenter;
        BoxCenter.Interpolate(_oDMins,_oDMaxs,0.5f);
 
-       CVect3 SegCenter;
+       CGVect3 SegCenter;
        SegCenter.Interpolate(CCOL_ColState::SrcIPos,
                           CCOL_ColState::SrcFPos,0.5f);
 
-       CVect3 SegNormal;
+       CGVect3 SegNormal;
        SegNormal.Orthogonal();
 
-       CVect3 BSCenters;
+       CGVect3 BSCenters;
        BSCenters.Assign( SegCenter );
        BSCenters.Sub   ( BoxCenter );
 
@@ -195,10 +195,10 @@ float CCOL_DT_Sphere::fTestBox (const CVect3& _oSCenter, float _fSRadius, const 
      */
 }
 
-float CCOL_DT_Sphere::fTestPoint(const CVect3& _oSCenter, float _fSRadius, const CVect3& _oDPoint)
+float CCOL_DT_Sphere::fTestPoint(const CGVect3& _oSCenter, float _fSRadius, const CGVect3& _oDPoint)
 {
-    CVect3 oIPos;
-    CVect3 oSeg;
+    CGVect3 oIPos;
+    CGVect3 oSeg;
     float a,b,c,u0,u1;
     float fSqDist;
     float fSqRadii;

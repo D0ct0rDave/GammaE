@@ -23,17 +23,17 @@ CCOL_ST_Point::~CCOL_ST_Point()
 {
 }
 
-int CCOL_ST_Point::iTestSphere (const CVect3& _oSPoint, const CVect3& _oDCenter, float _fDRadius)
+int CCOL_ST_Point::iTestSphere (const CGVect3& _oSPoint, const CGVect3& _oDCenter, float _fDRadius)
 {
     return ( _oSPoint.fSqDistance(_oDCenter) < _SQ_(_fDRadius) );
 }
 
-int CCOL_ST_Point::iTestBox (const CVect3& _oSPoint, const CVect3& _oDMaxs, const CVect3& _oDMins)
+int CCOL_ST_Point::iTestBox (const CGVect3& _oSPoint, const CGVect3& _oDMaxs, const CGVect3& _oDMins)
 {
     return ( _oSPoint.bInside(_oDMaxs,_oDMins) );
 }
 
-int CCOL_ST_Point::iTestPoint (const CVect3& _oSPoint, const CVect3& _oDPoint)
+int CCOL_ST_Point::iTestPoint (const CGVect3& _oSPoint, const CGVect3& _oDPoint)
 {
     return ( _oSPoint.bEqual(_oDPoint) );
 }

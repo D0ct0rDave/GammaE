@@ -95,13 +95,13 @@ SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromIndexedTriMesh (CGMesh& _oMesh
         (!_oMesh.m_poVN) &&
         (!_oMesh.m_poUV) ) return(NULL);
 
-    CVect3 oDefVX(0.0f,0.0f,0.0f);
-    CVect3 oDefVN(0.0f,0.0f,1.0f);
+    CGVect3 oDefVX(0.0f,0.0f,0.0f);
+    CGVect3 oDefVN(0.0f,0.0f,1.0f);
     CVect4 oDefVC(1.0f,1.0f,1.0f,1.0f);
     CVect2 oDefUV(0.0f,0.0f);
 
-    CVect3 oCurVX;
-    CVect3 oCurVN;
+    CGVect3 oCurVX;
+    CGVect3 oCurVN;
     CVect4 oCurVC;
     CVect2 oCurUV;
 
@@ -166,18 +166,18 @@ SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromIndexedTriStripMesh (CGMesh& _
         (!_oMesh.m_poVN) &&
         (!_oMesh.m_poUV) ) return(NULL);
 
-    CVect3 oDefVX(0.0f,0.0f,0.0f);
-    CVect3 oDefVN(0.0f,0.0f,1.0f);
+    CGVect3 oDefVX(0.0f,0.0f,0.0f);
+    CGVect3 oDefVN(0.0f,0.0f,1.0f);
     CVect4 oDefVC(1.0f,1.0f,1.0f,1.0f);
     CVect2 oDefUV(0.0f,0.0f);
 
-    CVect3 oCurVX;
-    CVect3 oCurVN;
+    CGVect3 oCurVX;
+    CGVect3 oCurVN;
     CVect4 oCurVC;
     CVect2 oCurUV;
 
-    CVect3 oVX[3];
-    CVect3 oVN[3];
+    CGVect3 oVX[3];
+    CGVect3 oVN[3];
     CVect4 oVC[3];
     CVect2 oUV[3];
 
@@ -285,18 +285,18 @@ SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromIndexedTriFanMesh (CGMesh& _oM
         (!_oMesh.m_poVN) &&
         (!_oMesh.m_poUV) ) return(NULL);
 
-    CVect3 oDefVX(0.0f,0.0f,0.0f);
-    CVect3 oDefVN(0.0f,0.0f,1.0f);
+    CGVect3 oDefVX(0.0f,0.0f,0.0f);
+    CGVect3 oDefVN(0.0f,0.0f,1.0f);
     CVect4 oDefVC(1.0f,1.0f,1.0f,1.0f);
     CVect2 oDefUV(0.0f,0.0f);
 
-    CVect3 oCurVX;
-    CVect3 oCurVN;
+    CGVect3 oCurVX;
+    CGVect3 oCurVN;
     CVect4 oCurVC;
     CVect2 oCurUV;
 
-    CVect3 oVX[3];
-    CVect3 oVN[3];
+    CGVect3 oVX[3];
+    CGVect3 oVN[3];
     CVect4 oVC[3];
     CVect2 oUV[3];
 
@@ -387,13 +387,13 @@ SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromNonIndexedTriMesh (CGMesh& _oM
         (!_oMesh.m_poVN) &&
         (!_oMesh.m_poUV) ) return(NULL);
 
-    CVect3 oDefVX(0.0f,0.0f,0.0f);
-    CVect3 oDefVN(0.0f,0.0f,1.0f);
+    CGVect3 oDefVX(0.0f,0.0f,0.0f);
+    CGVect3 oDefVN(0.0f,0.0f,1.0f);
     CVect4 oDefVC(1.0f,1.0f,1.0f,1.0f);
     CVect2 oDefUV(0.0f,0.0f);
 
-    CVect3 oCurVX;
-    CVect3 oCurVN;
+    CGVect3 oCurVX;
+    CGVect3 oCurVN;
     CVect4 oCurVC;
     CVect2 oCurUV;
 
@@ -456,18 +456,18 @@ SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromNonIndexedTriStripMesh (CGMesh
         (!_oMesh.m_poVN) &&
         (!_oMesh.m_poUV) ) return(NULL);
 
-    CVect3 oDefVX(0.0f,0.0f,0.0f);
-    CVect3 oDefVN(0.0f,0.0f,1.0f);
+    CGVect3 oDefVX(0.0f,0.0f,0.0f);
+    CGVect3 oDefVN(0.0f,0.0f,1.0f);
     CVect4 oDefVC(1.0f,1.0f,1.0f,1.0f);
     CVect2 oDefUV(0.0f,0.0f);
 
-    CVect3 oCurVX;
-    CVect3 oCurVN;
+    CGVect3 oCurVX;
+    CGVect3 oCurVN;
     CVect4 oCurVC;
     CVect2 oCurUV;
 
-    CVect3 oVX[3];
-    CVect3 oVN[3];
+    CGVect3 oVX[3];
+    CGVect3 oVN[3];
     CVect4 oVC[3];
     CVect2 oUV[3];
 

@@ -31,7 +31,7 @@ void CGBillboard_AxisAlign::SetAxis (bool x, bool y, bool z)
 
 void CGBillboard_AxisAlign::Render ()
 {
-    CVect3 InvPos;
+    CGVect3 InvPos;
     CMatrix4x4 M;
     CE3D_Camera* Cam = CGRenderer::I()->GetCamera();
 

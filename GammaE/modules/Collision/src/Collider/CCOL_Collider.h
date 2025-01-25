@@ -51,11 +51,11 @@ class CCOL_Collider
 
         CCOL_TriListGen* GetTriListGen();
 
-        CVect3 OldPos;
+        CGVect3 OldPos;
 
-        CVect3 Pos;
+        CGVect3 Pos;
 
-        CVect3 Speed;
+        CGVect3 Speed;
 
         int UserID;
 

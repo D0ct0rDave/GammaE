@@ -40,8 +40,8 @@ void CParticleSystem_Generic_Quad::InitParticle (int iPart)
 // -----------------------------------------------------------------------------
 void CParticleSystem_Generic_Quad::UpdateParticle (int iPart)
 {
-    static CVect3 Gravity(0,0,-9.8f);
-    static CVect3 Aux;
+    static CGVect3 Gravity(0,0,-9.8f);
+    static CGVect3 Aux;
 
     TParticle_Quad* P = &pParts[iPart];
     P->fEnergy -= fPEnergyFact;
@@ -75,9 +75,9 @@ void CParticleSystem_Generic_Quad::UpdatePS (CMatrix4x4* _ViewMatrix)
        }
      */
 
-    CVect3 NewPos;
+    CGVect3 NewPos;
     TParticle_Quad* P = pParts;
-    CVect3* pVX = poMesh->VXs;
+    CGVect3* pVX = poMesh->VXs;
     CVect4* pVC = poMesh->VCs;
     int CPart;
 
@@ -93,13 +93,13 @@ void CParticleSystem_Generic_Quad::UpdatePS (CMatrix4x4* _ViewMatrix)
         NewPos.Assign( P->Pos );
         _ViewMatrix->TransformPoint(NewPos);
 
-        pVX[0].V3(-P->fSize,-P->fSize,0);
+        pVX[0].Set(-P->fSize,-P->fSize,0);
         pVX[0].Add(NewPos);
-        pVX[1].V3(-P->fSize, P->fSize,0);
+        pVX[1].Set(-P->fSize, P->fSize,0);
         pVX[1].Add(NewPos);
-        pVX[2].V3( P->fSize, P->fSize,0);
+        pVX[2].Set( P->fSize, P->fSize,0);
         pVX[2].Add(NewPos);
-        pVX[3].V3( P->fSize,-P->fSize,0);
+        pVX[3].Set( P->fSize,-P->fSize,0);
         pVX[3].Add(NewPos);
 
         pVC[0].Assign(P->Color);

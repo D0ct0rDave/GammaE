@@ -40,7 +40,7 @@ class CGParticleSystem_Generic : public CGParticleSystem
 
         CGColor RGBAInitialValue;
 
-        CVect3 InitialSpeedFact;
+        CGVect3 InitialSpeedFact;
 
         float fPEnergyFact;
 

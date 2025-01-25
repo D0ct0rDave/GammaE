@@ -26,7 +26,7 @@ void CGBillboard_ScrAlign::Render ()
     CMatrix4x4 M,M1;
     CE3D_Camera* Cam = CGRenderer::I()->GetCamera();
 
-    CVect3 e1,e2,e3;
+    CGVect3 e1,e2,e3;
     // e1.Assign(Cam->Side);	e1.Scale(-1);
     e2.Assign(Cam->m_oUp  );
     e2.Scale( 1);

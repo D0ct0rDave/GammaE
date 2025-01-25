@@ -24,7 +24,7 @@ class CCoronaMgr : public CGSceneLeaf
 
         void Init(int _iMaxCoronas);
 
-        void AddCorona(CGColor _oColor, CE3D_Shader* _poMat, CVect3& _oPos, float _fXYSize);
+        void AddCorona(CGColor _oColor, CE3D_Shader* _poMat, CGVect3& _oPos, float _fXYSize);
 
         void SetMaxCoronaDist(float _fMaxCoronaDist);
 

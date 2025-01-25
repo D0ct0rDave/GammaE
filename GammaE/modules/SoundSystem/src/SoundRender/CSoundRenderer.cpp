@@ -25,7 +25,7 @@ CSoundRenderer::~CSoundRenderer()
 {
 }
 
-CSoundEmiter* CSoundRenderer::poAddEmiter (CSound* _poSound, float _fVol, CVect3& _oPos, float _fRadius)
+CSoundEmiter* CSoundRenderer::poAddEmiter (CSound* _poSound, float _fVol, CGVect3& _oPos, float _fRadius)
 {
     CSoundEmiter* poSndEmiter = poAddOmniEmiter(_poSound,_fVol);
     if ( !poSndEmiter ) return (NULL);
@@ -67,7 +67,7 @@ CSoundReceiver* CSoundRenderer::poGetReceiver ()
 
 // -----------------------------------------------------------------------------
 
-CSoundEmiter* CSoundRenderer::poAddDirEmiter (CSound* _poSound, float _fVol, CVect3& _oPos, float _fRadius, CVect3& _oDir)
+CSoundEmiter* CSoundRenderer::poAddDirEmiter (CSound* _poSound, float _fVol, CGVect3& _oPos, float _fRadius, CGVect3& _oDir)
 {
     CSoundEmiter* poSndEmiter = poAddEmiter(_poSound,_fVol,_oPos,_fRadius);
     if ( !poSndEmiter ) return (NULL);

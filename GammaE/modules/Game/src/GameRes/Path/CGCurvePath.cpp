@@ -21,7 +21,7 @@ void CGCurvePath::Init(CCurve* _poCurve)
         m_fPathTime += m_poCurve->poControlPoints()[i].z;
 }
 // -----------------------------------------------------------------------------
-const CVect3& CGCurvePath::oPos(float _fFact)
+const CGVect3& CGCurvePath::oPos(float _fFact)
 {
     return ( m_poCurve->oPos(_fFact) );
 }

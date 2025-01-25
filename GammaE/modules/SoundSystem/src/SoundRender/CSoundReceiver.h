@@ -24,11 +24,11 @@ class CSoundReceiver : public CSoundEntity
 
         // -----------------------------------------------------------------------------
 
-        CVect3 Dir;
+        CGVect3 Dir;
 
-        CVect3 Up;
+        CGVect3 Up;
 
-        CVect3 Side;
+        CGVect3 Side;
 
         float fSensitivity;
 

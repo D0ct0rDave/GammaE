@@ -25,19 +25,19 @@ class CCOL_ST_Tris
 
         ~CCOL_ST_Tris();
 
-        static int iTestCollision(CVect3* _pVXs, CVect3* _pVNs, int _iNumTris, CGraphBV* _BV, CVect3& _Pos);
+        static int iTestCollision(CGVect3* _pVXs, CGVect3* _pVNs, int _iNumTris, CGraphBV* _BV, CGVect3& _Pos);
 
-        static int iTestCollisionSphere(float _fRad, CVect3& _Center);
+        static int iTestCollisionSphere(float _fRad, CGVect3& _Center);
 
-        static int iTestCollisionBox(CVect3& _Maxs, CVect3& _Mins);
+        static int iTestCollisionBox(CGVect3& _Maxs, CGVect3& _Mins);
 
-        static int iTestCollisionRay(CRay& _ay);
+        static int iTestCollisionRay(CGRay& _ay);
 
-        static int iTestTriangleSphere(CVect3* _pVXs, float _fRad, CVect3& _Center);
+        static int iTestTriangleSphere(CGVect3* _pVXs, float _fRad, CGVect3& _Center);
 
-        static int iTestTriangleBox(CVect3* _pVXs, CVect3& _Maxs, CVect3& _Mins);
+        static int iTestTriangleBox(CGVect3* _pVXs, CGVect3& _Maxs, CGVect3& _Mins);
 
-        static int iTestTriangleRay(CVect3* _pVXs, CRay& _ay);
+        static int iTestTriangleRay(CGVect3* _pVXs, CGRay& _ay);
 
         // Data Members for Class Attributes
 
@@ -48,13 +48,13 @@ class CCOL_ST_Tris
     protected:
         // Data Members for Class Attributes
 
-        static CVect3* pVX;
+        static CGVect3* pVX;
 
-        static CVect3* pVN;
+        static CGVect3* pVN;
 
         static int iNumTris;
 
-        static CVect3 Pos;
+        static CGVect3 Pos;
 
         // Additional Protected Declarations
 

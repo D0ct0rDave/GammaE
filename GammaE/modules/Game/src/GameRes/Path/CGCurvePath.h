@@ -19,7 +19,7 @@ class CGCurvePath : public CGPath
 {
     public:
         // / Retrieves the position of the path for a given factor between  (0..1)
-        virtual const CVect3& oPos(float _fFact);
+        virtual const CGVect3& oPos(float _fFact);
 
         // / Initializes the path with the given curve
         void Init(CCurve* _poCurve);

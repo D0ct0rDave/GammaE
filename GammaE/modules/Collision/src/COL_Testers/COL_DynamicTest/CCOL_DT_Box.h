@@ -25,11 +25,11 @@ class CCOL_DT_Box
 
         ~CCOL_DT_Box();
 
-        static float fTestSphere(CVect3& _oSMaxs, CVect3& _oSMins, CVect3& _oDCenter, float _fDRadius);
+        static float fTestSphere(CGVect3& _oSMaxs, CGVect3& _oSMins, CGVect3& _oDCenter, float _fDRadius);
 
-        static float fTestBox(CVect3& _oSMaxs, CVect3& _oSMins, CVect3& _oDMaxs, CVect3& _oDMins);
+        static float fTestBox(CGVect3& _oSMaxs, CGVect3& _oSMins, CGVect3& _oDMaxs, CGVect3& _oDMins);
 
-        static float fTestPoint(CVect3& _oSMaxs, CVect3& _oSMins, CVect3& _oDPoint);
+        static float fTestPoint(CGVect3& _oSMaxs, CGVect3& _oSMins, CGVect3& _oDPoint);
 
         // Additional Public Declarations
         static int CCOL_DT_Box::iGetCollisionAxis();

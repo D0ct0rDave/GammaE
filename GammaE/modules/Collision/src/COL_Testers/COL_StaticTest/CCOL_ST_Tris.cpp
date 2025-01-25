@@ -17,8 +17,8 @@ const int _Z_ = 2;
 // CCOL_ST_Tris
 #include "COL_Testers\COL_StaticTest\CCOL_ST_Tris.h"
 
-inline void GetMinMaxRad2(int axis1,int axis2,CVect3 &v0,CVect3 &v1,float fS,
-                          CVect3 &e,CVect3 &Abs,CVect3 &BHS,
+inline void GetMinMaxRad2(int axis1,int axis2,CGVect3 &v0,CGVect3 &v1,float fS,
+                          CGVect3 &e,CGVect3 &Abs,CGVect3 &BHS,
                           float &min,float &max,float &rad)
 {
     float p0,p1;
@@ -43,13 +43,13 @@ inline void GetMinMaxRad2(int axis1,int axis2,CVect3 &v0,CVect3 &v1,float fS,
 
 int CCOL_ST_Tris::Tri;
 
-CVect3* CCOL_ST_Tris::pVX = NULL;
+CGVect3* CCOL_ST_Tris::pVX = NULL;
 
-CVect3* CCOL_ST_Tris::pVN = NULL;
+CGVect3* CCOL_ST_Tris::pVN = NULL;
 
 int CCOL_ST_Tris::iNumTris;
 
-CVect3 CCOL_ST_Tris::Pos;
+CGVect3 CCOL_ST_Tris::Pos;
 
 CCOL_ST_Tris::CCOL_ST_Tris()
 {
@@ -59,7 +59,7 @@ CCOL_ST_Tris::~CCOL_ST_Tris()
 {
 }
 
-int CCOL_ST_Tris::iTestCollision (CVect3* _pVXs, CVect3* _pVNs, int _iNumTris, CGraphBV* _BV, CVect3& _Pos)
+int CCOL_ST_Tris::iTestCollision (CGVect3* _pVXs, CGVect3* _pVNs, int _iNumTris, CGraphBV* _BV, CGVect3& _Pos)
 {
     assert( _pVXs && "NULL triangle list");
     assert( _pVNs && "NULL normal  list");
@@ -84,15 +84,15 @@ int CCOL_ST_Tris::iTestCollision (CVect3* _pVXs, CVect3* _pVNs, int _iNumTris, C
     }
 }
 
-int CCOL_ST_Tris::iTestCollisionSphere (float _fRad, CVect3& _Center)
+int CCOL_ST_Tris::iTestCollisionSphere (float _fRad, CGVect3& _Center)
 {
     int iCollidedTris;
     int iTri;
 
-    CVect3* pReadVX = pVX;
-    CVect3* pWriteVX = pVX;
-    CVect3* pReadVN = pVN;
-    CVect3* pWriteVN = pVN;
+    CGVect3* pReadVX = pVX;
+    CGVect3* pWriteVX = pVX;
+    CGVect3* pReadVN = pVN;
+    CGVect3* pWriteVN = pVN;
 
     Pos.Add(_Center);
 
@@ -120,16 +120,16 @@ int CCOL_ST_Tris::iTestCollisionSphere (float _fRad, CVect3& _Center)
     return (iCollidedTris);
 }
 
-int CCOL_ST_Tris::iTestCollisionBox (CVect3& _Maxs, CVect3& _Mins)
+int CCOL_ST_Tris::iTestCollisionBox (CGVect3& _Maxs, CGVect3& _Mins)
 {
     int iCollidedTris;
     int iTri;
-    CVect3 NMaxs,NMins;
+    CGVect3 NMaxs,NMins;
 
-    CVect3* pReadVX = pVX;
-    CVect3* pWriteVX = pVX;
-    CVect3* pReadVN = pVN;
-    CVect3* pWriteVN = pVN;
+    CGVect3* pReadVX = pVX;
+    CGVect3* pWriteVX = pVX;
+    CGVect3* pReadVN = pVN;
+    CGVect3* pWriteVN = pVN;
 
     NMaxs.Assign(_Maxs);
     NMaxs.Add(Pos);
@@ -161,12 +161,12 @@ int CCOL_ST_Tris::iTestCollisionBox (CVect3& _Maxs, CVect3& _Mins)
     return (iCollidedTris);
 }
 
-int CCOL_ST_Tris::iTestCollisionRay (CRay& _ay)
+int CCOL_ST_Tris::iTestCollisionRay (CGRay& _ay)
 {
     return(false);
 }
 
-int CCOL_ST_Tris::iTestTriangleSphere (CVect3* _pVXs, float _fRad, CVect3& _Center)
+int CCOL_ST_Tris::iTestTriangleSphere (CGVect3* _pVXs, float _fRad, CGVect3& _Center)
 {
     CTriangle Tri;
     Tri.Init(_pVXs);
@@ -174,7 +174,7 @@ int CCOL_ST_Tris::iTestTriangleSphere (CVect3* _pVXs, float _fRad, CVect3& _Cent
     return ( fSqDist < _SQ_(_fRad) );
 }
 
-int CCOL_ST_Tris::iTestTriangleBox (CVect3* _pVXs, CVect3& _Maxs, CVect3& _Mins)
+int CCOL_ST_Tris::iTestTriangleBox (CGVect3* _pVXs, CGVect3& _Maxs, CGVect3& _Mins)
 {
     // ---------------------------------------------------------
     // Based on AABB-triangle overlap test code by Tomas Möller
@@ -183,7 +183,7 @@ int CCOL_ST_Tris::iTestTriangleBox (CVect3* _pVXs, CVect3& _Maxs, CVect3& _Mins)
     // First we test if the triangle bounding box intersects with the source bounding box
     // This is performed using the separating axis test, which is done separatelly with
     // every one of the 3 bounding box axis
-    CVect3 TMins,TMaxs;
+    CGVect3 TMins,TMaxs;
 
     // Test X axis:
     MATH_Utils::GetMaxMins( _pVXs[0].x,_pVXs[1].x,_pVXs[2].x,TMaxs.v(0),TMins.v(0) );
@@ -205,11 +205,11 @@ int CCOL_ST_Tris::iTestTriangleBox (CVect3* _pVXs, CVect3& _Maxs, CVect3& _Mins)
 
     // Ok now test if the box crosses some of the 3 triangle edges
     // Get triangle edges
-    CVect3 Edge;
-    CVect3 AbsE;
+    CGVect3 Edge;
+    CGVect3 AbsE;
     float min,max,rad;
 
-    CVect3 BoxCenter,BoxHalfSize,v0,v1,v2;
+    CGVect3 BoxCenter,BoxHalfSize,v0,v1,v2;
 
     BoxCenter.Assign(_Maxs);
     BoxCenter.Add   (_Mins);
@@ -229,7 +229,7 @@ int CCOL_ST_Tris::iTestTriangleBox (CVect3* _pVXs, CVect3& _Maxs, CVect3& _Mins)
     // -----------------------------------------------------------------------------
     Edge.Assign(_pVXs[0]);
     Edge.Sub(_pVXs[1]);
-    AbsE.V3( fabs(Edge.x),fabs(Edge.y),fabs(Edge.z) );
+    AbsE.Set( fabs(Edge.x),fabs(Edge.y),fabs(Edge.z) );
 
     GetMinMaxRad2(_Y_,_Z_,v0,v2, 1.0f,Edge,AbsE,BoxHalfSize,min,max,rad);
     if ( (min > rad) || (max < -rad) ) return(0);
@@ -245,7 +245,7 @@ int CCOL_ST_Tris::iTestTriangleBox (CVect3* _pVXs, CVect3& _Maxs, CVect3& _Mins)
     // -----------------------------------------------------------------------------
     Edge.Assign(_pVXs[1]);
     Edge.Sub   (_pVXs[2]);
-    AbsE.V3( fabs(Edge.x),fabs(Edge.y),fabs(Edge.z) );
+    AbsE.Set( fabs(Edge.x),fabs(Edge.y),fabs(Edge.z) );
 
     GetMinMaxRad2(_Y_,_Z_,v0,v2, 1.0f,Edge,AbsE,BoxHalfSize,min,max,rad);
     if ( (min > rad) || (max < -rad) ) return(0);
@@ -261,7 +261,7 @@ int CCOL_ST_Tris::iTestTriangleBox (CVect3* _pVXs, CVect3& _Maxs, CVect3& _Mins)
     // -----------------------------------------------------------------------------
     Edge.Assign(_pVXs[2]);
     Edge.Sub   (_pVXs[0]);
-    AbsE.V3( fabs(Edge.x),fabs(Edge.y),fabs(Edge.z) );
+    AbsE.Set( fabs(Edge.x),fabs(Edge.y),fabs(Edge.z) );
 
     GetMinMaxRad2(_Y_,_Z_,v0,v1,-1.0f,Edge,AbsE,BoxHalfSize,min,max,rad);
     if ( (min > rad) || (max < -rad) ) return(0);
@@ -275,7 +275,7 @@ int CCOL_ST_Tris::iTestTriangleBox (CVect3* _pVXs, CVect3& _Maxs, CVect3& _Mins)
     return(1);
 }
 
-int CCOL_ST_Tris::iTestTriangleRay (CVect3* _pVXs, CRay& _ay)
+int CCOL_ST_Tris::iTestTriangleRay (CGVect3* _pVXs, CGRay& _ay)
 {
     CTriangle Tri;
     Tri.Init(_pVXs);

@@ -25,13 +25,13 @@ class CCOL_TriList_BVRayTest
 
         ~CCOL_TriList_BVRayTest();
 
-        static void Test(CVect3& _Center, CCOL_TriList& _TriList, int _iRayMask, float* _pa6fDists, int* _pa6iTris);
+        static void Test(CGVect3& _Center, CCOL_TriList& _TriList, int _iRayMask, float* _pa6fDists, int* _pa6iTris);
 
         // Additional Public Declarations
 
     protected:
 
-        static float fGetRayTriListMinDist(CRay& _ay, CCOL_TriList& _TriList, CVect3& _Point, int& _iIdx);
+        static float fGetRayTriListMinDist(CGRay& _ay, CCOL_TriList& _TriList, CGVect3& _Point, int& _iIdx);
 
         // Additional Protected Declarations
 

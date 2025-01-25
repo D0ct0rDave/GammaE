@@ -84,7 +84,7 @@ CLight* CLightWareHouse::GetLight(unsigned int LightID)
         return (0);
 }
 // -----------------------------------------------------------------------------
-TFColor CLightWareHouse::ComputeLighting(CVect3 &Vertex,CVect3 &Normal)
+TFColor CLightWareHouse::ComputeLighting(CGVect3 &Vertex,CGVect3 &Normal)
 {
     unsigned int cLight,nLights;
     TFColor Col,ColR;
