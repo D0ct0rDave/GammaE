@@ -18,7 +18,6 @@
 
 #include "CGSceneBSPNode.h"
 #include "CGSceneCamera.h"
-#include "CGSceneCompiledLeaf.h"
 #include "CGSceneInstance.h"
 #include "CGSceneLeaf.h"
 #include "CGSceneMux.h"
@@ -218,10 +217,10 @@ CObject3D* CGVLoaderGEM::poLoad(CFile* _poFile)
 
             // mesh components
             if ( Mesh->VXs ) _oFile.iRead( Mesh->VXs,Mesh->usNumVerts * sizeof(CGVect3) );
-            if ( Mesh->UVs ) _oFile.iRead( Mesh->UVs,Mesh->usNumVerts * sizeof(CVect2) );
-            if ( Mesh->VCs ) _oFile.iRead( Mesh->VCs,Mesh->usNumVerts * sizeof(CVect4) );
+            if ( Mesh->UVs ) _oFile.iRead( Mesh->UVs,Mesh->usNumVerts * sizeof(CGVect2) );
+            if ( Mesh->VCs ) _oFile.iRead( Mesh->VCs,Mesh->usNumVerts * sizeof(CGVect4) );
             if ( Mesh->VNs ) _oFile.iRead( Mesh->VNs,Mesh->usNumVerts * sizeof(CGVect3) );
-            if ( Mesh->UVs2 ) _oFile.iRead( Mesh->UVs2,Mesh->usNumVerts * sizeof(CVect2) );
+            if ( Mesh->UVs2 ) _oFile.iRead( Mesh->UVs2,Mesh->usNumVerts * sizeof(CGVect2) );
             if ( Mesh->TNs ) _oFile.iRead( Mesh->TNs,Mesh->usNumPrims * sizeof(CGVect3) );
             if ( Mesh->Idxs ) _oFile.iRead( Mesh->Idxs,Mesh->usNumIdxs * sizeof(unsigned short) );
 
@@ -235,7 +234,7 @@ CObject3D* CGVLoaderGEM::poLoad(CFile* _poFile)
         CGSceneLeaf* CLoaderGEM::pLoad3DObj_Leaf (CFile & _oFile)
         {
             char MaterialName[MAX_CHARS];
-            CE3D_Shader* poShader;
+            CGShader* poShader;
 
             CGSceneLeaf* pObj = mNew CGSceneLeaf();
 
@@ -386,7 +385,7 @@ CObject3D* CGVLoaderGEM::poLoad(CFile* _poFile)
             pObj = mNew CGSceneAnimTransf;
             pObj->CreateStates(iNumStates);
 
-            _oFile.iRead( pObj->pTransStates,iNumStates * sizeof(CMatrix4x4) );
+            _oFile.iRead( pObj->pTransStates,iNumStates * sizeof(CGMatrix4x4) );
             pObj->ComputeBoundVol();
 
             return (pObj);
@@ -440,7 +439,7 @@ CObject3D* CGVLoaderGEM::poLoad(CFile* _poFile)
             CGSceneBSPNode* pObj = mNew CGSceneBSPNode();
 
             // Write node transformation parameters
-            _oFile.iRead( pObj->poGetPartitionPlane(),sizeof(CPlane) );
+            _oFile.iRead( pObj->poGetPartitionPlane(),sizeof(CGPlane) );
 
             pObj->SetBackNode ( pLoad3DObject(_oFile) );
             pObj->SetFrontNode( pLoad3DObject(_oFile) );

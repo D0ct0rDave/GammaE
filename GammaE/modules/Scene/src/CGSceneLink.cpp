@@ -45,7 +45,7 @@ void CGSceneLink::Unlink ()
     pObj->UnReference();
 }
 
-CGraphBV* CGSceneLink::poGetBoundVol ()
+CGBoundingVolume* CGSceneLink::poGetBoundVol ()
 {
     static CGSceneGen* pObj = pObjWH->GetObject(iObjWHIdx);
     return ( pObj->poGetBoundVol() );

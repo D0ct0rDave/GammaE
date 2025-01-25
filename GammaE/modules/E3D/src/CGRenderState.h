@@ -5,6 +5,7 @@
 class CGRenderState
 {
     public:
+        CGRenderState();
 
         bool m_bDefferredMode;
 

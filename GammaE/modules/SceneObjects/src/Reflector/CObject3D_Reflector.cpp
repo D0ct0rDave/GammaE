@@ -41,9 +41,9 @@ CGSceneReflector::~CGSceneReflector()
 
 void CGSceneReflector::Render ()
 {
-    CMatrix4x4 M;
-    CMatrix4x4 PrjMatrix;
-    CMatrix4x4 FPrjMat;
+    CGMatrix4x4 M;
+    CGMatrix4x4 PrjMatrix;
+    CGMatrix4x4 FPrjMat;
 
     // Enable stenciling
     CGRenderer::I()->SetStencilPars(E3D_SF_Always,1,~0,E3D_SA_Keep,E3D_SA_Keep,E3D_SA_Replace);
@@ -92,9 +92,9 @@ void CGSceneReflector::Render ()
     glDisable(GL_STENCIL_TEST);
 }
 
-void CGSceneReflector::SetupReflectionMatrix (CMatrix4x4 &_oMat)
+void CGSceneReflector::SetupReflectionMatrix (CGMatrix4x4 &_oMat)
 {
-    CPlane Plane;
+    CGPlane Plane;
     CGVect3 Normal;
     float D;
 

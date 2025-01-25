@@ -17,14 +17,14 @@
 
 // GammaE_FileSys
 #include "GammaE_FileSys.h"
-// CGraphBV_Sphere
-#include "BoundingVolume\GraphBoundVol\CGraphBV_Sphere.h"
+// CGBVSphere
+#include "BoundingVolume\GraphBoundVol\CGBVSphere.h"
 // CGraphBV_Point
 #include "BoundingVolume\GraphBoundVol\CGraphBV_Point.h"
 // CGraphBV_Cylinder
 #include "BoundingVolume\GraphBoundVol\CGraphBV_Cylinder.h"
-// CGraphBV_Box
-#include "BoundingVolume\GraphBoundVol\CGraphBV_Box.h"
+// CGBVAABB
+#include "BoundingVolume\GraphBoundVol\CGBVAABB.h"
 
 class CGraphBV_FileIO
 {
@@ -33,9 +33,9 @@ class CGraphBV_FileIO
 
         ~CGraphBV_FileIO();
 
-        static CGraphBV* pLoadGraphBV(CFile& _oFile);
+        static CGBoundingVolume* pLoadGraphBV(CFile& _oFile);
 
-        static int iSaveGraphBV(CFile& _oFile, CGraphBV* _pGBV);
+        static int iSaveGraphBV(CFile& _oFile, CGBoundingVolume* _pGBV);
 
         // Additional Public Declarations
 

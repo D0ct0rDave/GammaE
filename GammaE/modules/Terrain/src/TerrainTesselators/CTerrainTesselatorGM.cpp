@@ -175,7 +175,7 @@ void CTerrainTesselatorGM::GenerateGlobalCoordData ()
     float fTexUCur;
     float fTexVCur;
     float fGMapStep;
-    CVect2* pUV = UVs;
+    CGVect2* pUV = UVs;
 
     // Global Map texture step
     const float fUVOfs = 2.0f / 256.0f;
@@ -572,7 +572,7 @@ void CTerrainTesselatorGM::SetupTileMaterial ()
     // fDist = Center.Distance(Cam);
     // int   LOD  = GetTileLOD(fDist,TB->GetMaxLODs());
 
-    CE3D_Shader* poSh = TB->poGetTileMaterial(Tile.TileIdx,0);
+    CGShader* poSh = TB->poGetTileMaterial(Tile.TileIdx,0);
     CE3D_ShIns_TexOp* poTI = (CE3D_ShIns_TexOp*)poSh->pGetInstruction(0);                    // dirty casting
     CEval_Const* poEv = (CEval_Const*)poTI->poGetEvaluator();
 
@@ -599,7 +599,7 @@ void CTerrainTesselatorGM::SetTileLODPar (float _fTileLODPar)
     fTileLODPar = _fTileLODPar;
 }
 
-void CTerrainTesselatorGM::SetBoundVol (CGraphBV* _BVol)
+void CTerrainTesselatorGM::SetBoundVol (CGBoundingVolume* _BVol)
 {
     Mesh->poGetBoundVol()->Copy(_BVol);
 }

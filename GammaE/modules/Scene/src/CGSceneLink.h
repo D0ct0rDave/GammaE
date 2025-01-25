@@ -33,7 +33,7 @@ class CGSceneLink : public CGSceneGen
 
         void Unlink();
 
-        virtual CGraphBV* poGetBoundVol();
+        virtual CGBoundingVolume* poGetBoundVol();
 
         virtual void ComputeBoundVol();
 

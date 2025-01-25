@@ -21,7 +21,7 @@ SCNUt_ShaderAssigner::~SCNUt_ShaderAssigner()
 {
 }
 
-void SCNUt_ShaderAssigner::AssignShader (CE3D_Shader* _poShader, CGSceneNode* _poObj)
+void SCNUt_ShaderAssigner::AssignShader (CGShader* _poShader, CGSceneNode* _poObj)
 {
     switch ( _poObj->eGetNodeType() )
     {

@@ -15,12 +15,12 @@ SCNUt_TransformTriScene::SCNUt_TransformTriScene()
 {
 }
 // -----------------------------------------------------------------------------
-void SCNUt_TransformTriScene::Transform(SCNUt_TriScene* _poTriScn,const CMatrix4x4& _oMatrix)
+void SCNUt_TransformTriScene::Transform(SCNUt_TriScene* _poTriScn,const CGMatrix4x4& _oMatrix)
 {
     Transform(_poTriScn,_oMatrix,_oMatrix);
 }
 // -----------------------------------------------------------------------------
-void SCNUt_TransformTriScene::Transform(SCNUt_TriScene* _poTriScn, const CMatrix4x4& _oVertexMatrix, const CMatrix4x4& _oNormalMatrix)
+void SCNUt_TransformTriScene::Transform(SCNUt_TriScene* _poTriScn, const CGMatrix4x4& _oVertexMatrix, const CGMatrix4x4& _oNormalMatrix)
 {
     for ( uint i = 0; i < _poTriScn->NumTris; i++ )
     {

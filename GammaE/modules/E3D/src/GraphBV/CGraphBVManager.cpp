@@ -10,16 +10,16 @@
 // -----------------------------------------------------------------------------
 #include "GammaE_Mem.h"
 
-// CGraphBV_Sphere
-#include "BoundingVolume\GraphBoundVol\CGraphBV_Sphere.h"
+// CGBVSphere
+#include "BoundingVolume\GraphBoundVol\CGBVSphere.h"
 // CGraphBV_Point
 #include "BoundingVolume\GraphBoundVol\CGraphBV_Point.h"
 // CGraphBV_Manager
 #include "BoundingVolume\GraphBoundVol\CGraphBV_Manager.h"
 // CGraphBV_Cylinder
 #include "BoundingVolume\GraphBoundVol\CGraphBV_Cylinder.h"
-// CGraphBV_Box
-#include "BoundingVolume\GraphBoundVol\CGraphBV_Box.h"
+// CGBVAABB
+#include "BoundingVolume\GraphBoundVol\CGBVAABB.h"
 
 // Class CGraphBV_Manager
 
@@ -33,13 +33,13 @@ CGraphBV_Manager::~CGraphBV_Manager()
 {
 }
 
-CGraphBV* CGraphBV_Manager::poCreate ()
+CGBoundingVolume* CGraphBV_Manager::poCreate ()
 {
     switch ( eCreationMode )
     {
-        case eGraphBV_Sphere:   return(mNew CGraphBV_Sphere);
+        case eGraphBV_Sphere:   return(mNew CGBVSphere);
 
-        case eGraphBV_Box:      return(mNew CGraphBV_Box);
+        case eGraphBV_Box:      return(mNew CGBVAABB);
 
         case eGraphBV_Cylinder: return(mNew CGraphBV_Cylinder);
 

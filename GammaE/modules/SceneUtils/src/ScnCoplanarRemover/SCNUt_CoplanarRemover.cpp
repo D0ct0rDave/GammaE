@@ -19,7 +19,7 @@ int ClassifyTriangles(CGVect3* _poSrcVXs,CGVect3* _poDstVXs)
 {
     int iInside = 0;
 
-    CTriangle oSrcTri,oDstTri;
+    CGTriangle oSrcTri,oDstTri;
 
     oSrcTri.Init(_poSrcVXs);
     oSrcTri.ComputeAll();
@@ -42,7 +42,7 @@ int ClassifyTriangles(CGVect3* _poSrcVXs,CGVect3* _poDstVXs)
     if ( fSrcArea > fDstArea )
     {
         // First look if dst triangle falls completely inside the source triangle bounding box
-        CGraphBV_Box oSrcBox;
+        CGBVAABB oSrcBox;
         oSrcBox.Compute(_poSrcVXs,3);
 
         if ( ( !CCOL_ST_Box::iTestPoint(oSrcBox.Vol.m_oMaxs,oSrcBox.Vol.m_oMins,_poDstVXs[0]) ) ||
@@ -65,7 +65,7 @@ int ClassifyTriangles(CGVect3* _poSrcVXs,CGVect3* _poDstVXs)
     else
     {
         // First look if src triangle falls completely inside the destination triangle bounding box
-        CGraphBV_Box oDstBox;
+        CGBVAABB oDstBox;
         oDstBox.Compute(_poDstVXs,3);
 
         if ( ( !CCOL_ST_Box::iTestPoint(oDstBox.Vol.m_oMaxs,oDstBox.Vol.m_oMins,_poSrcVXs[0]) ) ||

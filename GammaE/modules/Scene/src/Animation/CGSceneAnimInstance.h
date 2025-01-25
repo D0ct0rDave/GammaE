@@ -14,7 +14,7 @@
 #include "CObject3D.h"
 #include "CGSceneLeaf.h"
 // --------------------------------------------------------------------------------
-class CGSceneAnimInstance : public CObject3D
+class CGSceneAnimInstance : public CGSceneNode
 {
     public:
 

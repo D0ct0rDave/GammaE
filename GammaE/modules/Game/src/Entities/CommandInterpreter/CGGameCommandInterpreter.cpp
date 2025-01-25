@@ -89,7 +89,7 @@ void CGGameCommandInterpreter::ProcessInstruction(char* _szCmdLine)
 {
     if ( _szCmdLine == NULL ) return;
 
-    char* szToken = ParseUtils_ParseToken(_szCmdLine);
+    char* szToken = Utils::Parse::ParseToken(_szCmdLine);
 
     bool bFound = false;
     for ( uint i = 0; i < m_poCmds.uiNumElems(); i++ )

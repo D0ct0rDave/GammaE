@@ -36,8 +36,8 @@ void CGGameConsoleApp::Init(int _iCols,int _iRows)
     // -----------------------------------------------------------------------------
     CGraphBV_Manager::SetBVMode(eGraphBV_Box);
     poConsole = mNew CConsole();
-    CE3D_Shader* poMBack = CE3D_ShaderWH::I()->poCreateShader("console_back_default");
-    CE3D_Shader* poMFont = CE3D_ShaderWH::I()->poCreateShader("console_font_default");
+    CGShader* poMBack = CE3D_ShaderWH::I()->poCreateShader("console_back_default");
+    CGShader* poMFont = CE3D_ShaderWH::I()->poCreateShader("console_font_default");
     poConsole->Init(1.0f,1.0,m_iCols,m_iRows,poMBack,poMFont);
     poConsole->ComputeBoundVol();
 

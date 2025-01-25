@@ -14,7 +14,7 @@
 #include "COL_TriList\CCOL_Scn_TriListGen.h"
 inline void TEST_Triangle(CGVect3* _poVXs,int _iTri,int &_iTris,CGMesh* _poMesh,int _iMat, CCOL_TriList& _oTriList,CGVect3 &_oPos,float _fSqrRadius)
 {
-    CTriangle oTri;
+    CGTriangle oTri;
     float fSqrDist;
 
     if ( _poMesh->m_poTN )

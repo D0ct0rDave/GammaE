@@ -21,9 +21,9 @@ class CHUDIcon : public CHUDObject
     public:     CHUDIcon();
         virtual ~CHUDIcon();
 
-        CGraphBV* poCreateBoundVol();
+        CGBoundingVolume* poCreateBoundVol();
 
-        void SetIcon(CE3D_Shader* _poShader);
+        void SetIcon(CGShader* _poShader);
     private:
         CGSceneLeaf* poLeaf;
 };

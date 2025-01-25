@@ -151,8 +151,8 @@ CGMesh* SCNUt_Stripifier::poStripify (CGMesh* _poMesh, SCNUt_AdjTriList* _poATL)
 
     memcpy( poResMesh->m_poVX,_poMesh->m_poVX,_poMesh->m_usNumVXs * sizeof(CGVect3) );
     memcpy( poResMesh->m_poVN,_poMesh->m_poVN,_poMesh->m_usNumVXs * sizeof(CGVect3) );
-    memcpy( poResMesh->m_poVC,_poMesh->m_poVC,_poMesh->m_usNumVXs * sizeof(CVect4) );
-    memcpy( poResMesh->m_poUV,_poMesh->m_poUV,_poMesh->m_usNumVXs * sizeof(CVect2) );
+    memcpy( poResMesh->m_poVC,_poMesh->m_poVC,_poMesh->m_usNumVXs * sizeof(CGVect4) );
+    memcpy( poResMesh->m_poUV,_poMesh->m_poUV,_poMesh->m_usNumVXs * sizeof(CGVect2) );
     memcpy( poResMesh->m_pusIdx,PMesh->m_pusIdx,iStripIdx * sizeof(short) );
     poResMesh->ComputeBoundVol();
 

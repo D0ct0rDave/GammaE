@@ -121,14 +121,14 @@ void CGPSGGenericQuadCinematic::UpdateParticle(CGPSGGenericQuadCinematicParticle
     _poPart->m_fRadius += _poPart->m_fDRadius * _fDeltaT;
 }
 // -----------------------------------------------------------------------------
-void CGPSGGenericQuadCinematic::UpdateInstance(CGParticleSystemInstance& _oPSI,float _fDeltaT,const CMatrix4x4& _oViewMatrix)
+void CGPSGGenericQuadCinematic::UpdateInstance(CGParticleSystemInstance& _oPSI,float _fDeltaT,const CGMatrix4x4& _oViewMatrix)
 {
     CGPSGGenericQuadCinematicParticle* poPart = (CGPSGGenericQuadCinematicParticle*)_oPSI.poGetParticlePool();
 
     CGMesh* poMesh = _oPSI.poGetMesh();
     CGVect3 NewPos;
     CGVect3* pVX = poMesh->m_poVX;
-    CVect4* pVC = poMesh->m_poVC;
+    CGVect4* pVC = poMesh->m_poVC;
     uint uiNumParts = 0;
 
     for ( uint i = 0; i < m_uiMaxParticles; i++,poPart++ )

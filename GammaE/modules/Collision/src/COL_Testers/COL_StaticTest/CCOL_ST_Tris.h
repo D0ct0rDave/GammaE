@@ -25,7 +25,7 @@ class CCOL_ST_Tris
 
         ~CCOL_ST_Tris();
 
-        static int iTestCollision(CGVect3* _pVXs, CGVect3* _pVNs, int _iNumTris, CGraphBV* _BV, CGVect3& _Pos);
+        static int iTestCollision(CGVect3* _pVXs, CGVect3* _pVNs, int _iNumTris, CGBoundingVolume* _BV, CGVect3& _Pos);
 
         static int iTestCollisionSphere(float _fRad, CGVect3& _Center);
 

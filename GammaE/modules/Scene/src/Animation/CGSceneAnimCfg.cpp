@@ -75,7 +75,7 @@ CGSceneAnimCfg::~CGSceneAnimCfg()
    }
  */
 // --------------------------------------------------------------------------------
-CGraphBV* CGSceneAnimCfg::poGetBoundVol()
+CGBoundingVolume* CGSceneAnimCfg::poGetBoundVol()
 {
     return( poGetAnimObj()->poGetKeyFrameBVol(0) );
 }

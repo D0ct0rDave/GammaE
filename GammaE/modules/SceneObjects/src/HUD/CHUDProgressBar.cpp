@@ -98,7 +98,7 @@ void CHUDProgressBar::Value(float _fValue)
     m_poBarMesh->ComputeBoundVol();
 }
 // -----------------------------------------------------------------------------
-void CHUDProgressBar::SetFrameShader(CE3D_Shader* _poShader)
+void CHUDProgressBar::SetFrameShader(CGShader* _poShader)
 {
     poFShader = _poShader;
 
@@ -106,7 +106,7 @@ void CHUDProgressBar::SetFrameShader(CE3D_Shader* _poShader)
         m_poFrameLeaf->SetShader(poFShader);
 }
 // -----------------------------------------------------------------------------
-void CHUDProgressBar::SetBarShader(CE3D_Shader* _poShader)
+void CHUDProgressBar::SetBarShader(CGShader* _poShader)
 {
     poBShader = _poShader;
 

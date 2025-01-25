@@ -84,7 +84,7 @@ void CDetailer::SetVertexTris (CGVect3* _poVXs, int _iNumTris)
     int cI;
     float fDist;
     CGVect3* poVX = poMesh->m_poVX;
-    CVect2* poUV = poMesh->m_poUV;
+    CGVect2* poUV = poMesh->m_poUV;
     CGColor* poVC = poMesh->m_poVC;
 
     // Compute
@@ -142,12 +142,12 @@ void CDetailer::CreateTextureContents (CGMipMap* _pMipMap)
         }
 }
 
-CE3D_Shader* CDetailer::poCreateMaterial ()
+CGShader* CDetailer::poCreateMaterial ()
 {
     poTex = mNew CGMipMap(TEX_SIZE,TEX_SIZE,1,IF_RGBA);
     CreateTextureContents(poTex);
 
-    CE3D_Shader* poSh = CE3D_ShaderUtils::poGenerateShaderFromMipMap(poTex,"DetailMap.tex");
+    CGShader* poSh = CE3D_ShaderUtils::poGenerateShaderFromMipMap(poTex,"DetailMap.tex");
 
     // Setup blending op instruction
     CE3D_ShIns_BlendOp* poBO = mNew CE3D_ShIns_BlendOp;

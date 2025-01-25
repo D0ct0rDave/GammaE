@@ -13,8 +13,8 @@
 #ifndef CGraphBV_Manager_h
 #define CGraphBV_Manager_h 1
 
-// CGraphBV
-#include "BoundingVolume\GraphBoundVol\CGraphBV.h"
+// CGBoundingVolume
+#include "BoundingVolume\GraphBoundVol\CGBoundingVolume.h"
 // eGraphBV_TypeID
 #include "BoundingVolume\GraphBoundVol\eGraphBV_TypeID.h"
 
@@ -25,7 +25,7 @@ class CGraphBV_Manager
 
         ~CGraphBV_Manager();
 
-        static CGraphBV* poCreate();
+        static CGBoundingVolume* poCreate();
 
         static void SetBVMode(eGraphBV_TypeID _eMode);
 

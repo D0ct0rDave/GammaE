@@ -87,7 +87,7 @@
     <ClInclude Include="..\modules\Math\src\Evaluator\CGEvalSawTooth.h">
       <Filter>Evaluator</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Math\src\Evaluator\CGEvalSin.H">
+    <ClInclude Include="..\modules\Math\src\Evaluator\CGEvalSin.h">
       <Filter>Evaluator</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Math\src\Evaluator\CGEvalSquare.h">

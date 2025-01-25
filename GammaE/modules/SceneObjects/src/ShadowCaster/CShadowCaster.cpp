@@ -79,7 +79,7 @@ void CShadowCaster::Setup (CGVect3& _oLightPos, CGSceneNode* _poBlockerObj, CGMe
     ComputeTextureProjection();
 }
 
-CGraphBV* CShadowCaster::poGetBV ()
+CGBoundingVolume* CShadowCaster::poGetBV ()
 {
     return (NULL);
 }
@@ -143,7 +143,7 @@ void CShadowCaster::ComputeLightViewport (CE3D_Viewport& _oVpt)
 
 void CShadowCaster::ComputeLightProjection ()
 {
-    CGraphBV_Box oBox;
+    CGBVAABB oBox;
     CGVect3* poPnt = oBox.Vol.m_oPoints;
     oBox.Copy( poBlockerObj->poGetBV() );
 
@@ -181,7 +181,7 @@ void CShadowCaster::ComputeLightProjection ()
 
 void CShadowCaster::ComputeTextureProjection ()
 {
-    CMatrix4x4 oAuxMat;
+    CGMatrix4x4 oAuxMat;
 
     oAuxMat = oPrjMat;
 
@@ -192,11 +192,11 @@ void CShadowCaster::ComputeTextureProjection ()
        oAuxMat.Set(1,2,-0.5f);
      */
 
-    CMatrix4x4 oScaleMat;
+    CGMatrix4x4 oScaleMat;
     oScaleMat.LoadIdentity();
     oScaleMat.Scale(0.5f,0.5f,1.0f);
 
-    CMatrix4x4 oTransMat;
+    CGMatrix4x4 oTransMat;
     oTransMat.LoadIdentity();
     oTransMat.Translate(0.5f,0.5f,0.0f);
 
@@ -257,8 +257,8 @@ void CShadowCaster::RenderShadowMap ()
 {
     CE3D_Viewport oVpt;
     CE3D_Viewport* poOldVpt;
-    CMatrix4x4 oOldPrjMat;
-    CMatrix4x4 oOldCamMat;
+    CGMatrix4x4 oOldPrjMat;
+    CGMatrix4x4 oOldCamMat;
 
     // Save current state
     CGRenderer::I()->GetProjectorMatrix(&oOldPrjMat);

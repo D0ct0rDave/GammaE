@@ -26,7 +26,7 @@ CSkyBox::~CSkyBox()
      */
 }
 
-void CSkyBox::InitSkyBox (float fSize, CGVect3& Center, float fRoll, CE3D_Shader* * Materials)
+void CSkyBox::InitSkyBox (float fSize, CGVect3& Center, float fRoll, CGShader* * Materials)
 {
     poNode = mNew CGSceneGroup;
 
@@ -104,7 +104,7 @@ void CSkyBox::InitSkyBox (float fSize, CGVect3& Center, float fRoll, CE3D_Shader
     MeshSides[5]->m_poUV[3].V2(0,1);
 
     // Setup transformation
-    CMatrix4x4 oMat;
+    CGMatrix4x4 oMat;
 
     oMat.Scale(fSize,fSize,fSize);
     oMat.Rotate('z',fRoll);

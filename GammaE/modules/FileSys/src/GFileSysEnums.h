@@ -35,6 +35,13 @@ typedef enum
     FSM_NUM
 } EFileSeekMode;
 
+typedef enum
+{
+    RES_OP_OK = 1,
+    RES_OP_ERROR = 0,
+    RES_OP_WARNING = -2
+}  EFileOperationResult;
+
 // ----------------------------------------------------------------------------
 #endif
 // ----------------------------------------------------------------------------

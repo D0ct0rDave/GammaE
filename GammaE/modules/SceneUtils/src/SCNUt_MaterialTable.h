@@ -16,7 +16,7 @@
 #include "GammaE_Misc.h"
 // -----------------------------------------------------------------------------
 
-DECLARE_WAREHOUSE(SCNUt_MaterialTable,CGResourceWH,CE3D_Shader)
+DECLARE_WAREHOUSE(SCNUt_MaterialTable,CGResourceWH,CGShader)
 {
     public:
         SCNUt_MaterialTable(){

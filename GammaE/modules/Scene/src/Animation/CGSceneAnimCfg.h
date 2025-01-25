@@ -13,7 +13,6 @@
 // --------------------------------------------------------------------------------
 // TFrameAnimation
 // CGSceneAnimGen
-#include "CObject3D.h"
 #include "Animation/CGSceneAnimObject.h"
 // --------------------------------------------------------------------------------
 class CAnimAction

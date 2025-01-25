@@ -219,7 +219,7 @@ void TERSceneLoader::CreateSharedObjects ()
 CTileBookmark* TERSceneLoader::poCreateTileBookmark ()
 {
     CTileBookmark* poTB;
-    CE3D_Shader* poSh;
+    CGShader* poSh;
     CE3D_ShIns_TexOp* poTI;
     CGMipMap* poTex;
     int iMaxLODs,iMaxTiles,cTile,cLOD;
@@ -286,7 +286,7 @@ CSkyBox* TERSceneLoader::poCreateSkyBox ()
 {
     char StrBuff[256];
 
-    CE3D_Shader* Mats[6];
+    CGShader* Mats[6];
     CGMipMap* Tex;
     int iTex = 0;
 
@@ -321,7 +321,7 @@ CSkyBox* TERSceneLoader::poCreateSkyBox ()
 
 CSkyDome* TERSceneLoader::poCreateSkyDome ()
 {
-    CE3D_Shader* Mat;
+    CGShader* Mat;
     CGMipMap* Tex;
 
     CSkyDome* pSkyDome;

@@ -23,7 +23,7 @@ CCOL_MeshTester::~CCOL_MeshTester()
 {
 }
 
-int CCOL_MeshTester::iTestCollision (CGMesh* _poMesh, int _iMat, CGraphBV* _poBVol, CCOL_TriList& _oTriList)
+int CCOL_MeshTester::iTestCollision (CGMesh* _poMesh, int _iMat, CGBoundingVolume* _poBVol, CCOL_TriList& _oTriList)
 {
     return(0);
 }

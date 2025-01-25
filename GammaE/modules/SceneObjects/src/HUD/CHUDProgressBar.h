@@ -22,8 +22,8 @@ class CHUDProgressBar : public CHUDObject
     public:     CHUDProgressBar();
         virtual ~CHUDProgressBar();
 
-        void SetFrameShader(CE3D_Shader* _poShader);
-        void SetBarShader(CE3D_Shader* _poShader);
+        void SetFrameShader(CGShader* _poShader);
+        void SetBarShader(CGShader* _poShader);
 
         void SetIniColor(CGColor _oColor);
         void SetEndColor(CGColor _oColor);
@@ -38,9 +38,9 @@ class CHUDProgressBar : public CHUDObject
         CGColor oEndColor;
         float m_fValue;
 
-        CE3D_Shader* poFShader;
-        CE3D_Shader* poBShader;
-        CE3D_Shader* poDefBarSh;
+        CGShader* poFShader;
+        CGShader* poBShader;
+        CGShader* poDefBarSh;
 
         CGMesh* m_poBarMesh;
         CGSceneLeaf* m_poBarLeaf;

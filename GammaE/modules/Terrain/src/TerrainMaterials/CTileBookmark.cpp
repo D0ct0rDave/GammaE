@@ -31,7 +31,7 @@ CTileBookmark::~CTileBookmark()
 
 void CTileBookmark::Init (int _MaxTiles, int _MaxLODs)
 {
-    Tiles = mNew CE3D_Shader *[_MaxTiles * _MaxLODs];
+    Tiles = mNew CGShader *[_MaxTiles * _MaxLODs];
 
     TileLODs = mNew int[_MaxTiles];
     memset(TileLODs,0,sizeof(int) * _MaxTiles);
@@ -40,7 +40,7 @@ void CTileBookmark::Init (int _MaxTiles, int _MaxLODs)
     MaxLODs = _MaxLODs;
 }
 
-void CTileBookmark::SetTileMaterial (int _iTile, int _iLOD, CE3D_Shader* _Mat)
+void CTileBookmark::SetTileMaterial (int _iTile, int _iLOD, CGShader* _Mat)
 {
     assert(Tiles && "NULL Tile material array");
     assert( (_iTile < MaxTiles) && "Invalid tile material index" );
@@ -50,7 +50,7 @@ void CTileBookmark::SetTileMaterial (int _iTile, int _iLOD, CE3D_Shader* _Mat)
     if ( TileLODs[_iTile] < _iLOD ) TileLODs[_iTile] = _iLOD;
 }
 
-CE3D_Shader* CTileBookmark::poGetTileMaterial (int _iTile, int _iLOD)
+CGShader* CTileBookmark::poGetTileMaterial (int _iTile, int _iLOD)
 {
     assert(Tiles && "NULL Tile material array");
     assert( (_iTile < MaxTiles) && "Invalid tile material index" );

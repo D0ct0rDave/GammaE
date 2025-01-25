@@ -22,7 +22,7 @@ class CGSceneAnimCfgGen : public CGSceneNode
 
         virtual ~CGSceneAnimCfgGen();
 
-        virtual CGraphBV* poCreateBoundVol ()
+        virtual CGBoundingVolume* poCreateBoundVol ()
         {
             return( CGraphBV_Manager::poCreate() );
         }

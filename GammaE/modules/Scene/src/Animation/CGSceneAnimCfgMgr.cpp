@@ -39,7 +39,7 @@ void CGSceneAnimCfgMgr::SetFrameAnim (int _iFrameAnim)
         pAnimObjs[iObj]->SetFrameAnim(_iFrameAnim);
 }
 
-CGraphBV* CGSceneAnimCfgMgr::poGetBoundVol ()
+CGBoundingVolume* CGSceneAnimCfgMgr::poGetBoundVol ()
 {
     assert (pAnimObjs && "NULL Animation object array");
 

@@ -27,7 +27,7 @@ class CCOL_MT_TerrainMesh : public CCOL_MeshTester
 
         ~CCOL_MT_TerrainMesh();
 
-        virtual int iTestCollision(CGMesh* _poMesh, int _iMat, CGraphBV* _poBVol, CCOL_TriList& _oTriList);
+        virtual int iTestCollision(CGMesh* _poMesh, int _iMat, CGBoundingVolume* _poBVol, CCOL_TriList& _oTriList);
 
         int iGetTriangles(int _iX, int _iY, int _iRad, CGVect3* _pVXs);
 

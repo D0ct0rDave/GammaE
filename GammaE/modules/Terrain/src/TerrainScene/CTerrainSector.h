@@ -31,11 +31,11 @@ class CTerrainSector : public CGSceneNode
 
         virtual void Render();
 
-        virtual CGraphBV* poCreateBoundVol();
+        virtual CGBoundingVolume* poCreateBoundVol();
 
         virtual void ComputeBoundVol();
 
-        virtual CGraphBV* poGetBV();
+        virtual CGBoundingVolume* poGetBV();
 
         void SetMaxsMins(CGVect3& _Maxs, CGVect3& _Mins);
 

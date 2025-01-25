@@ -102,7 +102,7 @@ void CLensFlare::InitLensFlare (int _iNumElems, CGVect3 _SunPos)
     MeshArray = mNew CGMeshRect[iNumElems];
 }
 
-void CLensFlare::SetupFlareElem (int _iElem, float _fSize, float _fDist, CGColor _Color, CE3D_Shader* _pMat)
+void CLensFlare::SetupFlareElem (int _iElem, float _fSize, float _fDist, CGColor _Color, CGShader* _pMat)
 {
     assert (FlareElems && "NULL Lens flare elem array");
     assert ( (_iElem < iNumElems) && "Flare elem out of bounds" );
@@ -215,7 +215,7 @@ void CLensFlare::Render ()
     CGRenderer::I()->SetFogPars(E3D_FM_Last,0.0f,0.0f,0.0f,NULL);
 }
 
-CGraphBV* CLensFlare::poGetBV ()
+CGBoundingVolume* CLensFlare::poGetBV ()
 {
     return (NULL);
 }

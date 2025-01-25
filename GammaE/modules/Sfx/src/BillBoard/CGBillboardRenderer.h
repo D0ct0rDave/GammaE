@@ -25,10 +25,10 @@ class CGBillboardRenderer : public CGSceneLeaf
         void Reset();
 
         // / Starts adding billboards to a the list associated to the given shaders
-        void Begin(CE3D_Shader* _poShader);
+        void Begin(CGShader* _poShader);
 
         // / Adds a billboard list to the current list
-        void AddBillboards(CGVect3* _poVX,CVect2* _poUV,CGColor* _poVC,uint _uiNumBillboards);
+        void AddBillboards(CGVect3* _poVX,CGVect2* _poUV,CGColor* _poVC,uint _uiNumBillboards);
 
         // / Ends the process of adding billboards to the current shader
         void End();
@@ -44,7 +44,7 @@ class CGBillboardRenderer : public CGSceneLeaf
         {
             public:
                 CGVect3 m_oVX[4];
-                CVect2 m_oUV[4];
+                CGVect2 m_oUV[4];
                 CGColor m_oVC[4];
 
                 CGBillboardNode* m_poNext;
@@ -55,7 +55,7 @@ class CGBillboardRenderer : public CGSceneLeaf
         {
             public:
                 // / The shader for this list
-                CE3D_Shader* m_poShader;
+                CGShader* m_poShader;
 
                 // / The first billboard of this list
                 CGBillboardNode* m_poFirst;

@@ -183,7 +183,7 @@ void CGTrailGenStd::UpdateInstance(CGTrailInstance* _poInst,float _fDeltaT)
 
     // Generate geometry
     CGVect3 oVX[4];
-    CVect2 oUV[4];
+    CGVect2 oUV[4];
     CGColor oVC[4];
 
     CGVect3 oP1,oU1;

@@ -72,23 +72,23 @@ void CGGraphicInstance::UpdateTransform()
 {
     if ( m_bDirty == false ) return;
 
-    CMatrix4x4 oScale;
+    CGMatrix4x4 oScale;
     oScale.LoadIdentity();
     oScale.Scale(m_fScale,m_fScale,m_fScale);
 
-    CMatrix4x4 oTrans;
+    CGMatrix4x4 oTrans;
     oTrans.LoadIdentity();
     oTrans.Translate(m_oPos);
 
-    CMatrix4x4 oRX;
+    CGMatrix4x4 oRX;
     oRX.LoadIdentity();
     oRX.Rotate('x',m_fPitch);
 
-    CMatrix4x4 oRY;
+    CGMatrix4x4 oRY;
     oRY.LoadIdentity();
     oRY.Rotate('y',m_fYaw);
 
-    CMatrix4x4 oRZ;
+    CGMatrix4x4 oRZ;
     oRZ.LoadIdentity();
     oRZ.Rotate('z',m_fRoll);
 

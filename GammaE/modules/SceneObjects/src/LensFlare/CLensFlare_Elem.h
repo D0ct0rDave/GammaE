@@ -31,7 +31,7 @@ class CLensFlare_Elem
 
         CGColor Color;
 
-        CE3D_Shader* pMaterial;
+        CGShader* pMaterial;
 
         // Additional Public Declarations
 

@@ -41,46 +41,46 @@ int CCOL_Scn_ColTester::iTest3DObj_Rec (CGSceneNode* _poObj)
 
     switch ( _poObj->eGetNodeType() )
     {
-        case SNT_Gen:         iRes = iTest3DObj( (CGSceneNode*)_poObj );
+        case SNT_Node:          iRes = iTest3DObj( (CGSceneNode*)_poObj );
         break;
 
-        case SNT_Leaf:            iRes = iTest3DObj_Leaf( (CGSceneLeaf*)_poObj );
+        case SNT_Leaf:          iRes = iTest3DObj_Leaf( (CGSceneLeaf*)_poObj );
         break;
 
-        case SNT_Node:            iRes = iTest3DObj_Node( (CGSceneGroup*)_poObj );
+        case SNT_Group:         iRes = iTest3DObj_Node( (CGSceneGroup*)_poObj );
         break;
 
-        case SNT_Transf:          iRes = iTest3DObj_Transf( (CGSceneTransf*)_poObj );
+        case SNT_Transf:        iRes = iTest3DObj_Transf( (CGSceneTransf*)_poObj );
         break;
 
-        case SNT_AnimObject:      iRes = 0;
+        case SNT_AnimObject:    iRes = 0;
         break;
 
-        case SNT_AnimNode:        iRes = 0;
+        case SNT_AnimNode:      iRes = 0;
         break;
 
-        case SNT_AnimMesh:        iRes = 0;
+        case SNT_AnimMesh:      iRes = 0;
         break;
 
-        case SNT_AnimTransf:      iRes = 0;
+        case SNT_AnimTransf:    iRes = 0;
         break;
 
-        case SNT_AnimCfg:     iRes = 0;
+        case SNT_AnimCfg:       iRes = 0;
         break;
 
-        case SNT_AnimInstance:        iRes = 0;
+        case SNT_AnimInstance:  iRes = 0;
         break;
 
-        case SNT_BSPNode:     iRes = iTest3DObj_BSPNode( (CGSceneBSPNode*)_poObj );
+        case SNT_BSPNode:       iRes = iTest3DObj_BSPNode( (CGSceneBSPNode*)_poObj );
         break;
 
-        case SNT_Mux:         iRes = 0; // iTest3DObj_Mux(_fd,(CGSceneMux*)_poObj);
+        case SNT_Mux:           iRes = 0; // iTest3DObj_Mux(_fd,(CGSceneMux*)_poObj);
         break;
 
-        case SNT_CompiledLeaf:    iRes = iTest3DObj_CompiledLeaf( (CGSceneCompiledLeaf*)_poObj );
+        case SNT_CompiledLeaf:  iRes = iTest3DObj_CompiledLeaf( (CGSceneCompiledLeaf*)_poObj );
         break;
 
-        default:                    iRes = 0;
+        default:                iRes = 0;
         break;
     }
 
@@ -145,10 +145,10 @@ int CCOL_Scn_ColTester::iTest3DObj_Transf (CGSceneTransf* _poObj)
 
         // Si se hace lo primero, al salir de la llamada se debe restaurar el
         // contexto al antiguo.
-        CGraphBV_Box oBox;
+        CGBVAABB oBox;
         oBox.Copy( SGrObj->poGetBV() );
 
-        CMatrix4x4 oInvMat;
+        CGMatrix4x4 oInvMat;
         oInvMat = _poObj->oTransf();
         oInvMat.Inverse();
 
@@ -166,21 +166,21 @@ int CCOL_Scn_ColTester::iTest3DObj_Transf (CGSceneTransf* _poObj)
 
         // Setup new data
         CCOL_ColState::SrcIPos.Assign(oSIPos);
-        oInvMat.TransformPoint(CCOL_ColState::SrcIPos);
+        oInvMat.TransformPoint(&CCOL_ColState::SrcIPos);
         CCOL_ColState::SrcFPos.Assign(oSFPos);
-        oInvMat.TransformPoint(CCOL_ColState::SrcFPos);
+        oInvMat.TransformPoint(&CCOL_ColState::SrcFPos);
         CCOL_ColState::SrcSp.Assign  (oSSpd );
-        oInvMat.TransformPoint(CCOL_ColState::SrcSp);
+        oInvMat.TransformPoint(&CCOL_ColState::SrcSp);
 
         CCOL_ColState::DstIPos.Assign(oDIPos);
-        oInvMat.TransformPoint(CCOL_ColState::DstIPos);
+        oInvMat.TransformPoint(&CCOL_ColState::DstIPos);
         CCOL_ColState::DstFPos.Assign(oDFPos);
-        oInvMat.TransformPoint(CCOL_ColState::DstFPos);
+        oInvMat.TransformPoint(&CCOL_ColState::DstFPos);
         CCOL_ColState::DstSp.Assign  (oDSpd );
-        oInvMat.TransformPoint(CCOL_ColState::DstSp);
+        oInvMat.TransformPoint(&CCOL_ColState::DstSp);
 
-        CCOL_ColState::DSSp.Assign  (CCOL_ColState::DstSp);
-        CCOL_ColState::DSSp.Sub     (CCOL_ColState::SrcSp);
+        CCOL_ColState::DSSp.Assign(CCOL_ColState::DstSp);
+        CCOL_ColState::DSSp.Sub   (CCOL_ColState::SrcSp);
 
         // Perform test
         int iRes = iTest3DObj_Rec( _poObj->poGetObject() );

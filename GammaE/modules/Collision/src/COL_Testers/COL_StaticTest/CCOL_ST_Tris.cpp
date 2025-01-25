@@ -59,7 +59,7 @@ CCOL_ST_Tris::~CCOL_ST_Tris()
 {
 }
 
-int CCOL_ST_Tris::iTestCollision (CGVect3* _pVXs, CGVect3* _pVNs, int _iNumTris, CGraphBV* _BV, CGVect3& _Pos)
+int CCOL_ST_Tris::iTestCollision (CGVect3* _pVXs, CGVect3* _pVNs, int _iNumTris, CGBoundingVolume* _BV, CGVect3& _Pos)
 {
     assert( _pVXs && "NULL triangle list");
     assert( _pVNs && "NULL normal  list");
@@ -72,11 +72,11 @@ int CCOL_ST_Tris::iTestCollision (CGVect3* _pVXs, CGVect3* _pVNs, int _iNumTris,
     switch ( _BV->eGetTypeID() )
     {
         case eGraphBV_Sphere:   CBoundingSphere * BS;
-        BS = ( (CGraphBV_Sphere*)_BV )->pGetSphere();
+        BS = ( (CGBVSphere*)_BV )->pGetSphere();
         return( iTestCollisionSphere(BS->m_fRadius,BS->m_oCenter) );
 
-        case eGraphBV_Box:      CBoundingBox * BB;
-        BB = ( (CGraphBV_Box*)_BV )->pGetBox();
+        case eGraphBV_Box:      CGBVAABB * BB;
+        BB = ( (CGBVAABB*)_BV )->pGetBox();
         return( iTestCollisionBox(BB->m_oMaxs,BB->m_oMins) );
 
         default:
@@ -168,7 +168,7 @@ int CCOL_ST_Tris::iTestCollisionRay (CGRay& _ay)
 
 int CCOL_ST_Tris::iTestTriangleSphere (CGVect3* _pVXs, float _fRad, CGVect3& _Center)
 {
-    CTriangle Tri;
+    CGTriangle Tri;
     Tri.Init(_pVXs);
     float fSqDist = MATH_Utils::fTriPointSqDistance(Tri,_Center);
     return ( fSqDist < _SQ_(_fRad) );
@@ -199,7 +199,7 @@ int CCOL_ST_Tris::iTestTriangleBox (CGVect3* _pVXs, CGVect3& _Maxs, CGVect3& _Mi
 
     // Test if the triangle really crosses the bounding box. This is performed by testing
     // if the triangle plane splits the box. If not, then the triangle doesn't overlap the box
-    CPlane Plane;
+    CGPlane Plane;
     Plane.GenerateFromPoints(_pVXs[0],_pVXs[1],_pVXs[2]);
     if ( MATH_Utils::iTestBoxPlane(_Maxs,_Mins,Plane) != 0 ) return(0);
 
@@ -229,7 +229,7 @@ int CCOL_ST_Tris::iTestTriangleBox (CGVect3* _pVXs, CGVect3& _Maxs, CGVect3& _Mi
     // -----------------------------------------------------------------------------
     Edge.Assign(_pVXs[0]);
     Edge.Sub(_pVXs[1]);
-    AbsE.Set( fabs(Edge.x),fabs(Edge.y),fabs(Edge.z) );
+    AbsE.Set( Math::fAbs(Edge.x),Math::fAbs(Edge.y),Math::fAbs(Edge.z) );
 
     GetMinMaxRad2(_Y_,_Z_,v0,v2, 1.0f,Edge,AbsE,BoxHalfSize,min,max,rad);
     if ( (min > rad) || (max < -rad) ) return(0);
@@ -245,7 +245,7 @@ int CCOL_ST_Tris::iTestTriangleBox (CGVect3* _pVXs, CGVect3& _Maxs, CGVect3& _Mi
     // -----------------------------------------------------------------------------
     Edge.Assign(_pVXs[1]);
     Edge.Sub   (_pVXs[2]);
-    AbsE.Set( fabs(Edge.x),fabs(Edge.y),fabs(Edge.z) );
+    AbsE.Set( Math::fAbs(Edge.x), Math::fAbs(Edge.y), Math::fAbs(Edge.z) );
 
     GetMinMaxRad2(_Y_,_Z_,v0,v2, 1.0f,Edge,AbsE,BoxHalfSize,min,max,rad);
     if ( (min > rad) || (max < -rad) ) return(0);
@@ -261,7 +261,7 @@ int CCOL_ST_Tris::iTestTriangleBox (CGVect3* _pVXs, CGVect3& _Maxs, CGVect3& _Mi
     // -----------------------------------------------------------------------------
     Edge.Assign(_pVXs[2]);
     Edge.Sub   (_pVXs[0]);
-    AbsE.Set( fabs(Edge.x),fabs(Edge.y),fabs(Edge.z) );
+    AbsE.Set( Math::fAbs(Edge.x),Math::fAbs(Edge.y),Math::fAbs(Edge.z) );
 
     GetMinMaxRad2(_Y_,_Z_,v0,v1,-1.0f,Edge,AbsE,BoxHalfSize,min,max,rad);
     if ( (min > rad) || (max < -rad) ) return(0);
@@ -277,7 +277,7 @@ int CCOL_ST_Tris::iTestTriangleBox (CGVect3* _pVXs, CGVect3& _Maxs, CGVect3& _Mi
 
 int CCOL_ST_Tris::iTestTriangleRay (CGVect3* _pVXs, CGRay& _ay)
 {
-    CTriangle Tri;
+    CGTriangle Tri;
     Tri.Init(_pVXs);
 
     return ( MATH_Utils::iTestRayTriIntersection(_ay,Tri) );

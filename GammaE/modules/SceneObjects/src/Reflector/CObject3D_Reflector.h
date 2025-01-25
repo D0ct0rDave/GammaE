@@ -27,7 +27,7 @@ class CGSceneReflector : public CGSceneGroup
 
         virtual void Render();
 
-        void SetupReflectionMatrix(CMatrix4x4 &_oMat);
+        void SetupReflectionMatrix(CGMatrix4x4 &_oMat);
 
         // Data Members for Class Attributes
 
@@ -35,7 +35,7 @@ class CGSceneReflector : public CGSceneGroup
 
         // Data Members for Associations
 
-        CPlane Plane;
+        CGPlane Plane;
 
         // Additional Public Declarations
 

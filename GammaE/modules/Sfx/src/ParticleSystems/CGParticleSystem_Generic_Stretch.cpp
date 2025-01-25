@@ -80,7 +80,7 @@ void CGParticleSystem_Generic_Stretch::UpdateParticle (int iPart)
     P->Color.a -= RGBAFact.a;
 }
 
-void CGParticleSystem_Generic_Stretch::UpdatePS (CMatrix4x4* _ViewMatrix)
+void CGParticleSystem_Generic_Stretch::UpdatePS (CGMatrix4x4* _ViewMatrix)
 {
     if ( fPSEnergy <= 0 ) return;
 

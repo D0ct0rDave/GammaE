@@ -24,7 +24,7 @@ class SCNUt_ShaderAssigner
 
         ~SCNUt_ShaderAssigner();
 
-        void AssignShader(CE3D_Shader* _poShader, CGSceneNode* _poObj);
+        void AssignShader(CGShader* _poShader, CGSceneNode* _poObj);
 
         // Additional Public Declarations
 

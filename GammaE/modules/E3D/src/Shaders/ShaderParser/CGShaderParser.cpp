@@ -124,7 +124,7 @@ CGShader* CGShaderParser::poCreateShaderFromTexture (const CGString& _sTexName)
 CGShader* CGShaderParser::poParseShader(const CGString& _sShaderDefinition,const CGString& _sShaderName)
 {
     CGShader* poShader = NULL;
-    char* szShStr = ParseUtils_CreateString( (char*)_sShaderDefinition.szString() );
+    char* szShStr = Utils::Parse::CreateString( (char*)_sShaderDefinition.szString() );
     char* szShaderStream = szShStr;
     char* szToken;
 
@@ -132,7 +132,7 @@ CGShader* CGShaderParser::poParseShader(const CGString& _sShaderDefinition,const
 
     while ( (ParseState != E3D_PSH_MAT_ENDDEF) && (*szShStr) )
     {
-        NextToken(szToken,szShStr);
+        Utils::Parse::NextToken(szToken,szShStr);
 
         switch ( ParseState )
         {
@@ -220,7 +220,7 @@ CGShaderInstruction* CGShaderParser::poParse_ShIns_Program (char*&_szDesc)
 
     //
     char* szToken;
-    NextToken(szToken,_szDesc);
+    Utils::Parse::NextToken(szToken,_szDesc);
 
     poSh = mNew CGShInsProgram();
     if ( !poSh ) return(NULL);
@@ -255,7 +255,7 @@ CGShaderInstruction* CGShaderParser::poParse_ShIns_Texture (char*&_szDesc)
 
     while ( (ParseState != E3D_PSH_TEX_ENDDEF) && (_szDesc) )
     {
-        NextToken(szToken,_szDesc);
+        Utils::Parse::NextToken(szToken,_szDesc);
 
         if ( !stricmp(szToken,"}") )
             ParseState = E3D_PSH_TEX_ENDDEF;
@@ -280,14 +280,14 @@ CGShaderInstruction* CGShaderParser::poParse_ShIns_Texture (char*&_szDesc)
                 // Image filename
                 if ( !stricmp(szToken,"Image") )
                 {
-                    NextToken(szToken,_szDesc);
+                    Utils::Parse::NextToken(szToken,_szDesc);
                     strcpy(MipMapName,szToken);
                 }
                 // Mignification filter
                 else
                 if ( !stricmp(szToken,"MinFilter") )
                 {
-                    NextToken(szToken,_szDesc);
+                    Utils::Parse::NextToken(szToken,_szDesc);
 
                     if ( !stricmp(szToken,"NEAREST") )
                         MinFilter = E3D_TEX_MIN_FILTER_NEAREST;
@@ -315,7 +315,7 @@ CGShaderInstruction* CGShaderParser::poParse_ShIns_Texture (char*&_szDesc)
                 else
                 if ( !stricmp(szToken,"MagFilter") )
                 {
-                    NextToken(szToken,_szDesc);
+                    Utils::Parse::NextToken(szToken,_szDesc);
 
                     if ( !stricmp(szToken,"NEAREST") )
                         MagFilter = E3D_TEX_MAX_FILTER_NEAREST;
@@ -331,7 +331,7 @@ CGShaderInstruction* CGShaderParser::poParse_ShIns_Texture (char*&_szDesc)
                 else
                 if ( !stricmp(szToken,"NumLODs") )
                 {
-                    NextToken(szToken,_szDesc);
+                    Utils::Parse::NextToken(szToken,_szDesc);
                     if ( !sscanf(szToken,"%d",&MipMapLODS) )
                         // WARNING
                         MipMapLODS = 1;
@@ -340,7 +340,7 @@ CGShaderInstruction* CGShaderParser::poParse_ShIns_Texture (char*&_szDesc)
                 else
                 if ( !stricmp(szToken,"MMGenMethod") )
                 {
-                    NextToken(szToken,_szDesc);
+                    Utils::Parse::NextToken(szToken,_szDesc);
                     /*
                         if (! stricmp(szToken,"NORMAL"))
                             MMCMethod = MMCM_Normal;
@@ -361,7 +361,7 @@ CGShaderInstruction* CGShaderParser::poParse_ShIns_Texture (char*&_szDesc)
                 else
                 if ( !stricmp(szToken,"UWrap") )
                 {
-                    NextToken(szToken,_szDesc);
+                    Utils::Parse::NextToken(szToken,_szDesc);
                     if ( !stricmp(szToken,"REPEAT") )
                         UWrap = E3D_TEX_WRAP_REPEAT;
                     else
@@ -375,7 +375,7 @@ CGShaderInstruction* CGShaderParser::poParse_ShIns_Texture (char*&_szDesc)
                 else
                 if ( !stricmp(szToken,"VWrap") )
                 {
-                    NextToken(szToken,_szDesc);
+                    Utils::Parse::NextToken(szToken,_szDesc);
                     if ( !stricmp(szToken,"REPEAT") )
                         VWrap = E3D_TEX_WRAP_REPEAT;
                     else
@@ -453,7 +453,7 @@ void CGShaderParser::Parse_Color_General (char* _szDesc, float* _fR, float* _fG,
 
     while ( (ParseState != E3D_PSH_COL_ENDDEF) && (_szDesc) )
     {
-        NextToken(szToken,_szDesc);
+        Utils::Parse::NextToken(szToken,_szDesc);
 
         switch ( ParseState )
         {
@@ -470,21 +470,21 @@ void CGShaderParser::Parse_Color_General (char* _szDesc, float* _fR, float* _fG,
                         r = Math::fClamp(0.0f,1.0f,r);
 
                     // scan green component
-                    NextToken(szToken,_szDesc);
+                    Utils::Parse::NextToken(szToken,_szDesc);
                     if ( !sscanf(szToken,"%f",&g) )
                         g = 1.0f;
                     else
                         g = Math::fClamp(0.0f,1.0f,g);
 
                     // scan blue component
-                    NextToken(szToken,_szDesc);
+                    Utils::Parse::NextToken(szToken,_szDesc);
                     if ( !sscanf(szToken,"%f",&b) )
                         b = 1.0f;
                     else
                         b = Math::fClamp(0.0f,1.0f,b);
 
                     // scan alpha component
-                    NextToken(szToken,_szDesc);
+                    Utils::Parse::NextToken(szToken,_szDesc);
                     if ( !sscanf(szToken,"%f",&a) )
                         a = 1.0f;
                     else
@@ -500,7 +500,7 @@ void CGShaderParser::Parse_Color_General (char* _szDesc, float* _fR, float* _fG,
                 if ( !stricmp(szToken,"r") )
                 {
                     // scan red component
-                    NextToken(szToken,_szDesc);
+                    Utils::Parse::NextToken(szToken,_szDesc);
                     if ( !sscanf(szToken,"%f",&r) )
                         r = 1.0f;
                     else
@@ -511,7 +511,7 @@ void CGShaderParser::Parse_Color_General (char* _szDesc, float* _fR, float* _fG,
                 if ( !stricmp(szToken,"g") )
                 {
                     // scan green component
-                    NextToken(szToken,_szDesc);
+                    Utils::Parse::NextToken(szToken,_szDesc);
                     if ( !sscanf(szToken,"%f",&g) )
                         g = 1.0f;
                     else
@@ -522,7 +522,7 @@ void CGShaderParser::Parse_Color_General (char* _szDesc, float* _fR, float* _fG,
                 if ( !stricmp(szToken,"b") )
                 {
                     // scan blue component
-                    NextToken(szToken,_szDesc);
+                    Utils::Parse::NextToken(szToken,_szDesc);
                     if ( !sscanf(szToken,"%f",&b) )
                         b = 1.0f;
                     else
@@ -533,7 +533,7 @@ void CGShaderParser::Parse_Color_General (char* _szDesc, float* _fR, float* _fG,
                 if ( !stricmp(szToken,"a") )
                 {
                     // scan alpha component
-                    NextToken(szToken,_szDesc);
+                    Utils::Parse::NextToken(szToken,_szDesc);
                     if ( !sscanf(szToken,"%f",&a) )
                         a = 1.0f;
                     else
@@ -597,7 +597,7 @@ CGShaderInstruction* CGShaderParser::poParse_ShIns_Wireframe (char*&_szDesc)
 CGShaderInstruction* CGShaderParser::poParse_ShIns_Extension (char*&_szDesc)
 {
     char* szToken;
-    NextToken(szToken,_szDesc);
+    Utils::Parse::NextToken(szToken,_szDesc);
 
     // Get the extension from the Extension DB
     TExtensionFunction pFunc = (TExtensionFunction) CGShaderExtDB::pGetExtension(szToken);
@@ -614,7 +614,7 @@ CGShaderInstruction* CGShaderParser::poParse_ShIns_Extension (char*&_szDesc)
 CGShaderInstruction* CGShaderParser::poParse_ShIns_BlendingOperation (char*&_szDesc)
 {
     char* szToken;
-    NextToken(szToken,_szDesc);
+    Utils::Parse::NextToken(szToken,_szDesc);
 
     CGShInsBlendOp* poSh = mNew CGShInsBlendOp();
     poSh->SetBlendMode(E3D_BM_NULL);
@@ -646,7 +646,7 @@ CGShaderInstruction* CGShaderParser::poParse_ShIns_BlendingOperation (char*&_szD
 CGShaderInstruction* CGShaderParser::poParse_ShIns_ZOperation (char*&_szDesc)
 {
     char* szToken;
-    NextToken(szToken,_szDesc);
+    Utils::Parse::NextToken(szToken,_szDesc);
 
     float fRefValue = 0.0f;
     E3D_ZTestFunc eZTestFunc = E3D_ZTF_LEqual;
@@ -656,7 +656,7 @@ CGShaderInstruction* CGShaderParser::poParse_ShIns_ZOperation (char*&_szDesc)
 
     while ( (ParseState != E3D_PSH_ZOP_ENDDEF) && (_szDesc) )
     {
-        NextToken(szToken,_szDesc);
+        Utils::Parse::NextToken(szToken,_szDesc);
 
         switch ( ParseState )
         {
@@ -669,7 +669,7 @@ CGShaderInstruction* CGShaderParser::poParse_ShIns_ZOperation (char*&_szDesc)
                     // ZFunc
                     if ( !stricmp(szToken,"ZFunc") )
                     {
-                        NextToken(szToken,_szDesc);
+                        Utils::Parse::NextToken(szToken,_szDesc);
 
                         if ( !stricmp(szToken,"ALWAYS") )
                             eZTestFunc = E3D_ZTF_Always;
@@ -703,7 +703,7 @@ CGShaderInstruction* CGShaderParser::poParse_ShIns_ZOperation (char*&_szDesc)
                     // ZFunc Ref Value
                else if (! stricmp(szToken,"RefVal"))
                     {
-                        NextToken(szToken,_szDesc);
+                        Utils::Parse::NextToken(szToken,_szDesc);
 
                         if (! sscanf(szToken,"%f",&fRefValue))
                             fRefValue = 1.0f;
@@ -715,7 +715,7 @@ CGShaderInstruction* CGShaderParser::poParse_ShIns_ZOperation (char*&_szDesc)
                     else
                     if ( !stricmp(szToken,"ZWrite") )
                     {
-                        NextToken(szToken,_szDesc);
+                        Utils::Parse::NextToken(szToken,_szDesc);
 
                         if ( !stricmp(szToken,"ENABLE") )
                             eZWrite = E3D_ZW_Enable;
@@ -756,7 +756,7 @@ CGShaderInstruction* CGShaderParser::poParse_ShIns_ZOperation (char*&_szDesc)
 CGShaderInstruction* CGShaderParser::poParse_ShIns_TextureOperation (char*&_szDesc)
 {
     char* szToken;
-    NextToken(szToken,_szDesc);
+    Utils::Parse::NextToken(szToken,_szDesc);
 
     CGShInsTexOp* poSh = mNew CGShInsTexOp();
     poSh->SetTOpType(eSITexOp_NULL);
@@ -800,11 +800,11 @@ CGShaderInstruction* CGShaderParser::poParse_ShIns_TextureOperation (char*&_szDe
     if ( !stricmp(szToken,"FrameSet") )
     {
         poSh->SetTOpType(eSITexOp_FrameSet);
-        NextToken(szToken,_szDesc);
+        Utils::Parse::NextToken(szToken,_szDesc);
         sscanf(szToken,"%d",&poSh->m_uiImgCols);
-        NextToken(szToken,_szDesc);
+        Utils::Parse::NextToken(szToken,_szDesc);
         sscanf(szToken,"%d",&poSh->m_uiImgRows);
-        NextToken(szToken,_szDesc);
+        Utils::Parse::NextToken(szToken,_szDesc);
         sscanf(szToken,"%f",&poSh->m_fFreq);
     }
 
@@ -814,7 +814,7 @@ CGShaderInstruction* CGShaderParser::poParse_ShIns_TextureOperation (char*&_szDe
 CGShaderInstruction* CGShaderParser::poParse_ShIns_GeometricOperation (char*&_szDesc)
 {
     char* szToken;
-    NextToken(szToken,_szDesc);
+    Utils::Parse::NextToken(szToken,_szDesc);
 
     CGShInsGeoOp* poSh = mNew CGShInsGeoOp();
     poSh->SetGOpType(eSIGeoOp_NULL);
@@ -863,7 +863,7 @@ CGEvaluator* CGShaderParser::poParseEvaluator (char*&_szDesc)
     char* szToken;
     float fValue;
 
-    NextToken(szToken,_szDesc);
+    Utils::Parse::NextToken(szToken,_szDesc);
 
     if ( !strcmp(szToken,"EVMult") )
     {

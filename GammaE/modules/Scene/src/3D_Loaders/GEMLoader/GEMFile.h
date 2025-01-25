@@ -13,6 +13,7 @@
 // ----------------------------------------------------------------------------
 #include "GSceneEnums.h"
 #include "GammaE_Misc.h"
+#include "GammaE_FileSys.h"
 // ----------------------------------------------------------------------------
 const uint GEM_FILE_IDENTIFIER = MAKE_RIFF_ID('G','E','M','D');
 

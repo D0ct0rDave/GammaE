@@ -10,22 +10,22 @@
 // -----------------------------------------------------------------------------
 // %X% %Q% %Z% %W%
 
-#ifndef CGraphBV_h
-#define CGraphBV_h 1
+#ifndef CGBVAABB_h
+#define CGBVAABB_h 1
 
-// eGraphBV_TypeID
-#include "BoundingVolume\GraphBoundVol\eGraphBV_TypeID.h"
-// CE3D_Frustum
-#include "Viewing\Frustum\CE3D_Frustum.h"
+// CGBoundingVolume
+#include "BoundingVolume\GraphBoundVol\CGBoundingVolume.h"
+// CGBVAABB
+#include "BoundingVolume\CGBVAABB.h"
 
-class CGraphBV
+class CGBVAABB : public CGBoundingVolume
 {
     public:
-        CGraphBV();
+        CGBVAABB();
 
-        ~CGraphBV();
+        ~CGBVAABB();
 
-        virtual void Transform(CMatrix4x4& M);
+        virtual void Transform(CGMatrix4x4& M);
 
         virtual void Compute(CGVect3* VXs, int iNumVXs);
 
@@ -37,24 +37,33 @@ class CGraphBV
 
         virtual void Init(CGVect3 Max, CGVect3 Min);
 
-        virtual void Copy(CGraphBV* Src);
-
-        eGraphBV_TypeID eGetTypeID();
+        CGBVAABB* pGetBox();
 
         virtual int TestInside(CGVect3& _Pos);
 
         virtual CGVect3 & GetExtents();
 
+        CGVect3 & GetAxis(int _iAxis);
+
         virtual CGVect3 & oGetMax();
 
         virtual CGVect3 & oGetMin();
 
+        // Data Members for Associations
+
+        CGBVAABB Vol;
+
         // Additional Public Declarations
 
     protected:
+
+        void ComputeAll();
+
         // Data Members for Class Attributes
 
-        eGraphBV_TypeID eTypeID;
+        CGVect3 oExtents;
+
+        CGVect3 oCenter;
 
         // Additional Protected Declarations
 
@@ -64,11 +73,6 @@ class CGraphBV
     private:   // Additional Implementation Declarations
 };
 
-// Class CGraphBV
-
-inline eGraphBV_TypeID CGraphBV::eGetTypeID ()
-{
-    return (eTypeID);
-}
+// Class CGBVAABB
 
 #endif

@@ -31,10 +31,10 @@ class SCNUt_Triangle
         CGVect3 VXs[3];
 
         // // UV coordinates
-        CVect2 UVs[3];
+        CGVect2 UVs[3];
 
         // // VertexColor of the vertex (if any)
-        CVect4 VCs[3];
+        CGVect4 VCs[3];
 
         // // Vertex normals (if any)
         CGVect3 VNs[3];

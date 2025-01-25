@@ -29,7 +29,7 @@ class CCOL_Mesh_ColTester
 
         ~CCOL_Mesh_ColTester();
 
-        static int iTestCollision(CMesh* _pMesh, CGraphBV* _BVol, CCOL_TriList& _TriList);
+        static int iTestCollision(CMesh* _pMesh, CGBoundingVolume* _BVol, CCOL_TriList& _TriList);
 
         // Additional Public Declarations
 

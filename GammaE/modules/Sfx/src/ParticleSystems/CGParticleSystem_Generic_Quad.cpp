@@ -63,7 +63,7 @@ void CParticleSystem_Generic_Quad::UpdateParticle (int iPart)
     P->Color.Sub(RGBAFact);
 }
 // -----------------------------------------------------------------------------
-void CParticleSystem_Generic_Quad::UpdatePS (CMatrix4x4* _ViewMatrix)
+void CParticleSystem_Generic_Quad::UpdatePS (CGMatrix4x4* _ViewMatrix)
 {
     if ( fPSEnergy <= 0 ) return;
 
@@ -78,7 +78,7 @@ void CParticleSystem_Generic_Quad::UpdatePS (CMatrix4x4* _ViewMatrix)
     CGVect3 NewPos;
     TParticle_Quad* P = pParts;
     CGVect3* pVX = poMesh->VXs;
-    CVect4* pVC = poMesh->VCs;
+    CGVect4* pVC = poMesh->VCs;
     int CPart;
 
     for ( CPart = 0; CPart < iMaxParticles; CPart++ )

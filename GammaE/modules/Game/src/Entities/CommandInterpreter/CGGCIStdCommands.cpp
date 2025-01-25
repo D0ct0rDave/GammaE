@@ -92,7 +92,7 @@ ECIState CGGCICommandExec::Exec(CGString& _sPars)
 {
     if ( _sPars.szString() == NULL ) return(CIS_Running);
 
-    char* szFile = ParseUtils_ReadFile( (char*)_sPars.szString() );
+    char* szFile = Utils::Parse::ReadFile( (char*)_sPars.szString() );
     if ( !szFile )
     {
         return(CIS_Ready);
@@ -191,7 +191,7 @@ ECIState CGGCICommandBind::Exec(CGString& _sPars)
         CGDynArray <CGString> oPars;
         _sPars.ToUpperCase();
 
-        ParseUtils_ParseSentence(_sPars,&oPars);
+        Utils::Parse::ParseSentence(_sPars,&oPars);
         if ( oPars.uiNumElems() < 2 ) return(CIS_Running);
 
         // Retrieve input key
@@ -241,7 +241,7 @@ ECIState CGGCICommandSet::Exec(CGString& _sPars)
     if ( _sPars != "" )
     {
         _sPars.ToUpperCase();
-        ParseUtils_ParseSentence(_sPars,&oPars);
+        Utils::Parse::ParseSentence(_sPars,&oPars);
     }
 
     switch ( oPars.uiNumElems() )

@@ -21,7 +21,7 @@ class CHUDLabel : public CHUDObject
         CHUDLabel(uint _uiMaxChars);
         virtual ~CHUDLabel();
 
-        virtual CGraphBV* poCreateBoundVol();
+        virtual CGBoundingVolume* poCreateBoundVol();
 
         void SetFont(CHUDFont* _poFont);
         void SetText(const CGString& _sText);

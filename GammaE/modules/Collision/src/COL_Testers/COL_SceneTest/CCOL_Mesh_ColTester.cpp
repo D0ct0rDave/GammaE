@@ -23,13 +23,13 @@ CCOL_Mesh_ColTester::~CCOL_Mesh_ColTester()
 {
 }
 
-int CCOL_Mesh_ColTester::iTestCollision (CMesh* _pMesh, CGraphBV* _BVol, CCOL_TriList& _TriList)
+int CCOL_Mesh_ColTester::iTestCollision (CMesh* _pMesh, CGBoundingVolume* _BVol, CCOL_TriList& _TriList)
 {
     if ( !_pMesh ) return(0);
     if ( !_TriList.iFreeTris() ) return(0);
 
     int cTri;
-    CTriangle Tri;
+    CGTriangle Tri;
     CGVect3 VXs[3];
     CGVect3 VN;
     CGVect3* pVXs;

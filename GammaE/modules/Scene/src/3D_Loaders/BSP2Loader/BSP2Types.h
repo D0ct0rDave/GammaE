@@ -57,14 +57,14 @@ struct bsp_point3s
 
 struct bsp_lump
 {
-    uint offset;
-    uint lenght;
+    unsigned int offset;
+    unsigned int lenght;
 };
 
 struct bsp_header
 {
-    uint magic;
-    uint version;
+    unsigned int magic;
+    unsigned int version;
     bsp_lump lump[19];
 };
 
@@ -79,30 +79,30 @@ struct bsp_face
     unsigned short plane;
     unsigned short plane_side;
 
-    uint first_edge;
+    unsigned int first_edge;
     unsigned short num_edges;
 
     unsigned short texture_info;
 
     unsigned char lightmap_styles[4];
-    uint lightmap_offset;
+    unsigned int lightmap_offset;
 };
 
 struct bsp_face_edge
 {
-    uint index;
+    unsigned int index;
 };
 
 struct bsp_plane
 {
     bsp_point3f normal;
     float distance;
-    uint type;                    // 0:X ,1:Y ,2:Z, 3:any
+    unsigned int type;                    // 0:X ,1:Y ,2:Z, 3:any
 };
 
 struct bsp_node
 {
-    uint plane;
+    unsigned int plane;
     int front_child;                    // negative idxs are leafs: leaf = -(idx+1)
     int back_child;
 
@@ -115,7 +115,7 @@ struct bsp_node
 
 struct bsp_leaf
 {
-    uint brush_or;
+    unsigned int brush_or;
     unsigned short cluster;
     unsigned short area;
 
@@ -141,22 +141,22 @@ struct bsp_texinfo
     bsp_point3f v_axis;
     float v_offset;
 
-    uint flags;
-    uint value;
+    unsigned int flags;
+    unsigned int value;
 
     char texture_name[32];
-    uint next_texinfo;
+    unsigned int next_texinfo;
 };
 
 struct bsp_vis_offset
 {
-    uint pvs;
-    uint phs;
+    unsigned int pvs;
+    unsigned int phs;
 };
 
 struct bsp_vis
 {
-    uint iNumVisOfs;
+    unsigned int iNumVisOfs;
     bsp_vis_offset* pVisOfs;
 };
 

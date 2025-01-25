@@ -21,7 +21,7 @@ CGraphBV_Cylinder::~CGraphBV_Cylinder()
 {
 }
 
-void CGraphBV_Cylinder::Transform (CMatrix4x4& M)
+void CGraphBV_Cylinder::Transform (CGMatrix4x4& M)
 {
 }
 

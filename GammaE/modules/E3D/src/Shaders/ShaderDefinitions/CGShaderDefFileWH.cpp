@@ -49,16 +49,16 @@ bool bGetShaderDefinition(char* _szShaderString,char* * _szShaderName,char* * _s
     char* szShaderDefinition;
 
     // skip "material" token
-    szShaderName = ParseUtils_ParseToken(_szShaderString);
+    szShaderName = Utils::Parse::ParseToken(_szShaderString);
     // Get material name
-    szShaderName = ParseUtils_ParseToken(_szShaderString);
+    szShaderName = Utils::Parse::ParseToken(_szShaderString);
     // Get material definition
     szShaderDefinition = _szShaderString;
 
     if ( !bControlBracketPairs(szShaderDefinition) ) return(false);
 
-    *_szShaderName = ParseUtils_CreateString(szShaderName      );
-    *_szShaderDef = ParseUtils_CreateString(szShaderDefinition);
+    *_szShaderName = Utils::Parse::CreateString(szShaderName      );
+    *_szShaderDef = Utils::Parse::CreateString(szShaderDefinition);
 
     return(true);
 }
@@ -116,7 +116,7 @@ void CGShaderDefFileWH::AddShader(char* _szShaderString)
 CGTextResource* CGShaderDefFileWH::poLoadResource(const CGString& _sFilename)
 {
     CGTextResource* poRes = mNew CGTextResource;
-    poRes->SetData( ParseUtils_ReadFile( (char*)_sFilename.szString() ) );
+    poRes->SetData( Utils::Parse::ReadFile( (char*)_sFilename.szString() ) );
 
     ProcessShaderDefFile( poRes->sGetData().szString() );
 
@@ -125,7 +125,6 @@ CGTextResource* CGShaderDefFileWH::poLoadResource(const CGString& _sFilename)
 // ----------------------------------------------------------------------------
 void CGShaderDefFileWH::Reload()
 {
-    CE3D_ShaderDefWH::I()->Reset();
-    CGDiskResourceWH <CGTextResource, CE3D_ShaderDefFileWH>::Reload();
+    CGDiskResourceWH <CGTextResource, CGShaderDefFileWH>::Reload();
 }
 // ----------------------------------------------------------------------------

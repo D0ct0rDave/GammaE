@@ -15,13 +15,10 @@
 #include "File/CGFile.h"
 #include "FileManager/CGFileSysManager.h"
 
-/*
- #include "FileManager/CGFileSysMgrPAK.h"
- #include "FileManager/CGFileSysMgrMultiPAK.h"
- #include "FileManager/CGFileSysMgrZIP.h"
- #include "FileManager/CGFileSysMgrMultiZIP.h"
- #include "FileManager/CGFileSysMgrMultiZIP.h"
- */
+#include "FileManager/CGFileSysMgrPAK.h"
+#include "FileManager/CGFileSysMgrMultiPAK.h"
+#include "FileManager/CGFileSysMgrZIP.h"
+#include "FileManager/CGFileSysMgrMultiZIP.h"
 
 #include "FileUtils/CGFileUtils.h"
 // ----------------------------------------------------------------------------

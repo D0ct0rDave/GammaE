@@ -37,7 +37,7 @@ void CCoronaMgr::Init (int _iMaxCoronas)
     poCoronas = mNew CCorona[iMaxCoronas];
 }
 // -----------------------------------------------------------------------------
-void CCoronaMgr::AddCorona (CGColor _oColor, CE3D_Shader* _poMat, CGVect3& _oPos, float _fXYSize)
+void CCoronaMgr::AddCorona (CGColor _oColor, CGShader* _poMat, CGVect3& _oPos, float _fXYSize)
 {
     poCoronas[iNumCoronas].fXYSize = _fXYSize;
     poCoronas[iNumCoronas].oColor = _oColor;

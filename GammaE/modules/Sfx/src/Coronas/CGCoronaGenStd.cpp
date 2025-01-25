@@ -69,7 +69,7 @@ void CGCoronaGenStd::UpdateInstance(CGCoronaInstance* _poInst,float _fDeltaT)
     CGCoronaStd* poCorona = (CGCoronaStd*)_poInst->poGetCoronaData();
     UpdateCorona(poCorona,_fDeltaT);
 
-    CMatrix4x4 oCameraMatrix;
+    CGMatrix4x4 oCameraMatrix;
     CGRenderer::I()->GetCameraMatrix(&oCameraMatrix);
 
     // Generate the geometry for this corona
@@ -82,7 +82,7 @@ void CGCoronaGenStd::UpdateInstance(CGCoronaInstance* _poInst,float _fDeltaT)
     oY.Scale(poCorona->m_fSize);
 
     CGVect3 oVX[4];
-    CVect2 oUV[4];
+    CGVect2 oUV[4];
     CGColor oVC[4];
 
     oVX[0] = oNewPos;

@@ -39,7 +39,7 @@ class CGSceneAnimMesh : public CGSceneAnimObject
         // / Returns the number of vertices per frame
         uint uiGetNumFrameVXs()
         {
-            return (m_poMesh->m_usNumVXs);
+            return (m_poMesh->uiGetNumVXs());
         }
 
         // / Retrieves the startup frame

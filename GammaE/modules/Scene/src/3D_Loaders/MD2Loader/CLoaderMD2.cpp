@@ -73,7 +73,7 @@ CGSceneNode* CLoaderMD2::ParseChunks ()
 
     SCNUt_MeshCompacter MCompacter;
 
-    CE3D_Shader* Skin;
+    CGShader* Skin;
 
     CGSceneAnimMesh* AnimMesh;
     CGSceneLeaf* LeafObj;
@@ -160,7 +160,7 @@ SCNUt_TriScene* CLoaderMD2::ParseModel ()
     return(MD2Mesh);
 }
 // ----------------------------------------------------------------------------
-CE3D_Shader* CLoaderMD2::ParseMaterial ()
+CGShader* CLoaderMD2::ParseMaterial ()
 {
     char* SkinFile = &Stream[ MD2Header->offsetSkins ];
 

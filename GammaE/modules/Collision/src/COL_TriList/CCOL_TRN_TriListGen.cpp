@@ -19,7 +19,7 @@ inline void TEST_Triangle(CGVect3* _poVXs,int _iMat,int &_iTris,CCOL_TriList& _o
     return;
 
     /*
-       CTriangle	oTri;
+       CGTriangle	oTri;
        CGVect3		oNorm;
        float		fSqrDist;
 
@@ -143,7 +143,7 @@ int CCOL_TRN_TriListGen::GetTriList (CCOL_TriList& _oTriList, CGVect3& _oPos, fl
     if ( fX > iTWidth ) return(0);
     if ( fY > iTHeight ) return(0);
 
-    CTriangle Tri;
+    CGTriangle Tri;
     int cI,cJ;
     int iNumTris;
     float fXIni,fYIni;

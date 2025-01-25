@@ -31,9 +31,9 @@ class SCNUt_Scn2TriScnBuilder
 
         SCNUt_TriScene* poBuild(CGSceneNode* _poScene, SCNUt_MaterialTable& _oMTable);
 
-        SCNUt_TriScene* poBuildRec(CGSceneNode* _poScene, CMatrix4x4* _poMStack, int _iMPos, SCNUt_MaterialTable& _poMTab);
+        SCNUt_TriScene* poBuildRec(CGSceneNode* _poScene, CGMatrix4x4* _poMStack, int _iMPos, SCNUt_MaterialTable& _poMTab);
 
-        SCNUt_TriScene* poBuildMesh(CGMesh& _oMesh, int _iMat, CMatrix4x4& _oMat);
+        SCNUt_TriScene* poBuildMesh(CGMesh& _oMesh, int _iMat, CGMatrix4x4& _oMat);
 
         // Additional Public Declarations
 

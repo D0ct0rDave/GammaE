@@ -10,22 +10,22 @@
 // -----------------------------------------------------------------------------
 // %X% %Q% %Z% %W%
 
-#ifndef CGraphBV_Box_h
-#define CGraphBV_Box_h 1
+#ifndef CGBVSphere_h
+#define CGBVSphere_h 1
 
-// CGraphBV
-#include "BoundingVolume\GraphBoundVol\CGraphBV.h"
-// CBoundingBox
-#include "BoundingVolume\CBoundingBox.h"
+// CGBoundingVolume
+#include "BoundingVolume\GraphBoundVol\CGBoundingVolume.h"
+// CBoundingSphere
+#include "BoundingVolume\CBoundingSphere.h"
 
-class CGraphBV_Box : public CGraphBV
+class CGBVSphere : public CGBoundingVolume
 {
     public:
-        CGraphBV_Box();
+        CGBVSphere();
 
-        ~CGraphBV_Box();
+        ~CGBVSphere();
 
-        virtual void Transform(CMatrix4x4& M);
+        virtual void Transform(CGMatrix4x4& M);
 
         virtual void Compute(CGVect3* VXs, int iNumVXs);
 
@@ -37,33 +37,22 @@ class CGraphBV_Box : public CGraphBV
 
         virtual void Init(CGVect3 Max, CGVect3 Min);
 
-        CBoundingBox* pGetBox();
+        CBoundingSphere* pGetSphere();
 
         virtual int TestInside(CGVect3& _Pos);
 
-        virtual CGVect3 & GetExtents();
-
-        CGVect3 & GetAxis(int _iAxis);
-
-        virtual CGVect3 & oGetMax();
-
-        virtual CGVect3 & oGetMin();
+        virtual void Copy(CGBoundingVolume* Src);
 
         // Data Members for Associations
 
-        CBoundingBox Vol;
+        CBoundingSphere Vol;
 
         // Additional Public Declarations
 
     protected:
-
-        void ComputeAll();
-
         // Data Members for Class Attributes
 
         CGVect3 oExtents;
-
-        CGVect3 oCenter;
 
         // Additional Protected Declarations
 
@@ -73,6 +62,6 @@ class CGraphBV_Box : public CGraphBV
     private:   // Additional Implementation Declarations
 };
 
-// Class CGraphBV_Box
+// Class CGBVSphere
 
 #endif

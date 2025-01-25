@@ -63,8 +63,8 @@ CHUDMsgBox::CHUDMsgBox()
     iAddObject(poTxtLeaf);
 
     // Add previous/next icons
-    CE3D_Shader* poNIcShader = CE3D_ShaderWH::I()->poCreateShader("MessageBox_NextIcon");
-    CE3D_Shader* poPIcShader = CE3D_ShaderWH::I()->poCreateShader("MessageBox_PrevIcon");
+    CGShader* poNIcShader = CE3D_ShaderWH::I()->poCreateShader("MessageBox_NextIcon");
+    CGShader* poPIcShader = CE3D_ShaderWH::I()->poCreateShader("MessageBox_PrevIcon");
 
     CGMesh* poPMesh = mNew CGMeshRect;
     NormalizeMeshRect(poPMesh);
@@ -92,12 +92,12 @@ CHUDMsgBox::~CHUDMsgBox()
 {
 }
 // -----------------------------------------------------------------------------
-void CHUDMsgBox::SetFont(CE3D_Shader* _poShader)
+void CHUDMsgBox::SetFont(CGShader* _poShader)
 {
     poTxtLeaf->SetShader( _poShader );
 }
 // -----------------------------------------------------------------------------
-void CHUDMsgBox::SetBackground(CE3D_Shader* _poShader)
+void CHUDMsgBox::SetBackground(CGShader* _poShader)
 {
     poBckLeaf->SetShader( _poShader );
 }
@@ -227,7 +227,7 @@ void CHUDMsgBox::SetGText()
         for ( int i = 0; i < oMsg.uiNumElems(); i++ )
             oGTxt.WriteText(oMsg[i].szLine,oColor,1.0f);
 
-        CMatrix4x4 oMat;
+        CGMatrix4x4 oMat;
         oMat.LoadIdentity();
         oMat.Scale(0,0,0);
 
@@ -239,7 +239,7 @@ void CHUDMsgBox::SetGText()
     }
     else
     {
-        CMatrix4x4 oMat;
+        CGMatrix4x4 oMat;
         oMat.LoadIdentity();
 
         poNextIcTransf->SetTransf(oMat);
@@ -277,7 +277,7 @@ void CHUDMsgBox::SetBackground()
     iHeight = iGetHeightChars();
     iWidth = iGetWidthChars();
 
-    CMatrix4x4 oMat;
+    CGMatrix4x4 oMat;
     oMat.LoadIdentity();
     oMat.Translate(iCols * 0.5f,iHeight * 0.5f,0.0f);
     oMat.Scale(iWidth + 3,iHeight + 1,1.0f);

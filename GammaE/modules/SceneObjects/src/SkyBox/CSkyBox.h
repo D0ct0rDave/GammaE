@@ -23,7 +23,7 @@ class CSkyBox : public CGSceneTransf
 
         virtual ~CSkyBox();
 
-        void InitSkyBox(float fSize, CGVect3& Center, float fRoll, CE3D_Shader* * Materials);
+        void InitSkyBox(float fSize, CGVect3& Center, float fRoll, CGShader* * Materials);
 
         // Additional Public Declarations
 
@@ -37,7 +37,7 @@ class CSkyBox : public CGSceneTransf
 
         CGSceneLeaf* ObjSides[6];
 
-        CE3D_Shader* MatsSides[6];
+        CGShader* MatsSides[6];
 
         CGSceneGroup* poNode;
 

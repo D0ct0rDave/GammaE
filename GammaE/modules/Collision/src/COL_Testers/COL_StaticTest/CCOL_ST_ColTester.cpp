@@ -23,21 +23,21 @@ CCOL_ST_ColTester::~CCOL_ST_ColTester()
 {
 }
 
-int CCOL_ST_ColTester::iTestCollision (CGraphBV* SrcObj, CGraphBV* DstObj)
+int CCOL_ST_ColTester::iTestCollision (CGBoundingVolume* SrcObj, CGBoundingVolume* DstObj)
 {
     CBoundingSphere* SS,* DS;
-    CBoundingBox* SB,* DB;
+    CGBVAABB* SB,* DB;
     CGVect3* SP,* DP;
     int iFlags = 0;
 
     // Get source Bounding Volume
     switch ( SrcObj->eGetTypeID() )
     {
-        case eGraphBV_Sphere:   SS = ( (CGraphBV_Sphere*)SrcObj )->pGetSphere();
+        case eGraphBV_Sphere:   SS = ( (CGBVSphere*)SrcObj )->pGetSphere();
         iFlags += 0;
         break;
 
-        case eGraphBV_Box:      SB = ( (CGraphBV_Box*)SrcObj )->pGetBox();
+        case eGraphBV_Box:      SB = ( (CGBVAABB*)SrcObj )->pGetBox();
         iFlags += 1;
         break;
 
@@ -49,11 +49,11 @@ int CCOL_ST_ColTester::iTestCollision (CGraphBV* SrcObj, CGraphBV* DstObj)
     // Get destination Bounding Volume
     switch ( DstObj->eGetTypeID() )
     {
-        case eGraphBV_Sphere:   DS = ( (CGraphBV_Sphere*)DstObj )->pGetSphere();
+        case eGraphBV_Sphere:   DS = ( (CGBVSphere*)DstObj )->pGetSphere();
         iFlags += 3 * 0;
         break;
 
-        case eGraphBV_Box:      DB = ( (CGraphBV_Box*)DstObj )->pGetBox();
+        case eGraphBV_Box:      DB = ( (CGBVAABB*)DstObj )->pGetBox();
         iFlags += 3 * 1;
         break;
 
@@ -104,19 +104,19 @@ int CCOL_ST_ColTester::iTestCollision (CGraphBV* SrcObj, CGraphBV* DstObj)
     return (0);
 }
 
-int CCOL_ST_ColTester::iTestPlane (CGraphBV* _SrcObj, CPlane& Plane)
+int CCOL_ST_ColTester::iTestPlane (CGBoundingVolume* _SrcObj, CGPlane& Plane)
 {
     CBoundingSphere* SS;
-    CBoundingBox* SB;
+    CGBVAABB* SB;
     CGVect3* SP;
 
     switch ( _SrcObj->eGetTypeID() )
     {
-        case eGraphBV_Sphere:   SS = ( (CGraphBV_Sphere*)_SrcObj )->pGetSphere();
+        case eGraphBV_Sphere:   SS = ( (CGBVSphere*)_SrcObj )->pGetSphere();
         return ( MATH_Utils::iTestSpherePlane(SS->m_oCenter,SS->m_fRadius,Plane) );
         break;
 
-        case eGraphBV_Box:      SB = ( (CGraphBV_Box*)_SrcObj )->pGetBox();
+        case eGraphBV_Box:      SB = ( (CGBVAABB*)_SrcObj )->pGetBox();
         return ( MATH_Utils::iTestBoxPlane(SB->m_oMaxs,SB->m_oMaxs,Plane) );
         break;
 

@@ -102,7 +102,6 @@
     <ClInclude Include="..\modules\FileSys\src\FileUtils\CGFileUtils.h" />
     <ClInclude Include="..\modules\FileSys\src\GFileSys.h" />
     <ClInclude Include="..\modules\FileSys\src\GFileSysEnums.h" />
-    <ClInclude Include="..\modules\FileSys\src\Misc___\CGFileSysCommon.h" />
     <ClInclude Include="..\modules\FileSys\src\OSFile\CGOSFile.h" />
     <ClInclude Include="..\modules\FileSys\src\OSFile\CGOSFileW32.h" />
     <ClInclude Include="..\modules\FileSys\src\OSFile\OSFile.h" />
@@ -117,7 +116,6 @@
     <ClCompile Include="..\modules\FileSys\src\FileManager\CGFileSysMgrPAK.cpp" />
     <ClCompile Include="..\modules\FileSys\src\FileManager\CGFileSysMgrZIP.cpp" />
     <ClCompile Include="..\modules\FileSys\src\FileUtils\CGFileUtils.cpp" />
-    <ClCompile Include="..\modules\FileSys\src\Misc___\CGFileSysCommon.cpp" />
     <ClCompile Include="..\modules\FileSys\src\OSFile\CGOSFile.cpp" />
     <ClCompile Include="..\modules\FileSys\src\OSFile\CGOSFileW32.cpp" />
   </ItemGroup>

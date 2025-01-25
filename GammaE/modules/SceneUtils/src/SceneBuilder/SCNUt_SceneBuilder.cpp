@@ -66,7 +66,7 @@ CGSceneNode* SCNUt_SceneBuilder::poBuildScene (SCNUt_TriScene& _oScene, SCNUt_Ma
         poLeaf = mNew CGSceneLeaf;
         poLeaf->SetMesh  (poMesh);
 
-        CE3D_Shader* poShader = _oMatTable.poGet(oTSep.piMatIdx[0]);
+        CGShader* poShader = _oMatTable.poGet(oTSep.piMatIdx[0]);
         poLeaf->SetShader( poShader );
 
         return(poLeaf);

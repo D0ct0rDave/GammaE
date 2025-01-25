@@ -10,24 +10,24 @@
 // -----------------------------------------------------------------------------
 #include <assert.h>
 
-// CGraphBV_Box
-#include "BoundingVolume\GraphBoundVol\CGraphBV_Box.h"
+// CGBVAABB
+#include "BoundingVolume\GraphBoundVol\CGBVAABB.h"
 static CGVect3 oXAxis(1.0f,0.0f,0.0f);
 static CGVect3 oYAxis(0.0f,1.0f,0.0f);
 static CGVect3 oZAxis(0.0f,0.0f,1.0f);
 
-// Class CGraphBV_Box
+// Class CGBVAABB
 
-CGraphBV_Box::CGraphBV_Box()
+CGBVAABB::CGBVAABB()
 {
     eTypeID = eGraphBV_Box;
 }
 
-CGraphBV_Box::~CGraphBV_Box()
+CGBVAABB::~CGBVAABB()
 {
 }
 
-void CGraphBV_Box::Transform (CMatrix4x4& M)
+void CGBVAABB::Transform (CGMatrix4x4& M)
 {
     unsigned int cV;
     CGVect3 Mins,Maxs;
@@ -53,7 +53,7 @@ void CGraphBV_Box::Transform (CMatrix4x4& M)
     ComputeAll();
 }
 
-void CGraphBV_Box::Compute (CGVect3* VXs, int iNumVXs)
+void CGBVAABB::Compute (CGVect3* VXs, int iNumVXs)
 {
     unsigned short cV;
     CGVect3 Mins,Maxs;
@@ -75,44 +75,44 @@ void CGraphBV_Box::Compute (CGVect3* VXs, int iNumVXs)
     ComputeAll();
 }
 
-float CGraphBV_Box::GetRange (int iAxis)
+float CGBVAABB::GetRange (int iAxis)
 {
     assert( ( (iAxis >= 0) && (iAxis <= 2) ) && "Incorrect axis" );
     return (oExtents.v(iAxis) * 2);
 }
 
-CGVect3 & CGraphBV_Box::GetCenter ()
+CGVect3 & CGBVAABB::GetCenter ()
 {
     return(oCenter);
 }
 
-int CGraphBV_Box::TestFrustum (CE3D_Frustum& _Frustum)
+int CGBVAABB::TestFrustum (CE3D_Frustum& _Frustum)
 {
     return ( _Frustum.TestBBox(Vol.m_oMaxs,Vol.m_oMins) );
 }
 
-void CGraphBV_Box::Init (CGVect3 Max, CGVect3 Min)
+void CGBVAABB::Init (CGVect3 Max, CGVect3 Min)
 {
     Vol.Init(Max,Min);
     ComputeAll();
 }
 
-CBoundingBox* CGraphBV_Box::pGetBox ()
+CGBVAABB* CGBVAABB::pGetBox ()
 {
     return (&Vol);
 }
 
-int CGraphBV_Box::TestInside (CGVect3& _Pos)
+int CGBVAABB::TestInside (CGVect3& _Pos)
 {
     return ( _Pos.bInside( Vol.m_oMaxs,Vol.m_oMins ) );
 }
 
-CGVect3 & CGraphBV_Box::GetExtents ()
+CGVect3 & CGBVAABB::GetExtents ()
 {
     return(oExtents);
 }
 
-CGVect3 & CGraphBV_Box::GetAxis (int _iAxis)
+CGVect3 & CGBVAABB::GetAxis (int _iAxis)
 {
     assert( ( (_iAxis >= 0) && (_iAxis <= 2) ) && "Incorrect axis" );
 
@@ -127,17 +127,17 @@ CGVect3 & CGraphBV_Box::GetAxis (int _iAxis)
     return(oXAxis);
 }
 
-CGVect3 & CGraphBV_Box::oGetMax ()
+CGVect3 & CGBVAABB::oGetMax ()
 {
     return(Vol.m_oMaxs);
 }
 
-CGVect3 & CGraphBV_Box::oGetMin ()
+CGVect3 & CGBVAABB::oGetMin ()
 {
     return(Vol.m_oMins);
 }
 
-void CGraphBV_Box::ComputeAll ()
+void CGBVAABB::ComputeAll ()
 {
     // Compute extents
     oExtents.Assign(Vol.m_oMaxs);

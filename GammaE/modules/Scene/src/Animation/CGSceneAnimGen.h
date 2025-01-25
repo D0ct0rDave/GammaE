@@ -22,12 +22,12 @@ class CGSceneAnimGen : public CGSceneNode
 
         virtual void SetAnimState(int _iSrc, int _iDst, float _fFactor) = 0;
 
-        CGraphBV* poCreateBoundVol ()
+        CGBoundingVolume* poCreateBoundVol ()
         {
             return( CGraphBV_Manager::poCreate() );
         }
 
-        virtual CGraphBV* poGetStateBVol(int _iState) = 0;
+        virtual CGBoundingVolume* poGetStateBVol(int _iState) = 0;
 
         int iGetNumStates();
 

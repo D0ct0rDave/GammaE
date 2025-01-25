@@ -75,7 +75,7 @@ class CGParticleSystem : public CGSceneLeaf  // ## Inherits: <unnamed>%3B72F7930
         virtual void Render();
 
         // ## Operation: UpdatePS%997390918
-        virtual void UpdatePS(CMatrix4x4* _ViewMatrix) = 0;
+        virtual void UpdatePS(CGMatrix4x4* _ViewMatrix) = 0;
 
         // ## Operation: UpdateParticle%997390919
         virtual void UpdateParticle(int iPart) = 0;

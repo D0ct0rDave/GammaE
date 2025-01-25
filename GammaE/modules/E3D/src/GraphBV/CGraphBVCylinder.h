@@ -10,34 +10,40 @@
 // -----------------------------------------------------------------------------
 // %X% %Q% %Z% %W%
 
-#ifndef CGraphBV_Point_h
-#define CGraphBV_Point_h 1
+#ifndef CGraphBV_Cylinder_h
+#define CGraphBV_Cylinder_h 1
 
-// CGraphBV
-#include "BoundingVolume\GraphBoundVol\CGraphBV.h"
+// CGBoundingVolume
+#include "BoundingVolume\GraphBoundVol\CGBoundingVolume.h"
+// CBoundingCylinder
+#include "BoundingVolume\CBoundingCylinder.h"
 
-class CGraphBV_Point : public CGraphBV
+class CGraphBV_Cylinder : public CGBoundingVolume
 {
     public:
-        CGraphBV_Point();
+        CGraphBV_Cylinder();
 
-        ~CGraphBV_Point();
+        ~CGraphBV_Cylinder();
 
-        virtual void Transform(CMatrix4x4& M);
+        virtual void Transform(CGMatrix4x4& M);
 
         virtual void Compute(CGVect3* VXs, int iNumVXs);
 
-        virtual CGVect3 & GetCenter();
-
         virtual float GetRange(int iAxis);
+
+        virtual CGVect3 & GetCenter();
 
         virtual int TestFrustum(CE3D_Frustum& _Frustum);
 
         virtual void Init(CGVect3 Max, CGVect3 Min);
 
+        CBoundingCylinder* pGetCylinder();
+
         virtual int TestInside(CGVect3& _Pos);
 
-        CGVect3* pGetPoint();
+        // Data Members for Associations
+
+        CBoundingCylinder Vol;
 
         // Additional Public Declarations
 
@@ -45,15 +51,11 @@ class CGraphBV_Point : public CGraphBV
         // Additional Protected Declarations
 
     private:
-        // Data Members for Class Attributes
-
-        CGVect3 Point;
-
         // Additional Private Declarations
 
     private:   // Additional Implementation Declarations
 };
 
-// Class CGraphBV_Point
+// Class CGraphBV_Cylinder
 
 #endif

@@ -31,7 +31,7 @@ class CDetailer : public CGSceneLeaf
 
         void CreateTextureContents(CGMipMap* _pMipMap);
 
-        CE3D_Shader* poCreateMaterial();
+        CGShader* poCreateMaterial();
 
         virtual void Render();
 

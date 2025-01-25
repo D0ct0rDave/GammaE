@@ -35,13 +35,13 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
 
     CGVect3 VXa,VXb,VXc;
     CGVect3 VNa,VNb,VNc;
-    CVect4 VCa,VCb,VCc;
-    CVect2 UVa,UVb,UVc;
+    CGVect4 VCa,VCb,VCc;
+    CGVect2 UVa,UVb,UVc;
 
     CGDynArray <SCNUt_TriScene*> oFrames;
     SCNUt_TriScene* poStartupFrame;
 
-    StrBuff = ParseUtils_ReadFile(_szFilename);
+    StrBuff = Utils::Parse::ReadFile(_szFilename);
     if ( !StrBuff ) return(NULL);
 
     m_oMaterials.Clear();
@@ -52,47 +52,47 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
     StrPos = StrBuff;
     while ( StrPos )
     {
-        Token = ParseUtils_ParseToken(StrPos);
+        Token = Utils::Parse::ParseToken(StrPos);
 
         if ( !strcmp(Token,"BEGIN") )
         {
-            Token = ParseUtils_ParseToken(StrPos);
+            Token = Utils::Parse::ParseToken(StrPos);
 
             if ( !strcmp(Token,"TRISCENE") )
             {
-                StrPos = ParseUtils_SkipLine(StrPos);
+                StrPos = Utils::Parse::SkipLine(StrPos);
             }
             else if ( !strcmp(Token,"MATERIALS") )
             {
-                Token = ParseUtils_ParseToken(StrPos);
+                Token = Utils::Parse::ParseToken(StrPos);
 
                 int iNumMaterials;
                 sscanf(Token,"%d",&iNumMaterials);
 
                 // skip opening bracket
-                StrPos = ParseUtils_SkipLine(StrPos);
+                StrPos = Utils::Parse::SkipLine(StrPos);
 
                 // Read the materials
                 for ( iMat = 0; iMat < iNumMaterials; iMat++ )
                 {
                     // Get the material number
-                    Token = ParseUtils_ParseToken(StrPos);
+                    Token = Utils::Parse::ParseToken(StrPos);
                     sscanf(Token,"%d",&iMatNum);
                     iMatNum--;  // Materials are 1 based
 
                     // Get the material
-                    Token = ParseUtils_ParseToken(StrPos);
+                    Token = Utils::Parse::ParseToken(StrPos);
                     m_oMaterials.uiAdd( Token );
                 }
             }
             else if ( !strcmp(Token,"TRIS") )
             {
-                Token = ParseUtils_ParseToken(StrPos);
+                Token = Utils::Parse::ParseToken(StrPos);
 
                 sscanf(Token,"%d",&iTris);
 
                 // skip opening bracket
-                StrPos = ParseUtils_SkipLine(StrPos);
+                StrPos = Utils::Parse::SkipLine(StrPos);
 
                 // Create and parse scene
                 poStartupFrame = mNew SCNUt_TriScene;
@@ -101,16 +101,16 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
                 for ( iTri = 0; iTri < iTris; iTri++ )
                 {
                     // skip opening braket
-                    StrPos = ParseUtils_SkipLine(StrPos);
+                    StrPos = Utils::Parse::SkipLine(StrPos);
 
                     // Read triangle material
-                    Token = ParseUtils_ParseToken(StrPos);
+                    Token = Utils::Parse::ParseToken(StrPos);
                     sscanf(Token,"<%d>",&iMat);
                     iMat--;     // Materials are 1 based
 
                     // Read triangle coordinates
                     Token = StrPos;
-                    StrPos = ParseUtils_SkipLine(StrPos);
+                    StrPos = Utils::Parse::SkipLine(StrPos);
                     *(char*)(StrPos - 1) = 0;
 
                     sscanf( Token,"<%f %f %f><%f %f %f><%f %f %f>",
@@ -120,7 +120,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
 
                     // Read vertex normals
                     Token = StrPos;
-                    StrPos = ParseUtils_SkipLine(StrPos);
+                    StrPos = Utils::Parse::SkipLine(StrPos);
                     *(char*)(StrPos - 1) = 0;
 
                     sscanf( Token,"<%f %f %f><%f %f %f><%f %f %f>",
@@ -130,7 +130,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
 
                     // Read vertex colors
                     Token = StrPos;
-                    StrPos = ParseUtils_SkipLine(StrPos);
+                    StrPos = Utils::Parse::SkipLine(StrPos);
                     *(char*)(StrPos - 1) = 0;
 
                     sscanf( Token,"<%f %f %f><%f %f %f><%f %f %f>",
@@ -153,7 +153,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
 
                     // Read texture coordinates
                     Token = StrPos;
-                    StrPos = ParseUtils_SkipLine(StrPos);
+                    StrPos = Utils::Parse::SkipLine(StrPos);
                     *(char*)(StrPos - 1) = 0;
 
                     sscanf( Token,"<%f %f><%f %f><%f %f>",
@@ -162,7 +162,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
                            &UVc.v(0),&UVc.v(1) );
 
                     // skip closing braket
-                    StrPos = ParseUtils_SkipLine(StrPos);
+                    StrPos = Utils::Parse::SkipLine(StrPos);
 
                     // Setup triangle
                     poStartupFrame->Tris[iTri].VXs[0] = VXa;
@@ -186,7 +186,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
             }
             else if ( !strcmp(Token,"ANIMFRAMES") )
             {
-                Token = ParseUtils_ParseToken(StrPos);
+                Token = Utils::Parse::ParseToken(StrPos);
 
                 sscanf(Token,"%f",&iNumFrames);
 
@@ -195,10 +195,10 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
             else if ( !strcmp(Token,"ANIMFRAME") )
             {
                 // skip frame number
-                Token = ParseUtils_ParseToken(StrPos);
+                Token = Utils::Parse::ParseToken(StrPos);
 
                 // Skip opening braket
-                StrPos = ParseUtils_SkipLine(StrPos);
+                StrPos = Utils::Parse::SkipLine(StrPos);
 
                 // Create and parse scene
                 SCNUt_TriScene* poFrame = mNew SCNUt_TriScene;
@@ -207,11 +207,11 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
                 for ( iTri = 0; iTri < iTris; iTri++ )
                 {
                     // skip opening braket
-                    StrPos = ParseUtils_SkipLine(StrPos);
+                    StrPos = Utils::Parse::SkipLine(StrPos);
 
                     // Read triangle coordinates
                     Token = StrPos;
-                    StrPos = ParseUtils_SkipLine(StrPos);
+                    StrPos = Utils::Parse::SkipLine(StrPos);
                     *(char*)(StrPos - 1) = 0;
 
                     sscanf( Token,"<%f %f %f><%f %f %f><%f %f %f>",
@@ -221,7 +221,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
 
                     // Read vertex normals
                     Token = StrPos;
-                    StrPos = ParseUtils_SkipLine(StrPos);
+                    StrPos = Utils::Parse::SkipLine(StrPos);
                     *(char*)(StrPos - 1) = 0;
 
                     sscanf( Token,"<%f %f %f><%f %f %f><%f %f %f>",
@@ -241,7 +241,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
                     poFrame->Tris[iTri].Material = 0;
 
                     // skip closing braket
-                    StrPos = ParseUtils_SkipLine(StrPos);
+                    StrPos = Utils::Parse::SkipLine(StrPos);
                 }
 
                 oFrames.uiAdd(poFrame);

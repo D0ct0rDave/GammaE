@@ -25,11 +25,11 @@ class CCOL_DT_Tri
 
         ~CCOL_DT_Tri();
 
-        static float fTestSphere(CGraphBV_Sphere& _Sphere, CTriangle& _Tri);
+        static float fTestSphere(CGBVSphere& _Sphere, CGTriangle& _Tri);
 
-        static float fTestBox(CGraphBV_Box& _Box, CTriangle& _Tri);
+        static float fTestBox(CGBVAABB& _Box, CGTriangle& _Tri);
 
-        static float fTestPoint(CGVect3& _oPoint, CTriangle& _Tri);
+        static float fTestPoint(CGVect3& _oPoint, CGTriangle& _Tri);
 
         // Additional Public Declarations
 

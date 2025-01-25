@@ -50,7 +50,7 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneBSPNode* _poNode)
        // los max y los mins, para volver a tener una AABB
        float fXSide,fYSide,fZSide;
        CGVect3 Maxs,Mins,Center;
-       CGraphBV* BV;
+       CGBoundingVolume* BV;
        CGSceneNode* poSubObjs[2];
 
        poSubObjs[0] = _poNode->poGetFrontNode();
@@ -130,7 +130,7 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneGroup* _poNode)
        // los max y los mins, para volver a tener una AABB
        float fXSide,fYSide,fZSide;
        CGVect3 Maxs,Mins,Center;
-       CGraphBV* poBV;
+       CGBoundingVolume* poBV;
 
        Mins.Set( 1e10f, 1e10f, 1e10f);
        Maxs.Set(-1e10f,-1e10f,-1e10f);
@@ -210,7 +210,7 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneAnimMesh* _poNode)
     // Recompute the bounding volume of the key frames
     for ( uint uiFrame = 0; uiFrame < _poNode->uiGetNumKeyFrames(); uiFrame++ )
     {
-        CGraphBV* poBV = _poNode->poGetKeyFrameBVol(uiFrame);
+        CGBoundingVolume* poBV = _poNode->poGetKeyFrameBVol(uiFrame);
         poBV->Compute( _poNode->poGetVertexs() + uiFrame * _poNode->uiGetNumFrameVXs(),_poNode->uiGetNumFrameVXs() );
     }
 }

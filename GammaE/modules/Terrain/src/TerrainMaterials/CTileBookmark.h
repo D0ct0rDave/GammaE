@@ -25,9 +25,9 @@ class CTileBookmark
 
         void Init(int _MaxTiles, int _MaxLODs);
 
-        void SetTileMaterial(int _iTile, int _iLOD, CE3D_Shader* _Mat);
+        void SetTileMaterial(int _iTile, int _iLOD, CGShader* _Mat);
 
-        CE3D_Shader* poGetTileMaterial(int _iTile, int _iLOD);
+        CGShader* poGetTileMaterial(int _iTile, int _iLOD);
 
         int GetTileLODs(int _iTile);
 
@@ -39,7 +39,7 @@ class CTileBookmark
 
         // Data Members for Class Attributes
 
-        CE3D_Shader* * Tiles;
+        CGShader* * Tiles;
 
         int MaxTiles;
 

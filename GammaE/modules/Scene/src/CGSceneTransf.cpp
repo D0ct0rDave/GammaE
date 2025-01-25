@@ -87,10 +87,10 @@ void CGSceneTransf::Setup (const CGVect3& _oPos, const CGVect3& _oDir, const CGV
 // ----------------------------------------------------------------------------
 void CGSceneTransf::SetTransf (const CGMatrix4x4& _oTransf)
 {
-    CVect4 oP = _oTransf.GetColVector(3);
-    CVect4 oS = _oTransf.GetColVector(0);                    // X
-    CVect4 oD = _oTransf.GetColVector(1);                    // Y
-    CVect4 oU = _oTransf.GetColVector(2);                    // Z
+    CGVect4 oP = _oTransf.GetColVector(3);
+    CGVect4 oS = _oTransf.GetColVector(0);                    // X
+    CGVect4 oD = _oTransf.GetColVector(1);                    // Y
+    CGVect4 oU = _oTransf.GetColVector(2);                    // Z
 
     m_oPos.Set(oP.x,oP.y,oP.z);
     m_oSide.Set(oS.x,oS.y,oS.z);

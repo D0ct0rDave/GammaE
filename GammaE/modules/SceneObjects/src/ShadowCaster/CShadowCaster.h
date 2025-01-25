@@ -15,7 +15,7 @@
 
 // CTexProjector
 #include "TexProjector\CTexProjector.h"
-// CE3D_Shader
+// CGShader
 #include "GammaE_E3D.h"
 // CGSceneNode
 #include "GammaE_Scene.h"
@@ -31,7 +31,7 @@ class CShadowCaster : public CGSceneNode
 
         void Setup(CGVect3& _oLightPos, CGSceneNode* _poBlockerObj, CGMesh* * _poRecObjs, int _iNumRecObjs);
 
-        virtual CGraphBV* poGetBV();
+        virtual CGBoundingVolume* poGetBV();
 
         virtual void ComputeBoundVol();
 
@@ -51,13 +51,13 @@ class CShadowCaster : public CGSceneNode
 
         // Data Members for Class Attributes
 
-        CMatrix4x4 oCamMat;
+        CGMatrix4x4 oCamMat;
 
         // Data Members for Associations
 
         CTexProjector oTexProj;
 
-        CE3D_Shader* poShader;
+        CGShader* poShader;
 
         // Additional Public Declarations
 
@@ -76,9 +76,9 @@ class CShadowCaster : public CGSceneNode
 
         CGTextureObj* poTexObj;
 
-        CMatrix4x4 oPrjMat;
+        CGMatrix4x4 oPrjMat;
 
-        CMatrix4x4 oPrjTexMat;
+        CGMatrix4x4 oPrjTexMat;
 
         unsigned char* pucAuxTexData;
 

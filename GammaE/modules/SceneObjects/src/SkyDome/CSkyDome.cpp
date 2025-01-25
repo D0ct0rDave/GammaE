@@ -127,7 +127,7 @@ void CSkyDome::Render ()
 
     CGRenderer::I()->PushWorldMatrix();
 
-    CMatrix4x4 oM;
+    CGMatrix4x4 oM;
     oM.LoadIdentity();
     oM.Translate(Pos.x,Pos.y,Pos.z);
     oM.RotateFromArbitraryAxis(fRot,Axis.x,Axis.y,Axis.z);

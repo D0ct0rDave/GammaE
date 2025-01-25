@@ -8,59 +8,59 @@
  *  \par GammaE License
  */
 // -----------------------------------------------------------------------------
-// CGraphBV
-#include "BoundingVolume\GraphBoundVol\CGraphBV.h"
+// CGBoundingVolume
+#include "BoundingVolume\GraphBoundVol\CGBoundingVolume.h"
 CGVect3 oCenter,oExtents,oMax,oMin;
 
-// Class CGraphBV
+// Class CGBoundingVolume
 
-CGraphBV::CGraphBV()
+CGBoundingVolume::CGBoundingVolume()
 {
     eTypeID = eGraphBV;
 }
 
-CGraphBV::~CGraphBV()
+CGBoundingVolume::~CGBoundingVolume()
 {
 }
 
-void CGraphBV::Transform (CMatrix4x4& M)
+void CGBoundingVolume::Transform (CGMatrix4x4& M)
 {
 }
 
-void CGraphBV::Compute (CGVect3* VXs, int iNumVXs)
+void CGBoundingVolume::Compute (CGVect3* VXs, int iNumVXs)
 {
 }
 
-float CGraphBV::GetRange (int iAxis)
+float CGBoundingVolume::GetRange (int iAxis)
 {
     return(0);
 }
 
-CGVect3 & CGraphBV::GetCenter ()
+CGVect3 & CGBoundingVolume::GetCenter ()
 {
     return(oMax);
 }
 
-int CGraphBV::TestFrustum (CE3D_Frustum& _Frustum)
+int CGBoundingVolume::TestFrustum (CE3D_Frustum& _Frustum)
 {
     return(1);
 }
 
-void CGraphBV::Init (CGVect3 Max, CGVect3 Min)
+void CGBoundingVolume::Init (CGVect3 Max, CGVect3 Min)
 {
 }
 
-void CGraphBV::Copy (CGraphBV* Src)
+void CGBoundingVolume::Copy (CGBoundingVolume* Src)
 {
     Init( Src->oGetMax(),Src->oGetMin() );
 }
 
-int CGraphBV::TestInside (CGVect3& _Pos)
+int CGBoundingVolume::TestInside (CGVect3& _Pos)
 {
     return(0);
 }
 
-CGVect3 & CGraphBV::GetExtents ()
+CGVect3 & CGBoundingVolume::GetExtents ()
 {
     oExtents.Set( GetRange(0),GetRange(1),GetRange(2) );
     oExtents.Scale(0.5f);
@@ -68,14 +68,14 @@ CGVect3 & CGraphBV::GetExtents ()
     return(oExtents);
 }
 
-CGVect3 & CGraphBV::oGetMax ()
+CGVect3 & CGBoundingVolume::oGetMax ()
 {
     oMax.Assign( GetCenter() );
     oMax.Add( GetExtents() );
     return(oMax);
 }
 
-CGVect3 & CGraphBV::oGetMin ()
+CGVect3 & CGBoundingVolume::oGetMin ()
 {
     oMin.Assign( GetCenter() );
     oMin.Sub( GetExtents() );

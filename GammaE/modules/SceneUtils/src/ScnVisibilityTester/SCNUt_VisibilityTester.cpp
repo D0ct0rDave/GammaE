@@ -43,7 +43,7 @@ bool SCNUt_VisibilityTester::bRayToPos (CGRay& _oRay, CGVect3& _oPos, SCNUt_TriS
 
     // For all those triangles, compute intersection point,
     int iTri;
-    CTriangle oTri;
+    CGTriangle oTri;
     CGVect3 oPoint;
     float fMaxDist;
     float fCurDist;

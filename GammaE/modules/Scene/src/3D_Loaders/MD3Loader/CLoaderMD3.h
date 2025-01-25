@@ -38,7 +38,7 @@ class CLoaderMD3 : public C3DLoader
 
         void LoadSkinInfo(char* _Filename);
 
-        CE3D_Shader* poGetShader(char* _szMeshName);
+        CGShader* poGetShader(char* _szMeshName);
 
         CGSceneAnimTransf* CreateAnimTransfNode(tag_t* _pTags, int _iNumTags, int _iTagStep);
 

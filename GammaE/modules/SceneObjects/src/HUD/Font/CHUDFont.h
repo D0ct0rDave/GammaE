@@ -24,7 +24,7 @@ class CHUDFont : public CGResource
         bool bInit(const char* _szFontName);
         bool bInit(const char* _szShapeShader,const char* _szDataFile);
 
-        CE3D_Shader* poGetShader()
+        CGShader* poGetShader()
         {
             return(m_poShader);
         }
@@ -42,7 +42,7 @@ class CHUDFont : public CGResource
         }
 
     private:
-        CE3D_Shader* m_poShader;
+        CGShader* m_poShader;
 
         float m_fWidths[256];
         float m_fHeight;

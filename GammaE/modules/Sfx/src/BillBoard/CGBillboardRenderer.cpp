@@ -37,7 +37,7 @@ void CGBillboardRenderer::Reset()
     m_oBBPool.Clear();
 }
 // ----------------------------------------------------------------------------
-void CGBillboardRenderer::Begin(CE3D_Shader* _poShader)
+void CGBillboardRenderer::Begin(CGShader* _poShader)
 {
     // Look for the shader on the array
     for ( uint i = 0; i < m_oBBRL.uiNumElems(); i++ )
@@ -59,7 +59,7 @@ void CGBillboardRenderer::Begin(CE3D_Shader* _poShader)
     m_uiCurList = m_oBBRL.iAdd(oNode);
 }
 // ----------------------------------------------------------------------------
-void CGBillboardRenderer::AddBillboards(CGVect3* _poVX,CVect2* _poUV,CGColor* _poVC,uint _uiNumBillboards)
+void CGBillboardRenderer::AddBillboards(CGVect3* _poVX,CGVect2* _poUV,CGColor* _poVC,uint _uiNumBillboards)
 {
     // / WARNING: Sanity checks here!!!
     for ( uint i = 0; i < _uiNumBillboards; i++ )
@@ -119,7 +119,7 @@ void CGBillboardRenderer::Render()
 
     // Build the meshes
     CGVect3* poVX = m_oGeoPool.m_poVX;
-    CVect2* poUV = m_oGeoPool.m_poUV;
+    CGVect2* poUV = m_oGeoPool.m_poUV;
     CGColor* poVC = m_oGeoPool.m_poVC;
 
     for ( uint j = 0; j < m_oBBRL.uiNumElems(); j++ )

@@ -41,7 +41,7 @@ CTexProjector::~CTexProjector()
     SetMesh(NULL);
 }
 
-void CTexProjector::Setup (CGMesh* _oSrCGMesh, CE3D_Shader* _poShader, CMatrix4x4& _oPrjMatrix)
+void CTexProjector::Setup (CGMesh* _oSrCGMesh, CGShader* _poShader, CGMatrix4x4& _oPrjMatrix)
 {
     // Copy source data
     oAuxMesh.m_poBV = _oSrCGMesh->m_poBV;
@@ -51,7 +51,7 @@ void CTexProjector::Setup (CGMesh* _oSrCGMesh, CE3D_Shader* _poShader, CMatrix4x
     oAuxMesh.m_uiNumIdxs = _oSrCGMesh->m_uiNumIdxs;
     oAuxMesh.m_uiNumPrims = _oSrCGMesh->m_uiNumPrims;
     oAuxMesh.m_usNumVXs = _oSrCGMesh->m_usNumVXs;
-    oAuxMesh.m_poUV = (CVect2*)_oSrCGMesh->m_poVX;
+    oAuxMesh.m_poUV = (CGVect2*)_oSrCGMesh->m_poVX;
     oAuxMesh.m_poUV = NULL;
     oAuxMesh.m_poVC = NULL;                             // _oSrCGMesh->VCs;
     oAuxMesh.m_poVN = NULL;
@@ -64,7 +64,7 @@ void CTexProjector::Setup (CGMesh* _oSrCGMesh, CE3D_Shader* _poShader, CMatrix4x
         if (iMaxUVs)
             mDel []oAuxMesh.UVs;
 
-        oAuxMesh.UVs = mNew CVect2[_oSrCGMesh->usNumVerts];
+        oAuxMesh.UVs = mNew CGVect2[_oSrCGMesh->usNumVerts];
         iMaxUVs = _oSrCGMesh->usNumVerts;
        }
 
@@ -85,10 +85,10 @@ void CTexProjector::Setup (CGMesh* _oSrCGMesh, CE3D_Shader* _poShader, CMatrix4x
     SetMesh  (&oAuxMesh);
 }
 
-void CTexProjector::Setup (CGMesh* _oSrCGMesh, CE3D_Shader* _poShader, CGVect3& _oPos, CGVect3& _oDir, float _fXSize, float _fYSize)
+void CTexProjector::Setup (CGMesh* _oSrCGMesh, CGShader* _poShader, CGVect3& _oPos, CGVect3& _oDir, float _fXSize, float _fYSize)
 {
     // Compute projection matrix
-    CMatrix4x4 oPrjMat;
+    CGMatrix4x4 oPrjMat;
 
     // ...
     // ...

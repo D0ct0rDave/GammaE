@@ -31,7 +31,7 @@ void SCNUt_PlanarMapper::PlanarMap (SCNUt_TriScene& _oTriScn)
 
     // Compute object dimensions
     SCNUt_ComputeBoundingBox oBBoxCmp;
-    CBoundingBox* poBBox;
+    CGBVAABB* poBBox;
 
     poBBox = oBBoxCmp.poComputeBoundingBox(&oTriScene);
 

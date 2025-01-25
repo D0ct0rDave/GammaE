@@ -100,8 +100,14 @@
     <ClInclude Include="..\modules\E3D\src\Drivers\OGL\OGLShaderRender\CGOGLShaderRenderer.h" />
     <ClInclude Include="..\modules\E3D\src\E3D_Enums.h" />
     <ClInclude Include="..\modules\E3D\src\GE3D.h" />
+    <ClInclude Include="..\modules\E3D\src\GraphBV\CGraphBV.h" />
+    <ClInclude Include="..\modules\E3D\src\GraphBV\CGraphBVAABB.h" />
+    <ClInclude Include="..\modules\E3D\src\GraphBV\CGraphBVCylinder.h" />
+    <ClInclude Include="..\modules\E3D\src\GraphBV\CGraphBVManager.h" />
+    <ClInclude Include="..\modules\E3D\src\GraphBV\CGraphBVPoint.h" />
+    <ClInclude Include="..\modules\E3D\src\GraphBV\CGraphBVSphere.h" />
+    <ClInclude Include="..\modules\E3D\src\GraphBV\eGraphBVTypeID.h" />
     <ClInclude Include="..\modules\E3D\src\Light\CGLight.h" />
-    <ClInclude Include="..\modules\E3D\src\Light\LightWH.h" />
     <ClInclude Include="..\modules\E3D\src\Materials\CGColor.h" />
     <ClInclude Include="..\modules\E3D\src\Materials\CGMipMap.h" />
     <ClInclude Include="..\modules\E3D\src\Materials\CGMipMapWH.h" />
@@ -121,9 +127,6 @@
     <ClInclude Include="..\modules\E3D\src\Mesh\MeshUtils\TexCoordGen.h" />
     <ClInclude Include="..\modules\E3D\src\Mesh\MeshUtils\TransformMesh.h" />
     <ClInclude Include="..\modules\E3D\src\MeshDB\CGDefferredMeshDB.h" />
-    <ClInclude Include="..\modules\E3D\src\Programs\CGShaderDefFileWH.h" />
-    <ClInclude Include="..\modules\E3D\src\Programs\CGShaderDefWH.h" />
-    <ClInclude Include="..\modules\E3D\src\Programs\eE3D_ZWrite.h" />
     <ClInclude Include="..\modules\E3D\src\RenderVars\CGRenderVars.h" />
     <ClInclude Include="..\modules\E3D\src\Shaders\CGShader.h" />
     <ClInclude Include="..\modules\E3D\src\Shaders\CGShaderExtDB.h" />
@@ -147,7 +150,6 @@
     <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\eShInsTexOp_TypeID.h" />
     <ClInclude Include="..\modules\E3D\src\Shaders\ShaderParser\CGShaderParser.h" />
     <ClInclude Include="..\modules\E3D\src\Shaders\ShaderUtils\CGShaderUtils.h" />
-    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderWarehouse\CGShWHEntry.h" />
     <ClInclude Include="..\modules\E3D\src\Shaders\ShaderWarehouse\CGShaderWH.h" />
     <ClInclude Include="..\modules\E3D\src\Viewing\Camera\CGCamera.h" />
     <ClInclude Include="..\modules\E3D\src\Viewing\Projector\CGProjector.h" />
@@ -161,8 +163,14 @@
     <ClCompile Include="..\modules\E3D\src\Drivers\OGL\CGOGLRenderer.cpp" />
     <ClCompile Include="..\modules\E3D\src\Drivers\OGL\CGOGLWinRenderer.cpp" />
     <ClCompile Include="..\modules\E3D\src\Drivers\OGL\OGLShaderRender\CGOGLShaderRenderer.cpp" />
+    <ClCompile Include="..\modules\E3D\src\GraphBV\CGraphBV.cpp" />
+    <ClCompile Include="..\modules\E3D\src\GraphBV\CGraphBVAABB.cpp" />
+    <ClCompile Include="..\modules\E3D\src\GraphBV\CGraphBVCylinder.cpp" />
+    <ClCompile Include="..\modules\E3D\src\GraphBV\CGraphBVManager.cpp" />
+    <ClCompile Include="..\modules\E3D\src\GraphBV\CGraphBVPoint.cpp" />
+    <ClCompile Include="..\modules\E3D\src\GraphBV\CGraphBVSphere.cpp" />
+    <ClCompile Include="..\modules\E3D\src\GraphBV\eGraphBVTypeID.cpp" />
     <ClCompile Include="..\modules\E3D\src\Light\CGLight.cpp" />
-    <ClCompile Include="..\modules\E3D\src\Light\LightWH.cpp" />
     <ClCompile Include="..\modules\E3D\src\Materials\CGColor.cpp" />
     <ClCompile Include="..\modules\E3D\src\Materials\CGMipMap.cpp" />
     <ClCompile Include="..\modules\E3D\src\Materials\CGMipMapWH.cpp" />
@@ -182,18 +190,11 @@
     <ClCompile Include="..\modules\E3D\src\Mesh\MeshUtils\TexCoordGen.cpp" />
     <ClCompile Include="..\modules\E3D\src\Mesh\MeshUtils\TransformMesh.cpp" />
     <ClCompile Include="..\modules\E3D\src\MeshDB\CGDefferredMeshDB.cpp" />
-    <ClCompile Include="..\modules\E3D\src\Programs\CGShaderDefFileWH.cpp" />
-    <ClCompile Include="..\modules\E3D\src\Programs\CGShaderDefWH.cpp" />
-    <ClCompile Include="..\modules\E3D\src\Programs\eE3D_ZWrite.cpp" />
     <ClCompile Include="..\modules\E3D\src\RenderVars\CGRenderVars.cpp" />
     <ClCompile Include="..\modules\E3D\src\Shaders\CGShader.cpp" />
     <ClCompile Include="..\modules\E3D\src\Shaders\CGShaderExtDB.cpp" />
-    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderDefinitions\CGShaderDefFileWH.cpp">
-      <ObjectFileName>$(IntDir)\CGShaderDefFileWH1.obj</ObjectFileName>
-    </ClCompile>
-    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderDefinitions\CGShaderDefWH.cpp">
-      <ObjectFileName>$(IntDir)\CGShaderDefWH1.obj</ObjectFileName>
-    </ClCompile>
+    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderDefinitions\CGShaderDefFileWH.cpp" />
+    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderDefinitions\CGShaderDefWH.cpp" />
     <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\CGShInsBlendOp.cpp" />
     <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\CGShInsColor.cpp" />
     <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\CGShInsExtension.cpp" />
@@ -211,7 +212,6 @@
     <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\eShInsTexOp_TypeID.cpp" />
     <ClCompile Include="..\modules\E3D\src\Shaders\ShaderParser\CGShaderParser.cpp" />
     <ClCompile Include="..\modules\E3D\src\Shaders\ShaderUtils\CGShaderUtils.cpp" />
-    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderWarehouse\CGShWHEntry.cpp" />
     <ClCompile Include="..\modules\E3D\src\Shaders\ShaderWarehouse\CGShaderWH.cpp" />
     <ClCompile Include="..\modules\E3D\src\Viewing\Camera\CGCamera.cpp" />
     <ClCompile Include="..\modules\E3D\src\Viewing\Projector\CGProjector.cpp" />

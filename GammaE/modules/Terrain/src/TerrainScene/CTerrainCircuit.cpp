@@ -90,7 +90,7 @@ void CTerrainCircuit::Render ()
                     CGRenderer::I()->PushWorldMatrix();
 
                     // Translate the current sector
-                    CMatrix4x4 oM;
+                    CGMatrix4x4 oM;
                     oM.LoadIdentity();
                     oM.Translate(cI * SectorSize,cJ * SectorSize,0);
 
@@ -112,7 +112,7 @@ void CTerrainCircuit::ComputeVISLODMatrix ()
     int cI,cJ,cSect;
     CGVect3 SectorCenter;
     float fSectorDistance;
-    CMatrix4x4 M;
+    CGMatrix4x4 M;
 
     // Get the current matrix
     CGRenderer::I()->GetWorldMatrix(&M);

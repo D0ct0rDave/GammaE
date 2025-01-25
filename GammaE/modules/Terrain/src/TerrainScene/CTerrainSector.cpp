@@ -34,8 +34,8 @@ void CTerrainSector::Render ()
         bool bEnableDefMode = CGRenderer::I()->UsingDefferredMode();
 
         // Get local camera
-        CMatrix4x4 M;
-        CVect4 Pos;
+        CGMatrix4x4 M;
+        CGVect4 Pos;
         CGVect3 CamPos;
         CGRenderer::I()->GetWorldMatrix(&M);
         Pos = M.GetColVector(3);
@@ -54,12 +54,12 @@ void CTerrainSector::Render ()
     }
 }
 
-CGraphBV* CTerrainSector::poCreateBoundVol()
+CGBoundingVolume* CTerrainSector::poCreateBoundVol()
 {
     eGraphBV_TypeID eOldType = CGraphBV_Manager::eGetBVMode();
     CGraphBV_Manager::SetBVMode(eGraphBV_Box);
 
-    CGraphBV* poBVol = CGraphBV_Manager::poCreate();
+    CGBoundingVolume* poBVol = CGraphBV_Manager::poCreate();
 
     CGraphBV_Manager::SetBVMode(eOldType);
     return(poBVol);
@@ -70,7 +70,7 @@ void CTerrainSector::ComputeBoundVol ()
     m_poBV->Init(Maxs,Mins);
 }
 
-CGraphBV* CTerrainSector::poGetBV ()
+CGBoundingVolume* CTerrainSector::poGetBV ()
 {
     return (m_poBV);
 }

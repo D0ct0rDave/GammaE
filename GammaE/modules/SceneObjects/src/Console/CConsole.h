@@ -27,7 +27,7 @@ class CConsole : public CHUD
 
         virtual ~CConsole();
 
-        void Init(float _Width, float _Height, int _Cols, int _ows, CE3D_Shader* _BGMat, CE3D_Shader* _CMMat);
+        void Init(float _Width, float _Height, int _Cols, int _ows, CGShader* _BGMat, CGShader* _CMMat);
 
         void Write(char* _szTex);
 
@@ -39,9 +39,9 @@ class CConsole : public CHUD
 
         void CreateCharMatrix();
 
-        void SetCharMatrixMat(CE3D_Shader* _CMMat);
+        void SetCharMatrixMat(CGShader* _CMMat);
 
-        void SetBackgroundMat(CE3D_Shader* _BGMat);
+        void SetBackgroundMat(CGShader* _BGMat);
 
         // Additional Public Declarations
 
@@ -59,9 +59,9 @@ class CConsole : public CHUD
 
         int Rows;
 
-        CE3D_Shader* BackgroundMat;
+        CGShader* BackgroundMat;
 
-        CE3D_Shader* CharMatrixMat;
+        CGShader* CharMatrixMat;
 
         CGSceneLeaf* Background;
 

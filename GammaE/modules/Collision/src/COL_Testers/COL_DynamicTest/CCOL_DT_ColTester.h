@@ -33,11 +33,11 @@ class CCOL_DT_ColTester
 
         ~CCOL_DT_ColTester();
 
-        static float fTestCollision(CGraphBV* SrcObj, CGraphBV* DstObj);
+        static float fTestCollision(CGBoundingVolume* SrcObj, CGBoundingVolume* DstObj);
 
-        static float fTestPlane(CGraphBV* _SrcObj, CPlane& Plane);
+        static float fTestPlane(CGBoundingVolume* _SrcObj, CGPlane& Plane);
 
-        static float fTestTriangle(CGraphBV* _SrcObj, CTriangle& _Tri);
+        static float fTestTriangle(CGBoundingVolume* _SrcObj, CGTriangle& _Tri);
 
         // Additional Public Declarations
 

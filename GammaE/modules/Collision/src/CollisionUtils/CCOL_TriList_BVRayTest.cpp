@@ -52,7 +52,7 @@ void CCOL_TriList_BVRayTest::Test (CGVect3& _Center, CCOL_TriList& _TriList, int
             _pa6fDists[iAxis] = fGetRayTriListMinDist(Ray,_TriList,Ray.Origin,_pa6iTris[iAxis]);
 
             if ( _pa6iTris[iAxis] != -1 )
-                _pa6fDists[iAxis] = MATH_fSqrt(_pa6fDists[iAxis]);
+                _pa6fDists[iAxis] = Math::fSqrt(_pa6fDists[iAxis]);
         }
     }
 }
@@ -60,7 +60,7 @@ void CCOL_TriList_BVRayTest::Test (CGVect3& _Center, CCOL_TriList& _TriList, int
 float CCOL_TriList_BVRayTest::fGetRayTriListMinDist (CGRay& _ay, CCOL_TriList& _TriList, CGVect3& _Point, int& _iIdx)
 {
     // <UNMAINTAINED>
-    CTriangle Tri;
+    CGTriangle Tri;
 
     CGVect3 IPoint;              // Intersection point
     int iTri;
@@ -74,7 +74,7 @@ float CCOL_TriList_BVRayTest::fGetRayTriListMinDist (CGRay& _ay, CCOL_TriList& _
         Tri.Init(&_TriList.poVXs[3 * iTri], _TriList.poVNs[iTri] );
         Tri.ComputeAll();
 
-        if ( MATH_Utils::iTestSegTriIntersection(_ay,Tri,IPoint) )
+        if ( Math::iTestSegTriIntersection(_ay,Tri,IPoint) )
         {
             fDist = _ay.Origin.fSqDistance(IPoint);
             if ( fDist < fMinDist )

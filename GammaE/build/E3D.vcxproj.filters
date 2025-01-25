@@ -10,6 +10,9 @@
     <Filter Include="Drivers\OGL\OGLShaderRender">
       <UniqueIdentifier>{5D2F6597-C93C-937D-5223-8F68BE2F5F34}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GraphBV">
+      <UniqueIdentifier>{2F052D6E-9BE4-AB09-A4FC-36E0105B126B}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Light">
       <UniqueIdentifier>{3D9E990D-A9B2-C1BE-7234-651EDE07BEEF}</UniqueIdentifier>
     </Filter>
@@ -24,9 +27,6 @@
     </Filter>
     <Filter Include="MeshDB">
       <UniqueIdentifier>{18BBE0C2-045D-0B99-ED17-1FEDD95892E9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Programs">
-      <UniqueIdentifier>{508629A2-3C53-84AD-656C-72555198B93B}</UniqueIdentifier>
     </Filter>
     <Filter Include="RenderVars">
       <UniqueIdentifier>{A1EA0A00-8DA2-4C4D-F6A9-25A9E280E73D}</UniqueIdentifier>
@@ -81,10 +81,28 @@
     </ClInclude>
     <ClInclude Include="..\modules\E3D\src\E3D_Enums.h" />
     <ClInclude Include="..\modules\E3D\src\GE3D.h" />
-    <ClInclude Include="..\modules\E3D\src\Light\CGLight.h">
-      <Filter>Light</Filter>
+    <ClInclude Include="..\modules\E3D\src\GraphBV\CGraphBV.h">
+      <Filter>GraphBV</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\E3D\src\Light\LightWH.h">
+    <ClInclude Include="..\modules\E3D\src\GraphBV\CGraphBVAABB.h">
+      <Filter>GraphBV</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\E3D\src\GraphBV\CGraphBVCylinder.h">
+      <Filter>GraphBV</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\E3D\src\GraphBV\CGraphBVManager.h">
+      <Filter>GraphBV</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\E3D\src\GraphBV\CGraphBVPoint.h">
+      <Filter>GraphBV</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\E3D\src\GraphBV\CGraphBVSphere.h">
+      <Filter>GraphBV</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\E3D\src\GraphBV\eGraphBVTypeID.h">
+      <Filter>GraphBV</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\E3D\src\Light\CGLight.h">
       <Filter>Light</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\E3D\src\Materials\CGColor.h">
@@ -143,15 +161,6 @@
     </ClInclude>
     <ClInclude Include="..\modules\E3D\src\MeshDB\CGDefferredMeshDB.h">
       <Filter>MeshDB</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\E3D\src\Programs\CGShaderDefFileWH.h">
-      <Filter>Programs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\E3D\src\Programs\CGShaderDefWH.h">
-      <Filter>Programs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\E3D\src\Programs\eE3D_ZWrite.h">
-      <Filter>Programs</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\E3D\src\RenderVars\CGRenderVars.h">
       <Filter>RenderVars</Filter>
@@ -222,9 +231,6 @@
     <ClInclude Include="..\modules\E3D\src\Shaders\ShaderUtils\CGShaderUtils.h">
       <Filter>Shaders\ShaderUtils</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderWarehouse\CGShWHEntry.h">
-      <Filter>Shaders\ShaderWarehouse</Filter>
-    </ClInclude>
     <ClInclude Include="..\modules\E3D\src\Shaders\ShaderWarehouse\CGShaderWH.h">
       <Filter>Shaders\ShaderWarehouse</Filter>
     </ClInclude>
@@ -254,10 +260,28 @@
     <ClCompile Include="..\modules\E3D\src\Drivers\OGL\OGLShaderRender\CGOGLShaderRenderer.cpp">
       <Filter>Drivers\OGL\OGLShaderRender</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\E3D\src\Light\CGLight.cpp">
-      <Filter>Light</Filter>
+    <ClCompile Include="..\modules\E3D\src\GraphBV\CGraphBV.cpp">
+      <Filter>GraphBV</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\E3D\src\Light\LightWH.cpp">
+    <ClCompile Include="..\modules\E3D\src\GraphBV\CGraphBVAABB.cpp">
+      <Filter>GraphBV</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\E3D\src\GraphBV\CGraphBVCylinder.cpp">
+      <Filter>GraphBV</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\E3D\src\GraphBV\CGraphBVManager.cpp">
+      <Filter>GraphBV</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\E3D\src\GraphBV\CGraphBVPoint.cpp">
+      <Filter>GraphBV</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\E3D\src\GraphBV\CGraphBVSphere.cpp">
+      <Filter>GraphBV</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\E3D\src\GraphBV\eGraphBVTypeID.cpp">
+      <Filter>GraphBV</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\E3D\src\Light\CGLight.cpp">
       <Filter>Light</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\E3D\src\Materials\CGColor.cpp">
@@ -316,15 +340,6 @@
     </ClCompile>
     <ClCompile Include="..\modules\E3D\src\MeshDB\CGDefferredMeshDB.cpp">
       <Filter>MeshDB</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\E3D\src\Programs\CGShaderDefFileWH.cpp">
-      <Filter>Programs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\E3D\src\Programs\CGShaderDefWH.cpp">
-      <Filter>Programs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\E3D\src\Programs\eE3D_ZWrite.cpp">
-      <Filter>Programs</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\E3D\src\RenderVars\CGRenderVars.cpp">
       <Filter>RenderVars</Filter>
@@ -391,9 +406,6 @@
     </ClCompile>
     <ClCompile Include="..\modules\E3D\src\Shaders\ShaderUtils\CGShaderUtils.cpp">
       <Filter>Shaders\ShaderUtils</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderWarehouse\CGShWHEntry.cpp">
-      <Filter>Shaders\ShaderWarehouse</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\E3D\src\Shaders\ShaderWarehouse\CGShaderWH.cpp">
       <Filter>Shaders\ShaderWarehouse</Filter>

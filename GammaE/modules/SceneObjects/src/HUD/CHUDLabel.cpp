@@ -67,12 +67,12 @@ void CHUDLabel::InternalInit(uint _uiMaxChars)
     CGraphBV_Manager::SetBVMode(eOldType);
 }
 // -----------------------------------------------------------------------------
-CGraphBV* CHUDLabel::poCreateBoundVol()
+CGBoundingVolume* CHUDLabel::poCreateBoundVol()
 {
     eGraphBV_TypeID eOldType = CGraphBV_Manager::eGetBVMode();
     CGraphBV_Manager::SetBVMode(eGraphBV_Box);
 
-    CGraphBV* poBVol = CGraphBV_Manager::poCreate();
+    CGBoundingVolume* poBVol = CGraphBV_Manager::poCreate();
 
     CGraphBV_Manager::SetBVMode(eOldType);
 
@@ -173,7 +173,7 @@ void CHUDLabel::WriteChar(char _cA,float _fOfsX,float _fW)
      */
 
     // Setup UV coords
-    CVect2* poUV = poLeaf->poGetMesh()->m_poUV + 4 * poLeaf->poGetMesh()->m_uiNumPrims;
+    CGVect2* poUV = poLeaf->poGetMesh()->m_poUV + 4 * poLeaf->poGetMesh()->m_uiNumPrims;
     CGVect3* poVX = poLeaf->poGetMesh()->m_poVX + 4 * poLeaf->poGetMesh()->m_uiNumPrims;
 
     poUV[0].V2(u1,v1);

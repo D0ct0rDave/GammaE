@@ -111,7 +111,7 @@ void CTerrainTesselatorTileGM::RenderTile (int iX, int iY)
 
     // Set current texture tile
     // TMaterial * TileMat = GetTileMaterial(iX,iY);
-    CE3D_Shader* poTileMat = TB->poGetTileMaterial(0,0);
+    CGShader* poTileMat = TB->poGetTileMaterial(0,0);
 
     // Get rotation flag
     // eRotFlag = Tile_Tile->GetRotationType();
@@ -205,7 +205,7 @@ void CTerrainTesselatorTileGM::RenderTiling ()
             RenderTile(iX,iY);
 }
 
-CE3D_Shader* CTerrainTesselatorTileGM::GetTileMaterial (int iX, int iY)
+CGShader* CTerrainTesselatorTileGM::GetTileMaterial (int iX, int iY)
 {
     static CGVect3 TileCenter;
     static int i,j;

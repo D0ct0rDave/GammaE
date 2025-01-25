@@ -40,7 +40,7 @@ CGSceneNode* SCNUt_OctreeBuilder::poBuildOctreeRec (SCNUt_TriScene& _oScene, int
     // -----------------------------------------------------------
     // Split the node in height subspaces
     // -----------------------------------------------------------
-    CBoundingBox* poBox;
+    CGBVAABB* poBox;
     SCNUt_ComputeBoundingBox oCBBox;
     SCNUt_TriSceneSplitter oTScnSplitter;
 

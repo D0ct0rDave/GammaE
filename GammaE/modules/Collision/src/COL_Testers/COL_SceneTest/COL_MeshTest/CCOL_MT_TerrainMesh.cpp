@@ -26,7 +26,7 @@ CCOL_MT_TerrainMesh::~CCOL_MT_TerrainMesh()
 {
 }
 
-int CCOL_MT_TerrainMesh::iTestCollision (CGMesh* _poMesh, int _iMat, CGraphBV* _poBVol, CCOL_TriList& _oTriList)
+int CCOL_MT_TerrainMesh::iTestCollision (CGMesh* _poMesh, int _iMat, CGBoundingVolume* _poBVol, CCOL_TriList& _oTriList)
 {
     // Convertir coordinadas SrcIPos, SrcFPos a coordenadas de terreno
     // Trazar el recorrido del objeto sobre el terreno, pixel a pixel.
@@ -38,7 +38,7 @@ int CCOL_MT_TerrainMesh::iTestCollision (CGMesh* _poMesh, int _iMat, CGraphBV* _
     // si no hay colision, continuar trazando hasta llegar al límite.
 
     // (limite de sector si puede ser).
-    CTriangle Tri;
+    CGTriangle Tri;
     CGVect3 VXs[2048];
     CGVect3 Normal;
     CGVect3 Pos;
@@ -137,7 +137,7 @@ int CCOL_MT_TerrainMesh::iTestCollision (CGMesh* _poMesh, int _iMat, CGraphBV* _
     /*
        CGVect3		VXs[2048];
        CGVect3		Normal;
-       CTriangle	Tri;
+       CGTriangle	Tri;
        int			iNumTris,iTri;
        int			iSelTris;
 

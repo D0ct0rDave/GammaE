@@ -148,7 +148,7 @@ CGSceneNode* CLoaderBSP2::poGenerateLeaf (bsp_leaf* _pLeaf)
     SCNUt_TriSceneAccumulator oTScn;
     SCNUt_TriSceneSeparator oTSep;
     SCNUt_MeshGenerator oMGen;
-    CE3D_Shader* poShader;
+    CGShader* poShader;
 
     int iFace;
     int iRealFace;
@@ -198,7 +198,7 @@ CGSceneNode* CLoaderBSP2::poGenerateLeaf (bsp_leaf* _pLeaf)
     {
         sprintf(szMat,"%s/%s.wal",szQ2BaseDir,pTexInfo[ oTSep.piMatIdx[0] ].texture_name);
 
-        CE3D_Shader* poShader = CGShaderWH::I()->poCreateShader(pTexInfo[ oTSep.piMatIdx[0] ].texture_name);
+        CGShader* poShader = CGShaderWH::I()->poCreateShader(pTexInfo[ oTSep.piMatIdx[0] ].texture_name);
 
         CGSceneLeaf* poLeaf = mNew CGSceneLeaf;
         CGMesh* poMesh = oMGen.GenerateMesh(oTSep.Meshes[0]);
@@ -290,7 +290,7 @@ CGSceneNode* CLoaderBSP2::poGenerateNodeMesh (bsp_node* _pNode)
     SCNUt_TriSceneAccumulator oTScn;
     SCNUt_TriSceneSeparator oTSep;
     SCNUt_MeshGenerator oMGen;
-    CE3D_Shader* poShader;
+    CGShader* poShader;
 
     int iFace;
     int iRealFace;

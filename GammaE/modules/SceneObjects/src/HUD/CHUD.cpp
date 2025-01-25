@@ -85,7 +85,7 @@ void CHUD::Render ()
     float TX,TY,TZ;
     float XTrans,YTrans,ZTrans;
 
-    CGraphBV* BVol;
+    CGBoundingVolume* BVol;
 
     bool bDefMode;
 
@@ -136,7 +136,7 @@ void CHUD::Render ()
             // Translate to to range (0.0f,1.0f)
             // CGRenderer::I()->Translate(-1.0f*fRatio,1.0f-m_oHUDObjs[cObj].ty,0.0f);
 
-            CMatrix4x4 oM;
+            CGMatrix4x4 oM;
             oM.LoadIdentity();
 
             // Translate to final position	(-1.0f, 1.0f)
@@ -186,7 +186,7 @@ int CHUD::iCulled ()
     return(0);
 }
 // ----------------------------------------------------------------------------
-CGraphBV* CHUD::poGetBV ()
+CGBoundingVolume* CHUD::poGetBV ()
 {
     return (NULL);
 }

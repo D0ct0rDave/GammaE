@@ -22,7 +22,7 @@ CGraphBV_Point::~CGraphBV_Point()
 {
 }
 
-void CGraphBV_Point::Transform (CMatrix4x4& M)
+void CGraphBV_Point::Transform (CGMatrix4x4& M)
 {
     M.TransformPoint(Point);
 }

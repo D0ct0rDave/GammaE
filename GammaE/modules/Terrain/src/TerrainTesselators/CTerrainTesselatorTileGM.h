@@ -29,7 +29,7 @@ class CTerrainTesselatorTileGM : public CTerrainTesselatorGM
 
         void RenderTiling();
 
-        CE3D_Shader* GetTileMaterial(int iX, int iY);
+        CGShader* GetTileMaterial(int iX, int iY);
 
         // Additional Public Declarations
 

@@ -23,7 +23,7 @@ class SCNUt_SceneCompiler
 
         ~SCNUt_SceneCompiler();
 
-        CGraphBV* poCreateBoundVol ()
+        CGBoundingVolume* poCreateBoundVol ()
         {
             return( CGraphBV_Manager::poCreate() );
         }

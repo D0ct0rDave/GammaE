@@ -120,7 +120,7 @@ void CMenuTextGrid::WriteChar(float _fX,float _fY, CGColor _oColor,char _cA)
     fV = (float)iY * fVSize;
 
     // Get data pointers
-    CVect2* poUV = m_poUV + 4 * m_uiNumPrims;
+    CGVect2* poUV = m_poUV + 4 * m_uiNumPrims;
     CGVect3* poVX = m_poVX + 4 * m_uiNumPrims;
     CGColor* poVC = m_poVC + 4 * m_uiNumPrims;
 

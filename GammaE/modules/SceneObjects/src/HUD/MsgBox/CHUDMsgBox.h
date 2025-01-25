@@ -34,8 +34,8 @@ class CHUDMsgBox : public CGSceneMux
         void Open(char* _szText);
         void Close();
 
-        void SetBackground(CE3D_Shader* _poShader);
-        void SetFont(CE3D_Shader* _poShader);                    //
+        void SetBackground(CGShader* _poShader);
+        void SetFont(CGShader* _poShader);                    //
         void SetColor(CGColor _oColor);                         //
 
         void AdvanceHdr();

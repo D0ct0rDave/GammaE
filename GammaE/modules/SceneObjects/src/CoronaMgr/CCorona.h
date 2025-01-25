@@ -27,7 +27,7 @@ class CCorona
 
         CGColor oColor;
 
-        CE3D_Shader* poMat;
+        CGShader* poMat;
 
         CGVect3 oPos;
 

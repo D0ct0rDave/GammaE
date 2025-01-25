@@ -12,15 +12,15 @@
 #define CGSceneAnimObjectH
 // --------------------------------------------------------------------------------
 #include "GammaE_E3D.h"
-#include "e3DObjectTypeID.h"
-#include "CGSceneVisitor.h"
+#include "GSceneEnums.h"
+#include "Visitors/CGSceneVisitor.h"
 // --------------------------------------------------------------------------------
 class CGSceneAnimObject
 {
     public:
         CGSceneAnimObject();
 
-        e3DObjectTypeID eGetTypeID()
+        ESceneNodeType eGetTypeID()
         {
             return (m_eTypeID);
         }
@@ -38,13 +38,13 @@ class CGSceneAnimObject
         }
 
         // / Retrieves the bounding volume of the specified frame
-        CGraphBV* poGetKeyFrameBVol(uint _uiKeyFrame)
+        CGBoundingVolume* poGetKeyFrameBVol(uint _uiKeyFrame)
         {
             return (m_poFrameBVol[_uiKeyFrame]);
         }
 
         // / Sets the bounding volume of the specified frame
-        void SetKeyFrameBVol(uint _uiKeyFrame,CGraphBV* _poBV)
+        void SetKeyFrameBVol(uint _uiKeyFrame,CGBoundingVolume* _poBV)
         {
             m_poFrameBVol[_uiKeyFrame] = _poBV;
         }
@@ -58,9 +58,9 @@ class CGSceneAnimObject
         uint m_uiNumKeyFrames;
 
         // Array to store the bounding volumes for every keyframe of the animated object
-        CGStArray <CGraphBV*> m_poFrameBVol;
+        CGStArray <CGBoundingVolume*> m_poFrameBVol;
 
-        e3DObjectTypeID m_eTypeID;
+        ESceneNodeType m_eTypeID;
 };
 // --------------------------------------------------------------------------------
 #endif

@@ -43,7 +43,7 @@ class CGParticleSystem_Generic_Stretch : public CGParticleSystem_Generic
 
         virtual void UpdateParticle(int iPart);
 
-        virtual void UpdatePS(CMatrix4x4* _ViewMatrix);
+        virtual void UpdatePS(CGMatrix4x4* _ViewMatrix);
 
         // Additional Public Declarations
 

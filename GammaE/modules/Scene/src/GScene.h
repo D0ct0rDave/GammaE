@@ -19,7 +19,6 @@
 #include "CGSceneInstance.h"
 #include "CGSceneCamera.h"
 #include "CGSceneLeaf.h"
-#include "CGSceneCompiledLeaf.h"
 #include "CGSceneScreenRect.h"
 #include "CGSceneSwitch.h"
 

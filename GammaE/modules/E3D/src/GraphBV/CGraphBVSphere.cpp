@@ -8,26 +8,26 @@
  *  \par GammaE License
  */
 // -----------------------------------------------------------------------------
-// CGraphBV_Sphere
-#include "BoundingVolume\GraphBoundVol\CGraphBV_Sphere.h"
+// CGBVSphere
+#include "BoundingVolume\GraphBoundVol\CGBVSphere.h"
 
-// Class CGraphBV_Sphere
+// Class CGBVSphere
 
-CGraphBV_Sphere::CGraphBV_Sphere()
+CGBVSphere::CGBVSphere()
 {
     eTypeID = eGraphBV_Sphere;
 }
 
-CGraphBV_Sphere::~CGraphBV_Sphere()
+CGBVSphere::~CGBVSphere()
 {
 }
 
-void CGraphBV_Sphere::Transform (CMatrix4x4& M)
+void CGBVSphere::Transform (CGMatrix4x4& M)
 {
     M.TransformPoint(Vol.m_oCenter);
 }
 
-void CGraphBV_Sphere::Compute (CGVect3* VXs, int iNumVXs)
+void CGBVSphere::Compute (CGVect3* VXs, int iNumVXs)
 {
     if ( !iNumVXs ) return;
 
@@ -59,32 +59,32 @@ void CGraphBV_Sphere::Compute (CGVect3* VXs, int iNumVXs)
     Vol.Init(oCenter,fRadius);
 }
 
-float CGraphBV_Sphere::GetRange (int iAxis)
+float CGBVSphere::GetRange (int iAxis)
 {
     return(Vol.m_fRadius * 2);
 }
 
-CGVect3 & CGraphBV_Sphere::GetCenter ()
+CGVect3 & CGBVSphere::GetCenter ()
 {
     return (Vol.m_oCenter);
 }
 
-int CGraphBV_Sphere::TestFrustum (CE3D_Frustum& _Frustum)
+int CGBVSphere::TestFrustum (CE3D_Frustum& _Frustum)
 {
     return ( _Frustum.TestSphere(Vol.m_fRadius,Vol.m_oCenter) );
 }
 
-void CGraphBV_Sphere::Init (CGVect3 Max, CGVect3 Min)
+void CGBVSphere::Init (CGVect3 Max, CGVect3 Min)
 {
     Vol.Init(Max,Min);
 }
 
-CBoundingSphere* CGraphBV_Sphere::pGetSphere ()
+CBoundingSphere* CGBVSphere::pGetSphere ()
 {
     return (&Vol);
 }
 
-int CGraphBV_Sphere::TestInside (CGVect3& _Pos)
+int CGBVSphere::TestInside (CGVect3& _Pos)
 {
     CGVect3 RelSphPos;
 
@@ -94,7 +94,7 @@ int CGraphBV_Sphere::TestInside (CGVect3& _Pos)
     return (RelSphPos.fSqDistance(Vol.m_oCenter) <= Vol.m_fRadius * Vol.m_fRadius);
 }
 
-void CGraphBV_Sphere::Copy (CGraphBV* Src)
+void CGBVSphere::Copy (CGBoundingVolume* Src)
 {
     Vol.Init( Src->GetCenter(),Src->GetExtents().fModule() );
 }

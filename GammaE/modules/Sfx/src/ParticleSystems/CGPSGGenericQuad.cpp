@@ -86,7 +86,7 @@ void CGPSGGenericQuad::InitParticle(CGPSGGenericQuadParticle* _poPart)
     _poPart->m_oDir.Normalize();
 
     // Set position
-    CMatrix4x4 oWorldMat;
+    CGMatrix4x4 oWorldMat;
     CGRenderer::I()->GetWorldMatrix(&oWorldMat);
     _poPart->m_oPos = CGVect3::oZero();
 
@@ -127,7 +127,7 @@ void CGPSGGenericQuad::UpdateParticle(CGPSGGenericQuadParticle* _poPart,float _f
 // -----------------------------------------------------------------------------
 void CGPSGGenericQuad::UpdateInstance(CGParticleSystemInstance& _oPSI,float _fDeltaT)
 {
-    CMatrix4x4 oCameraMatrix;
+    CGMatrix4x4 oCameraMatrix;
     CGRenderer::I()->GetCameraMatrix(&oCameraMatrix);
 
     CGPSGGenericQuadParticle* poPart = (CGPSGGenericQuadParticle*)_oPSI.poGetParticlePool();

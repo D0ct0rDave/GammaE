@@ -175,7 +175,7 @@ void CLoaderMD3::LoadSkinInfo (char* _Filename)
     fclose(fd);
 }
 
-CE3D_Shader* CLoaderMD3::poGetShader (char* _szMeshName)
+CGShader* CLoaderMD3::poGetShader (char* _szMeshName)
 {
     int iSkin;
 
@@ -472,7 +472,7 @@ CGSceneAnimCfgGen* CLoaderMD3::pLoadQ3Player (char* _Path, char* _SkinName)
 
 CGSceneAnimCfgMgr* CLoaderMD3::pLoadAnimation (char* _Filename, CGSceneAnimNode* _pLegs, CGSceneAnimNode* _pTorso)
 {
-    char* Buffer = ParseUtils_ReadFile(_Filename);
+    char* Buffer = Utils::Parse::ReadFile(_Filename);
     char* szHeader = Buffer;
     char* szToken;
 
@@ -483,14 +483,14 @@ CGSceneAnimCfgMgr* CLoaderMD3::pLoadAnimation (char* _Filename, CGSceneAnimNode*
 
     while ( *szHeader )
     {
-        szToken = ParseUtils_ParseToken (szHeader);
+        szToken = Utils::Parse::ParseToken (szHeader);
 
         if ( !strcmp("//",szToken) )
-            szHeader = ParseUtils_SkipLine(szHeader);
+            szHeader = Utils::Parse::SkipLine(szHeader);
         else if ( !strcmp("sex",szToken) )
-            szHeader = ParseUtils_SkipLine(szHeader);
+            szHeader = Utils::Parse::SkipLine(szHeader);
         else if ( !strcmp("footsteps",szToken) )
-            szHeader = ParseUtils_SkipLine(szHeader);
+            szHeader = Utils::Parse::SkipLine(szHeader);
         else
         {
             if ( iAnimNum < TOTAL_MD3FRAME_ANIMS )
@@ -512,7 +512,7 @@ CGSceneAnimCfgMgr* CLoaderMD3::pLoadAnimation (char* _Filename, CGSceneAnimNode*
             }
 
             // Now skip this line
-            szHeader = ParseUtils_SkipLine(szHeader);
+            szHeader = Utils::Parse::SkipLine(szHeader);
         }
     }
 

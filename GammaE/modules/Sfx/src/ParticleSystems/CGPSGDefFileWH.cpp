@@ -122,7 +122,7 @@ void CGPSGDefFileWH::ProcessPSGDefFile(const CGString& _sPSGDefFilename)
 CGTextResource* CGPSGDefFileWH::poLoadResource(const CGString& _sFilename)
 {
     CGTextResource* poRes = mNew CGTextResource;
-    // poRes->SetData( ParseUtils_ReadFile((char*)_sFilename.szString()) );
+    // poRes->SetData( Utils::Parse::ReadFile((char*)_sFilename.szString()) );
     // ProcessPSGDefFile( poRes->sGetData().szString() );
 
     ProcessPSGDefFile( _sFilename );

@@ -27,19 +27,19 @@ CGProgram* CGProgramWH::poLoadResource(const CGString& _sFilename)
     CGString sPS = _sFilename + ".ps";
 
     // Read vertex shader file
-    char* pucVS = ParseUtils_ReadFile( sVS.szString() );
+    char* pucVS = Utils::Parse::ReadFile( sVS.szString() );
     if ( pucVS == NULL )
     {
         CGString sFilename = m_sAlternatePath + "/" + sVS;
-        pucVS = ParseUtils_ReadFile( sFilename.szString() );
+        pucVS = Utils::Parse::ReadFile( sFilename.szString() );
     }
 
     // Read pixel shader file
-    char* pucPS = ParseUtils_ReadFile( sPS.szString() );
+    char* pucPS = Utils::Parse::ReadFile( sPS.szString() );
     if ( pucPS == NULL )
     {
         CGString sFilename = m_sAlternatePath + "/" + sPS;
-        pucPS = ParseUtils_ReadFile( sFilename.szString() );
+        pucPS = Utils::Parse::ReadFile( sFilename.szString() );
     }
 
     if ( (pucVS == NULL) && (pucPS == NULL) ) return(NULL);

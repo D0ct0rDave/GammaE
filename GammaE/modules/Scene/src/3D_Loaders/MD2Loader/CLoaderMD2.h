@@ -53,7 +53,7 @@ class CLoaderMD2 : public C3DLoader
 
         SCNUt_TriScene* ParseModel();
 
-        CE3D_Shader* ParseMaterial();
+        CGShader* ParseMaterial();
 
         unsigned short* GetVertexConversionTable(CGMesh &Mesh);
 

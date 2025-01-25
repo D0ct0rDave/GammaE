@@ -124,7 +124,7 @@ class CGGraphicInstance
         }
 
         // / Retrieves the transformation matrix of the instance
-        const CMatrix4x4& oTransform()
+        const CGMatrix4x4& oTransform()
         {
             if ( m_bDirty )
                 UpdateTransform();
@@ -157,7 +157,7 @@ class CGGraphicInstance
 
         CGVect3 m_oPos;
         bool m_bDirty;
-        CMatrix4x4 m_oMat;
+        CGMatrix4x4 m_oMat;
 
         CGColor m_oColor;
 

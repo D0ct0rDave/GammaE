@@ -145,7 +145,7 @@ void CGParticleSystem::Think (float _fDelta)
 void CGParticleSystem::Render ()
 {
     // ## begin CGParticleSystem::Render%997390917.body preserve=yes
-    CMatrix4x4 CurrentViewMat;
+    CGMatrix4x4 CurrentViewMat;
     bool bEnableZBuffer = false;
 
     if ( bDisableZBuffer )

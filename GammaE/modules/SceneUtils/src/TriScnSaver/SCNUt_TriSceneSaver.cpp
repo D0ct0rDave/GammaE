@@ -52,7 +52,7 @@ void SCNUt_TriSceneSaver::Save(char* _szFilename,SCNUt_TriScene* _poScn,SCNUt_Ma
     {
         for ( uint i = 0; i < _poMT->uiNumElems(); i++ )
         {
-            CE3D_Shader* poShader = _poMT->poGet(i);
+            CGShader* poShader = _poMT->poGet(i);
             const char* szName = CE3D_ShaderWH::I()->sGetName( poShader ).szString();
             oFile.WriteText("		%d %s\n",i + 1,szName);          // 1 based
         }

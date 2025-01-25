@@ -25,57 +25,57 @@ SCNUt_Mesh2TriScene::~SCNUt_Mesh2TriScene()
 
 SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate (CGMesh& _oMesh, int _iMat)
 {
-    switch ( _oMesh.m_eMeshType )
+    switch ( _oMesh.eGetPrimitiveType() )
     {
-        case E3D_MESH_NONE:
+        case E3D_PrimitiveType::E3D_PT_NONE:
         {
             return(NULL);
         }
         break;
 
-        case E3D_MESH_TRIS:
+        case E3D_PrimitiveType::E3D_PT_NITRIS:
         {
             return( Generate_FromIndexedTriMesh(_oMesh,_iMat) );
         }
         break;
 
-        case E3D_MESH_QUADS:
+        case E3D_PrimitiveType::E3D_PT_NIQUADS:
         {
             return( Generate_FromIndexedQuadMesh(_oMesh,_iMat) );
         }
         break;
 
-        case E3D_MESH_TRIFANS:
+        case E3D_PrimitiveType::E3D_PT_TRIFANS:
         {
             return( Generate_FromIndexedTriFanMesh(_oMesh,_iMat) );
         }
         break;
 
-        case E3D_MESH_TRISTRIPS:
+        case E3D_PrimitiveType::E3D_PT_TRISTRIPS:
         {
             return( Generate_FromIndexedTriStripMesh(_oMesh,_iMat) );
         }
         break;
 
-        case E3D_MESH_QUADSTRIPS:
+        case E3D_PrimitiveType::E3D_PT_QUADSTRIPS:
         {
             return( Generate_FromIndexedQuadStripMesh(_oMesh,_iMat) );
         }
         break;
 
-        case E3D_MESH_NITRIS:
+        case E3D_PrimitiveType::E3D_PT_NITRIS:
         {
             return( Generate_FromNonIndexedTriMesh(_oMesh,_iMat) );
         }
         break;
 
-        case E3D_MESH_NIQUADS:
+        case E3D_PrimitiveType::E3D_PT_NIQUADS:
         {
             return( Generate_FromNonIndexedQuadMesh(_oMesh,_iMat) );
         }
         break;
 
-        case E3D_MESH_NITRISTRIP:
+        case E3D_PrimitiveType::E3D_PT_NITRISTRIP:
         {
             return( Generate_FromNonIndexedTriStripMesh(_oMesh,_iMat) );
         }
@@ -97,13 +97,13 @@ SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromIndexedTriMesh (CGMesh& _oMesh
 
     CGVect3 oDefVX(0.0f,0.0f,0.0f);
     CGVect3 oDefVN(0.0f,0.0f,1.0f);
-    CVect4 oDefVC(1.0f,1.0f,1.0f,1.0f);
-    CVect2 oDefUV(0.0f,0.0f);
+    CGVect4 oDefVC(1.0f,1.0f,1.0f,1.0f);
+    CGVect2 oDefUV(0.0f,0.0f);
 
     CGVect3 oCurVX;
     CGVect3 oCurVN;
-    CVect4 oCurVC;
-    CVect2 oCurUV;
+    CGVect4 oCurVC;
+    CGVect2 oCurUV;
 
     int iTri,iIdx,iVert;
     SCNUt_TriScene* poTriScn = mNew SCNUt_TriScene;
@@ -129,7 +129,7 @@ SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromIndexedTriMesh (CGMesh& _oMesh
 
             // Color
             if ( _oMesh.m_poVC )
-                oCurVC.Assign( *(CVect4*)&_oMesh.m_poVC[iIdx] );
+                oCurVC.Assign( *(CGVect4*)&_oMesh.m_poVC[iIdx] );
             else
                 oCurVC.Assign(oDefVC);
 
@@ -168,18 +168,18 @@ SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromIndexedTriStripMesh (CGMesh& _
 
     CGVect3 oDefVX(0.0f,0.0f,0.0f);
     CGVect3 oDefVN(0.0f,0.0f,1.0f);
-    CVect4 oDefVC(1.0f,1.0f,1.0f,1.0f);
-    CVect2 oDefUV(0.0f,0.0f);
+    CGVect4 oDefVC(1.0f,1.0f,1.0f,1.0f);
+    CGVect2 oDefUV(0.0f,0.0f);
 
     CGVect3 oCurVX;
     CGVect3 oCurVN;
-    CVect4 oCurVC;
-    CVect2 oCurUV;
+    CGVect4 oCurVC;
+    CGVect2 oCurUV;
 
     CGVect3 oVX[3];
     CGVect3 oVN[3];
-    CVect4 oVC[3];
-    CVect2 oUV[3];
+    CGVect4 oVC[3];
+    CGVect2 oUV[3];
 
     SCNUt_TriScene* poTriScn = mNew SCNUt_TriScene;
     poTriScn->Init( _oMesh.m_uiNumPrims );
@@ -202,7 +202,7 @@ SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromIndexedTriStripMesh (CGMesh& _
 
         // Color
         if ( _oMesh.m_poVC )
-            oCurVC.Assign( *(CVect4*)&_oMesh.m_poVC[iIdx] );
+            oCurVC.Assign( *(CGVect4*)&_oMesh.m_poVC[iIdx] );
         else
             oCurVC.Assign(oDefVC);
 
@@ -287,18 +287,18 @@ SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromIndexedTriFanMesh (CGMesh& _oM
 
     CGVect3 oDefVX(0.0f,0.0f,0.0f);
     CGVect3 oDefVN(0.0f,0.0f,1.0f);
-    CVect4 oDefVC(1.0f,1.0f,1.0f,1.0f);
-    CVect2 oDefUV(0.0f,0.0f);
+    CGVect4 oDefVC(1.0f,1.0f,1.0f,1.0f);
+    CGVect2 oDefUV(0.0f,0.0f);
 
     CGVect3 oCurVX;
     CGVect3 oCurVN;
-    CVect4 oCurVC;
-    CVect2 oCurUV;
+    CGVect4 oCurVC;
+    CGVect2 oCurUV;
 
     CGVect3 oVX[3];
     CGVect3 oVN[3];
-    CVect4 oVC[3];
-    CVect2 oUV[3];
+    CGVect4 oVC[3];
+    CGVect2 oUV[3];
 
     int iTri,iIdx,iVert;
     SCNUt_TriScene* poTriScn = mNew SCNUt_TriScene;
@@ -322,7 +322,7 @@ SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromIndexedTriFanMesh (CGMesh& _oM
 
         // Color
         if ( _oMesh.m_poVC )
-            oCurVC.Assign( *(CVect4*)&_oMesh.m_poVC[iIdx] );
+            oCurVC.Assign( *(CGVect4*)&_oMesh.m_poVC[iIdx] );
         else
             oCurVC.Assign(oDefVC);
 
@@ -389,13 +389,13 @@ SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromNonIndexedTriMesh (CGMesh& _oM
 
     CGVect3 oDefVX(0.0f,0.0f,0.0f);
     CGVect3 oDefVN(0.0f,0.0f,1.0f);
-    CVect4 oDefVC(1.0f,1.0f,1.0f,1.0f);
-    CVect2 oDefUV(0.0f,0.0f);
+    CGVect4 oDefVC(1.0f,1.0f,1.0f,1.0f);
+    CGVect2 oDefUV(0.0f,0.0f);
 
     CGVect3 oCurVX;
     CGVect3 oCurVN;
-    CVect4 oCurVC;
-    CVect2 oCurUV;
+    CGVect4 oCurVC;
+    CGVect2 oCurUV;
 
     int iTri,iIdx,iVert;
     SCNUt_TriScene* poTriScn = mNew SCNUt_TriScene;
@@ -421,7 +421,7 @@ SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromNonIndexedTriMesh (CGMesh& _oM
 
             // Color
             if ( _oMesh.m_poVC )
-                oCurVC.Assign( *(CVect4*)&_oMesh.m_poVC[iIdx] );
+                oCurVC.Assign( *(CGVect4*)&_oMesh.m_poVC[iIdx] );
             else
                 oCurVC.Assign(oDefVC);
 
@@ -458,18 +458,18 @@ SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromNonIndexedTriStripMesh (CGMesh
 
     CGVect3 oDefVX(0.0f,0.0f,0.0f);
     CGVect3 oDefVN(0.0f,0.0f,1.0f);
-    CVect4 oDefVC(1.0f,1.0f,1.0f,1.0f);
-    CVect2 oDefUV(0.0f,0.0f);
+    CGVect4 oDefVC(1.0f,1.0f,1.0f,1.0f);
+    CGVect2 oDefUV(0.0f,0.0f);
 
     CGVect3 oCurVX;
     CGVect3 oCurVN;
-    CVect4 oCurVC;
-    CVect2 oCurUV;
+    CGVect4 oCurVC;
+    CGVect2 oCurUV;
 
     CGVect3 oVX[3];
     CGVect3 oVN[3];
-    CVect4 oVC[3];
-    CVect2 oUV[3];
+    CGVect4 oVC[3];
+    CGVect2 oUV[3];
 
     int iTri,iIdx,iVert;
     SCNUt_TriScene* poTriScn = mNew SCNUt_TriScene;
@@ -493,7 +493,7 @@ SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromNonIndexedTriStripMesh (CGMesh
 
         // Color
         if ( _oMesh.m_poVC )
-            oCurVC.Assign(*(CVect4*)&_oMesh.m_poVC[iIdx] );
+            oCurVC.Assign(*(CGVect4*)&_oMesh.m_poVC[iIdx] );
         else
             oCurVC.Assign(oDefVC);
 

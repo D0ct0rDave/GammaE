@@ -32,13 +32,13 @@ SCNUt_Scn2TriScnBuilder::~SCNUt_Scn2TriScnBuilder()
 
 SCNUt_TriScene* SCNUt_Scn2TriScnBuilder::poBuild (CGSceneNode* _poScene, SCNUt_MaterialTable& _oMTable)
 {
-    CMatrix4x4 oMatStack[TRANSF_STACK_SIZE];
+    CGMatrix4x4 oMatStack[TRANSF_STACK_SIZE];
     oMatStack[0].LoadIdentity();
 
     return ( poBuildRec(_poScene,oMatStack,0,_oMTable) );
 }
 
-SCNUt_TriScene* SCNUt_Scn2TriScnBuilder::poBuildRec (CGSceneNode* _poScene, CMatrix4x4* _poMStack, int _iMPos, SCNUt_MaterialTable& _poMTab)
+SCNUt_TriScene* SCNUt_Scn2TriScnBuilder::poBuildRec (CGSceneNode* _poScene, CGMatrix4x4* _poMStack, int _iMPos, SCNUt_MaterialTable& _poMTab)
 {
     if ( !_poScene ) return(NULL);
 
@@ -55,7 +55,7 @@ SCNUt_TriScene* SCNUt_Scn2TriScnBuilder::poBuildRec (CGSceneNode* _poScene, CMat
 
             poLeaf = (CGSceneLeaf*)_poScene;
             poMesh = poLeaf->poGetMesh();
-            const CE3D_Shader* poShader = poLeaf->poGetShader();
+            const CGShader* poShader = poLeaf->poGetShader();
             const char* szShaderName = CE3D_ShaderWH::I()->sGetName( poShader ).szString();
 
             uiMatID = _poMTab.iGetIdx(poShader);
@@ -172,7 +172,7 @@ SCNUt_TriScene* SCNUt_Scn2TriScnBuilder::poBuildRec (CGSceneNode* _poScene, CMat
     return(NULL);
 }
 
-SCNUt_TriScene* SCNUt_Scn2TriScnBuilder::poBuildMesh (CGMesh& _oMesh, int _iMat, CMatrix4x4& _oMat)
+SCNUt_TriScene* SCNUt_Scn2TriScnBuilder::poBuildMesh (CGMesh& _oMesh, int _iMat, CGMatrix4x4& _oMat)
 {
     SCNUt_Mesh2TriScene oM2TS;
     SCNUt_TransformTriScene oTrTS;

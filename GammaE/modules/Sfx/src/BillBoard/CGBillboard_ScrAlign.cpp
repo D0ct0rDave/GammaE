@@ -23,7 +23,7 @@ CGBillboard_ScrAlign::~CGBillboard_ScrAlign()
 
 void CGBillboard_ScrAlign::Render ()
 {
-    CMatrix4x4 M,M1;
+    CGMatrix4x4 M,M1;
     CE3D_Camera* Cam = CGRenderer::I()->GetCamera();
 
     CGVect3 e1,e2,e3;

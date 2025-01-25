@@ -27,7 +27,7 @@ CConsole::~CConsole()
     if ( Data ) mDel [] Data;
 }
 
-void CConsole::Init (float _Width, float _Height, int _Cols, int _ows, CE3D_Shader* _BGMat, CE3D_Shader* _CMMat)
+void CConsole::Init (float _Width, float _Height, int _Cols, int _ows, CGShader* _BGMat, CGShader* _CMMat)
 {
     CHUD::Init(2);
 
@@ -239,13 +239,13 @@ void CConsole::CreateCharMatrix ()
         }
 }
 
-void CConsole::SetCharMatrixMat (CE3D_Shader* _CMMat)
+void CConsole::SetCharMatrixMat (CGShader* _CMMat)
 {
     CharMatrixMat = _CMMat;
     CharMatrix->SetShader( CharMatrixMat );
 }
 
-void CConsole::SetBackgroundMat (CE3D_Shader* _BGMat)
+void CConsole::SetBackgroundMat (CGShader* _BGMat)
 {
     BackgroundMat = _BGMat;
     Background->SetShader( BackgroundMat );

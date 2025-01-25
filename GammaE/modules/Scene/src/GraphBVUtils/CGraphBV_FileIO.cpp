@@ -24,13 +24,13 @@ CGraphBV_FileIO::~CGraphBV_FileIO()
 {
 }
 
-CGraphBV* CGraphBV_FileIO::pLoadGraphBV (CFile& _oFile)
+CGBoundingVolume* CGraphBV_FileIO::pLoadGraphBV (CFile& _oFile)
 {
     unsigned int uiObjID;
     unsigned int uiBlockLen;
 
-    CGraphBV_Sphere* pSph;
-    CGraphBV_Box* pBox;
+    CGBVSphere* pSph;
+    CGBVAABB* pBox;
     CGraphBV_Cylinder* pCyl;
 
     // Read object identifier
@@ -40,7 +40,7 @@ CGraphBV* CGraphBV_FileIO::pLoadGraphBV (CFile& _oFile)
     switch ( uiObjID )
     {
         case MAKE_RIFF_ID('B','S','P','H'):
-        pSph = mNew CGraphBV_Sphere;
+        pSph = mNew CGBVSphere;
         _oFile.iRead( &pSph->pGetSphere()->m_oCenter,sizeof(CGVect3) );
         _oFile.iRead( &pSph->pGetSphere()->m_fRadius,sizeof(float) );
 
@@ -48,7 +48,7 @@ CGraphBV* CGraphBV_FileIO::pLoadGraphBV (CFile& _oFile)
         break;
 
         case MAKE_RIFF_ID('B','B','O','X'):
-        pBox = mNew CGraphBV_Box;
+        pBox = mNew CGBVAABB;
 
         _oFile.iRead( &pBox->pGetBox()->m_oMaxs,  sizeof(CGVect3) );
         _oFile.iRead( &pBox->pGetBox()->m_oMins,  sizeof(CGVect3) );
@@ -70,10 +70,10 @@ CGraphBV* CGraphBV_FileIO::pLoadGraphBV (CFile& _oFile)
     return (NULL);
 }
 
-int CGraphBV_FileIO::iSaveGraphBV (CFile& _oFile, CGraphBV* _pGBV)
+int CGraphBV_FileIO::iSaveGraphBV (CFile& _oFile, CGBoundingVolume* _pGBV)
 {
-    CGraphBV_Sphere* pSph = (CGraphBV_Sphere*)_pGBV;
-    CGraphBV_Box* pBox = (CGraphBV_Box*)_pGBV;
+    CGBVSphere* pSph = (CGBVSphere*)_pGBV;
+    CGBVAABB* pBox = (CGBVAABB*)_pGBV;
     CGraphBV_Cylinder* pCyl = (CGraphBV_Cylinder*)_pGBV;
 
     switch ( _pGBV->eGetTypeID() )

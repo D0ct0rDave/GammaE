@@ -21,7 +21,7 @@ SCNUt_ComputeBoundingBox::~SCNUt_ComputeBoundingBox()
 {
 }
 
-CBoundingBox* SCNUt_ComputeBoundingBox::poComputeBoundingBox (SCNUt_TriScene* _poScene)
+CGBVAABB* SCNUt_ComputeBoundingBox::poComputeBoundingBox (SCNUt_TriScene* _poScene)
 {
     CGVect3 oMaxs,oMins;
     oMaxs.Set(-1e6f,-1e6f,-1e6f);
@@ -45,7 +45,7 @@ CBoundingBox* SCNUt_ComputeBoundingBox::poComputeBoundingBox (SCNUt_TriScene* _p
         }
     }
 
-    static CBoundingBox oBox;
+    static CGBVAABB oBox;
     oBox.Init(oMaxs,oMins);
     return(&oBox);
 }

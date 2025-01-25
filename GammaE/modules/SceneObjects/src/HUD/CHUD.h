@@ -50,7 +50,7 @@ class CHUD : public CGSceneNode
             return ( m_oHUDObjs.oGetElem(_uiElem) );
         }
 
-        CGraphBV* poCreateBoundVol ()
+        CGBoundingVolume* poCreateBoundVol ()
         {
             return(NULL);
         }
@@ -59,7 +59,7 @@ class CHUD : public CGSceneNode
 
         virtual void Render();
         virtual int iCulled();
-        virtual CGraphBV* poGetBV();
+        virtual CGBoundingVolume* poGetBV();
         virtual void ComputeBoundVol();
 
         virtual void Accept(CGSceneVisitor* _poObj)

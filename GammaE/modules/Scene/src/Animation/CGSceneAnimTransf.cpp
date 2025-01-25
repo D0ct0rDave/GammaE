@@ -62,7 +62,7 @@ CGSceneAnimTransf::~CGSceneAnimTransf()
             if (_fFactor < 1.0f)
             {
                 CQuaternion SrcQuat,DstQuat,ResQuat;
-                CVect4 SrcPos,DstPos,ResPos;
+                CGVect4 SrcPos,DstPos,ResPos;
 
                 // Interpolate rotations
                 SrcQuat.FromMatrix( pTransStates[_iSrc] );

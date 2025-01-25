@@ -28,12 +28,12 @@ CHUDIcon::CHUDIcon()
     ComputeBoundVol();
 }
 // -----------------------------------------------------------------------------
-CGraphBV* CHUDIcon::poCreateBoundVol ()
+CGBoundingVolume* CHUDIcon::poCreateBoundVol ()
 {
     eGraphBV_TypeID eOldType = CGraphBV_Manager::eGetBVMode();
     CGraphBV_Manager::SetBVMode(eGraphBV_Box);
 
-    CGraphBV* poBVol = CGraphBV_Manager::poCreate();
+    CGBoundingVolume* poBVol = CGraphBV_Manager::poCreate();
 
     CGraphBV_Manager::SetBVMode(eOldType);
 
@@ -45,7 +45,7 @@ CHUDIcon::~CHUDIcon()
     // CGSceneMux::~CGSceneMux();
 }
 // -----------------------------------------------------------------------------
-void CHUDIcon::SetIcon(CE3D_Shader* _poShader)
+void CHUDIcon::SetIcon(CGShader* _poShader)
 {
     poLeaf->SetShader(_poShader);
 }

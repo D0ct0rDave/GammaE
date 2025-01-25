@@ -90,7 +90,7 @@ class CGPSGGenericQuadCinematic : public CGParticleSystemGenerator
         virtual CGParticle* poCreateParticlePool();
 
         // / Updates the particles of the particle system instance
-        virtual void UpdateInstance(CGParticleSystemInstance& _oPSI,float _fDeltaT,const CMatrix4x4& _oViewMatrix);
+        virtual void UpdateInstance(CGParticleSystemInstance& _oPSI,float _fDeltaT,const CGMatrix4x4& _oViewMatrix);
 
     protected:
         // / Initializes an independent particle of the particle system instance

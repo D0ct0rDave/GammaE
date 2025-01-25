@@ -27,13 +27,13 @@ class CLensFlare : public CGSceneNode
 
         void InitLensFlare(int _iNumElems, CGVect3 _SunPos);
 
-        void SetupFlareElem(int _iElem, float _fSize, float _fDist, CGColor _Color, CE3D_Shader* _pMat);
+        void SetupFlareElem(int _iElem, float _fSize, float _fDist, CGColor _Color, CGShader* _pMat);
 
         void UpdateMesh();
 
         virtual void Render();
 
-        virtual CGraphBV* poGetBV();
+        virtual CGBoundingVolume* poGetBV();
 
         virtual void ComputeBoundVol();
 
@@ -65,9 +65,9 @@ class CLensFlare : public CGSceneNode
 
         CGVect3 oScrPos;
 
-        CMatrix4x4 oViewMat;
+        CGMatrix4x4 oViewMat;
 
-        CMatrix4x4 oPrjMat;
+        CGMatrix4x4 oPrjMat;
 
         // Additional Private Declarations
 

@@ -21,7 +21,7 @@ typedef struct
     CGVect3 Speed;
     CGVect3 OldSpeed;
 
-    CVect4 Color;
+    CGVect4 Color;
 
     float fSize;
     float fEnergy;
@@ -40,7 +40,7 @@ class CGParticleSystem_Generic_Quad : public CGParticleSystem_Generic
 
         virtual void UpdateParticle(int iPart);
 
-        virtual void UpdatePS(CMatrix4x4* _ViewMatrix);
+        virtual void UpdatePS(CGMatrix4x4* _ViewMatrix);
 
     protected:
         TParticle_Quad* pParts;

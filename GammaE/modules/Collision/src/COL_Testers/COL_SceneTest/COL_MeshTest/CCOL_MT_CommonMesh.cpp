@@ -15,9 +15,9 @@
 // CCOL_MT_CommonMesh
 #include "COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_CommonMesh.h"
 
-inline void TEST_Triangle(CGVect3* _poVXs,CGVect3* _poVN,int &_iTris,int _iMat,CGraphBV* _poBVol, CCOL_TriList& _oTriList)
+inline void TEST_Triangle(CGVect3* _poVXs,CGVect3* _poVN,int &_iTris,int _iMat,CGBoundingVolume* _poBVol, CCOL_TriList& _oTriList)
 {
-    CTriangle oTri;
+    CGTriangle oTri;
     float fTime;
 
     if ( _poVN )
@@ -47,13 +47,13 @@ CCOL_MT_CommonMesh::~CCOL_MT_CommonMesh()
 {
 }
 
-int CCOL_MT_CommonMesh::iTestCollision (CGMesh* _poMesh, int _iMat, CGraphBV* _poBVol, CCOL_TriList& _oTriList)
+int CCOL_MT_CommonMesh::iTestCollision (CGMesh* _poMesh, int _iMat, CGBoundingVolume* _poBVol, CCOL_TriList& _oTriList)
 {
     if ( !_poMesh ) return(0);
     if ( !_oTriList.iFreeTris() ) return(0);
 
     int cTri;
-    CTriangle Tri;
+    CGTriangle Tri;
     CGVect3 VXs[3];
     CGVect3 VN;
     CGVect3* pVXs;

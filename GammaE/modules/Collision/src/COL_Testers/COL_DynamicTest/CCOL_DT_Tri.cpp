@@ -13,7 +13,7 @@
 // CCOL_DT_Tri
 #include "COL_Testers\COL_DynamicTest\CCOL_DT_Tri.h"
 
-void ProjectTriangle (CGVect3& _oD, CTriangle& _oTri, float& _fMin, float& _fMax)
+void ProjectTriangle (CGVect3& _oD, CGTriangle& _oTri, float& _fMin, float& _fMax)
 {
     float fU,fV,fW;
 
@@ -24,7 +24,7 @@ void ProjectTriangle (CGVect3& _oD, CTriangle& _oTri, float& _fMin, float& _fMax
     MATH_Utils::GetMaxMins(fU,fV,fW,_fMax,_fMin);
 }
 
-void ProjectBox (CGVect3& _oD, CGraphBV_Box& _oBox, float& _fMin, float& _fMax)
+void ProjectBox (CGVect3& _oD, CGBVAABB& _oBox, float& _fMin, float& _fMax)
 {
     CGVect3 oBExt = _oBox.GetExtents();
     float fDdC = _oD.fDotProd( _oBox.GetCenter() );
@@ -105,20 +105,20 @@ CCOL_DT_Tri::~CCOL_DT_Tri()
 {
 }
 
-float CCOL_DT_Tri::fTestSphere (CGraphBV_Sphere& _Sphere, CTriangle& _Tri)
+float CCOL_DT_Tri::fTestSphere (CGBVSphere& _Sphere, CGTriangle& _Tri)
 {
     float fDist = MATH_Utils::fTriPointSqDistance( _Tri,_Sphere.GetCenter() );
 
     if ( fDist < _SQ_(_Sphere.pGetSphere()->m_fRadius) )
         return(0.0f);
 
-    CGraphBV_Box Box;
-    Box.Copy( (CGraphBV*)&_Sphere );
+    CGBVAABB Box;
+    Box.Copy( (CGBoundingVolume*)&_Sphere );
 
     return ( fTestBox(Box,_Tri) );
 }
 
-float CCOL_DT_Tri::fTestBox (CGraphBV_Box& _Box, CTriangle& _Tri)
+float CCOL_DT_Tri::fTestBox (CGBVAABB& _Box, CGTriangle& _Tri)
 {
     // David Eberly code
     // Magic Software, Inc.
@@ -213,7 +213,7 @@ float CCOL_DT_Tri::fTestBox (CGraphBV_Box& _Box, CTriangle& _Tri)
     }
 }
 
-float CCOL_DT_Tri::fTestPoint (CGVect3& _oPoint, CTriangle& _Tri)
+float CCOL_DT_Tri::fTestPoint (CGVect3& _oPoint, CGTriangle& _Tri)
 {
     if ( CCOL_ColState::DSSp.fSqModule() == 0.0f ) return(-1.0f);
 
@@ -221,7 +221,7 @@ float CCOL_DT_Tri::fTestPoint (CGVect3& _oPoint, CTriangle& _Tri)
     CGRay oRay;              // Ray segment
     CGVect3 oPrj;            // Projected point
     CGVect3 oDir;
-    CTriangle oATri;        // AuxTri
+    CGTriangle oATri;        // AuxTri
 
     // Point initial position in Triangle Ref system
     oPI.Assign(_oPoint);

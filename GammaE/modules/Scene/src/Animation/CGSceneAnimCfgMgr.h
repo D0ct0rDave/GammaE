@@ -28,7 +28,7 @@ class CGSceneAnimCfgMgr : public CGSceneAnimCfgGen
 
         virtual void SetFrameAnim(int _iFrameAnim);
 
-        virtual CGraphBV* poGetBoundVol();
+        virtual CGBoundingVolume* poGetBoundVol();
 
         virtual void ComputeBoundVol();
 

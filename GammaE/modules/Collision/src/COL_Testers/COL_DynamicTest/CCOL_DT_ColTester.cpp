@@ -24,10 +24,10 @@ CCOL_DT_ColTester::~CCOL_DT_ColTester()
 {
 }
 
-float CCOL_DT_ColTester::fTestCollision (CGraphBV* SrcObj, CGraphBV* DstObj)
+float CCOL_DT_ColTester::fTestCollision (CGBoundingVolume* SrcObj, CGBoundingVolume* DstObj)
 {
     CBoundingSphere* SS,* DS;
-    CBoundingBox* SB,* DB;
+    CGBVAABB* SB,* DB;
     CGVect3* SP,* DP;
     int iFlags;
 
@@ -43,11 +43,11 @@ float CCOL_DT_ColTester::fTestCollision (CGraphBV* SrcObj, CGraphBV* DstObj)
     // Get source Bounding Volume
     switch ( SrcObj->eGetTypeID() )
     {
-        case eGraphBV_Sphere:   SS = ( (CGraphBV_Sphere*)SrcObj )->pGetSphere();
+        case eGraphBV_Sphere:   SS = ( (CGBVSphere*)SrcObj )->pGetSphere();
         iFlags += 0;
         break;
 
-        case eGraphBV_Box:      SB = ( (CGraphBV_Box*)SrcObj )->pGetBox();
+        case eGraphBV_Box:      SB = ( (CGBVAABB*)SrcObj )->pGetBox();
         iFlags += 1;
         break;
 
@@ -59,11 +59,11 @@ float CCOL_DT_ColTester::fTestCollision (CGraphBV* SrcObj, CGraphBV* DstObj)
     // Get destination Bounding Volume
     switch ( DstObj->eGetTypeID() )
     {
-        case eGraphBV_Sphere:   DS = ( (CGraphBV_Sphere*)DstObj )->pGetSphere();
+        case eGraphBV_Sphere:   DS = ( (CGBVSphere*)DstObj )->pGetSphere();
         iFlags += 3 * 0;
         break;
 
-        case eGraphBV_Box:      DB = ( (CGraphBV_Box*)DstObj )->pGetBox();
+        case eGraphBV_Box:      DB = ( (CGBVAABB*)DstObj )->pGetBox();
         iFlags += 3 * 1;
         break;
 
@@ -118,12 +118,12 @@ float CCOL_DT_ColTester::fTestCollision (CGraphBV* SrcObj, CGraphBV* DstObj)
     return (fRes);
 }
 
-float CCOL_DT_ColTester::fTestPlane (CGraphBV* _SrcObj, CPlane& Plane)
+float CCOL_DT_ColTester::fTestPlane (CGBoundingVolume* _SrcObj, CGPlane& Plane)
 {
     return(-1.0f);
 }
 
-float CCOL_DT_ColTester::fTestTriangle (CGraphBV* _SrcObj, CTriangle& _Tri)
+float CCOL_DT_ColTester::fTestTriangle (CGBoundingVolume* _SrcObj, CGTriangle& _Tri)
 {
     float fRes;
 
@@ -135,13 +135,13 @@ float CCOL_DT_ColTester::fTestTriangle (CGraphBV* _SrcObj, CTriangle& _Tri)
     {
         case eGraphBV_Sphere:
         {
-            fRes = CCOL_DT_Tri::fTestSphere( (CGraphBV_Sphere &) * _SrcObj,_Tri );
+            fRes = CCOL_DT_Tri::fTestSphere( (CGBVSphere &) * _SrcObj,_Tri );
         }
         break;
 
         case eGraphBV_Box:
         {
-            fRes = CCOL_DT_Tri::fTestBox( (CGraphBV_Box &) * _SrcObj,_Tri );
+            fRes = CCOL_DT_Tri::fTestBox( (CGBVAABB &) * _SrcObj,_Tri );
         }
         break;
 
