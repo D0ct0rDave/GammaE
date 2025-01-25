@@ -116,17 +116,17 @@ void CLoaderBSP2::SetExtendedTexInfo ()
     for ( iTex = 0; iTex < iNumTexs; iTex++ )
     {
         sprintf(szMat,"%s/%s.wal",szQ2BaseDir,pTexInfo[ iTex ].texture_name);
-        int iMipMap = CMipMapWH::I()->iLoad(szMat);
+        int iMipMap = CGMipMapWH::I()->iLoad(szMat);
 
         if ( iMipMap > -1 )
         {
-            CGMipMap* poMipMap = CMipMapWH::I()->poGet(iMipMap);
+            CGMipMap* poMipMap = CGMipMapWH::I()->poGet(iMipMap);
 
             pExtTexInfo[iTex].iWidth = poMipMap->m_uiTX;
             pExtTexInfo[iTex].iHeight = poMipMap->m_uiTY;
             pExtTexInfo[iTex].pBTI = &pTexInfo[iTex];
 
-            CMipMapWH::I()->Del(iMipMap);
+            CGMipMapWH::I()->Del(iMipMap);
         }
     }
 }
@@ -418,14 +418,14 @@ void CLoaderBSP2::AddFace (bsp_face* pFace, SCNUt_TriSceneAccumulator* _pTScn)
         pTri->VXs[2].Set(pVXs[i2].x,pVXs[i2].y,pVXs[i2].z);
         #endif
 
-        pTri->UVs[0].V2( COMPUTE_UCOORD(pTri->VXs[0],pETI),COMPUTE_VCOORD(pTri->VXs[0],pETI) );
-        pTri->UVs[1].V2( COMPUTE_UCOORD(pTri->VXs[1],pETI),COMPUTE_VCOORD(pTri->VXs[1],pETI) );
-        pTri->UVs[2].V2( COMPUTE_UCOORD(pTri->VXs[2],pETI),COMPUTE_VCOORD(pTri->VXs[2],pETI) );
+        pTri->UVs[0].Set( COMPUTE_UCOORD(pTri->VXs[0],pETI),COMPUTE_VCOORD(pTri->VXs[0],pETI) );
+        pTri->UVs[1].Set( COMPUTE_UCOORD(pTri->VXs[1],pETI),COMPUTE_VCOORD(pTri->VXs[1],pETI) );
+        pTri->UVs[2].Set( COMPUTE_UCOORD(pTri->VXs[2],pETI),COMPUTE_VCOORD(pTri->VXs[2],pETI) );
         SCNUt_TriUtils::MinimizeMappingOffset(*pTri);
 
-        pTri->VCs[0].V4(1.0f,1.0f,1.0f,1.0f);
-        pTri->VCs[1].V4(1.0f,1.0f,1.0f,1.0f);
-        pTri->VCs[2].V4(1.0f,1.0f,1.0f,1.0f);
+        pTri->VCs[0].Set(1.0f,1.0f,1.0f,1.0f);
+        pTri->VCs[1].Set(1.0f,1.0f,1.0f,1.0f);
+        pTri->VCs[2].Set(1.0f,1.0f,1.0f,1.0f);
 
         // VNs ???
         pTri->Material = pFace->texture_info;

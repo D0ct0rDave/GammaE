@@ -15,6 +15,7 @@
 
 // CGSceneNode
 #include "GammaE_Scene.h"
+#include "GammaE_E3D.h"
 
 class SCNUt_SceneCompiler
 {
@@ -25,7 +26,7 @@ class SCNUt_SceneCompiler
 
         CGBoundingVolume* poCreateBoundVol ()
         {
-            return( CGraphBV_Manager::poCreate() );
+            return( CGraphBVFactory::poCreate() );
         }
 
         void CompileScene(CGSceneNode* _poScn);

@@ -81,25 +81,22 @@
     </ClInclude>
     <ClInclude Include="..\modules\E3D\src\E3D_Enums.h" />
     <ClInclude Include="..\modules\E3D\src\GE3D.h" />
-    <ClInclude Include="..\modules\E3D\src\GraphBV\CGraphBV.h">
+    <ClInclude Include="..\modules\E3D\src\GraphBV\CGGraphBV.h">
       <Filter>GraphBV</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\E3D\src\GraphBV\CGraphBVAABB.h">
+    <ClInclude Include="..\modules\E3D\src\GraphBV\CGGraphBVAABB.h">
       <Filter>GraphBV</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\E3D\src\GraphBV\CGraphBVCylinder.h">
+    <ClInclude Include="..\modules\E3D\src\GraphBV\CGGraphBVCylinder.h">
       <Filter>GraphBV</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\E3D\src\GraphBV\CGraphBVManager.h">
+    <ClInclude Include="..\modules\E3D\src\GraphBV\CGGraphBVFactory.h">
       <Filter>GraphBV</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\E3D\src\GraphBV\CGraphBVPoint.h">
+    <ClInclude Include="..\modules\E3D\src\GraphBV\CGGraphBVPoint.h">
       <Filter>GraphBV</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\E3D\src\GraphBV\CGraphBVSphere.h">
-      <Filter>GraphBV</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\E3D\src\GraphBV\eGraphBVTypeID.h">
+    <ClInclude Include="..\modules\E3D\src\GraphBV\CGGraphBVSphere.h">
       <Filter>GraphBV</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\E3D\src\Light\CGLight.h">
@@ -260,25 +257,22 @@
     <ClCompile Include="..\modules\E3D\src\Drivers\OGL\OGLShaderRender\CGOGLShaderRenderer.cpp">
       <Filter>Drivers\OGL\OGLShaderRender</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\E3D\src\GraphBV\CGraphBV.cpp">
+    <ClCompile Include="..\modules\E3D\src\GraphBV\CGGraphBV.cpp">
       <Filter>GraphBV</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\E3D\src\GraphBV\CGraphBVAABB.cpp">
+    <ClCompile Include="..\modules\E3D\src\GraphBV\CGGraphBVAABB.cpp">
       <Filter>GraphBV</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\E3D\src\GraphBV\CGraphBVCylinder.cpp">
+    <ClCompile Include="..\modules\E3D\src\GraphBV\CGGraphBVCylinder.cpp">
       <Filter>GraphBV</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\E3D\src\GraphBV\CGraphBVManager.cpp">
+    <ClCompile Include="..\modules\E3D\src\GraphBV\CGGraphBVFactory.cpp">
       <Filter>GraphBV</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\E3D\src\GraphBV\CGraphBVPoint.cpp">
+    <ClCompile Include="..\modules\E3D\src\GraphBV\CGGraphBVPoint.cpp">
       <Filter>GraphBV</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\E3D\src\GraphBV\CGraphBVSphere.cpp">
-      <Filter>GraphBV</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\E3D\src\GraphBV\eGraphBVTypeID.cpp">
+    <ClCompile Include="..\modules\E3D\src\GraphBV\CGGraphBVSphere.cpp">
       <Filter>GraphBV</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\E3D\src\Light\CGLight.cpp">

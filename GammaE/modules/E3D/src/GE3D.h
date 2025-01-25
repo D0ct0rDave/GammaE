@@ -68,6 +68,13 @@
 #include "Materials/CGProgramWH.h"
 #include "Light/CGLight.h"
 
+#include "GraphBV/CGGraphBV.h"
+#include "GraphBV/CGGraphBVAABB.h"
+#include "GraphBV/CGGraphBVSphere.h"
+#include "GraphBV/CGGraphBVCylinder.h"
+#include "GraphBV/CGGraphBVPoint.h"
+#include "GraphBV/CGGraphBVFactory.h"
+
 #include "CGRenderer.h"
 // ----------------------------------------------------------------------------
 #endif

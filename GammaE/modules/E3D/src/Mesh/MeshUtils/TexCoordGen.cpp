@@ -17,7 +17,7 @@ void ComputeUVOrthoMapping(CGMesh &Mesh)
     /*
        // DMC REFACT
        uint CGVect;
-       CGraphBV* BVol;
+       CGGraphBV* BVol;
        CGVect3 Center;
        float UOffset;
 
