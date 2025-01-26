@@ -145,8 +145,8 @@ int CCOL_Scn_ColTester::iTest3DObj_Transf (CGSceneTransf* _poObj)
 
         // Si se hace lo primero, al salir de la llamada se debe restaurar el
         // contexto al antiguo.
-        CGBVAABB oBox;
-        oBox.Copy( SGrObj->poGetBV() );
+        CGGraphBVAABB oBox;
+        oBox.Copy( *SGrObj->poGetBV() );
 
         CGMatrix4x4 oInvMat;
         oInvMat = _poObj->oTransf();

@@ -14,6 +14,7 @@
 #include "GammaE_Math.h"
 #include "GammaE_Misc.h"
 #include "E3D_Enums.h"
+#include "GraphBV/CGGraphBV.h"
 // ----------------------------------------------------------------------------
 class CGBaseMesh
 {
@@ -23,13 +24,13 @@ class CGBaseMesh
         CGBaseMesh();
 
         // / Sets the bounding volume for to this mesh
-        void SetBV(CGBoundingVolume* _poBV)
+        void SetBV(CGGraphBV* _poBV)
         {
             m_poBV = _poBV;
         }
 
         // / Retrieves the bounding volume associated to this mesh
-        CGBoundingVolume* poGetBV() const
+        CGGraphBV* poGetBV() const
         {
             return(m_poBV);
         }
@@ -61,7 +62,7 @@ class CGBaseMesh
     protected:
 
         E3D_MeshType m_eMeshType;
-        CGBoundingVolume* m_poBV;
+        CGGraphBV* m_poBV;
         uint m_uiNumVXs;
         uint m_uiNumPrims;
         E3D_PrimitiveType m_ePrimitiveType;

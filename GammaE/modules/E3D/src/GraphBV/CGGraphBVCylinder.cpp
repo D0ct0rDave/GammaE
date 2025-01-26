@@ -9,15 +9,15 @@
  */
 // -----------------------------------------------------------------------------
 #include "CGGraphBVCylinder.h"
-
+// -----------------------------------------------------------------------------
 void CGGraphBVCylinder::Transform(const CGMatrix4x4& _oM)
 {
 }
-
+// -----------------------------------------------------------------------------
 void CGGraphBVCylinder::Compute (CGVect3* _poVXs, uint _uiNumVXs)
 {
 }
-
+// -----------------------------------------------------------------------------
 float CGGraphBVCylinder::GetRange(char _cAxis) const
 {
     assert(((_cAxis >= 0) && (_cAxis <= 2)) && "Incorrect axis");
@@ -36,30 +36,34 @@ float CGGraphBVCylinder::GetRange(char _cAxis) const
 
     return(0);
 }
-
-const CGVect3 & CGGraphBVCylinder::GetCenter () const
+// -----------------------------------------------------------------------------
+const CGVect3 & CGGraphBVCylinder::oGetCenter () const
 {
     return(m_oVol.oGetCenter());
 }
-
-int CGGraphBVCylinder::TestFrustum(const CGBVFrustum& _oFrustum)
+// -----------------------------------------------------------------------------
+int CGGraphBVCylinder::TestFrustum(const CGBVFrustum& _oFrustum) const
 {
     return(1);
 }
-
+// -----------------------------------------------------------------------------
+int CGGraphBVCylinder::TestInside(const CGVect3& _Pos) const
+{
+    return(0);
+}
+// -----------------------------------------------------------------------------
 void CGGraphBVCylinder::Init (const CGVect3& _oMax, const CGVect3& _oMin)
 {
     // m_oVol.Init(_oMax, _oMin);
 }
-
-CGBVCylinder* CGGraphBVCylinder::pGetCylinder ()
+// -----------------------------------------------------------------------------
+const CGBVCylinder& CGGraphBVCylinder::GetCylinder() const
 {
-    return (&m_oVol);
+    return (m_oVol);
 }
-
-int CGGraphBVCylinder::TestInside (const CGVect3& _Pos)
+// -----------------------------------------------------------------------------
+const CGBoundingVolume& CGGraphBVCylinder::oGetBV() const
 {
-    return(0);
+    return (m_oVol);
 }
-
-// Additional Declarations
+// -----------------------------------------------------------------------------

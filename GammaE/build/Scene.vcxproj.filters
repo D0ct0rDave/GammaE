@@ -57,9 +57,6 @@
     <ClInclude Include="..\modules\Scene\src\3D_Loaders\C3DLoader.h">
       <Filter>3D_Loaders</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\3D_Loaders\GEMLoader\CGVLoaderGEM.h">
-      <Filter>3D_Loaders\GEMLoader</Filter>
-    </ClInclude>
     <ClInclude Include="..\modules\Scene\src\3D_Loaders\GEMLoader\CLoaderGEM.h">
       <Filter>3D_Loaders\GEMLoader</Filter>
     </ClInclude>
@@ -96,7 +93,7 @@
     <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimCfgMgr.h">
       <Filter>Animation</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimGen.h">
+    <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimGroup.h">
       <Filter>Animation</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimInstance.h">
@@ -108,14 +105,12 @@
     <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimNode.h">
       <Filter>Animation</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimObject.h">
-      <Filter>Animation</Filter>
-    </ClInclude>
     <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimTransf.h">
       <Filter>Animation</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Scene\src\CGSceneBSPNode.h" />
     <ClInclude Include="..\modules\Scene\src\CGSceneCamera.h" />
+    <ClInclude Include="..\modules\Scene\src\CGSceneCompiledLeaf.h" />
     <ClInclude Include="..\modules\Scene\src\CGSceneGroup.h" />
     <ClInclude Include="..\modules\Scene\src\CGSceneInstance.h" />
     <ClInclude Include="..\modules\Scene\src\CGSceneLeaf.h" />
@@ -159,12 +154,6 @@
     <ClCompile Include="..\modules\Scene\src\3D_Loaders\BSP2Loader\CLoaderBSP2.cpp">
       <Filter>3D_Loaders\BSP2Loader</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\3D_Loaders\C3DLoader.cpp">
-      <Filter>3D_Loaders</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\3D_Loaders\GEMLoader\CGVLoaderGEM.cpp">
-      <Filter>3D_Loaders\GEMLoader</Filter>
-    </ClCompile>
     <ClCompile Include="..\modules\Scene\src\3D_Loaders\GEMLoader\CLoaderGEM.cpp">
       <Filter>3D_Loaders\GEMLoader</Filter>
     </ClCompile>
@@ -192,7 +181,7 @@
     <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimCfgMgr.cpp">
       <Filter>Animation</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimGen.cpp">
+    <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimGroup.cpp">
       <Filter>Animation</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimInstance.cpp">
@@ -204,14 +193,12 @@
     <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimNode.cpp">
       <Filter>Animation</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimObject.cpp">
-      <Filter>Animation</Filter>
-    </ClCompile>
     <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimTransf.cpp">
       <Filter>Animation</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Scene\src\CGSceneBSPNode.cpp" />
     <ClCompile Include="..\modules\Scene\src\CGSceneCamera.cpp" />
+    <ClCompile Include="..\modules\Scene\src\CGSceneCompiledLeaf.cpp" />
     <ClCompile Include="..\modules\Scene\src\CGSceneGroup.cpp" />
     <ClCompile Include="..\modules\Scene\src\CGSceneLeaf.cpp" />
     <ClCompile Include="..\modules\Scene\src\CGSceneLink.cpp" />

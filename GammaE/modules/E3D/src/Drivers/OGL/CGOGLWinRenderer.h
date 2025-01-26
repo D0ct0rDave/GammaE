@@ -61,7 +61,7 @@ class CGOGLWinRenderer : public CGOGLRenderer
 
         virtual void SetProgramParam(CGProgram* _poProgram,const CGString& _sParam,void* _pValue);
 
-        void RenderBV(CGBoundingVolume* _poBV);
+        void RenderBV(CGGraphBV* _poBV);
 
         void RenderNormals(CGMesh* _poMesh);
 

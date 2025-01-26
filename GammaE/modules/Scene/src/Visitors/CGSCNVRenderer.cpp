@@ -13,9 +13,9 @@
 
 #include "CGSceneBSPNode.h"
 #include "CGSceneCamera.h"
-#include "CGSceneCompiledLeaf.h"
 #include "CGSceneInstance.h"
 #include "CGSceneLeaf.h"
+#include "CGSceneCompiledLeaf.h"
 #include "CGSceneMux.h"
 #include "CGSceneNode.h"
 #include "CGSceneScreenRect.h"
@@ -23,11 +23,11 @@
 #include "CGSceneTransf.h"
 #include "CGSceneScreenRect.h"
 
-#include "Animation/CGSceneAnimObject.h"
+#include "Animation/CGSceneAnimNode.h"
 #include "Animation/CGSceneAnimCfg.h"
 #include "Animation/CGSceneAnimMesh.h"
 #include "Animation/CGSceneAnimInstance.h"
-#include "Animation/CGSceneAnimNode.h"
+#include "Animation/CGSceneAnimGroup.h"
 #include "Animation/CGSceneAnimTransf.h"
 // ----------------------------------------------------------------------------
 void CGSCNVRenderer::Render(CGSceneNode* _poNode)
@@ -42,23 +42,23 @@ void CGSCNVRenderer::Visit(CGSceneNode* _poNode)
 void CGSCNVRenderer::Visit(CGSceneBSPNode* _poNode)
 {
     float fCamPlaneAngle;
-    CE3D_Camera* poCam = CGRenderer::I()->GetCamera();
-    float fFOV = CGRenderer::I()->GetProjector()->fFOV;
-    CGPlane* poPartitionPlane = _poNode->poGetPartitionPlane();
+    CGCamera* poCam = CGRenderer::I()->poGetCamera();
+    float fFOV = CGRenderer::I()->poGetProjector()->fFOV;
+    const CGPlane& oPartitionPlane = _poNode->oGetPartitionPlane();
 
     // Get the angle between the camera and the plane
-    fCamPlaneAngle = poPartitionPlane->Normal().fDotProd( poCam->m_oDir );
+    fCamPlaneAngle = oPartitionPlane.oGetNormal().fDotProd(poCam->oGetDir());
 
     // Test the side of the plane the camera is
-    if ( MATH_Utils::iTestPointPlane(poCam->m_oPos,*poPartitionPlane) >= 0 )
+    if ( Math::iTestPointPlane(poCam->oGetPos(), oPartitionPlane) >= 0)
     {
         // The camera is in the front half space of the plane
-        float fAngleLimit = cos( (90.0f - fFOV * 0.5f) * _PI_OVER_180_ );                    // cos(90 - Fov/2);
+        float fAngleLimit = Math::fCos( (90.0f - fFOV * 0.5f) * _PI_OVER_180_ );                    // cos(90 - Fov/2);
 
         // The camera could see part of the back space of the plane?
         // if (fCamPlaneAngle < fAngleLimit)
         if ( _poNode->poGetBackNode() )
-            if ( _poNode->poGetBackNode()->bVisible() )
+            // if (_poNode->poGetBackNode()->bVisible())
                 _poNode->poGetBackNode()->Accept(this);
 
         if ( _poNode->poGetFrontNode() )
@@ -67,12 +67,12 @@ void CGSCNVRenderer::Visit(CGSceneBSPNode* _poNode)
     else
     {
         // The camera is in the back half space of the plane
-        float fAngleLimit = cos( (90.0f + fFOV * 0.5f) * _PI_OVER_180_ );
+        float fAngleLimit = Math::fCos( (90.0f + fFOV * 0.5f) * _PI_OVER_180_ );
 
         // The camera could see part of the front space of the plane?
         // if (fCamPlaneAngle > fAngleLimit)
         if ( _poNode->poGetFrontNode() )
-            if ( _poNode->poGetFrontNode()->bVisible() )
+            // if ( _poNode->poGetFrontNode()->bVisible() )
                 _poNode->poGetFrontNode()->Accept(this);                     // farthest area in rendering
 
         if ( _poNode->poGetBackNode() )
@@ -84,21 +84,17 @@ void CGSCNVRenderer::Visit(CGSceneCamera* _poNode)
 {
     // PRERENDER:
     // Get current state attributes
-    CE3D_Camera* poOldCam = CGRenderer::I()->GetCamera();
-    CE3D_Projector* poOldProj = CGRenderer::I()->GetProjector();
-    CE3D_Viewport* poOldVpt = CGRenderer::I()->GetViewport();
-
+    CGCamera* poOldCam = CGRenderer::I()->poGetCamera();
+    CGProjector* poOldProj = CGRenderer::I()->poGetProjector();
+    CGViewport* poOldVpt = CGRenderer::I()->poGetViewport();
+    
     CGRenderer::I()->PushCameraMatrix();
     CGRenderer::I()->PushProjectorMatrix();
 
     // Send current attributes to render engine
-    CGRenderer::I()->PushLocalFrustum();
-
     if ( _poNode->poGetViewport() != NULL ) CGRenderer::I()->SetViewport( _poNode->poGetViewport() );
     if ( _poNode->poGetCamera() != NULL ) CGRenderer::I()->SetCamera( _poNode->poGetCamera() );
     if ( _poNode->poGetProjector() != NULL ) CGRenderer::I()->SetProjector( _poNode->poGetProjector() );
-
-    CGRenderer::I()->ComputeLocalFrustum();
 
     // RENDER
     Visit( (CGSceneGroup*) _poNode );
@@ -109,8 +105,6 @@ void CGSCNVRenderer::Visit(CGSceneCamera* _poNode)
     if ( _poNode->poGetCamera() != NULL ) CGRenderer::I()->SetCamera( poOldCam );
     if ( _poNode->poGetProjector() != NULL ) CGRenderer::I()->SetProjector( poOldProj );
 
-    CGRenderer::I()->PopLocalFrustum();
-
     CGRenderer::I()->PopProjectorMatrix();
     CGRenderer::I()->PopCameraMatrix();
 }
@@ -118,7 +112,7 @@ void CGSCNVRenderer::Visit(CGSceneCamera* _poNode)
 void CGSCNVRenderer::Visit(CGSceneCompiledLeaf* _poNode)
 {
     // If NULL material process is still valid
-    CGRenderer::I()->RenderCompiledMesh( _poNode->poGetCGMesh(),_poNode->poGetShader() );
+    CGRenderer::I()->RenderMesh( _poNode->poGetCMesh(), _poNode->poGetShader() );
 }
 // ----------------------------------------------------------------------------
 void CGSCNVRenderer::Visit(CGSceneInstance* _poNode)
@@ -177,7 +171,6 @@ void CGSCNVRenderer::Visit(CGSceneSwitch* _poNode)
 // ----------------------------------------------------------------------------
 void CGSCNVRenderer::Visit(CGSceneTransf* _poNode)
 {
-    CGRenderer::I()->PushLocalFrustum();
     CGRenderer::I()->PushWorldMatrix();
 
     // Setup new Ref system
@@ -188,22 +181,19 @@ void CGSCNVRenderer::Visit(CGSceneTransf* _poNode)
        if ((poObj->eGetTypeID() != SNT_Leaf) &&
         (poObj->eGetTypeID() != SNT_CompiledLeaf))
      */
-    CGRenderer::I()->ComputeLocalFrustum();
-
     // We only can test visibility after performing the camera transformation
     if ( _poNode->bVisible() )
         _poNode->poGetObject()->Accept(this);
 
     // Restore current state
     CGRenderer::I()->PopWorldMatrix();
-    CGRenderer::I()->PopLocalFrustum();
 }
 // ----------------------------------------------------------------------------
 void CGSCNVRenderer::Visit(CGSceneAnimCfg* _poNode)
 {
 }
 // ----------------------------------------------------------------------------
-void CGSCNVRenderer::Visit(CGSceneAnimObject* _poNode)
+void CGSCNVRenderer::Visit(CGSceneAnimNode* _poNode)
 {
 }
 // ----------------------------------------------------------------------------
@@ -257,8 +247,8 @@ void CGSCNVRenderer::Visit(CGSceneAnimMesh* _poNode)
             memcpy( _poNode->poGetMesh()->m_poVN,_poNode->poGetNormals() + _poNode->uiGetNumFrameVXs() * m_uiIniFrame,_poNode->uiGetNumFrameVXs() * sizeof(CGVect3) );
 
             CGVect3 oSMax,oSMin,oDMax,oDMin,oMax,oMin;
-            CGVect3 oSCen = _poNode->poGetKeyFrameBVol(m_uiIniFrame)->GetCenter();
-            CGVect3 oDCen = _poNode->poGetKeyFrameBVol(m_uiEndFrame)->GetCenter();
+            CGVect3 oSCen = _poNode->poGetKeyFrameBVol(m_uiIniFrame)->oGetCenter();
+            CGVect3 oDCen = _poNode->poGetKeyFrameBVol(m_uiEndFrame)->oGetCenter();
             CGVect3 oSExt = _poNode->poGetKeyFrameBVol(m_uiIniFrame)->GetExtents();
             CGVect3 oDExt = _poNode->poGetKeyFrameBVol(m_uiEndFrame)->GetExtents();
             oSMax.Assign(oSCen);
@@ -273,12 +263,12 @@ void CGSCNVRenderer::Visit(CGSceneAnimMesh* _poNode)
             oMax.Interpolate(oSMax,oDMax,m_fAnimFactor);
             oMin.Interpolate(oSMin,oDMin,m_fAnimFactor);
 
-            _poNode->poGetMesh()->poGetBoundVol()->Init(oMax,oMin);
+            _poNode->poGetMesh()->poGetBV()->Init(oMax,oMin);
         }
         else
         {
             // Src copy:
-            _poNode->poGetMesh()->poGetBoundVol()->Copy( _poNode->poGetKeyFrameBVol(m_uiIniFrame) );
+            _poNode->poGetMesh()->poGetBV()->Copy( _poNode->poGetKeyFrameBVol(m_uiIniFrame) );
 
             // Copy of the vertexs
             memcpy( _poNode->poGetMesh()->m_poVX,_poNode->poGetVertexs() + _poNode->uiGetNumFrameVXs() * m_uiIniFrame,_poNode->uiGetNumFrameVXs() * sizeof(CGVect3) );
@@ -294,7 +284,7 @@ void CGSCNVRenderer::Visit(CGSceneAnimInstance* _poNode)
     // CGSCNVAnimUpdater::SetAnimState(0,poNode->
 }
 // ----------------------------------------------------------------------------
-void CGSCNVRenderer::Visit(CGSceneAnimNode* _poNode)
+void CGSCNVRenderer::Visit(CGSceneAnimGroup* _poNode)
 {
 }
 // ----------------------------------------------------------------------------

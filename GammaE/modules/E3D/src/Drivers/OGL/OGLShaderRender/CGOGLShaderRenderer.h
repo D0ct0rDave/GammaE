@@ -69,7 +69,7 @@ class CGOGLShaderRenderer
 
         bool m_bDepthEnabled;
 
-        CGBoundingVolume* m_poCurrentBV;
+        CGGraphBV* m_poCurrentBV;
 
         CGCompiledMesh* m_poCurrentCGMesh;
 

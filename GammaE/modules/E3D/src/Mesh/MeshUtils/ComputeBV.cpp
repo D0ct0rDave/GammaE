@@ -9,16 +9,19 @@
  */
 // ----------------------------------------------------------------------------
 #include "ComputeBV.h"
+#include "GraphBV/CGGraphBVAABB.h"
+#include "GraphBV/CGGraphBVSphere.h"
+#include "Mesh/CGMesh.h"
 // ----------------------------------------------------------------------------
 namespace MeshUtils {
 // ----------------------------------------------------------------------------
-CGBoundingVolume* poComputeBV(const CGMesh &Mesh)
+CGGraphBV* poComputeBV(const CGMesh &Mesh)
 {
-    CGBVAABB* poAABB = poComputeBVAABB(Mesh);
-    CGBVSphere* poSphere = poComputeBVSphere(Mesh);
+    CGGraphBVAABB* poAABB = poComputeBVAABB(Mesh);
+    CGGraphBVSphere* poSphere = poComputeBVSphere(Mesh);
 
-    float fAABBVol = poAABB->fGetVolume();
-    float fSphereVol = poSphere->fGetVolume();
+    float fAABBVol = poAABB->oGetBV().fGetVolume();
+    float fSphereVol = poSphere->oGetBV().fGetVolume();
 
     if ( fSphereVol < fAABBVol )
     {
@@ -32,7 +35,7 @@ CGBoundingVolume* poComputeBV(const CGMesh &Mesh)
     }
 }
 // ----------------------------------------------------------------------------
-CGBVAABB* poComputeBVAABB(const CGMesh &Mesh)
+CGGraphBVAABB* poComputeBVAABB(const CGMesh &Mesh)
 {
     CGVect3 oMins,oMaxs;
 
@@ -49,13 +52,13 @@ CGBVAABB* poComputeBVAABB(const CGMesh &Mesh)
         if ( Mesh.m_poVX[cV].z < oMins.z ) oMins.z = Mesh.m_poVX[cV].z;
     }
 
-    CGBVAABB* poAABB = mNew CGBVAABB;
-    poAABB->Init(oMaxs,oMins);
+    CGGraphBVAABB* poAABB = mNew CGGraphBVAABB;
+    poAABB->Init(oMaxs, oMins);
 
     return(poAABB);
 }
 // ----------------------------------------------------------------------------
-CGBVSphere* poComputeBVSphere(const CGMesh &Mesh)
+CGGraphBVSphere* poComputeBVSphere(const CGMesh &Mesh)
 {
     // Compute center as the average of the input points
     CGVect3 oCenter(0.0f,0.0f,0.0f);
@@ -78,8 +81,8 @@ CGBVSphere* poComputeBVSphere(const CGMesh &Mesh)
 
     fRadius = Math::fSqrt(fRadius);
 
-    CGBVSphere* poSphere = mNew CGBVSphere;
-    poSphere->Init(oCenter,fRadius);
+    CGGraphBVSphere* poSphere = mNew CGGraphBVSphere;
+    poSphere->Init(oCenter, fRadius);
 
     return(poSphere);
     /*

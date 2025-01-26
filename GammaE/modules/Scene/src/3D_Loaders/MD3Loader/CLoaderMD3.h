@@ -18,7 +18,7 @@
 #include "CGSceneNode.h"
 // C3DLoader
 #include "3D_Loaders\C3DLoader.h"
-// CGSceneAnimNode
+// CGSceneAnimGroup
 #include "Animation\CGSceneAnimNode.h"
 // CGSceneAnimTransf
 #include "Animation\CGSceneAnimTransf.h"
@@ -52,7 +52,7 @@ class CLoaderMD3 : public C3DLoader
 
         CGSceneAnimCfgGen* pLoadQ3Player(char* _Path, char* _SkinName);
 
-        CGSceneAnimCfgMgr* pLoadAnimation(char* _Filename, CGSceneAnimNode* _pLegs, CGSceneAnimNode* _pTorso);
+        CGSceneAnimCfgMgr* pLoadAnimation(char* _Filename, CGSceneAnimGroup* _pLegs, CGSceneAnimGroup* _pTorso);
 
         void SetupAnim(int _iAnimNum, anim_t* _MD3Anim, CGSceneAnimCfg* _pLegs, CGSceneAnimCfg* _pTorso);
 

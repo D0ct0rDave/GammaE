@@ -16,17 +16,15 @@ EGBoundingVolumeType CGGraphBVSphere::eGetTypeID() const
 {
     return EGBoundingVolumeType::BVT_SPHERE;
 }
-
-void CGGraphBVSphere::Transform (const CGMatrix4x4& _oM)
+// -----------------------------------------------------------------------------
+void CGGraphBVSphere::Init(const CGVect3& _oCenter, float _fRadius)
 {
-    CGVect3 center = m_oVol.oGetCenter();
-    _oM.TransformPoint(&center);
-    m_oVol.Init(center, m_oVol.fGetRadius());
+    m_oVol.Init(_oCenter, _fRadius);
 }
-
-void CGGraphBVSphere::Compute (CGVect3* _poVXs, uint _uiNumVXs)
+// -----------------------------------------------------------------------------
+void CGGraphBVSphere::Compute(CGVect3* _poVXs, uint _uiNumVXs)
 {
-    if ( _uiNumVXs == 0) return;
+    if (_uiNumVXs == 0) return;
 
     uint cV;
     float fSqRad;
@@ -34,68 +32,53 @@ void CGGraphBVSphere::Compute (CGVect3* _poVXs, uint _uiNumVXs)
     float fRadius;
 
     // Compute center as the average of the input points
-    oCenter.Set(0.0f,0.0f,0.0f);
+    oCenter.Set(0.0f, 0.0f, 0.0f);
 
-    for (cV = 0; cV < _uiNumVXs; cV++ )
+    for (cV = 0; cV < _uiNumVXs; cV++)
         oCenter.Add(_poVXs[cV]);
 
     oCenter.Scale(1.0f / (float)_uiNumVXs);
 
     // Compute sphere radius
     fRadius = 0.0f;
-    for ( cV = 0; cV < _uiNumVXs; cV++ )
+    for (cV = 0; cV < _uiNumVXs; cV++)
     {
         fSqRad = oCenter.fSqDistance(_poVXs[cV]);
-        if ( fSqRad > fRadius )
+        if (fSqRad > fRadius)
             fRadius = fSqRad;
     }
 
     fRadius = Math::fSqrt(fRadius);
 
     // Initialize bounding volume
-    m_oVol.Init(oCenter,fRadius);
+    Init(oCenter, fRadius);
 }
-
+// -----------------------------------------------------------------------------
+void CGGraphBVSphere::Transform (const CGMatrix4x4& _oM)
+{
+    CGVect3 center = m_oVol.oGetCenter();
+    _oM.TransformPoint(&center);
+    m_oVol.Init(center, m_oVol.fGetRadius());
+}
+// -----------------------------------------------------------------------------
 float CGGraphBVSphere::GetRange(char _cAxis) const
 {
-    return( m_oVol.fGetRadius() * 2);
+    return( m_oVol.fGetRadius() * 2.0f);
 }
-
-const CGVect3& CGGraphBVSphere::GetCenter() const
+// -----------------------------------------------------------------------------
+const CGVect3& CGGraphBVSphere::oGetCenter() const
 {
     return (m_oVol.oGetCenter());
 }
-
-int CGGraphBVSphere::TestFrustum(const CGBVFrustum& _oFrustum)
+// -----------------------------------------------------------------------------
+int CGGraphBVSphere::TestFrustum(const CGBVFrustum& _oFrustum) const
 {
     // / Test the intersection of a given bounding volume against a given frustum
     bool bIntersect = Math::bBVIntersectFrustum(m_oVol, _oFrustum);
     return bIntersect ? 1 : 0;
 }
-
-void CGGraphBVSphere::Init(const CGVect3& _oMax, const CGVect3& _oMin)
-{
-    // Compute extents
-    CGVect3 oExtents;
-    oExtents.Assign(_oMax);
-    oExtents.Sub(_oMin);
-    oExtents.Scale(0.5f);
-
-    // Compute Center
-    CGVect3 oCenter;
-    oCenter.Assign(_oMax);
-    oCenter.Add(_oMax);
-    oCenter.Scale(0.5f);
-
-    m_oVol.Init(oCenter, oExtents.fModule());
-}
-
-CGBVSphere* CGGraphBVSphere::poGetSphere ()
-{
-    return (&m_oVol);
-}
-
-int CGGraphBVSphere::TestInside(const CGVect3& _oPos)
+// -----------------------------------------------------------------------------
+int CGGraphBVSphere::TestInside(const CGVect3& _oPos) const
 {
     CGVect3 oRelSphPos;
 
@@ -107,9 +90,14 @@ int CGGraphBVSphere::TestInside(const CGVect3& _oPos)
 
     return (oRelSphPos.fSqDistance(m_oVol.oGetCenter()) <= sqRadius);
 }
-
-void CGGraphBVSphere::Copy(const CGGraphBV& _oSrc)
+// -----------------------------------------------------------------------------
+const CGBoundingVolume& CGGraphBVSphere::oGetBV() const
 {
-    m_oVol.Init(_oSrc.GetCenter(), _oSrc.GetExtents().fModule());
+    return m_oVol;
 }
-
+// -----------------------------------------------------------------------------
+const CGBVSphere& CGGraphBVSphere::oGetSphere() const
+{
+    return (m_oVol);
+}
+// -----------------------------------------------------------------------------

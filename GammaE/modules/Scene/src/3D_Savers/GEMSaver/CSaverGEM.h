@@ -48,13 +48,13 @@ class CSaverGEM : public C3DSaver
 
         virtual void Visit(CGSceneAnimCfg* _poNode);
 
-        virtual void Visit(CGSceneAnimObject* _poNode);
+        virtual void Visit(CGSceneAnimNode* _poNode);
 
         virtual void Visit(CGSceneAnimMesh* _poNode);
 
         virtual void Visit(CGSceneAnimInstance* _poNode);
 
-        virtual void Visit(CGSceneAnimNode* _poNode);
+        virtual void Visit(CGSceneAnimGroup* _poNode);
 
         virtual void Visit(CGSceneAnimTransf* _poNode);
 
@@ -81,7 +81,7 @@ class CSaverGEM : public C3DSaver
 
            int iSaveMesh(CFile& _oFile, CGMesh* Mesh);
 
-           int iSaveSNT_AnimNode(CFile& _oFile, CGSceneAnimNode* _pObj);
+           int iSaveSNT_AnimNode(CFile& _oFile, CGSceneAnimGroup* _pObj);
 
            int iSaveSNT_AnimMesh(CFile& _oFile, CGSceneAnimMesh* _pObj);
 
@@ -101,13 +101,13 @@ class CSaverGEM : public C3DSaver
     protected:
 
         //
-        int iSaveAnimObject(CGFile& _oFile,CGSceneAnimObject* _poObj);
+        int iSaveAnimObject(CGFile& _oFile,CGSceneAnimNode* _poObj);
 
         // Svaes a mesh
         void SaveMesh(CGBaseMesh* _poMesh);
 
         // Saves a bounding volume
-        void SaveBoundingVolume(CGBoundingVolume* _poBV);
+        void SaveBoundingVolume(CGGraphBV* _poBV);
 
         // to store the current file being saved
         CGFile* m_poFile;

@@ -13,7 +13,7 @@
 // --------------------------------------------------------------------------------
 // TFrameAnimation
 // CGSceneAnimGen
-#include "Animation/CGSceneAnimObject.h"
+#include "Animation/CGSceneAnimNode.h"
 // --------------------------------------------------------------------------------
 class CAnimAction
 {
@@ -52,13 +52,13 @@ class CGSceneAnimCfg
         }
 
         // / Retrieves the animated object associated to this config object
-        CGSceneAnimObject* poGetAnimObj()
+        CGSceneAnimNode* poGetAnimObj()
         {
             return (m_poAnimObj);
         }
 
         // / Sets the animated object associated to this config object
-        void SetAnimObj (CGSceneAnimObject* _poAnimObj)
+        void SetAnimObj (CGSceneAnimNode* _poAnimObj)
         {
             m_poAnimObj = _poAnimObj;
         }
@@ -93,7 +93,7 @@ class CGSceneAnimCfg
     protected:
 
         CGLookupArray <CAnimAction> m_oActions;
-        CGSceneAnimObject* m_poAnimObj;
+        CGSceneAnimNode* m_poAnimObj;
 };
 // --------------------------------------------------------------------------------
 #endif

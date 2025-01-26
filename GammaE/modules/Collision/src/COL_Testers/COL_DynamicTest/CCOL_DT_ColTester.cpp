@@ -14,21 +14,11 @@
 #include "COL_Testers\COL_DynamicTest\CCOL_DT_ColTester.h"
 #include <string.h>
 
-// Class CCOL_DT_ColTester
-
-CCOL_DT_ColTester::CCOL_DT_ColTester()
+float CCOL_DT_ColTester::fTestCollision (CGGraphBV* SrcObj, CGGraphBV* DstObj)
 {
-}
-
-CCOL_DT_ColTester::~CCOL_DT_ColTester()
-{
-}
-
-float CCOL_DT_ColTester::fTestCollision (CGBoundingVolume* SrcObj, CGBoundingVolume* DstObj)
-{
-    CBoundingSphere* SS,* DS;
-    CGBVAABB* SB,* DB;
-    CGVect3* SP,* DP;
+    const CGBVSphere* SS,* DS;
+    const CGBVAABB* SB,* DB;
+    const CGBVPoint* SP,* DP;
     int iFlags;
 
     float fRes;
@@ -43,32 +33,38 @@ float CCOL_DT_ColTester::fTestCollision (CGBoundingVolume* SrcObj, CGBoundingVol
     // Get source Bounding Volume
     switch ( SrcObj->eGetTypeID() )
     {
-        case eGraphBV_Sphere:   SS = ( (CGBVSphere*)SrcObj )->pGetSphere();
-        iFlags += 0;
+        case EGBoundingVolumeType::BVT_SPHERE:
+            SS = &((CGGraphBVSphere*)SrcObj)->oGetSphere();
+            iFlags += 0;
         break;
 
-        case eGraphBV_Box:      SB = ( (CGBVAABB*)SrcObj )->pGetBox();
-        iFlags += 1;
+        case EGBoundingVolumeType::BVT_AABB:
+            SB = &((CGGraphBVAABB*)SrcObj)->oGetBox();
+            iFlags += 1;
         break;
 
-        case eGraphBV_Point:    SP = ( (CGraphBV_Point*)SrcObj )->pGetPoint();
-        iFlags += 2;
+        case EGBoundingVolumeType::BVT_POINT:
+            SP = &((CGGraphBVPoint*)SrcObj)->oGetPoint();
+            iFlags += 2;
         break;
     }
 
     // Get destination Bounding Volume
     switch ( DstObj->eGetTypeID() )
     {
-        case eGraphBV_Sphere:   DS = ( (CGBVSphere*)DstObj )->pGetSphere();
-        iFlags += 3 * 0;
+        case EGBoundingVolumeType::BVT_SPHERE:
+            DS = &((CGGraphBVSphere*)DstObj )->oGetSphere();
+            iFlags += 3 * 0;
         break;
 
-        case eGraphBV_Box:      DB = ( (CGBVAABB*)DstObj )->pGetBox();
-        iFlags += 3 * 1;
+        case EGBoundingVolumeType::BVT_AABB:
+            DB = &((CGGraphBVAABB*)DstObj )->oGetBox();
+            iFlags += 3 * 1;
         break;
 
-        case eGraphBV_Point:    DP = ( (CGraphBV_Point*)DstObj )->pGetPoint();
-        iFlags += 3 * 2;
+        case EGBoundingVolumeType::BVT_POINT:
+            DP = &((CGGraphBVPoint*)DstObj )->oGetPoint();
+            iFlags += 3 * 2;
         break;
     }
 
@@ -76,36 +72,36 @@ float CCOL_DT_ColTester::fTestCollision (CGBoundingVolume* SrcObj, CGBoundingVol
     switch ( iFlags )
     {
         case 0:  // Sphere-Sphere test
-        fRes = CCOL_DT_Sphere::fTestSphere( SS->m_oCenter,SS->m_fRadius,
-                                            DS->m_oCenter,DS->m_fRadius);
+        fRes = CCOL_DT_Sphere::fTestSphere( SS->oGetCenter(), SS->fGetRadius(),
+                                            DS->oGetCenter(), DS->fGetRadius());
         break;
 
         case 1:  // Box-Sphere test
-        fRes = CCOL_DT_Box::fTestSphere(SB->m_oMaxs,SB->m_oMins,DS->m_oCenter,DS->m_fRadius);
+        fRes = CCOL_DT_Box::fTestSphere(SB->oGetMax(), SB->oGetMin(), DS->oGetCenter(), DS->fGetRadius());
         break;
 
         case 2:  // Point-Sphere test
-        fRes = CCOL_DT_Point::fTestSphere(*SP,DS->m_oCenter,DS->m_fRadius);
+        fRes = CCOL_DT_Point::fTestSphere(SP->oGetCenter(), DS->oGetCenter(), DS->fGetRadius());
         break;
 
         case 3:  // Sphere-Box test
-        fRes = CCOL_DT_Sphere::fTestBox(SS->m_oCenter,SS->m_fRadius,DB->m_oMaxs,DB->m_oMins);
+        fRes = CCOL_DT_Sphere::fTestBox(SS->oGetCenter(), SS->fGetRadius(), DB->oGetMax(), DB->oGetMin());
         break;
 
         case 4:  // Box-Box test
-        fRes = CCOL_DT_Box::fTestBox(SB->m_oMaxs,SB->m_oMins,DB->m_oMaxs,DB->m_oMins);
+        fRes = CCOL_DT_Box::fTestBox(SB->oGetMax(),SB->oGetMin(),DB->oGetMax(),DB->oGetMin());
         break;
 
         case 5:  // Point-Box test
-        fRes = CCOL_DT_Point::fTestBox(SS->m_oCenter,DB->m_oMaxs,DB->m_oMins);
+        fRes = CCOL_DT_Point::fTestBox(SS->oGetCenter(),DB->oGetMax(),DB->oGetMin());
         break;
 
         case 6:  // Sphere-Point
-        fRes = CCOL_DT_Sphere::fTestPoint(SS->m_oCenter,SS->m_fRadius,*DP);
+        fRes = CCOL_DT_Sphere::fTestPoint(SS->oGetCenter(),SS->fGetRadius(), DP->oGetCenter());
         break;
 
         case 7:  // Box-Point
-        fRes = CCOL_DT_Box::fTestPoint(SB->m_oMaxs,SB->m_oMins,*DP);
+        fRes = CCOL_DT_Box::fTestPoint(SB->oGetMax(),SB->oGetMin(), DP->oGetCenter());
         break;
 
         case 8:  // Point-Point
@@ -118,12 +114,12 @@ float CCOL_DT_ColTester::fTestCollision (CGBoundingVolume* SrcObj, CGBoundingVol
     return (fRes);
 }
 
-float CCOL_DT_ColTester::fTestPlane (CGBoundingVolume* _SrcObj, CGPlane& Plane)
+float CCOL_DT_ColTester::fTestPlane (CGGraphBV* _SrcObj, const CGPlane& Plane)
 {
     return(-1.0f);
 }
 
-float CCOL_DT_ColTester::fTestTriangle (CGBoundingVolume* _SrcObj, CGTriangle& _Tri)
+float CCOL_DT_ColTester::fTestTriangle (CGGraphBV* _SrcObj, const CGTriangle& _Tri)
 {
     float fRes;
 
@@ -133,21 +129,21 @@ float CCOL_DT_ColTester::fTestTriangle (CGBoundingVolume* _SrcObj, CGTriangle& _
 
     switch ( _SrcObj->eGetTypeID() )
     {
-        case eGraphBV_Sphere:
+        case EGBoundingVolumeType::BVT_SPHERE:
         {
-            fRes = CCOL_DT_Tri::fTestSphere( (CGBVSphere &) * _SrcObj,_Tri );
+            fRes = CCOL_DT_Tri::fTestSphere( (CGGraphBVSphere &)*_SrcObj,_Tri );
         }
         break;
 
-        case eGraphBV_Box:
+        case EGBoundingVolumeType::BVT_AABB:
         {
-            fRes = CCOL_DT_Tri::fTestBox( (CGBVAABB &) * _SrcObj,_Tri );
+            fRes = CCOL_DT_Tri::fTestBox( (CGGraphBVAABB &) * _SrcObj,_Tri );
         }
         break;
 
-        case eGraphBV_Point:
+        case EGBoundingVolumeType::BVT_POINT:
         {
-            fRes = CCOL_DT_Tri::fTestPoint(_SrcObj->GetCenter(),_Tri);
+            fRes = CCOL_DT_Tri::fTestPoint(_SrcObj->oGetCenter(),_Tri);
         }
         break;
     }

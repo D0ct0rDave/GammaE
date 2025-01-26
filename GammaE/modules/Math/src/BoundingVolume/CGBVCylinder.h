@@ -43,9 +43,9 @@ class CGBVCylinder : public CGBoundingVolume
         }
 
         // / Returns the volume occupied by the bounding volume
-        virtual float fGetVolume()
+        virtual float fGetVolume() const
         {
-            return(m_fRadius * m_fRadius * m_fHeight);
+            return(_2PI_ * m_fRadius * m_fRadius * m_fHeight);
         }
 
     protected:

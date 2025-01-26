@@ -10,55 +10,42 @@
 // ----------------------------------------------------------------------------
 #ifndef CGSceneAnimNodeH
 #define CGSceneAnimNodeH
-// --------------------------------------------------------------------------------
-#include "GammaE_Misc.h"
-#include "Animation\CGSceneAnimObject.h"
-// --------------------------------------------------------------------------------
-class CGSceneAnimNode : public CGSceneAnimObject
+// ----------------------------------------------------------------------------
+#include "CGSceneNode.h"
+// ----------------------------------------------------------------------------
+class CGSceneAnimNode : public CGSceneNode
 {
     public:
-
         CGSceneAnimNode();
-        virtual ~CGSceneAnimNode();
 
-        // / Adds a new animation object to the animation node
-        uint uiAddObject(CGSceneAnimObject* _poObj)
+        virtual void SetAnimState(int _iSrc, int _iDst, float _fFactor) = 0;
+
+        CGGraphBV* poCreateBoundVol ()
         {
-            return ( m_poObjs.uiAdd(_poObj) );
+            return( CGGraphBVFactory::poCreate() );
         }
 
-        // / Retrieves the specific animation object
-        CGSceneAnimObject* poGetAnimObject(uint _uiObj)
-        {
-            return(m_poObjs[_uiObj]);
-        }
+        virtual CGGraphBV* poGetStateBVol(int _iState) = 0;
 
-        // / Retrieves the number of child animated objects
-        uint uiNumAnimObjects()
-        {
-            return ( m_poObjs.uiNumElems() );
-        }
+        int iGetNumStates();
 
-        // / Clears all the array of animated objects
-        void Clear()
-        {
-            m_poObjs.Clear();
-        }
-
-        // / Recomputes the bounding volumes
-        virtual void ComputeBoundVols();
-
-        // General Processing Functionalities
-        virtual void Accept(CGSceneVisitor* _poVisitor)
-        {
-            _poVisitor->Visit(this);
-        }
+        int iGetLastFrame();
 
     protected:
 
-        CGDynArray <CGSceneAnimObject*> m_poObjs;
-};
+        int iNumStates;
 
-// --------------------------------------------------------------------------------
+};
+// ----------------------------------------------------------------------------
+inline int CGSceneAnimNode::iGetNumStates ()
+{
+    return(iNumStates);
+}
+// ----------------------------------------------------------------------------
+inline int CGSceneAnimNode::iGetLastFrame ()
+{
+    return(0);
+}
+// ----------------------------------------------------------------------------
 #endif
-// --------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------

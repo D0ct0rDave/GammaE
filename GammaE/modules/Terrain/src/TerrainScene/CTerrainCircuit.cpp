@@ -123,7 +123,7 @@ void CTerrainCircuit::ComputeVISLODMatrix ()
         for ( cI = 0; cI < SecsPerRow; cI++ )
         {
             // Get the middle height
-            SectorCenter = poSubObj[cSect]->poGetBV()->GetCenter();
+            SectorCenter = poSubObj[cSect]->poGetBV()->oGetCenter();
 
             // Set the sector center in camera coordinates
             M.TransformPoint( SectorCenter );

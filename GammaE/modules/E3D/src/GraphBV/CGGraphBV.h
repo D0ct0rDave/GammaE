@@ -22,23 +22,22 @@ class CGGraphBV
 
         virtual float GetRange(char _cAxis) const = 0;
 
-        virtual const CGVect3 & GetCenter() const = 0;
+        virtual const CGVect3 & oGetCenter() const = 0;
 
-        virtual int TestFrustum(const CGBVFrustum& _oFrustum) = 0;
-
-        virtual void Init(const CGVect3& _oMax, const CGVect3& _oMin) = 0;
-
-        virtual void Copy(const CGGraphBV& _oSrc);
+        virtual int TestFrustum(const CGBVFrustum& _oFrustum) const = 0;
 
         virtual EGBoundingVolumeType eGetTypeID() const = 0;
 
-        virtual int TestInside(const CGVect3& _oPos) = 0;
+        virtual int TestInside(const CGVect3& _oPos) const = 0;
+
+        virtual const CGBoundingVolume& oGetBV() const = 0;
 
         virtual const CGVect3& GetExtents() const;
 
         virtual const CGVect3& oGetMax() const;
 
         virtual const CGVect3& oGetMin() const;
+
 };
 // -----------------------------------------------------------------------------
 #endif

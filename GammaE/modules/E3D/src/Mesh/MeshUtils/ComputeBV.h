@@ -11,13 +11,16 @@
 #ifndef ComputeBVH
 #define ComputeBVH
 // ----------------------------------------------------------------------------
-#include "../CGMesh.h"
+class CGMesh;
+class CGGraphBV;
+class CGGraphBVSphere;
+class CGGraphBVAABB;
 // ----------------------------------------------------------------------------
 namespace MeshUtils {
 // ----------------------------------------------------------------------------
-CGBoundingVolume* poComputeBV(const CGMesh &Mesh);
-CGBVAABB* poComputeBVAABB(const CGMesh &Mesh);
-CGBVSphere* poComputeBVSphere(const CGMesh &Mesh);
+CGGraphBV* poComputeBV(const CGMesh &Mesh);
+CGGraphBVAABB* poComputeBVAABB(const CGMesh &Mesh);
+CGGraphBVSphere* poComputeBVSphere(const CGMesh &Mesh);
 // ----------------------------------------------------------------------------
 }; // namespace MeshUtils
 // ----------------------------------------------------------------------------

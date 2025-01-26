@@ -23,7 +23,7 @@ CCOL_ST_Box::~CCOL_ST_Box()
 {
 }
 
-int CCOL_ST_Box::iTestSphere (CGVect3& _oSMaxs, CGVect3& _oSMins, CGVect3& _oDCenter, float _fDRadius)
+int CCOL_ST_Box::iTestSphere (const CGVect3& _oSMaxs, const CGVect3& _oSMins, const CGVect3& _oDCenter, float _fDRadius)
 {
     // OPTIMIZABLE!!!
 
@@ -51,7 +51,7 @@ int CCOL_ST_Box::iTestSphere (CGVect3& _oSMaxs, CGVect3& _oSMins, CGVect3& _oDCe
     return(1);
 }
 
-int CCOL_ST_Box::iTestBox (CGVect3& _oSMaxs, CGVect3& _oSMins, CGVect3& _oDMaxs, CGVect3& _oDMins)
+int CCOL_ST_Box::iTestBox (const CGVect3& _oSMaxs, const CGVect3& _oSMins, const CGVect3& _oDMaxs, const CGVect3& _oDMins)
 {
     // OPTIMIZABLE!!!
     for ( int i = 0; i < 3; i++ )
@@ -61,7 +61,7 @@ int CCOL_ST_Box::iTestBox (CGVect3& _oSMaxs, CGVect3& _oSMins, CGVect3& _oDMaxs,
     return(1);
 }
 
-int CCOL_ST_Box::iTestPoint (CGVect3& _oSMaxs, CGVect3& _oSMins, CGVect3& _oDPoint)
+int CCOL_ST_Box::iTestPoint (const CGVect3& _oSMaxs, const CGVect3& _oSMins, const CGVect3& _oDPoint)
 {
     return ( _oDPoint.bInside(_oSMaxs,_oSMins) );
 }

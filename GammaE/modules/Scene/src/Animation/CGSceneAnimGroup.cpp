@@ -8,14 +8,21 @@
  *  \par GammaE License
  */
 // ----------------------------------------------------------------------------
-#include "Animation\CGSceneAnimGen.h"
+#include "Animation\CGSceneAnimNode.h"
 
-CGSceneAnimGen::CGSceneAnimGen()
-    : iNumStates(0)
+CGSceneAnimGroup::CGSceneAnimGroup()
 {
-    TypeID = e3DObj_AnimGen;
+    m_eTypeID = OBJ3D_AnimTransf;
 }
 
-CGSceneAnimGen::~CGSceneAnimGen()
+CGSceneAnimGroup::~CGSceneAnimGroup()
 {
+}
+
+void CGSceneAnimGroup::ComputeBoundVols()
+{
+    for ( uint i = 0; i < m_poObjs.uiNumElems(); i++ )
+    {
+        m_poObjs[i]->ComputeBoundVols();
+    }
 }

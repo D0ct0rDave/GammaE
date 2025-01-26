@@ -15,10 +15,10 @@
 #include "GSceneEnums.h"
 #include "Visitors/CGSceneVisitor.h"
 // --------------------------------------------------------------------------------
-class CGSceneAnimObject
+class CGSceneAnimNode
 {
     public:
-        CGSceneAnimObject();
+        CGSceneAnimNode();
 
         ESceneNodeType eGetTypeID()
         {
@@ -38,13 +38,13 @@ class CGSceneAnimObject
         }
 
         // / Retrieves the bounding volume of the specified frame
-        CGBoundingVolume* poGetKeyFrameBVol(uint _uiKeyFrame)
+        CGGraphBV* poGetKeyFrameBVol(uint _uiKeyFrame)
         {
             return (m_poFrameBVol[_uiKeyFrame]);
         }
 
         // / Sets the bounding volume of the specified frame
-        void SetKeyFrameBVol(uint _uiKeyFrame,CGBoundingVolume* _poBV)
+        void SetKeyFrameBVol(uint _uiKeyFrame, CGGraphBV* _poBV)
         {
             m_poFrameBVol[_uiKeyFrame] = _poBV;
         }
@@ -58,7 +58,7 @@ class CGSceneAnimObject
         uint m_uiNumKeyFrames;
 
         // Array to store the bounding volumes for every keyframe of the animated object
-        CGStArray <CGBoundingVolume*> m_poFrameBVol;
+        CGStArray <CGGraphBV*> m_poFrameBVol;
 
         ESceneNodeType m_eTypeID;
 };

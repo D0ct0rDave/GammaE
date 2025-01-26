@@ -23,10 +23,10 @@
 #include "CGSceneSwitch.h"
 
 #include "Animation/CGSceneAnimCfg.h"
-#include "Animation/CGSceneAnimObject.h"
+#include "Animation/CGSceneAnimNode.h"
 #include "Animation/CGSceneAnimTransf.h"
 #include "Animation/CGSceneAnimMesh.h"
-#include "Animation/CGSceneAnimNode.h"
+#include "Animation/CGSceneAnimGroup.h"
 
 #include "3D_Loaders/3DSLoader/CLoader3DS.h"
 #include "3D_Loaders/MD2Loader/CLoaderMD2.h"

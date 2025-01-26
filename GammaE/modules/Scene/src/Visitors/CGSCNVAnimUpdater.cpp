@@ -22,11 +22,11 @@
 #include "CGSceneTransf.h"
 #include "CGSceneScreenRect.h"
 
-#include "Animation/CGSceneAnimObject.h"
+#include "Animation/CGSceneAnimNode.h"
 #include "Animation/CGSceneAnimCfg.h"
 #include "Animation/CGSceneAnimMesh.h"
 #include "Animation/CGSceneAnimInstance.h"
-#include "Animation/CGSceneAnimNode.h"
+#include "Animation/CGSceneAnimGroup.h"
 #include "Animation/CGSceneAnimTransf.h"
 
 // ----------------------------------------------------------------------------
@@ -39,7 +39,7 @@ void CGSCNVAnimUpdater::SetAnimState(CGSceneAnimInstance* _poInst,uint _uiIFrame
     _poInst->poGetAnimatedObject()->Accept(this);
 }
 // ----------------------------------------------------------------------------
-void CGSCNVAnimUpdater::Visit(CGSceneAnimObject* _poNode)
+void CGSCNVAnimUpdater::Visit(CGSceneAnimNode* _poNode)
 {
 }
 // ----------------------------------------------------------------------------
@@ -93,8 +93,8 @@ void CGSCNVAnimUpdater::Visit(CGSceneAnimMesh* _poNode)
             memcpy( _poNode->poGetMesh()->m_poVN,_poNode->poGetNormals() + _poNode->uiGetNumFrameVXs() * m_uiIFrame,_poNode->uiGetNumFrameVXs() * sizeof(CGVect3) );
 
             CGVect3 oSMax,oSMin,oDMax,oDMin,oMax,oMin;
-            CGVect3 oSCen = _poNode->poGetKeyFrameBVol(m_uiIFrame)->GetCenter();
-            CGVect3 oDCen = _poNode->poGetKeyFrameBVol(m_uiEFrame)->GetCenter();
+            CGVect3 oSCen = _poNode->poGetKeyFrameBVol(m_uiIFrame)->oGetCenter();
+            CGVect3 oDCen = _poNode->poGetKeyFrameBVol(m_uiEFrame)->oGetCenter();
             CGVect3 oSExt = _poNode->poGetKeyFrameBVol(m_uiIFrame)->GetExtents();
             CGVect3 oDExt = _poNode->poGetKeyFrameBVol(m_uiEFrame)->GetExtents();
             oSMax.Assign(oSCen);
@@ -125,7 +125,7 @@ void CGSCNVAnimUpdater::Visit(CGSceneAnimMesh* _poNode)
     }
 }
 // ----------------------------------------------------------------------------
-void CGSCNVAnimUpdater::Visit(CGSceneAnimNode* _poNode)
+void CGSCNVAnimUpdater::Visit(CGSceneAnimGroup* _poNode)
 {
 }
 // ----------------------------------------------------------------------------

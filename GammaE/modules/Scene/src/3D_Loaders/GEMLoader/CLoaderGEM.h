@@ -21,7 +21,7 @@
 #include "CGSceneNode.h"
 #include "CGSceneTransf.h"
 /*
- #include "Animation\CGSceneAnimNode.h"
+ #include "Animation\CGSceneAnimGroup.h"
  #include "Animation\CGSceneAnimMesh.h"
  #include "Animation\CGSceneAnimTransf.h"
  #include "Animation\CGSceneAnimCfg.h"
@@ -54,7 +54,7 @@ class CLoaderGEM : public C3DLoader
 
         CGSceneTransf* poLoad3DObj_Transf();
 
-        CGSceneAnimNode* poLoad3DObj_AnimNode();
+        CGSceneAnimGroup* poLoad3DObj_AnimNode();
 
         CGSceneAnimMesh* poLoad3DObj_AnimMesh();
 
@@ -68,7 +68,7 @@ class CLoaderGEM : public C3DLoader
 
         CGSceneMux* poLoad3DObj_Mux();
 
-        CGSceneAnimObject* poLoad3DObj_AnimObject();
+        CGSceneAnimNode* poLoad3DObj_AnimObject();
 
     protected:
 

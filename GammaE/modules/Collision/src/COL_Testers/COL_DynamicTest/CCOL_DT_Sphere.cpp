@@ -19,7 +19,7 @@ inline bool bQuadraticFormula(float a,float b,float c,float &r1,float &r2)
 {
     // ---------------------------------------------------
     // Valid solutions in a quadratic function:
-    // _________
+    //         _________
     // -b +- \/b^2 - 4ac
     // -----------------
     // 2a
@@ -29,7 +29,7 @@ inline bool bQuadraticFormula(float a,float b,float c,float &r1,float &r2)
 
     if ( q >= 0 )
     {
-        float sq = MATH_fSqrt(q);
+        float sq = Math::fSqrt(q);
         float d = 1.0f / (2 * a);
 
         r1 = (-b + sq) * d;

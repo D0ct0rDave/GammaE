@@ -11,6 +11,16 @@
 // CGGraphBVPoint
 #include "CGGraphBVPoint.h"
 
+void CGGraphBVPoint::Init(const CGVect3& _oMax, const CGVect3& _oMin)
+{
+    CGVect3 center;
+    center.Assign(_oMax);
+    center.Add(_oMin);
+    center.Scale(0.5f);
+
+    m_oVol.Init(center);
+}
+
 void CGGraphBVPoint::Transform(const CGMatrix4x4& _oM)
 {
     CGVect3 oCenter = m_oVol.oGetCenter();
@@ -33,7 +43,7 @@ void CGGraphBVPoint::Compute(CGVect3* _poVXs, uint _uiNumVXs)
     m_oVol.Init(oCenter);
 }
 
-const CGVect3 & CGGraphBVPoint::GetCenter () const
+const CGVect3 & CGGraphBVPoint::oGetCenter () const
 {
     return (m_oVol.oGetCenter());
 }
@@ -43,31 +53,25 @@ float CGGraphBVPoint::GetRange(char _cAxis) const
     return(0.0f);
 }
 
-int CGGraphBVPoint::TestFrustum(const CGBVFrustum& _oFrustum)
+int CGGraphBVPoint::TestFrustum(const CGBVFrustum& _oFrustum) const
 {
     // / Test the intersection of a given bounding volume against a given frustum
     bool bIntersect = Math::bBVIntersectFrustum(m_oVol, _oFrustum);
     return bIntersect ? 1 : 0;
 }
 
-void CGGraphBVPoint::Init (const CGVect3& _oMax, const CGVect3& _oMin)
-{
-    CGVect3 center;
-    center.Assign(_oMax);
-    center.Add(_oMin);
-    center.Scale(0.5f);
-
-    m_oVol.Init(center);
-}
-
-int CGGraphBVPoint::TestInside(const CGVect3& _oPos)
+int CGGraphBVPoint::TestInside(const CGVect3& _oPos) const
 {
     return (_oPos.bEqual(m_oVol.oGetCenter()) );
 }
 
-CGBVPoint* CGGraphBVPoint::poGetPoint()
+const CGBoundingVolume& CGGraphBVPoint::oGetBV() const
 {
-    return(&m_oVol);
+    return m_oVol;
+}
+const CGBVPoint& CGGraphBVPoint::oGetPoint() const
+{
+    return (m_oVol);
 }
 
 // Additional Declarations

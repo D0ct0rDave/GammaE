@@ -10,8 +10,8 @@
 // ----------------------------------------------------------------------------
 #include "CGSCNVBoundVolBuilder.h"
 
-#include "GammaE_Math.h"
 #include "GammaE_E3D.h"
+#include "GammaE_Math.h"
 
 #include "CGSceneBSPNode.h"
 #include "CGSceneCamera.h"
@@ -20,18 +20,17 @@
 #include "CGSceneMux.h"
 #include "CGSceneNode.h"
 #include "CGSceneScreenRect.h"
+#include "CGSceneScreenRect.h"
 #include "CGSceneSwitch.h"
 #include "CGSceneTransf.h"
-#include "CGSceneScreenRect.h"
 
-/*
- #include "Animation/CGSceneAnimObject.h"
- #include "Animation/CGSceneAnimCfg.h"
- #include "Animation/CGSceneAnimMesh.h"
- #include "Animation/CGSceneAnimInstance.h"
- #include "Animation/CGSceneAnimNode.h"
- #include "Animation/CGSceneAnimTransf.h"
- */
+#include "Animation/CGSceneAnimNode.h"
+#include "Animation/CGSceneAnimCfg.h"
+#include "Animation/CGSceneAnimMesh.h"
+#include "Animation/CGSceneAnimInstance.h"
+#include "Animation/CGSceneAnimGroup.h"
+#include "Animation/CGSceneAnimTransf.h"
+
 // ----------------------------------------------------------------------------
 void CGSCNVBoundVolBuilder::Visit(CGSceneNode* _poNode)
 {
@@ -71,7 +70,7 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneBSPNode* _poNode)
             fXSide = BV->GetRange(0) * 0.5f;
             fYSide = BV->GetRange(1) * 0.5f;
             fZSide = BV->GetRange(2) * 0.5f;
-            Center = BV->GetCenter();
+            Center = BV->oGetCenter();
 
             // Compute Maxs/Mins vectors
             if ( Center.x + fXSide > Maxs.x ) Maxs.x = Center.x + fXSide;
@@ -149,7 +148,7 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneGroup* _poNode)
             fXSide = poBV->GetRange(0) * 0.5f;
             fYSide = poBV->GetRange(1) * 0.5f;
             fZSide = poBV->GetRange(2) * 0.5f;
-            Center = poBV->GetCenter();
+            Center = poBV->oGetCenter();
 
             // Compute Maxs/Mins vectors
             if ( Center.x + fXSide > Maxs.x ) Maxs.x = Center.x + fXSide;
@@ -191,7 +190,7 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneTransf* _poNode)
     _poNode->poGetBV()->Transform( (CGMatrix4x4 &)_poNode->oTransf() );
 }
 // ----------------------------------------------------------------------------
-void CGSCNVBoundVolBuilder::Visit(CGSceneAnimObject* _poNode)
+void CGSCNVBoundVolBuilder::Visit(CGSceneAnimNode* _poNode)
 {
 }
 // ----------------------------------------------------------------------------
@@ -219,7 +218,7 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneAnimInstance* _poNode)
 {
 }
 // ----------------------------------------------------------------------------
-void CGSCNVBoundVolBuilder::Visit(CGSceneAnimNode* _poNode)
+void CGSCNVBoundVolBuilder::Visit(CGSceneAnimGroup* _poNode)
 {
     for ( uint i = 0; i < _poNode->uiNumAnimObjects(); i++ )
         _poNode->poGetAnimObject(i)->Accept(this);

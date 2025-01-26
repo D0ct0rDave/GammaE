@@ -40,7 +40,7 @@ class CGBVPoint : public CGBoundingVolume
         }
 
         // / Returns the volume occupied by the bounding volume
-        virtual float fGetVolume()
+        virtual float fGetVolume() const
         {
             return(0.0f);
         }

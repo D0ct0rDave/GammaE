@@ -14,7 +14,7 @@
 #include "CGBoundingVolume.h"
 #include "Vector/CGVect3.h"
 // ----------------------------------------------------------------------------
-// e---f
+//   e---f
 // / |  /|
 // a-g-b-h
 // |/  |/
@@ -27,6 +27,9 @@ class CGBVAABB : public CGBoundingVolume
 
         // / Default contructor for the class
         CGBVAABB();
+
+        // / Copy contructor
+        CGBVAABB(const CGBVAABB& _oVol);
 
         // / Initializes the AABB
         void Init(const CGVect3& _oMax, const CGVect3& _oMin);
@@ -43,14 +46,8 @@ class CGBVAABB : public CGBoundingVolume
             return (m_oMins);
         }
 
-        // / Retrieve the array of points belonging to the AABB
-        const CGVect3* poGetPoints()
-        {
-            return (m_oPoints);
-        }
-
         // / Returns the volume occupied by the bounding volume
-        virtual float fGetVolume()
+        virtual float fGetVolume() const
         {
             float fWidth = m_oMaxs.x - m_oMins.x;
             float fHeight = m_oMaxs.y - m_oMins.y;
@@ -63,7 +60,6 @@ class CGBVAABB : public CGBoundingVolume
 
         CGVect3 m_oMaxs;
         CGVect3 m_oMins;
-        CGVect3 m_oPoints[8];
 };
 
 // ----------------------------------------------------------------------------

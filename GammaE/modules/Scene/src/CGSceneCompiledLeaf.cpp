@@ -8,25 +8,19 @@
  *  \par GammaE License
  */
 // ----------------------------------------------------------------------------
-#ifndef CGBVUtilsH
-#define CGBVUtilsH
+
+#include "CGSceneCompiledLeaf.h"
 // ----------------------------------------------------------------------------
-#include "CGBoundingVolume.h"
-#include "Matrix/CGMatrix4x4.h"
-// ----------------------------------------------------------------------------
-// y
-// |
-// |
-// |
-// Center----- x
-// /
-// /
-// z
-// ----------------------------------------------------------------------------
-namespace Utils
+CGSceneCompiledLeaf::CGSceneCompiledLeaf() :
+    m_poCMesh(NULL),
+    m_poShader(NULL)
 {
-void TransformBoundingVolume(CGBoundingVolume* _poBV,const CGMatrix4x4& _oMatrix);
-};
+    m_eNodeType = SNT_CompiledLeaf;
+}
 // ----------------------------------------------------------------------------
-#endif
+CGSceneCompiledLeaf::CGSceneCompiledLeaf(CGCompiledMesh* _poCMesh, CGShader* _poShader)
+{
+    m_eNodeType = SNT_CompiledLeaf;
+    Init(_poCMesh,_poShader);
+}
 // ----------------------------------------------------------------------------

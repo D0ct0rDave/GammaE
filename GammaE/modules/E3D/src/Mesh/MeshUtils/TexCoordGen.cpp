@@ -27,7 +27,7 @@ void ComputeUVOrthoMapping(CGMesh &Mesh)
        BVol = Mesh.poGetBoundVol();
 
        // Get the center point
-       Center = BVol->GetCenter();
+       Center = BVol->oGetCenter();
 
        // Compute UV coordinates
        for ( CGVect = 0; CGVect < Mesh.m_uiNumVXs; CGVect++ )

@@ -84,8 +84,8 @@ void CGSceneAnimMesh::SetAnimState (int _iSrc, int _iDst, float _fFactor)
             memcpy( Leaf->poGetMesh()->VNs,pNMeshStates + iNumStateVXs * _iSrc,iNumStateVXs * sizeof(CGVect3) );
 
             CGVect3 oSMax,oSMin,oDMax,oDMin,oMax,oMin;
-            CGVect3 oSCen = pBVolStates[_iSrc]->GetCenter();
-            CGVect3 oDCen = pBVolStates[_iDst]->GetCenter();
+            CGVect3 oSCen = pBVolStates[_iSrc]->oGetCenter();
+            CGVect3 oDCen = pBVolStates[_iDst]->oGetCenter();
             CGVect3 oSExt = pBVolStates[_iSrc]->GetExtents();
             CGVect3 oDExt = pBVolStates[_iDst]->GetExtents();
             oSMax.Assign(oSCen);

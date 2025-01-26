@@ -384,12 +384,12 @@ void CLoaderBSP2::AddFace (bsp_face* pFace, SCNUt_TriSceneAccumulator* _pTScn)
     int i0,i1,i2;
 
     // ----------------------------------------------------------
-#define COMPUTE_UCOORD(VX,ETI)      \
+#define COMPUTE_UCOORD(VX,ETI)       \
     ( (VX.x * ETI->pBTI->u_axis.x +  \
        VX.y * ETI->pBTI->u_axis.y +  \
        VX.z * ETI->pBTI->u_axis.z + ETI->pBTI->u_offset) / ETI->iWidth )
 
-#define COMPUTE_VCOORD(VX,ETI)      \
+#define COMPUTE_VCOORD(VX,ETI)       \
     ( (VX.x * ETI->pBTI->v_axis.x +  \
        VX.y * ETI->pBTI->v_axis.y +  \
        VX.z * ETI->pBTI->v_axis.z + ETI->pBTI->v_offset) / ETI->iHeight )

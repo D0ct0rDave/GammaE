@@ -18,7 +18,7 @@
 // ----------------------------------------------------------------------------
 #include "3D_Loaders\GEMLoader\CLoaderGEM.h"
 // ----------------------------------------------------------------------------
-CGBoundingVolume* poLoadBoundingVolume(CGFile* _poFile)
+CGGraphBV* poLoadBoundingVolume(CGFile* _poFile)
 {
     return(NULL);
 }
@@ -212,7 +212,7 @@ CGSceneTransf* CLoaderGEM::poLoad3DObj_Transf ()
     return (poObj);
 }
 // ----------------------------------------------------------------------------
-CGSceneAnimNode* CLoaderGEM::poLoad3DObj_AnimNode ()
+CGSceneAnimGroup* CLoaderGEM::poLoad3DObj_AnimNode ()
 {
     /*
        TODO: Implement poLoad3DObj_AnimNode
@@ -220,14 +220,14 @@ CGSceneAnimNode* CLoaderGEM::poLoad3DObj_AnimNode ()
        uint uiNumSubObjects;
        uint uiNumKeyFrames;
 
-       CGSceneAnimNode* poObj;
+       CGSceneAnimGroup* poObj;
 
        // Read subobject array props
        uiNumSubObjects = m_poFile->uiRead();
        uiNumKeyFrames  = m_poFile->uiRead();
 
        // Initialize object
-       poObj = mNew CGSceneAnimNode;
+       poObj = mNew CGSceneAnimGroup;
        poObj->Init(uiNumKeyFrames);
 
        // Load the the bounding volume state array
@@ -239,7 +239,7 @@ CGSceneAnimNode* CLoaderGEM::poLoad3DObj_AnimNode ()
 
        // Read subobjects
        for ( uint uiObj = 0; uiObj < uiNumSubObjects; uiObj++ )
-        poObj->uiAddObject( (CGSceneAnimObject*)poLoad3DObject( _oFile ) );
+        poObj->uiAddObject( (CGSceneAnimNode*)poLoad3DObject( _oFile ) );
 
        return (poObj);
      */
@@ -337,14 +337,14 @@ CGSceneAnimCfg* CLoaderGEM::poLoad3DObj_AnimCfg()
        }
 
        // Load attached object
-       poObj->SetAnimObj ( (CGSceneAnimObject*)poLoad3DObj_AnimObject( _oFile ) );
+       poObj->SetAnimObj ( (CGSceneAnimNode*)poLoad3DObj_AnimObject( _oFile ) );
 
        return (poObj);
      */
     return(NULL);
 }
 // ----------------------------------------------------------------------------
-CGSceneAnimObject* CLoaderGEM::poLoad3DObj_AnimObject()
+CGSceneAnimNode* CLoaderGEM::poLoad3DObj_AnimObject()
 {
     /*
        // TODO: Implement poLoad3DObj_AnimObject

@@ -18,24 +18,27 @@
 class CGGraphBVCylinder : public CGGraphBV
 {
     public:
+
+        virtual void Init(const CGVect3& _oMax, const CGVect3& _oMin);
+        
         virtual void Transform(const CGMatrix4x4& _oM);
 
         virtual void Compute(CGVect3* _poVXs, uint _uiNumVXs);
 
         virtual float GetRange(char _cAxis) const;
 
-        virtual const CGVect3 & GetCenter() const;
+        virtual const CGVect3 & oGetCenter() const;
 
-        virtual int TestFrustum(const CGBVFrustum& _Frustum);
+        virtual int TestFrustum(const CGBVFrustum& _Frustum) const;
 
-        virtual void Init(const CGVect3& _oMax, const CGVect3& _oMin);
-
+        virtual int TestInside(const CGVect3& _oPos) const;
+        
         virtual EGBoundingVolumeType eGetTypeID() const;
 
-        virtual int TestInside(const CGVect3& _oPos);
+        const CGBVCylinder& GetCylinder() const;
 
-        CGBVCylinder* pGetCylinder();
-    private:
+        virtual const CGBoundingVolume& oGetBV() const;
+private:
         CGBVCylinder m_oVol;
 };
 // -----------------------------------------------------------------------------

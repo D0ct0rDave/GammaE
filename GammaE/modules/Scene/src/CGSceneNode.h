@@ -30,13 +30,13 @@ class CGSceneNode : public CGReferenceCounter
         virtual void Deref();
 
         // / Returns the node bounding volume.
-        CGBoundingVolume* poGetBV()
+        CGGraphBV* poGetBV()
         {
             return (m_poBV);
         }
 
         // / Sets the node bounding volume.
-        void SetBV(CGBoundingVolume* _poBV)
+        void SetBV(CGGraphBV* _poBV)
         {
             m_poBV = _poBV;
         }
@@ -49,7 +49,7 @@ class CGSceneNode : public CGReferenceCounter
 
     protected:
 
-        CGBoundingVolume* m_poBV;
+        CGGraphBV* m_poBV;
         ESceneNodeType m_eNodeType;
 };
 // ----------------------------------------------------------------------------

@@ -13,7 +13,7 @@
 // CCOL_DT_Tri
 #include "COL_Testers\COL_DynamicTest\CCOL_DT_Tri.h"
 
-void ProjectTriangle (CGVect3& _oD, CGTriangle& _oTri, float& _fMin, float& _fMax)
+void ProjectTriangle (const CGVect3& _oD, const CGTriangle& _oTri, float& _fMin, float& _fMax)
 {
     float fU,fV,fW;
 
@@ -21,16 +21,16 @@ void ProjectTriangle (CGVect3& _oD, CGTriangle& _oTri, float& _fMin, float& _fMa
     fV = _oD.fDotProd( _oTri.VXs[1] );
     fW = _oD.fDotProd( _oTri.VXs[2] );
 
-    MATH_Utils::GetMaxMins(fU,fV,fW,_fMax,_fMin);
+    Math::GetMaxMins(fU,fV,fW,_fMax,_fMin);
 }
 
-void ProjectBox (CGVect3& _oD, CGBVAABB& _oBox, float& _fMin, float& _fMax)
+void ProjectBox (const CGVect3& _oD, const CGGraphBVAABB& _oBox, float& _fMin, float& _fMax)
 {
     CGVect3 oBExt = _oBox.GetExtents();
-    float fDdC = _oD.fDotProd( _oBox.GetCenter() );
-    float fR = oBExt.x * MATH_fAbs( _oD.fDotProd( _oBox.GetAxis(0) ) ) +
-               oBExt.y* MATH_fAbs( _oD.fDotProd( _oBox.GetAxis(1) ) ) +
-               oBExt.z* MATH_fAbs( _oD.fDotProd( _oBox.GetAxis(2) ) );
+    float fDdC = _oD.fDotProd( _oBox.oGetCenter() );
+    float fR = oBExt.x * Math::fAbs( _oD.fDotProd( _oBox.GetAxis(0) ) ) +
+               oBExt.y* Math::fAbs( _oD.fDotProd( _oBox.GetAxis(1) ) ) +
+               oBExt.z* Math::fAbs( _oD.fDotProd( _oBox.GetAxis(2) ) );
 
     _fMin = fDdC - fR;
     _fMax = fDdC + fR;
@@ -104,21 +104,40 @@ CCOL_DT_Tri::CCOL_DT_Tri()
 CCOL_DT_Tri::~CCOL_DT_Tri()
 {
 }
-
-float CCOL_DT_Tri::fTestSphere (CGBVSphere& _Sphere, CGTriangle& _Tri)
+class Foo
 {
-    float fDist = MATH_Utils::fTriPointSqDistance( _Tri,_Sphere.GetCenter() );
+public:
+    const float& GetMemberConstReference() const
+    {
+        return member;
+    }
 
-    if ( fDist < _SQ_(_Sphere.pGetSphere()->m_fRadius) )
-        return(0.0f);
+    float member;
+};
 
-    CGBVAABB Box;
-    Box.Copy( (CGBoundingVolume*)&_Sphere );
-
-    return ( fTestBox(Box,_Tri) );
+void Method(const Foo& _a)
+{
+    const float& constReference = _a.GetMemberConstReference();
 }
 
-float CCOL_DT_Tri::fTestBox (CGBVAABB& _Box, CGTriangle& _Tri)
+float CCOL_DT_Tri::fTestSphere (const CGGraphBVSphere& _oSphere, const CGTriangle& _oTri)
+{
+    float fDist = Math::fTriPointSqDistance( _oTri, _oSphere.oGetCenter() );
+
+    const CGBVSphere sp = _oSphere.oGetSphere();
+
+    const float fRadius = sp.fGetRadius();
+
+    if ( fDist < _SQ_(fRadius) )
+        return(0.0f);
+
+    CGGraphBVAABB Box;
+    Box.Copy(_oSphere);
+
+    return ( fTestBox(Box,_oTri) );
+}
+
+float CCOL_DT_Tri::fTestBox (const CGGraphBVAABB& _oBox, const CGTriangle& _oTri)
 {
     // David Eberly code
     // Magic Software, Inc.
@@ -147,15 +166,15 @@ float CCOL_DT_Tri::fTestBox (CGBVAABB& _Box, CGTriangle& _Tri)
 
     // ---------------------------------
     // test direction of triangle normal
-    akE[0].Assign(_Tri.e1);
-    akE[1].Assign(_Tri.e2);
+    akE[0].Assign(_oTri.e1);
+    akE[1].Assign(_oTri.e2);
 
     D.CrossProd(akE[0],akE[1]); // Triangle normal ???
 
-    fMin0 = D.fDotProd(_Tri.VXs[0]);
+    fMin0 = D.fDotProd(_oTri.VXs[0]);
     fMax0 = fMin0;
 
-    ProjectBox(D,_Box,fMin1,fMax1);
+    ProjectBox(D,_oBox,fMin1,fMax1);
     fSpeed = D.fDotProd(W);
 
     if ( bNoIntersect(fTMax,fSpeed,fMin0,fMax0,fMin1,fMax1,fTFirst,fTLast) )
@@ -163,13 +182,13 @@ float CCOL_DT_Tri::fTestBox (CGBVAABB& _Box, CGTriangle& _Tri)
 
     // ---------------------------------
     // test direction of box faces
-    BExt = _Box.GetExtents();
+    BExt = _oBox.GetExtents();
     for ( int i = 0; i < 3; i++ )
     {
-        D.Assign( _Box.GetAxis(i) );
-        ProjectTriangle(D,_Tri,fMin0,fMax0);
+        D.Assign( _oBox.GetAxis(i) );
+        ProjectTriangle(D, _oTri,fMin0,fMax0);
 
-        fDdC = D.fDotProd( _Box.GetCenter() );
+        fDdC = D.fDotProd( _oBox.oGetCenter() );
         fMin1 = fDdC - BExt.v(i);
         fMax1 = fDdC + BExt.v(i);
         fSpeed = D.fDotProd(W);
@@ -191,10 +210,10 @@ float CCOL_DT_Tri::fTestBox (CGBVAABB& _Box, CGTriangle& _Tri)
     {
         for ( int i1 = 0; i1 < 3; i1++ )
         {
-            D.CrossProd( akE[i0],_Box.GetAxis(i1) );
+            D.CrossProd( akE[i0],_oBox.GetAxis(i1) );
 
-            ProjectTriangle(D,_Tri,fMin0,fMax0);
-            ProjectBox     (D,_Box,fMin1,fMax1);
+            ProjectTriangle(D,_oTri,fMin0,fMax0);
+            ProjectBox     (D,_oBox,fMin1,fMax1);
 
             fSpeed = D.fDotProd(W);
 
@@ -213,7 +232,7 @@ float CCOL_DT_Tri::fTestBox (CGBVAABB& _Box, CGTriangle& _Tri)
     }
 }
 
-float CCOL_DT_Tri::fTestPoint (CGVect3& _oPoint, CGTriangle& _Tri)
+float CCOL_DT_Tri::fTestPoint (const CGVect3& _oPoint, const CGTriangle& _oTri)
 {
     if ( CCOL_ColState::DSSp.fSqModule() == 0.0f ) return(-1.0f);
 
@@ -225,7 +244,7 @@ float CCOL_DT_Tri::fTestPoint (CGVect3& _oPoint, CGTriangle& _Tri)
 
     // Point initial position in Triangle Ref system
     oPI.Assign(_oPoint);
-    oPI.Sub(_Tri.VXs[0]);
+    oPI.Sub(_oTri.VXs[0]);
 
     // Init ray
     oDir.Assign(CCOL_ColState::DSSp);
@@ -235,12 +254,12 @@ float CCOL_DT_Tri::fTestPoint (CGVect3& _oPoint, CGTriangle& _Tri)
 
     // Triangle in triangle origin coordinate system
     // <OPTIMIZABLE>
-    oATri = _Tri;
+    oATri = _oTri;
     oATri.VXs[1].Sub( oATri.VXs[0] );
     oATri.VXs[2].Sub( oATri.VXs[0] );
-    oATri.VXs[0].V3 (0.0f,0.0f,0.0f);
+    oATri.VXs[0].Set(0.0f,0.0f,0.0f);
 
-    if ( MATH_Utils::iTestSegTriIntersection(oRay,oATri,oPrj) )
+    if ( Math::iTestSegTriIntersection(oRay,oATri,oPrj) )
     {
         // return (MATH_Utils::fGetT () );
 
@@ -258,8 +277,3 @@ float CCOL_DT_Tri::fTestPoint (CGVect3& _oPoint, CGTriangle& _Tri)
         return (-1.0f);
     }
 }
-
-// Additional Declarations
-
-// Detached code regions:
-// WARNING: this code will be lost if code is regenerated.

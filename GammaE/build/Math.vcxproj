@@ -95,7 +95,6 @@
     <ClInclude Include="..\modules\Math\src\BoundingVolume\CGBVFrustum.h" />
     <ClInclude Include="..\modules\Math\src\BoundingVolume\CGBVPoint.h" />
     <ClInclude Include="..\modules\Math\src\BoundingVolume\CGBVSphere.h" />
-    <ClInclude Include="..\modules\Math\src\BoundingVolume\CGBVUtils.h" />
     <ClInclude Include="..\modules\Math\src\BoundingVolume\CGBoundingVolume.h" />
     <ClInclude Include="..\modules\Math\src\BoundingVolume\GBoundingVolumeType.h" />
     <ClInclude Include="..\modules\Math\src\Curve\CG4PCurve.h" />
@@ -134,7 +133,6 @@
     <ClCompile Include="..\modules\Math\src\BoundingVolume\CGBVFrustum.cpp" />
     <ClCompile Include="..\modules\Math\src\BoundingVolume\CGBVPoint.cpp" />
     <ClCompile Include="..\modules\Math\src\BoundingVolume\CGBVSphere.cpp" />
-    <ClCompile Include="..\modules\Math\src\BoundingVolume\CGBVUtils.cpp" />
     <ClCompile Include="..\modules\Math\src\BoundingVolume\CGBoundingVolume.cpp" />
     <ClCompile Include="..\modules\Math\src\Curve\CG4PCurve.cpp" />
     <ClCompile Include="..\modules\Math\src\Curve\CGCurve.cpp" />

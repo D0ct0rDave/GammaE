@@ -91,7 +91,7 @@ void CGMesh::ComputeBoundVol ()
    CGVect3 CGMesh::oMeshCenter ()
    {
     unsigned short cV;
-    CGVect3 Center = GetCenter();
+    CGVect3 Center = oGetCenter();
 
     for (cV=0; cV<m_uiNumVXs; cV++) m_poVX[cV].Sub(Center);
 

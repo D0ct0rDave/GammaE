@@ -77,7 +77,7 @@ CCOL_DT_Box::~CCOL_DT_Box()
 {
 }
 
-float CCOL_DT_Box::fTestSphere (CGVect3& _oSMaxs, CGVect3& _oSMins, CGVect3& _oDCenter, float _fDRadius)
+float CCOL_DT_Box::fTestSphere (const CGVect3& _oSMaxs, const CGVect3& _oSMins, const CGVect3& _oDCenter, float _fDRadius)
 {
     CGVect3 DMaxs,DMins;
 
@@ -91,7 +91,7 @@ float CCOL_DT_Box::fTestSphere (CGVect3& _oSMaxs, CGVect3& _oSMins, CGVect3& _oD
     return( fTestBox(_oSMaxs,_oSMins,DMaxs,DMins) );
 }
 
-float CCOL_DT_Box::fTestBox (CGVect3& _oSMaxs, CGVect3& _oSMins, CGVect3& _oDMaxs, CGVect3& _oDMins)
+float CCOL_DT_Box::fTestBox (const CGVect3& _oSMaxs, const CGVect3& _oSMins, const CGVect3& _oDMaxs, const CGVect3& _oDMins)
 {
     // Check if they were colliding in the previous frame
     if ( CCOL_ST_Box::iTestBox(_oSMaxs,_oSMins,_oDMaxs,_oDMins) ) return(0.0f);
@@ -270,7 +270,7 @@ float CCOL_DT_Box::fTestBox (CGVect3& _oSMaxs, CGVect3& _oSMins, CGVect3& _oDMax
      */
 }
 
-float CCOL_DT_Box::fTestPoint (CGVect3& _oSMaxs, CGVect3& _oSMins, CGVect3& _oDPoint)
+float CCOL_DT_Box::fTestPoint (const CGVect3& _oSMaxs, const CGVect3& _oSMins, const CGVect3& _oDPoint)
 {
     if ( CCOL_ST_Box::iTestPoint(_oSMaxs,_oSMins,_oDPoint) )
         return(0.0f);

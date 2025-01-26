@@ -14,20 +14,23 @@
 #include "CGBoundingVolume.h"
 #include "Vector/CGVect3.h"
 // ----------------------------------------------------------------------------
-// y
-// |
-// |
-// |
-// Center----- x
-// /
-// /
-// z
+//       y
+//       |
+//       |
+//       |
+//  Center----- x
+//      /
+//     /
+//    z
 // ----------------------------------------------------------------------------
 class CGBVSphere : public CGBoundingVolume
 {
     public:
         // / Default contructor for the class
         CGBVSphere();
+
+        // / Copy contructor for the class
+        CGBVSphere(CGBVSphere& _oSphere);
 
         // / Initialize the sphere
         void Init(const CGVect3& _oCenter, float _fRadius);
@@ -45,7 +48,7 @@ class CGBVSphere : public CGBoundingVolume
         }
 
         // / Returns the volume occupied by the bounding volume
-        virtual float fGetVolume()
+        virtual float fGetVolume() const
         {
             return( (4.0f / 3.0f) * _PI_ * _P3_(m_fRadius) );
         }

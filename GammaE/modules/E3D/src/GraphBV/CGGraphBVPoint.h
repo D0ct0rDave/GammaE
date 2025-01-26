@@ -10,8 +10,8 @@
 // -----------------------------------------------------------------------------
 // %X% %Q% %Z% %W%
 
-#ifndef CGraphBV_PointH
-#define CGraphBV_PointH 1
+#ifndef CGraphBVPointH
+#define CGraphBVPointH 1
 // -----------------------------------------------------------------------------
 #include "GraphBV\CGGraphBV.h"
 #include "GammaE_Math.h"
@@ -20,24 +20,27 @@ class CGGraphBVPoint : public CGGraphBV
 {
     public:
 
-        virtual void Transform(const CGMatrix4x4& M);
+        virtual void Init(const CGVect3& _oMax, const CGVect3& _oMin);
 
         virtual void Compute(CGVect3* VXs, uint _uiNumVXs);
 
-        virtual const CGVect3 & GetCenter() const;
+        virtual void Transform(const CGMatrix4x4& M);
+
+        virtual const CGVect3 & oGetCenter() const;
 
         virtual float GetRange(char _cAxis) const;
 
-        virtual int TestFrustum(const CGBVFrustum & _Frustum);
+        virtual int TestFrustum(const CGBVFrustum & _Frustum) const;
 
         virtual EGBoundingVolumeType eGetTypeID() const;
 
-        virtual void Init(const CGVect3& _oMax, const CGVect3& _oMin);
+        virtual int TestInside(const CGVect3& _oPos) const;
+        
+        virtual const CGBoundingVolume& oGetBV() const;
 
-        virtual int TestInside(const CGVect3& _oPos);
-
-        CGBVPoint* poGetPoint();
-private:
+        const CGBVPoint& oGetPoint() const;
+    
+    private:
         CGBVPoint m_oVol;
 };
 // -----------------------------------------------------------------------------

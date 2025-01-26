@@ -30,10 +30,10 @@ class CGSceneTransf;
 class CGSceneAnimCfg;
 class CGSceneAnimCfgGen;
 class CGSceneAnimCfgMgr;
-class CGSceneAnimObject;
+class CGSceneAnimNode;
 class CGSceneAnimMesh;
 class CGSceneAnimInstance;
-class CGSceneAnimNode;
+class CGSceneAnimGroup;
 class CGSceneAnimTransf;
 
 // ---------------------------------------------------------------------
@@ -65,13 +65,13 @@ class CGSceneVisitor
 
         virtual void Visit(CGSceneAnimCfg* _poNode) = 0;
 
-        virtual void Visit(CGSceneAnimObject* _poNode) = 0;
+        virtual void Visit(CGSceneAnimNode* _poNode) = 0;
 
         virtual void Visit(CGSceneAnimMesh* _poNode) = 0;
 
         virtual void Visit(CGSceneAnimInstance* _poNode) = 0;
 
-        virtual void Visit(CGSceneAnimNode* _poNode) = 0;
+        virtual void Visit(CGSceneAnimGroup* _poNode) = 0;
 
         virtual void Visit(CGSceneAnimTransf* _poNode) = 0;
 };

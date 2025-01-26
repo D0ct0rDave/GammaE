@@ -11,8 +11,8 @@
 #ifndef CGSceneAnimInstanceH
 #define CGSceneAnimInstanceH
 // --------------------------------------------------------------------------------
-#include "CObject3D.h"
-#include "CGSceneLeaf.h"
+#include "CGSceneNode.h"
+
 // --------------------------------------------------------------------------------
 class CGSceneAnimInstance : public CGSceneNode
 {
@@ -37,14 +37,14 @@ class CGSceneAnimInstance : public CGSceneNode
         }
 
         // /
-        void SetAnimatedObject(CGSceneAnimCfg* _poCfg)
+        void SetAnimatedObject(CGSceneAnimNode* _poObj)
         {
-            m_poCfg = _poCfg;
+            m_poObj = _poObj;
         }
 
-        CGSceneAnimCfg* poGetAnimatedObject()
+        CGSceneAnimNode* poGetAnimatedObject()
         {
-            return (m_poCfg);
+            return (m_poObj);
         }
 
         // /
@@ -64,7 +64,7 @@ class CGSceneAnimInstance : public CGSceneNode
     protected:
 
         // The config used by object to be rendered
-        CGSceneAnimObject* m_poObj;
+        CGSceneAnimNode* m_poObj;
 
         // The object to be rendered
         CGSceneAnimCfg* m_poCfg;

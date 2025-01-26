@@ -39,7 +39,7 @@ class CLoaderMD2 : public C3DLoader
 
         int GetNumFrames();
 
-        CGSceneAnimCfgGen* pLoadQ2Player(char* Filename);
+        CGSceneAnimCfg* pLoadQ2Player(char* Filename);
 
     protected:
 

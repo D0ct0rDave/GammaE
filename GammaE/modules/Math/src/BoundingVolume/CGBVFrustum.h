@@ -31,7 +31,7 @@ class CGBVFrustum : public CGBoundingVolume
         }
 
         // / Returns the volume occupied by the bounding volume
-        virtual float fGetVolume()
+        virtual float fGetVolume() const
         {
             // Too lazy, to be honest ...
             return(0.0f);

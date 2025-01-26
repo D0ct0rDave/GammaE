@@ -7,6 +7,7 @@
  *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
  *  \par GammaE License
  */
+ // ----------------------------------------------------------------------------
 #include "GammaE_Mem.h"
 #include "MeshDB\CGDefferredMeshDB.h"
 #include "Shaders/CGShader.h"
@@ -25,12 +26,12 @@ int SortDMEntries( const void* a, const void* b)
     if ( ( poDMa->poShader->bIsTransparent() ) && ( !poDMb->poShader->bIsTransparent() ) ) return(1);
 
     // Sort by material
-    if ( (int)poDMa->poShader < (int)poDMb->poShader ) return(-1);
-    if ( (int)poDMa->poShader > (int)poDMb->poShader ) return(1);
+    if ( (pointer)poDMa->poShader < (pointer)poDMb->poShader ) return(-1);
+    if ( (pointer)poDMa->poShader > (pointer)poDMb->poShader ) return(1);
 
     // Sort by mesh
-    if ( (int)poDMa->poMesh < (int)poDMb->poMesh ) return(-1);
-    if ( (int)poDMa->poMesh > (int)poDMb->poMesh ) return(1);
+    if ( (pointer)poDMa->poMesh < (pointer)poDMb->poMesh ) return(-1);
+    if ( (pointer)poDMa->poMesh > (pointer)poDMb->poMesh ) return(1);
 
     return(0);
 }

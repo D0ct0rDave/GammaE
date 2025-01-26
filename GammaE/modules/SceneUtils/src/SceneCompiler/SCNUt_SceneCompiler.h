@@ -24,9 +24,9 @@ class SCNUt_SceneCompiler
 
         ~SCNUt_SceneCompiler();
 
-        CGBoundingVolume* poCreateBoundVol ()
+        CGGraphBV* poCreateBoundVol ()
         {
-            return( CGraphBVFactory::poCreate() );
+            return( CGGraphBVFactory::poCreate() );
         }
 
         void CompileScene(CGSceneNode* _poScn);

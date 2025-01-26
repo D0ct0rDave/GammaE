@@ -11,7 +11,7 @@
 // %X% %Q% %Z% %W%
 
 // CCOL_Mesh_ColTester
-#include "Collision\COL_Testers\COL_SceneTest\CCOL_Mesh_ColTester.h"
+#include "CCOL_Mesh_ColTester.h"
 
 // Class CCOL_Mesh_ColTester
 
@@ -23,7 +23,7 @@ CCOL_Mesh_ColTester::~CCOL_Mesh_ColTester()
 {
 }
 
-int CCOL_Mesh_ColTester::iTestCollision (CMesh* _pMesh, CGBoundingVolume* _BVol, CCOL_TriList& _TriList)
+int CCOL_Mesh_ColTester::iTestCollision (CGMesh* _pMesh, CGBoundingVolume* _BVol, CCOL_TriList& _TriList)
 {
     if ( !_pMesh ) return(0);
     if ( !_TriList.iFreeTris() ) return(0);
@@ -37,9 +37,10 @@ int CCOL_Mesh_ColTester::iTestCollision (CMesh* _pMesh, CGBoundingVolume* _BVol,
     float fSqDist;
     int iTris = 0;
 
-    switch ( _pMesh->eMeshType )
+    switch ( _pMesh>eMeshType )
     {
-        case E3D_MESH_NONE:         return(0);
+        case E3D_MESH_NONE:         
+            return(0);
         break;
 
         // -------------------------------------------------------------------------------------

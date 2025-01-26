@@ -26,7 +26,7 @@ class CGBoundingVolume
         }
 
         // / Returns the volume occupied by the bounding volume
-        virtual float fGetVolume() = 0;
+        virtual float fGetVolume() const = 0;
 
     protected:
         EGBoundingVolumeType m_eType;

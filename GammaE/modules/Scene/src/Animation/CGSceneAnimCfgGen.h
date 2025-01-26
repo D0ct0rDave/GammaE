@@ -13,27 +13,17 @@
 #define CGSceneAnimCfgGenH
 
 // CObject3D
-#include "CObject3D.h"
+#include "CGSceneNode.h"
 
 class CGSceneAnimCfgGen : public CGSceneNode
 {
     public:
-        CGSceneAnimCfgGen();
-
-        virtual ~CGSceneAnimCfgGen();
-
-        virtual CGBoundingVolume* poCreateBoundVol ()
+        virtual CGGraphBV* poCreateBoundVol ()
         {
-            return( CGraphBV_Manager::poCreate() );
+            return( CGGraphBVFactory::poCreate() );
         }
 
         virtual void SetFrameAnim(int iFrameAnim) = 0;
-
-    protected:
-
-    private:
-
-    private:
 };
 
 #endif

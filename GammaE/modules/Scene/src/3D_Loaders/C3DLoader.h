@@ -17,9 +17,6 @@
 class C3DLoader
 {
     public:
-        C3DLoader();
-        ~C3DLoader();
-
         virtual CGSceneNode* poLoad(const CGString& _sFilename) = 0;
 };
 // ----------------------------------------------------------------------------

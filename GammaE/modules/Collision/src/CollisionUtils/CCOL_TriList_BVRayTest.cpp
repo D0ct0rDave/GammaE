@@ -101,7 +101,7 @@ CGVect3* Corner;
 CGVect3 Center;
 CGVect3 Extents;
 
-Center = _pBV.GetCenter();
+Center = _pBV.oGetCenter();
 Extents = _pBV.GetExtents();
 Extents.Scale(0.5f);
 

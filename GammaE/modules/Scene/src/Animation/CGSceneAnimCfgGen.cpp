@@ -9,11 +9,3 @@
  */
 // ----------------------------------------------------------------------------
 #include "Animation\CGSceneAnimCfgGen.h"
-
-CGSceneAnimCfgGen::CGSceneAnimCfgGen()
-{
-}
-
-CGSceneAnimCfgGen::~CGSceneAnimCfgGen()
-{
-}

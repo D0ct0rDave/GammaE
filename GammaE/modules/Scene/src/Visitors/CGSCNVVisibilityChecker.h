@@ -54,13 +54,13 @@ DECLARE_INHERITANT_SINGLETON(CGSCNVVisibilityChecker,public,CGSceneVisitor)
 
         virtual void Visit(CGSceneAnimCfgMgr * _poNode);
 
-        virtual void Visit(CGSceneAnimObject * _poNode);
+        virtual void Visit(CGSceneAnimNode * _poNode);
 
         virtual void Visit(CGSceneAnimMesh * _poNode);
 
         virtual void Visit(CGSceneAnimInstance * _poNode);
 
-        virtual void Visit(CGSceneAnimNode * _poNode);
+        virtual void Visit(CGSceneAnimGroup * _poNode);
 
         virtual void Visit(CGSceneAnimTransf * _poNode);
 

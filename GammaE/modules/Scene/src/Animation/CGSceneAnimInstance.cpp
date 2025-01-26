@@ -8,11 +8,11 @@
  *  \par GammaE License
  */
 // ----------------------------------------------------------------------------
-#include "Animation\CGSceneAnimInstance.h"
+#include "CGSceneAnimInstance.h"
 // --------------------------------------------------------------------------------
 CGSceneAnimInstance::CGSceneAnimInstance()
 {
-    TypeID = OBJ3D_AnimCfg;
+    m_eNodeType = ESceneNodeType::SNT_AnimInstance;
 }
 // --------------------------------------------------------------------------------
 CGSceneAnimInstance::~CGSceneAnimInstance()

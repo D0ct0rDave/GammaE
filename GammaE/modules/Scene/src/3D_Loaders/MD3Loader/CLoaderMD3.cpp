@@ -312,7 +312,7 @@ CGSceneNode* CLoaderMD3::pLoadModel (char* Filename)
     tex_coord_t* UVs;
     vertice_t* VXs;
 
-    CGSceneAnimNode* AnimModel;
+    CGSceneAnimGroup* AnimModel;
     CGSceneAnimTransf* AnimTransf;
     CGSceneAnimMesh* AnimMesh;
 
@@ -349,7 +349,7 @@ CGSceneNode* CLoaderMD3::pLoadModel (char* Filename)
     // Create animation transformation node (bones)
     AnimTransf = CreateAnimTransfNode(tags,header.numBoneFrames,header.numTags);
 
-    AnimModel = mNew CGSceneAnimNode;
+    AnimModel = mNew CGSceneAnimGroup;
     AnimModel->Init        (header.numMeshes + 1 + 1);
     AnimModel->CreateStates(header.numBoneFrames);
     // free buffers
@@ -446,7 +446,7 @@ CGSceneAnimCfgGen* CLoaderMD3::pLoadQ3Player (char* _Path, char* _SkinName)
     char l_spath[1024], u_spath[1024], h_spath[1024];
     char a_path[1024];
 
-    CGSceneAnimNode* L,* U,* H;
+    CGSceneAnimGroup* L,* U,* H;
     CGSceneAnimCfgMgr* pQ3Player;
 
     sprintf(l_mpath, "%s/lower.md3", _Path);
@@ -457,9 +457,9 @@ CGSceneAnimCfgGen* CLoaderMD3::pLoadQ3Player (char* _Path, char* _SkinName)
     sprintf(u_spath, "%s/upper_%s.skin", _Path, _SkinName);
     sprintf(h_spath, "%s/head_%s.skin", _Path, _SkinName);
 
-    L = (CGSceneAnimNode*)pLoad(l_mpath,l_spath);
-    U = (CGSceneAnimNode*)pLoad(u_mpath,u_spath);
-    H = (CGSceneAnimNode*)pLoad(h_mpath,h_spath);
+    L = (CGSceneAnimGroup*)pLoad(l_mpath,l_spath);
+    U = (CGSceneAnimGroup*)pLoad(u_mpath,u_spath);
+    H = (CGSceneAnimGroup*)pLoad(h_mpath,h_spath);
 
     // Linkar objetos
     U->AddObject(H);
@@ -470,7 +470,7 @@ CGSceneAnimCfgGen* CLoaderMD3::pLoadQ3Player (char* _Path, char* _SkinName)
     return (pQ3Player);
 }
 
-CGSceneAnimCfgMgr* CLoaderMD3::pLoadAnimation (char* _Filename, CGSceneAnimNode* _pLegs, CGSceneAnimNode* _pTorso)
+CGSceneAnimCfgMgr* CLoaderMD3::pLoadAnimation (char* _Filename, CGSceneAnimGroup* _pLegs, CGSceneAnimGroup* _pTorso)
 {
     char* Buffer = Utils::Parse::ReadFile(_Filename);
     char* szHeader = Buffer;

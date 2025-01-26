@@ -14,9 +14,9 @@
 #include "CGSceneLeaf.h"
 
 // CGSceneAnimGen
-#include "Animation\CGSceneAnimObject.h"
+#include "Animation\CGSceneAnimNode.h"
 // --------------------------------------------------------------------------------
-class CGSceneAnimMesh : public CGSceneAnimObject
+class CGSceneAnimMesh : public CGSceneAnimNode
 {
     public:
         CGSceneAnimMesh();

@@ -12,6 +12,7 @@
 // ----------------------------------------------------------------------------
 #include "3D_Loaders\MD2Loader\CLoaderMD2.h"
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 #include "GammaE_Mem.h"
 // ----------------------------------------------------------------------------
@@ -109,7 +110,7 @@ CGSceneNode* CLoaderMD2::ParseChunks ()
     LeafObj->SetShader(Skin);
 
     AnimMesh = mNew CGSceneAnimMesh();
-    AnimMesh->CreateStates(MD2Header->numFrames,Mesh->m_usNumVXs);
+    AnimMesh->CreateStates(MD2Header->numFrames, Mesh.uiGetNumVXs());
     AnimMesh->SetLeaf(LeafObj);
 
     // Parse model frames
@@ -149,11 +150,11 @@ SCNUt_TriScene* CLoaderMD2::ParseModel ()
                 Vertexs[uiVPos].vertex[1] * Frame->scale[1] + Frame->translate[1],
                 Vertexs[uiVPos].vertex[2] * Frame->scale[2] + Frame->translate[2]);
 
-            MD2Mesh->Tris[cTri].UVs[cVert].V2(
+            MD2Mesh->Tris[cTri].UVs[cVert].Set(
                 (float)TexCoords[uiTPos].s / (float)MD2Header->skinWidth,
                 (float)TexCoords[uiTPos].t / (float)MD2Header->skinHeight);
 
-            MD2Mesh->Tris[cTri].VCs[cVert].V4(1,1,1,0);
+            MD2Mesh->Tris[cTri].VCs[cVert].Set(1,1,1,0);
         }
     }
 
@@ -171,10 +172,10 @@ unsigned short* CLoaderMD2::GetVertexConversionTable (CGMesh &Mesh)
 {
     CGVect3 NewVX;
     int cVert,cMD2Vert;
-    unsigned short* NewIdxs = (unsigned short*)MEMAlloc( Mesh.m_usNumVXs * sizeof(unsigned short) );
+    unsigned short* NewIdxs = (unsigned short*)MEMAlloc(Mesh.uiGetNumVXs() * sizeof(unsigned short));
 
     // Obtener los nuevos indices en funcion de los antiguos
-    for ( cVert = 0; cVert < Mesh.m_usNumVXs; cVert++ )
+    for ( cVert = 0; cVert < Mesh.uiGetNumVXs(); cVert++ )
     {
         // Buscar el vertice MD2 al que corresponde el vértice actual
         cMD2Vert = 0;
@@ -224,7 +225,7 @@ void CLoaderMD2::ParseFrameSet (CGSceneAnimMesh &AnimMesh, CGMesh &Mesh)
         Frame = (frame_t*)&Stream[ MD2Header->offsetFrames + cFrame * MD2Header->frameSize];
 
         // Convert from MD2 frames to engine frames
-        for ( cVert = 0; cVert < Mesh.m_usNumVXs; cVert++ )
+        for ( cVert = 0; cVert < Mesh.uiGetNumVXs(); cVert++ )
         {
             NewVX.Set(
                 Vertexs[ NewIdxs[cVert] ].vertex[0] * Frame->scale[0] + Frame->translate[0],
@@ -233,7 +234,7 @@ void CLoaderMD2::ParseFrameSet (CGSceneAnimMesh &AnimMesh, CGMesh &Mesh)
                 );
 
             // Correct point
-            oCMat.TransformPoint(NewVX);
+            oCMat.TransformPoint(&NewVX);
 
             pVX->Assign(NewVX);
             pVX++;
@@ -271,7 +272,7 @@ int CLoaderMD2::GetNumFrames ()
     return (MD2Header->numFrames);
 }
 // ----------------------------------------------------------------------------
-CGSceneAnimCfgGen* CLoaderMD2::pLoadQ2Player (char* Filename)
+CGSceneAnimCfg* CLoaderMD2::pLoadQ2Player(char* Filename)
 {
     CGSceneAnimCfg* pQ2Player;
     CGSceneAnimMesh* pQ2Model;
@@ -281,19 +282,16 @@ CGSceneAnimCfgGen* CLoaderMD2::pLoadQ2Player (char* Filename)
     if ( pQ2Model )
     {
         pQ2Player = mNew CGSceneAnimCfg();
-        pQ2Player->CreateFrameAnims(9);
-        pQ2Player->SetupFrameAnim(0,0,MD2Header->numFrames,40,true);
+        pQ2Player->uiAddAction("full", 0,MD2Header->numFrames,40,true);
 
-        pQ2Player->SetupFrameAnim( 1,0,39,10.0f,true );                    // stand
-        pQ2Player->SetupFrameAnim( 2,40,45, 0.5f,true );                    // run
-        pQ2Player->SetupFrameAnim( 3,46,53, 2.0f,true );                    // attack
-        pQ2Player->SetupFrameAnim( 4,54,57, 2.0f,false);                    // pain 1
-        pQ2Player->SetupFrameAnim( 5,58,61, 2.0f,false);                    // pain 2
-        pQ2Player->SetupFrameAnim( 6,62,65, 2.0f,false);                    // pain 3
-        pQ2Player->SetupFrameAnim( 7,66,71, 2.0f,false);                    // jump
-        pQ2Player->SetupFrameAnim( 8,71,84, 2.0f,false);                    // flip
-
-        pQ2Player->SetFrameAnim  (1);
+        pQ2Player->uiAddAction("stand", 0, 39, 10.0f, true);    // stand
+        pQ2Player->uiAddAction("run", 40,45, 0.5f,true );       // run
+        pQ2Player->uiAddAction("attack", 46,53, 2.0f,true );    // attack
+        pQ2Player->uiAddAction("pain1", 54,57, 2.0f,false);     // pain 1
+        pQ2Player->uiAddAction("pain2", 58,61, 2.0f,false);     // pain 2
+        pQ2Player->uiAddAction("pain3", 62,65, 2.0f,false);     // pain 3
+        pQ2Player->uiAddAction("jump", 66,71, 2.0f,false);      // jump
+        pQ2Player->uiAddAction("flip", 71,84, 2.0f,false);      // flip
 
         pQ2Player->SetAnimObj(pQ2Model);
     }

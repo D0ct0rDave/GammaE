@@ -16,56 +16,59 @@ EGBoundingVolumeType CGGraphBVAABB::eGetTypeID() const
     return EGBoundingVolumeType::BVT_AABB;
 }
 // ----------------------------------------------------------------------------
-void CGGraphBVAABB::Transform(const CGMatrix4x4& _roM)
+void CGGraphBVAABB::Init(const CGVect3& _oMax, const CGVect3& _oMin)
 {
-    unsigned int cV;
-    CGVect3 Mins,Maxs;
-
-    Mins.Set( 1e10f, 1e10f, 1e10f);
-    Maxs.Set(-1e10f,-1e10f,-1e10f);
-
-    const CGVect3* poPoints = m_oVol.poGetPoints();
-
-    for ( cV = 0; cV < 8; cV++ )
-    {
-        // Transform current Bounding box point
-        CGVect3 vertex = poPoints[cV];
-        _roM.TransformPoint(&vertex);
-
-        if (vertex.x > Maxs.x ) Maxs.x = vertex.x;
-        if (vertex.x < Mins.x ) Mins.x = vertex.x;
-        if (vertex.y > Maxs.y ) Maxs.y = vertex.y;
-        if (vertex.y < Mins.y ) Mins.y = vertex.y;
-        if (vertex.z > Maxs.z ) Maxs.z = vertex.z;
-        if (vertex.z < Mins.z ) Mins.z = vertex.z;
-    }
-
-    // Recompute bounding box
-    m_oVol.Init(Maxs,Mins);
+    m_oVol.Init(_oMax, _oMin);
     ComputeAll();
 }
 // ----------------------------------------------------------------------------
-void CGGraphBVAABB::Compute (CGVect3* _poVXs, uint _uiNumVXs)
+void CGGraphBVAABB::Compute(CGVect3* _poVXs, uint _uiNumVXs)
 {
-    unsigned short cV;
-    CGVect3 Mins,Maxs;
+    CGVect3 oMins, oMaxs;
 
-    Mins.Set( 1e10f, 1e10f, 1e10f);
-    Maxs.Set(-1e10f,-1e10f,-1e10f);
+    oMins.Set( 1e10f,  1e10f,  1e10f);
+    oMaxs.Set(-1e10f, -1e10f, -1e10f);
 
-    for ( cV = 0; cV < _uiNumVXs; cV++ )
+    for (uint cV = 0; cV < _uiNumVXs; cV++)
     {
-        if (_poVXs[cV].x > Maxs.x ) Maxs.x = _poVXs[cV].x;
-        if (_poVXs[cV].x < Mins.x ) Mins.x = _poVXs[cV].x;
-        if (_poVXs[cV].y > Maxs.y ) Maxs.y = _poVXs[cV].y;
-        if (_poVXs[cV].y < Mins.y ) Mins.y = _poVXs[cV].y;
-        if (_poVXs[cV].z > Maxs.z ) Maxs.z = _poVXs[cV].z;
-        if (_poVXs[cV].z < Mins.z ) Mins.z = _poVXs[cV].z;
+        if (_poVXs[cV].x > oMaxs.x) oMaxs.x = _poVXs[cV].x;
+        if (_poVXs[cV].x < oMins.x) oMins.x = _poVXs[cV].x;
+        if (_poVXs[cV].y > oMaxs.y) oMaxs.y = _poVXs[cV].y;
+        if (_poVXs[cV].y < oMins.y) oMins.y = _poVXs[cV].y;
+        if (_poVXs[cV].z > oMaxs.z) oMaxs.z = _poVXs[cV].z;
+        if (_poVXs[cV].z < oMins.z) oMins.z = _poVXs[cV].z;
     }
 
-    m_oVol.Init(Maxs,Mins);
+    m_oVol.Init(oMaxs, oMins);
     ComputeAll();
 }
+// ----------------------------------------------------------------------------
+void CGGraphBVAABB::Transform(const CGMatrix4x4& _roM)
+{
+    CGVect3 oMins, oMaxs;
+
+    oMins.Set( 1e10f, 1e10f, 1e10f);
+    oMaxs.Set(-1e10f,-1e10f,-1e10f);
+
+    for (uint cV = 0; cV < 8; cV++ )
+    {
+        // Transform current Bounding box point
+        CGVect3 vertex = m_oPoints[cV];
+        _roM.TransformPoint(&vertex);
+
+        if (vertex.x > oMaxs.x ) oMaxs.x = vertex.x;
+        if (vertex.x < oMins.x ) oMins.x = vertex.x;
+        if (vertex.y > oMaxs.y ) oMaxs.y = vertex.y;
+        if (vertex.y < oMins.y ) oMins.y = vertex.y;
+        if (vertex.z > oMaxs.z ) oMaxs.z = vertex.z;
+        if (vertex.z < oMins.z ) oMins.z = vertex.z;
+    }
+
+    // Recompute bounding box
+    m_oVol.Init(oMaxs, oMins);
+    ComputeAll();
+}
+
 // ----------------------------------------------------------------------------
 float CGGraphBVAABB::GetRange(char _cAxis) const 
 {
@@ -73,33 +76,33 @@ float CGGraphBVAABB::GetRange(char _cAxis) const
     return (m_oExtents.v(_cAxis) * 2);
 }
 // ----------------------------------------------------------------------------
-const CGVect3 & CGGraphBVAABB::GetCenter() const
+const CGVect3 & CGGraphBVAABB::oGetCenter() const
 {
     return(m_oCenter);
 }
 // ----------------------------------------------------------------------------
-int CGGraphBVAABB::TestFrustum(const CGBVFrustum& _oFrustum)
+int CGGraphBVAABB::TestFrustum(const CGBVFrustum& _oFrustum) const
 {
     // / Test the intersection of a given bounding volume against a given frustum
     bool bIntersect = Math::bBVIntersectFrustum(m_oVol, _oFrustum);
 
     return bIntersect?1:0;
 }
+
 // ----------------------------------------------------------------------------
-void CGGraphBVAABB::Init (const CGVect3& _oMax, const CGVect3& _oMin)
-{
-    m_oVol.Init(_oMax, _oMin);
-    ComputeAll();
-}
-// ----------------------------------------------------------------------------
-CGBVAABB* CGGraphBVAABB::pGetBox ()
-{
-    return (&m_oVol);
-}
-// ----------------------------------------------------------------------------
-int CGGraphBVAABB::TestInside (const CGVect3& _oPos)
+int CGGraphBVAABB::TestInside (const CGVect3& _oPos) const
 {
     return (_oPos.bInside( m_oVol.oGetMax(), m_oVol.oGetMin()));
+}
+// ----------------------------------------------------------------------------
+const CGBVAABB& CGGraphBVAABB::oGetBox() const
+{
+    return m_oVol;
+}
+// ----------------------------------------------------------------------------
+const CGBoundingVolume& CGGraphBVAABB::oGetBV() const
+{
+    return m_oVol;
 }
 // ----------------------------------------------------------------------------
 const CGVect3 & CGGraphBVAABB::GetExtents () const
@@ -140,7 +143,7 @@ const CGVect3 & CGGraphBVAABB::oGetMin() const
     return(m_oVol.oGetMin());
 }
 // ----------------------------------------------------------------------------
-void CGGraphBVAABB::ComputeAll ()
+void CGGraphBVAABB::ComputeAll()
 {
     // Compute extents
     m_oExtents.Assign(m_oVol.oGetMax());
@@ -151,5 +154,18 @@ void CGGraphBVAABB::ComputeAll ()
     m_oCenter.Assign(m_oVol.oGetMax());
     m_oCenter.Add   (m_oVol.oGetMin());
     m_oCenter.Scale (0.5f);
+
+    CGVect3 oMaxs = m_oVol.oGetMax();
+    CGVect3 oMins = m_oVol.oGetMin();
+
+    // Look up table
+    m_oPoints[0].Set(oMaxs.x, oMaxs.y, oMaxs.z);       // 000
+    m_oPoints[1].Set(oMaxs.x, oMaxs.y, oMins.z);       // 001
+    m_oPoints[2].Set(oMaxs.x, oMins.y, oMaxs.z);       // 010
+    m_oPoints[3].Set(oMaxs.x, oMins.y, oMins.z);       // 011
+    m_oPoints[4].Set(oMins.x, oMaxs.y, oMaxs.z);       // 100
+    m_oPoints[5].Set(oMins.x, oMaxs.y, oMins.z);       // 101
+    m_oPoints[6].Set(oMins.x, oMins.y, oMaxs.z);       // 110
+    m_oPoints[7].Set(oMins.x, oMins.y, oMins.z);       // 111
 }
 // ----------------------------------------------------------------------------

@@ -54,9 +54,6 @@
     <ClInclude Include="..\modules\Math\src\BoundingVolume\CGBVSphere.h">
       <Filter>BoundingVolume</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Math\src\BoundingVolume\CGBVUtils.h">
-      <Filter>BoundingVolume</Filter>
-    </ClInclude>
     <ClInclude Include="..\modules\Math\src\BoundingVolume\CGBoundingVolume.h">
       <Filter>BoundingVolume</Filter>
     </ClInclude>
@@ -163,9 +160,6 @@
       <Filter>BoundingVolume</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Math\src\BoundingVolume\CGBVSphere.cpp">
-      <Filter>BoundingVolume</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Math\src\BoundingVolume\CGBVUtils.cpp">
       <Filter>BoundingVolume</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Math\src\BoundingVolume\CGBoundingVolume.cpp">

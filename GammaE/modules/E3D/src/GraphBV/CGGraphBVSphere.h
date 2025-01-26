@@ -20,43 +20,29 @@ class CGGraphBVSphere : public CGGraphBV
 {
     public:
 
-        virtual void Transform(const CGMatrix4x4& _oM);
-
+        void Init(const CGVect3& _oCenter, float _fRadius);
+        
         virtual void Compute(CGVect3* _poVXs, uint _uiNumVXs);
+                
+        virtual void Transform(const CGMatrix4x4& _oM);
 
         virtual float GetRange(char _cAxis) const;
 
-        virtual const CGVect3 & GetCenter() const;
+        virtual const CGVect3 & oGetCenter() const;
 
-        virtual int TestFrustum(const CGBVFrustum& _oFrustum);
+        virtual int TestFrustum(const CGBVFrustum& _oFrustum) const;
 
-        virtual void Init(const CGVect3& _oMax, const CGVect3& _oMin);
-
-        virtual int TestInside(const CGVect3& _oPos);
+        virtual int TestInside(const CGVect3& _oPos) const;
 
         virtual EGBoundingVolumeType eGetTypeID() const;
 
-        virtual void Copy(const CGGraphBV& _oSrc);
+        virtual const CGBoundingVolume& oGetBV() const;
 
-        CGBVSphere* poGetSphere();
+        const CGBVSphere& oGetSphere() const;
 
     private:
         // Data Members for Associations
         CGBVSphere m_oVol;
-
-        // Additional Public Declarations
-
-    protected:
-        // Data Members for Class Attributes
-
-        CGVect3 oExtents;
-
-        // Additional Protected Declarations
-
-    private:
-        // Additional Private Declarations
-
-    private:   // Additional Implementation Declarations
 };
 
 // Class CGBVSphere

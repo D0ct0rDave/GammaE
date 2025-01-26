@@ -427,51 +427,47 @@ void CGOGLWinRenderer::Finish ()
     }
 }
 // ----------------------------------------------------------------------------
-void CGOGLWinRenderer::RenderBV(CGBoundingVolume* BVol)
+void CGOGLWinRenderer::RenderBV(CGGraphBV* _poBVol)
 {
-    /*
-       // DMC REFACT
+    if ( !_poBVol) return;
 
-       if ( !BVol ) return;
+    float fXSize = _poBVol->GetRange(0) * 0.5f;
+    float fYSize = _poBVol->GetRange(1) * 0.5f;
+    float fZSize = _poBVol->GetRange(2) * 0.5f;
 
-       float fXSize = BVol->GetRange(0) * 0.5f;
-       float fYSize = BVol->GetRange(1) * 0.5f;
-       float fZSize = BVol->GetRange(2) * 0.5f;
+    CGVect3 Pos = _poBVol->oGetCenter();
 
-       CGVect3 Pos = BVol->GetCenter();
+    glBlendFunc(GL_ONE,GL_ZERO);
+    glDisable(GL_TEXTURE_2D);
+    glDisable(GL_CULL_FACE);
+    glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
 
-       glBlendFunc(GL_ONE,GL_ZERO);
-       glDisable(GL_TEXTURE_2D);
-       glDisable(GL_CULL_FACE);
-       glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
+    glColor3f(1.0f,1.0f,0.25f);
+    glBegin(GL_QUADS);
+    glVertex3f(Pos.x - fXSize,Pos.y - fYSize,Pos.z + fZSize);
+    glVertex3f(Pos.x - fXSize,Pos.y + fYSize,Pos.z + fZSize);
+    glVertex3f(Pos.x + fXSize,Pos.y + fYSize,Pos.z + fZSize);
+    glVertex3f(Pos.x + fXSize,Pos.y - fYSize,Pos.z + fZSize);
 
-       glColor3f(1.0f,1.0f,0.25f);
-       glBegin(GL_QUADS);
-       glVertex3f(Pos.x - fXSize,Pos.y - fYSize,Pos.z + fZSize);
-       glVertex3f(Pos.x - fXSize,Pos.y + fYSize,Pos.z + fZSize);
-       glVertex3f(Pos.x + fXSize,Pos.y + fYSize,Pos.z + fZSize);
-       glVertex3f(Pos.x + fXSize,Pos.y - fYSize,Pos.z + fZSize);
+    glVertex3f(Pos.x - fXSize,Pos.y - fYSize,Pos.z + fZSize);
+    glVertex3f(Pos.x - fXSize,Pos.y + fYSize,Pos.z + fZSize);
+    glVertex3f(Pos.x - fXSize,Pos.y + fYSize,Pos.z - fZSize);
+    glVertex3f(Pos.x - fXSize,Pos.y - fYSize,Pos.z - fZSize);
 
-       glVertex3f(Pos.x - fXSize,Pos.y - fYSize,Pos.z + fZSize);
-       glVertex3f(Pos.x - fXSize,Pos.y + fYSize,Pos.z + fZSize);
-       glVertex3f(Pos.x - fXSize,Pos.y + fYSize,Pos.z - fZSize);
-       glVertex3f(Pos.x - fXSize,Pos.y - fYSize,Pos.z - fZSize);
+    glVertex3f(Pos.x + fXSize,Pos.y - fYSize,Pos.z + fZSize);
+    glVertex3f(Pos.x + fXSize,Pos.y + fYSize,Pos.z + fZSize);
+    glVertex3f(Pos.x + fXSize,Pos.y + fYSize,Pos.z - fZSize);
+    glVertex3f(Pos.x + fXSize,Pos.y - fYSize,Pos.z - fZSize);
 
-       glVertex3f(Pos.x + fXSize,Pos.y - fYSize,Pos.z + fZSize);
-       glVertex3f(Pos.x + fXSize,Pos.y + fYSize,Pos.z + fZSize);
-       glVertex3f(Pos.x + fXSize,Pos.y + fYSize,Pos.z - fZSize);
-       glVertex3f(Pos.x + fXSize,Pos.y - fYSize,Pos.z - fZSize);
+    glVertex3f(Pos.x - fXSize,Pos.y - fYSize,Pos.z - fZSize);
+    glVertex3f(Pos.x - fXSize,Pos.y + fYSize,Pos.z - fZSize);
+    glVertex3f(Pos.x + fXSize,Pos.y + fYSize,Pos.z - fZSize);
+    glVertex3f(Pos.x + fXSize,Pos.y - fYSize,Pos.z - fZSize);
+    glEnd();
+    // glEnable(GL_CULL_FACE);
 
-       glVertex3f(Pos.x - fXSize,Pos.y - fYSize,Pos.z - fZSize);
-       glVertex3f(Pos.x - fXSize,Pos.y + fYSize,Pos.z - fZSize);
-       glVertex3f(Pos.x + fXSize,Pos.y + fYSize,Pos.z - fZSize);
-       glVertex3f(Pos.x + fXSize,Pos.y - fYSize,Pos.z - fZSize);
-       glEnd();
-       // glEnable(GL_CULL_FACE);
-
-       glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
-       glEnable(GL_TEXTURE_2D);
-     */
+    glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
+    glEnable(GL_TEXTURE_2D);
 }
 // ----------------------------------------------------------------------------
 void CGOGLWinRenderer::RenderNormals (CGMesh* Mesh)
@@ -757,7 +753,7 @@ void CGOGLWinRenderer::RenderMesh (CGBaseMesh* _poMesh, CGShader* _poShader)
         // Number of tested objects against frustum
         m_oREStats.m_uiNumTestedObjs++;
 
-        if ( !Math::bBVIntersectFrustum( *_poMesh->poGetBV(),oM,m_oFrustum) )
+        if ( !Math::bBVIntersectFrustum(_poMesh->poGetBV()->oGetBV(), oM, m_oFrustum))
         {
             // Number of not visible objects
             m_oREStats.m_uiNumCulledObjs++;

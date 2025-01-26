@@ -10,13 +10,13 @@
 // ----------------------------------------------------------------------------
 #include "Animation\CGSceneAnimObject.h"
 // --------------------------------------------------------------------------------
-CGSceneAnimObject::CGSceneAnimObject() :
+CGSceneAnimNode::CGSceneAnimNode() :
     m_uiNumKeyFrames(0),
     m_eTypeID(OBJ3D_AnimObject)
 {
 }
 // --------------------------------------------------------------------------------
-void CGSceneAnimObject::Init(uint _uiNumKeyFrames)
+void CGSceneAnimNode::Init(uint _uiNumKeyFrames)
 {
     m_uiNumKeyFrames = _uiNumKeyFrames;
 

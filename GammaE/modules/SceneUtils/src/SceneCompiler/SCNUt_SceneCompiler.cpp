@@ -34,11 +34,11 @@ void SCNUt_SceneCompiler::CompileScene (CGSceneNode* _poScn)
 
     switch ( _poScn->eGetNodeType() )
     {
-        case SNT_Gen:         break;
+        case SNT_Node:       break;
 
-        case SNT_Leaf:            break;
+        case SNT_Leaf:      break;
 
-        case SNT_Node:
+        case SNT_Group:
         {
             for ( iObj = 0; iObj < ( (CGSceneGroup*)_poScn )->uiNumSubObjs(); iObj++ )
             {
@@ -171,7 +171,8 @@ void SCNUt_SceneCompiler::CompileScene (CGSceneNode* _poScn)
         }
         break;
 
-        case SNT_Mux:                    // iTest3DObj_Mux(_fd,(CGSceneMux*)_pObj);
+        case SNT_Mux:                    
+            // iTest3DObj_Mux(_fd,(CGSceneMux*)_pObj);
         break;
 
         default:                    break;

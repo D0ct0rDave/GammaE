@@ -13,7 +13,7 @@
 // --------------------------------------------------------------------------------
 CGSceneAnimCfg::CGSceneAnimCfg()
 {
-    TypeID = OBJ3D_AnimCfg;
+    m_eNodeType = SNT_AnimCfg;
 }
 // --------------------------------------------------------------------------------
 CGSceneAnimCfg::~CGSceneAnimCfg()
@@ -75,7 +75,7 @@ CGSceneAnimCfg::~CGSceneAnimCfg()
    }
  */
 // --------------------------------------------------------------------------------
-CGBoundingVolume* CGSceneAnimCfg::poGetBoundVol()
+CGGraphBV* CGSceneAnimCfg::poGetBoundVol()
 {
     return( poGetAnimObj()->poGetKeyFrameBVol(0) );
 }

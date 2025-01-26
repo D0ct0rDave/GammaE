@@ -27,7 +27,7 @@
 #include "CGSceneMux.h"
 
 /*
- #include "Animation\CGSceneAnimNode.h"
+ #include "Animation\CGSceneAnimGroup.h"
  #include "Animation\CGSceneAnimMesh.h"
  #include "Animation\CGSceneAnimTransf.h"
  #include "Animation\CGSceneAnimCfg.h"
@@ -43,7 +43,7 @@ CSaverGEM::~CSaverGEM()
 {
 }
 // ----------------------------------------------------------------------------
-void SaveBoundingVolume(CGBoundingVolume* _poBV)
+void SaveBoundingVolume(CGGraphBV* _poBV)
 {
 }
 // ----------------------------------------------------------------------------
@@ -72,7 +72,7 @@ void SaveBoundingVolume(CGBoundingVolume* _poBV)
         case SNT_AnimObject:      iRes = 0;
         break;
 
-        case SNT_AnimNode:        iRes = bVisit(CGSceneAnimNode*)_poObj);
+        case SNT_AnimNode:        iRes = bVisit(CGSceneAnimGroup*)_poObj);
         break;
 
         case SNT_AnimMesh:        iRes = bVisit(CGSceneAnimMesh*)_poObj);
@@ -210,7 +210,7 @@ bool CSaverGEM::bSaveMesh(CGMesh* poMesh)
     return (true);
 }
 // ----------------------------------------------------------------------------
-void CSaverGEM::Visit( CGSceneAnimNode* _poObj)
+void CSaverGEM::Visit( CGSceneAnimGroup* _poObj)
 {
 /*
    uint uiNumSubObjects = _poObj->uiNumAnimObjects();
@@ -235,7 +235,7 @@ void CSaverGEM::Visit( CGSceneAnimNode* _poObj)
  */
 }
 // ----------------------------------------------------------------------------
-void CSaverGEM::Visit(CGSceneAnimObject* _poObj)
+void CSaverGEM::Visit(CGSceneAnimNode* _poObj)
 {
     /*
        int iRes;
@@ -245,7 +245,7 @@ void CSaverGEM::Visit(CGSceneAnimObject* _poObj)
 
        switch ( eObjType )
        {
-        case SNT_AnimNode:        iRes = bVisit(CGSceneAnimNode*)_poObj);
+        case SNT_AnimNode:        iRes = bVisit(CGSceneAnimGroup*)_poObj);
         break;
 
         case SNT_AnimMesh:        iRes = bVisit(CGSceneAnimMesh*)_poObj);

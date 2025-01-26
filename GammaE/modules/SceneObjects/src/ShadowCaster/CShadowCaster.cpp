@@ -92,7 +92,7 @@ void CShadowCaster::ComputeLightCamera ()
 {
     CE3D_Camera oCam;
 
-    oCam.m_oDir.Assign( poBlockerObj->poGetBV()->GetCenter() );
+    oCam.m_oDir.Assign( poBlockerObj->poGetBV()->oGetCenter() );
     oCam.m_oDir.Sub   (oLPos);
     oCam.m_oDir.Normalize();
 
@@ -107,7 +107,7 @@ void CShadowCaster::ComputeLightCamera ()
        // Compute camera viewing matrix
        CGVect3 oDir,oSide,oUp;
 
-       oDir.Assign(poBlockerObj->poGetBoundVol()->GetCenter());
+       oDir.Assign(poBlockerObj->poGetBoundVol()->oGetCenter());
        oDir.Sub   (oLPos);
        oDir.Normalize();
 

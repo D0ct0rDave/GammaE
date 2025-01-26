@@ -66,7 +66,7 @@ void CGSCNVVisibilityChecker::Visit(CGSceneAnimCfgMgr* _poNode)
 {
 }
 // ----------------------------------------------------------------------------
-void CGSCNVVisibilityChecker::Visit(CGSceneAnimObject* _poNode)
+void CGSCNVVisibilityChecker::Visit(CGSceneAnimNode* _poNode)
 {
 }
 // ----------------------------------------------------------------------------
@@ -78,7 +78,7 @@ void CGSCNVVisibilityChecker::Visit(CGSceneAnimInstance* _poNode)
 {
 }
 // ----------------------------------------------------------------------------
-void CGSCNVVisibilityChecker::Visit(CGSceneAnimNode* _poNode)
+void CGSCNVVisibilityChecker::Visit(CGSceneAnimGroup* _poNode)
 {
 }
 // ----------------------------------------------------------------------------

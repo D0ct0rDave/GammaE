@@ -123,9 +123,9 @@ void CHUD::Render ()
             TZ = BVol->GetRange(2);
             if ( !TZ ) TZ = 1.0f;
 
-            XTrans = -BVol->GetCenter().x;
-            YTrans = -BVol->GetCenter().y;
-            ZTrans = -BVol->GetCenter().z;
+            XTrans = -BVol->oGetCenter().x;
+            YTrans = -BVol->oGetCenter().y;
+            ZTrans = -BVol->oGetCenter().z;
 
             // Los objetos están definidos en un rango (0..1)(0..1), tanto en el tamaño como en la posición.
 

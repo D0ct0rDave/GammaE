@@ -8,34 +8,45 @@
  *  \par GammaE License
  */
 // ----------------------------------------------------------------------------
-#ifndef CGSceneAnimTransfH
-#define CGSceneAnimTransfH
+#ifndef CGSceneAnimGroupH
+#define CGSceneAnimGroupH
 // --------------------------------------------------------------------------------
+#include "GammaE_Misc.h"
 #include "Animation\CGSceneAnimNode.h"
 // --------------------------------------------------------------------------------
-class CGSceneAnimTransf : public CGSceneAnimNode
+class CGSceneAnimGroup : public CGSceneAnimNode
 {
     public:
-        CGSceneAnimTransf();
-        virtual ~CGSceneAnimTransf();
 
-        // / Sets up the data inside the animated object
-        void Setup(CGMatrix4x4* _poTransforms)
+        CGSceneAnimGroup();
+        virtual ~CGSceneAnimGroup();
+
+        // / Adds a new animation object to the animation node
+        uint uiAddObject(CGSceneAnimNode* _poObj)
         {
-            m_poTransforms = _poTransforms;
+            return ( m_poObjs.uiAdd(_poObj) );
         }
 
-        // / Retrieves the array of transform for this animated object
-        CGMatrix4x4* poGetTransforms()
+        // / Retrieves the specific animation object
+        CGSceneAnimNode* poGetAnimObject(uint _uiObj)
         {
-            return(m_poTransforms);
+            return(m_poObjs[_uiObj]);
         }
 
-        // / Recompute the bounding volume of all the frames
-        virtual void ComputeBoundVols()
+        // / Retrieves the number of child animated objects
+        uint uiNumAnimObjects()
         {
-            assert(false && "Not implemented!!");
+            return ( m_poObjs.uiNumElems() );
         }
+
+        // / Clears all the array of animated objects
+        void Clear()
+        {
+            m_poObjs.Clear();
+        }
+
+        // / Recomputes the bounding volumes
+        virtual void ComputeBoundVols();
 
         // General Processing Functionalities
         virtual void Accept(CGSceneVisitor* _poVisitor)
@@ -45,9 +56,9 @@ class CGSceneAnimTransf : public CGSceneAnimNode
 
     protected:
 
-        // Array to store the transform keyframes
-        CGMatrix4x4* m_poTransforms;
+        CGDynArray <CGSceneAnimNode*> m_poObjs;
 };
+
 // --------------------------------------------------------------------------------
 #endif
 // --------------------------------------------------------------------------------

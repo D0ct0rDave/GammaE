@@ -21,21 +21,24 @@
 class CGGraphBVAABB : public CGGraphBV
 {
     public:
-        virtual void Transform(const CGMatrix4x4& _oM);
+
+        virtual void Init(const CGVect3& _oMax, const CGVect3&  _oMin);
 
         virtual void Compute(CGVect3* _poVXs, uint _uiNumVXs);
 
+        virtual void Transform(const CGMatrix4x4& _oM);
+
         virtual float GetRange(char _cAxis) const;
 
-        virtual const CGVect3& GetCenter() const;
+        virtual const CGVect3& oGetCenter() const;
 
-        virtual int TestFrustum(const CGBVFrustum& _oFrustum);
+        virtual int TestFrustum(const CGBVFrustum& _oFrustum) const;
 
-        virtual void Init(const CGVect3& _oMax, const CGVect3&  _oMin);
-        
         virtual EGBoundingVolumeType eGetTypeID() const;
 
-        virtual int TestInside(const CGVect3& _Pos);
+        virtual int TestInside(const CGVect3& _Pos) const;
+
+        virtual const CGBoundingVolume& oGetBV() const;
 
         virtual const CGVect3& GetExtents() const;
 
@@ -45,7 +48,7 @@ class CGGraphBVAABB : public CGGraphBV
 
         const CGVect3& GetAxis(char _cAxis) const;
 
-        CGBVAABB* pGetBox();
+        const CGBVAABB& oGetBox() const;
 
 protected:
         CGBVAABB m_oVol;
@@ -54,6 +57,8 @@ protected:
 
         CGVect3 m_oExtents;
         CGVect3 m_oCenter;
+
+        CGVect3 m_oPoints[8];
 };
 // -----------------------------------------------------------------------------
 #endif

@@ -33,21 +33,11 @@ class CCOL_DT_ColTester
 
         ~CCOL_DT_ColTester();
 
-        static float fTestCollision(CGBoundingVolume* SrcObj, CGBoundingVolume* DstObj);
+        static float fTestCollision(CGGraphBV* SrcObj, CGGraphBV* DstObj);
 
-        static float fTestPlane(CGBoundingVolume* _SrcObj, CGPlane& Plane);
+        static float fTestPlane(CGGraphBV* _SrcObj, const CGPlane& Plane);
 
-        static float fTestTriangle(CGBoundingVolume* _SrcObj, CGTriangle& _Tri);
-
-        // Additional Public Declarations
-
-    protected:
-        // Additional Protected Declarations
-
-    private:
-        // Additional Private Declarations
-
-    private:   // Additional Implementation Declarations
+        static float fTestTriangle(CGGraphBV* _SrcObj, const CGTriangle& _Tri);
 };
 
 // Class CCOL_DT_ColTester
