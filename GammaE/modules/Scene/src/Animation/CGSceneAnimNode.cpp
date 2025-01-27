@@ -8,10 +8,10 @@
  *  \par GammaE License
  */
 // ----------------------------------------------------------------------------
-#include "Animation\CGSceneAnimGen.h"
+#include "CGSceneAnimNode.h"
+
 // ----------------------------------------------------------------------------
 CGSceneAnimNode::CGSceneAnimNode()
-    : iNumStates(0)
 {
     m_eNodeType = SNT_AnimNode;
 }

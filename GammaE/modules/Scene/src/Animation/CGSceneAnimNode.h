@@ -18,34 +18,19 @@ class CGSceneAnimNode : public CGSceneNode
     public:
         CGSceneAnimNode();
 
-        virtual void SetAnimState(int _iSrc, int _iDst, float _fFactor) = 0;
+        // Sets the animation between 2 states (frames) interpolated by a factor.
+        virtual void SetAnimState(uint _uiSrc, uint _uiDst, float _fFactor) = 0;
 
-        CGGraphBV* poCreateBoundVol ()
-        {
-            return( CGGraphBVFactory::poCreate() );
-        }
+        // Return the number of states this object has
+        virtual uint uiGetNumStates() const = 0;
+        
+        // / Recomputes the bounding volumes
+        virtual void ComputeBoundVols();
 
+        // Return the bounding volume of the object for the given state
         virtual CGGraphBV* poGetStateBVol(int _iState) = 0;
-
-        int iGetNumStates();
-
-        int iGetLastFrame();
-
-    protected:
-
-        int iNumStates;
-
 };
-// ----------------------------------------------------------------------------
-inline int CGSceneAnimNode::iGetNumStates ()
-{
-    return(iNumStates);
-}
-// ----------------------------------------------------------------------------
-inline int CGSceneAnimNode::iGetLastFrame ()
-{
-    return(0);
-}
+
 // ----------------------------------------------------------------------------
 #endif
 // ----------------------------------------------------------------------------

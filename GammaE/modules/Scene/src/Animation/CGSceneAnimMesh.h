@@ -23,42 +23,31 @@ class CGSceneAnimMesh : public CGSceneAnimNode
         virtual ~CGSceneAnimMesh();
 
         // / Sets up the data inside the animated object
-        void Setup(CGMesh* _poStartupMesh,CGVect3* _poVXs,CGVect3* _poVNs)
-        {
-            m_poMesh = _poStartupMesh;
-            m_poFrameVXs = _poVXs;
-            m_poFrameVNs = _poVNs;
-        }
+        void Setup(CGMesh* _poStartupMesh,CGVect3* _poVXs,CGVect3* _poVNs, uint _uiNumStates, uint _uiNumVerticesPerState);
+
+        // Sets the animation between 2 states (frames) interpolated by a factor.
+        virtual void SetAnimState(uint _uiSrc, uint _uiDst, float _fFactor);
+
+        // Return the number of states this object has
+        virtual uint uiGetNumStates() const;
 
         // / Recompute the bounding volume of all the frames
-        virtual void ComputeBoundVols()
-        {
-            assert(false && "Not implemented!!");
-        }
+        virtual void ComputeBoundVols();
+
+        // Return the bounding volume of the object for the given state
+        virtual CGGraphBV* poGetStateBVol(int _iState);
 
         // / Returns the number of vertices per frame
-        uint uiGetNumFrameVXs()
-        {
-            return (m_poMesh->uiGetNumVXs());
-        }
+        uint uiGetNumFrameVXs();
 
         // / Retrieves the startup frame
-        CGMesh* poGetMesh()
-        {
-            return(m_poMesh);
-        }
+        CGMesh* poGetMesh();
 
         // / Retrieves the array of vertices
-        CGVect3* poGetVertexs()
-        {
-            return (m_poFrameVXs);
-        }
+        CGVect3* poGetVertexs();
 
         // / Retrieves the array where the normals are stored
-        CGVect3* poGetNormals()
-        {
-            return (m_poFrameVNs);
-        }
+        CGVect3* poGetNormals();
 
         // General Processing Functionalities
         virtual void Accept(CGSceneVisitor* _poVisitor)
@@ -72,6 +61,11 @@ class CGSceneAnimMesh : public CGSceneAnimNode
         CGVect3* m_poFrameVNs;
 
         CGMesh* m_poMesh;
+        uint m_uiNumStates;
+        uint m_uiNumVerticesPerState;
+
+        CGStArray<CGGraphBV*> m_poBVolStates;
+        CGGraphBV* m_poBV;
 };
 // --------------------------------------------------------------------------------
 #endif

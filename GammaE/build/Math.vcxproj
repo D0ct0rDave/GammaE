@@ -105,7 +105,7 @@
     <ClInclude Include="..\modules\Math\src\Evaluator\CGEvalMult.h" />
     <ClInclude Include="..\modules\Math\src\Evaluator\CGEvalPeriodic.h" />
     <ClInclude Include="..\modules\Math\src\Evaluator\CGEvalSawTooth.h" />
-    <ClInclude Include="..\modules\Math\src\Evaluator\CGEvalSin.h" />
+    <ClInclude Include="..\modules\Math\src\Evaluator\CGEvalSin.H" />
     <ClInclude Include="..\modules\Math\src\Evaluator\CGEvalSquare.h" />
     <ClInclude Include="..\modules\Math\src\Evaluator\CGEvalSum.h" />
     <ClInclude Include="..\modules\Math\src\Evaluator\CGEvalTime.h" />

@@ -20,22 +20,22 @@ class CGSceneAnimTransf : public CGSceneAnimNode
         virtual ~CGSceneAnimTransf();
 
         // / Sets up the data inside the animated object
-        void Setup(CGMatrix4x4* _poTransforms)
-        {
-            m_poTransforms = _poTransforms;
-        }
+        void Setup(CGMatrix4x4* _poTransforms, uint _uiNumStates);
 
-        // / Retrieves the array of transform for this animated object
-        CGMatrix4x4* poGetTransforms()
-        {
-            return(m_poTransforms);
-        }
+        // Sets the animation between 2 states (frames) interpolated by a factor.
+        virtual void SetAnimState(uint _uiSrc, uint _uiDst, float _fFactor);
+
+        // Return the number of states this object has
+        virtual uint uiGetNumStates() const;
 
         // / Recompute the bounding volume of all the frames
-        virtual void ComputeBoundVols()
-        {
-            assert(false && "Not implemented!!");
-        }
+        virtual void ComputeBoundVols();
+
+        // Return the bounding volume of the object for the given state
+        virtual CGGraphBV* poGetStateBVol(int _iState);
+
+        // Retrieves the current computed transform
+        const CGMatrix4x4& GetCurrentStateTranform() const;
 
         // General Processing Functionalities
         virtual void Accept(CGSceneVisitor* _poVisitor)
@@ -47,6 +47,10 @@ class CGSceneAnimTransf : public CGSceneAnimNode
 
         // Array to store the transform keyframes
         CGMatrix4x4* m_poTransforms;
+        uint m_uiNumStates;
+
+        CGMatrix4x4 m_oTrans;
+
 };
 // --------------------------------------------------------------------------------
 #endif

@@ -113,6 +113,7 @@
     <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimMesh.h" />
     <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimNode.h" />
     <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimTransf.h" />
+    <ClInclude Include="..\modules\Scene\src\Animation\_CGSceneAnimNode.h" />
     <ClInclude Include="..\modules\Scene\src\CGSceneBSPNode.h" />
     <ClInclude Include="..\modules\Scene\src\CGSceneCamera.h" />
     <ClInclude Include="..\modules\Scene\src\CGSceneCompiledLeaf.h" />
@@ -153,6 +154,7 @@
     <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimMesh.cpp" />
     <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimNode.cpp" />
     <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimTransf.cpp" />
+    <ClCompile Include="..\modules\Scene\src\Animation\_CGSceneAnimNode.cpp" />
     <ClCompile Include="..\modules\Scene\src\CGSceneBSPNode.cpp" />
     <ClCompile Include="..\modules\Scene\src\CGSceneCamera.cpp" />
     <ClCompile Include="..\modules\Scene\src\CGSceneCompiledLeaf.cpp" />

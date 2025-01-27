@@ -13,7 +13,7 @@
 CGSceneAnimTransf::CGSceneAnimTransf() :
     m_poTransforms(NULL)
 {
-    m_eTypeID = OBJ3D_AnimTransf;
+    m_eNodeType = SNT_AnimTransf;
 }
 // --------------------------------------------------------------------------------
 CGSceneAnimTransf::~CGSceneAnimTransf()
@@ -21,9 +21,18 @@ CGSceneAnimTransf::~CGSceneAnimTransf()
     if ( m_poTransforms )
         mDel [] m_poTransforms;
 }
-/*
-   void CGSceneAnimTransf::ComputeBoundVol ()
-   {
+// --------------------------------------------------------------------------------
+void CGSceneAnimTransf::Setup(CGMatrix4x4* _poTransforms, uint _uiNumStates)
+{
+    m_poTransforms = _poTransforms;
+    m_uiNumStates = _uiNumStates;
+
+    ComputeBoundVols();
+}
+// --------------------------------------------------------------------------------
+void CGSceneAnimTransf::ComputeBoundVols()
+{
+    /*
     if (!BVol)
     {
         CGVect3 Max,Min;
@@ -34,61 +43,72 @@ CGSceneAnimTransf::~CGSceneAnimTransf()
         BVol = CGraphBV_Manager::poCreate();
         BVol->Init(Max,Min);
     }
-   }
-
-   void CGSceneAnimTransf::Render ()
-   {
-    CGRenderer::I()->MultiplyMatrix(&Trans);
-   }
-
-   void CGSceneAnimTransf::SetAnimState (int _iSrc, int _iDst, float _fFactor)
-   {
-    assert (pTransStates       && "NULL Transform state array");
+    */
+}
+// --------------------------------------------------------------------------------
+void CGSceneAnimTransf::SetAnimState (uint _uiSrc, uint _uiDst, float _fFactor)
+{
+    assert (m_poTransforms && "NULL Transform state array");
 
     // HACK!!! No slerp quaternion code
     // if (_fFactor > 0.5f) _fFactor = 1.0f; else _fFactor = 0.0f;
 
-    if (iNumStates == 1)
+    if (m_uiNumStates == 1)
     {
-        Trans = pTransStates[0];
+        m_oTrans = m_poTransforms[0];
     }
     else
     {
-        if (_iSrc >= iNumStates) _iSrc = iNumStates-1;
-        if (_iDst >= iNumStates) _iDst = iNumStates-1;
+        if (_uiSrc >= m_uiNumStates) _uiSrc = m_uiNumStates -1;
+        if (_uiDst >= m_uiNumStates) _uiDst = m_uiNumStates -1;
 
-        if ((_iSrc != _iDst) && (_fFactor>0.0f))
+        if ((_uiSrc != _uiDst) && (_fFactor>0.0f))
         {
             if (_fFactor < 1.0f)
             {
-                CQuaternion SrcQuat,DstQuat,ResQuat;
+                CGQuaternion SrcQuat,DstQuat,ResQuat;
                 CGVect4 SrcPos,DstPos,ResPos;
 
                 // Interpolate rotations
-                SrcQuat.FromMatrix( pTransStates[_iSrc] );
-                DstQuat.FromMatrix( pTransStates[_iDst] );
+                SrcQuat.FromMatrix(m_poTransforms[_uiSrc] );
+                DstQuat.FromMatrix(m_poTransforms[_uiDst] );
 
                 ResQuat.Slerp(SrcQuat,DstQuat,_fFactor);
-                Trans = ResQuat.ToMatrix();
+                m_oTrans = ResQuat.ToMatrix();
 
                 // Interpolate positions
-                SrcPos = pTransStates[_iSrc].GetColVector(3);
-                DstPos = pTransStates[_iDst].GetColVector(3);
+                SrcPos = m_poTransforms[_uiSrc].oGetCol(3);
+                DstPos = m_poTransforms[_uiDst].oGetCol(3);
 
                 ResPos.Interpolate(SrcPos,DstPos,_fFactor);
 
-                Trans.Set(0,3,ResPos.x);
-                Trans.Set(1,3,ResPos.y);
-                Trans.Set(2,3,ResPos.z);
+                m_oTrans.Set(0,3,ResPos.x);
+                m_oTrans.Set(1,3,ResPos.y);
+                m_oTrans.Set(2,3,ResPos.z);
             }
             else
             {
-                Trans = pTransStates[_iDst];
+                m_oTrans = m_poTransforms[_uiDst];
             }
         }
         else
-            Trans = pTransStates[_iSrc];
+            m_oTrans = m_poTransforms[_uiSrc];
     }
-   }
- */
+}
+// --------------------------------------------------------------------------------
+CGGraphBV* CGSceneAnimTransf::poGetStateBVol(int _iState)
+{
+    return NULL;
+}
+
+// --------------------------------------------------------------------------------
+uint CGSceneAnimTransf::uiGetNumStates() const
+{
+    return(m_uiNumStates);
+}
+// --------------------------------------------------------------------------------
+const CGMatrix4x4& CGSceneAnimTransf::GetCurrentStateTranform() const
+{
+    return(m_oTrans);
+}
 // --------------------------------------------------------------------------------

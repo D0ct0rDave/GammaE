@@ -30,7 +30,7 @@ class CGNETClient
         int iGetState();
 
     protected:
-        int iState;
+        int uiState;
         int iClientSocket;
 };
 

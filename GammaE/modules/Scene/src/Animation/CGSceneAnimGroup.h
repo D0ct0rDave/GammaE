@@ -21,14 +21,28 @@ class CGSceneAnimGroup : public CGSceneAnimNode
         CGSceneAnimGroup();
         virtual ~CGSceneAnimGroup();
 
+        void Setup(uint _uiNumStates);
+        
+        // Sets the animation between 2 states (frames) interpolated by a factor.
+        virtual void SetAnimState(uint _uiSrc, uint _uiDst, float _fFactor);
+
+        // Return the number of states this object has
+        virtual uint uiGetNumStates() const;
+
+        // / Recomputes the bounding volumes
+        virtual void ComputeBoundVols();
+
+        // Return the bounding volume of the object for the given state
+        virtual CGGraphBV* poGetStateBVol(int _iState);
+
         // / Adds a new animation object to the animation node
-        uint uiAddObject(CGSceneAnimNode* _poObj)
+        uint uiAddObject(CGSceneNode* _poObj)
         {
             return ( m_poObjs.uiAdd(_poObj) );
         }
 
         // / Retrieves the specific animation object
-        CGSceneAnimNode* poGetAnimObject(uint _uiObj)
+        CGSceneNode* poGetAnimObject(uint _uiObj)
         {
             return(m_poObjs[_uiObj]);
         }
@@ -45,9 +59,6 @@ class CGSceneAnimGroup : public CGSceneAnimNode
             m_poObjs.Clear();
         }
 
-        // / Recomputes the bounding volumes
-        virtual void ComputeBoundVols();
-
         // General Processing Functionalities
         virtual void Accept(CGSceneVisitor* _poVisitor)
         {
@@ -55,8 +66,10 @@ class CGSceneAnimGroup : public CGSceneAnimNode
         }
 
     protected:
-
-        CGDynArray <CGSceneAnimNode*> m_poObjs;
+        uint m_uiNumStates;
+        CGDynArray<CGSceneNode*> m_poObjs;
+        CGStArray<CGGraphBV*> m_poBVolStates;
+        CGGraphBV* m_poBV;
 };
 
 // --------------------------------------------------------------------------------

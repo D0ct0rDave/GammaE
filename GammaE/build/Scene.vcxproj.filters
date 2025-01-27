@@ -108,6 +108,9 @@
     <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimTransf.h">
       <Filter>Animation</Filter>
     </ClInclude>
+    <ClInclude Include="..\modules\Scene\src\Animation\_CGSceneAnimNode.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
     <ClInclude Include="..\modules\Scene\src\CGSceneBSPNode.h" />
     <ClInclude Include="..\modules\Scene\src\CGSceneCamera.h" />
     <ClInclude Include="..\modules\Scene\src\CGSceneCompiledLeaf.h" />
@@ -194,6 +197,9 @@
       <Filter>Animation</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimTransf.cpp">
+      <Filter>Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\Scene\src\Animation\_CGSceneAnimNode.cpp">
       <Filter>Animation</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Scene\src\CGSceneBSPNode.cpp" />
