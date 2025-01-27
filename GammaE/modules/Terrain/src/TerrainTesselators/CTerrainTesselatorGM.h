@@ -65,7 +65,7 @@ class CTerrainTesselatorGM : public CTerrainTesselator
 
         void SetTileLODPar(float _fTileLODPar);
 
-        void SetBoundVol(CGBoundingVolume* _BVol);
+        void SetBoundVol(const CGGraphBV& _oBV);
 
         // Additional Public Declarations
 
@@ -95,11 +95,11 @@ class CTerrainTesselatorGM : public CTerrainTesselator
 
         CGShader* poTileMaterial;
 
-        CE3D_ShIns_Texture TileTex;
+        CGShInsTexture TileTex;
 
-        CE3D_ShIns_TexOp TileOp;
+        CGShInsTexOp TileOp;
 
-        CEval_Const TileMatFunc;
+        CGEvalConst TileMatFunc;
 
         // Additional Protected Declarations
 

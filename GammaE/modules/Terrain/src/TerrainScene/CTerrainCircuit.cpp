@@ -31,9 +31,8 @@ int iNumCalls = 0;
 CTerrainCircuit::CTerrainCircuit()
     : SecsPerRow(0), SecsPerCol(0), SectorSize(0), fLODMatrix(NULL), bVISMatrix(NULL)
 {
-    bFrustumTest = false;
-    CE3D_RenderVars.AddVar("iLODs",iLODs);
-    CE3D_RenderVars.AddVar("fLODs",fLODs);
+    CGRenderVars::I()->AddVar("iLODs", iLODs);
+    CGRenderVars::I()->AddVar("fLODs",fLODs);
 }
 
 CTerrainCircuit::~CTerrainCircuit()
@@ -83,7 +82,7 @@ void CTerrainCircuit::Render ()
         {
             if ( bVISMatrix[cSect] )
             {
-                if ( poSubObj[cSect]->bVisible() )
+                if ( m_poSubObj[cSect]->bIsVisible() )
                 {
                     ComputeLODArrays (cI, cJ);
 
@@ -94,10 +93,10 @@ void CTerrainCircuit::Render ()
                     oM.LoadIdentity();
                     oM.Translate(cI * SectorSize,cJ * SectorSize,0);
 
-                    CGRenderer::I()->MultiplyMatrix(&oM);
+                    CGRenderer::I()->MultiplyMatrix(oM);
 
                     // Render the current sector
-                    poSubObj[cSect]->Render();
+                    CGSCNVRenderer::I()->Render(m_poSubObj[cSect]);
 
                     CGRenderer::I()->PopWorldMatrix();
                 }
@@ -123,10 +122,10 @@ void CTerrainCircuit::ComputeVISLODMatrix ()
         for ( cI = 0; cI < SecsPerRow; cI++ )
         {
             // Get the middle height
-            SectorCenter = poSubObj[cSect]->poGetBV()->oGetCenter();
+            SectorCenter = m_poSubObj[cSect]->poGetBV()->oGetCenter();
 
             // Set the sector center in camera coordinates
-            M.TransformPoint( SectorCenter );
+            M.TransformPoint( &SectorCenter );
 
             // Compute the distance to the sector center
             fSectorDistance = SectorCenter.fModule();

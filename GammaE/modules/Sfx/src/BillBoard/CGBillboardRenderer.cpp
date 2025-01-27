@@ -16,7 +16,7 @@ CGBillboardRenderer::CGBillboardRenderer(uint _uiMaxShaders,uint _uiMaxBillboard
     // Create the geometry that will store the billboards
     m_oGeoPool.Init(_uiMaxBillboards * 4,
                     _uiMaxBillboards,
-                    E3D_MESH_NIQUADS,
+                    E3D_PrimitiveType::E3D_PT_NIQUADS,
                     MESH_FIELD_VERTEXS
                     | MESH_FIELD_UVCOORDS
                     | MESH_FIELD_COLORS );
@@ -124,10 +124,9 @@ void CGBillboardRenderer::Render()
 
     for ( uint j = 0; j < m_oBBRL.uiNumElems(); j++ )
     {
-        CGMesh& oMesh = m_oMeshes.oGet();
+        CGUnmanagedMesh& oMesh = m_oMeshes.oGet();
 
-        oMesh.m_eMeshType = m_oGeoPool.m_eMeshType;
-
+        oMesh.SetPrimitiveType(m_oGeoPool.eGetPrimitiveType());
         oMesh.m_poVX = poVX;
         oMesh.m_poUV = poUV;
         oMesh.m_poVC = poVC;
@@ -164,8 +163,8 @@ void CGBillboardRenderer::Render()
 
         if ( uiNumBBs > 0 )
         {
-            oMesh.m_uiNumPrims = uiNumBBs;
-            oMesh.m_usNumVXs = uiNumBBs * 4;
+            oMesh.SetNumVXs(uiNumBBs * 4);
+            oMesh.SetNumPrims(uiNumBBs);
 
             // Render the recently built mesh
             CGRenderer::I()->RenderMesh(&oMesh,m_oBBRL[j].m_poShader);

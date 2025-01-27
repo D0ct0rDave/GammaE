@@ -42,8 +42,8 @@ float fGetVisibilityFactor(CGVect3 &_oPrjPos,float _fFlareCamZ)
     float m_fAspectRatio = CGRenderer::I()->fGetAspectRatio();
 
     // Retrieve the screen position
-    iIX = ( (_oPrjPos.x + 1.0f) / 2.0f ) * CGRenderer::I()->iGetScrTX();
-    iIY = ( (_oPrjPos.y + 1.0f) / 2.0f ) * CGRenderer::I()->iGetScrTY();
+    iIX = ( (_oPrjPos.x + 1.0f) / 2.0f ) * CGRenderer::I()->uiGetScrTX();
+    iIY = ( (_oPrjPos.y + 1.0f) / 2.0f ) * CGRenderer::I()->uiGetScrTY();
 
     // Read pixel z buffer
     CGRenderer::I()->ReadBuffer(iIX,
@@ -54,8 +54,8 @@ float fGetVisibilityFactor(CGVect3 &_oPrjPos,float _fFlareCamZ)
                                 uiZBufferRect);
 
     // Compute the average of non occluded pixels
-    fZFar = CGRenderer::I()->GetProjector()->fFar;
-    fZNear = CGRenderer::I()->GetProjector()->fNear;
+    fZFar = CGRenderer::I()->poGetProjector()->fFar;
+    fZNear = CGRenderer::I()->poGetProjector()->fNear;
     fZRange = fZFar - fZNear;
     fZMult = fZFar * fZNear;
 
@@ -71,20 +71,19 @@ float fGetVisibilityFactor(CGVect3 &_oPrjPos,float _fFlareCamZ)
 
     return ( (float)iVisEntries / ( (float)ZBUFFER_RECT_HSIZE * ZBUFFER_RECT_VSIZE ) );
 }
-
-// Class CLensFlare
+// -----------------------------------------------------------------------------
 
 CLensFlare::CLensFlare()
     : FlareElems(NULL), iNumElems(0), MeshArray(NULL), iLensFlareState(0), fVisFact(0.0f)
 {
 }
-
+// -----------------------------------------------------------------------------
 CLensFlare::~CLensFlare()
 {
     if ( FlareElems ) mDel [] FlareElems;
     if ( MeshArray ) mDel [] MeshArray;
 }
-
+// -----------------------------------------------------------------------------
 void CLensFlare::InitLensFlare (int _iNumElems, CGVect3 _SunPos)
 {
     // Setup lens flare properties
@@ -101,7 +100,7 @@ void CLensFlare::InitLensFlare (int _iNumElems, CGVect3 _SunPos)
     // -----------------------------------------------------
     MeshArray = mNew CGMeshRect[iNumElems];
 }
-
+// -----------------------------------------------------------------------------
 void CLensFlare::SetupFlareElem (int _iElem, float _fSize, float _fDist, CGColor _Color, CGShader* _pMat)
 {
     assert (FlareElems && "NULL Lens flare elem array");
@@ -112,7 +111,7 @@ void CLensFlare::SetupFlareElem (int _iElem, float _fSize, float _fDist, CGColor
     FlareElems[_iElem].Color = _Color;
     FlareElems[_iElem].pMaterial = _pMat;
 }
-
+// -----------------------------------------------------------------------------
 void CLensFlare::UpdateMesh ()
 {
     int cElem;
@@ -138,7 +137,7 @@ void CLensFlare::UpdateMesh ()
     // fDistFact = oPrjSun.Module() / sqrt(2);
     // fDistFact = oPrjSun.Module() * _1_OVER_SQRT_2
     // fDistFact = oPrjSun.SqModule()  / 2;
-    fDistFact = MATH_fSqrt( oPrjSun.fSqModule() * 0.5f );
+    fDistFact = Math::fSqrt( oPrjSun.fSqModule() * 0.5f );
 
     // sqrt(x)/sqrt(2) si x (0,2) es +-=  x/2
     // fDistFact = oSunScr.SqModule()*0.5f;
@@ -184,12 +183,12 @@ void CLensFlare::UpdateMesh ()
         pVC[3].a *= fAlpha;
     }
 }
-
+// -----------------------------------------------------------------------------
 void CLensFlare::Render ()
 {
     assert (FlareElems && "NULL Lens flare elem array");
 
-    CGRenderer::I()->GetCameraMatrix     (&oViewMat);
+    CGRenderer::I()->GetCameraMatrix   (&oViewMat);
     CGRenderer::I()->GetProjectorMatrix(&oPrjMat);
     UpdateState();
 
@@ -210,28 +209,28 @@ void CLensFlare::Render ()
     for ( int cElem = 0; cElem < iNumElems; cElem++ )
         CGRenderer::I()->RenderMesh(&MeshArray[cElem],FlareElems[cElem].pMaterial);
 
-    CGRenderer::I()->SetCameraMatrix   (&oViewMat);
-    CGRenderer::I()->SetProjectorMatrix(&oPrjMat);
+    CGRenderer::I()->SetCameraMatrix   (oViewMat);
+    CGRenderer::I()->SetProjectorMatrix(oPrjMat);
     CGRenderer::I()->SetFogPars(E3D_FM_Last,0.0f,0.0f,0.0f,NULL);
 }
-
+// -----------------------------------------------------------------------------
 CGBoundingVolume* CLensFlare::poGetBV ()
 {
     return (NULL);
 }
-
+// -----------------------------------------------------------------------------
 void CLensFlare::ComputeBoundVol ()
 {
 }
-
+// -----------------------------------------------------------------------------
 bool CLensFlare::bVisible ()
 {
     // ---------------------------
     // Get the projected sun point
     // ---------------------------
     oPrjSun.Assign(oSunPos);
-    oViewMat.TransformPoint(oPrjSun);
-    oPrjMat.TransformPoint(oPrjSun);
+    oViewMat.TransformPoint(&oPrjSun);
+    oPrjMat.TransformPoint(&oPrjSun);
 
     oPrjSun.x = oPrjSun.x / oPrjSun.z;
     oPrjSun.y = oPrjSun.y / oPrjSun.z;
@@ -244,10 +243,10 @@ bool CLensFlare::bVisible ()
     // ------------------------------------------------------
     // Get camera-sun distance
     // ------------------------------------------------------
-    CE3D_Camera* pCam = CGRenderer::I()->GetCamera();
+    CGCamera* pCam = CGRenderer::I()->poGetCamera();
     CGVect3 oSunCam;
 
-    oSunCam.Assign( pCam->m_oPos );
+    oSunCam.Assign( pCam->oGetPos());
     oSunCam.Sub(oSunPos);
     fCamDist = oSunCam.fModule();
 
@@ -258,7 +257,7 @@ bool CLensFlare::bVisible ()
     // ------------------------------------------------------
     // Get the angle between camera dir vector and sun-camera vector
     // ------------------------------------------------------
-    fCamSunAngle = -1.0f * pCam->m_oDir.fDotProd(oSunCam);
+    fCamSunAngle = -1.0f * pCam->oGetDir().fDotProd(oSunCam);
 
     // <WARNING: DEBUG CODE>
     // return(true);
@@ -267,7 +266,7 @@ bool CLensFlare::bVisible ()
     float fVFact = fGetVisibilityFactor(oPrjSun,500.0f);
     return(fVFact > 0.0f);
 }
-
+// -----------------------------------------------------------------------------
 void CLensFlare::UpdateState ()
 {
     bool bLFVisible = bVisible();
@@ -289,7 +288,7 @@ void CLensFlare::UpdateState ()
         {
             if ( bLFVisible )
             {
-                fVisFact += CHST_SPEED * CGRenderer::I()->REStats.DTime;
+                fVisFact += CHST_SPEED * CGRenderer::I()->oGetStats().m_fDelta;
 
                 if ( fVisFact >= 1.0f )
                 {
@@ -316,7 +315,7 @@ void CLensFlare::UpdateState ()
         {
             if ( !bLFVisible )
             {
-                fVisFact -= CHST_SPEED * CGRenderer::I()->REStats.DTime;
+                fVisFact -= CHST_SPEED * CGRenderer::I()->oGetStats().m_fDelta;
 
                 if ( fVisFact <= 0.0f )
                 {
@@ -330,5 +329,4 @@ void CLensFlare::UpdateState ()
         break;
     }
 }
-
-// Additional Declarations
+// -----------------------------------------------------------------------------

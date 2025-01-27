@@ -8,14 +8,34 @@
  *  \par GammaE License
  */
 // ----------------------------------------------------------------------------
-#ifndef CGRenderVarsH
-#define CGRenderVarsH
+#ifndef CGUnmanagedMeshH
+#define CGUnmanagedMeshH
 // ----------------------------------------------------------------------------
-#include "GammaE_Misc.h"
+#include "Mesh\CGMesh.h"
 // ----------------------------------------------------------------------------
-DECLARE_INHERITANT_SINGLETON(CGRenderVars, public, CGHashTable<uobject>)
+class CGUnmanagedMesh : public CGMesh
 {
+public:
+    ~CGUnmanagedMesh();
+
+    // / This allows the user to setup programatically the number of vertices
+    void SetNumVXs(uint _uiNumVXs);
+
+    // / This allows the user to setup programatically the number of primitives
+    void SetNumPrims(uint _uiNumPrims);
+
+    // / This allows the user to setup programatically the mesh type
+    void SetPrimitiveType(E3D_PrimitiveType _eMeshType);
+
+protected:
+    void ComputeNumberOfIndices();
+
+protected:
+
+    uint m_uiMaxVXs;
+    uint m_uiMaxPrims;
 };
+
 // ----------------------------------------------------------------------------
 #endif
 // ----------------------------------------------------------------------------

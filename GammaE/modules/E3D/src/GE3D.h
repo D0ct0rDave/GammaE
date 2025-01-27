@@ -48,6 +48,7 @@
 #include "Mesh/CGMeshRect.h"
 #include "Mesh/CGMeshCross.h"
 #include "Mesh/CGCompiledMesh.h"
+#include "Mesh/CGUnmanagedMesh.h"
 #include "Mesh/MeshUtils/NormalGen.h"
 #include "Mesh/MeshUtils/TexCoordGen.h"
 #include "Mesh/MeshUtils/TransformMesh.h"

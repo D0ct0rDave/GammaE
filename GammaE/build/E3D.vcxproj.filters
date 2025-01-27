@@ -144,6 +144,9 @@
     <ClInclude Include="..\modules\E3D\src\Mesh\CGMeshSphere.h">
       <Filter>Mesh</Filter>
     </ClInclude>
+    <ClInclude Include="..\modules\E3D\src\Mesh\CGUnmanagedMesh.h">
+      <Filter>Mesh</Filter>
+    </ClInclude>
     <ClInclude Include="..\modules\E3D\src\Mesh\MeshUtils\ComputeBV.h">
       <Filter>Mesh\MeshUtils</Filter>
     </ClInclude>
@@ -318,6 +321,9 @@
       <Filter>Mesh</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\E3D\src\Mesh\CGMeshSphere.cpp">
+      <Filter>Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\E3D\src\Mesh\CGUnmanagedMesh.cpp">
       <Filter>Mesh</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\E3D\src\Mesh\MeshUtils\ComputeBV.cpp">

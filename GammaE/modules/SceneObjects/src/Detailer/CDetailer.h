@@ -39,7 +39,8 @@ class CDetailer : public CGSceneLeaf
 
     protected:
         // Data Members for Class Attributes
-        CGMesh* m_poDetailMesh;
+        CGMesh* m_poMesh;
+        CGUnmanagedMesh* m_poDetailMesh;
         CGVect3 oCamPos;
         CGMipMap* poTex;
 

@@ -44,10 +44,10 @@ void CSkyDome::SetPosition (CGVect3 _Pos)
 
 void CSkyDome::CreateDome (bool _bFogAffected, int _iNumVSlices, int _iNumHSlices, int _iStartVSlice, int _iEndVSlice, float _fUTiling, float _fVTiling)
 {
-    poMesh = mNew CGMesh();
-    poMesh->Init( (_iEndVSlice - _iStartVSlice) * (_iNumHSlices + 1) * 2,
+    m_poSkyDomeMesh = mNew CGMesh();
+    m_poSkyDomeMesh->Init( (_iEndVSlice - _iStartVSlice) * (_iNumHSlices + 1) * 2,
                  (_iEndVSlice - _iStartVSlice) * (_iNumHSlices + 1) * 2 - 2,
-                 E3D_MESH_NITRISTRIP,
+                 E3D_PrimitiveType::E3D_PT_NITRISTRIP,
                  MESH_FIELD_VERTEXS | MESH_FIELD_UVCOORDS );
 
     int cI,cJ,iIdx;
@@ -74,18 +74,18 @@ void CSkyDome::CreateDome (bool _bFogAffected, int _iNumVSlices, int _iNumHSlice
 
     for ( cJ = _iStartVSlice; cJ < _iEndVSlice; cJ++ )
     {
-        cs_t1 = cos(theta1);
-        cs_t2 = cos(theta2);
-        sn_t1 = sin(theta1);
-        sn_t2 = sin(theta2);
+        cs_t1 = Math::fCos(theta1);
+        cs_t2 = Math::fCos(theta2);
+        sn_t1 = Math::fSin(theta1);
+        sn_t2 = Math::fSin(theta2);
 
         u = 0;
         theta3 = 0.0f;
 
         for ( cI = 0; cI <= _iNumHSlices; cI++ )
         {
-            cs_t3 = cos(theta3);
-            sn_t3 = sin(theta3);
+            cs_t3 = Math::fCos(theta3);
+            sn_t3 = Math::fSin(theta3);
 
             x1 = cs_t1 * cs_t3;
             y1 = cs_t1 * sn_t3;
@@ -95,12 +95,12 @@ void CSkyDome::CreateDome (bool _bFogAffected, int _iNumVSlices, int _iNumHSlice
             y2 = cs_t2 * sn_t3;
             z2 = sn_t2;
 
-            poMesh->m_poVX[iIdx].Set(x1,y1,z1);
-            poMesh->m_poUV[iIdx].Set(u * _fUTiling,v * _fVTiling);
+            m_poSkyDomeMesh->m_poVX[iIdx].Set(x1,y1,z1);
+            m_poSkyDomeMesh->m_poUV[iIdx].Set(u * _fUTiling,v * _fVTiling);
             iIdx++;
 
-            poMesh->m_poVX[iIdx].Set(x2,y2,z2);
-            poMesh->m_poUV[iIdx].Set(u * _fUTiling,(v + fVStep) * _fVTiling);
+            m_poSkyDomeMesh->m_poVX[iIdx].Set(x2,y2,z2);
+            m_poSkyDomeMesh->m_poUV[iIdx].Set(u * _fUTiling,(v + fVStep) * _fVTiling);
 
             iIdx++;
 
@@ -118,6 +118,7 @@ void CSkyDome::CreateDome (bool _bFogAffected, int _iNumVSlices, int _iNumHSlice
 
     // Fog affects skydome?
     FogAffected = _bFogAffected;
+    SetMesh(m_poSkyDomeMesh);
 }
 
 void CSkyDome::Render ()
@@ -133,9 +134,9 @@ void CSkyDome::Render ()
     oM.RotateFromArbitraryAxis(fRot,Axis.x,Axis.y,Axis.z);
     oM.Scale(fRadius,fRadius,fRadius);
 
-    CGRenderer::I()->MultiplyMatrix(&oM);
+    CGRenderer::I()->MultiplyMatrix(oM);
 
-    CGSceneLeaf::Render();
+    CGSCNVRenderer::I()->Render(this);
 
     CGRenderer::I()->PopWorldMatrix();
 

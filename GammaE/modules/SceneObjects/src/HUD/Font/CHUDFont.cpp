@@ -8,8 +8,10 @@
  *  \par GammaE License
  */
 // -----------------------------------------------------------------------------
-// -----------------------------------------------------------------------------
 #include "CHUDFont.h"
+#include <stdio.h>
+
+#include "GammaE_FileSys.h"
 // -----------------------------------------------------------------------------
 bool CHUDFont::bInit(const char* _szFontName)
 {
@@ -20,7 +22,7 @@ bool CHUDFont::bInit(const char* _szFontName)
 bool CHUDFont::bInit(const char* _szShapeShader,const char* _szDataFile)
 {
     char szFilename[1024];
-    m_poShader = CE3D_ShaderWH::I()->poCreateShader(_szShapeShader);
+    m_poShader = CGShaderWH::I()->poCreateShader(_szShapeShader);
     if ( !m_poShader ) return(false);
 
     // Set default width and height
@@ -29,8 +31,8 @@ bool CHUDFont::bInit(const char* _szShapeShader,const char* _szDataFile)
 
     //
     sprintf(szFilename,"%s.dat",_szDataFile);
-    CFile oFile;
-    if ( oFile.bOpen(szFilename,"rb") )
+    CGFile oFile;
+    if ( oFile.bOpen(szFilename, EFileOpenMode::FOM_READ) )
     {
         int i;
 
@@ -38,9 +40,9 @@ bool CHUDFont::bInit(const char* _szShapeShader,const char* _szDataFile)
         CGMipMap* poMMO = NULL;
         for ( i = 0; ( ( i < m_poShader->iGetNumInstructions() ) && (poMMO == NULL) ); i++ )
         {
-            CE3D_ShaderInstruction* poInst = m_poShader->pGetInstruction(i);
+            CGShaderInstruction* poInst = m_poShader->pGetInstruction(i);
             if ( poInst->eGetInstructionType() == E3D_SHI_Texture )
-                poMMO = ( (CE3D_ShIns_Texture*)poInst )->m_poTex->m_poMipMap;
+                poMMO = ( (CGShInsTexture*)poInst )->m_poTex->m_poMipMap;
         }
 
         if ( poMMO == NULL )

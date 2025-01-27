@@ -15,6 +15,11 @@ void CGCamera::SetPos (float _fX, float _fY, float _fZ)
     m_oPos.Set(_fX,_fY,_fZ);
 }
 // ----------------------------------------------------------------------------
+void CGCamera::SetPos(const CGVect3& _oPos)
+{
+    m_oPos = _oPos;
+}
+// ----------------------------------------------------------------------------
 void CGCamera::SetDir (float _fPitch, float _fYaw, float _fRoll)
 {
     float cosP,cosY,cosR;

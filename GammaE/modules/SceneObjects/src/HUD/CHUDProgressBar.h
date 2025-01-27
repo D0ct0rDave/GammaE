@@ -45,6 +45,7 @@ class CHUDProgressBar : public CHUDObject
         CGMesh* m_poBarMesh;
         CGSceneLeaf* m_poBarLeaf;
         CGSceneLeaf* m_poFrameLeaf;
+        CGMesh* poMesh;
 };
 // -----------------------------------------------------------------------------
 inline float CHUDProgressBar::fValue()

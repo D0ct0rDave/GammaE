@@ -73,13 +73,13 @@ void CTerrainTesselatorGM::Init (int iMaxVertexs)
 
     Mesh->Init( MaxVertexs,
                 2 * MaxVertexs,
-                E3D_MESH_TRISTRIPS,
+                E3D_PrimitiveType::E3D_PT_TRISTRIPS,
                 MESH_FIELD_VERTEXS | MESH_FIELD_UVCOORDS | MESH_FIELD_COLORS | MESH_FIELD_INDEXES);
     #else
 
     Mesh->Init( MaxVertexs,
                 2 * MaxVertexs,
-                E3D_MESH_TRIS,
+                E3D_PrimitiveType::E3D_PT_TRIS,
                 MESH_FIELD_VERTEXS | MESH_FIELD_UVCOORDS | MESH_FIELD_COLORS | MESH_FIELD_INDEXES);
 
     #endif
@@ -127,7 +127,7 @@ void CTerrainTesselatorGM::GenerateVertexData ()
         fSpaceXCur = 0;
         for ( cI = 0; cI < uiSectorRes; cI++ )
         {
-            pVX->V3(fSpaceXCur,fSpaceYCur,*pH);
+            pVX->Set(fSpaceXCur,fSpaceYCur,*pH);
 
             fSpaceXCur += fSpaceStep;
             pH++;
@@ -140,7 +140,10 @@ void CTerrainTesselatorGM::GenerateVertexData ()
     CGVect3 Maxs,Mins;
     Mins.Set( 0,0,HF->GetMinHeight() );
     Maxs.Set( fSpaceStep * (uiSectorRes & 0xfffffffe),fSpaceStep * (uiSectorRes & 0xfffffffe),HF->GetMaxHeight() );
-    Mesh->poGetBoundVol()->Init(Maxs,Mins);
+    
+    CGGraphBVAABB box;
+    box.Init(Maxs, Mins);
+    Mesh->poGetBV()->Copy(box);
 }
 
 void CTerrainTesselatorGM::GenerateVertexColorData ()
@@ -188,7 +191,7 @@ void CTerrainTesselatorGM::GenerateGlobalCoordData ()
         fTexUCur = fUVOfs;
         for ( cI = 0; cI < uiSectorRes; cI++ )
         {
-            pUV->V2(fTexUCur,fTexVCur);
+            pUV->Set(fTexUCur, fTexVCur);
 
             fTexUCur += fGMapStep;
             pUV++;
@@ -247,9 +250,7 @@ void CTerrainTesselatorGM::TesselateGrid ()
         Idxs[iIdx++] = iVXPos2 - 1;
     }
 
-    Mesh->m_eMeshType = E3D_MESH_TRISTRIPS;
-    Mesh->m_uiNumIdxs = iIdx;
-    Mesh->m_uiNumPrims = iIdx - 2;
+    Mesh->SetNumPrims(iIdx - 2);
 
     #else
 
@@ -483,8 +484,8 @@ void CTerrainTesselatorGM::GenerateHeightData_Vertical_N (int iNeight, int iX)
 #define     fH(y)    HData[(y) * uiSectorRes + iX]
 
     unsigned int cJ,cJx4;
-    unsigned int uiInnerPoints = (uiSectorRes >> 1);                    // Num intermediate points
-    unsigned int uiInnerPointsNextLOD = (uiInnerPoints >> 1);                    // Num intermediate points next LOD
+    unsigned int uiInnerPoints = (uiSectorRes >> 1);            // Num intermediate points
+    unsigned int uiInnerPointsNextLOD = (uiInnerPoints >> 1);   // Num intermediate points next LOD
     float c0,c05,c1;
     float fInterpolation;
     float fFactor;
@@ -535,7 +536,7 @@ void CTerrainTesselatorGM::GenerateHeightData_Horizontal (int iY, int iRes, floa
 
 void CTerrainTesselatorGM::GenerateHeightData_Vertical (int iX, int iRes, float fFactor)
 {
-#define     fH(y)    HData[(y) * uiSectorRes + iX]
+    #define fH(y)   HData[(y) * uiSectorRes + iX]
 
     unsigned int cJ,cJ2;
     // iRes--;
@@ -573,8 +574,8 @@ void CTerrainTesselatorGM::SetupTileMaterial ()
     // int   LOD  = GetTileLOD(fDist,TB->GetMaxLODs());
 
     CGShader* poSh = TB->poGetTileMaterial(Tile.TileIdx,0);
-    CE3D_ShIns_TexOp* poTI = (CE3D_ShIns_TexOp*)poSh->pGetInstruction(0);                    // dirty casting
-    CEval_Const* poEv = (CEval_Const*)poTI->poGetEvaluator();
+    CGShInsTexOp* poTI = (CGShInsTexOp*)poSh->pGetInstruction(0);                    // dirty casting
+    CGEvalConst* poEv = (CGEvalConst*)poTI->poGetEvaluator();
 
     switch ( Tile.GetRotationType() )
     {
@@ -599,9 +600,9 @@ void CTerrainTesselatorGM::SetTileLODPar (float _fTileLODPar)
     fTileLODPar = _fTileLODPar;
 }
 
-void CTerrainTesselatorGM::SetBoundVol (CGBoundingVolume* _BVol)
+void CTerrainTesselatorGM::SetBoundVol (const CGGraphBV& _oBV)
 {
-    Mesh->poGetBoundVol()->Copy(_BVol);
+    Mesh->poGetBV()->Copy(_oBV);
 }
 
 // Additional Declarations

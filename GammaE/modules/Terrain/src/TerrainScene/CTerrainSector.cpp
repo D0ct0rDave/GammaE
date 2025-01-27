@@ -18,33 +18,33 @@
 
 CTerrainSector::CTerrainSector() : fLODs(NULL), iLODs(NULL), HF(NULL), LM(NULL), TM(NULL), TB(NULL), Tess(NULL), fXYScale(0)
 {
-    bFrustumTest = true;
-    m_poBV = CGraphBV_Manager::poCreate();
+    m_poSectorBV = mNew CGGraphBVAABB();
+    SetBV(m_poSectorBV);
 }
 
 CTerrainSector::~CTerrainSector()
 {
-    mDel BVol;
+    mDel m_poSectorBV;
 }
 
 void CTerrainSector::Render ()
 {
     if ( Tess )
     {
-        bool bEnableDefMode = CGRenderer::I()->UsingDefferredMode();
+        bool bEnableDefMode = CGRenderer::I()->bIsUsingDefferredMode();
 
         // Get local camera
         CGMatrix4x4 M;
         CGVect4 Pos;
         CGVect3 CamPos;
         CGRenderer::I()->GetWorldMatrix(&M);
-        Pos = M.GetColVector(3);
+        Pos = M.oGetCol(3);
         CamPos.Set(-Pos.x,-Pos.y,-Pos.z);
 
         CGRenderer::I()->DisableDefferredMode();
 
-        iLODs = (int*)CE3D_RenderVars.poGetVar("iLODs");
-        fLODs = (float*)CE3D_RenderVars.poGetVar("fLODs");
+        iLODs = (int*)CGRenderVars::I()->poGetVar("iLODs");
+        fLODs = (float*)CGRenderVars::I()->poGetVar("fLODs");
 
         Tess->SetCameraPos(CamPos);
         Tess->SetData(HF,LM,TM,TB,fLODs,iLODs,fXYScale);
@@ -54,33 +54,12 @@ void CTerrainSector::Render ()
     }
 }
 
-CGBoundingVolume* CTerrainSector::poCreateBoundVol()
-{
-    eGraphBV_TypeID eOldType = CGraphBV_Manager::eGetBVMode();
-    CGraphBV_Manager::SetBVMode(eGraphBV_Box);
-
-    CGBoundingVolume* poBVol = CGraphBV_Manager::poCreate();
-
-    CGraphBV_Manager::SetBVMode(eOldType);
-    return(poBVol);
-}
-
-void CTerrainSector::ComputeBoundVol ()
-{
-    m_poBV->Init(Maxs,Mins);
-}
-
-CGBoundingVolume* CTerrainSector::poGetBV ()
-{
-    return (m_poBV);
-}
-
 void CTerrainSector::SetMaxsMins (CGVect3& _Maxs, CGVect3& _Mins)
 {
     Maxs.Assign(_Maxs);
     Mins.Assign(_Mins);
 
-    m_poBV->Init(Maxs,Mins);
+    m_poSectorBV->Init(Maxs,Mins);
 }
 
 // Additional Declarations

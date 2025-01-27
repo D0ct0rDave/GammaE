@@ -62,11 +62,7 @@ CHUD* CHUDFile::poLoad(const CGString& _sFile)
             CGString sText = oFile.sGetString(sObj + ".Text","NONE");
             CGString sFont = oFile.sGetString(sObj + ".Font","");
 
-            eGraphBV_TypeID eOldType = CGraphBV_Manager::eGetBVMode();
-            CGraphBV_Manager::SetBVMode(eGraphBV_Box);
             CHUDLabel* poLabel = mNew CHUDLabel( sText.uiLen() );
-            CGraphBV_Manager::SetBVMode(eOldType);
-
             poObj = poLabel;
 
             // Set font name
@@ -92,7 +88,7 @@ CHUD* CHUDFile::poLoad(const CGString& _sFile)
             poObj = poIcon;
 
             CGString sIcon = oFile.sGetString(sObj + ".Icon","");
-            poIcon->SetIcon( CE3D_ShaderWH::I()->poCreateShader( sIcon.szString() ) );
+            poIcon->SetIcon( CGShaderWH::I()->poCreateShader( sIcon.szString() ) );
         }
         else
         if ( sType |= "progressbar" )

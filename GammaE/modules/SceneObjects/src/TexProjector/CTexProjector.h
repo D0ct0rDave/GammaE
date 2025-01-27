@@ -27,19 +27,9 @@ class CTexProjector : public CGSceneLeaf
 
         void Setup(CGMesh* _oSrCGMesh, CGShader* _poShader, CGVect3& _oPos, CGVect3& _oDir, float _fXSize, float _fYSize);
 
-        // Additional Public Declarations
-
     protected:
-        // Data Members for Class Attributes
 
         CGMesh oAuxMesh;
-
-        // Additional Protected Declarations
-
-    private:
-        // Additional Private Declarations
-
-    private:                    // Additional Implementation Declarations
 };
 
 // Class CTexProjector

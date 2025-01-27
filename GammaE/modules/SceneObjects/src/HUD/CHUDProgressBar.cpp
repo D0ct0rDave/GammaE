@@ -12,8 +12,8 @@
 // -----------------------------------------------------------------------------
 CHUDProgressBar::CHUDProgressBar()
 {
-    eGraphBV_TypeID eOldType = CGraphBV_Manager::eGetBVMode();
-    CGraphBV_Manager::SetBVMode(eGraphBV_Box);
+    EGBoundingVolumeType eOldType = CGGraphBVFactory::eGetBVMode();
+    CGGraphBVFactory::SetBVMode(EGBoundingVolumeType::BVT_AABB);
 
     CGSceneGroup* poNode = mNew CGSceneGroup(2);
     CGSceneLeaf* poLeaf = NULL;
@@ -26,8 +26,8 @@ CHUDProgressBar::CHUDProgressBar()
     // Create the progress bar mesh
     // ------------------------------
     poMesh = mNew CGMeshRect;
-    MeshTransform_Translate(*poMesh,oTrans);
-    MeshTransform_Scale(*poMesh,oScale);
+    MeshUtils::TranslateMesh(*poMesh,oTrans);
+    MeshUtils::ScaleMesh(*poMesh,oScale);
 
     // Create the leaf
     poLeaf = mNew CGSceneLeaf;
@@ -35,7 +35,7 @@ CHUDProgressBar::CHUDProgressBar()
 
     // Create progress bar default shader
     CGColor oBarColor(1.0f,1.0f,1.0f,1.0f);
-    poDefBarSh = CE3D_ShaderUtils::poGenerateShaderFromColor(oBarColor,"BarColor");
+    poDefBarSh = CGShaderUtils::poGenerateShaderFromColor(oBarColor,"BarColor");
     poLeaf->SetShader(poDefBarSh);
 
     // Set leaf as first child
@@ -47,8 +47,8 @@ CHUDProgressBar::CHUDProgressBar()
     // Create the frame mesh
     // ------------------------------
     poMesh = mNew CGMeshRect;
-    MeshTransform_Translate(*poMesh,oTrans);
-    MeshTransform_Scale(*poMesh,oScale);
+    MeshUtils::TranslateMesh(*poMesh,oTrans);
+    MeshUtils::ScaleMesh(*poMesh,oScale);
 
     // Create the leaf
     poLeaf = mNew CGSceneLeaf;
@@ -61,8 +61,9 @@ CHUDProgressBar::CHUDProgressBar()
     // Set the node as main object
     SetObject(poNode);
 
-    ComputeBoundVol();
-    CGraphBV_Manager::SetBVMode(eOldType);
+    CGSCNVBoundVolBuilder::I()->Visit(this);
+
+    CGGraphBVFactory::SetBVMode(eOldType);
 
     m_fValue = 1.0f;
 }
@@ -95,7 +96,7 @@ void CHUDProgressBar::Value(float _fValue)
     m_poBarMesh->m_poUV[1].x = m_fValue;
     m_poBarMesh->m_poUV[2].x = m_fValue;
 
-    m_poBarMesh->ComputeBoundVol();
+    // m_poBarMesh->ComputeBoundVol();
 }
 // -----------------------------------------------------------------------------
 void CHUDProgressBar::SetFrameShader(CGShader* _poShader)

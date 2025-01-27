@@ -55,9 +55,7 @@ class CGE3DRenderer
     public:
 
         CGE3DRenderer();
-
-        virtual ~CGE3DRenderer();
-
+        
         // / Initializes the 3D Rendering System
         virtual bool bInit(handler _hDeviceContext, uint _uiOptions, uint _uiScrTX, uint _uiScrTY, uint _uiColorBits);
 
@@ -194,7 +192,7 @@ class CGE3DRenderer
         virtual void ClearCameraMatrix();
 
         // / Retrieves the current camera matrix
-        virtual void GetCameraMatrix(const CGMatrix4x4& _oMatrix);
+        virtual void GetCameraMatrix(CGMatrix4x4* _oMatrix);
 
         // / Sets the current camera matrix
         virtual void SetCameraMatrix(const CGMatrix4x4& _oMatrix);

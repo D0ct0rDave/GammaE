@@ -17,11 +17,10 @@
 // -----------------------------------------------------------------------------
 class CHUDLabel : public CHUDObject
 {
-    public:     CHUDLabel();
+    public:     
+        CHUDLabel();
         CHUDLabel(uint _uiMaxChars);
         virtual ~CHUDLabel();
-
-        virtual CGBoundingVolume* poCreateBoundVol();
 
         void SetFont(CHUDFont* _poFont);
         void SetText(const CGString& _sText);
@@ -36,6 +35,8 @@ class CHUDLabel : public CHUDObject
 
         CHUDFont* poFont;
         CGSceneLeaf* poLeaf;
+        CGUnmanagedMesh* m_poLabelMesh;
+        CGMesh* m_poMeshPool;
         CGString sText;
         CGColor oColor;
         uint uiMaxChars;

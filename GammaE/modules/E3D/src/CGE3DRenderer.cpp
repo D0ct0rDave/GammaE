@@ -10,9 +10,9 @@
 // ----------------------------------------------------------------------------
 #include "GammaE_Mem.h"
 #include <string.h>
-
-// CGRenderer
+// -----------------------------------------------------------------------------
 #include "CGRenderer.h"
+#include "RenderVars/CGRenderVars.h"
 // -----------------------------------------------------------------------------
 #define _FRUST_STACK_SIZE_  20
 // ----------------------------------------------------------------------------
@@ -27,14 +27,11 @@ CGE3DRenderer::CGE3DRenderer() : m_poCurrentShader(NULL), m_fAspectRatio(1.0f), 
 
     // Initialize defferred object Warehouse
     m_oDefObjWH.Init(256);
+    CGRenderVars::I()->Init(10);
 
     m_poProjector = NULL;
     m_poCamera = NULL;
     m_poViewport = NULL;
-}
-// ----------------------------------------------------------------------------
-CGE3DRenderer::~CGE3DRenderer()
-{
 }
 // ----------------------------------------------------------------------------
 bool CGE3DRenderer::bInit(handler _hDeviceContext, uint _uiOptions, uint _uiScrTX, uint _uiScrTY, uint _uiColorBits)
@@ -221,7 +218,7 @@ void CGE3DRenderer::ClearCameraMatrix ()
 {
 }
 // ----------------------------------------------------------------------------
-void CGE3DRenderer::GetCameraMatrix (const CGMatrix4x4& _oMatrix)
+void CGE3DRenderer::GetCameraMatrix (CGMatrix4x4* _oMatrix)
 {
 }
 // ----------------------------------------------------------------------------

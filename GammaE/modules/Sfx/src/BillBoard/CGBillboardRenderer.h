@@ -71,7 +71,7 @@ class CGBillboardRenderer : public CGSceneLeaf
         CGMesh m_oGeoPool;
 
         // / Array of meshes that will store the geometry during rendering
-        CGStArray <CGMesh> m_oMeshes;
+        CGStArray<CGUnmanagedMesh> m_oMeshes;
 
         // / The current list where we are adding billboards
         uint m_uiCurList;

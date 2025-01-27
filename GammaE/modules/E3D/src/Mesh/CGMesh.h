@@ -38,12 +38,6 @@ class CGMesh : public CGBaseMesh
 
         void Init(uint _uiNumVXs, uint _uiNumPrims, E3D_PrimitiveType _eMeshType, uint _uiFieldCreationMask);
 
-        // / This allows the user to setup programatically the number of vertices
-        void SetNumVXs(uint _uiNumVXs);
-
-        // / This allows the user to setup programatically the number of primitives
-        void SetNumPrims(uint _uiNumPrims);
-
         CGVect3* m_poVX;
 
         CGVect2* m_poUV;
@@ -58,12 +52,6 @@ class CGMesh : public CGBaseMesh
 
         unsigned short* m_pusIdx;
 
-
-    protected:
-        void ComputeNumberOfIndices();
-
-        uint m_uiMaxVXs;
-        uint m_uiMaxPrims;
 };
 // ----------------------------------------------------------------------------
 #endif

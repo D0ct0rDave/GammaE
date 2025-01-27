@@ -121,6 +121,7 @@
     <ClInclude Include="..\modules\E3D\src\Mesh\CGMeshCross.h" />
     <ClInclude Include="..\modules\E3D\src\Mesh\CGMeshRect.h" />
     <ClInclude Include="..\modules\E3D\src\Mesh\CGMeshSphere.h" />
+    <ClInclude Include="..\modules\E3D\src\Mesh\CGUnmanagedMesh.h" />
     <ClInclude Include="..\modules\E3D\src\Mesh\MeshUtils\ComputeBV.h" />
     <ClInclude Include="..\modules\E3D\src\Mesh\MeshUtils\NormalGen.h" />
     <ClInclude Include="..\modules\E3D\src\Mesh\MeshUtils\TexCoordGen.h" />
@@ -183,6 +184,7 @@
     <ClCompile Include="..\modules\E3D\src\Mesh\CGMeshCross.cpp" />
     <ClCompile Include="..\modules\E3D\src\Mesh\CGMeshRect.cpp" />
     <ClCompile Include="..\modules\E3D\src\Mesh\CGMeshSphere.cpp" />
+    <ClCompile Include="..\modules\E3D\src\Mesh\CGUnmanagedMesh.cpp" />
     <ClCompile Include="..\modules\E3D\src\Mesh\MeshUtils\ComputeBV.cpp" />
     <ClCompile Include="..\modules\E3D\src\Mesh\MeshUtils\NormalGen.cpp" />
     <ClCompile Include="..\modules\E3D\src\Mesh\MeshUtils\TexCoordGen.cpp" />

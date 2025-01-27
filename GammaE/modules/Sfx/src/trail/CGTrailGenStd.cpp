@@ -23,10 +23,10 @@ class CGTrailStd : public CGTrail
 
     public:
         // /
-        CCurve m_oCurve;
+        CGCurve m_oCurve;
         CGStArray <CGVect3> m_oPoints;
         CGStArray <CGVect3> m_fTimes;
-        CCurve m_oTimeCurve;
+        CGCurve m_oTimeCurve;
 
         // runtime fields
     public:
@@ -149,12 +149,12 @@ void CGTrailGenStd::InitTrail(CGTrail* _poTrail)
     CGTrailStd* poTrail = (CGTrailStd*)_poTrail;
 
     // Set initial energy
-    poTrail->m_fIniEnergy = m_fIniEnergy * (1.0f + MATH_fSRand() * m_fRndEnergy);
+    poTrail->m_fIniEnergy = m_fIniEnergy * (1.0f + Math::fSRand() * m_fRndEnergy);
     float f1OverEnergy = 1.0f / poTrail->m_fIniEnergy;
 
     // Initialize Size
-    poTrail->m_fIniSize = m_fIniSize * (1.0f + MATH_fSRand() * m_fIniRndSize);
-    poTrail->m_fEndSize = m_fEndSize * (1.0f + MATH_fSRand() * m_fEndRndSize);
+    poTrail->m_fIniSize = m_fIniSize * (1.0f + Math::fSRand() * m_fIniRndSize);
+    poTrail->m_fEndSize = m_fEndSize * (1.0f + Math::fSRand() * m_fEndRndSize);
 
     poTrail->m_fUpdateTime = 0.0f;                      // Add first point at the very begining
     poTrail->m_fInitialUpdateTime = m_fUpdateTime;
@@ -219,7 +219,7 @@ void CGTrailGenStd::UpdateInstance(CGTrailInstance* _poInst,float _fDeltaT)
         oU1.Normalize();
 
         // Size
-        oU1.Scale( MATH_fLerp(poTrail->m_fIniSize,poTrail->m_fEndSize,fFact) );
+        oU1.Scale( Math::fLerp(poTrail->m_fIniSize,poTrail->m_fEndSize,fFact) );
 
         // the color
         oColor1.Lerp(m_oIniColor,m_oEndColor,fFact);

@@ -37,7 +37,7 @@ class CShadowCaster : public CGSceneNode
 
         void ComputeLightCamera();
 
-        void ComputeLightViewport(CE3D_Viewport& _oVpt);
+        void ComputeLightViewport(CGViewport& _oVpt);
 
         void ComputeLightProjection();
 

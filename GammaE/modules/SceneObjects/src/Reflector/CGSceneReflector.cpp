@@ -81,10 +81,10 @@ void CGSceneReflector::Render ()
     // Setup reflection matrix
     SetupReflectionMatrix(PrjMatrix);
 
-    CGRenderer::I()->MultiplyMatrix(&PrjMatrix);
+    CGRenderer::I()->MultiplyMatrix(PrjMatrix);
 
     // Normal Rendering
-    CGSceneGroup::Render();
+    CGSCNVRenderer::I()->Render(this);
 
     // Restore previous matrix
     CGRenderer::I()->PopWorldMatrix();
@@ -99,9 +99,9 @@ void CGSceneReflector::SetupReflectionMatrix (CGMatrix4x4 &_oMat)
     float D;
 
     Plane.GenerateFromPoints(Mirror->m_poVX[0],Mirror->m_poVX[1],Mirror->m_poVX[2]);
-    Normal.Assign( Plane.Normal() );
+    Normal.Assign( Plane.oGetNormal() );
     // Normal.Set(0,0,1);
-    D = -1.0f * Plane.D();
+    D = -1.0f * Plane.fGetD();
 
     _oMat.Set(0,0,1.0f - 2.0f * Normal.x * Normal.x);
     _oMat.Set(0,1,     -2.0f * Normal.x * Normal.y);

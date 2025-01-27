@@ -31,19 +31,21 @@ void CHUDLabel::InternalInit(uint _uiMaxChars)
 {
     uiMaxChars = _uiMaxChars;
 
-    eGraphBV_TypeID eOldType = CGraphBV_Manager::eGetBVMode();
-    CGraphBV_Manager::SetBVMode(eGraphBV_Box);
+    EGBoundingVolumeType eOldType = CGGraphBVFactory::eGetBVMode();
+    CGGraphBVFactory::SetBVMode(EGBoundingVolumeType::BVT_AABB);
 
     // Create the text mesh
-    CGMesh* poMesh;
-
-    poMesh = mNew CGMesh;
-    poMesh->Init(4 * uiMaxChars,
+    m_poMeshPool = mNew CGMesh;
+    m_poMeshPool->Init(4 * uiMaxChars,
                  uiMaxChars,
-                 E3D_MESH_NIQUADS,
+                 E3D_PrimitiveType::E3D_PT_NIQUADS,
                  MESH_FIELD_VERTEXS | MESH_FIELD_UVCOORDS | MESH_FIELD_COLORS);
 
-    CGVect3* poVX = poMesh->m_poVX;
+    m_poLabelMesh = mNew CGUnmanagedMesh();
+    m_poLabelMesh->m_poVX = m_poMeshPool->m_poVX;
+    m_poLabelMesh->m_poUV = m_poMeshPool->m_poUV;
+    m_poLabelMesh->m_poVC = m_poMeshPool->m_poVC;
+    m_poLabelMesh->SetPrimitiveType(m_poMeshPool->eGetPrimitiveType());
 
     for ( uint cI = 0; cI < uiMaxChars; cI++ )
     {
@@ -57,30 +59,16 @@ void CHUDLabel::InternalInit(uint _uiMaxChars)
 
     // Create the leaf
     poLeaf = mNew CGSceneLeaf;
-    poLeaf->SetMesh(poMesh);
+    poLeaf->SetMesh(m_poLabelMesh);
 
     poFont = NULL;
 
     // Set leaf as child
     SetObject(poLeaf);
-    ComputeBoundVol();
-    CGraphBV_Manager::SetBVMode(eOldType);
-}
-// -----------------------------------------------------------------------------
-CGBoundingVolume* CHUDLabel::poCreateBoundVol()
-{
-    eGraphBV_TypeID eOldType = CGraphBV_Manager::eGetBVMode();
-    CGraphBV_Manager::SetBVMode(eGraphBV_Box);
 
-    CGBoundingVolume* poBVol = CGraphBV_Manager::poCreate();
+    CGSCNVBoundVolBuilder::I()->Visit(this);
 
-    CGraphBV_Manager::SetBVMode(eOldType);
-
-    return(poBVol);
-}
-// -----------------------------------------------------------------------------
-CHUDLabel::~CHUDLabel()
-{
+    CGGraphBVFactory::SetBVMode(eOldType);
 }
 // -----------------------------------------------------------------------------
 void CHUDLabel::SetMaxChars(uint _uiMaxChars)
@@ -88,18 +76,17 @@ void CHUDLabel::SetMaxChars(uint _uiMaxChars)
     if ( _uiMaxChars == uiMaxChars ) return;
 
     // Delete old data
-    CGMesh* poOldMesh = poLeaf->poGetMesh();
+    CGBaseMesh* poOldMesh = poLeaf->poGetMesh();
     mDel poOldMesh;
 
     // Create new string data
     uiMaxChars = _uiMaxChars;
 
     // Create the text mesh
-    CGMesh* poMesh;
     poMesh = mNew CGMesh;
     poMesh->Init(4 * uiMaxChars,
                  uiMaxChars,
-                 E3D_MESH_NIQUADS,
+                 E3D_PrimitiveType::E3D_PT_NIQUADS,
                  MESH_FIELD_VERTEXS | MESH_FIELD_UVCOORDS | MESH_FIELD_COLORS);
 
     CGVect3* poVX = poMesh->m_poVX;
@@ -124,7 +111,7 @@ void CHUDLabel::SetMaxChars(uint _uiMaxChars)
     poLeaf->SetMesh(poMesh);
 
     // Recompute BVol
-    ComputeBoundVol();
+    CGSCNVBoundVolBuilder::I()->Visit(this);
 
     //
     SetText( sText );
@@ -143,7 +130,7 @@ void CHUDLabel::SetColor(CGColor _oColor)
 
     oColor = _oColor;
 
-    CGColor* poVC = poLeaf->poGetMesh()->m_poVC;
+    CGColor* poVC = poMesh->m_poVC;
     for ( uint cI = 0; cI < uiMaxChars * 4; cI++ )
     {
         poVC->Set(oColor.r,oColor.g,oColor.b,oColor.a);
@@ -173,8 +160,8 @@ void CHUDLabel::WriteChar(char _cA,float _fOfsX,float _fW)
      */
 
     // Setup UV coords
-    CGVect2* poUV = poLeaf->poGetMesh()->m_poUV + 4 * poLeaf->poGetMesh()->m_uiNumPrims;
-    CGVect3* poVX = poLeaf->poGetMesh()->m_poVX + 4 * poLeaf->poGetMesh()->m_uiNumPrims;
+    CGVect2* poUV = poMesh->m_poUV + 4 * poMesh->uiGetNumPrims();
+    CGVect3* poVX = poMesh->m_poVX + 4 * poMesh->uiGetNumPrims();
 
     poUV[0].Set(u1,v1);
     poUV[1].Set(u1,v2);
@@ -202,18 +189,19 @@ void CHUDLabel::SetText(const CGString& _sText)
         sText = _sText;
 
     float fXOfs = 0;
-    poLeaf->poGetMesh()->m_uiNumPrims = 0;
+    uint uiNumPrims = 0;
     for ( uint cI = 0; cI < uiLen; cI++ )
     {
         float fW = poFont->fCharWidth(sText[cI]) / poFont->fDefaultCharWidth();
 
         WriteChar(sText[cI],fXOfs,fW);
-        poLeaf->poGetMesh()->m_uiNumPrims++;
+        uiNumPrims++;
 
         fXOfs += fW;
     }
 
-    poLeaf->poGetMesh()->m_usNumVXs = poLeaf->poGetMesh()->m_uiNumPrims * 4;
+    poMesh->SetNumPrims(uiNumPrims);
+    poMesh->SetNumVXs(poMesh->uiGetNumPrims()* 4);
 }
 // -----------------------------------------------------------------------------
 void CHUDLabel::SetText(char* fmt,...)

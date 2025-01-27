@@ -14,16 +14,16 @@
 // #define _SMOOTH_SHADOW2_
 
 // Class CShadowCaster
-
+// -----------------------------------------------------------------------------
 CShadowCaster::CShadowCaster()
     : poBlockerObj(NULL), poRecObjs(NULL), iNumRecObjs(0), poTexObj(NULL), pucAuxTexData(NULL)
 {
 }
-
+// -----------------------------------------------------------------------------
 CShadowCaster::~CShadowCaster()
 {
 }
-
+// -----------------------------------------------------------------------------
 void CShadowCaster::Init (int _iRes)
 {
     iRes = _iRes;
@@ -48,24 +48,24 @@ void CShadowCaster::Init (int _iRes)
     #endif
 
     // Create shader from texture
-    CE3D_ShaderUtils::SetupTilingFlags(0,0);
-    poShader = CE3D_ShaderUtils::poGenerateShaderFromMipMap(poMipMap,"::ShadowMap::");
+    CGShaderUtils::SetupTilingFlags(0,0);
+    poShader = CGShaderUtils::poGenerateShaderFromMipMap(poMipMap,"::ShadowMap::");
 
     // Get a Ref to texture object
-    poTexObj = ( (CE3D_ShIns_Texture*)poShader->pGetInstruction(0) )->m_poTex;
+    poTexObj = ( (CGShInsTexture*)poShader->pGetInstruction(0) )->m_poTex;
 
     // Add blending op before texture operation
-    CE3D_ShIns_BlendOp* poBop = mNew CE3D_ShIns_BlendOp;
+    CGShInsBlendOp* poBop = mNew CGShInsBlendOp;
     poBop->SetBlendMode(E3D_BM_Mult);
     poShader->PushInstruction(poBop);
 
     // Add matrix texture operation
-    CE3D_ShIns_TexOp* poTop = mNew CE3D_ShIns_TexOp;
+    CGShInsTexOp* poTop = mNew CGShInsTexOp;
     poTop->SetTOpType(eSITexOp_Matrix);
     poTop->m_poMat = &oPrjTexMat;
     poShader->PushInstruction(poTop);
 }
-
+// -----------------------------------------------------------------------------
 void CShadowCaster::Setup (CGVect3& _oLightPos, CGSceneNode* _poBlockerObj, CGMesh* * _poRecObjs, int _iNumRecObjs)
 {
     oLPos.Assign(_oLightPos);
@@ -78,30 +78,34 @@ void CShadowCaster::Setup (CGVect3& _oLightPos, CGSceneNode* _poBlockerObj, CGMe
 
     ComputeTextureProjection();
 }
-
+// -----------------------------------------------------------------------------
 CGBoundingVolume* CShadowCaster::poGetBV ()
 {
     return (NULL);
 }
-
+// -----------------------------------------------------------------------------
 void CShadowCaster::ComputeBoundVol ()
 {
 }
-
+// -----------------------------------------------------------------------------
 void CShadowCaster::ComputeLightCamera ()
 {
-    CE3D_Camera oCam;
+    CGVect3 oDir;
+    oDir.Assign(poBlockerObj->poGetBV()->oGetCenter());
+    oDir.Sub(oLPos);
+    oDir.Normalize();
 
-    oCam.m_oDir.Assign( poBlockerObj->poGetBV()->oGetCenter() );
-    oCam.m_oDir.Sub   (oLPos);
-    oCam.m_oDir.Normalize();
-
+    CGVect3 oSide;
     // _oCam.Side = Orthogonal();
-    oCam.m_oSide.Orthogonal(oCam.m_oDir);
-    oCam.m_oSide.Normalize ();
+    oSide.Orthogonal(oDir);
+    oSide.Normalize ();
 
-    oCam.m_oUp.CrossProd(oCam.m_oDir,oCam.m_oSide);
-    oCam.m_oPos.Assign   (oLPos);
+    CGVect3 oUp;
+    oUp.CrossProd(oDir, oSide);
+
+    CGCamera oCam;
+    oCam.SetVectors(oDir, oUp, oSide);
+    oCam.SetPos(oLPos);
 
     /*
        // Compute camera viewing matrix
@@ -132,20 +136,20 @@ void CShadowCaster::ComputeLightCamera ()
     CGRenderer::I()->SetCamera(&oCam);
     CGRenderer::I()->GetCameraMatrix(&oCamMat);
 }
-
-void CShadowCaster::ComputeLightViewport (CE3D_Viewport& _oVpt)
+// -----------------------------------------------------------------------------
+void CShadowCaster::ComputeLightViewport(CGViewport& _oVpt)
 {
-    float fTX = (float)iRes / (float)CGRenderer::I()->iGetScrTX();
-    float fTY = (float)iRes / (float)CGRenderer::I()->iGetScrTY();
+    float fTX = (float)iRes / (float)CGRenderer::I()->uiGetScrTX();
+    float fTY = (float)iRes / (float)CGRenderer::I()->uiGetScrTY();
 
     _oVpt.SetViewport(0.0f,0.0f,fTX,fTY);
 }
-
+// -----------------------------------------------------------------------------
 void CShadowCaster::ComputeLightProjection ()
 {
-    CGBVAABB oBox;
-    CGVect3* poPnt = oBox.Vol.m_oPoints;
-    oBox.Copy( poBlockerObj->poGetBV() );
+    CGGraphBVAABB oBox;
+    const CGVect3* poPnt = oBox.poGetPoints();
+    oBox.Copy(*poBlockerObj->poGetBV() );
 
     // Transform bounding volume points
     float fXAbs,fYAbs;
@@ -155,10 +159,11 @@ void CShadowCaster::ComputeLightProjection ()
     fYMax = -1e6f;
     for ( int iPnt = 0; iPnt < 8; iPnt++ )
     {
-        oCamMat.TransformPoint(poPnt[iPnt]);
+        CGVect3 oPoint = poPnt[iPnt];
+        oCamMat.TransformPoint(&oPoint);
 
-        fXAbs = MATH_fAbs(poPnt[iPnt].x / poPnt[iPnt].z);
-        fYAbs = MATH_fAbs(poPnt[iPnt].y / poPnt[iPnt].z);
+        fXAbs = Math::fAbs(oPoint.x / oPoint.z);
+        fYAbs = Math::fAbs(oPoint.y / oPoint.z);
 
         if ( fXMax < fXAbs ) fXMax = fXAbs;
         if ( fYMax < fYAbs ) fYMax = fYAbs;
@@ -178,7 +183,7 @@ void CShadowCaster::ComputeLightProjection ()
     oPrjMat.Set(3,2,-1);                    // Este es el orden correcto !
     oPrjMat.Set(3,3,0);
 }
-
+// -----------------------------------------------------------------------------
 void CShadowCaster::ComputeTextureProjection ()
 {
     CGMatrix4x4 oAuxMat;
@@ -215,7 +220,7 @@ void CShadowCaster::ComputeTextureProjection ()
 
     // oPrjTexMat.Multiply(oAuxMat,oCamMat);
 }
-
+// -----------------------------------------------------------------------------
 void CShadowCaster::UploadShadowMap ()
 {
     // Retrieve texture from frame buffer
@@ -252,18 +257,18 @@ void CShadowCaster::UploadShadowMap ()
     // Force update
     poTexObj->m_poMipMap->Invalidate();
 }
-
+// -----------------------------------------------------------------------------
 void CShadowCaster::RenderShadowMap ()
 {
-    CE3D_Viewport oVpt;
-    CE3D_Viewport* poOldVpt;
+    CGViewport oVpt;
+    CGViewport* poOldVpt;
     CGMatrix4x4 oOldPrjMat;
     CGMatrix4x4 oOldCamMat;
 
     // Save current state
     CGRenderer::I()->GetProjectorMatrix(&oOldPrjMat);
     CGRenderer::I()->GetCameraMatrix   (&oOldCamMat);
-    poOldVpt = CGRenderer::I()->GetViewport();
+    poOldVpt = CGRenderer::I()->poGetViewport();
 
     // Set current point of view
     ComputeLightViewport    (oVpt);
@@ -272,8 +277,8 @@ void CShadowCaster::RenderShadowMap ()
     ComputeLightCamera();
     ComputeLightProjection();
 
-    CGRenderer::I()->SetCameraMatrix(&oCamMat);
-    CGRenderer::I()->SetProjectorMatrix(&oPrjMat);
+    CGRenderer::I()->SetCameraMatrix(oCamMat);
+    CGRenderer::I()->SetProjectorMatrix(oPrjMat);
 
     // Rendering
 
@@ -287,7 +292,7 @@ void CShadowCaster::RenderShadowMap ()
     CGRenderer::I()->ClearBuffer(E3D_RB_Back);
 
     // Render blocking object
-    poBlockerObj->Render();
+    CGSCNVRenderer::I()->Render(this);
 
     // Get ShadowMap texture
     UploadShadowMap ();
@@ -297,17 +302,17 @@ void CShadowCaster::RenderShadowMap ()
 
     // Restore state
     CGRenderer::I()->SetViewport     (poOldVpt);
-    CGRenderer::I()->SetProjectorMatrix(&oOldPrjMat);
-    CGRenderer::I()->SetCameraMatrix   (&oOldCamMat);
+    CGRenderer::I()->SetProjectorMatrix(oOldPrjMat);
+    CGRenderer::I()->SetCameraMatrix   (oOldCamMat);
 }
-
+// -----------------------------------------------------------------------------
 void CShadowCaster::Render ()
 {
     for ( int iObj = 0; iObj < iNumRecObjs; iObj++ )
     {
-        oTexProj.Setup(poRecObjs[iObj],poShader,oPrjTexMat);
-        oTexProj.Render();
+        oTexProj.Setup(poRecObjs[iObj], poShader, oPrjTexMat);
+        CGSCNVRenderer::I()->Render(&oTexProj);
     }
 }
-
+// -----------------------------------------------------------------------------
 // Additional Declarations

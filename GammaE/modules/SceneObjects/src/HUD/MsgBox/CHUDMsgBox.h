@@ -65,6 +65,9 @@ class CHUDMsgBox : public CGSceneMux
 
         CGSceneLeaf* poNextIcLeaf;
         CGSceneTransf* poNextIcTransf;
+        
+        CGMesh* poPrevIcMesh;
+        CGMesh* poNextIcMesh;
 
         CGColor oColor;
         int iRows;

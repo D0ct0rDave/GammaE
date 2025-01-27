@@ -85,7 +85,7 @@ void CHUD::Render ()
     float TX,TY,TZ;
     float XTrans,YTrans,ZTrans;
 
-    CGBoundingVolume* BVol;
+    CGGraphBV* BVol;
 
     bool bDefMode;
 
@@ -114,7 +114,7 @@ void CHUD::Render ()
             CGRenderer::I()->PushWorldMatrix();
             // CGRenderer::I()->PushCameraMatrix();
 
-            BVol = m_oHUDObjs[i]->poObj->poGetBV();
+            CGGraphBV* BVol = m_oHUDObjs[i]->poObj->poGetBV();
 
             TX = BVol->GetRange(0);
             if ( !TX ) TX = 1.0f;

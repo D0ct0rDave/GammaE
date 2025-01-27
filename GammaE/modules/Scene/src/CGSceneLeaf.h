@@ -53,7 +53,7 @@ class CGSceneLeaf : public CGSceneNode
             _poVisitor->Visit(this);
         }
 
-    protected:
+    private:
 
         CGBaseMesh* m_poMesh;
         CGShader* m_poShader;

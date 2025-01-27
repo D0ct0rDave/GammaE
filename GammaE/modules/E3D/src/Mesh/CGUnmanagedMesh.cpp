@@ -8,48 +8,38 @@
  *  \par GammaE License
  */
 // ----------------------------------------------------------------------------
-#include "GammaE_Mem.h"
-#include "Mesh\CGMesh.h"
+#include "Mesh\CGUnmanagedMesh.h"
 // ----------------------------------------------------------------------------
-CGMesh::CGMesh() :
-    m_poVX(NULL),
-    m_poUV(NULL),
-    m_poVN(NULL),
-    m_poVC(NULL),
-    m_poTN(NULL),
-    m_poUV2(NULL),
-    m_pusIdx(NULL)
+CGUnmanagedMesh::~CGUnmanagedMesh()
 {
-    m_eMeshType = E3D_MT_Mesh;
+    m_poVX = NULL;
+    m_poUV = NULL;
+    m_poVN = NULL;
+    m_poVC = NULL;
+    m_poTN = NULL;
+    m_poUV2 = NULL;
+    m_pusIdx = NULL;
 }
 // ----------------------------------------------------------------------------
-CGMesh::~CGMesh()
-{
-    if ( m_poVX ) mDel[] m_poVX;
-    if ( m_poUV ) mDel[] m_poUV;
-    if ( m_poVN ) mDel[] m_poVN;
-    if ( m_poVC ) mDel[] m_poVC;
-    if ( m_poTN ) mDel[] m_poTN;
-    if ( m_poUV2 ) mDel[] m_poUV2;
-
-    if ( m_pusIdx ) mDel[] m_pusIdx;
-    if ( m_poBV ) mDel m_poBV;
-}
-// ----------------------------------------------------------------------------
-void CGMesh::Init(uint _uiNumVXs, uint _uiNumPrims, E3D_PrimitiveType _eMeshType, uint _uiFieldCreationMask)
+void CGUnmanagedMesh::SetNumVXs(uint _uiNumVXs)
 {
     m_uiNumVXs = _uiNumVXs;
+}
+// ----------------------------------------------------------------------------
+void CGUnmanagedMesh::SetNumPrims(uint _uiNumPrims)
+{
     m_uiNumPrims = _uiNumPrims;
+    ComputeNumberOfIndices();
+}
+// ----------------------------------------------------------------------------
+void CGUnmanagedMesh::SetPrimitiveType(E3D_PrimitiveType _eMeshType)
+{
     m_ePrimitiveType = _eMeshType;
-
-    if ( _uiFieldCreationMask & MESH_FIELD_VERTEXS ) m_poVX = mNew CGVect3[m_uiNumVXs];
-    if ( _uiFieldCreationMask & MESH_FIELD_UVCOORDS ) m_poUV = mNew CGVect2[m_uiNumVXs];
-    if ( _uiFieldCreationMask & MESH_FIELD_VNORMALS ) m_poVN = mNew CGVect3[m_uiNumVXs];
-    if ( _uiFieldCreationMask & MESH_FIELD_COLORS ) m_poVC = mNew CGColor[m_uiNumVXs];
-    if ( _uiFieldCreationMask & MESH_FIELD_INDEXES ) m_pusIdx = mNew unsigned short[m_uiNumIdxs];
-    if ( _uiFieldCreationMask & MESH_FIELD_TNORMALS ) m_poTN = mNew CGVect3[uiGetNumPrims()];
-    if ( _uiFieldCreationMask & MESH_FIELD_UVCOORD2 ) m_poUV2 = mNew CGVect2[m_uiNumVXs];
-
+    ComputeNumberOfIndices();
+}
+// ----------------------------------------------------------------------------
+void CGUnmanagedMesh::ComputeNumberOfIndices()
+{
     switch (m_ePrimitiveType)
     {
     case E3D_PT_NONE:       m_uiNumIdxs = 0;

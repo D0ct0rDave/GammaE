@@ -13,16 +13,16 @@
 void NormalizeMeshRect(CGMesh* _poMesh)
 {
     CGVect3 oTrans(1,1,0);
-    MeshTransform_Translate(*_poMesh,oTrans);
+    MeshUtils::TranslateMesh(*_poMesh,oTrans);
 
     CGVect3 oScale(0.5f,0.5f,1.0f);
-    MeshTransform_Scale    (*_poMesh,oScale);
+    MeshUtils::ScaleMesh(*_poMesh,oScale);
 }
 // -----------------------------------------------------------------------------
 void TranslateMesh(CGMesh* _poMesh,int _iRow,int _iCol)
 {
     CGVect3 oTrans(_iCol,_iRow,0.0f);
-    MeshTransform_Translate(*_poMesh,oTrans);
+    MeshUtils::TranslateMesh(*_poMesh,oTrans);
 }
 // -----------------------------------------------------------------------------
 void CHUDMsgBox::Init (int _iRows,int _iCols)
@@ -34,16 +34,16 @@ void CHUDMsgBox::Init (int _iRows,int _iCols)
 
     iHdrPos = 0;
 
-    TranslateMesh(poPrevIcLeaf->poGetMesh(),_iRows,_iCols / 2 - 1);
-    TranslateMesh(poNextIcLeaf->poGetMesh(),_iRows,_iCols / 2 + 1);
+    TranslateMesh(poPrevIcMesh, _iRows, _iCols / 2 - 1);
+    TranslateMesh(poNextIcMesh, _iRows, _iCols / 2 + 1);
 
     oMsg.Init(MAX_MSG_LINES);
 }
 
 CHUDMsgBox::CHUDMsgBox()
 {
-    eGraphBV_TypeID eOldType = CGraphBV_Manager::eGetBVMode();
-    CGraphBV_Manager::SetBVMode(eGraphBV_Box);
+    EGBoundingVolumeType eOldType = CGGraphBVFactory::eGetBVMode();
+    CGGraphBVFactory::SetBVMode(EGBoundingVolumeType::BVT_AABB);
 
     // Create the text leaf
     poTxtLeaf = mNew CGSceneLeaf;
@@ -63,21 +63,23 @@ CHUDMsgBox::CHUDMsgBox()
     iAddObject(poTxtLeaf);
 
     // Add previous/next icons
-    CGShader* poNIcShader = CE3D_ShaderWH::I()->poCreateShader("MessageBox_NextIcon");
-    CGShader* poPIcShader = CE3D_ShaderWH::I()->poCreateShader("MessageBox_PrevIcon");
+    CGShader* poNIcShader = CGShaderWH::I()->poCreateShader("MessageBox_NextIcon");
+    CGShader* poPIcShader = CGShaderWH::I()->poCreateShader("MessageBox_PrevIcon");
 
-    CGMesh* poPMesh = mNew CGMeshRect;
-    NormalizeMeshRect(poPMesh);
+    poPrevIcMesh = mNew CGMeshRect;
+    NormalizeMeshRect(poPrevIcMesh);
+    
     poPrevIcLeaf = mNew CGSceneLeaf;
-    poPrevIcLeaf->SetMesh  (poPMesh);
+    poPrevIcLeaf->SetMesh  (poPrevIcMesh);
     poPrevIcLeaf->SetShader(poPIcShader);
     poPrevIcTransf = mNew CGSceneTransf;
     poPrevIcTransf->SetObject(poPrevIcLeaf);
 
-    CGMesh* poNMesh = mNew CGMeshRect;
-    NormalizeMeshRect(poNMesh);
+    poNextIcMesh = mNew CGMeshRect;
+    NormalizeMeshRect(poNextIcMesh);
+    
     poNextIcLeaf = mNew CGSceneLeaf;
-    poNextIcLeaf->SetMesh  (poNMesh);
+    poNextIcLeaf->SetMesh  (poNextIcMesh);
     poNextIcLeaf->SetShader(poNIcShader);
     poNextIcTransf = mNew CGSceneTransf;
     poNextIcTransf->SetObject(poNextIcLeaf);
@@ -85,7 +87,7 @@ CHUDMsgBox::CHUDMsgBox()
     iAddObject(poNextIcTransf);
     iAddObject(poNextIcTransf);
 
-    CGraphBV_Manager::SetBVMode(eOldType);
+    CGGraphBVFactory::SetBVMode(eOldType);
 }
 // -----------------------------------------------------------------------------
 CHUDMsgBox::~CHUDMsgBox()
@@ -109,7 +111,7 @@ void CHUDMsgBox::SetColor(CGColor _oColor)
 
     oColor = _oColor;
 
-    CGColor* poVC = poTxtLeaf->poGetMesh()->m_poVC;
+    CGColor* poVC = oGTxt.m_poVC;
     for ( int cI = 0; cI < MAX_LINE_CHARS * 4; cI++ )
     {
         poVC->Set(oColor.r,oColor.g,oColor.b,oColor.a);
@@ -312,9 +314,10 @@ void CHUDMsgBox::Open(char* _szText)
     SetText(_szText);
     SetGText();
     SetBackground();
-    ComputeBoundVol();
-}
 
+    CGSCNVBoundVolBuilder::I()->Visit(this);
+}
+// -----------------------------------------------------------------------------
 void CHUDMsgBox::Close()
 {
     SelectNone();
@@ -346,7 +349,7 @@ int CHUDMsgBox::iGetWidthChars()
 
     return(iWidth);
 }
-
+// -----------------------------------------------------------------------------
 int CHUDMsgBox::iGetHeightChars()
 {
     if ( oMsg.uiNumElems() <= iRows )

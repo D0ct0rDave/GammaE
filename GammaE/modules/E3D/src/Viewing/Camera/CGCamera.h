@@ -20,6 +20,9 @@ class CGCamera
         // / Sets the position of the camera
         void SetPos(float _fX, float _fY, float _fZ);
 
+        // / Sets the position of the camera
+        void SetPos(const CGVect3& _oPos);
+
         // / Sets the orientation of the camera by its angles
         void SetDir(float _fPitch, float _fYaw, float _fRoll);
 

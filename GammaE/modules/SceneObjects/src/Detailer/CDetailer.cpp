@@ -46,17 +46,31 @@ CDetailer::~CDetailer()
     {
         mDel(poTex);
     }
+
+    SetMesh(NULL);
+    if (m_poMesh)
+    {
+        mDel(m_poMesh);
+    }
+    if (m_poDetailMesh)
+    {
+        mDel m_poDetailMesh;
+    }
 }
 // -----------------------------------------------------------------------------
 void CDetailer::Init (int _iMaxTris)
 {
-    m_poDetailMesh = mNew CGMesh();
-    m_poDetailMesh->Init( _iMaxTris * 3,_iMaxTris,
-                        E3D_PrimitiveType::E3D_PT_NITRIS,
-                        MESH_FIELD_VERTEXS |
-                        MESH_FIELD_UVCOORDS |
-                        MESH_FIELD_COLORS);
+    m_poMesh = mNew CGMesh();
+    m_poMesh->Init( _iMaxTris * 3,_iMaxTris,
+                    E3D_PrimitiveType::E3D_PT_NITRIS,
+                    MESH_FIELD_VERTEXS |
+                    MESH_FIELD_UVCOORDS |
+                    MESH_FIELD_COLORS);
 
+    m_poDetailMesh = mNew CGUnmanagedMesh();
+    m_poDetailMesh->m_poVX = m_poMesh->m_poVX;
+    m_poDetailMesh->m_poUV = m_poMesh->m_poUV;
+    m_poDetailMesh->m_poVC = m_poMesh->m_poVC;
     m_poDetailMesh->SetNumPrims(0);
     m_poDetailMesh->SetNumVXs(0);
 

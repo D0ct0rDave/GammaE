@@ -20,7 +20,7 @@ class CGTrailManagerNode : public CGSceneGroup
         virtual void Render()
         {
             // Update the Manager
-            CGTrailManager::I()->Update( CGRenderer::I()->REStats.DTime );
+            CGTrailManager::I()->Update( CGRenderer::I()->oGetStats().m_fDelta);
 
             // Render all the objects of the PSI
             CGTrailManager::I()->m_poRenderer->Render();

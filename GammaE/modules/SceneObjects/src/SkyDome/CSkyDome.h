@@ -54,7 +54,7 @@ class CSkyDome : public CGSceneLeaf
         bool FogAffected;
 
         // Additional Private Declarations
-
+        CGMesh* m_poSkyDomeMesh;
     private:                    // Additional Implementation Declarations
 };
 

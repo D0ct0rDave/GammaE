@@ -18,13 +18,12 @@
 // -----------------------------------------------------------------------------
 class CHUDIcon : public CHUDObject
 {
-    public:     CHUDIcon();
+    public:     
+        CHUDIcon();
         virtual ~CHUDIcon();
-
-        CGBoundingVolume* poCreateBoundVol();
-
         void SetIcon(CGShader* _poShader);
-    private:
+
+private:
         CGSceneLeaf* poLeaf;
 };
 

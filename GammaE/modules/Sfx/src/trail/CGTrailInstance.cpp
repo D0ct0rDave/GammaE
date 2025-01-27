@@ -24,7 +24,7 @@ void CGTrailInstance::SetPos(const CGVect3& _oNewPos)
 // ----------------------------------------------------------------------------
 void CGTrailInstance::Update()
 {
-    m_poTG->UpdateInstance(this,CGRenderer::I()->REStats.DTime);
+    m_poTG->UpdateInstance(this, CGRenderer::I()->oGetStats().m_fDelta);
 }
 // ----------------------------------------------------------------------------
 void CGTrailInstance::Reinit()

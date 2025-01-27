@@ -10,12 +10,12 @@
 // -----------------------------------------------------------------------------
 #include "CMenuTextGrid.h"
 #include <string.h>
-
+// -----------------------------------------------------------------------------
 CMenuTextGrid::CMenuTextGrid()
 {
 }
-
-void CMenuTextGrid::Init  (int _iCols,int _iMaxRows)
+// -----------------------------------------------------------------------------
+void CMenuTextGrid::Init(int _iCols,int _iMaxRows)
 {
     iCols = _iCols;
     iMaxRows = _iMaxRows;
@@ -23,17 +23,17 @@ void CMenuTextGrid::Init  (int _iCols,int _iMaxRows)
 
     CGMesh::Init(4 * iMaxRows * iCols,
                  iMaxRows * iCols,
-                 E3D_MESH_NIQUADS,
+                 E3D_PrimitiveType::E3D_PT_NIQUADS,
                  MESH_FIELD_VERTEXS | MESH_FIELD_UVCOORDS | MESH_FIELD_COLORS);
 }
-
+// -----------------------------------------------------------------------------
 void CMenuTextGrid::Reset()
 {
     m_uiNumPrims = 0;
-    m_usNumVXs = 0;
+    m_uiNumVXs = 0;
     iCurRow = 0;
 }
-
+// -----------------------------------------------------------------------------
 void CMenuTextGrid::WriteChar(float _fX,float _fY, CGColor _oColor,char _cA)
 {
     const float fUSize = 1.0f / 8.0f;
@@ -143,9 +143,9 @@ void CMenuTextGrid::WriteChar(float _fX,float _fY, CGColor _oColor,char _cA)
     poVC[3] = _oColor;
 
     m_uiNumPrims++;
-    m_usNumVXs += 4;
+    m_uiNumVXs += 4;
 }
-
+// -----------------------------------------------------------------------------
 void CMenuTextGrid::WriteXY  (float _fXOfs, float _fYOfs, CGColor _oColor,char* _szText)
 {
     int iPos = 0;
@@ -158,7 +158,7 @@ void CMenuTextGrid::WriteXY  (float _fXOfs, float _fYOfs, CGColor _oColor,char* 
         _szText++;
     }
 }
-
+// -----------------------------------------------------------------------------
 void CMenuTextGrid::WriteText(char* _szText,CGColor _oColor,float _fAlpha)
 {
     CGColor oFinalColor;
@@ -171,3 +171,4 @@ void CMenuTextGrid::WriteText(char* _szText,CGColor _oColor,float _fAlpha)
     WriteXY(fXOfs,(float)iCurRow,oFinalColor,_szText);
     iCurRow++;
 }
+// -----------------------------------------------------------------------------

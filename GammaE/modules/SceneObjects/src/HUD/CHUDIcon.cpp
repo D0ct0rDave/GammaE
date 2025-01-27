@@ -8,41 +8,23 @@
  *  \par GammaE License
  */
 // -----------------------------------------------------------------------------
-// -----------------------------------------------------------------------------
 #include "CHUDIcon.h"
 // -----------------------------------------------------------------------------
 CHUDIcon::CHUDIcon()
 {
-    eGraphBV_TypeID eOldType = CGraphBV_Manager::eGetBVMode();
-    CGraphBV_Manager::SetBVMode(eGraphBV_Box);
+    EGBoundingVolumeType eOldType = CGGraphBVFactory::eGetBVMode();
+    CGGraphBVFactory::SetBVMode(EGBoundingVolumeType::BVT_AABB);
 
-    CGMeshRect* poMesh;
-    poMesh = mNew CGMeshRect;
+    CGMeshRect* poMesh = mNew CGMeshRect;
 
     poLeaf = mNew CGSceneLeaf;
     poLeaf->SetMesh(poMesh);
 
     SetObject(poLeaf);
 
-    CGraphBV_Manager::SetBVMode(eOldType);
-    ComputeBoundVol();
-}
-// -----------------------------------------------------------------------------
-CGBoundingVolume* CHUDIcon::poCreateBoundVol ()
-{
-    eGraphBV_TypeID eOldType = CGraphBV_Manager::eGetBVMode();
-    CGraphBV_Manager::SetBVMode(eGraphBV_Box);
-
-    CGBoundingVolume* poBVol = CGraphBV_Manager::poCreate();
-
-    CGraphBV_Manager::SetBVMode(eOldType);
-
-    return(poBVol);
-}
-// -----------------------------------------------------------------------------
-CHUDIcon::~CHUDIcon()
-{
-    // CGSceneMux::~CGSceneMux();
+    CGSCNVBoundVolBuilder::I()->Visit(this);
+    
+    CGGraphBVFactory::SetBVMode(eOldType);
 }
 // -----------------------------------------------------------------------------
 void CHUDIcon::SetIcon(CGShader* _poShader)

@@ -31,12 +31,6 @@ class CTerrainSector : public CGSceneNode
 
         virtual void Render();
 
-        virtual CGBoundingVolume* poCreateBoundVol();
-
-        virtual void ComputeBoundVol();
-
-        virtual CGBoundingVolume* poGetBV();
-
         void SetMaxsMins(CGVect3& _Maxs, CGVect3& _Mins);
 
         // Data Members for Class Attributes
@@ -76,7 +70,8 @@ class CTerrainSector : public CGSceneNode
         CGVect3 Mins;
 
         CGVect3 Maxs;
-
+    
+        CGGraphBVAABB* m_poSectorBV;
         // Additional Private Declarations
 
     private:                    // Additional Implementation Declarations
