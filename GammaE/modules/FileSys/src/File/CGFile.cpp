@@ -139,49 +139,49 @@ unsigned char CGFile::ucRead () const
     return(ucValue);
 }
 // ----------------------------------------------------------------------------
-void CGFile::ReadArray (int* _piBuff, uint _uiNumElems) const
+void CGFile::ReadArray (const int* _piBuff, uint _uiNumElems) const
 {
     assert(gpoFILESYSMGR);
     gpoFILESYSMGR->uiReadFile(m_hHandler,(pointer)_piBuff,4 * _uiNumElems);
 }
 // ----------------------------------------------------------------------------
-void CGFile::WriteArray (int* _piBuff, uint _uiNumElems) const
+void CGFile::WriteArray (const int* _piBuff, uint _uiNumElems) const
 {
     assert(gpoFILESYSMGR);
     gpoFILESYSMGR->uiWriteFile(m_hHandler,(pointer)_piBuff,4 * _uiNumElems);
 }
 // ----------------------------------------------------------------------------
-void CGFile::ReadArray (short* _psBuff, uint _uiNumElems) const
+void CGFile::ReadArray (const short* _psBuff, uint _uiNumElems) const
 {
     assert(gpoFILESYSMGR);
     gpoFILESYSMGR->uiReadFile(m_hHandler,(pointer)_psBuff,2 * _uiNumElems);
 }
 // ----------------------------------------------------------------------------
-void CGFile::WriteArray (short* _psBuff, uint _uiNumElems) const
+void CGFile::WriteArray (const short* _psBuff, uint _uiNumElems) const
 {
     assert(gpoFILESYSMGR);
     gpoFILESYSMGR->uiWriteFile(m_hHandler,(pointer)_psBuff,2 * _uiNumElems);
 }
 // ----------------------------------------------------------------------------
-void CGFile::ReadArray (char* _pcBuff, uint _uiNumElems) const
+void CGFile::ReadArray (const char* _pcBuff, uint _uiNumElems) const
 {
     assert(gpoFILESYSMGR);
     gpoFILESYSMGR->uiReadFile(m_hHandler,(pointer)_pcBuff,_uiNumElems);
 }
 // ----------------------------------------------------------------------------
-void CGFile::WriteArray (char* _pcBuff, uint _uiNumElems) const
+void CGFile::WriteArray (const char* _pcBuff, uint _uiNumElems) const
 {
     assert(gpoFILESYSMGR);
     gpoFILESYSMGR->uiWriteFile(m_hHandler,(pointer)_pcBuff,_uiNumElems);
 }
 // ----------------------------------------------------------------------------
-void CGFile::ReadArray (float* _pfBuff, uint _uiNumElems) const
+void CGFile::ReadArray (const float* _pfBuff, uint _uiNumElems) const
 {
     assert(gpoFILESYSMGR);
     gpoFILESYSMGR->uiReadFile(m_hHandler,(pointer)_pfBuff,4 * _uiNumElems);
 }
 // ----------------------------------------------------------------------------
-void CGFile::WriteArray (float* _pfBuff, uint _uiNumElems) const
+void CGFile::WriteArray (const float* _pfBuff, uint _uiNumElems) const
 {
     assert(gpoFILESYSMGR);
     gpoFILESYSMGR->uiWriteFile(m_hHandler,(pointer)_pfBuff,4 * _uiNumElems);

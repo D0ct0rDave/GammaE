@@ -131,10 +131,10 @@ void CMenuTextGrid::WriteChar(float _fX,float _fY, CGColor _oColor,char _cA)
     poVX[3].Set(_fX + 1.0f,_fY,0.0f);
 
     // Setup tex coords
-    poUV[0].V2(fU,fV       );
-    poUV[1].V2(fU,fV + fVSize);
-    poUV[2].V2(fU + fUSize,fV + fVSize);
-    poUV[3].V2(fU + fUSize,fV       );
+    poUV[0].Set(fU,fV       );
+    poUV[1].Set(fU,fV + fVSize);
+    poUV[2].Set(fU + fUSize,fV + fVSize);
+    poUV[3].Set(fU + fUSize,fV       );
 
     // Setup color
     poVC[0] = _oColor;

@@ -17,10 +17,10 @@ CGSceneTransf::CGSceneTransf() :
 {
     m_eNodeType = SNT_Transf;
 
-    m_oPos.V3 (0.0f,0.0f,0.0f);
+    m_oPos.Set(0.0f,0.0f,0.0f);
     m_oSide.Set(1.0f,0.0f,0.0f);
-    m_oDir.V3 (0.0f,1.0f,0.0f);
-    m_oUp.V3  (0.0f,0.0f,1.0f);
+    m_oDir.Set(0.0f,1.0f,0.0f);
+    m_oUp.Set(0.0f,0.0f,1.0f);
 
     m_oTransf.LoadIdentity();
 }
@@ -87,10 +87,10 @@ void CGSceneTransf::Setup (const CGVect3& _oPos, const CGVect3& _oDir, const CGV
 // ----------------------------------------------------------------------------
 void CGSceneTransf::SetTransf (const CGMatrix4x4& _oTransf)
 {
-    CGVect4 oP = _oTransf.GetColVector(3);
-    CGVect4 oS = _oTransf.GetColVector(0);                    // X
-    CGVect4 oD = _oTransf.GetColVector(1);                    // Y
-    CGVect4 oU = _oTransf.GetColVector(2);                    // Z
+    CGVect4 oP = _oTransf.oGetCol(3);
+    CGVect4 oS = _oTransf.oGetCol(0);                    // X
+    CGVect4 oD = _oTransf.oGetCol(1);                    // Y
+    CGVect4 oU = _oTransf.oGetCol(2);                    // Z
 
     m_oPos.Set(oP.x,oP.y,oP.z);
     m_oSide.Set(oS.x,oS.y,oS.z);
@@ -100,7 +100,7 @@ void CGSceneTransf::SetTransf (const CGMatrix4x4& _oTransf)
     m_oTransf = _oTransf;
 
     // Recompute Bounding Volume
-    m_poBV->Copy( m_poObj->poGetBV() );
+    m_poBV->Copy( *m_poObj->poGetBV() );
     m_poBV->Transform(m_oTransf);
 }
 // ----------------------------------------------------------------------------
@@ -131,7 +131,7 @@ void CGSceneTransf::SetupTransformation ()
     m_oTransf.SetCol(3,m_oPos.x,m_oPos.y,m_oPos.z,1.0f);
 
     // Recompute Bounding Volume
-    m_poBV->Copy( m_poObj->poGetBV() );
+    m_poBV->Copy( *m_poObj->poGetBV() );
     m_poBV->Transform(m_oTransf);
 }
 // ----------------------------------------------------------------------------

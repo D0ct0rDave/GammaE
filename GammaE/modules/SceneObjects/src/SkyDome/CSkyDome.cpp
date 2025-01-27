@@ -96,11 +96,11 @@ void CSkyDome::CreateDome (bool _bFogAffected, int _iNumVSlices, int _iNumHSlice
             z2 = sn_t2;
 
             poMesh->m_poVX[iIdx].Set(x1,y1,z1);
-            poMesh->m_poUV[iIdx].V2(u * _fUTiling,v * _fVTiling);
+            poMesh->m_poUV[iIdx].Set(u * _fUTiling,v * _fVTiling);
             iIdx++;
 
             poMesh->m_poVX[iIdx].Set(x2,y2,z2);
-            poMesh->m_poUV[iIdx].V2(u * _fUTiling,(v + fVStep) * _fVTiling);
+            poMesh->m_poUV[iIdx].Set(u * _fUTiling,(v + fVStep) * _fVTiling);
 
             iIdx++;
 

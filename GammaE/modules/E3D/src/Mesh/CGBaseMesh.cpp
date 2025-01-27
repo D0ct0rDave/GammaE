@@ -15,7 +15,9 @@ CGBaseMesh::CGBaseMesh() :
     m_poBV(NULL),
     m_uiNumVXs(0),
     m_uiNumPrims(0),
+    m_uiNumIdxs(0),
     m_ePrimitiveType(E3D_PT_NONE)
 {
 }
 // ----------------------------------------------------------------------------
+

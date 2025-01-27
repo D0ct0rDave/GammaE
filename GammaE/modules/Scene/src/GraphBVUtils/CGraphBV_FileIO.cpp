@@ -10,92 +10,112 @@
 // -----------------------------------------------------------------------------
 #include "GammaE_FileSys.h"
 #include "GammaE_Mem.h"
+#include "GammaE_Math.h"
 
 // CGraphBV_FileIO
-#include "BoundingVolume\GraphBoundVol\GraphBVUtils\CGraphBV_FileIO.h"
+#include "CGraphBV_FileIO.h"
 
-// Class CGraphBV_FileIO
-
-CGraphBV_FileIO::CGraphBV_FileIO()
-{
-}
-
-CGraphBV_FileIO::~CGraphBV_FileIO()
-{
-}
-
-CGBoundingVolume* CGraphBV_FileIO::pLoadGraphBV (CFile& _oFile)
+// -----------------------------------------------------------------------------
+CGGraphBV* CGraphBV_FileIO::pLoadGraphBV(CGFile& _oFile)
 {
     unsigned int uiObjID;
     unsigned int uiBlockLen;
 
-    CGBVSphere* pSph;
-    CGBVAABB* pBox;
-    CGraphBV_Cylinder* pCyl;
-
     // Read object identifier
-    _oFile.iRead( &uiObjID,sizeof(unsigned int) );
-    _oFile.iRead( &uiBlockLen,sizeof(unsigned int) );
+    uiObjID = _oFile.uiRead();
+    uiBlockLen = _oFile.uiRead();
 
     switch ( uiObjID )
     {
         case MAKE_RIFF_ID('B','S','P','H'):
-        pSph = mNew CGBVSphere;
-        _oFile.iRead( &pSph->pGetSphere()->m_oCenter,sizeof(CGVect3) );
-        _oFile.iRead( &pSph->pGetSphere()->m_fRadius,sizeof(float) );
+        {
+            CGVect3 oCenter;
+            float fRadius;
+            _oFile.ReadArray(oCenter.V(), 3);
+            fRadius = _oFile.fRead();
 
-        return (pSph);
+            CGGraphBVSphere* pSph = mNew CGGraphBVSphere;
+            pSph->Init(oCenter,fRadius);
+            return (pSph);
+        }
         break;
 
         case MAKE_RIFF_ID('B','B','O','X'):
-        pBox = mNew CGBVAABB;
+        {
+            CGVect3 oMaxs,oMins;
+            _oFile.ReadArray(oMaxs.V(), 3);
+            _oFile.ReadArray(oMins.V(), 3);
+            _oFile.Skip(sizeof(CGVect3)*8);
 
-        _oFile.iRead( &pBox->pGetBox()->m_oMaxs,  sizeof(CGVect3) );
-        _oFile.iRead( &pBox->pGetBox()->m_oMins,  sizeof(CGVect3) );
-        _oFile.iRead( &pBox->pGetBox()->m_oPoints,8 * sizeof(CGVect3) );
-
-        pBox->Compute(pBox->Vol.m_oPoints,8);
-        return (pBox);
+            CGGraphBVAABB* pAABB = mNew CGGraphBVAABB;
+            pAABB->Init(oMaxs, oMins);
+            return (pAABB);
+        }
         break;
 
         case MAKE_RIFF_ID('B','C','Y','L'):
-        pCyl = mNew CGraphBV_Cylinder;
-        _oFile.iRead( &pCyl->pGetCylinder()->Center,sizeof(CGVect3) );
-        _oFile.iRead( &pCyl->pGetCylinder()->Height,sizeof(float) );
-        _oFile.iRead( &pCyl->pGetCylinder()->Radius,sizeof(float) );
-        return (pCyl);
+        {
+            CGVect3 oCenter;
+            float fRadius;
+            float fHeight;
+
+            _oFile.ReadArray(oCenter.V(), 3);
+            fHeight = _oFile.fRead();
+            fRadius = _oFile.fRead();
+
+            CGGraphBVCylinder* pCyl = mNew CGGraphBVCylinder;
+            pCyl->Init(oCenter, fRadius, fHeight);
+            return (pCyl);
+        }
         break;
     }
 
     return (NULL);
 }
 
-int CGraphBV_FileIO::iSaveGraphBV (CFile& _oFile, CGBoundingVolume* _pGBV)
+int CGraphBV_FileIO::iSaveGraphBV (CGFile& _oFile, CGGraphBV* _pGBV)
 {
-    CGBVSphere* pSph = (CGBVSphere*)_pGBV;
-    CGBVAABB* pBox = (CGBVAABB*)_pGBV;
-    CGraphBV_Cylinder* pCyl = (CGraphBV_Cylinder*)_pGBV;
 
     switch ( _pGBV->eGetTypeID() )
     {
-        case eGraphBV_Sphere:   CFileUtils::BeginRIFFBlock(MAKE_RIFF_ID('B','S','P','H'),_oFile);
-        _oFile.iWrite( &pSph->pGetSphere()->m_oCenter,sizeof(CGVect3) );
-        _oFile.iWrite( &pSph->pGetSphere()->m_fRadius,sizeof(float) );
-        CFileUtils::EndRIFFBlock(_oFile);
+        case EGBoundingVolumeType::BVT_SPHERE:
+        {
+            CGGraphBVSphere* pSph = (CGGraphBVSphere*)_pGBV;
+            CGVect3 oCenter = pSph->oGetCenter();
+
+            CGFileUtils::BeginRIFFBlock(MAKE_RIFF_ID('B','S','P','H'),_oFile);
+                _oFile.WriteArray(oCenter.V(), 3);
+                _oFile.Write(pSph->oGetSphere().fGetRadius());
+            CGFileUtils::EndRIFFBlock(_oFile);
+        }
         break;
 
-        case eGraphBV_Box:      CFileUtils::BeginRIFFBlock(MAKE_RIFF_ID('B','B','O','X'),_oFile);
-        _oFile.iWrite( &pBox->pGetBox()->m_oMaxs,  sizeof(CGVect3) );
-        _oFile.iWrite( &pBox->pGetBox()->m_oMins,  sizeof(CGVect3) );
-        _oFile.iWrite( &pBox->pGetBox()->m_oPoints,8 * sizeof(CGVect3) );
-        CFileUtils::EndRIFFBlock(_oFile);
+        case EGBoundingVolumeType::BVT_AABB:
+        {
+            CGGraphBVAABB* pAABB = (CGGraphBVAABB*)_pGBV;
+            CGVect3 oMaxs = pAABB->oGetMax();
+            CGVect3 oMins = pAABB->oGetMin();
+            const CGVect3* pVXs = pAABB->poGetPoints();
+
+            CGFileUtils::BeginRIFFBlock(MAKE_RIFF_ID('B','B','O','X'),_oFile);
+                _oFile.WriteArray(oMaxs.V(), 3);
+                _oFile.WriteArray(oMins.V(), 3);
+                _oFile.WriteArray((float*)pVXs, 8 * 3);
+            CGFileUtils::EndRIFFBlock(_oFile);
+        }
         break;
 
-        case eGraphBV_Cylinder: CFileUtils::BeginRIFFBlock(MAKE_RIFF_ID('B','C','Y','L'),_oFile);
-        _oFile.iWrite( &pCyl->pGetCylinder()->Center,sizeof(CGVect3) );
-        _oFile.iWrite( &pCyl->pGetCylinder()->Height,sizeof(float) );
-        _oFile.iWrite( &pCyl->pGetCylinder()->Radius,sizeof(float) );
-        CFileUtils::EndRIFFBlock(_oFile);
+        case EGBoundingVolumeType::BVT_CYLINDER:
+        {
+            CGGraphBVCylinder* pCylinder = (CGGraphBVCylinder*)_pGBV;
+            CGVect3 oCenter = pCylinder->oGetCenter();
+
+            CGFileUtils::BeginRIFFBlock(MAKE_RIFF_ID('B','C','Y','L'),_oFile);
+                _oFile.WriteArray(oCenter.V(), 3);
+                _oFile.Write(pCylinder->GetCylinder().fGetHeight());
+                _oFile.Write(pCylinder->GetCylinder().fGetRadius());
+            CGFileUtils::EndRIFFBlock(_oFile);
+        }
         break;
     }
 

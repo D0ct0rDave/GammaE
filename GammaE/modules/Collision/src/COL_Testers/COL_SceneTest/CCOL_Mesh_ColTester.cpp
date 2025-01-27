@@ -13,17 +13,7 @@
 // CCOL_Mesh_ColTester
 #include "CCOL_Mesh_ColTester.h"
 
-// Class CCOL_Mesh_ColTester
-
-CCOL_Mesh_ColTester::CCOL_Mesh_ColTester()
-{
-}
-
-CCOL_Mesh_ColTester::~CCOL_Mesh_ColTester()
-{
-}
-
-int CCOL_Mesh_ColTester::iTestCollision (CGMesh* _pMesh, CGBoundingVolume* _BVol, CCOL_TriList& _TriList)
+int CCOL_Mesh_ColTester::iTestCollision (CGMesh* _pMesh, CGGraphBV* _BVol, CCOL_TriList& _TriList)
 {
     if ( !_pMesh ) return(0);
     if ( !_TriList.iFreeTris() ) return(0);
@@ -37,27 +27,27 @@ int CCOL_Mesh_ColTester::iTestCollision (CGMesh* _pMesh, CGBoundingVolume* _BVol
     float fSqDist;
     int iTris = 0;
 
-    switch ( _pMesh>eMeshType )
+    switch ( _pMesh->eGetPrimitiveType())
     {
-        case E3D_MESH_NONE:         
+        case E3D_PrimitiveType::E3D_PT_NONE:
             return(0);
         break;
 
         // -------------------------------------------------------------------------------------
-        case E3D_MESH_TRIS:
+        case E3D_PrimitiveType::E3D_PT_TRIS:
         {
-            for ( cTri = 0; ( (cTri < _pMesh->usNumPrims) && _TriList.iFreeTris() ); cTri++ )
+            for ( cTri = 0; ( (cTri < _pMesh->uiGetNumPrims()) && _TriList.iFreeTris() ); cTri++ )
             {
-                VXs[0].Assign( _pMesh->VXs[ _pMesh->Idxs[cTri * 3 + 0] ]);
-                VXs[1].Assign( _pMesh->VXs[ _pMesh->Idxs[cTri * 3 + 1] ]);
-                VXs[2].Assign( _pMesh->VXs[ _pMesh->Idxs[cTri * 3 + 2] ]);
+                VXs[0].Assign( _pMesh->m_poVX[ _pMesh->m_pusIdx[cTri * 3 + 0] ]);
+                VXs[1].Assign( _pMesh->m_poVX[ _pMesh->m_pusIdx[cTri * 3 + 1] ]);
+                VXs[2].Assign( _pMesh->m_poVX[ _pMesh->m_pusIdx[cTri * 3 + 2] ]);
 
                 Tri.Init(VXs);
                 Tri.ComputeAll();
 
-                if ( CCOL_DT_ColTester::iTestTriangle(_BVol,Tri) )
+                if (Math::bInRange(CCOL_DT_ColTester::fTestTriangle(_BVol, Tri), 0.0f, 1.0f))
                 {
-                    _TriList.iAddTri(Tri.VXs,Tri.Normal);
+                    _TriList.iAddTri(Tri.VXs, Tri.Normal, 0, 0);
                     iTris++;
                 }
             }
@@ -65,33 +55,33 @@ int CCOL_Mesh_ColTester::iTestCollision (CGMesh* _pMesh, CGBoundingVolume* _BVol
         break;
 
         // -------------------------------------------------------------------------------------
-        case E3D_MESH_QUADS:
+        case E3D_PrimitiveType::E3D_PT_QUADS:
         {
-            for ( cTri = 0; ( (cTri < _pMesh->usNumPrims) && (_TriList.iFreeTris() > 2) ); cTri++ )
+            for ( cTri = 0; ( (cTri < _pMesh->uiGetNumPrims()) && (_TriList.iFreeTris() > 2) ); cTri++ )
             {
                 // First quad triangle
-                VXs[0].Assign(_pMesh->VXs[ _pMesh->Idxs[cTri * 4 + 0] ]);
-                VXs[1].Assign(_pMesh->VXs[ _pMesh->Idxs[cTri * 4 + 1] ]);
-                VXs[2].Assign(_pMesh->VXs[ _pMesh->Idxs[cTri * 4 + 3] ]);
+                VXs[0].Assign(_pMesh->m_poVX[ _pMesh->m_pusIdx[cTri * 4 + 0] ]);
+                VXs[1].Assign(_pMesh->m_poVX[ _pMesh->m_pusIdx[cTri * 4 + 1] ]);
+                VXs[2].Assign(_pMesh->m_poVX[ _pMesh->m_pusIdx[cTri * 4 + 3] ]);
 
                 Tri.Init(VXs);
                 Tri.ComputeAll();
-                if ( CCOL_DT_ColTester::iTestTriangle(_BVol,Tri) )
+                if (Math::bInRange(CCOL_DT_ColTester::fTestTriangle(_BVol,Tri), 0.0f, 1.0f))
                 {
-                    _TriList.iAddTri(Tri.VXs,Tri.Normal);
+                    _TriList.iAddTri(Tri.VXs,Tri.Normal,0,0);
                     iTris++;
                 }
 
                 // Second quad triangle
-                VXs[0].Assign(_pMesh->VXs[ _pMesh->Idxs[cTri * 4 + 1] ]);
-                VXs[1].Assign(_pMesh->VXs[ _pMesh->Idxs[cTri * 4 + 3] ]);
-                VXs[2].Assign(_pMesh->VXs[ _pMesh->Idxs[cTri * 4 + 2] ]);
+                VXs[0].Assign(_pMesh->m_poVX[ _pMesh->m_pusIdx[cTri * 4 + 1] ]);
+                VXs[1].Assign(_pMesh->m_poVX[ _pMesh->m_pusIdx[cTri * 4 + 3] ]);
+                VXs[2].Assign(_pMesh->m_poVX[ _pMesh->m_pusIdx[cTri * 4 + 2] ]);
 
                 Tri.Init(VXs);
                 Tri.ComputeAll();
-                if ( CCOL_DT_ColTester::iTestTriangle(_BVol,Tri) )
+                if (Math::bInRange(CCOL_DT_ColTester::fTestTriangle(_BVol,Tri), 0.0f, 1.0f))
                 {
-                    _TriList.iAddTri(Tri.VXs,Tri.Normal);
+                    _TriList.iAddTri(Tri.VXs,Tri.Normal,0,0);
                     iTris++;
                 }
             }
@@ -99,30 +89,30 @@ int CCOL_Mesh_ColTester::iTestCollision (CGMesh* _pMesh, CGBoundingVolume* _BVol
         break;
 
         // -------------------------------------------------------------------------------------
-        case E3D_MESH_TRIFANS:      return(0);
+        case E3D_PrimitiveType::E3D_PT_TRIFANS:     return(0);
         break;
 
         // -------------------------------------------------------------------------------------
-        case E3D_MESH_TRISTRIPS:    return(0);
+        case E3D_PrimitiveType::E3D_PT_TRISTRIPS:   return(0);
         break;
 
         // -------------------------------------------------------------------------------------
-        case E3D_MESH_QUADSTRIPS:   return(0);
+        case E3D_PrimitiveType::E3D_PT_QUADSTRIPS:  return(0);
         break;
 
         // -------------------------------------------------------------------------------------
-        case E3D_MESH_NITRIS:
+        case E3D_PrimitiveType::E3D_PT_NITRIS:
         {
-            pVXs = _pMesh->VXs;
-            pVNs = _pMesh->VNs;
-            for ( cTri = 0; ( (cTri < _pMesh->usNumPrims) && _TriList.iFreeTris() ); cTri++ )
+            pVXs = _pMesh->m_poVX;
+            pVNs = _pMesh->m_poVN;
+            for ( cTri = 0; ( (cTri < _pMesh->uiGetNumPrims()) && _TriList.iFreeTris() ); cTri++ )
             {
                 Tri.Init(pVXs);
                 Tri.ComputeAll();
 
-                if ( CCOL_DT_ColTester::iTestTriangle(_BVol,Tri) )
+                if (Math::bInRange(CCOL_DT_ColTester::fTestTriangle(_BVol,Tri), 0.0f, 1.0f))
                 {
-                    _TriList.iAddTri(Tri.VXs,Tri.Normal);
+                    _TriList.iAddTri(Tri.VXs,Tri.Normal,0,0);
                     iTris++;
                 }
 
@@ -131,44 +121,44 @@ int CCOL_Mesh_ColTester::iTestCollision (CGMesh* _pMesh, CGBoundingVolume* _BVol
             }
         }
         break;
-
         // -------------------------------------------------------------------------------------
-        case E3D_MESH_NIQUADS:
+        case E3D_PrimitiveType::E3D_PT_NIQUADS:
         {
-            for ( cTri = 0; ( (cTri < _pMesh->usNumPrims) && (_TriList.iFreeTris() > 2) ); cTri++ )
+            for ( cTri = 0; ( (cTri < _pMesh->uiGetNumPrims()) && (_TriList.iFreeTris() > 2) ); cTri++ )
             {
                 // First quad triangle
-                VXs[0].Assign( _pMesh->VXs[cTri * 4 + 0] );
-                VXs[1].Assign( _pMesh->VXs[cTri * 4 + 1] );
-                VXs[2].Assign( _pMesh->VXs[cTri * 4 + 3] );
+                VXs[0].Assign( _pMesh->m_poVX[cTri * 4 + 0] );
+                VXs[1].Assign( _pMesh->m_poVX[cTri * 4 + 1] );
+                VXs[2].Assign( _pMesh->m_poVX[cTri * 4 + 3] );
 
                 Tri.Init(VXs);
                 Tri.ComputeAll();
 
-                if ( CCOL_DT_ColTester::iTestTriangle(_BVol,Tri) )
+                if (Math::bInRange(CCOL_DT_ColTester::fTestTriangle(_BVol,Tri), 0.0f, 1.0f))
                 {
-                    _TriList.iAddTri(Tri.VXs,Tri.Normal);
+                    _TriList.iAddTri(Tri.VXs,Tri.Normal,0,0);
                     iTris++;
                 }
 
                 // Second quad triangle
-                VXs[0].Assign( _pMesh->VXs[ cTri * 4 + 1 ] );
-                VXs[1].Assign( _pMesh->VXs[ cTri * 4 + 3 ] );
-                VXs[2].Assign( _pMesh->VXs[ cTri * 4 + 2 ] );
+                VXs[0].Assign( _pMesh->m_poVX[ cTri * 4 + 1 ] );
+                VXs[1].Assign( _pMesh->m_poVX[ cTri * 4 + 3 ] );
+                VXs[2].Assign( _pMesh->m_poVX[ cTri * 4 + 2 ] );
 
                 Tri.Init(VXs);
                 Tri.ComputeAll();
-                if ( CCOL_DT_ColTester::iTestTriangle(_BVol,Tri) )
+                if (Math::bInRange(CCOL_DT_ColTester::fTestTriangle(_BVol,Tri), 0.0f, 1.0f))
                 {
-                    _TriList.iAddTri(Tri.VXs,Tri.Normal);
+                    _TriList.iAddTri(Tri.VXs,Tri.Normal,0,0);
                     iTris++;
                 }
             }
         }
         break;
 
+
         // -------------------------------------------------------------------------------------
-        case E3D_MESH_NITRISTRIP:
+        case E3D_PrimitiveType::E3D_PT_NITRISTRIP:
         break;
     }
 

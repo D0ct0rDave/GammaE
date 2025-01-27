@@ -233,8 +233,8 @@ void CGTrailGenStd::UpdateInstance(CGTrailInstance* _poInst,float _fDeltaT)
             oVX[1] = oP0;
             oVX[1].Add(oU1);
 
-            oUV[0].V2(1.0f,0.0f);
-            oUV[1].V2(1.0f,1.0f);
+            oUV[0].Set(1.0f,0.0f);
+            oUV[1].Set(1.0f,1.0f);
 
             oVC[0] = oColor1;
             oVC[1] = oColor1;
@@ -257,8 +257,8 @@ void CGTrailGenStd::UpdateInstance(CGTrailInstance* _poInst,float _fDeltaT)
         oVX[3] = oP1;
         oVX[3].Sub(oU1);
 
-        oUV[2].V2(fX - fStep,1.0f);
-        oUV[3].V2(fX - fStep,0.0f);
+        oUV[2].Set(fX - fStep,1.0f);
+        oUV[3].Set(fX - fStep,0.0f);
 
         oVC[2] = oColor1;
         oVC[3] = oColor1;
@@ -286,10 +286,10 @@ void CGTrailGenStd::UpdateInstance(CGTrailInstance* _poInst,float _fDeltaT)
         oVX[2] = poTrail->m_oPoints[i]; oVX[2].Add(oX);	oVX[2].Add(oY);
         oVX[3] = poTrail->m_oPoints[i]; oVX[3].Add(oX);	oVX[3].Sub(oY);
 
-        oUV[0].V2(0.0f,0.0f);
-        oUV[1].V2(0.0f,1.0f);
-        oUV[2].V2(1.0f,1.0f);
-        oUV[3].V2(1.0f,0.0f);
+        oUV[0].Set(0.0f,0.0f);
+        oUV[1].Set(0.0f,1.0f);
+        oUV[2].Set(1.0f,1.0f);
+        oUV[3].Set(1.0f,0.0f);
 
         oVC[0].Set(1,1,1,1);
         oVC[1].Set(1,1,1,1);

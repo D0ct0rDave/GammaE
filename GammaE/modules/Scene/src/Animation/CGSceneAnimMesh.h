@@ -23,7 +23,7 @@ class CGSceneAnimMesh : public CGSceneAnimNode
         virtual ~CGSceneAnimMesh();
 
         // / Sets up the data inside the animated object
-        void Setup(CGMesh* _poStartupMesh,CGVect3* _poVXs,CGVect3* _poVNs, uint _uiNumStates, uint _uiNumVerticesPerState);
+        void Setup(CGMesh* _poStartupMesh, uint _uiNumStates, uint _uiNumVerticesPerState);
 
         // Sets the animation between 2 states (frames) interpolated by a factor.
         virtual void SetAnimState(uint _uiSrc, uint _uiDst, float _fFactor);
@@ -32,7 +32,7 @@ class CGSceneAnimMesh : public CGSceneAnimNode
         virtual uint uiGetNumStates() const;
 
         // / Recompute the bounding volume of all the frames
-        virtual void ComputeBoundVols();
+        virtual void ComputeStatesBVols();
 
         // Return the bounding volume of the object for the given state
         virtual CGGraphBV* poGetStateBVol(int _iState);
@@ -44,10 +44,16 @@ class CGSceneAnimMesh : public CGSceneAnimNode
         CGMesh* poGetMesh();
 
         // / Retrieves the array of vertices
-        CGVect3* poGetVertexs();
+        CGVect3* poGetVertices();
 
         // / Retrieves the array where the normals are stored
         CGVect3* poGetNormals();
+        
+        // / Sets the shader to be used by this leaf node.
+        void SetShader(CGShader* _poShader);
+
+        // / Retrieves the shader used by this leaf node.
+        CGShader* poGetShader();    
 
         // General Processing Functionalities
         virtual void Accept(CGSceneVisitor* _poVisitor)
@@ -61,6 +67,8 @@ class CGSceneAnimMesh : public CGSceneAnimNode
         CGVect3* m_poFrameVNs;
 
         CGMesh* m_poMesh;
+        CGShader* m_poShader;
+
         uint m_uiNumStates;
         uint m_uiNumVerticesPerState;
 

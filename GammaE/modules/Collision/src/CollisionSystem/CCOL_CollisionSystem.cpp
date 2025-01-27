@@ -183,7 +183,7 @@ bool CCOL_CollisionSystem::bTestNarrowCD (CCOL_Collider& _Src, CCOL_Collider& _D
     iNumTris = 0;
     for ( iMesh = 0; iMesh < CCOL_Scn_ColTester::iNumColMeshes; iMesh++ )
     {
-        iNumTris += _Dst.GetMeshTester()->iTestCollision( CCOL_Scn_ColTester::ColMeshes[iMesh].poMesh,
+        iNumTris += _Dst.GetMeshTester()->iTestCollision( CCOL_Scn_ColTester::ColMeshes[iMesh].m_poMesh,
                                                          CCOL_Scn_ColTester::ColMeshes[iMesh].iMat,
                                                          _Src.GrObj->poGetBV(),
                                                          _Src.GetTriList() );

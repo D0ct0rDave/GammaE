@@ -35,7 +35,7 @@ class CGSceneNode : public CGReferenceCounter
             return (m_poBV);
         }
 
-        // / Sets the node bounding volume.
+        // / Sets the node bounding volume. 
         void SetBV(CGGraphBV* _poBV)
         {
             m_poBV = _poBV;
@@ -46,6 +46,9 @@ class CGSceneNode : public CGReferenceCounter
         {
             return(m_eNodeType);
         }
+
+        // Returns whether the object is currently visible or not
+        virtual bool bIsVisible();
 
     protected:
 

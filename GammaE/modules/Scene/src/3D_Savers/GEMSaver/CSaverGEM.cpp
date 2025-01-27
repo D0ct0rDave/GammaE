@@ -200,7 +200,7 @@ bool CSaverGEM::bSaveMesh(CGMesh* poMesh)
     if ( poMesh->m_poUV ) m_poFile->WriteArray( (float*)poMesh->m_poUV,poMesh->uiGetNumVXs() * 2 );
 
     if ( poMesh->m_poTN ) m_poFile->WriteArray( (float*)poMesh->m_poTN,poMesh->uiGetNumPrims() * 3 );
-    if ( poMesh->m_pusIdx ) m_poFile->WriteArray( (short*)poMesh->m_pusIdx,poMesh->m_uiNumIdxs );
+    if ( poMesh->m_pusIdx ) m_poFile->WriteArray( (short*)poMesh->m_pusIdx,poMesh->uiGetNumIndices());
 
     // Save the mesh bounding volume
     SaveBoundingVolume( poMesh->poGetBV() );
@@ -282,7 +282,7 @@ void CSaverGEM::Visit( CGSceneAnimMesh* _poObj)
        m_poFile->iWrite(&uiNumStateVXs,4);
 
        // Save the the vertexs and normals state array
-       m_poFile->iWrite( _poObj->poGetVertexs(),uiNumKeyFrames * uiNumStateVXs * sizeof(CGVect3) );
+       m_poFile->iWrite( _poObj->poGetVertices(),uiNumKeyFrames * uiNumStateVXs * sizeof(CGVect3) );
        m_poFile->iWrite( _poObj->poGetNormals(),uiNumKeyFrames * uiNumStateVXs * sizeof(CGVect3) );
 
        // Save the the bounding volume state array

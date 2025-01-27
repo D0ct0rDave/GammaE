@@ -8,24 +8,10 @@
  *  \par GammaE License
  */
 // -----------------------------------------------------------------------------
-// %X% %Q% %Z% %W%
-
-// CCOL_MeshTester
 #include "COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MeshTester.h"
-
-// Class CCOL_MeshTester
-
-CCOL_MeshTester::CCOL_MeshTester()
-{
-}
-
-CCOL_MeshTester::~CCOL_MeshTester()
-{
-}
-
-int CCOL_MeshTester::iTestCollision (CGMesh* _poMesh, int _iMat, CGBoundingVolume* _poBVol, CCOL_TriList& _oTriList)
+// -----------------------------------------------------------------------------
+int CCOL_MeshTester::iTestCollision (CGBaseMesh* _poMesh, int _iMat, CGGraphBV* _poBVol, CCOL_TriList& _oTriList)
 {
     return(0);
 }
-
-// Additional Declarations
+// -----------------------------------------------------------------------------

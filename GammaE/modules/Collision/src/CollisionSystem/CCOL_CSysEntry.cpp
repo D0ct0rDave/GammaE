@@ -10,11 +10,11 @@
 // -----------------------------------------------------------------------------
 // %X% %Q% %Z% %W%
 
-#include "Memory/GammaE_Mem.h"
+#include "GammaE_Mem.h"
 #include <string.h>
 
 // CCOL_CSysEntry
-#include "Collision\CollisionSystem\CCOL_CSysEntry.h"
+#include "CollisionSystem\CCOL_CSysEntry.h"
 
 // Class CCOL_CSysEntry
 

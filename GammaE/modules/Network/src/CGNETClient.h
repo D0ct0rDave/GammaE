@@ -30,13 +30,13 @@ class CGNETClient
         int iGetState();
 
     protected:
-        int uiState;
-        int iClientSocket;
+        uint m_uiState;
+        uint m_uiClientSocket;
 };
 
 inline int CGNETClient::iGetState()
 {
-    return(iState);
+    return(m_uiState);
 }
 // ----------------------------------------------------------------------------
 #endif

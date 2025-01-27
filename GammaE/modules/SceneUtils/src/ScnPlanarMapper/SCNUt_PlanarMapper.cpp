@@ -59,7 +59,7 @@ void SCNUt_PlanarMapper::PlanarMap (SCNUt_TriScene& _oTriScn)
             fU = (_oTriScn.Tris[iTri].VXs[iVX].x - poBBox->m_oMins.x) / oDims.x;
             fV = (_oTriScn.Tris[iTri].VXs[iVX].y - poBBox->m_oMins.y) / oDims.y;
 
-            _oTriScn.Tris[iTri].UVs[iVX].V2(fU,0.5f * fV + fVOfs);
+            _oTriScn.Tris[iTri].UVs[iVX].Set(fU,0.5f * fV + fVOfs);
         }
     }
 }

@@ -21,25 +21,11 @@
 class CCOL_DT_Sphere
 {
     public:
-        CCOL_DT_Sphere();
-
-        ~CCOL_DT_Sphere();
-
         static float fTestSphere(const CGVect3& _oSCenter, float _fSRadius,const CGVect3& _oDCenter, float _fDRadius);
 
         static float fTestBox(const CGVect3& _oSCenter, float _fSRadius, const CGVect3& _oDMaxs, const CGVect3& _oDMins);
 
         static float fTestPoint(const CGVect3& _oSCenter, float _fSRadius, const CGVect3& _oDPoint);
-
-        // Additional Public Declarations
-
-    protected:
-        // Additional Protected Declarations
-
-    private:
-        // Additional Private Declarations
-
-    private:   // Additional Implementation Declarations
 };
 
 // Class CCOL_DT_Sphere

@@ -47,33 +47,32 @@ CDetailer::~CDetailer()
         mDel(poTex);
     }
 }
-
+// -----------------------------------------------------------------------------
 void CDetailer::Init (int _iMaxTris)
 {
-    poMesh = mNew CGMesh();
-    poMesh->Init(   _iMaxTris * 3,_iMaxTris,
-                    E3D_MESH_NITRIS,
-                    MESH_FIELD_VERTEXS |
-                    MESH_FIELD_UVCOORDS |
-                    MESH_FIELD_COLORS);
+    m_poDetailMesh = mNew CGMesh();
+    m_poDetailMesh->Init( _iMaxTris * 3,_iMaxTris,
+                        E3D_PrimitiveType::E3D_PT_NITRIS,
+                        MESH_FIELD_VERTEXS |
+                        MESH_FIELD_UVCOORDS |
+                        MESH_FIELD_COLORS);
 
-    poShader = poCreateMaterial();
+    m_poDetailMesh->SetNumPrims(0);
+    m_poDetailMesh->SetNumVXs(0);
 
-    poMesh->m_uiNumIdxs = 0;
-    poMesh->m_uiNumPrims = 0;
-    poMesh->m_usNumVXs = 0;
+    SetMesh(m_poDetailMesh);
+    SetShader(poCreateMaterial());
 }
-
+// -----------------------------------------------------------------------------    
 void CDetailer::SetCamPos (CGVect3& _oCamPos)
 {
     oCamPos.Assign( _oCamPos);
 }
-
+// -----------------------------------------------------------------------------
 void CDetailer::SetVertexTris (CGVect3* _poVXs, int _iNumTris)
 {
-    poMesh->m_uiNumIdxs = 0;
-    poMesh->m_uiNumPrims = _iNumTris;
-    poMesh->m_usNumVXs = _iNumTris * 3;
+    m_poDetailMesh->SetNumPrims(_iNumTris);
+    m_poDetailMesh->SetNumVXs(_iNumTris * 3);
 
     if ( !_iNumTris ) return;
 
@@ -83,12 +82,11 @@ void CDetailer::SetVertexTris (CGVect3* _poVXs, int _iNumTris)
 
     int cI;
     float fDist;
-    CGVect3* poVX = poMesh->m_poVX;
-    CGVect2* poUV = poMesh->m_poUV;
-    CGColor* poVC = poMesh->m_poVC;
+    CGVect3* poVX = m_poDetailMesh->m_poVX;
+    CGVect2* poUV = m_poDetailMesh->m_poUV;
+    CGColor* poVC = m_poDetailMesh->m_poVC;
 
     // Compute
-    poVX = poMesh->m_poVX;
     for ( cI = 0; cI < _iNumTris * 3; cI++ )
     {
         // Increase height
@@ -113,7 +111,7 @@ void CDetailer::SetVertexTris (CGVect3* _poVXs, int _iNumTris)
         poVC++;
     }
 }
-
+// -----------------------------------------------------------------------------
 void CDetailer::CreateTextureContents (CGMipMap* _pMipMap)
 {
     int cI,cJ;
@@ -123,7 +121,7 @@ void CDetailer::CreateTextureContents (CGMipMap* _pMipMap)
     for ( cJ = 0; cJ < TEX_SIZE; cJ++ )
         for ( cI = 0; cI < TEX_SIZE; cI++ )
         {
-            iValue = TEX_NOISE_OFFSET + TEX_NOISE_AMPLITUDE* MATH_fRand();
+            iValue = TEX_NOISE_OFFSET + TEX_NOISE_AMPLITUDE* Math::fRand();
 
             /*
                if (iValue > 128)
@@ -141,26 +139,21 @@ void CDetailer::CreateTextureContents (CGMipMap* _pMipMap)
             pData += 4;
         }
 }
-
+// -----------------------------------------------------------------------------
 CGShader* CDetailer::poCreateMaterial ()
 {
     poTex = mNew CGMipMap(TEX_SIZE,TEX_SIZE,1,IF_RGBA);
     CreateTextureContents(poTex);
 
-    CGShader* poSh = CE3D_ShaderUtils::poGenerateShaderFromMipMap(poTex,"DetailMap.tex");
+    CGShader* poSh = CGShaderUtils::poGenerateShaderFromMipMap(poTex,"DetailMap.tex");
 
     // Setup blending op instruction
-    CE3D_ShIns_BlendOp* poBO = mNew CE3D_ShIns_BlendOp;
+    CGShInsBlendOp* poBO = mNew CGShInsBlendOp;
     poBO->SetBlendMode(E3D_BM_Alpha);
 
     poSh->PushInstruction(poBO);
 
     return (poSh);
 }
-
-void CDetailer::Render ()
-{
-    CGSceneLeaf::Render();
-}
-
+// -----------------------------------------------------------------------------
 // Additional Declarations

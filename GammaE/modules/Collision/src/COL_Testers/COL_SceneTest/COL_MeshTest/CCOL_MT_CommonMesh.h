@@ -25,7 +25,7 @@ class CCOL_MT_CommonMesh : public CCOL_MeshTester
 
         ~CCOL_MT_CommonMesh();
 
-        virtual int iTestCollision(CGMesh* _poMesh, int _iMat, CGBoundingVolume* _poBVol, CCOL_TriList& _oTriList);
+        virtual int iTestCollision(CGMesh* _poMesh, int _iMat, CGGraphBV* _poBVol, CCOL_TriList& _oTriList);
 
         // Additional Public Declarations
 

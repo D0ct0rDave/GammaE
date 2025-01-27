@@ -8,56 +8,49 @@
  *  \par GammaE License
  */
 // -----------------------------------------------------------------------------
-// %X% %Q% %Z% %W%
-
-// CCOL_ST_ColTester
 #include "COL_Testers\COL_StaticTest\CCOL_ST_ColTester.h"
-
-// Class CCOL_ST_ColTester
-
-CCOL_ST_ColTester::CCOL_ST_ColTester()
+// -----------------------------------------------------------------------------
+int CCOL_ST_ColTester::iTestCollision (CGGraphBV* _poSrcBV, CGGraphBV* _poDstBV)
 {
-}
-
-CCOL_ST_ColTester::~CCOL_ST_ColTester()
-{
-}
-
-int CCOL_ST_ColTester::iTestCollision (CGBoundingVolume* SrcObj, CGBoundingVolume* DstObj)
-{
-    CBoundingSphere* SS,* DS;
-    CGBVAABB* SB,* DB;
-    CGVect3* SP,* DP;
+    const CGBVSphere* SS,*DS;
+    const CGBVAABB* SB,*DB;
+    const CGBVPoint* SP,*DP;
     int iFlags = 0;
 
     // Get source Bounding Volume
-    switch ( SrcObj->eGetTypeID() )
+    switch (_poSrcBV->eGetTypeID() )
     {
-        case eGraphBV_Sphere:   SS = ( (CGBVSphere*)SrcObj )->pGetSphere();
+        case EGBoundingVolumeType::BVT_SPHERE:
+        SS = &((CGGraphBVSphere*)_poSrcBV)->oGetSphere();
         iFlags += 0;
         break;
 
-        case eGraphBV_Box:      SB = ( (CGBVAABB*)SrcObj )->pGetBox();
+        case EGBoundingVolumeType::BVT_AABB:
+        SB = &((CGGraphBVAABB*)_poSrcBV)->oGetBox();
         iFlags += 1;
         break;
-
-        case eGraphBV_Point:    SP = ( (CGraphBV_Point*)SrcObj )->pGetPoint();
+        
+        case EGBoundingVolumeType::BVT_POINT:
+        SP = &((CGGraphBVPoint*)_poSrcBV)->oGetPoint();
         iFlags += 2;
         break;
     }
 
     // Get destination Bounding Volume
-    switch ( DstObj->eGetTypeID() )
+    switch (_poDstBV->eGetTypeID() )
     {
-        case eGraphBV_Sphere:   DS = ( (CGBVSphere*)DstObj )->pGetSphere();
+        case EGBoundingVolumeType::BVT_SPHERE:
+        DS = &((CGGraphBVSphere*)_poDstBV)->oGetSphere();
         iFlags += 3 * 0;
         break;
 
-        case eGraphBV_Box:      DB = ( (CGBVAABB*)DstObj )->pGetBox();
+        case EGBoundingVolumeType::BVT_AABB:
+        DB = &((CGGraphBVAABB*)_poDstBV)->oGetBox();
         iFlags += 3 * 1;
         break;
 
-        case eGraphBV_Point:    DP = ( (CGraphBV_Point*)DstObj )->pGetPoint();
+        case EGBoundingVolumeType::BVT_POINT:
+        DP = &((CGGraphBVPoint*)_poDstBV)->oGetPoint();
         iFlags += 3 * 2;
         break;
     }
@@ -65,67 +58,71 @@ int CCOL_ST_ColTester::iTestCollision (CGBoundingVolume* SrcObj, CGBoundingVolum
     switch ( iFlags )
     {
         case 0:  // Sphere-Sphere test
-        return ( CCOL_ST_Sphere::iTestSphere(SS->m_oCenter,SS->m_fRadius,DS->m_oCenter,DS->m_fRadius) );
+        return ( CCOL_ST_Sphere::iTestSphere(SS->oGetCenter(), SS->fGetRadius(), DS->oGetCenter(), DS->fGetRadius()));
         break;
 
         case 1:  // Box-Sphere test
-        return ( CCOL_ST_Box::iTestSphere(SB->m_oMaxs,SB->m_oMins,DS->m_oCenter,DS->m_fRadius) );
+        return ( CCOL_ST_Box::iTestSphere(SB->oGetMax(), SB->oGetMin(), DS->oGetCenter(), DS->fGetRadius()));
         break;
 
         case 2:  // Point-Sphere test
-        return ( CCOL_ST_Point::iTestSphere(*SP,DS->m_oCenter,DS->m_fRadius) );
+        return ( CCOL_ST_Point::iTestSphere(SP->oGetCenter(), DS->oGetCenter(), DS->fGetRadius()));
         break;
 
         case 3:  // Sphere-Box test
-        return ( CCOL_ST_Sphere::iTestBox(SS->m_oCenter,SS->m_fRadius,DB->m_oMaxs,DB->m_oMins) );
+        return ( CCOL_ST_Sphere::iTestBox(SS->oGetCenter(), SS->fGetRadius(), DB->oGetMax(), DB->oGetMin()));
         break;
 
         case 4:  // Box-Box test
-        return ( CCOL_ST_Box::iTestSphere(SB->m_oMaxs,SB->m_oMins,DS->m_oCenter,DS->m_fRadius) );
+        return ( CCOL_ST_Box::iTestBox(SB->oGetMax(),SB->oGetMin(),DB->oGetMax(),DB->oGetMin()) );
         break;
 
         case 5:  // Point-Box test
-        return ( CCOL_ST_Point::iTestBox(*SP,DB->m_oMaxs,DB->m_oMins) );
+        return ( CCOL_ST_Point::iTestBox(SP->oGetCenter(), DB->oGetMax(), DB->oGetMin()));
         break;
 
         case 6:  // Sphere-Point
-        return ( CCOL_ST_Sphere::iTestPoint(SS->m_oCenter,SS->m_fRadius,*DP) );
+        return ( CCOL_ST_Sphere::iTestPoint(SS->oGetCenter(),SS->fGetRadius(),DP->oGetCenter()) );
         break;
 
         case 7:  // Box-Point
-        return ( CCOL_ST_Box::iTestPoint(SB->m_oMaxs,SB->m_oMins,*DP) );
+        return ( CCOL_ST_Box::iTestPoint(SB->oGetMax(),SB->oGetMin(),DP->oGetCenter()) );
         break;
 
         case 8:  // Point-Point
-        return ( CCOL_ST_Point::iTestPoint(*SP,*DP) );
+        return ( CCOL_ST_Point::iTestPoint(SP->oGetCenter(), DP->oGetCenter()) );
         break;
     }
 
     return (0);
 }
-
-int CCOL_ST_ColTester::iTestPlane (CGBoundingVolume* _SrcObj, CGPlane& Plane)
+// -----------------------------------------------------------------------------
+int CCOL_ST_ColTester::iTestPlane(CGGraphBV* _poBV, const CGPlane& _oPlane)
 {
-    CBoundingSphere* SS;
-    CGBVAABB* SB;
-    CGVect3* SP;
-
-    switch ( _SrcObj->eGetTypeID() )
+    switch (_poBV->eGetTypeID() )
     {
-        case eGraphBV_Sphere:   SS = ( (CGBVSphere*)_SrcObj )->pGetSphere();
-        return ( MATH_Utils::iTestSpherePlane(SS->m_oCenter,SS->m_fRadius,Plane) );
+        case EGBoundingVolumeType::BVT_SPHERE:
+        {
+            const CGBVSphere& SS = ((CGGraphBVSphere*)_poBV)->oGetSphere();
+            return ( Math::iTestSpherePlane(SS.oGetCenter(), SS.fGetRadius(), _oPlane));
+        }
         break;
 
-        case eGraphBV_Box:      SB = ( (CGBVAABB*)_SrcObj )->pGetBox();
-        return ( MATH_Utils::iTestBoxPlane(SB->m_oMaxs,SB->m_oMaxs,Plane) );
+        case EGBoundingVolumeType::BVT_AABB:
+        {
+            const CGBVAABB& SB = ((CGGraphBVAABB*)_poBV)->oGetBox();
+            return ( Math::iTestBoxPlane(SB.oGetMax(), SB.oGetMin(), _oPlane));
+        }
         break;
 
-        case eGraphBV_Point:    SP = ( (CGraphBV_Point*)_SrcObj )->pGetPoint();
-        return ( MATH_Utils::iTestPointPlane(*SP,Plane) );
+        case EGBoundingVolumeType::BVT_POINT:
+        {
+            const CGBVPoint& SP = ((CGGraphBVPoint*)_poBV)->oGetPoint();
+            return (Math::iTestPointPlane(SP.oGetCenter(), _oPlane));
+        }
         break;
     }
 
     return (0);
 }
-
-// Additional Declarations
+// -----------------------------------------------------------------------------

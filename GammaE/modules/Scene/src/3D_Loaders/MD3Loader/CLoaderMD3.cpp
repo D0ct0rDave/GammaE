@@ -15,6 +15,7 @@
 #include "GammaE_Mem.h"
 #include "Gammae_Misc.h"
 #include "Gammae_SceneUtils.h"
+#include "Animation/CGSceneAnimInstance.h"
 
 #include "MD3Model.h"
 
@@ -55,7 +56,6 @@
     Este es el cometido de las funciones
 
             SetTransfStateInfo  y SetupAnimTransfNode
-
  */
 
 #define TOTAL_MD3FRAME_ANIMS        25
@@ -191,14 +191,13 @@ CGShader* CLoaderMD3::poGetShader (char* _szMeshName)
 
 CGSceneAnimTransf* CLoaderMD3::CreateAnimTransfNode (tag_t* _pTags, int _iNumTags, int _iTagStep)
 {
-    CGMatrix4x4* Mat;
     CGSceneAnimTransf* pAnimTransf;
 
     pAnimTransf = mNew CGSceneAnimTransf;
-    pAnimTransf->CreateStates(_iNumTags);
+    pAnimTransf->Setup(_iNumTags);
 
     // Setup transformation array
-    Mat = pAnimTransf->pTransStates;
+    CGMatrix4x4* Mat = pAnimTransf->poGetStateTransforms();
     for ( int cFrame = 0; cFrame < _iNumTags; cFrame++ )
     {
         // X row
@@ -235,43 +234,18 @@ CGSceneAnimTransf* CLoaderMD3::CreateAnimTransfNode (tag_t* _pTags, int _iNumTag
 
 CGSceneAnimMesh* CLoaderMD3::pCreateAnimMesh (mesh_header_t& _Header, skin_t &_Skin, Q3triangle_t* _Tris, vertice_t* _VXs, tex_coord_t* _UVs)
 {
-    CGSceneAnimMesh* AnimMesh = mNew CGSceneAnimMesh;
-    CGMesh* Mesh = mNew CGMesh;
-    CGSceneLeaf* LeafObj = mNew CGSceneLeaf;
-
     // ----------------------------------
     // Translate previously read information to our engine
     // classes
     // ----------------------------------
 
     // -----------------
-    // Animated mesh object
-    // -----------------
-    AnimMesh->SetLeaf(LeafObj);
-    AnimMesh->CreateStates(_Header.numMeshFrames,_Header.numVertexs);
-
-    // -----------------
-    // Setup leaf object
-    // -----------------
-    LeafObj->SetMesh (Mesh);
-    // Setup mesh material
-    if ( *_Skin.name )
-    {
-        // the mesh has a link to its mesh material
-        LeafObj->SetShader( CGShaderWH::I()->poCreateShader(_Skin.name) );
-    }
-    else
-    {
-        // use the skin bookmark to find the mesh material
-        LeafObj->SetShader( poGetShader( _Header.name ) );
-    }
-
-    Mesh->Init(_Header.numVertexs,_Header.numTriangles,E3D_MESH_TRIS,
-               MESH_FIELD_VERTEXS | MESH_FIELD_UVCOORDS | MESH_FIELD_VNORMALS | MESH_FIELD_INDEXES );
-    // -----------------
     // Setup mesh
     // -----------------
-
+    CGMesh* Mesh = mNew CGMesh;
+    Mesh->Init(_Header.numVertexs, _Header.numTriangles, E3D_PrimitiveType::E3D_PT_TRIS,
+        MESH_FIELD_VERTEXS | MESH_FIELD_UVCOORDS | MESH_FIELD_VNORMALS | MESH_FIELD_INDEXES);
+    
     // Setup mesh indexes
     int cTri,cVert,iIdx = 0;
     for ( cTri = 0; cTri < _Header.numTriangles; cTri++ )
@@ -280,15 +254,33 @@ CGSceneAnimMesh* CLoaderMD3::pCreateAnimMesh (mesh_header_t& _Header, skin_t &_S
 
     // Setup mesh tex coords
     for ( cVert = 0; cVert < _Header.numVertexs; cVert++ )
-        Mesh->m_poUV [cVert].V2(_UVs[cVert].texvec[0],_UVs[cVert].texvec[1]);
+        Mesh->m_poUV [cVert].Set(_UVs[cVert].texvec[0],_UVs[cVert].texvec[1]);
 
-    // Setup vertexes
+    // -----------------
+    // Animated mesh object
+    // -----------------
+    CGSceneAnimMesh* AnimMesh = mNew CGSceneAnimMesh;
+    AnimMesh->Setup(Mesh, _Header.numMeshFrames, _Header.numVertexs);
+
+    // Setup mesh material
+    if (*_Skin.name)
+    {
+        // the mesh has a link to its mesh material
+        AnimMesh->SetShader(CGShaderWH::I()->poCreateShader(_Skin.name));
+    }
+    else
+    {
+        // use the skin bookmark to find the mesh material
+        AnimMesh->SetShader(poGetShader(_Header.name));
+    }
+
+    // Setup vertices
     vertice_t* pV = _VXs;
-    CGVect3* pVXs = AnimMesh->pMeshStates;
+    CGVect3* pVXs = AnimMesh->poGetVertices();
 
     for ( cVert = 0; cVert < _Header.numMeshFrames * _Header.numVertexs; cVert++ )
     {
-        pVXs->V3( (float)pV->Vec[0] / 64.0f,(float)pV->Vec[1] / 64.0f,(float)pV->Vec[2] / 64.0f );
+        pVXs->Set( (float)pV->Vec[0] / 64.0f,(float)pV->Vec[1] / 64.0f,(float)pV->Vec[2] / 64.0f );
 
         pV++;
         pVXs++;
@@ -312,7 +304,6 @@ CGSceneNode* CLoaderMD3::pLoadModel (char* Filename)
     tex_coord_t* UVs;
     vertice_t* VXs;
 
-    CGSceneAnimGroup* AnimModel;
     CGSceneAnimTransf* AnimTransf;
     CGSceneAnimMesh* AnimMesh;
 
@@ -349,9 +340,7 @@ CGSceneNode* CLoaderMD3::pLoadModel (char* Filename)
     // Create animation transformation node (bones)
     AnimTransf = CreateAnimTransfNode(tags,header.numBoneFrames,header.numTags);
 
-    AnimModel = mNew CGSceneAnimGroup;
-    AnimModel->Init        (header.numMeshes + 1 + 1);
-    AnimModel->CreateStates(header.numBoneFrames);
+
     // free buffers
     MEMFree (tags);
     MEMFree (boneframes);
@@ -394,8 +383,7 @@ CGSceneNode* CLoaderMD3::pLoadModel (char* Filename)
 
         // Generate normals for this mesh
         glbAnimMesh_NormalGenerator.Generate(AnimMesh);
-
-        AnimModel->AddObject( AnimMesh );
+        AnimTransf->SetObject(AnimMesh);
 
         // free auxiliary arrays
         MEMFree(Tris);
@@ -404,11 +392,7 @@ CGSceneNode* CLoaderMD3::pLoadModel (char* Filename)
     }
 
     fclose (md3file);
-
-    // Link transformation node
-    AnimModel->AddObject(AnimTransf);
-
-    return (AnimModel);
+    return (AnimTransf);
 }
 
 CGSceneNode* CLoaderMD3::pLoad (char* _ModelName, char* _SkinName)
@@ -440,14 +424,13 @@ CGSceneNode* CLoaderMD3::pLoad (char* Filename)
     return (NULL);
 }
 
-CGSceneAnimCfgGen* CLoaderMD3::pLoadQ3Player (char* _Path, char* _SkinName)
+CGSceneAnimInstance* CLoaderMD3::pLoadQ3Player (char* _Path, char* _SkinName)
 {
     char l_mpath[1024], u_mpath[1024], h_mpath[1024];
     char l_spath[1024], u_spath[1024], h_spath[1024];
     char a_path[1024];
 
     CGSceneAnimGroup* L,* U,* H;
-    CGSceneAnimCfgMgr* pQ3Player;
 
     sprintf(l_mpath, "%s/lower.md3", _Path);
     sprintf(u_mpath, "%s/upper.md3", _Path);
@@ -462,15 +445,16 @@ CGSceneAnimCfgGen* CLoaderMD3::pLoadQ3Player (char* _Path, char* _SkinName)
     H = (CGSceneAnimGroup*)pLoad(h_mpath,h_spath);
 
     // Linkar objetos
-    U->AddObject(H);
+    U->uiAddAnimObject(H);
     sprintf(a_path,"%s/Animation.cfg",_Path);
-    pQ3Player = pLoadAnimation(a_path,L,U);
+
+    CGSceneAnimInstance* pQ3Player = pLoadAnimation(a_path,L,U);
 
     // Esto realmente va afuera, pero de momento se deja aqui
     return (pQ3Player);
 }
 
-CGSceneAnimCfgMgr* CLoaderMD3::pLoadAnimation (char* _Filename, CGSceneAnimGroup* _pLegs, CGSceneAnimGroup* _pTorso)
+CGSceneAnimInstance* CLoaderMD3::pLoadAnimation (char* _Filename, CGSceneAnimGroup* _pLegs, CGSceneAnimGroup* _pTorso)
 {
     char* Buffer = Utils::Parse::ReadFile(_Filename);
     char* szHeader = Buffer;
@@ -524,38 +508,27 @@ CGSceneAnimCfgMgr* CLoaderMD3::pLoadAnimation (char* _Filename, CGSceneAnimGroup
     // --------------------------------
     // Ok: go to process animation info:
     // --------------------------------
-    CGSceneAnimCfgMgr* pQ3Player;
+    CGSceneAnimCfg* Anim = mNew CGSceneAnimCfg;
+    Anim->uiAddAction("allframes", 0, _pLegs->uiGetNumStates() - 1, TOTAL_MD3FRAME_ANIM_TIME, true);
+    
+    SetupAnim(1, AnimCfg, Anim);
+    SetupAnim(2, AnimCfg, Anim);
+    SetupAnim(3, AnimCfg, Anim);
+    SetupAnim(7, AnimCfg, Anim);
 
-    CGSceneAnimCfg* AnimT;
-    CGSceneAnimCfg* AnimL;
+    CGSceneAnimGroup* poPlayer = mNew CGSceneAnimGroup;
+    poPlayer->Setup(_pLegs->uiGetNumStates());
+    poPlayer->uiAddAnimObject(_pTorso);
+    poPlayer->uiAddAnimObject(_pLegs);
 
-    AnimT = mNew CGSceneAnimCfg;
-    AnimL = mNew CGSceneAnimCfg;
-
-    AnimL->SetAnimObj      (_pLegs );
-    AnimT->SetAnimObj      (_pTorso);
-
-    AnimL->CreateFrameAnims(TOTAL_MD3FRAME_ANIMS + 1);
-    AnimT->CreateFrameAnims(TOTAL_MD3FRAME_ANIMS + 1);
-
-    AnimL->SetupFrameAnim(0,0,_pLegs->iGetNumStates() - 1,TOTAL_MD3FRAME_ANIM_TIME,true);
-    AnimT->SetupFrameAnim(0,0,_pTorso->iGetNumStates() - 1,TOTAL_MD3FRAME_ANIM_TIME,true);
-
-    SetupAnim(1,AnimCfg,AnimL,AnimT);
-    SetupAnim(2,AnimCfg,AnimL,AnimT);
-    SetupAnim(3,AnimCfg,AnimL,AnimT);
-    SetupAnim(7,AnimCfg,AnimL,AnimT);
-
-    // Setup animation manager
-    pQ3Player = mNew CGSceneAnimCfgMgr;
-    pQ3Player->Init(2);
-    pQ3Player->AddAnimObj(AnimL);
-    pQ3Player->AddAnimObj(AnimT);
+    CGSceneAnimInstance* pQ3Player = mNew CGSceneAnimInstance;
+    pQ3Player->SetAnimatedObject(poPlayer);
+    pQ3Player->SetAnimConfig(Anim);
 
     return (pQ3Player);
 }
 
-void CLoaderMD3::SetupAnim (int _iAnimNum, anim_t* _MD3Anim, CGSceneAnimCfg* _pLegs, CGSceneAnimCfg* _pTorso)
+void CLoaderMD3::SetupAnim(int _iAnimNum, anim_t* _MD3Anim, CGSceneAnimCfg* _poAnimCfg)
 {
 /*
     Code ripped from
@@ -616,59 +589,35 @@ void CLoaderMD3::SetupAnim (int _iAnimNum, anim_t* _MD3Anim, CGSceneAnimCfg* _pL
     switch ( _iAnimNum )
     {
         case 1:                    // Stand
-        _pLegs->SetupFrameAnim(_iAnimNum,
+            _poAnimCfg->uiAddAction("Stand",
                                _MD3Anim[22].first_frame,
                                _MD3Anim[22].first_frame + _MD3Anim[22].num_frames - 1,
                                (float)_MD3Anim[22].num_frames / (float)_MD3Anim[22].frames_per_second,
                                _MD3Anim[22].looping_frames);
-
-        _pTorso->SetupFrameAnim(_iAnimNum,
-                                _MD3Anim[11].first_frame,
-                                _MD3Anim[11].first_frame + _MD3Anim[11].num_frames - 1,
-                                (float)_MD3Anim[11].num_frames / (float)_MD3Anim[11].frames_per_second,
-                                _MD3Anim[11].looping_frames);
         break;
 
         case 2:                    // Run
-        _pLegs->SetupFrameAnim(_iAnimNum,
-                               _MD3Anim[15].first_frame,
-                               _MD3Anim[15].first_frame + _MD3Anim[15].num_frames - 1,
-                               (float)_MD3Anim[15].num_frames / (float)_MD3Anim[15].frames_per_second,
-                               _MD3Anim[15].looping_frames);
-
-        _pTorso->SetupFrameAnim(_iAnimNum,
-                                _MD3Anim[10].first_frame,
-                                _MD3Anim[10].first_frame + _MD3Anim[10].num_frames - 1,
-                                (float)_MD3Anim[10].num_frames / (float)_MD3Anim[10].frames_per_second,
-                                _MD3Anim[10].looping_frames);
+            _poAnimCfg->uiAddAction("Run",
+                                _MD3Anim[15].first_frame,
+                                _MD3Anim[15].first_frame + _MD3Anim[15].num_frames - 1,
+                                (float)_MD3Anim[15].num_frames / (float)_MD3Anim[15].frames_per_second,
+                                _MD3Anim[15].looping_frames);
         break;
 
         case 3:                    // Attack
-        _pLegs->SetupFrameAnim(_iAnimNum,
-                               _MD3Anim[12].first_frame,
-                               _MD3Anim[12].first_frame + _MD3Anim[12].num_frames - 1,
-                               (float)_MD3Anim[12].num_frames / (float)_MD3Anim[12].frames_per_second,
-                               _MD3Anim[12].looping_frames);
-
-        _pTorso->SetupFrameAnim(_iAnimNum,
-                                _MD3Anim[7].first_frame,
-                                _MD3Anim[7].first_frame + _MD3Anim[7].num_frames - 1,
-                                (float)_MD3Anim[7].num_frames / (float)_MD3Anim[7].frames_per_second,
-                                _MD3Anim[7].looping_frames);
-        break;
-
-        case 7:                    // Jump
-        _pLegs->SetupFrameAnim(_iAnimNum,
-                               _MD3Anim[20].first_frame,
-                               _MD3Anim[20].first_frame + _MD3Anim[20].num_frames - 1,
-                               (float)_MD3Anim[20].num_frames / (float)_MD3Anim[20].frames_per_second,
-                               _MD3Anim[20].looping_frames);
-
-        _pTorso->SetupFrameAnim(_iAnimNum,
+            _poAnimCfg->uiAddAction("Attack",
                                 _MD3Anim[12].first_frame,
                                 _MD3Anim[12].first_frame + _MD3Anim[12].num_frames - 1,
                                 (float)_MD3Anim[12].num_frames / (float)_MD3Anim[12].frames_per_second,
                                 _MD3Anim[12].looping_frames);
+        break;
+
+        case 7:                    // Jump
+            _poAnimCfg->uiAddAction("Jump",
+                                _MD3Anim[20].first_frame,
+                                _MD3Anim[20].first_frame + _MD3Anim[20].num_frames - 1,
+                                (float)_MD3Anim[20].num_frames / (float)_MD3Anim[20].frames_per_second,
+                                _MD3Anim[20].looping_frames);
         break;
     }
 }

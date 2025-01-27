@@ -13,7 +13,7 @@
 // ----------------------------------------------------------------------------
 CGNETClient::CGNETClient()
 {
-    iState = CLST_DISCONNECTED;
+    m_uiState = CLST_DISCONNECTED;
 }
 
 CGNETClient::~CGNETClient()
@@ -23,9 +23,9 @@ CGNETClient::~CGNETClient()
 bool CGNETClient::bConnect(uint _uiServerIP,uint _uiServerPort)
 {
     // ----------------------------------------------------------------------------
-    if ( ( iClientSocket = CGNETSystem::ConnectToServer(_uiServerIP,_uiServerPort) ) > -1 )
+    if ( ( m_uiClientSocket = CGNETSystem::ConnectToServer(_uiServerIP,_uiServerPort) ) > -1 )
     {
-        iState = CLST_CONNECTED;
+        m_uiState = CLST_CONNECTED;
         return(true);
     }
     else
@@ -34,9 +34,9 @@ bool CGNETClient::bConnect(uint _uiServerIP,uint _uiServerPort)
 
 bool CGNETClient::bConnect(char* _szServerName,uint _uiServerPort)
 {
-    if ( ( iClientSocket = CGNETSystem::ConnectToServer(_szServerName,_uiServerPort) ) > -1 )
+    if ( ( m_uiClientSocket = CGNETSystem::ConnectToServer(_szServerName,_uiServerPort) ) > -1 )
     {
-        iState = CLST_CONNECTED;
+        m_uiState = CLST_CONNECTED;
         return(true);
     }
     else
@@ -50,7 +50,7 @@ bool CGNETClient::bSendInfo (void* _pBuff,int _iSize)
 
 bool CGNETClient::bGetInfo(void* _pBuff,int &_iSize)
 {
-    if ( !CGNETSystem::bPendingInfo(iClientSocket) ) return(false);
+    if ( !CGNETSystem::bPendingInfo(m_uiClientSocket) ) return(false);
     _iSize = CGNETSystem::ReadFromServer(_pBuff,_iSize);
     return(_iSize > 0);
 }

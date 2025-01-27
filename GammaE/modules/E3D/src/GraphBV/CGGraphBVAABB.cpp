@@ -22,6 +22,19 @@ void CGGraphBVAABB::Init(const CGVect3& _oMax, const CGVect3& _oMin)
     ComputeAll();
 }
 // ----------------------------------------------------------------------------
+void CGGraphBVAABB::Copy(const CGGraphBV& _oSrc)
+{
+    if (_oSrc.eGetTypeID() == eGetTypeID())
+    {
+        const CGGraphBVAABB& oSrc = (CGGraphBVAABB&)_oSrc;
+        Init(oSrc.oGetMax(), oSrc.oGetMin());
+    }
+    else
+    {
+        Init(_oSrc.oGetMax(), _oSrc.oGetMin());
+    }
+}
+// ----------------------------------------------------------------------------
 void CGGraphBVAABB::Compute(CGVect3* _poVXs, uint _uiNumVXs)
 {
     CGVect3 oMins, oMaxs;
@@ -110,28 +123,26 @@ const CGVect3 & CGGraphBVAABB::GetExtents () const
     return(m_oExtents);
 }
 // ----------------------------------------------------------------------------
+
 const CGVect3& CGGraphBVAABB::GetAxis(char _cAxis) const
 {
     assert( ((_cAxis >= 0) && (_cAxis <= 2)) && "Incorrect axis" );
 
-    static CGVect3 oXAxis(1.0f, 0.0f, 0.0f);
-    static CGVect3 oYAxis(0.0f, 1.0f, 0.0f);
-    static CGVect3 oZAxis(0.0f, 0.0f, 1.0f);
-
     switch (_cAxis)
     {
         case 0: 
-        case 'x':return(oXAxis);
+        case 'x':return(m_oAxis[0]);
 
         case 1: 
-        case 'y':return(oYAxis);
+        case 'y':return(m_oAxis[1]);
 
         case 2: 
-        case 'z':return(oZAxis);
+        case 'z':return(m_oAxis[2]);
     }
 
-    return(oXAxis);
+    return(m_oAxis[0]);
 }
+
 // ----------------------------------------------------------------------------
 const CGVect3& CGGraphBVAABB::oGetMax() const
 {
@@ -167,5 +178,19 @@ void CGGraphBVAABB::ComputeAll()
     m_oPoints[5].Set(oMins.x, oMaxs.y, oMins.z);       // 101
     m_oPoints[6].Set(oMins.x, oMins.y, oMaxs.z);       // 110
     m_oPoints[7].Set(oMins.x, oMins.y, oMins.z);       // 111
+
+    m_oAxis[0].Assign(CGVect3::oX());
+    m_oAxis[0].Scale(m_oExtents.x);
+
+    m_oAxis[1].Assign(CGVect3::oY());
+    m_oAxis[1].Scale(m_oExtents.y);
+
+    m_oAxis[2].Assign(CGVect3::oZ());
+    m_oAxis[2].Scale(m_oExtents.z);
+}
+// ----------------------------------------------------------------------------
+const CGVect3* CGGraphBVAABB::poGetPoints() const
+{
+    return(m_oPoints);
 }
 // ----------------------------------------------------------------------------

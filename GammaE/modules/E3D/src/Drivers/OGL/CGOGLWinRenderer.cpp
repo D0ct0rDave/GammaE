@@ -603,14 +603,14 @@ void CGOGLWinRenderer::ClearWorldMatrix ()
     m_oWorldMatrixStack.LoadIdentity();
 }
 // ----------------------------------------------------------------------------
-void CGOGLWinRenderer::SetWorldMatrix (CGMatrix4x4* M)
+void CGOGLWinRenderer::SetWorldMatrix (const CGMatrix4x4& _oMatrix)
 {
-    m_oWorldMatrixStack.Load(*M);
+    m_oWorldMatrixStack.Load(_oMatrix);
 }
 // ----------------------------------------------------------------------------
-void CGOGLWinRenderer::GetWorldMatrix (CGMatrix4x4* M)
+void CGOGLWinRenderer::GetWorldMatrix (CGMatrix4x4* _poMatrix)
 {
-    *M = m_oWorldMatrixStack.oGetTop();
+    *_poMatrix = m_oWorldMatrixStack.oGetTop();
 }
 // ----------------------------------------------------------------------------
 void CGOGLWinRenderer::PushWorldMatrix ()
@@ -623,30 +623,30 @@ void CGOGLWinRenderer::PopWorldMatrix ()
     m_oWorldMatrixStack.Pop();
 }
 // ----------------------------------------------------------------------------
-void CGOGLWinRenderer::MultiplyMatrix(CGMatrix4x4* Matrix)
+void CGOGLWinRenderer::MultiplyMatrix(const CGMatrix4x4& _oMatrix)
 {
-    m_oWorldMatrixStack.Multiply(*Matrix);
+    m_oWorldMatrixStack.Multiply(_oMatrix);
 }
 // ----------------------------------------------------------------------------
-void CGOGLWinRenderer::PreMultiplyMatrix (CGMatrix4x4* Matrix)
+void CGOGLWinRenderer::PreMultiplyMatrix (const CGMatrix4x4& _oMatrix)
 {
     // Leaves X = M * MatrixStack
     CGMatrix4x4 oMat;
-    oMat.Multiply( *Matrix,m_oWorldMatrixStack.oGetTop() );
+    oMat.Multiply(_oMatrix, m_oWorldMatrixStack.oGetTop() );
 
     m_oWorldMatrixStack.Load(oMat);
 }
 // ----------------------------------------------------------------------------
 // Camera matrix operations
 // ----------------------------------------------------------------------------
-void CGOGLWinRenderer::SetCameraMatrix (CGMatrix4x4* M)
+void CGOGLWinRenderer::SetCameraMatrix (const CGMatrix4x4& _oMatrix)
 {
-    m_oCamMatrixStack.Load( *M );
+    m_oCamMatrixStack.Load(_oMatrix);
 }
 // ----------------------------------------------------------------------------
-void CGOGLWinRenderer::GetCameraMatrix (CGMatrix4x4* M)
+void CGOGLWinRenderer::GetCameraMatrix (CGMatrix4x4* _poMatrix)
 {
-    *M = m_oCamMatrixStack.oGetTop();
+    *_poMatrix = m_oCamMatrixStack.oGetTop();
 }
 // ----------------------------------------------------------------------------
 void CGOGLWinRenderer::ClearCameraMatrix ()
@@ -673,17 +673,17 @@ void CGOGLWinRenderer::ClearProjectorMatrix ()
     CHECKERRORS();
 }
 // ----------------------------------------------------------------------------
-void CGOGLWinRenderer::SetProjectorMatrix (CGMatrix4x4* M)
+void CGOGLWinRenderer::SetProjectorMatrix (const CGMatrix4x4& _oMatrix)
 {
     // copiar directamente a OpenGL
     glMatrixMode (GL_PROJECTION);
-    glLoadMatrixf( M->pfGetData() );
+    glLoadMatrixf( _oMatrix.pfGetData() );
     CHECKERRORS();
 }
 // ----------------------------------------------------------------------------
-void CGOGLWinRenderer::GetProjectorMatrix (CGMatrix4x4* M)
+void CGOGLWinRenderer::GetProjectorMatrix (CGMatrix4x4* _poMatrix)
 {
-    glGetFloatv( GL_PROJECTION_MATRIX,M->pfGetData() );
+    glGetFloatv( GL_PROJECTION_MATRIX, _poMatrix->pfGetData() );
     CHECKERRORS();
 }
 // ----------------------------------------------------------------------------
@@ -1015,22 +1015,22 @@ void CGOGLWinRenderer::UploadTexture (CGTextureObj* TexObj)
     }
 }
 // ----------------------------------------------------------------------------
-bool CGOGLWinRenderer::bUsingBBRender ()
+bool CGOGLWinRenderer::bIsUsingBBRender ()
 {
     return(m_oREState.m_bBVRender);
 }
 // ----------------------------------------------------------------------------
-bool CGOGLWinRenderer::bUsingDefferredMode ()
+bool CGOGLWinRenderer::bIsUsingDefferredMode ()
 {
     return (m_oREState.m_bDefferredMode);
 }
 // ----------------------------------------------------------------------------
-bool CGOGLWinRenderer::bUsingFrustumCulling ()
+bool CGOGLWinRenderer::bIsUsingFrustumCulling ()
 {
     return(m_oREState.m_bFrustumCulling);
 }
 // ----------------------------------------------------------------------------
-bool CGOGLWinRenderer::bUsingNormalRender ()
+bool CGOGLWinRenderer::bIsUsingNormalRender ()
 {
     return (m_oREState.m_bNormalRender);
 }
@@ -1291,7 +1291,7 @@ void CGOGLWinRenderer::DisableFlatRendering ()
     glColor4f(1.0f,1.0f,1.0f,0.0f);
 }
 // ----------------------------------------------------------------------------
-bool CGOGLWinRenderer::bUsingFlatRendering ()
+bool CGOGLWinRenderer::bIsUsingFlatRendering ()
 {
     return(m_oREState.m_bFlatRender);
 }

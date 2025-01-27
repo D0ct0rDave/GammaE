@@ -53,10 +53,10 @@ int CCOL_Scn_ColTester::iTest3DObj_Rec (CGSceneNode* _poObj)
         case SNT_Transf:        iRes = iTest3DObj_Transf( (CGSceneTransf*)_poObj );
         break;
 
-        case SNT_AnimObject:    iRes = 0;
+        case SNT_AnimNode:    iRes = 0;
         break;
 
-        case SNT_AnimNode:      iRes = 0;
+        case SNT_AnimGroup:     iRes = 0;
         break;
 
         case SNT_AnimMesh:      iRes = 0;
@@ -75,9 +75,6 @@ int CCOL_Scn_ColTester::iTest3DObj_Rec (CGSceneNode* _poObj)
         break;
 
         case SNT_Mux:           iRes = 0; // iTest3DObj_Mux(_fd,(CGSceneMux*)_poObj);
-        break;
-
-        case SNT_CompiledLeaf:  iRes = iTest3DObj_CompiledLeaf( (CGSceneCompiledLeaf*)_poObj );
         break;
 
         default:                iRes = 0;
@@ -201,16 +198,6 @@ int CCOL_Scn_ColTester::iTest3DObj_Transf (CGSceneTransf* _poObj)
     }
 }
 
-int CCOL_Scn_ColTester::iTest3DObj_CompiledLeaf (CGSceneCompiledLeaf* _poObj)
-{
-    if ( CCOL_DT_ColTester::fTestCollision( SGrObj->poGetBV(),_poObj->poGetBV() ) >= 0.0f )
-    {
-        return(1);
-    }
-    else
-        return(0);
-}
-
 int CCOL_Scn_ColTester::iTest3DObj_Leaf (CGSceneLeaf* _poObj)
 {
     if ( iNumColMeshes == 64 ) return(0);
@@ -237,7 +224,7 @@ int CCOL_Scn_ColTester::iTest3DObj_BSPNode (CGSceneBSPNode* _poObj)
         return(0);
 
     // Miramos si hay que testear con cada uno de los subarboles
-    iPlaneRes = CCOL_ST_ColTester::iTestPlane( SGrObj->poGetBV(),*_poObj->poGetPartitionPlane() );
+    iPlaneRes = CCOL_ST_ColTester::iTestPlane( SGrObj->poGetBV(), _poObj->oGetPartitionPlane() );
 
     // iPlaneRes = 0;
     switch ( iPlaneRes )

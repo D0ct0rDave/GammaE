@@ -75,28 +75,28 @@ class CGFile
         void Write(unsigned char _ucValue) const;
 
         // / Reads an array of integers.
-        void ReadArray(int* _piBuff, uint _uiNumElems) const;
+        void ReadArray(const int* _piBuff, uint _uiNumElems) const;
 
         // / Writes an array of integers.
-        void WriteArray(int* _piBuff, uint _uiNumElems) const;
+        void WriteArray(const int* _piBuff, uint _uiNumElems) const;
 
         // / Reads an array of shorts.
-        void ReadArray(short* _psBuff, uint _uiNumElems) const;
+        void ReadArray(const short* _psBuff, uint _uiNumElems) const;
 
         // / Writes an array of shorts.
-        void WriteArray(short* _psBuff, uint _uiNumElems) const;
+        void WriteArray(const short* _psBuff, uint _uiNumElems) const;
 
         // / Reads an array of chars.
-        void ReadArray(char* _pcBuff, uint _uiNumElems) const;
+        void ReadArray(const char* _pcBuff, uint _uiNumElems) const;
 
         // / Writes an array of chars.
-        void WriteArray(char* _pcBuff, uint _uiNumElems) const;
+        void WriteArray(const char* _pcBuff, uint _uiNumElems) const;
 
         // / Reads an array of floats.
-        void ReadArray(float* _pfBuff, uint _uiNumElems) const;
+        void ReadArray(const float* _pfBuff, uint _uiNumElems) const;
 
         // / Writes an array of floats.
-        void WriteArray(float* _pfBuff, uint _uiNumElems) const;
+        void WriteArray(const float* _pfBuff, uint _uiNumElems) const;
 
         // / Moves the file pointer to a given position.
         int iSeek(int _iOffset, EFileSeekMode _eSeekMode) const;

@@ -9,8 +9,18 @@
  */
 // -----------------------------------------------------------------------------
 #include "CGGraphBVCylinder.h"
+
+// -----------------------------------------------------------------------------
+void CGGraphBVCylinder::Init(const CGVect3& _oCenter, float _fRadius, float _fHeight)
+{
+    m_oVol.Init(_oCenter, _fRadius, _fHeight);
+}
 // -----------------------------------------------------------------------------
 void CGGraphBVCylinder::Transform(const CGMatrix4x4& _oM)
+{
+}
+// -----------------------------------------------------------------------------
+void CGGraphBVCylinder::Copy(const CGGraphBV& _oSrc)
 {
 }
 // -----------------------------------------------------------------------------
@@ -50,11 +60,6 @@ int CGGraphBVCylinder::TestFrustum(const CGBVFrustum& _oFrustum) const
 int CGGraphBVCylinder::TestInside(const CGVect3& _Pos) const
 {
     return(0);
-}
-// -----------------------------------------------------------------------------
-void CGGraphBVCylinder::Init (const CGVect3& _oMax, const CGVect3& _oMin)
-{
-    // m_oVol.Init(_oMax, _oMin);
 }
 // -----------------------------------------------------------------------------
 const CGBVCylinder& CGGraphBVCylinder::GetCylinder() const

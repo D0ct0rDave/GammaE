@@ -8,14 +8,10 @@
  *  \par GammaE License
  */
 // -----------------------------------------------------------------------------
-// %X% %Q% %Z% %W%
-
-// CCOL_ColState
 #include "CollisionSystem\CCOL_ColState.h"
-// CCOL_MT_CommonMesh
 #include "COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MT_CommonMesh.h"
-
-inline void TEST_Triangle(CGVect3* _poVXs,CGVect3* _poVN,int &_iTris,int _iMat,CGBoundingVolume* _poBVol, CCOL_TriList& _oTriList)
+// -----------------------------------------------------------------------------
+inline void TEST_Triangle(CGVect3* _poVXs,CGVect3* _poVN,int &_iTris,int _iMat,CGGraphBV* _poBVol, CCOL_TriList& _oTriList)
 {
     CGTriangle oTri;
     float fTime;
@@ -29,25 +25,15 @@ inline void TEST_Triangle(CGVect3* _poVXs,CGVect3* _poVN,int &_iTris,int _iMat,C
     }
     oTri.ComputeAll();
 
-    fTime = CCOL_DT_ColTester::fTestTriangle(_poBVol,oTri);
+    fTime = CCOL_DT_ColTester::fTestTriangle(_poBVol, oTri);
     if ( fTime >= 0.0f )
     {
         _oTriList.iAddTri(oTri.VXs,oTri.Normal,_iMat,fTime);
         _iTris++;
     }
 }
-
-// Class CCOL_MT_CommonMesh
-
-CCOL_MT_CommonMesh::CCOL_MT_CommonMesh()
-{
-}
-
-CCOL_MT_CommonMesh::~CCOL_MT_CommonMesh()
-{
-}
-
-int CCOL_MT_CommonMesh::iTestCollision (CGMesh* _poMesh, int _iMat, CGBoundingVolume* _poBVol, CCOL_TriList& _oTriList)
+// -----------------------------------------------------------------------------
+int CCOL_MT_CommonMesh::iTestCollision (CGMesh* _poMesh, int _iMat, CGGraphBV* _poBVol, CCOL_TriList& _oTriList)
 {
     if ( !_poMesh ) return(0);
     if ( !_oTriList.iFreeTris() ) return(0);
@@ -62,15 +48,16 @@ int CCOL_MT_CommonMesh::iTestCollision (CGMesh* _poMesh, int _iMat, CGBoundingVo
     float fTime;
     int i0,i1,i2;
 
-    switch ( _poMesh->m_eMeshType )
+    switch ( _poMesh->eGetPrimitiveType())
     {
-        case E3D_MESH_NONE:         return(0);
+        case E3D_PrimitiveType::E3D_PT_NONE:
+        return(0);
         break;
 
         // -------------------------------------------------------------------------------------
-        case E3D_MESH_TRIS:
+        case E3D_PrimitiveType::E3D_PT_TRIS:
         {
-            for ( cTri = 0; ( (cTri < _poMesh->m_uiNumPrims) && _oTriList.iFreeTris() ); cTri++ )
+            for ( cTri = 0; ( (cTri < _poMesh->uiGetNumPrims()) && _oTriList.iFreeTris() ); cTri++ )
             {
                 i0 = _poMesh->m_pusIdx[cTri * 3 + 0];
                 i1 = _poMesh->m_pusIdx[cTri * 3 + 1];
@@ -104,7 +91,7 @@ int CCOL_MT_CommonMesh::iTestCollision (CGMesh* _poMesh, int _iMat, CGBoundingVo
         break;
 
         // -------------------------------------------------------------------------------------
-        case E3D_MESH_QUADS:
+        case E3D_PrimitiveType::E3D_PT_QUADS:
         {
             /*
                for (cTri=0;((cTri<_poMesh->usNumPrims) && (_oTriList.iFreeTris()>2));cTri++)
@@ -128,13 +115,13 @@ int CCOL_MT_CommonMesh::iTestCollision (CGMesh* _poMesh, int _iMat, CGBoundingVo
         break;
 
         // -------------------------------------------------------------------------------------
-        case E3D_MESH_TRIFANS:      return(0);
+        case E3D_PrimitiveType::E3D_PT_TRIFANS:      return(0);
         break;
 
         // -------------------------------------------------------------------------------------
-        case E3D_MESH_TRISTRIPS:
+        case E3D_PrimitiveType::E3D_PT_TRISTRIPS:
         {
-            for ( cTri = 0; ( (cTri < _poMesh->m_uiNumPrims) && _oTriList.iFreeTris() ); cTri++ )
+            for ( cTri = 0; ( (cTri < _poMesh->uiGetNumPrims()) && _oTriList.iFreeTris() ); cTri++ )
             {
                 i0 = _poMesh->m_pusIdx[cTri  ];
                 i1 = _poMesh->m_pusIdx[cTri + 1];
@@ -168,13 +155,13 @@ int CCOL_MT_CommonMesh::iTestCollision (CGMesh* _poMesh, int _iMat, CGBoundingVo
         break;
 
         // -------------------------------------------------------------------------------------
-        case E3D_MESH_QUADSTRIPS:   return(0);
+        case E3D_PrimitiveType::E3D_PT_QUADSTRIPS:   return(0);
         break;
 
         // -------------------------------------------------------------------------------------
-        case E3D_MESH_NITRIS:
+        case E3D_PrimitiveType::E3D_PT_NITRIS:
         {
-            for ( cTri = 0; ( (cTri < _poMesh->m_uiNumPrims) && _oTriList.iFreeTris() ); cTri++ )
+            for ( cTri = 0; ( (cTri < _poMesh->uiGetNumPrims()) && _oTriList.iFreeTris() ); cTri++ )
             {
                 i0 = cTri * 3 + 0;
                 i1 = cTri * 3 + 1;
@@ -208,7 +195,7 @@ int CCOL_MT_CommonMesh::iTestCollision (CGMesh* _poMesh, int _iMat, CGBoundingVo
         break;
 
         // -------------------------------------------------------------------------------------
-        case E3D_MESH_NIQUADS:
+        case E3D_PrimitiveType::E3D_PT_NIQUADS:
         {
             /*
                for (cTri=0;((cTri<_poMesh->usNumPrims) && (_oTriList.iFreeTris()>2));cTri++)
@@ -232,9 +219,9 @@ int CCOL_MT_CommonMesh::iTestCollision (CGMesh* _poMesh, int _iMat, CGBoundingVo
         break;
 
         // -------------------------------------------------------------------------------------
-        case E3D_MESH_NITRISTRIP:
+        case E3D_PrimitiveType::E3D_PT_NITRISTRIP:
 
-        for ( cTri = 0; ( (cTri < _poMesh->m_uiNumPrims) && _oTriList.iFreeTris() ); cTri++ )
+        for ( cTri = 0; ( (cTri < _poMesh->uiGetNumPrims()) && _oTriList.iFreeTris() ); cTri++ )
         {
             i0 = cTri;
             i1 = cTri + 1;
@@ -270,5 +257,5 @@ int CCOL_MT_CommonMesh::iTestCollision (CGMesh* _poMesh, int _iMat, CGBoundingVo
 
     return (iTris);
 }
+// -----------------------------------------------------------------------------
 
-// Additional Declarations

@@ -19,8 +19,10 @@ class CGGraphBVCylinder : public CGGraphBV
 {
     public:
 
-        virtual void Init(const CGVect3& _oMax, const CGVect3& _oMin);
+        void Init(const CGVect3& _oCenter, float _fRadius, float _fHeight);
         
+        virtual void Copy(const CGGraphBV& _oSrc);
+
         virtual void Transform(const CGMatrix4x4& _oM);
 
         virtual void Compute(CGVect3* _poVXs, uint _uiNumVXs);

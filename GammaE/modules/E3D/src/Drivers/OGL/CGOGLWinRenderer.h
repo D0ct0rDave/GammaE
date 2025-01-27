@@ -98,9 +98,9 @@ class CGOGLWinRenderer : public CGOGLRenderer
         virtual void RenderMesh(CGBaseMesh* _poMesh);
 
         // ------------------------------------------------------
-        void MultiplyMatrix(CGMatrix4x4* Matrix);
+        void MultiplyMatrix(const CGMatrix4x4& _oMatrix);
 
-        void PreMultiplyMatrix(CGMatrix4x4* Matrix);
+        void PreMultiplyMatrix(const CGMatrix4x4& _oMatrix);
         // ------------------------------------------------------
 
         virtual void ClearCameraMatrix();
@@ -109,9 +109,9 @@ class CGOGLWinRenderer : public CGOGLRenderer
 
         virtual void PopCameraMatrix();
 
-        virtual void SetCameraMatrix(CGMatrix4x4* M);
+        virtual void SetCameraMatrix(const CGMatrix4x4& _oMatrix);
 
-        virtual void GetCameraMatrix(CGMatrix4x4* M);
+        virtual void GetCameraMatrix(CGMatrix4x4* _poMatrix);
 
         virtual void ClearWorldMatrix();
 
@@ -119,9 +119,9 @@ class CGOGLWinRenderer : public CGOGLRenderer
 
         virtual void PopWorldMatrix();
 
-        virtual void SetWorldMatrix(CGMatrix4x4* M);
+        virtual void SetWorldMatrix(const CGMatrix4x4& _oMatrix);
 
-        virtual void GetWorldMatrix(CGMatrix4x4* M);
+        virtual void GetWorldMatrix(CGMatrix4x4* _poMatrix);
 
         virtual void ClearProjectorMatrix();
 
@@ -129,9 +129,9 @@ class CGOGLWinRenderer : public CGOGLRenderer
 
         virtual void PopProjectorMatrix();
 
-        virtual void SetProjectorMatrix(CGMatrix4x4* M);
+        virtual void SetProjectorMatrix(const CGMatrix4x4& _oMatrix);
 
-        virtual void GetProjectorMatrix(CGMatrix4x4* M);
+        virtual void GetProjectorMatrix(CGMatrix4x4* _poMatrix);
 
         // ------------------------------------------------------
 
@@ -143,13 +143,13 @@ class CGOGLWinRenderer : public CGOGLRenderer
 
         virtual void UploadTexture(CGTextureObj* TexObj);
 
-        virtual bool bUsingBBRender();
+        virtual bool bIsUsingBBRender();
 
-        virtual bool bUsingDefferredMode();
+        virtual bool bIsUsingDefferredMode();
 
-        virtual bool bUsingFrustumCulling();
+        virtual bool bIsUsingFrustumCulling();
 
-        virtual bool bUsingNormalRender();
+        virtual bool bIsUsingNormalRender();
 
         virtual void SetViewport(CGViewport* _Viewport);
 
@@ -175,7 +175,7 @@ class CGOGLWinRenderer : public CGOGLRenderer
 
         virtual void DisableFlatRendering();
 
-        virtual bool bUsingFlatRendering();
+        virtual bool bIsUsingFlatRendering();
 
         virtual void ReadBuffer(int _iX, int _iY, int _iTX, int _iTY, E3D_RenderBuffer_Type _eBufferType, void* _pData);
 

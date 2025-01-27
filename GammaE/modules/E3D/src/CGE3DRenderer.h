@@ -119,7 +119,7 @@ class CGE3DRenderer
         virtual void DisableBVRender();
 
         // / Returns whether the rendering of mesh bounding volumes is enabled or not
-        virtual bool bUsingBBRender();
+        virtual bool bIsUsingBBRender();
 
         // / Enables the rendering of mesh normals
         virtual void EnableNormalRender();
@@ -128,7 +128,7 @@ class CGE3DRenderer
         virtual void DisableNormalRender();
 
         // / Returns whether the rendering of mesh normals is being done or not
-        virtual bool bUsingNormalRender();
+        virtual bool bIsUsingNormalRender();
 
         // / Enables the deferred rendering mode
         virtual void EnableDefferredMode();
@@ -137,7 +137,7 @@ class CGE3DRenderer
         virtual void DisableDefferredMode();
 
         // / Returns whether deferred rendering mode is being used or not
-        virtual bool bUsingDefferredMode();
+        virtual bool bIsUsingDefferredMode();
 
         // / Enables the frustum culling test for mesh rendering
         virtual void EnableFrustumCulling();
@@ -146,7 +146,7 @@ class CGE3DRenderer
         virtual void DisableFrustumCulling();
 
         // / Returns whether frustum culling test is being applied or not
-        virtual bool bUsingFrustumCulling();
+        virtual bool bIsUsingFrustumCulling();
 
         // / Enables flat rendering. Rendering without textures and/or lighting
         virtual void EnableFlatRendering();
@@ -155,7 +155,7 @@ class CGE3DRenderer
         virtual void DisableFlatRendering();
 
         // / Returns whether flat rendering is being used or not
-        virtual bool bUsingFlatRendering();
+        virtual bool bIsUsingFlatRendering();
 
         // / Pushes the current world matrix into the world matrix stack
         virtual void PushWorldMatrix();
@@ -167,16 +167,16 @@ class CGE3DRenderer
         virtual void ClearWorldMatrix();
 
         // / Retrieves the current world matrix
-        virtual void GetWorldMatrix(CGMatrix4x4* _poM);
+        virtual void GetWorldMatrix(CGMatrix4x4* _poMatrix);
 
         // / Sets the given matrix as the current world matrix
-        virtual void SetWorldMatrix(CGMatrix4x4* _poM);
+        virtual void SetWorldMatrix(const CGMatrix4x4& _oMatrix);
 
         // / Multiplies the world matrix by the given matrix
-        virtual void MultiplyMatrix(CGMatrix4x4* _poMatrix);
+        virtual void MultiplyMatrix(const CGMatrix4x4& _oMatrixatrix);
 
         // / Multiplies the given matrix by the world matrix and sets the result as the world matrix
-        virtual void PreMultiplyMatrix(CGMatrix4x4* _poMatrix);
+        virtual void PreMultiplyMatrix(const CGMatrix4x4& _oMatrixatrix);
 
         // / Sets the given shader as the current shader material.
         virtual void SetCurrentMaterial(CGShader* _poShader) = 0;
@@ -194,10 +194,10 @@ class CGE3DRenderer
         virtual void ClearCameraMatrix();
 
         // / Retrieves the current camera matrix
-        virtual void GetCameraMatrix(CGMatrix4x4* _poM);
+        virtual void GetCameraMatrix(const CGMatrix4x4& _oMatrix);
 
         // / Sets the current camera matrix
-        virtual void SetCameraMatrix(CGMatrix4x4* _poM);
+        virtual void SetCameraMatrix(const CGMatrix4x4& _oMatrix);
 
         // / Pushes the current projector matrix into projector matrix stack
         virtual void PushProjectorMatrix();
@@ -209,10 +209,10 @@ class CGE3DRenderer
         virtual void ClearProjectorMatrix();
 
         // / Retrieves the current projector matrix
-        virtual void GetProjectorMatrix(CGMatrix4x4* _poM);
+        virtual void GetProjectorMatrix(CGMatrix4x4* _poMatrix);
 
         // / Sets the current projector matrix
-        virtual void SetProjectorMatrix(CGMatrix4x4* _poM);
+        virtual void SetProjectorMatrix(const CGMatrix4x4& _oMatrix);
 
         // / Sets the viewport
         virtual void SetViewport(CGViewport* _poViewport);

@@ -8,41 +8,27 @@
  *  \par GammaE License
  */
 // -----------------------------------------------------------------------------
-// %X% %Q% %Z% %W%
-
-// CCOL_CollidedMeshes
-#include "Collision\Collider\CCOL_CollidedMeshes.h"
-
-// Class CCOL_CollidedMeshes
-
-CCOL_CollidedMeshes::CCOL_CollidedMeshes()
+#include "Collider\CCOL_CollidedMeshes.h"
+#include <assert.h>
+// -----------------------------------------------------------------------------
+void CCOL_CollidedMeshes::Reset()
 {
+    m_poMeshes.Clear();
 }
-
-CCOL_CollidedMeshes::~CCOL_CollidedMeshes()
+// -----------------------------------------------------------------------------
+void CCOL_CollidedMeshes::AddMesh(CGBaseMesh* _pMesh)
 {
+    m_poMeshes.uiAdd(_pMesh);
 }
-
-void CCOL_CollidedMeshes::Reset ()
+// -----------------------------------------------------------------------------
+int CCOL_CollidedMeshes::iGetNumMeshes()
 {
-    iNumMeshes = 0;
+    return(m_poMeshes.uiNumElems());
 }
-
-void CCOL_CollidedMeshes::AddMesh (CMesh* _pMesh)
+// -----------------------------------------------------------------------------
+CGBaseMesh* CCOL_CollidedMeshes::pGetMesh(uint _uiMesh)
 {
-    if ( iNumMeshes < 10 )
-        pMesh[iNumMeshes++] = _pMesh;
+    assert ((_uiMesh < m_poMeshes.uiNumElems()) && "Mesh index out of bounds" );
+    return (m_poMeshes[_uiMesh]);
 }
-
-int CCOL_CollidedMeshes::iGetNumMeshes ()
-{
-    return(iNumMeshes);
-}
-
-CMesh* CCOL_CollidedMeshes::pGetMesh (int _iMesh)
-{
-    assert ( (_iMesh < 10) && "Mesh index out of bounds" );
-    return (pMesh[_iMesh]);
-}
-
-// Additional Declarations
+// -----------------------------------------------------------------------------

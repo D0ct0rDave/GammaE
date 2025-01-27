@@ -22,11 +22,7 @@ CCOL_MT_TerrainMesh::CCOL_MT_TerrainMesh()
 {
 }
 
-CCOL_MT_TerrainMesh::~CCOL_MT_TerrainMesh()
-{
-}
-
-int CCOL_MT_TerrainMesh::iTestCollision (CGMesh* _poMesh, int _iMat, CGBoundingVolume* _poBVol, CCOL_TriList& _oTriList)
+int CCOL_MT_TerrainMesh::iTestCollision(CGMesh* _poMesh, int _iMat, CGGraphBV* _poBVol, CCOL_TriList& _oTriList)
 {
     // Convertir coordinadas SrcIPos, SrcFPos a coordenadas de terreno
     // Trazar el recorrido del objeto sobre el terreno, pixel a pixel.
@@ -57,25 +53,25 @@ int CCOL_MT_TerrainMesh::iTestCollision (CGMesh* _poMesh, int _iMat, CGBoundingV
     iXRange = iFX - iIX;
     iYRange = iFY - iIY;
 
-    if ( MATH_fAbs(iXRange) == MATH_fAbs(iYRange) )
+    if ( Math::fAbs(iXRange) == Math::fAbs(iYRange) )
     {
-        iSteps = MATH_fAbs(iXRange);
-        fXStep = MATH_fSign(iXRange);
-        fYStep = MATH_fSign(iYRange);
+        iSteps = Math::fAbs(iXRange);
+        fXStep = Math::fSign(iXRange);
+        fYStep = Math::fSign(iYRange);
     }
     else
     {
-        if ( MATH_fAbs(iXRange) > MATH_fAbs(iYRange) )
+        if ( Math::fAbs(iXRange) > Math::fAbs(iYRange) )
         {
-            iSteps = MATH_fAbs(iXRange);
-            fXStep = MATH_fSign(iXRange);
+            iSteps = Math::fAbs(iXRange);
+            fXStep = Math::fSign(iXRange);
             fYStep = (float)iYRange / (float)iSteps;
         }
         else
         {
-            iSteps = MATH_fAbs(iYRange);
+            iSteps = Math::fAbs(iYRange);
             fXStep = (float)iXRange / (float)iSteps;
-            fYStep = MATH_fSign(iYRange);
+            fYStep = Math::fSign(iYRange);
         }
     }
 
@@ -95,8 +91,8 @@ int CCOL_MT_TerrainMesh::iTestCollision (CGMesh* _poMesh, int _iMat, CGBoundingV
 
     for ( iS = 0; iS <= iSteps; iS++ )
     {
-        if ( MATH_bInRange(fActX,0,iTWidth ) &&
-            MATH_bInRange(fActY,0,iTHeight) )
+        if ( Math::bInRange(fActX,0,iTWidth ) &&
+            Math::bInRange(fActY,0,iTHeight) )
         {
             // Get the triangles associated with the pixel
             GetTriangle(fActX,fActY,VXs);
@@ -153,25 +149,25 @@ int CCOL_MT_TerrainMesh::iTestCollision (CGMesh* _poMesh, int _iMat, CGBoundingV
        iXRange = iFX - iIX;
        iYRange = iFY - iIY;
 
-       if (MATH_fAbs(iXRange) == MATH_fAbs(iYRange))
+       if (Math::fAbs(iXRange) == Math::fAbs(iYRange))
        {
         iSteps = 1;
-        fXStep = MATH_fSign(iXRange);
-        fYStep = MATH_fSign(iYRange);
+        fXStep = Math::fSign(iXRange);
+        fYStep = Math::fSign(iYRange);
        }
        else
        {
-        if (MATH_fAbs(iXRange) > MATH_fAbs(iYRange))
+        if (Math::fAbs(iXRange) > Math::fAbs(iYRange))
         {
-            iSteps = MATH_fAbs(iXRange);
-            fXStep = MATH_fSign(iXRange);
+            iSteps = Math::fAbs(iXRange);
+            fXStep = Math::fSign(iXRange);
             fYStep = (float)iYRange/(float)iSteps;
         }
         else
         {
-            iSteps = MATH_fAbs(iYRange);
+            iSteps = Math::fAbs(iYRange);
             fXStep = (float)iXRange/(float)iSteps;
-            fYStep = MATH_fSign(iYRange);
+            fYStep = Math::fSign(iYRange);
         }
        }
 
@@ -184,8 +180,8 @@ int CCOL_MT_TerrainMesh::iTestCollision (CGMesh* _poMesh, int _iMat, CGBoundingV
        iRatio   = _BVol->GetMaxExtent()*fRatio + 1.0f;
        for (iS=0;iS<=iSteps;iS++)
        {
-        if (MATH_bInRange(fActX,iRatio,iTWidth -iRatio) &&
-            MATH_bInRange(fActY,iRatio,iTHeight-iRatio))
+        if (Math::bInRange(fActX,iRatio,iTWidth -iRatio) &&
+            Math::bInRange(fActY,iRatio,iTHeight-iRatio))
         {
             // Get the triangles associated with the pixel
 

@@ -15,7 +15,6 @@
 #include "CGSceneCamera.h"
 #include "CGSceneInstance.h"
 #include "CGSceneLeaf.h"
-#include "CGSceneCompiledLeaf.h"
 #include "CGSceneMux.h"
 #include "CGSceneNode.h"
 #include "CGSceneScreenRect.h"
@@ -41,6 +40,11 @@ void CGSCNVRenderer::Visit(CGSceneNode* _poNode)
 // ----------------------------------------------------------------------------
 void CGSCNVRenderer::Visit(CGSceneBSPNode* _poNode)
 {
+    if (!_poNode->bIsVisible())
+    {
+        return;
+    }
+
     float fCamPlaneAngle;
     CGCamera* poCam = CGRenderer::I()->poGetCamera();
     float fFOV = CGRenderer::I()->poGetProjector()->fFOV;
@@ -58,7 +62,7 @@ void CGSCNVRenderer::Visit(CGSceneBSPNode* _poNode)
         // The camera could see part of the back space of the plane?
         // if (fCamPlaneAngle < fAngleLimit)
         if ( _poNode->poGetBackNode() )
-            // if (_poNode->poGetBackNode()->bVisible())
+            if (_poNode->poGetBackNode()->bIsVisible())
                 _poNode->poGetBackNode()->Accept(this);
 
         if ( _poNode->poGetFrontNode() )
@@ -72,7 +76,7 @@ void CGSCNVRenderer::Visit(CGSceneBSPNode* _poNode)
         // The camera could see part of the front space of the plane?
         // if (fCamPlaneAngle > fAngleLimit)
         if ( _poNode->poGetFrontNode() )
-            // if ( _poNode->poGetFrontNode()->bVisible() )
+            if ( _poNode->poGetFrontNode()->bIsVisible() )
                 _poNode->poGetFrontNode()->Accept(this);                     // farthest area in rendering
 
         if ( _poNode->poGetBackNode() )
@@ -109,40 +113,48 @@ void CGSCNVRenderer::Visit(CGSceneCamera* _poNode)
     CGRenderer::I()->PopCameraMatrix();
 }
 // ----------------------------------------------------------------------------
-void CGSCNVRenderer::Visit(CGSceneCompiledLeaf* _poNode)
-{
-    // If NULL material process is still valid
-    CGRenderer::I()->RenderMesh( _poNode->poGetCMesh(), _poNode->poGetShader() );
-}
-// ----------------------------------------------------------------------------
 void CGSCNVRenderer::Visit(CGSceneInstance* _poNode)
 {
+    if (!_poNode->bIsVisible())
+    {
+        return;
+    }
+
     Visit( (CGSceneTransf*)_poNode );
 }
 // ----------------------------------------------------------------------------
 void CGSCNVRenderer::Visit(CGSceneLeaf* _poNode)
 {
+    if (!_poNode->bIsVisible())
+    {
+        return;
+    }
+
     CGRenderer::I()->RenderMesh( _poNode->poGetMesh(),_poNode->poGetShader() );
 }
 // ----------------------------------------------------------------------------
 void CGSCNVRenderer::Visit(CGSceneMux* _poNode)
 {
-    if ( _poNode->bVisible() )
+    if (!_poNode->bIsVisible())
     {
-        for ( uint i = 0; i < _poNode->uiNumSubObjs(); i++ )
-            if ( (_poNode->poGetObject(i) != NULL) && ( _poNode->bIsSelected(i) ) )
-                _poNode->poGetObject(i)->Accept(this);
+        return;
     }
+    
+    for ( uint i = 0; i < _poNode->uiNumSubObjs(); i++ )
+        if ( (_poNode->poGetObject(i) != NULL) && ( _poNode->bIsSelected(i) ) )
+            _poNode->poGetObject(i)->Accept(this);
 }
 // ----------------------------------------------------------------------------
 void CGSCNVRenderer::Visit(CGSceneGroup* _poNode)
 {
-    if ( _poNode->bVisible() )
+    if (!_poNode->bIsVisible())
     {
-        for ( uint i = 0; i < _poNode->uiNumSubObjs(); i++ )
-            if ( _poNode->poGetObject(i) )
-                _poNode->poGetObject(i)->Accept(this);
+        return;
     }
+    
+    for ( uint i = 0; i < _poNode->uiNumSubObjs(); i++ )
+        if ( _poNode->poGetObject(i) )
+            _poNode->poGetObject(i)->Accept(this);
 }
 // ----------------------------------------------------------------------------
 void CGSCNVRenderer::Visit(CGSceneScreenRect* _poNode)
@@ -153,7 +165,7 @@ void CGSCNVRenderer::Visit(CGSceneScreenRect* _poNode)
     CGRenderer::I()->PushCameraMatrix();
     CGRenderer::I()->ClearCameraMatrix();
     CGRenderer::I()->PushWorldMatrix();
-    CGRenderer::I()->SetWorldMatrix( (CGMatrix4x4*)&_poNode->oGetMatrix() );
+    CGRenderer::I()->SetWorldMatrix( _poNode->oGetMatrix() );
 
     CGRenderer::I()->RenderMesh( _poNode->poGetMesh(),_poNode->poGetShader() );
 
@@ -164,26 +176,34 @@ void CGSCNVRenderer::Visit(CGSceneScreenRect* _poNode)
 // ----------------------------------------------------------------------------
 void CGSCNVRenderer::Visit(CGSceneSwitch* _poNode)
 {
-    if ( _poNode->bVisible() )
-        if ( _poNode->poGetObject() != NULL )
-            _poNode->poGetObject()->Accept(this);
+    if (!_poNode->bEnabled())
+    {
+        return;
+    }
+
+    if (!_poNode->bIsVisible())
+    {
+        return;
+    }
+
+    if ( _poNode->poGetObject() != NULL )
+        _poNode->poGetObject()->Accept(this);
 }
 // ----------------------------------------------------------------------------
 void CGSCNVRenderer::Visit(CGSceneTransf* _poNode)
 {
+    if (!_poNode->bIsVisible())
+    {
+        return;
+    }
+
     CGRenderer::I()->PushWorldMatrix();
 
     // Setup new Ref system
-    CGRenderer::I()->MultiplyMatrix( (CGMatrix4x4*)&_poNode->oTransf() );
+    CGRenderer::I()->MultiplyMatrix( _poNode->oTransf() );
 
-    // Get the local frustum
-    /*
-       if ((poObj->eGetTypeID() != SNT_Leaf) &&
-        (poObj->eGetTypeID() != SNT_CompiledLeaf))
-     */
     // We only can test visibility after performing the camera transformation
-    if ( _poNode->bVisible() )
-        _poNode->poGetObject()->Accept(this);
+    _poNode->poGetObject()->Accept(this);
 
     // Restore current state
     CGRenderer::I()->PopWorldMatrix();
@@ -199,96 +219,41 @@ void CGSCNVRenderer::Visit(CGSceneAnimNode* _poNode)
 // ----------------------------------------------------------------------------
 void CGSCNVRenderer::Visit(CGSceneAnimMesh* _poNode)
 {
-// assert (_poNode->pMeshStates && "NULL Mesh state array");
-// assert (pBVolStates && "NULL Bounding Volume State array");
-// assert (Leaf        && "NULL Leaf Mesh");
-    if ( _poNode->uiGetNumKeyFrames() == 1 )
+    if (!_poNode->bIsVisible())
     {
-        memcpy( _poNode->poGetMesh()->m_poVX,_poNode->poGetVertexs(),_poNode->uiGetNumFrameVXs() * sizeof(CGVect3) );
-        memcpy( _poNode->poGetMesh()->m_poVN,_poNode->poGetNormals(),_poNode->uiGetNumFrameVXs() * sizeof(CGVect3) );
+        return;
     }
-    else
-    {
-        if ( m_uiIniFrame >= _poNode->uiGetNumKeyFrames() ) m_uiIniFrame = _poNode->uiGetNumKeyFrames() - 1;
-        if ( m_uiEndFrame >= _poNode->uiGetNumKeyFrames() ) m_uiEndFrame = _poNode->uiGetNumKeyFrames() - 1;
-        if ( m_fAnimFactor == 1.0f ) m_uiIniFrame = m_uiEndFrame;                     // Optimization
 
-        if ( (m_uiIniFrame != m_uiEndFrame) && (m_fAnimFactor > 0.0f) )
-        {
-            int cVert;
-            CGVect3* pSrcVX = _poNode->poGetVertexs() + _poNode->uiGetNumFrameVXs() * m_uiIniFrame;
-            CGVect3* pDstVX = _poNode->poGetVertexs() + _poNode->uiGetNumFrameVXs() * m_uiEndFrame;
-            CGVect3* pMeshVX = _poNode->poGetMesh()->m_poVX;
-
-            for ( uint cVert = 0; cVert < _poNode->uiGetNumFrameVXs(); cVert++ )
-            {
-                pMeshVX->Interpolate(*pSrcVX,*pDstVX,m_fAnimFactor);
-
-                pSrcVX++;
-                pDstVX++;
-                pMeshVX++;
-            }
-
-            /*
-               // No se nota tanto la diferecia
-               CGVect3			*pSrcVN  = pNMeshStates + iNumStateVXs*_iSrc;
-               CGVect3			*pDstVN  = pNMeshStates + iNumStateVXs*_iDst;
-               CGVect3			*pMeshVN = Leaf->poGetMesh()->VNs;
-               for (cVert=0;cVert<iNumStateVXs;cVert++)
-               {
-
-                pMeshVN->Interpolate(*pSrcVN,*pDstVN,_fFactor);
-
-                pSrcVN ++;
-                pDstVN ++;
-                pMeshVN++;
-               }
-             */
-            memcpy( _poNode->poGetMesh()->m_poVN,_poNode->poGetNormals() + _poNode->uiGetNumFrameVXs() * m_uiIniFrame,_poNode->uiGetNumFrameVXs() * sizeof(CGVect3) );
-
-            CGVect3 oSMax,oSMin,oDMax,oDMin,oMax,oMin;
-            CGVect3 oSCen = _poNode->poGetKeyFrameBVol(m_uiIniFrame)->oGetCenter();
-            CGVect3 oDCen = _poNode->poGetKeyFrameBVol(m_uiEndFrame)->oGetCenter();
-            CGVect3 oSExt = _poNode->poGetKeyFrameBVol(m_uiIniFrame)->GetExtents();
-            CGVect3 oDExt = _poNode->poGetKeyFrameBVol(m_uiEndFrame)->GetExtents();
-            oSMax.Assign(oSCen);
-            oSMax.Add(oSExt);
-            oSMin.Assign(oSCen);
-            oSMin.Sub(oSExt);
-            oDMax.Assign(oDCen);
-            oDMax.Add(oDExt);
-            oDMin.Assign(oDCen);
-            oDMin.Sub(oDExt);
-
-            oMax.Interpolate(oSMax,oDMax,m_fAnimFactor);
-            oMin.Interpolate(oSMin,oDMin,m_fAnimFactor);
-
-            _poNode->poGetMesh()->poGetBV()->Init(oMax,oMin);
-        }
-        else
-        {
-            // Src copy:
-            _poNode->poGetMesh()->poGetBV()->Copy( _poNode->poGetKeyFrameBVol(m_uiIniFrame) );
-
-            // Copy of the vertexs
-            memcpy( _poNode->poGetMesh()->m_poVX,_poNode->poGetVertexs() + _poNode->uiGetNumFrameVXs() * m_uiIniFrame,_poNode->uiGetNumFrameVXs() * sizeof(CGVect3) );
-
-            // Copy of the normals
-            memcpy( _poNode->poGetMesh()->m_poVN,_poNode->poGetNormals() + _poNode->uiGetNumFrameVXs() * m_uiIniFrame,_poNode->uiGetNumFrameVXs() * sizeof(CGVect3) );
-        }
-    }
+    CGRenderer::I()->RenderMesh(_poNode->poGetMesh(), _poNode->poGetShader());
 }
 // ----------------------------------------------------------------------------
 void CGSCNVRenderer::Visit(CGSceneAnimInstance* _poNode)
 {
-    // CGSCNVAnimUpdater::SetAnimState(0,poNode->
+    _poNode->poGetAnimatedObject()->Accept(this);
 }
 // ----------------------------------------------------------------------------
 void CGSCNVRenderer::Visit(CGSceneAnimGroup* _poNode)
 {
+    for (uint i = 0; i < _poNode->uiNumAnimObjects(); i++)
+        if (_poNode->poGetAnimObject(i) != NULL)
+            _poNode->poGetAnimObject(i)->Accept(this);
 }
 // ----------------------------------------------------------------------------
 void CGSCNVRenderer::Visit(CGSceneAnimTransf* _poNode)
 {
+    if (!_poNode->bIsVisible())
+    {
+        return;
+    }
+
+    CGRenderer::I()->PushWorldMatrix();
+
+    // Setup new Ref system
+    CGRenderer::I()->MultiplyMatrix( _poNode->GetCurrentTranform());
+
+    _poNode->poGetObject()->Accept(this);
+
+    // Restore current state
+    CGRenderer::I()->PopWorldMatrix();
 }
 // ---------------------------------------------------------------------

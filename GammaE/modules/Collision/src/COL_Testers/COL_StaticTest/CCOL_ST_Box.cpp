@@ -8,20 +8,7 @@
  *  \par GammaE License
  */
 // -----------------------------------------------------------------------------
-// %X% %Q% %Z% %W%
-
-// CCOL_ST_Box
 #include "COL_Testers\COL_StaticTest\CCOL_ST_Box.h"
-
-// Class CCOL_ST_Box
-
-CCOL_ST_Box::CCOL_ST_Box()
-{
-}
-
-CCOL_ST_Box::~CCOL_ST_Box()
-{
-}
 
 int CCOL_ST_Box::iTestSphere (const CGVect3& _oSMaxs, const CGVect3& _oSMins, const CGVect3& _oDCenter, float _fDRadius)
 {
@@ -66,4 +53,3 @@ int CCOL_ST_Box::iTestPoint (const CGVect3& _oSMaxs, const CGVect3& _oSMins, con
     return ( _oDPoint.bInside(_oSMaxs,_oSMins) );
 }
 
-// Additional Declarations

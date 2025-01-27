@@ -22,7 +22,9 @@ class CGGraphBVAABB : public CGGraphBV
 {
     public:
 
-        virtual void Init(const CGVect3& _oMax, const CGVect3&  _oMin);
+        void Init(const CGVect3& _oMax, const CGVect3&  _oMin);
+
+        virtual void Copy(const CGGraphBV& _oSrc);
 
         virtual void Compute(CGVect3* _poVXs, uint _uiNumVXs);
 
@@ -49,6 +51,8 @@ class CGGraphBVAABB : public CGGraphBV
         const CGVect3& GetAxis(char _cAxis) const;
 
         const CGBVAABB& oGetBox() const;
+        
+        const CGVect3* poGetPoints() const;
 
 protected:
         CGBVAABB m_oVol;
@@ -57,6 +61,7 @@ protected:
 
         CGVect3 m_oExtents;
         CGVect3 m_oCenter;
+        CGVect3 m_oAxis[3];
 
         CGVect3 m_oPoints[8];
 };

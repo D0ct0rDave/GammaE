@@ -41,16 +41,6 @@ inline bool bQuadraticFormula(float a,float b,float c,float &r1,float &r2)
         return (false);
 }
 
-// Class CCOL_DT_Sphere
-
-CCOL_DT_Sphere::CCOL_DT_Sphere()
-{
-}
-
-CCOL_DT_Sphere::~CCOL_DT_Sphere()
-{
-}
-
 float CCOL_DT_Sphere::fTestSphere (const CGVect3& _oSCenter, float _fSRadius, const CGVect3& _oDCenter, float _fDRadius)
 {
     CGVect3 vA;

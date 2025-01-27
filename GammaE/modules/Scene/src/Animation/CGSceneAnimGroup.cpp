@@ -13,7 +13,7 @@
 // ----------------------------------------------------------------------------
 CGSceneAnimGroup::CGSceneAnimGroup()
 {
-    m_eNodeType = SNT_AnimNode;
+    m_eNodeType = SNT_AnimGroup;
 }
 // ----------------------------------------------------------------------------
 CGSceneAnimGroup::~CGSceneAnimGroup()
@@ -59,55 +59,53 @@ uint CGSceneAnimGroup::uiGetNumStates() const
     return (m_uiNumStates);
 }
 // ----------------------------------------------------------------------------
-void CGSceneAnimGroup::ComputeBoundVols()
+void CGSceneAnimGroup::ComputeStatesBVols()
 {
 	assert((m_poBVolStates.uiNumElems()>0) && "NULL Bounding Volume State array");
 
-	int				iState;
-	int				iObj;
 	CGVect3			oCenter;
 	CGVect3*		pBVVXs;
 	CGGraphBV*		pBVol;
 	ESceneNodeType	eObjType;
 
 	pBVVXs = mNew CGVect3[m_poObjs.uiNumElems()* 2];
-	for (iObj = 0; iObj < m_poObjs.uiNumElems(); iObj++)
+	for (uint uiObj = 0; uiObj < m_poObjs.uiNumElems(); uiObj++)
 	{
-		eObjType = m_poObjs[iObj]->eGetNodeType();
+		eObjType = m_poObjs[uiObj]->eGetNodeType();
 
 		if ((eObjType > SNT_Anim_Begin) && (eObjType < SNT_Anim_End))
 		{
-			((CGSceneAnimNode*)m_poObjs[iObj])->ComputeBoundVols();
+			((CGSceneAnimNode*)m_poObjs[uiObj])->ComputeStatesBVols();
 		}
 	}
 
-	for (iState = 0; iState < m_uiNumStates; iState++)
+	for (uint uiState = 0; uiState < m_uiNumStates; uiState++)
 	{
-		for (iObj = 0; iObj < m_poObjs.uiNumElems(); iObj++)
+		for (uint uiObj = 0; uiObj < m_poObjs.uiNumElems(); uiObj++)
 		{
-			eObjType = m_poObjs[iObj]->eGetNodeType();
+			eObjType = m_poObjs[uiObj]->eGetNodeType();
 
 			if ((eObjType > SNT_Anim_Begin) && (eObjType < SNT_Anim_End))
 			{
-				pBVol = ((CGSceneAnimNode*)m_poObjs[iObj])->poGetStateBVol(iState);
+				pBVol = ((CGSceneAnimNode*)m_poObjs[uiObj])->poGetStateBVol(uiState);
 			}
 			else
 			{
-				pBVol = m_poObjs[iObj]->poGetBV();
+				pBVol = m_poObjs[uiObj]->poGetBV();
 			}
 
 			oCenter = pBVol->oGetCenter();
 
-			pBVVXs[iObj * 2 + 0].Set(oCenter.x - pBVol->GetRange(0),
+			pBVVXs[uiObj * 2 + 0].Set(oCenter.x - pBVol->GetRange(0),
 				oCenter.y - pBVol->GetRange(1),
 				oCenter.z - pBVol->GetRange(2));
 
-			pBVVXs[iObj * 2 + 1].Set(oCenter.x + pBVol->GetRange(0),
+			pBVVXs[uiObj * 2 + 1].Set(oCenter.x + pBVol->GetRange(0),
 				oCenter.y + pBVol->GetRange(1),
 				oCenter.z + pBVol->GetRange(2));
 		}
 
-		m_poBVolStates[iState]->Compute(pBVVXs, m_poObjs.uiNumElems() * 2);
+		m_poBVolStates[uiState]->Compute(pBVVXs, m_poObjs.uiNumElems() * 2);
 	}
 
 	mDel[]pBVVXs;

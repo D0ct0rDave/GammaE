@@ -28,3 +28,16 @@ void CGSceneNode::Deref ()
         mDel this;
 }
 // ----------------------------------------------------------------------------
+bool CGSceneNode::bIsVisible()
+{
+/*
+    if (gpoE3DRenderer->UsingFrustumCulling())
+    {
+        if (!bFrustumTest) return(true);
+        return (poGetBoundVol()->TestFrustum(gpoE3DRenderer->GetLocalFrustum()));
+    }
+    else
+*/
+        return(true);
+}
+// ----------------------------------------------------------------------------

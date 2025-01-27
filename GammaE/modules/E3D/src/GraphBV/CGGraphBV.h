@@ -16,6 +16,9 @@
 class CGGraphBV
 {
     public:
+
+        virtual void Copy(const CGGraphBV& _oSrc) = 0;
+        
         virtual void Transform(const CGMatrix4x4& _oM) = 0;
 
         virtual void Compute(CGVect3* _poVXs, uint _uiNumVXs) = 0;

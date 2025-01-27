@@ -19,25 +19,11 @@
 class CCOL_ST_Box
 {
     public:
-        CCOL_ST_Box();
-
-        ~CCOL_ST_Box();
-
         static int iTestSphere(const CGVect3& _oSMaxs, const CGVect3& _oSMins, const CGVect3& _oDCenter, float _fDRadius);
 
         static int iTestBox(const CGVect3& _oSMaxs, const CGVect3& _oSMins, const CGVect3& _oDMaxs, const CGVect3& _oDMins);
 
         static int iTestPoint(const CGVect3& _oSMaxs, const CGVect3& _oSMins, const CGVect3& _oDPoint);
-
-        // Additional Public Declarations
-
-    protected:
-        // Additional Protected Declarations
-
-    private:
-        // Additional Private Declarations
-
-    private:   // Additional Implementation Declarations
 };
 
 // Class CCOL_ST_Box

@@ -14,7 +14,7 @@
 #define CCOL_CSysEntry_h 1
 
 // CCOL_Collider
-#include "Collision\Collider\CCOL_Collider.h"
+#include "Collider\CCOL_Collider.h"
 
 class CCOL_CSysEntry
 {

@@ -105,13 +105,9 @@ CGSceneNode* CLoaderMD2::ParseChunks ()
     // ----------------------------------------
     // Setup the model & material & frames
     // ----------------------------------------
-    LeafObj = mNew CGSceneLeaf;
-    LeafObj->SetMesh(Mesh);
-    LeafObj->SetShader(Skin);
-
     AnimMesh = mNew CGSceneAnimMesh();
-    AnimMesh->CreateStates(MD2Header->numFrames, Mesh.uiGetNumVXs());
-    AnimMesh->SetLeaf(LeafObj);
+    AnimMesh->SetShader(Skin);
+    AnimMesh->Setup(Mesh, MD2Header->numFrames, Mesh->uiGetNumVXs());
 
     // Parse model frames
     ParseFrameSet(*AnimMesh,*Mesh);
@@ -213,7 +209,7 @@ void CLoaderMD2::ParseFrameSet (CGSceneAnimMesh &AnimMesh, CGMesh &Mesh)
     unsigned short* NewIdxs = GetVertexConversionTable( Mesh );
 
     CGVect3 NewVX;
-    CGVect3* pVX = AnimMesh.pMeshStates;
+    CGVect3* pVX = AnimMesh.poGetVertices();
     CGMatrix4x4 oCMat;                    // Correction matrix
     oCMat.LoadIdentity();
     oCMat.Rotate('z',_PI2_);

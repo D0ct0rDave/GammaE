@@ -25,19 +25,19 @@ class CCOL_ST_Tris
 
         ~CCOL_ST_Tris();
 
-        static int iTestCollision(CGVect3* _pVXs, CGVect3* _pVNs, int _iNumTris, CGBoundingVolume* _BV, CGVect3& _Pos);
+        static int iTestCollision(CGVect3* _pVXs, CGVect3* _pVNs, int _iNumTris, CGGraphBV* _BV, const CGVect3& _Pos);
 
-        static int iTestCollisionSphere(float _fRad, CGVect3& _Center);
+        static int iTestCollisionSphere(float _fRad, const CGVect3& _Center);
 
-        static int iTestCollisionBox(CGVect3& _Maxs, CGVect3& _Mins);
+        static int iTestCollisionBox(const CGVect3& _Maxs, const CGVect3& _Mins);
 
-        static int iTestCollisionRay(CGRay& _ay);
+        static int iTestCollisionRay(const CGRay& _ay);
 
-        static int iTestTriangleSphere(CGVect3* _pVXs, float _fRad, CGVect3& _Center);
+        static int iTestTriangleSphere(CGVect3* _pVXs, float _fRad, const CGVect3& _Center);
 
-        static int iTestTriangleBox(CGVect3* _pVXs, CGVect3& _Maxs, CGVect3& _Mins);
+        static int iTestTriangleBox(CGVect3* _pVXs, const CGVect3& _Maxs, const CGVect3& _Mins);
 
-        static int iTestTriangleRay(CGVect3* _pVXs, CGRay& _ay);
+        static int iTestTriangleRay(CGVect3* _pVXs, const CGRay& _ay);
 
         // Data Members for Class Attributes
 

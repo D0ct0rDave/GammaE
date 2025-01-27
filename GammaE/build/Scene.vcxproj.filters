@@ -87,12 +87,6 @@
     <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimCfg.h">
       <Filter>Animation</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimCfgGen.h">
-      <Filter>Animation</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimCfgMgr.h">
-      <Filter>Animation</Filter>
-    </ClInclude>
     <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimGroup.h">
       <Filter>Animation</Filter>
     </ClInclude>
@@ -108,16 +102,11 @@
     <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimTransf.h">
       <Filter>Animation</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\Animation\_CGSceneAnimNode.h">
-      <Filter>Animation</Filter>
-    </ClInclude>
     <ClInclude Include="..\modules\Scene\src\CGSceneBSPNode.h" />
     <ClInclude Include="..\modules\Scene\src\CGSceneCamera.h" />
-    <ClInclude Include="..\modules\Scene\src\CGSceneCompiledLeaf.h" />
     <ClInclude Include="..\modules\Scene\src\CGSceneGroup.h" />
     <ClInclude Include="..\modules\Scene\src\CGSceneInstance.h" />
     <ClInclude Include="..\modules\Scene\src\CGSceneLeaf.h" />
-    <ClInclude Include="..\modules\Scene\src\CGSceneLink.h" />
     <ClInclude Include="..\modules\Scene\src\CGSceneMux.h" />
     <ClInclude Include="..\modules\Scene\src\CGSceneNode.h" />
     <ClInclude Include="..\modules\Scene\src\CGSceneScreenRect.h" />
@@ -178,12 +167,6 @@
     <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimCfg.cpp">
       <Filter>Animation</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimCfgGen.cpp">
-      <Filter>Animation</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimCfgMgr.cpp">
-      <Filter>Animation</Filter>
-    </ClCompile>
     <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimGroup.cpp">
       <Filter>Animation</Filter>
     </ClCompile>
@@ -199,15 +182,10 @@
     <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimTransf.cpp">
       <Filter>Animation</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\Animation\_CGSceneAnimNode.cpp">
-      <Filter>Animation</Filter>
-    </ClCompile>
     <ClCompile Include="..\modules\Scene\src\CGSceneBSPNode.cpp" />
     <ClCompile Include="..\modules\Scene\src\CGSceneCamera.cpp" />
-    <ClCompile Include="..\modules\Scene\src\CGSceneCompiledLeaf.cpp" />
     <ClCompile Include="..\modules\Scene\src\CGSceneGroup.cpp" />
     <ClCompile Include="..\modules\Scene\src\CGSceneLeaf.cpp" />
-    <ClCompile Include="..\modules\Scene\src\CGSceneLink.cpp" />
     <ClCompile Include="..\modules\Scene\src\CGSceneMux.cpp" />
     <ClCompile Include="..\modules\Scene\src\CGSceneNode.cpp" />
     <ClCompile Include="..\modules\Scene\src\CGSceneScreenRect.cpp" />

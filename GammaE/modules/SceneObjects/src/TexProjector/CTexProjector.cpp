@@ -77,8 +77,8 @@ void CTexProjector::Setup (CGMesh* _oSrCGMesh, CGShader* _poShader, CGMatrix4x4&
         oUV.Assign(oAuxMesh.VXs[iV]);
         _oPrjMatrix.TransformVector(oUV);
 
-        // oAuxMesh.UVs[iV].V2(0.5f + 0.5f*oUV.x/oUV.z,0.5f + 0.5f*oUV.y/oUV.z);
-        oAuxMesh.UVs[iV].V2(oUV.x/oUV.z,oUV.y/oUV.z);
+        // oAuxMesh.UVs[iV].Set(0.5f + 0.5f*oUV.x/oUV.z,0.5f + 0.5f*oUV.y/oUV.z);
+        oAuxMesh.UVs[iV].Set(oUV.x/oUV.z,oUV.y/oUV.z);
        }
      */
     SetShader(_poShader);

@@ -176,10 +176,10 @@ void CHUDLabel::WriteChar(char _cA,float _fOfsX,float _fW)
     CGVect2* poUV = poLeaf->poGetMesh()->m_poUV + 4 * poLeaf->poGetMesh()->m_uiNumPrims;
     CGVect3* poVX = poLeaf->poGetMesh()->m_poVX + 4 * poLeaf->poGetMesh()->m_uiNumPrims;
 
-    poUV[0].V2(u1,v1);
-    poUV[1].V2(u1,v2);
-    poUV[2].V2(u2,v2);
-    poUV[3].V2(u2,v1);
+    poUV[0].Set(u1,v1);
+    poUV[1].Set(u1,v2);
+    poUV[2].Set(u2,v2);
+    poUV[3].Set(u2,v1);
 
     poVX[0].Set(_fOfsX,0.0f,0.0f);
     poVX[1].Set(_fOfsX,1.0f,0.0f);

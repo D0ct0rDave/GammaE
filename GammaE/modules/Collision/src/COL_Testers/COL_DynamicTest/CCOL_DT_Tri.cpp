@@ -123,10 +123,7 @@ void Method(const Foo& _a)
 float CCOL_DT_Tri::fTestSphere (const CGGraphBVSphere& _oSphere, const CGTriangle& _oTri)
 {
     float fDist = Math::fTriPointSqDistance( _oTri, _oSphere.oGetCenter() );
-
-    const CGBVSphere sp = _oSphere.oGetSphere();
-
-    const float fRadius = sp.fGetRadius();
+    const float fRadius = _oSphere.oGetSphere().fGetRadius();
 
     if ( fDist < _SQ_(fRadius) )
         return(0.0f);

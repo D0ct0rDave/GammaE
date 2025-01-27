@@ -11,6 +11,7 @@
 #ifndef CGSCNVAnimUpdaterH
 #define CGSCNVAnimUpdaterH
 // ---------------------------------------------------------------------
+#include "GammaE_Misc.h"
 #include "CGSceneVisitor.h"
 // ---------------------------------------------------------------------
 DECLARE_INHERITANT_SINGLETON(CGSCNVAnimUpdater,public,CGSceneVisitor)

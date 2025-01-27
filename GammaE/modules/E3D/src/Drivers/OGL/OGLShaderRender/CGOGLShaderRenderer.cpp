@@ -725,27 +725,27 @@ void CGOGLShaderRenderer::RenderMesh (CGMesh* _poMesh)
 
         case E3D_PT_TRIS:          // Draw the elements
         uiTris = _poMesh->uiGetNumPrims();
-        glDrawElements (GL_TRIANGLES,_poMesh->m_uiNumIdxs,GL_UNSIGNED_SHORT,(void*)_poMesh->m_pusIdx);
+        glDrawElements (GL_TRIANGLES,_poMesh->uiGetNumIndices(),GL_UNSIGNED_SHORT,(void*)_poMesh->m_pusIdx);
         break;
 
         case E3D_PT_QUADS:
         uiTris = _poMesh->uiGetNumPrims() * 2;
-        glDrawElements (GL_QUADS,_poMesh->m_uiNumIdxs,GL_UNSIGNED_SHORT,(void*)_poMesh->m_pusIdx);
+        glDrawElements (GL_QUADS,_poMesh->uiGetNumIndices(),GL_UNSIGNED_SHORT,(void*)_poMesh->m_pusIdx);
         break;
 
         case E3D_PT_TRIFANS:
         uiTris = _poMesh->uiGetNumPrims();
-        glDrawElements (GL_TRIANGLE_FAN,_poMesh->m_uiNumIdxs,GL_UNSIGNED_SHORT,(void*)_poMesh->m_pusIdx);
+        glDrawElements (GL_TRIANGLE_FAN,_poMesh->uiGetNumIndices(), GL_UNSIGNED_SHORT, (void*)_poMesh->m_pusIdx);
         break;
 
         case E3D_PT_TRISTRIPS:
         uiTris = _poMesh->uiGetNumPrims();
-        glDrawElements (GL_TRIANGLE_STRIP,_poMesh->m_uiNumIdxs,GL_UNSIGNED_SHORT,(void*)_poMesh->m_pusIdx);
+        glDrawElements (GL_TRIANGLE_STRIP,_poMesh->uiGetNumIndices(),GL_UNSIGNED_SHORT,(void*)_poMesh->m_pusIdx);
         break;
 
         case E3D_PT_QUADSTRIPS:
         uiTris = _poMesh->uiGetNumPrims() * 2;
-        glDrawElements (GL_QUAD_STRIP,_poMesh->m_uiNumIdxs,GL_UNSIGNED_SHORT,(void*)_poMesh->m_pusIdx);
+        glDrawElements (GL_QUAD_STRIP,_poMesh->uiGetNumIndices(),GL_UNSIGNED_SHORT,(void*)_poMesh->m_pusIdx);
         break;
 
         case E3D_PT_NITRIS:

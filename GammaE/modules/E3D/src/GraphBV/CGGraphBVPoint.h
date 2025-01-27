@@ -20,7 +20,9 @@ class CGGraphBVPoint : public CGGraphBV
 {
     public:
 
-        virtual void Init(const CGVect3& _oMax, const CGVect3& _oMin);
+        void Init(const CGVect3& _oCenter);
+
+        virtual void Copy(const CGGraphBV& _oSrc);
 
         virtual void Compute(CGVect3* VXs, uint _uiNumVXs);
 

@@ -35,7 +35,7 @@ class CGSceneAnimCfg
         // / Sets up the configuration for an specific action
         uint uiAddAction(const CGString& _sActionName,uint _uiInitialFrame, uint _uiFinalFrame, float _fFrameAnimTime, bool _bLoop)
         {
-            CAnimAction oAnim;                    // = mNew CAnimAction;
+            CAnimAction oAnim;
 
             oAnim.m_uiIniFrame = _uiInitialFrame;
             oAnim.m_uiEndFrame = _uiFinalFrame;
@@ -64,13 +64,13 @@ class CGSceneAnimCfg
         }
 
         // / Retrieves the parameters associated to a given action by number
-        CAnimAction& oGetFrameAnim(uint _uiAction)
+        const CAnimAction& oGetFrameAnim(uint _uiAction)
         {
             return ( m_oActions.oGetElem(_uiAction) );
         }
 
         // / Retrieves the parameters associated to a given action by name
-        CAnimAction& oGetFrameAnim(const CGString& _sActionName)
+        const CAnimAction& oGetFrameAnim(const CGString& _sActionName)
         {
             int iActionIdx = m_oActions.iGetIdx(_sActionName);
 
@@ -92,7 +92,7 @@ class CGSceneAnimCfg
 
     protected:
 
-        CGLookupArray <CAnimAction> m_oActions;
+        CGLookupArray<CAnimAction> m_oActions;
         CGSceneAnimNode* m_poAnimObj;
 };
 // --------------------------------------------------------------------------------

@@ -111,7 +111,7 @@ void CGE3DRenderer::DisableBVRender ()
 {
 }
 // ----------------------------------------------------------------------------
-bool CGE3DRenderer::bUsingBBRender ()
+bool CGE3DRenderer::bIsUsingBBRender ()
 {
     return (false);
 }
@@ -132,7 +132,7 @@ void CGE3DRenderer::DisableDefferredMode ()
 {
 }
 // ----------------------------------------------------------------------------
-bool CGE3DRenderer::bUsingDefferredMode ()
+bool CGE3DRenderer::bIsUsingDefferredMode ()
 {
     return (false);
 }
@@ -145,7 +145,7 @@ void CGE3DRenderer::DisableFrustumCulling ()
 {
 }
 // ----------------------------------------------------------------------------
-bool CGE3DRenderer::bUsingFrustumCulling ()
+bool CGE3DRenderer::bIsUsingFrustumCulling ()
 {
     return (false);
 }
@@ -158,7 +158,7 @@ void CGE3DRenderer::DisableNormalRender ()
 {
 }
 // ----------------------------------------------------------------------------
-bool CGE3DRenderer::bUsingNormalRender ()
+bool CGE3DRenderer::bIsUsingNormalRender ()
 {
     return (false);
 }
@@ -171,7 +171,7 @@ void CGE3DRenderer::DisableFlatRendering ()
 {
 }
 // ----------------------------------------------------------------------------
-bool CGE3DRenderer::bUsingFlatRendering ()
+bool CGE3DRenderer::bIsUsingFlatRendering ()
 {
     return(false);
 }
@@ -188,19 +188,19 @@ void CGE3DRenderer::ClearWorldMatrix ()
 {
 }
 // ----------------------------------------------------------------------------
-void CGE3DRenderer::MultiplyMatrix (CGMatrix4x4* Matrix)
+void CGE3DRenderer::MultiplyMatrix (const CGMatrix4x4& _oMatrix)
 {
 }
 // ----------------------------------------------------------------------------
-void CGE3DRenderer::PreMultiplyMatrix (CGMatrix4x4* Matrix)
+void CGE3DRenderer::PreMultiplyMatrix (const CGMatrix4x4& _oMatrix)
 {
 }
 // ----------------------------------------------------------------------------
-void CGE3DRenderer::GetWorldMatrix (CGMatrix4x4* M)
+void CGE3DRenderer::GetWorldMatrix (CGMatrix4x4* _poMatrix)
 {
 }
 // ----------------------------------------------------------------------------
-void CGE3DRenderer::SetWorldMatrix (CGMatrix4x4* M)
+void CGE3DRenderer::SetWorldMatrix (const CGMatrix4x4& _oMatrix)
 {
 }
 // ----------------------------------------------------------------------------
@@ -221,11 +221,11 @@ void CGE3DRenderer::ClearCameraMatrix ()
 {
 }
 // ----------------------------------------------------------------------------
-void CGE3DRenderer::GetCameraMatrix (CGMatrix4x4* M)
+void CGE3DRenderer::GetCameraMatrix (const CGMatrix4x4& _oMatrix)
 {
 }
 // ----------------------------------------------------------------------------
-void CGE3DRenderer::SetCameraMatrix (CGMatrix4x4* M)
+void CGE3DRenderer::SetCameraMatrix (const CGMatrix4x4& _oMatrix)
 {
 }
 // ----------------------------------------------------------------------------
@@ -241,11 +241,11 @@ void CGE3DRenderer::ClearProjectorMatrix ()
 {
 }
 // ----------------------------------------------------------------------------
-void CGE3DRenderer::GetProjectorMatrix (CGMatrix4x4* M)
+void CGE3DRenderer::GetProjectorMatrix (CGMatrix4x4* _poMatrix)
 {
 }
 // ----------------------------------------------------------------------------
-void CGE3DRenderer::SetProjectorMatrix (CGMatrix4x4* M)
+void CGE3DRenderer::SetProjectorMatrix (const CGMatrix4x4& _oMatrix)
 {
 }
 // ----------------------------------------------------------------------------

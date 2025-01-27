@@ -40,15 +40,17 @@ void CConsole::Init (float _Width, float _Height, int _Cols, int _ows, CGShader*
     // Background de la consola
     Data = mNew char[Rows * Cols];
 
+    CGMeshRect* poMeshRect = mNew CGMeshRect();
     Background = mNew CGSceneLeaf;
-    Background->SetMesh( mNew CGMeshRect() );
+    Background->SetMesh(poMeshRect);
     Background->SetShader( _BGMat );
-    Background->ComputeBoundVol();
+    CGSCNVBoundVolBuilder::I()->Visit(Background);
+
     BackgroundMat = _BGMat;
-    Background->poGetMesh()->m_poUV[0].y = 1;
-    Background->poGetMesh()->m_poUV[1].y = 1;
-    Background->poGetMesh()->m_poUV[2].y = 0;
-    Background->poGetMesh()->m_poUV[3].y = 0;
+    poMeshRect->m_poUV[0].y = 1;
+    poMeshRect->m_poUV[1].y = 1;
+    poMeshRect->m_poUV[2].y = 0;
+    poMeshRect->m_poUV[3].y = 0;
 
     uiAddObject(Background,0,0,_Width,_Height,"ConsoleBackground");
 
@@ -58,7 +60,8 @@ void CConsole::Init (float _Width, float _Height, int _Cols, int _ows, CGShader*
     CharMatrix = mNew CGSceneLeaf;
     CharMatrix->SetMesh(MatrixMesh);
     CharMatrix->SetShader( _CMMat);
-    CharMatrix->ComputeBoundVol();
+    CGSCNVBoundVolBuilder::I()->Visit(CharMatrix);
+
     CharMatrixMat = _CMMat;
     uiAddObject(CharMatrix,0,0,_Width,_Height,"ConsoleCharMatrix");
 }
@@ -194,10 +197,10 @@ void CConsole::SetChar (int _X, int _Y, char _a)
     // iIdx = ((Rows -1 - _Y)*Cols + _X) * 4;
     iIdx = (_Y * Cols + _X) * 4;
 
-    MatrixMesh->m_poUV [iIdx + 0].V2(u1,v1);
-    MatrixMesh->m_poUV [iIdx + 1].V2(u1,v2);
-    MatrixMesh->m_poUV [iIdx + 2].V2(u2,v2);
-    MatrixMesh->m_poUV [iIdx + 3].V2(u2,v1);
+    MatrixMesh->m_poUV [iIdx + 0].Set(u1,v1);
+    MatrixMesh->m_poUV [iIdx + 1].Set(u1,v2);
+    MatrixMesh->m_poUV [iIdx + 2].Set(u2,v2);
+    MatrixMesh->m_poUV [iIdx + 3].Set(u2,v1);
 
     // Setup color
     MatrixMesh->m_poVC [iIdx + 0] = Color;
@@ -213,7 +216,7 @@ void CConsole::CreateCharMatrix ()
     if ( MatrixMesh ) mDel MatrixMesh;
 
     MatrixMesh = mNew CGMesh();
-    MatrixMesh->Init(4 * Rows * Cols,Rows * Cols,E3D_MESH_NIQUADS,MESH_FIELD_VERTEXS | MESH_FIELD_UVCOORDS | MESH_FIELD_COLORS);
+    MatrixMesh->Init(4 * Rows * Cols,Rows * Cols, E3D_PrimitiveType::E3D_PT_NIQUADS, MESH_FIELD_VERTEXS | MESH_FIELD_UVCOORDS | MESH_FIELD_COLORS);
 
     iIdx = 0;
     for ( cJ = 0; cJ < Rows; cJ++ )
@@ -225,10 +228,10 @@ void CConsole::CreateCharMatrix ()
             MatrixMesh->m_poVX [iIdx + 2].Set( (float)(cI + 1) / Cols,(float)(cJ + 1) / Rows, 0 );
             MatrixMesh->m_poVX [iIdx + 3].Set( (float)(cI + 1) / Cols,(float)(cJ) / Rows, 0 );
 
-            MatrixMesh->m_poUV [iIdx + 0].V2(0.0f,0.0f);
-            MatrixMesh->m_poUV [iIdx + 1].V2(0.0f,0.0f);
-            MatrixMesh->m_poUV [iIdx + 2].V2(0.0f,0.0f);
-            MatrixMesh->m_poUV [iIdx + 3].V2(0.0f,0.0f);
+            MatrixMesh->m_poUV [iIdx + 0].Set(0.0f,0.0f);
+            MatrixMesh->m_poUV [iIdx + 1].Set(0.0f,0.0f);
+            MatrixMesh->m_poUV [iIdx + 2].Set(0.0f,0.0f);
+            MatrixMesh->m_poUV [iIdx + 3].Set(0.0f,0.0f);
 
             MatrixMesh->m_poVC [iIdx + 0].Set(1.0f,1.0f,1.0f,1.0f);
             MatrixMesh->m_poVC [iIdx + 1].Set(1.0f,1.0f,1.0f,1.0f);

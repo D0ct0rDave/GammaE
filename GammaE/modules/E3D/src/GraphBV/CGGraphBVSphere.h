@@ -22,6 +22,8 @@ class CGGraphBVSphere : public CGGraphBV
 
         void Init(const CGVect3& _oCenter, float _fRadius);
         
+        virtual void Copy(const CGGraphBV& _oSrc);
+        
         virtual void Compute(CGVect3* _poVXs, uint _uiNumVXs);
                 
         virtual void Transform(const CGMatrix4x4& _oM);

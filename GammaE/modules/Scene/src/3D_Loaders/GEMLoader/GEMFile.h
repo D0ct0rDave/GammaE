@@ -25,8 +25,8 @@ const uint GEM_LEAF_IDENTIFIER = MAKE_RIFF_ID('L','E','A','F');
 const uint GEM_NODE_IDENTIFIER = MAKE_RIFF_ID('N','O','D','E');
 const uint GEM_GROUP_IDENTIFIER = MAKE_RIFF_ID('G','R','U','P');
 const uint GEM_TRANSF_IDENTIFIER = MAKE_RIFF_ID('X','F','R','M');
-const uint GEM_ANIMOBJ_IDENTIFIER = MAKE_RIFF_ID('A','O','B','J');
-const uint GEM_ANIMNODE_IDENTIFIER = MAKE_RIFF_ID('A','N','O','D');
+const uint GEM_ANIMNODE_IDENTIFIER = MAKE_RIFF_ID('A','O','B','J');
+const uint GEM_ANIMGROUP_IDENTIFIER = MAKE_RIFF_ID('A','N','O','D');
 const uint GEM_ANIMMESH_IDENTIFIER = MAKE_RIFF_ID('A','M','S','H');
 const uint GEM_ANIMTRANSF_IDENTIFIER = MAKE_RIFF_ID('A','T','R','A');
 const uint GEM_ANIMCFG_IDENTIFIER = MAKE_RIFF_ID('A','C','F','G');
@@ -55,9 +55,9 @@ inline uint GEMFile_Translate_TypeID2FileID(ESceneNodeType _eType)
         case SNT_Mux:            return (GEM_MUX_IDENTIFIER);
 
         // Animation nodes
-        case SNT_AnimObject:     return (GEM_ANIMOBJ_IDENTIFIER);
-
         case SNT_AnimNode:       return (GEM_ANIMNODE_IDENTIFIER);
+
+        case SNT_AnimGroup:      return (GEM_ANIMGROUP_IDENTIFIER);
 
         case SNT_AnimMesh:       return (GEM_ANIMMESH_IDENTIFIER);
 
@@ -84,9 +84,9 @@ inline ESceneNodeType GEMFile_Translate_FileID2TypeID2(uint uiFileID)
         case MAKE_RIFF_ID('G','R','U','P'): return (SNT_Group);
 
         // Animation nodes
-        case MAKE_RIFF_ID('A','O','B','J'): return (SNT_AnimObject);
+        case MAKE_RIFF_ID('A','O','B','J'): return (SNT_AnimNode);
 
-        case MAKE_RIFF_ID('A','N','O','D'): return (SNT_AnimNode);
+        case MAKE_RIFF_ID('A','N','O','D'): return (SNT_AnimGroup);
 
         case MAKE_RIFF_ID('A','M','S','H'): return (SNT_AnimMesh);
 

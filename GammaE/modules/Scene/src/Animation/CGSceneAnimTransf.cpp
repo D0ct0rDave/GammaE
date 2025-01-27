@@ -19,18 +19,20 @@ CGSceneAnimTransf::CGSceneAnimTransf() :
 CGSceneAnimTransf::~CGSceneAnimTransf()
 {
     if ( m_poTransforms )
+    {
         mDel [] m_poTransforms;
+    }
 }
 // --------------------------------------------------------------------------------
-void CGSceneAnimTransf::Setup(CGMatrix4x4* _poTransforms, uint _uiNumStates)
+void CGSceneAnimTransf::Setup(uint _uiNumStates)
 {
-    m_poTransforms = _poTransforms;
+    m_poTransforms = mNew CGMatrix4x4[_uiNumStates];
     m_uiNumStates = _uiNumStates;
 
-    ComputeBoundVols();
+    ComputeStatesBVols();
 }
 // --------------------------------------------------------------------------------
-void CGSceneAnimTransf::ComputeBoundVols()
+void CGSceneAnimTransf::ComputeStatesBVols()
 {
     /*
     if (!BVol)
@@ -107,8 +109,23 @@ uint CGSceneAnimTransf::uiGetNumStates() const
     return(m_uiNumStates);
 }
 // --------------------------------------------------------------------------------
-const CGMatrix4x4& CGSceneAnimTransf::GetCurrentStateTranform() const
+const CGMatrix4x4& CGSceneAnimTransf::GetCurrentTranform() const
 {
     return(m_oTrans);
+}
+// --------------------------------------------------------------------------------
+void CGSceneAnimTransf::SetObject(CGSceneNode* _poObj)
+{
+    m_poObject = _poObj;
+}
+// --------------------------------------------------------------------------------
+CGSceneNode* CGSceneAnimTransf::poGetObject()
+{
+    return m_poObject;
+}
+// --------------------------------------------------------------------------------
+CGMatrix4x4* CGSceneAnimTransf::poGetStateTransforms()
+{
+    return m_poTransforms;
 }
 // --------------------------------------------------------------------------------

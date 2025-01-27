@@ -25,23 +25,9 @@
 class CCOL_ST_ColTester
 {
     public:
-        CCOL_ST_ColTester();
+        static int iTestCollision(CGGraphBV* _poSrcBV, CGGraphBV* _poDstBV);
+        static int iTestPlane(CGGraphBV* _poBV, const CGPlane& _oPlane);
 
-        ~CCOL_ST_ColTester();
-
-        static int iTestCollision(CGBoundingVolume* SrcObj, CGBoundingVolume* DstObj);
-
-        static int iTestPlane(CGBoundingVolume* _SrcObj, CGPlane& Plane);
-
-        // Additional Public Declarations
-
-    protected:
-        // Additional Protected Declarations
-
-    private:
-        // Additional Private Declarations
-
-    private:   // Additional Implementation Declarations
 };
 
 // Class CCOL_ST_ColTester

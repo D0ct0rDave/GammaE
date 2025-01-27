@@ -12,7 +12,7 @@
 #define CGSceneAnimInstanceH
 // --------------------------------------------------------------------------------
 #include "CGSceneNode.h"
-
+#include "CGSceneAnimCfg.h"
 // --------------------------------------------------------------------------------
 class CGSceneAnimInstance : public CGSceneNode
 {
@@ -58,8 +58,7 @@ class CGSceneAnimInstance : public CGSceneNode
             return (m_poCfg);
         }
 
-        // / Render
-        virtual void Render();
+        void UpdateAnimState();
 
     protected:
 
@@ -73,6 +72,16 @@ class CGSceneAnimInstance : public CGSceneNode
         uint m_uiAnim;
         float m_fTime;
         bool m_bEnabled;
+
+        int iNumFrameAnims;
+        int iCurrentFrameAnim;
+        int iLastFrame;
+        
+        CAnimAction m_oAnimAction;
+        float m_fTotalAnimTime;
+
+        float m_fCurrentAnimTime;
+        
 };
 // --------------------------------------------------------------------------------
 #endif

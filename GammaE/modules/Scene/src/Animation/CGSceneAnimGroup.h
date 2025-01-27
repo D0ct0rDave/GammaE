@@ -29,20 +29,20 @@ class CGSceneAnimGroup : public CGSceneAnimNode
         // Return the number of states this object has
         virtual uint uiGetNumStates() const;
 
-        // / Recomputes the bounding volumes
-        virtual void ComputeBoundVols();
+        // / Recomputes the bounding volumes for each state
+        virtual void ComputeStatesBVols();
 
         // Return the bounding volume of the object for the given state
         virtual CGGraphBV* poGetStateBVol(int _iState);
 
         // / Adds a new animation object to the animation node
-        uint uiAddObject(CGSceneNode* _poObj)
+        uint uiAddAnimObject(CGSceneAnimNode* _poObj)
         {
             return ( m_poObjs.uiAdd(_poObj) );
         }
 
         // / Retrieves the specific animation object
-        CGSceneNode* poGetAnimObject(uint _uiObj)
+        CGSceneAnimNode* poGetAnimObject(uint _uiObj)
         {
             return(m_poObjs[_uiObj]);
         }
@@ -67,7 +67,7 @@ class CGSceneAnimGroup : public CGSceneAnimNode
 
     protected:
         uint m_uiNumStates;
-        CGDynArray<CGSceneNode*> m_poObjs;
+        CGDynArray<CGSceneAnimNode*> m_poObjs;
         CGStArray<CGGraphBV*> m_poBVolStates;
         CGGraphBV* m_poBV;
 };

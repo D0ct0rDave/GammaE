@@ -103,10 +103,10 @@ void CGCoronaGenStd::UpdateInstance(CGCoronaInstance* _poInst,float _fDeltaT)
     oVC[2] = poCorona->m_oColor;
     oVC[3] = poCorona->m_oColor;
 
-    oUV[0].V2(0.0f,0.0f);
-    oUV[1].V2(0.0f,1.0f);
-    oUV[2].V2(1.0f,1.0f);
-    oUV[3].V2(0.0f,1.0f);
+    oUV[0].Set(0.0f,0.0f);
+    oUV[1].Set(0.0f,1.0f);
+    oUV[2].Set(1.0f,1.0f);
+    oUV[3].Set(0.0f,1.0f);
 
     m_poBBR->AddBillboards(oVX,oUV,oVC,1);
 }

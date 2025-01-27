@@ -58,13 +58,20 @@ class CGBaseMesh
         {
             return (m_uiNumVXs);
         }
-
+             
+        // / Retrieves the number of indices in the mesh
+        uint uiGetNumIndices() const
+        {
+            return (m_uiNumIdxs);
+        }
+        
     protected:
 
         E3D_MeshType m_eMeshType;
         CGGraphBV* m_poBV;
         uint m_uiNumVXs;
         uint m_uiNumPrims;
+        uint m_uiNumIdxs;
         E3D_PrimitiveType m_ePrimitiveType;
 };
 // ----------------------------------------------------------------------------

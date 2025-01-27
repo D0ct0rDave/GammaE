@@ -136,7 +136,7 @@ CGMesh* CLoaderGEM::poLoadMesh ()
     if ( poMesh->m_poVN ) m_poFile->ReadArray( (float*)poMesh->m_poVN,uiNumVXs * 3 );
     if ( poMesh->m_poUV2 ) m_poFile->ReadArray( (float*)poMesh->m_poUV2,uiNumVXs * 2 );
     if ( poMesh->m_poTN ) m_poFile->ReadArray( (float*)poMesh->m_poTN,uiNumVXs * 3 );
-    if ( poMesh->m_pusIdx ) m_poFile->ReadArray( (short*)poMesh->m_pusIdx,poMesh->m_uiNumIdxs );
+    if ( poMesh->m_pusIdx ) m_poFile->ReadArray( (short*)poMesh->m_pusIdx,poMesh->uiGetNumIndices());
 
     // Save the mesh bounding volume
     poMesh->SetBV( poLoadBoundingVolume(m_poFile) );

@@ -32,7 +32,7 @@ typedef enum
     SNT_Camera,                  // 13
     SNT_Mux,                     // 14
     SNT_BSPNode,                 // 15
-    SNT_CompiledLeaf,            // 16
+    // SNT_CompiledLeaf,            // 16
     SNT_ScreenRect,              // 17
     SNT_Switch,                  // 18
 } ESceneNodeType;

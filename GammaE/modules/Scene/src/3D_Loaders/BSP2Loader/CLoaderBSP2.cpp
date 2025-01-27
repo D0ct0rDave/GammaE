@@ -136,7 +136,8 @@ CGSceneNode* CLoaderBSP2::poProcessBSP ()
     CGSceneNode* poObj;
 
     poObj = poGenerateNode(&pNodes[0]);
-    poObj->ComputeBoundVol();
+
+    CGSCNVBoundVolBuilder::I()->Visit(poObj);
 
     return (poObj);
 }

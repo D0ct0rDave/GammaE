@@ -41,8 +41,8 @@ void CHUDElem::Setup(CGSceneNode* _poObj, float _x, float _y, float _tx, float _
 // ----------------------------------------------------------------------------
 CHUD::CHUD()
 {
-    bFrustumTest = false;
 }
+
 CHUD::CHUD(uint _uiMaxElems)
 {
     Init(_uiMaxElems);
@@ -90,7 +90,7 @@ void CHUD::Render ()
     bool bDefMode;
 
     // Save Render State
-    bDefMode = CGRenderer::I()->UsingDefferredMode();
+    bDefMode = CGRenderer::I()->bIsUsingDefferredMode();
 
     // Setup our Render State
     CGRenderer::I()->DisableDefferredMode();
@@ -162,10 +162,10 @@ void CHUD::Render ()
             oM.Translate(XTrans,YTrans,ZTrans);
 
             // Multiply the world matrix by the computed one
-            CGRenderer::I()->MultiplyMatrix(&oM);
+            CGRenderer::I()->MultiplyMatrix(oM);
 
             // Render the object
-            m_oHUDObjs[i]->poObj->Render();
+            CGSCNVRenderer::I()->Render(m_oHUDObjs[i]->poObj);
 
             // CGRenderer::I()->PopCameraMatrix();
             CGRenderer::I()->PopWorldMatrix();

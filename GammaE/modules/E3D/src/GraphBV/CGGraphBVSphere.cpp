@@ -21,6 +21,23 @@ void CGGraphBVSphere::Init(const CGVect3& _oCenter, float _fRadius)
 {
     m_oVol.Init(_oCenter, _fRadius);
 }
+// ----------------------------------------------------------------------------
+void CGGraphBVSphere::Copy(const CGGraphBV& _oSrc)
+{
+    if (_oSrc.eGetTypeID() == eGetTypeID())
+    {
+        const CGGraphBVSphere& oSrc = (CGGraphBVSphere&)_oSrc;
+        m_oVol = oSrc.m_oVol;
+    }
+    else
+    {
+        CGVect3 oExtents = _oSrc.GetExtents();
+        uint axis = oExtents.uiGetGreaterAxis();
+
+        Init(_oSrc.oGetCenter(), oExtents.v(axis));
+    }
+}
+
 // -----------------------------------------------------------------------------
 void CGGraphBVSphere::Compute(CGVect3* _poVXs, uint _uiNumVXs)
 {

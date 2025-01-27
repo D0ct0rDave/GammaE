@@ -98,10 +98,10 @@ void CGParticleSystem::InitPS (int _iMaxParticles, bool _bZOrder, bool _bDisable
         poMesh->Idxs[cPart * 4 + 2] = cPart * 4 + 3;
         poMesh->Idxs[cPart * 4 + 3] = cPart * 4 + 2;
 
-        poMesh->UVs[cPart * 4 + 0].V2(0.0f,0.0f);
-        poMesh->UVs[cPart * 4 + 1].V2(0.0f,1.0f);
-        poMesh->UVs[cPart * 4 + 2].V2(1.0f,1.0f);
-        poMesh->UVs[cPart * 4 + 3].V2(1.0f,0.0f);
+        poMesh->UVs[cPart * 4 + 0].Set(0.0f,0.0f);
+        poMesh->UVs[cPart * 4 + 1].Set(0.0f,1.0f);
+        poMesh->UVs[cPart * 4 + 2].Set(1.0f,1.0f);
+        poMesh->UVs[cPart * 4 + 3].Set(1.0f,0.0f);
 
         poMesh->VXs[cPart * 4 + 0].Set(0.0f,0.0f,10000.0f);
         poMesh->VXs[cPart * 4 + 1].Set(0.0f,0.0f,10000.0f);

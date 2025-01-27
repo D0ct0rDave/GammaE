@@ -50,11 +50,11 @@ class CLoaderMD3 : public C3DLoader
 
         virtual CGSceneNode* pLoad(char* Filename);
 
-        CGSceneAnimCfgGen* pLoadQ3Player(char* _Path, char* _SkinName);
+        CGSceneAnimInstance* pLoadQ3Player(char* _Path, char* _SkinName);
 
-        CGSceneAnimCfgMgr* pLoadAnimation(char* _Filename, CGSceneAnimGroup* _pLegs, CGSceneAnimGroup* _pTorso);
+        CGSceneAnimInstance* pLoadAnimation(char* _Filename, CGSceneAnimGroup* _pLegs, CGSceneAnimGroup* _pTorso);
 
-        void SetupAnim(int _iAnimNum, anim_t* _MD3Anim, CGSceneAnimCfg* _pLegs, CGSceneAnimCfg* _pTorso);
+        void SetupAnim(int _iAnimNum, anim_t* _MD3Anim, CGSceneAnimCfg* _poAnimCfg);
 
     protected:
 

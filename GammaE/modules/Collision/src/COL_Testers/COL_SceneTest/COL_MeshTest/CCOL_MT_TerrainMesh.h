@@ -8,16 +8,11 @@
  *  \par GammaE License
  */
 // -----------------------------------------------------------------------------
-// %X% %Q% %Z% %W%
-
 #ifndef CCOL_MT_TerrainMesh_h
 #define CCOL_MT_TerrainMesh_h 1
 
-// GammaE_TerrainData
 #include "GammaE_TerrainData.h"
-// CCOL_DT_ColTester
 #include "COL_Testers\COL_DynamicTest\CCOL_DT_ColTester.h"
-// CCOL_MeshTester
 #include "COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MeshTester.h"
 
 class CCOL_MT_TerrainMesh : public CCOL_MeshTester
@@ -25,9 +20,7 @@ class CCOL_MT_TerrainMesh : public CCOL_MeshTester
     public:
         CCOL_MT_TerrainMesh();
 
-        ~CCOL_MT_TerrainMesh();
-
-        virtual int iTestCollision(CGMesh* _poMesh, int _iMat, CGBoundingVolume* _poBVol, CCOL_TriList& _oTriList);
+        virtual int iTestCollision(CGMesh* _poMesh, int _iMat, CGGraphBV* _poBVol, CCOL_TriList& _oTriList);
 
         int iGetTriangles(int _iX, int _iY, int _iRad, CGVect3* _pVXs);
 

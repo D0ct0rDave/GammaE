@@ -34,11 +34,12 @@ CGSceneAnimMesh::~CGSceneAnimMesh()
     if ( m_poFrameVNs ) mDel [] m_poFrameVNs;
 }
 // --------------------------------------------------------------------------------
-void CGSceneAnimMesh::Setup(CGMesh* _poStartupMesh, CGVect3* _poVXs, CGVect3* _poVNs, uint _uiNumStates, uint _uiNumVerticesPerState)
+void CGSceneAnimMesh::Setup(CGMesh* _poStartupMesh, uint _uiNumStates, uint _uiNumVerticesPerState)
 {
     m_poMesh = _poStartupMesh;
-    m_poFrameVXs = _poVXs;
-    m_poFrameVNs = _poVNs;
+
+    m_poFrameVXs = mNew CGVect3[_uiNumStates * _uiNumVerticesPerState];
+    m_poFrameVNs = mNew CGVect3[_uiNumStates * _uiNumVerticesPerState];
     m_uiNumStates = _uiNumStates;
     m_uiNumVerticesPerState = _uiNumVerticesPerState;
 
@@ -59,7 +60,7 @@ CGMesh* CGSceneAnimMesh::poGetMesh()
     return(m_poMesh);
 }
 // --------------------------------------------------------------------------------
-CGVect3* CGSceneAnimMesh::poGetVertexs()
+CGVect3* CGSceneAnimMesh::poGetVertices()
 {
     return (m_poFrameVXs);
 }
@@ -71,7 +72,8 @@ CGVect3* CGSceneAnimMesh::poGetNormals()
 // --------------------------------------------------------------------------------
 void CGSceneAnimMesh::SetAnimState (uint _uiSrc, uint _uiDst, float _fFactor)
 {
-    assert (m_poFrameVXs && "NULL Mesh state array");
+    assert (m_poFrameVXs && "NULL Mesh state vertex array");
+    assert (m_poFrameVNs && "NULL Mesh state normal array");
     // assert (Leaf && "NULL Leaf Mesh");
 
     if (m_uiNumStates == 1 )
@@ -89,35 +91,34 @@ void CGSceneAnimMesh::SetAnimState (uint _uiSrc, uint _uiDst, float _fFactor)
 
         if ( (_uiSrc != _uiDst) && (_fFactor > 0.0f) )
         {
-            int cVert;
             CGVect3* pSrcVX = m_poFrameVXs + m_uiNumVerticesPerState * _uiSrc;
             CGVect3* pDstVX = m_poFrameVXs + m_uiNumVerticesPerState * _uiDst;
             CGVect3* pMeshVX = m_poMesh->m_poVX;
-            for ( cVert = 0; cVert < m_uiNumVerticesPerState; cVert++ )
+            for (uint cVert = 0; cVert < m_uiNumVerticesPerState; cVert++ )
             {
-                pMeshVX->Interpolate(*pSrcVX,*pDstVX,_fFactor);
+                pMeshVX->Interpolate(*pSrcVX, *pDstVX,_fFactor);
 
                 pSrcVX++;
                 pDstVX++;
                 pMeshVX++;
             }
 
-            /*
-               // Interpolate normals too ? It does not look so worth ...
-               CGVect3			*pSrcVN  = pNMeshStates + iNumStateVXs*_iSrc;
-               CGVect3			*pDstVN  = pNMeshStates + iNumStateVXs*_iDst;
-               CGVect3			*pMeshVN = Leaf->poGetMesh()->VNs;
-               for (cVert=0;cVert<iNumStateVXs;cVert++)
-               {
-
+            #if 0
+            // Interpolate normals too ? It does not look so worth ...
+            CGVect3			*pSrcVN  = pNMeshStates + iNumStateVXs*_iSrc;
+            CGVect3			*pDstVN  = pNMeshStates + iNumStateVXs*_iDst;
+            CGVect3			*pMeshVN = Leaf->poGetMesh()->VNs;
+            for (uint cVert = 0; cVert < m_uiNumVerticesPerState; cVert++ )
+            {
                 pMeshVN->Interpolate(*pSrcVN,*pDstVN,_fFactor);
 
                 pSrcVN ++;
                 pDstVN ++;
                 pMeshVN++;
-               }
-             */
+            }
+            #else
             memcpy(m_poMesh->m_poVN, m_poFrameVNs + m_uiNumVerticesPerState * _uiSrc, m_uiNumVerticesPerState * sizeof(CGVect3) );
+            #endif
 
             /*
             // Interpolate bounding volumes
@@ -155,7 +156,7 @@ void CGSceneAnimMesh::SetAnimState (uint _uiSrc, uint _uiDst, float _fFactor)
     // Leaf->poGetMesh()->BVol->Copy(BVol);
 }
 // --------------------------------------------------------------------------------
-void CGSceneAnimMesh::ComputeBoundVols()
+void CGSceneAnimMesh::ComputeStatesBVols()
 {
     for (uint uiState = 0; uiState < m_poBVolStates.uiNumElems(); uiState++)
         m_poBVolStates[uiState]->Compute(m_poFrameVXs + (uiState * m_uiNumVerticesPerState), m_uiNumVerticesPerState);
@@ -166,5 +167,15 @@ void CGSceneAnimMesh::ComputeBoundVols()
 CGGraphBV* CGSceneAnimMesh::poGetStateBVol(int _iState)
 {
     return m_poBVolStates[_iState];
+}
+// --------------------------------------------------------------------------------
+void CGSceneAnimMesh::SetShader(CGShader* _poShader)
+{
+    m_poShader = _poShader;
+}
+// --------------------------------------------------------------------------------
+CGShader* CGSceneAnimMesh::poGetShader()
+{
+    return(m_poShader);
 }
 // --------------------------------------------------------------------------------

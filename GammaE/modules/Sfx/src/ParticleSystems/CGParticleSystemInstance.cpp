@@ -40,10 +40,10 @@ CGParticleSystemInstance::CGParticleSystemInstance(CGParticleSystemGenerator* _p
         m_poMesh->m_pusIdx[i * 4 + 2] = i * 4 + 3;
         m_poMesh->m_pusIdx[i * 4 + 3] = i * 4 + 2;
 
-        m_poMesh->m_poUV[i * 4 + 0].V2(0.0f,0.0f);
-        m_poMesh->m_poUV[i * 4 + 1].V2(0.0f,1.0f);
-        m_poMesh->m_poUV[i * 4 + 2].V2(1.0f,1.0f);
-        m_poMesh->m_poUV[i * 4 + 3].V2(1.0f,0.0f);
+        m_poMesh->m_poUV[i * 4 + 0].Set(0.0f,0.0f);
+        m_poMesh->m_poUV[i * 4 + 1].Set(0.0f,1.0f);
+        m_poMesh->m_poUV[i * 4 + 2].Set(1.0f,1.0f);
+        m_poMesh->m_poUV[i * 4 + 3].Set(1.0f,0.0f);
 
         m_poMesh->m_poVX[i * 4 + 0].Set(0.0f,0.0f,10000.0f);
         m_poMesh->m_poVX[i * 4 + 1].Set(0.0f,0.0f,10000.0f);
