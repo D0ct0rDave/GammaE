@@ -19,8 +19,8 @@ void CGPSGGenericQuadOrbit::InitParticle (CGPSGGenericQuadParticle* _poPart)
     int iIdx = ( *(uint*)_poPart / sizeof(CGPSGGenericQuadParticle) ) % 360;
     float fAngle = _2PI_ * ( (float)iIdx / 360.0f ) * m_fOrbitFactor;
 
-    _poPart->m_oDir.y = MATH_fCos(fAngle);
-    _poPart->m_oDir.z = MATH_fSin(fAngle);
+    _poPart->m_oDir.y = Math::fCos(fAngle);
+    _poPart->m_oDir.z = Math::fSin(fAngle);
     _poPart->m_oDir.x = 0.0f;
     _poPart->m_oDir.Normalize();
 }

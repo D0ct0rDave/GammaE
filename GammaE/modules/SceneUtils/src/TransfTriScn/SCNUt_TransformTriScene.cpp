@@ -25,14 +25,14 @@ void SCNUt_TransformTriScene::Transform(SCNUt_TriScene* _poTriScn, const CGMatri
     for ( uint i = 0; i < _poTriScn->NumTris; i++ )
     {
         // Transform points
-        _oVertexMatrix.TransformPoint(_poTriScn->Tris[i].VXs[0]);
-        _oVertexMatrix.TransformPoint(_poTriScn->Tris[i].VXs[1]);
-        _oVertexMatrix.TransformPoint(_poTriScn->Tris[i].VXs[2]);
+        _oVertexMatrix.TransformPoint(&_poTriScn->Tris[i].VXs[0]);
+        _oVertexMatrix.TransformPoint(&_poTriScn->Tris[i].VXs[1]);
+        _oVertexMatrix.TransformPoint(&_poTriScn->Tris[i].VXs[2]);
 
         // Transform normals
-        _oNormalMatrix.TransformVector(_poTriScn->Tris[i].VNs[0]);
-        _oNormalMatrix.TransformVector(_poTriScn->Tris[i].VNs[1]);
-        _oNormalMatrix.TransformVector(_poTriScn->Tris[i].VNs[2]);
+        _oNormalMatrix.TransformVector(&_poTriScn->Tris[i].VNs[0]);
+        _oNormalMatrix.TransformVector(&_poTriScn->Tris[i].VNs[1]);
+        _oNormalMatrix.TransformVector(&_poTriScn->Tris[i].VNs[2]);
     }
 }
 // -----------------------------------------------------------------------------

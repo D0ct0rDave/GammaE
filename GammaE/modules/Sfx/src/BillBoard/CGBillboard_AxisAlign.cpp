@@ -33,13 +33,13 @@ void CGBillboard_AxisAlign::Render ()
 {
     CGVect3 InvPos;
     CGMatrix4x4 M;
-    CE3D_Camera* Cam = CGRenderer::I()->GetCamera();
+    CGCamera* Cam = CGRenderer::I()->poGetCamera();
 
-    if ( Flags & 0x01 ) InvPos.x = -Cam->m_oPos.x;
+    if ( Flags & 0x01 ) InvPos.x = -Cam->oGetPos().x;
     else InvPos.x = 0;
-    if ( Flags & 0x02 ) InvPos.y = -Cam->m_oPos.y;
+    if ( Flags & 0x02 ) InvPos.y = -Cam->oGetPos().y;
     else InvPos.y = 0;
-    if ( Flags & 0x04 ) InvPos.z = -Cam->m_oPos.z;
+    if ( Flags & 0x04 ) InvPos.z = -Cam->oGetPos().z;
     else InvPos.z = 0;
 
     CGRenderer::I()->PushWorldMatrix();
@@ -48,9 +48,9 @@ void CGBillboard_AxisAlign::Render ()
     oM.LoadIdentity();
     oM.Translate(InvPos.x,InvPos.y,InvPos.z);
 
-    CGRenderer::I()->MultiplyMatrix(&oM);
+    CGRenderer::I()->MultiplyMatrix(oM);
 
-    CGSceneGroup::Render();
+    CGSCNVRenderer::I()->Render(this);
 
     CGRenderer::I()->PopWorldMatrix();
 }

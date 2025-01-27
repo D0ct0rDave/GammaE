@@ -112,6 +112,7 @@ void CTerrainTesselatorTileGM::RenderTile (int iX, int iY)
     // Set current texture tile
     // TMaterial * TileMat = GetTileMaterial(iX,iY);
     CGShader* poTileMat = TB->poGetTileMaterial(0,0);
+    unsigned short* Idxs = m_poUnmanagedMesh->m_pusIdx;
 
     // Get rotation flag
     // eRotFlag = Tile_Tile->GetRotationType();
@@ -146,7 +147,7 @@ void CTerrainTesselatorTileGM::RenderTile (int iX, int iY)
         iVXPos2 = iVXPos1 + Tile_iStride;
     }
 
-    CGRenderer::I()->RenderMesh(Mesh,poTileMat);
+    CGRenderer::I()->RenderMesh(m_poUnmanagedMesh, poTileMat);
 }
 
 void CTerrainTesselatorTileGM::RenderTiling ()

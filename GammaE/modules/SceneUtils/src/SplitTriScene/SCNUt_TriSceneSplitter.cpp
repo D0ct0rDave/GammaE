@@ -66,57 +66,68 @@ void SCNUt_TriSceneSplitter::SplitScene (SCNUt_TriScene& _poScene, CGPlane& _oPl
         switch ( pCurTri->Side )
         {
             // Add triangle to Front list
-            case POLYSTATE_FRONT:   poFrontScene->Tris[FrontIdx++] = *pCurTri;
+            case POLYSTATE_FRONT:   
+            poFrontScene->Tris[FrontIdx++] = *pCurTri;
             break;
 
             // Add triangle to Back list
-            case POLYSTATE_BACK:    poBackScene->Tris[BackIdx++] = *pCurTri;
+            case POLYSTATE_BACK:    
+            poBackScene->Tris[BackIdx++] = *pCurTri;
             break;
 
-            case POLYSTATE_OVER:    if ( _iFrontTris < _iBackTris )
-                poFrontScene->Tris[FrontIdx++] = *pCurTri;
-            else
-                poBackScene->Tris[BackIdx++] = *pCurTri;
+            case POLYSTATE_OVER:    
+            {
+                if ( _iFrontTris < _iBackTris )
+                    poFrontScene->Tris[FrontIdx++] = *pCurTri;
+                else
+                    poBackScene->Tris[BackIdx++] = *pCurTri;
+            }
             break;
 
             // Split the triangle and insert into both lists
-            case POLYSTATE_CROSS1:  SplitIn2Triangles(*pCurTri,A,B,_oPlane);
-
-            if ( A.Side == POLYSTATE_FRONT )
+            case POLYSTATE_CROSS1:  
             {
-                poFrontScene->Tris[FrontIdx++] = A;
-                poBackScene->Tris[BackIdx++] = B;
-            }
-            else
-            {
-                poBackScene->Tris[BackIdx++] = A;
-                poFrontScene->Tris[FrontIdx++] = B;
-            }
+                SplitIn2Triangles(*pCurTri,A,B,_oPlane);
 
-            // poFrontScene->Tris[FrontIdx++] = *pCurTri;
-            // poBackScene ->Tris[BackIdx ++] = *pCurTri;
+                if ( A.Side == POLYSTATE_FRONT )
+                {
+                    poFrontScene->Tris[FrontIdx++] = A;
+                    poBackScene->Tris[BackIdx++] = B;
+                }
+                else
+                {
+                    poBackScene->Tris[BackIdx++] = A;
+                    poFrontScene->Tris[FrontIdx++] = B;
+                }
+
+                // poFrontScene->Tris[FrontIdx++] = *pCurTri;
+                // poBackScene ->Tris[BackIdx ++] = *pCurTri;
+            }
             break;
 
             // Split the triangle and insert into both lists
-            case POLYSTATE_CROSS2:  SplitIn3Triangles(*pCurTri,A,B,C,_oPlane);
+            case POLYSTATE_CROSS2:  
+            {
+                SplitIn3Triangles(*pCurTri,A,B,C,_oPlane);
 
-            if ( A.Side == POLYSTATE_FRONT )
-                poFrontScene->Tris[FrontIdx++] = A;
-            else
-                poBackScene->Tris[BackIdx++] = A;
+                if ( A.Side == POLYSTATE_FRONT )
+                    poFrontScene->Tris[FrontIdx++] = A;
+                else
+                    poBackScene->Tris[BackIdx++] = A;
 
-            if ( B.Side == POLYSTATE_FRONT )
-                poFrontScene->Tris[FrontIdx++] = B;
-            else
-                poBackScene->Tris[BackIdx++] = B;
+                if ( B.Side == POLYSTATE_FRONT )
+                    poFrontScene->Tris[FrontIdx++] = B;
+                else
+                    poBackScene->Tris[BackIdx++] = B;
 
-            if ( C.Side == POLYSTATE_FRONT )
-                poFrontScene->Tris[FrontIdx++] = C;
-            else
-                poBackScene->Tris[BackIdx++] = C;
+                if ( C.Side == POLYSTATE_FRONT )
+                    poFrontScene->Tris[FrontIdx++] = C;
+                else
+                    poBackScene->Tris[BackIdx++] = C;
 
-            // poFrontScene->Tris[FrontIdx++] = *pCurTri;
-            // poBackScene ->Tris[BackIdx ++] = *pCurTri;
+                // poFrontScene->Tris[FrontIdx++] = *pCurTri;
+                // poBackScene ->Tris[BackIdx ++] = *pCurTri;
+            }
             break;
 
             default:
@@ -326,8 +337,8 @@ float SCNUt_TriSceneSplitter::GetSplitFactor (CGVect3 &pA, CGVect3 &pB, CGPlane 
     vDirector.Normalize();
 
     // Angulo de incidencia entre la recta y el plano. Si es 0, el plano no corta la recta
-    fDotProduct = vDirector.fDotProd( Plane.Normal() );
-    fLambdaNumerator = -( pA.fDotProd( Plane.Normal() ) + Plane.D() );
+    fDotProduct = vDirector.fDotProd( Plane.oGetNormal() );
+    fLambdaNumerator = -( pA.fDotProd( Plane.oGetNormal() ) + Plane.fGetD() );
 
     // In order to make point,color and uvs computations, we need to make linear
     // interpolation. We need to get the relationship between the line equation factor
@@ -448,7 +459,7 @@ void SCNUt_TriSceneSplitter::CheckWinding (SCNUt_Triangle& _oRefTri, SCNUt_Trian
     oRefPlane.GenerateFromPoints(_oRefTri.VXs[0],_oRefTri.VXs[1],_oRefTri.VXs[2]);
     oTriPlane.GenerateFromPoints(_oTri.VXs[0],    _oTri.VXs[1],   _oTri.VXs[2]   );
 
-    if ( oRefPlane.Normal().fDotProd( oTriPlane.Normal() ) < 0.0f )
+    if ( oRefPlane.oGetNormal().fDotProd( oTriPlane.oGetNormal() ) < 0.0f )
         SCNUt_TriUtils::ChangeWinding(_oTri);
 }
 

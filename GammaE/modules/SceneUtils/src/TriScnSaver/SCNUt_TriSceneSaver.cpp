@@ -30,9 +30,9 @@ SCNUt_TriSceneSaver::~SCNUt_TriSceneSaver()
 
 void SCNUt_TriSceneSaver::Save(char* _szFilename,SCNUt_TriScene* _poScn,SCNUt_MaterialTable* _poMT)
 {
-    CFile oFile;
+    CGFile oFile;
 
-    if ( !oFile.bOpen(_szFilename,"wt") )
+    if ( !oFile.bOpen(_szFilename, EFileOpenMode::FOM_WRITE) )
     {
         return;
     }
@@ -53,7 +53,7 @@ void SCNUt_TriSceneSaver::Save(char* _szFilename,SCNUt_TriScene* _poScn,SCNUt_Ma
         for ( uint i = 0; i < _poMT->uiNumElems(); i++ )
         {
             CGShader* poShader = _poMT->poGet(i);
-            const char* szName = CE3D_ShaderWH::I()->sGetName( poShader ).szString();
+            const char* szName = CGShaderWH::I()->sGetName( poShader ).szString();
             oFile.WriteText("		%d %s\n",i + 1,szName);          // 1 based
         }
     }

@@ -30,13 +30,16 @@ class CHUDLabel : public CHUDObject
 
         void SetMaxChars(uint _uiMaxChars);
 
-    protected:  void InternalInit(uint _uiMaxChars);
+    protected:  
+        void InternalInit(uint _uiMaxChars);
+        void CreateGeometry(uint _uiMaxChars);
+
         void WriteChar(char _cA,float _fOfsX,float _fW);
 
         CHUDFont* poFont;
         CGSceneLeaf* poLeaf;
         CGUnmanagedMesh* m_poLabelMesh;
-        CGMesh* m_poMeshPool;
+        CGMesh* m_poGeometryMesh;
         CGString sText;
         CGColor oColor;
         uint uiMaxChars;

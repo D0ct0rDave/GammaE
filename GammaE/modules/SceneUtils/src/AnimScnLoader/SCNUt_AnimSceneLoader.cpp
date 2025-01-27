@@ -278,8 +278,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
 
     // Create the animation mesh
     CGSceneAnimMesh* poAM = mNew CGSceneAnimMesh;
-    poAM->Init( oFrames.uiNumElems() );
-    poAM->Setup(oCD.m_poMesh,poVXs,poVNs);
+    poAM->Setup(oCD.m_poMesh, oFrames.uiNumElems(), oCD.m_oInvTable.uiNumElems());
 
     // Create configuration
     CGSceneAnimCfg* poACfg = mNew CGSceneAnimCfg;
@@ -287,8 +286,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
     poACfg->SetAnimObj(poAM);
 
     // Rebuild bounding volumes
-    poACfg->ComputeBoundVol();
-    CGSCNVBoundVolBuilder::I()->Visit(poACfg);
+    CGSCNVBoundVolBuilder::I()->Visit(poAM);
 
     // Free resources
     MEMFree (StrBuff);

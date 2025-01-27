@@ -24,6 +24,8 @@ class CGParticleSystemInstance : public CGSceneSwitch
         // / Creates the particle system instance and associates it to the given generator
         CGParticleSystemInstance(CGParticleSystemGenerator* _poPSG);
 
+        virtual ~CGParticleSystemInstance();
+
         // / Renders the particle system instance
         virtual void Render();
 
@@ -49,7 +51,7 @@ class CGParticleSystemInstance : public CGSceneSwitch
         }
 
         // / Retrieves the mesh of this instance
-        CGMesh* poGetMesh() const
+        CGUnmanagedMesh* poGetMesh() const
         {
             return(m_poMesh);
         }
@@ -85,7 +87,10 @@ class CGParticleSystemInstance : public CGSceneSwitch
         CGSceneLeaf* m_poLeaf;
 
         // / The mesh that contains all the particle geometry to be rendered
-        CGMesh* m_poMesh;
+        CGMesh* m_poMeshGeometry;
+        
+        // / The mesh that contains all the particle geometry to be rendered
+        CGUnmanagedMesh* m_poMesh;
 
         // / The particle pool used by the particle system generator.
         // / (WARNING: Cannot be used as an array, since particle size varies from system to system)

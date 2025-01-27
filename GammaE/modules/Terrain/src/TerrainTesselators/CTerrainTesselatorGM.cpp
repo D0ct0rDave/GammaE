@@ -51,7 +51,7 @@ inline float fSelectInterpolationFactor(float _fALOD,float _fBLOD)
 // Class CTerrainTesselatorGM
 
 CTerrainTesselatorGM::CTerrainTesselatorGM()
-    : HData(NULL), LData(NULL), VXs(NULL), VCs(NULL), UVs(NULL), Idxs(NULL), MaxVertexs(0), Mesh(NULL), uiSectorRes(0), fTileLODPar(0)
+    : HData(NULL), LData(NULL), MaxVertexs(0), m_poGeometryMesh(NULL), m_poUnmanagedMesh(NULL), uiSectorRes(0), fTileLODPar(0)
 {
 }
 
@@ -67,27 +67,30 @@ void CTerrainTesselatorGM::Init (int iMaxVertexs)
     HData = mNew float [MaxVertexs  ];
     LData = mNew float [MaxVertexs * 3];
 
-    Mesh = mNew CGMesh;
+    m_poGeometryMesh = mNew CGMesh;
+    m_poUnmanagedMesh = mNew CGUnmanagedMesh;
 
     #ifdef TSL_UGM_TRISTRIP
 
-    Mesh->Init( MaxVertexs,
+    m_poGeometryMesh->Init( MaxVertexs,
                 2 * MaxVertexs,
                 E3D_PrimitiveType::E3D_PT_TRISTRIPS,
                 MESH_FIELD_VERTEXS | MESH_FIELD_UVCOORDS | MESH_FIELD_COLORS | MESH_FIELD_INDEXES);
     #else
 
-    Mesh->Init( MaxVertexs,
+    m_poGeometryMesh->Init( MaxVertexs,
                 2 * MaxVertexs,
                 E3D_PrimitiveType::E3D_PT_TRIS,
                 MESH_FIELD_VERTEXS | MESH_FIELD_UVCOORDS | MESH_FIELD_COLORS | MESH_FIELD_INDEXES);
 
     #endif
-
-    VXs = Mesh->m_poVX;
-    VCs = Mesh->m_poVC;
-    UVs = Mesh->m_poUV;
-    Idxs = Mesh->m_pusIdx;
+    
+    m_poUnmanagedMesh->m_poVX = m_poGeometryMesh->m_poVX;
+    m_poUnmanagedMesh->m_poVC = m_poGeometryMesh->m_poVC;
+    m_poUnmanagedMesh->m_poUV = m_poGeometryMesh->m_poUV;
+    m_poUnmanagedMesh->m_pusIdx = m_poGeometryMesh->m_pusIdx;
+    m_poUnmanagedMesh->SetPrimitiveType(m_poGeometryMesh->eGetPrimitiveType());
+    m_poUnmanagedMesh->SetBV(m_poGeometryMesh->poGetBV());
 }
 
 void CTerrainTesselatorGM::Invalidate ()
@@ -97,15 +100,15 @@ void CTerrainTesselatorGM::Invalidate ()
         // Free previously allocated resources
         if ( HData ) mDel [] HData;
         HData = NULL;
+
         if ( LData ) mDel [] LData;
         LData = NULL;
-        if ( Mesh ) mDel Mesh;
-        Mesh = NULL;
 
-        VXs = NULL;
-        VCs = NULL;
-        UVs = NULL;
-        Idxs = NULL;
+        if (m_poGeometryMesh) mDel m_poGeometryMesh;
+        m_poGeometryMesh = NULL;
+
+        if (m_poUnmanagedMesh) mDel m_poUnmanagedMesh;
+        m_poUnmanagedMesh = NULL;
     }
 }
 
@@ -114,7 +117,7 @@ void CTerrainTesselatorGM::GenerateVertexData ()
     unsigned int cI,cJ;
     float fSpaceXCur,fSpaceYCur;
     float* pH = HData;
-    CGVect3* pVX = VXs;
+    CGVect3* pVX = m_poUnmanagedMesh->m_poVX;
     float fSpaceStep;
 
     // Spatial distance betweem two adjacent vertexs
@@ -143,14 +146,14 @@ void CTerrainTesselatorGM::GenerateVertexData ()
     
     CGGraphBVAABB box;
     box.Init(Maxs, Mins);
-    Mesh->poGetBV()->Copy(box);
+    m_poUnmanagedMesh->poGetBV()->Copy(box);
 }
 
 void CTerrainTesselatorGM::GenerateVertexColorData ()
 {
     unsigned int cI,cJ;
     float* pL = LData;
-    CGColor* pVC = VCs;
+    CGColor* pVC = m_poUnmanagedMesh->m_poVC;
 
     // Generate Color Map
     for ( cJ = 0; cJ < uiSectorRes; cJ++ )
@@ -178,7 +181,7 @@ void CTerrainTesselatorGM::GenerateGlobalCoordData ()
     float fTexUCur;
     float fTexVCur;
     float fGMapStep;
-    CGVect2* pUV = UVs;
+    CGVect2* pUV = m_poUnmanagedMesh->m_poUV;
 
     // Global Map texture step
     const float fUVOfs = 2.0f / 256.0f;
@@ -221,6 +224,7 @@ void CTerrainTesselatorGM::TesselateGrid ()
     int iIdx;
     int iVXPos1,iVXPos2;
     unsigned int j,i;
+    unsigned short* Idxs = m_poUnmanagedMesh->m_pusIdx; 
     int iStep;
 
     #ifdef TSL_UGM_TRISTRIP
@@ -229,7 +233,7 @@ void CTerrainTesselatorGM::TesselateGrid ()
 
     iVXPos1 = 0;
     iVXPos2 = uiSectorRes;
-
+    
     Idxs[iIdx++] = iVXPos1;                    // For back face culling ->
     Idxs[iIdx++] = iVXPos1;
     for ( j = 0; j < uiSectorRes - 1; j++ )
@@ -250,7 +254,7 @@ void CTerrainTesselatorGM::TesselateGrid ()
         Idxs[iIdx++] = iVXPos2 - 1;
     }
 
-    Mesh->SetNumPrims(iIdx - 2);
+    m_poUnmanagedMesh->SetNumPrims(iIdx - 2);
 
     #else
 
@@ -282,10 +286,7 @@ void CTerrainTesselatorGM::TesselateGrid ()
         iVXPos2++;
     }
 
-    Mesh->m_eMeshType = E3D_MESH_TRIS;
-    Mesh->m_uiNumIdxs = iIdx;
-    Mesh->m_uiNumPrims = iIdx / 3;
-
+    m_poUnmanagedMesh->SetNumPrims(iIdx / 3);
     #endif
 }
 
@@ -304,7 +305,7 @@ void CTerrainTesselatorGM::Render ()
 
     SetupTileMaterial();
 
-    CGRenderer::I()->RenderMesh(Mesh, poTileMaterial);
+    CGRenderer::I()->RenderMesh(m_poUnmanagedMesh, poTileMaterial);
 }
 
 void CTerrainTesselatorGM::SetupRenderVariables ()
@@ -602,7 +603,7 @@ void CTerrainTesselatorGM::SetTileLODPar (float _fTileLODPar)
 
 void CTerrainTesselatorGM::SetBoundVol (const CGGraphBV& _oBV)
 {
-    Mesh->poGetBV()->Copy(_oBV);
+    m_poUnmanagedMesh->poGetBV()->Copy(_oBV);
 }
 
 // Additional Declarations

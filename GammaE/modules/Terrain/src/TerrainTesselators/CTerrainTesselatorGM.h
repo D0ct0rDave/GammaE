@@ -76,17 +76,10 @@ class CTerrainTesselatorGM : public CTerrainTesselator
 
         float* LData;
 
-        CGVect3* VXs;
-
-        CGColor* VCs;
-
-        CGVect2* UVs;
-
-        unsigned short* Idxs;
-
         int MaxVertexs;
 
-        CGMesh* Mesh;
+        CGMesh* m_poGeometryMesh;
+        CGUnmanagedMesh* m_poUnmanagedMesh;
 
         // Global variable
         unsigned int uiSectorRes;

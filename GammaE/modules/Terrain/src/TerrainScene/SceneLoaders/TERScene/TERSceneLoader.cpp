@@ -79,6 +79,15 @@ void TERSceneLoader::LoadData (FILE* fd)
         exit(1);
     }
 
+    typedef struct {
+        unsigned short  Year;
+        unsigned char   Month;
+        unsigned char   Day;
+        unsigned char   Hour;
+        unsigned char   Min;
+        unsigned short  Sec;
+    }TDate;
+
     // skip (for the moment) project data
     fseek(fd,80,SEEK_CUR);                  // skip name
     fseek(fd,sizeof(TDate),SEEK_CUR);   // skip creation date
@@ -220,7 +229,7 @@ CTileBookmark* TERSceneLoader::poCreateTileBookmark ()
 {
     CTileBookmark* poTB;
     CGShader* poSh;
-    CE3D_ShIns_TexOp* poTI;
+    CGShInsTexOp* poTI;
     CGMipMap* poTex;
     int iMaxLODs,iMaxTiles,cTile,cLOD;
     char MatName[256];
@@ -231,11 +240,11 @@ CTileBookmark* TERSceneLoader::poCreateTileBookmark ()
     poTB = mNew CTileBookmark();
     poTB->Init(iMaxTiles,iMaxLODs);
 
-    CE3D_ShaderUtils::SetupTilingFlags(E3D_TEX_WRAP_REPEAT,E3D_TEX_WRAP_REPEAT);
-    CE3D_ShaderUtils::SetupFilterFlags(E3D_TEX_MIN_FILTER_LINEAR_MIPMAP_LINEAR,
+    CGShaderUtils::SetupTilingFlags(E3D_TEX_WRAP_REPEAT,E3D_TEX_WRAP_REPEAT);
+    CGShaderUtils::SetupFilterFlags(E3D_TEX_MIN_FILTER_LINEAR_MIPMAP_LINEAR,
                                        E3D_TEX_MAX_FILTER_LINEAR);
     /*
-       CE3D_ShaderUtils::SetupFilterFlags(E3D_TEX_MIN_FILTER_NEAREST,
+       CGShaderUtils::SetupFilterFlags(E3D_TEX_MIN_FILTER_NEAREST,
                                         E3D_TEX_MAX_FILTER_NEAREST);
      */
     for ( cTile = 0; cTile < iMaxTiles; cTile++ )
@@ -245,19 +254,19 @@ CTileBookmark* TERSceneLoader::poCreateTileBookmark ()
         if ( poTex )
         {
             sprintf(MatName,"TerrTex%d_LOD%d.tex",cTile,cLOD);
-            poSh = CE3D_ShaderUtils::poGenerateShaderFromMipMap(poTex,MatName);
+            poSh = CGShaderUtils::poGenerateShaderFromMipMap(poTex,MatName);
 
             // Add tile rotation shader instruction
-            poTI = mNew CE3D_ShIns_TexOp;
+            poTI = mNew CGShInsTexOp;
             poTI->SetTOpType(eSITexOp_Rotate);
-            poTI->SetEvaluator( mNew CEval_Const );
+            poTI->SetEvaluator( mNew CGEvalConst );
             poSh->PushInstruction(poTI);
 
             poTB->SetTileMaterial(cTile,cLOD,poSh);
         }
     }
 
-    CE3D_ShaderUtils::SetupFilterFlags(E3D_TEX_MIN_FILTER_NEAREST,E3D_TEX_MAX_FILTER_LINEAR);
+    CGShaderUtils::SetupFilterFlags(E3D_TEX_MIN_FILTER_NEAREST,E3D_TEX_MAX_FILTER_LINEAR);
     return(poTB);
 }
 
@@ -293,7 +302,7 @@ CSkyBox* TERSceneLoader::poCreateSkyBox ()
     CSkyBox* pSkyBox = NULL;
     CGVect3 SkyBoxCenter;
 
-    CE3D_ShaderUtils::SetupTilingFlags(E3D_TEX_WRAP_REPEAT,E3D_TEX_WRAP_REPEAT);
+    CGShaderUtils::SetupTilingFlags(E3D_TEX_WRAP_REPEAT,E3D_TEX_WRAP_REPEAT);
     for ( int cMat = 0; cMat < 6; cMat++ )
     {
         Tex = ATS->GetMipMap(cMat);
@@ -301,7 +310,7 @@ CSkyBox* TERSceneLoader::poCreateSkyBox ()
         {
             iTex++;
             sprintf(StrBuff,"SkyBox_%d.tex",cMat);
-            Mats[cMat] = CE3D_ShaderUtils::poGenerateShaderFromMipMap(Tex,StrBuff);
+            Mats[cMat] = CGShaderUtils::poGenerateShaderFromMipMap(Tex,StrBuff);
         }
     }
 
@@ -328,19 +337,19 @@ CSkyDome* TERSceneLoader::poCreateSkyDome ()
     CGVect3 SkyDomeCenter;
     CGVect3 SkyDomeAxis;
 
-    CE3D_ShaderUtils::SetupTilingFlags(E3D_TEX_WRAP_REPEAT,E3D_TEX_WRAP_REPEAT);
+    CGShaderUtils::SetupTilingFlags(E3D_TEX_WRAP_REPEAT,E3D_TEX_WRAP_REPEAT);
 
     Tex = ATS->GetMipMap(6);
     if ( !Tex ) return(NULL);
 
-    Mat = CE3D_ShaderUtils::poGenerateShaderFromMipMap(Tex,"SkyDome.tex");
+    Mat = CGShaderUtils::poGenerateShaderFromMipMap(Tex,"SkyDome.tex");
 
     // Create object
     pSkyDome = mNew CSkyDome;
 
     // Setup attributes
     pSkyDome->SetRadius  (EnvPars.fSDDiameter / 2);
-    SkyDomeAxis.V3      (0.0f,0.0f,1.0f);
+    SkyDomeAxis.Set      (0.0f,0.0f,1.0f);
     pSkyDome->SetAxis    (SkyDomeAxis);
     pSkyDome->SetRotation(EnvPars.fSDRollRotation);
 

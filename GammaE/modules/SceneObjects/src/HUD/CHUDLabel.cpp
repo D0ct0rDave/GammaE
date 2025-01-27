@@ -29,46 +29,62 @@ CHUDLabel::CHUDLabel(uint _uiMaxChars)
 // -----------------------------------------------------------------------------
 void CHUDLabel::InternalInit(uint _uiMaxChars)
 {
-    uiMaxChars = _uiMaxChars;
-
     EGBoundingVolumeType eOldType = CGGraphBVFactory::eGetBVMode();
     CGGraphBVFactory::SetBVMode(EGBoundingVolumeType::BVT_AABB);
 
-    // Create the text mesh
-    m_poMeshPool = mNew CGMesh;
-    m_poMeshPool->Init(4 * uiMaxChars,
-                 uiMaxChars,
-                 E3D_PrimitiveType::E3D_PT_NIQUADS,
-                 MESH_FIELD_VERTEXS | MESH_FIELD_UVCOORDS | MESH_FIELD_COLORS);
-
-    m_poLabelMesh = mNew CGUnmanagedMesh();
-    m_poLabelMesh->m_poVX = m_poMeshPool->m_poVX;
-    m_poLabelMesh->m_poUV = m_poMeshPool->m_poUV;
-    m_poLabelMesh->m_poVC = m_poMeshPool->m_poVC;
-    m_poLabelMesh->SetPrimitiveType(m_poMeshPool->eGetPrimitiveType());
-
-    for ( uint cI = 0; cI < uiMaxChars; cI++ )
-    {
-        poVX[0].Set(cI,0.0f,0.0f);
-        poVX[1].Set(cI,1.0f,0.0f);
-        poVX[2].Set(cI + 1,1.0f,0.0f);
-        poVX[3].Set(cI + 1,0.0f,0.0f);
-
-        poVX += 4;
-    }
-
     // Create the leaf
     poLeaf = mNew CGSceneLeaf;
-    poLeaf->SetMesh(m_poLabelMesh);
+
+    CreateGeometry(_uiMaxChars);
 
     poFont = NULL;
 
     // Set leaf as child
     SetObject(poLeaf);
 
+    // Recompute BVol
     CGSCNVBoundVolBuilder::I()->Visit(this);
-
     CGGraphBVFactory::SetBVMode(eOldType);
+}
+// -----------------------------------------------------------------------------
+void CHUDLabel::CreateGeometry(uint _uiMaxChars)
+{
+    // Create new string data
+    uiMaxChars = _uiMaxChars;
+
+    // Create the text mesh
+    m_poGeometryMesh = mNew CGMesh;
+    m_poGeometryMesh->Init(4 * uiMaxChars,
+        uiMaxChars,
+        E3D_PrimitiveType::E3D_PT_NIQUADS,
+        MESH_FIELD_VERTEXS | MESH_FIELD_UVCOORDS | MESH_FIELD_COLORS);
+
+    m_poLabelMesh = mNew CGUnmanagedMesh();
+    m_poLabelMesh->m_poVX = m_poGeometryMesh->m_poVX;
+    m_poLabelMesh->m_poUV = m_poGeometryMesh->m_poUV;
+    m_poLabelMesh->m_poVC = m_poGeometryMesh->m_poVC;
+    m_poLabelMesh->SetPrimitiveType(m_poGeometryMesh->eGetPrimitiveType());
+
+    CGVect3* poVX = m_poLabelMesh->m_poVX;
+    CGColor* poVC = m_poLabelMesh->m_poVC;
+
+    for (uint cI = 0; cI < uiMaxChars; cI++)
+    {
+        poVX[0].Set(cI, 0.0f, 0.0f);
+        poVX[1].Set(cI, 1.0f, 0.0f);
+        poVX[2].Set(cI + 1, 1.0f, 0.0f);
+        poVX[3].Set(cI + 1, 0.0f, 0.0f);
+
+        poVC[0].Set(oColor.r, oColor.g, oColor.b, oColor.a);
+        poVC[1].Set(oColor.r, oColor.g, oColor.b, oColor.a);
+        poVC[2].Set(oColor.r, oColor.g, oColor.b, oColor.a);
+        poVC[3].Set(oColor.r, oColor.g, oColor.b, oColor.a);
+
+        poVX += 4;
+        poVC += 4;
+    }
+
+    poLeaf->SetMesh(m_poLabelMesh);
 }
 // -----------------------------------------------------------------------------
 void CHUDLabel::SetMaxChars(uint _uiMaxChars)
@@ -76,43 +92,9 @@ void CHUDLabel::SetMaxChars(uint _uiMaxChars)
     if ( _uiMaxChars == uiMaxChars ) return;
 
     // Delete old data
-    CGBaseMesh* poOldMesh = poLeaf->poGetMesh();
-    mDel poOldMesh;
+    mDel m_poGeometryMesh;
 
-    // Create new string data
-    uiMaxChars = _uiMaxChars;
-
-    // Create the text mesh
-    poMesh = mNew CGMesh;
-    poMesh->Init(4 * uiMaxChars,
-                 uiMaxChars,
-                 E3D_PrimitiveType::E3D_PT_NIQUADS,
-                 MESH_FIELD_VERTEXS | MESH_FIELD_UVCOORDS | MESH_FIELD_COLORS);
-
-    CGVect3* poVX = poMesh->m_poVX;
-    CGColor* poVC = poMesh->m_poVC;
-
-    for ( uint cI = 0; cI < uiMaxChars; cI++ )
-    {
-        poVX[0].Set(cI,0.0f,0.0f);
-        poVX[1].Set(cI,1.0f,0.0f);
-        poVX[2].Set(cI + 1,1.0f,0.0f);
-        poVX[3].Set(cI + 1,0.0f,0.0f);
-
-        poVC[0].Set(oColor.r,oColor.g,oColor.b,oColor.a);
-        poVC[1].Set(oColor.r,oColor.g,oColor.b,oColor.a);
-        poVC[2].Set(oColor.r,oColor.g,oColor.b,oColor.a);
-        poVC[3].Set(oColor.r,oColor.g,oColor.b,oColor.a);
-
-        poVX += 4;
-        poVC += 4;
-    }
-
-    poLeaf->SetMesh(poMesh);
-
-    // Recompute BVol
-    CGSCNVBoundVolBuilder::I()->Visit(this);
-
+    CreateGeometry(_uiMaxChars);
     //
     SetText( sText );
 }
@@ -130,7 +112,7 @@ void CHUDLabel::SetColor(CGColor _oColor)
 
     oColor = _oColor;
 
-    CGColor* poVC = poMesh->m_poVC;
+    CGColor* poVC = m_poLabelMesh->m_poVC;
     for ( uint cI = 0; cI < uiMaxChars * 4; cI++ )
     {
         poVC->Set(oColor.r,oColor.g,oColor.b,oColor.a);
@@ -160,8 +142,8 @@ void CHUDLabel::WriteChar(char _cA,float _fOfsX,float _fW)
      */
 
     // Setup UV coords
-    CGVect2* poUV = poMesh->m_poUV + 4 * poMesh->uiGetNumPrims();
-    CGVect3* poVX = poMesh->m_poVX + 4 * poMesh->uiGetNumPrims();
+    CGVect2* poUV = m_poLabelMesh->m_poUV + 4 * m_poLabelMesh->uiGetNumPrims();
+    CGVect3* poVX = m_poLabelMesh->m_poVX + 4 * m_poLabelMesh->uiGetNumPrims();
 
     poUV[0].Set(u1,v1);
     poUV[1].Set(u1,v2);
@@ -200,8 +182,8 @@ void CHUDLabel::SetText(const CGString& _sText)
         fXOfs += fW;
     }
 
-    poMesh->SetNumPrims(uiNumPrims);
-    poMesh->SetNumVXs(poMesh->uiGetNumPrims()* 4);
+    m_poLabelMesh->SetNumPrims(uiNumPrims);
+    m_poLabelMesh->SetNumVXs(m_poLabelMesh->uiGetNumPrims()* 4);
 }
 // -----------------------------------------------------------------------------
 void CHUDLabel::SetText(char* fmt,...)
