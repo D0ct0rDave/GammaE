@@ -7,7 +7,7 @@ CEnemyGroup::CEnemyGroup()
 {
 }
 //-----------------------------------------------------------------------------
-void CEnemyGroup::Init(unsigned int _uiNumElems,float _fSpawnTime,float _fEnergy,const CVect3& _oPos,const CGString& _sAIScript,const CGString& _sGraphicRes,const CGString& _sPath)
+void CEnemyGroup::Init(unsigned int _uiNumElems,float _fSpawnTime,float _fEnergy,const CGVect3& _oPos,const CGString& _sAIScript,const CGString& _sGraphicRes,const CGString& _sPath)
 {
 	// Set the spanw time
 	m_fSpawnTime = _fSpawnTime;

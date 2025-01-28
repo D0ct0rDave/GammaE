@@ -21,7 +21,7 @@ DECLARE_INHERITANT_SINGLETON(CColliderRenderer,public,CGSceneSwitch)
 	protected:
 
 		/// Renders a specific collider
-		void RenderCollider(CGColliderPrimitive* _poCT,const CVect3& _oOffset,float _fScale);
+		void RenderCollider(CGColliderPrimitive* _poCT,const CGVect3& _oOffset,float _fScale);
 };
 // -----------------------------------------------------------------------------
 #endif

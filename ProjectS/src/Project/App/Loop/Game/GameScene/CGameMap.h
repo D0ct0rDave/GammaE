@@ -15,21 +15,21 @@ class CGameMap : public CGSceneNode
 	public:
 		CGameMap();
 		virtual ~CGameMap();
-
 		
 		void Load(const CGString& _sFilename);
 		void Render ();
 
-		virtual CGraphBV *poGetBoundVol();
-		virtual CGraphBV *poCreateBoundVol();
+		virtual CGGraphBV *poGetBoundVol();
+		virtual CGGraphBV *poCreateBoundVol();
 		virtual void ComputeBoundVol();
-		int iGetTile(const CVect3& _oPos);
+		int iGetTile(const CGVect3& _oPos);
 		bool bCollAtPos(float _fX,float _fY);
-		bool bCOLSpriteMap(const CVect3& _oPos,float _fWidth,float _fHeight,uint _uiFlags);
-		float fGetGroundHeight(const CVect3& _oPos);
-  protected:
+		bool bCOLSpriteMap(const CGVect3& _oPos,float _fWidth,float _fHeight,uint _uiFlags);
+		float fGetGroundHeight(const CGVect3& _oPos);
 
-	TTexMap* m_poTexMap;
+	protected:
+		CTMSector_8_16* m_poTexMap;
+		// TTexMap* m_poTexMap;
 		CGStArray<CGGraphicResource*> m_oTile;
 };
 

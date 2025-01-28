@@ -5,15 +5,15 @@ CExplosion::CExplosion()
 {
 	m_fTime = 0.0f;
 	m_fOTime= 0.0f;
-	m_oPos = CVect3::oZero();
-	m_oOPos= CVect3::oZero();
+	m_oPos = CGVect3::oZero();
+	m_oOPos= CGVect3::oZero();
 }
 // -----------------------------------------------------------------------------
 CExplosion::~CExplosion()
 {
 }
 // -----------------------------------------------------------------------------
-void CExplosion::Init(const CVect3& _oPos)
+void CExplosion::Init(const CGVect3& _oPos)
 {
 	m_oPos = _oPos;
 }

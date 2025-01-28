@@ -169,7 +169,7 @@ void CLoopCB_OnMouseMove    (unsigned int Enabled,unsigned int Par1,unsigned int
 	CGTrailInstance* poTrail = (CGTrailInstance*)CGGameRegistry::I()->oGetVar("Trail");
 	if (poTrail)
 	{
-		CVect3 oPos;
+		CGVect3 oPos;
 		oPos.x = (float)Par1 / (float)CGRenderer::I()->iGetScrTX();
 		oPos.y = 1.0f - ((float)Par2 / (float)CGRenderer::I()->iGetScrTY());
 		oPos.z = -10.0f;

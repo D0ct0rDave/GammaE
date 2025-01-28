@@ -17,7 +17,7 @@ void* CGGameFlow_CreateEntity(const CGString& _sParameters)
 	if ( oParams[0] |= "Player")
 	{
 		CPlayer*poPlayer = mNew CPlayer;
-		poPlayer->Init(CVect3::oZero(),0);
+		poPlayer->Init(CGVect3::oZero(),0);
 		return(poPlayer);
 	}
 	// Create the entity type
@@ -44,7 +44,7 @@ else if (oParams[0] |= "Enemy")
 		float fY  = atof(oParams[3].szString());
 		float fZ  = atof(oParams[4].szString());
 
-		CVect3 oPos(fX,fY,fZ);
+		CGVect3 oPos(fX,fY,fZ);
 
 		if (oParams[5] == "NULL") oParams[5] = "";
 		if (oParams[6] == "NULL") oParams[6] = "";
@@ -76,7 +76,7 @@ void* CGGameFlow_CreateGroup(const CGString& _sParameters)
 	float fY  = atof(oParams[4].szString());
 	float fZ  = atof(oParams[5].szString());
 
-	CVect3 oPos(fX,fY,fZ);
+	CGVect3 oPos(fX,fY,fZ);
 
 	if (oParams[6] == "NULL") oParams[6] = "";
 	if (oParams[7] == "NULL") oParams[7] = "";
@@ -103,7 +103,7 @@ void* CGGameFlow_CreateGroupExt(const CGString& _sParameters)
 	float fY  = atof(oParams[4].szString());
 	float fZ  = atof(oParams[5].szString());
 
-	CVect3 oPos(fX,fY,fZ);
+	CGVect3 oPos(fX,fY,fZ);
 
 	if (oParams[6] == "NULL") oParams[6] = "";
 	if (oParams[7] == "NULL") oParams[7] = "";

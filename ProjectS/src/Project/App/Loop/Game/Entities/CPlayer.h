@@ -18,16 +18,16 @@ typedef struct{
 class CPlayer : public CGLiveGameEntity
 {
 public:	
-		PUBLISH_GAMEENTITY_CLASSNAME();
+		PUBLISH_GAMEENTITY_CLASSNAME;
 
 		 CPlayer();
 		~CPlayer();
 
 		// AI/Think
-		virtual void Init(const CVect3& _oPos,int _iPlayerID);
+		virtual void Init(const CGVect3& _oPos,int _iPlayerID);
 		virtual void Think(float _fDeltaT);
 
-		virtual void UpdatePos(const CVect3& _oNewPos);
+		virtual void UpdatePos(const CGVect3& _oNewPos);
 		virtual void CheckEntityCollisions();
 
 		virtual void Kill();
@@ -36,13 +36,13 @@ public:
 
 public:
 		bool			m_bJumping;
-		CVect3			m_oJumpDir;
+		CGVect3			m_oJumpDir;
 		float			m_fJumpSpd;
 		
 		int				m_iPlayerID;
 		TWeaponData		m_oWD[MAX_WEAPONS];		
-		CBoundingBox	m_oBox[9];
-		CBoundingBox*	m_oActiveCols[9];
+		CGGraphBVAABB		m_oBox[9];
+		CGGraphBVAABB*	m_oActiveCols[9];
 };
 // -----------------------------------------------------------------------------
 #endif

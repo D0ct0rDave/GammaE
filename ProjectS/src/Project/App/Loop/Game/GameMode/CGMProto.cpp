@@ -375,7 +375,7 @@ void CGMProto::Think(float _fDeltaT)
 	// update corona
 	/*
 	// TEST 
-	CVect3 oP = m_poPlayer->poGraphicInstance()->oPos();
+	CGVect3 oP = m_poPlayer->poGraphicInstance()->oPos();
 	oP.y += 5.0f;
 	CGCoronaManager::I()->SetPos(m_poCoronaInst,oP);	
 	*/
@@ -386,7 +386,7 @@ void CGMProto::Think(float _fDeltaT)
 	
 	// m_poPSys->SetPos( m_poPlayer->poGraphicInstance()->oPos() );
 	
-	// CVect3 oPos = oCurve.oInterpolate(m_fTime/10.0f);
+	// CGVect3 oPos = oCurve.oInterpolate(m_fTime/10.0f);
 	// m_poPSys->SetPos( oPos );
 	
 
@@ -401,7 +401,7 @@ void CGMProto::Think(float _fDeltaT)
 		fValue = m_oSmoother.fValue(fValue);
 		if (fValue != 0.0)
 		{		
-			CVect3 oPos = m_poPlayer->poGraphicInstance()->oPos();
+			CGVect3 oPos = m_poPlayer->poGraphicInstance()->oPos();
 			oPos.y += fValue;
 			m_poScore->SetText("value: %.3f",fValue);
 			m_poScore->ComputeBoundVol();

@@ -16,14 +16,14 @@
 class CGameCamera : public CGGameEntity
 {
 	public:
-		PUBLISH_GAMEENTITY_CLASSNAME();
+		PUBLISH_GAMEENTITY_CLASSNAME;
 	
 		CGameCamera();
 		~CGameCamera();
 
 		void Init();
 		virtual void Think(float _fDeltaT);
-		virtual void UpdatePos(const CVect3& _oNewPos);
+		virtual void UpdatePos(const CGVect3& _oNewPos);
 };
 //-----------------------------------------------------------------------------
 #endif

@@ -2,9 +2,9 @@
 #include "CLaserManager.h"
 // -----------------------------------------------------------------------------
 
-CE3D_Shader*	CLaserManager::m_poShader = NULL;
-CMesh*			CLaserManager::m_poMesh = NULL;
-TLaserEntry		CLaserManager::m_oLE[MAX_LASERS];
+CGShader*	CLaserManager::m_poShader = NULL;
+CGMesh*		CLaserManager::m_poMesh = NULL;
+TLaserEntry	CLaserManager::m_oLE[MAX_LASERS];
 // -----------------------------------------------------------------------------
 
 typedef struct{
@@ -25,12 +25,12 @@ static TLaserType gsLaserTypes[MAX_LASER_TYPES] =
 void CLaserManager::Init()
 {
 	// Load texture
-	m_poShader = CE3D_ShaderWH::I()->poCreateShader("data/textures/fx/fx_part8");
+	m_poShader = CGShaderWH::I()->poCreateShader("data/textures/fx/fx_part8");
 	
 	// Initialize billboard object
-	m_poMesh = mNew CMesh();
+	m_poMesh = mNew CGMesh();
 	m_poMesh->Init( MAX_LASERS*4*2,MAX_LASERS,
-					E3D_MESH_QUADS,
+					E3D_PrimitiveType::E3D_PT_QUADS,
 					MESH_FIELD_VERTEXS  |
 					MESH_FIELD_UVCOORDS |
 					MESH_FIELD_COLORS   |
@@ -55,7 +55,7 @@ uint CLaserManager::uiAddLaser(int _iType)
 	return(-1);
 }
 // -----------------------------------------------------------------------------
-void CLaserManager::UpdateLaser(uint _uiID,const CVect3& _roIPos,const CVect3& _roFPos)
+void CLaserManager::UpdateLaser(uint _uiID,const CGVect3& _roIPos,const CGVect3& _roFPos)
 {
 	m_oLE[_uiID].m_oFPos = _roFPos;
 	m_oLE[_uiID].m_oIPos = _roIPos;
@@ -84,8 +84,8 @@ void CLaserManager::Update(float _fDeltaT)
 			
 			if (iType != -1)
 			{
-				CVect3 oIPos;				
-				CVect3 oFPos;
+				CGVect3 oIPos;				
+				CGVect3 oFPos;
 				/*
 				oSFXViewMat.MultVec3 (m_oLE[i].m_oIPos,oIPos);
 				oSFXViewMat.MultVec3 (m_oLE[i].m_oFPos,oFPos);

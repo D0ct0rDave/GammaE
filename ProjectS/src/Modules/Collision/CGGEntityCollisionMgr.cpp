@@ -14,7 +14,7 @@ CGCollisionInfo*  CGGEntityCollisionMgr::poCheckParticleCollision(CGColliderPrim
 		{
 			CGCPTSphere* poSph = (CGCPTSphere*)_poCT;
 
-			CVect3 oPos = poSph->m_oCenter;
+			CGVect3 oPos = poSph->m_oCenter;
 			oPos.Scale(_fScale);
 			oPos.Add( CCOL_ColState::DstFPos );
 
@@ -37,7 +37,7 @@ CGCollisionInfo*  CGGEntityCollisionMgr::poCheckParticleCollision(CGColliderPrim
 			
 			if (bCollided)
 			{
-				CVect3 oDir = CCOL_ColState::SrcFPos;
+				CGVect3 oDir = CCOL_ColState::SrcFPos;
 				oDir.Sub(oPos);
 				oDir.Normalize();
 				
@@ -90,7 +90,7 @@ CGCollisionInfo* CGGEntityCollisionMgr::poCheckParticleCollision(CGColliderInsta
 	return ( poCheckParticleCollision(_poDstCI->m_poResource->m_poCT,_poDstCI->m_fScale) );
 }
 //-----------------------------------------------------------------------------
-CGCollisionInfo* CGGEntityCollisionMgr::poCheckParticleCollision(const CVect3& _roPos,const CVect3& _roOldPos,CGGameEntity* _poParent)
+CGCollisionInfo* CGGEntityCollisionMgr::poCheckParticleCollision(const CGVect3& _roPos,const CGVect3& _roOldPos,CGGameEntity* _poParent)
 {
 	// Setup some collision system variables
 	CCOL_ColState::SrcIPos = _roOldPos;
@@ -125,7 +125,7 @@ CGCollisionInfo* CGGEntityCollisionMgr::poCheckParticleCollision(const CVect3& _
 	return(NULL);
 }
 //-----------------------------------------------------------------------------
-CGCollisionInfo* CGGEntityCollisionMgr::poCheckCollision(const CVect3& _oSrcPos,float _fSrcRadius,CGColliderPrimitive* _poDstCol,float _fDstScale)
+CGCollisionInfo* CGGEntityCollisionMgr::poCheckCollision(const CGVect3& _oSrcPos,float _fSrcRadius,CGColliderPrimitive* _poDstCol,float _fDstScale)
 {
 	// Perform test
 	switch (_poDstCol->eType())
@@ -134,7 +134,7 @@ CGCollisionInfo* CGGEntityCollisionMgr::poCheckCollision(const CVect3& _oSrcPos,
 		{
 			CGCPTSphere* poSph = (CGCPTSphere*)_poDstCol;
 
-			CVect3 oPos = poSph->m_oCenter;
+			CGVect3 oPos = poSph->m_oCenter;
 			oPos.Scale(_fDstScale);
 			oPos.Add( CCOL_ColState::DstFPos );
 
@@ -153,14 +153,14 @@ CGCollisionInfo* CGGEntityCollisionMgr::poCheckCollision(const CVect3& _oSrcPos,
 			}
 			#endif
 			
-			CVect3 oSrcPos = _oSrcPos;
-			CVect3 oDstPos = oPos;
+			CGVect3 oSrcPos = _oSrcPos;
+			CGVect3 oDstPos = oPos;
 			
   			bool bCollided = CCOL_ST_Sphere::iTestSphere(oSrcPos,_fSrcRadius,oDstPos,fScale);
 
 			if (bCollided)
 			{
-				CVect3 oDir = CCOL_ColState::SrcFPos;
+				CGVect3 oDir = CCOL_ColState::SrcFPos;
 				oDir.Sub(oPos);
 				oDir.Normalize();
 				
@@ -207,7 +207,7 @@ CGCollisionInfo* CGGEntityCollisionMgr::poCheckCollision(CGColliderPrimitive* _p
 		{
 			CGCPTSphere* poSph = (CGCPTSphere*)_poSrcCol;
 
-			CVect3 oPos = poSph->m_oCenter;
+			CGVect3 oPos = poSph->m_oCenter;
 			oPos.Scale(_fSrcScale);
 			oPos.Add( CCOL_ColState::SrcFPos );
 

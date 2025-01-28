@@ -10,7 +10,7 @@ CGColliderPrimitive* CGColliderDefinitionFileWH::poRetrieveCollider(const CGConf
 	// Read Collider properties
 	if (sType |= "sphere")
 	{
-		CVect3 oCenter;
+		CGVect3 oCenter;
 		CGString sName  = _oCfg.sGetString(_sSection + ".Name", "none" );
 
 		float	fRadius = _oCfg.fGetFloat(_sSection + ".Radius", 0.0f );
@@ -24,7 +24,7 @@ CGColliderPrimitive* CGColliderDefinitionFileWH::poRetrieveCollider(const CGConf
 
 else if (sType |= "aabb")
 	{
-		CVect3 oCenter,oExtents;
+		CGVect3 oCenter,oExtents;
 		CGString sName  = _oCfg.sGetString(_sSection + ".Name", "none" );
 
 		oCenter.x = _oCfg.fGetFloat(_sSection + ".Center.x", 0.0f );

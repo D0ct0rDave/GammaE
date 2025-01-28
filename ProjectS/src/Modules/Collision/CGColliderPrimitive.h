@@ -41,7 +41,7 @@ class CGCPTSphere : public CGColliderPrimitive
 	public:
 		
 		/// Creates a sphere collidable object
-		CGCPTSphere(const CGString& _sID, const CVect3& _oCenter, float _fRadius)
+		CGCPTSphere(const CGString& _sID, const CGVect3& _oCenter, float _fRadius)
 		{
 			m_sID     = _sID;
 			m_oCenter = _oCenter;
@@ -49,7 +49,7 @@ class CGCPTSphere : public CGColliderPrimitive
 		};
 		
 		/// Creates a sphere collidable objet without text ID
-		CGCPTSphere(const CVect3& _oCenter, float _fRadius)
+		CGCPTSphere(const CGVect3& _oCenter, float _fRadius)
 		{
 			m_oCenter = _oCenter;
 			m_fRadius = _fRadius;
@@ -59,7 +59,7 @@ class CGCPTSphere : public CGColliderPrimitive
 		virtual EGColliderPrimitiveType eType(){ return(CPT_Sphere); };
 
 		/// Stores the center of the collidable
-		CVect3		m_oCenter;
+		CGVect3		m_oCenter;
 
 		/// Stores the collision radius
 		float		m_fRadius;
@@ -70,7 +70,7 @@ class CGCPTAABB: public CGColliderPrimitive
 	public:
 
 		/// Creates a axis aligned bounding box collidable object
-		CGCPTAABB(const CGString& _sID,const CVect3& _oCenter,const CVect3& _oExtents)
+		CGCPTAABB(const CGString& _sID,const CGVect3& _oCenter,const CGVect3& _oExtents)
 		{
 			m_sID		= _sID;
 			m_oCenter	= _oCenter;
@@ -78,7 +78,7 @@ class CGCPTAABB: public CGColliderPrimitive
 		};
 		
 		/// Creates a axis aligned bounding box collidable objet without text ID
-		CGCPTAABB(const CVect3& _oCenter,const CVect3& _oExtents)
+		CGCPTAABB(const CGVect3& _oCenter,const CGVect3& _oExtents)
 		{
 			m_oCenter	= _oCenter;
 			m_oExtents	= _oExtents;
@@ -88,10 +88,8 @@ class CGCPTAABB: public CGColliderPrimitive
 		virtual EGColliderPrimitiveType eType(){ return(CPT_AABB); };
 
 		/// Stores the collision center
-		CVect3 m_oCenter;
-		CVect3 m_oExtents;
-		
-		
+		CGVect3 m_oCenter;
+		CGVect3 m_oExtents;
 };
 // -----------------------------------------------------------------------------
 class CGCPTComposite : public CGColliderPrimitive

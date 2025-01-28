@@ -21,9 +21,9 @@ typedef struct TBullet{
 	int				m_iState;
 	int				m_iType;
 	float			m_fTime;
-	CVect3			m_oPos;
-	CVect3			m_oOPos;
-	CVect3			m_oDir;
+	CGVect3			m_oPos;
+	CGVect3			m_oOPos;
+	CGVect3			m_oDir;
 	CGGameEntity*	m_poParent;
 
 	// Graphic elements
@@ -39,7 +39,7 @@ class CBulletMgr
 		static void Init();
 		static void Reset();
 		static void Think(float _fDeltaT);
-		static int  iAddBullet(int _iType,const CVect3& _oPos,const CVect3& _oDir,CGGameEntity* _poParent);
+		static int  iAddBullet(int _iType,const CGVect3& _oPos,const CGVect3& _oDir,CGGameEntity* _poParent);
 		static TBulletType& oGetBulletType(int _iType);
 		
 	public:
@@ -49,7 +49,7 @@ class CBulletMgr
 		static void BulletThink_Napalm(float _fDeltaT,TBullet* _poBullet);
 
 		static TBullet *poGetFreeBullet();		
-		static void FillBullet (TBullet* _poBullet,int _iType,const CVect3& _oPos,CGGameEntity* _poParent);
+		static void FillBullet (TBullet* _poBullet,int _iType,const CGVect3& _oPos,CGGameEntity* _poParent);
 		
 		// Circular queue
 		static CGCircularArray<TBullet> m_oList;

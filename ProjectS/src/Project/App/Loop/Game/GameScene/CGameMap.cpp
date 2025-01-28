@@ -22,7 +22,7 @@ typedef struct TCOLRect{
 /*******************************************************
 Retrieves the Collision rectangle for the specific sprite
 *******************************************************/
-void MAP_GetCOLRect(const CVect3& _oPos,float _fWidth,float _fHeight,TCOLRect* _poRect)
+void MAP_GetCOLRect(const CGVect3& _oPos,float _fWidth,float _fHeight,TCOLRect* _poRect)
 {
 	_poRect->fIX = _oPos.x - _fWidth*0.5f;
 	_poRect->fIY = _oPos.y;
@@ -30,7 +30,7 @@ void MAP_GetCOLRect(const CVect3& _oPos,float _fWidth,float _fHeight,TCOLRect* _
 	_poRect->fFY = _oPos.y + _fHeight;
 }
 
-float CGameMap::fGetGroundHeight(const CVect3& _oPos)
+float CGameMap::fGetGroundHeight(const CGVect3& _oPos)
 {
 	int i = (int)(_oPos.x);
 	int j = (int)(-_oPos.y);
@@ -47,7 +47,7 @@ Se deberia tener en cuenta si la coordenada que se nos
 supera el limite de la seccion, testear con los tiles de
 la seccion anterior/posterior.
 *******************************************************/
-int CGameMap::iGetTile(const CVect3& _oPos)
+int CGameMap::iGetTile(const CGVect3& _oPos)
 {
 	// Convert world coords to map coords
 	int i = (int)(_oPos.x / 100.0f);
@@ -79,7 +79,7 @@ the map elements
 --------------------------------------------------------
 FIXED Tile size: 32x32 pixels
 *******************************************************/
-bool CGameMap::bCOLSpriteMap(const CVect3& _oPos,float _fWidth,float _fHeight,uint _uiFlags)
+bool CGameMap::bCOLSpriteMap(const CGVect3& _oPos,float _fWidth,float _fHeight,uint _uiFlags)
 {
 	// Test first against the map
 	TCOLRect oSrc;
@@ -105,12 +105,12 @@ CGameMap::~CGameMap()
 {
 }
 
-CGraphBV *CGameMap::poGetBoundVol()
+CGGraphBV *CGameMap::poGetBoundVol()
 {
     return(NULL);
 }
 
-CGraphBV *CGameMap::poCreateBoundVol()
+CGGraphBV *CGameMap::poCreateBoundVol()
 {
 	return(NULL);
 }
@@ -127,12 +127,11 @@ void CGameMap::Load(const CGString& _sFilename)
 	CGString szTexMap = oFile.sGetString("General.MapFile","none.ms");
 
 	// Load the map
-	CGString sDir		 = ExtractFileDir(_sFilename);
+	CGString sDir		 = Utils::ExtractFileDir(_sFilename);
 	CGString sTexMapPath = sDir + CGString("/") + szTexMap;
 
-	m_poTexMap = mNew TTexMap;
-	m_poTexMap->Load( (char*)sTexMapPath.szString() );
-
+	m_poTexMap = mNew CTMSector_8_16;
+	m_poTexMap->iLoad( (char*)sTexMapPath.szString() );
 
 /*
 	FILE* fd = fopen((char*)sTexMapPath.szString(),"rb");
@@ -155,8 +154,8 @@ if (fd)
 
 		CGString sTileFilename = oFile.sGetString(oStr,"NULL_TILE");
 		CGGraphicResource* poTile = CGGraphicResourceWH::I()->poLoad(sTileFilename);
-		if ((poTile != NULL) && (poTile->poModel()!= NULL))
-			poTile->poModel()->Ref();
+		if ((poTile != NULL) && (poTile->poGetModel()!= NULL))
+			poTile->poGetModel()->Ref();
 
 		m_oTile.iAdd(poTile);
 	}
@@ -202,15 +201,16 @@ void CGameMap::Render ()
 
 			if (poTile != NULL)
 			{
-				CVect3 oPos(i,-1.0f*j,0.0f);
-				CMatrix4x4 oMat;
+				CGVect3 oPos(i,-1.0f*j,0.0f);
+				CGMatrix4x4 oMat;
 				oMat.LoadIdentity();								
 				oMat.Translate(oPos);
 				oMat.Scale(0.01f,0.01f,0.01f);
 				
-				oTransf.SetObject( poTile->poModel() );
+				oTransf.SetObject( poTile->poGetModel() );
 				oTransf.SetTransf(oMat);
-				oTransf.Render();
+
+				CGSCNVRenderer::I()->Render(&oTransf);
 			}
 		}
 }

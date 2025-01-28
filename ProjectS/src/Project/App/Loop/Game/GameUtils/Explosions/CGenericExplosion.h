@@ -7,10 +7,10 @@
 // -----------------------------------------------------------------------------
 typedef struct
 {
-	CVect3				m_oPos;
+	CGVect3				m_oPos;
 
 	// Behavioural parameters
-	CVect3				m_oDir;					// Random direction for this debris
+	CGVect3				m_oDir;					// Random direction for this debris
 	float				m_fSpiralRadius;		
 	float				m_fSpiralAngleSpd;
 	float				m_fLinearSpd;
@@ -27,7 +27,7 @@ class CGenericExplosion : public CExplosion
 		CGenericExplosion();
 		~CGenericExplosion();
 
-		virtual void Init(const CVect3& _oPos);
+		virtual void Init(const CGVect3& _oPos);
 		virtual void Finish();
 		virtual void Think(float _fDeltaT);
 		virtual bool bAlive();
@@ -38,8 +38,8 @@ class CGenericExplosion : public CExplosion
 
 		float					m_fTime;
 		float					m_fOTime;
-		CVect3					m_oPos;
-		CVect3					m_oOPos;
+		CGVect3					m_oPos;
+		CGVect3					m_oOPos;
 
 		uint					m_uiNumElems;
 		TGenericExplosionElem	m_oEl[MAX_DEBRIS_ELEMS];		

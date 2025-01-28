@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Modules">
+      <UniqueIdentifier>{DE144435-4AF4-C2D0-530C-4EA7BF6A2932}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Collision">
+      <UniqueIdentifier>{79770BA7-E58D-093D-2E05-955E9A5ADAC4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ModelWH">
+      <UniqueIdentifier>{9DD79387-0963-014C-1274-84407E7E5D4C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Video">
+      <UniqueIdentifier>{E4BEF5D9-507F-7110-19BA-BA8D8539B6EC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project">
+      <UniqueIdentifier>{5C2CF323-C80B-72BF-D123-FD953D82D820}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\App">
+      <UniqueIdentifier>{8CE34408-F898-BDFD-818D-B7D4ED41B401}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\App\Loop">
+      <UniqueIdentifier>{750EDB9F-6107-FAF1-8A39-DF767691D9FD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\App\Loop\Game">
+      <UniqueIdentifier>{3E795A7D-AAE5-1578-73D9-ADD5DF0438E0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\App\Loop\Game\Entities">
+      <UniqueIdentifier>{B2D72256-9EFD-ECBC-8743-728873081289}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\App\Loop\Game\Entities\Enemies">
+      <UniqueIdentifier>{87901101-73E2-E8F0-5C01-260148F201DA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\App\Loop\Game\Entities\Lavadora">
+      <UniqueIdentifier>{4B5727D7-B7E6-E8C1-C0E2-C9D92CF123CE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\App\Loop\Game\GameMode">
+      <UniqueIdentifier>{CCA33F35-B8C9-099C-A10F-8F678DD42E68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\App\Loop\Game\GameScene">
+      <UniqueIdentifier>{95219ADD-0105-A91D-0A08-D759766A6F6E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\App\Loop\Game\GameUtils">
+      <UniqueIdentifier>{D8B5C7DD-4499-D61D-4D9C-045AB9FE9C6E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\App\Loop\Game\GameUtils\Explosions">
+      <UniqueIdentifier>{5B9A9EC0-4702-658E-B06D-79A49CF47B7A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\App\Loop\Game\GameUtils\Laser">
+      <UniqueIdentifier>{1E9B572A-8A5F-561A-53C5-86E4BF48F24F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\Modules\Collision\CGColliderDefinitionFileWH.h">
+      <Filter>Modules\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Modules\Collision\CGColliderInstance.h">
+      <Filter>Modules\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Modules\Collision\CGColliderPrimitive.h">
+      <Filter>Modules\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Modules\Collision\CGColliderResource.h">
+      <Filter>Modules\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Modules\Collision\CGColliderResourceWH.h">
+      <Filter>Modules\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Modules\Collision\CGGEntityCollisionMgr.h">
+      <Filter>Modules\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Modules\ModelWH\CGModelWH.h">
+      <Filter>Modules\ModelWH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Modules\Video\CVideo.h">
+      <Filter>Modules\Video</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Modules\Video\CVideoAVIW32.h">
+      <Filter>Modules\Video</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Project\App\CApplication.h">
+      <Filter>Project\App</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Project\App\Loop\CLoop.h">
+      <Filter>Project\App\Loop</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Project\App\Loop\CLoopCB.h">
+      <Filter>Project\App\Loop</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Project\App\Loop\CLoopGlobals.h">
+      <Filter>Project\App\Loop</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Project\App\Loop\Game\CGame.h">
+      <Filter>Project\App\Loop\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Project\App\Loop\Game\CGameGlobals.h">
+      <Filter>Project\App\Loop\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Project\App\Loop\Game\Entities\CGameCamera.h">
+      <Filter>Project\App\Loop\Game\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Project\App\Loop\Game\Entities\CGameFlow.h">
+      <Filter>Project\App\Loop\Game\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Project\App\Loop\Game\Entities\CPlayer.h">
+      <Filter>Project\App\Loop\Game\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Project\App\Loop\Game\Entities\Enemies\CEnemy.h">
+      <Filter>Project\App\Loop\Game\Entities\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Project\App\Loop\Game\Entities\Enemies\CEnemyGroup.h">
+      <Filter>Project\App\Loop\Game\Entities\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Project\App\Loop\Game\Entities\Enemies\CEnemyGroupExt.h">
+      <Filter>Project\App\Loop\Game\Entities\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Project\App\Loop\Game\Entities\EntityIDS.h">
+      <Filter>Project\App\Loop\Game\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Project\App\Loop\Game\Entities\Lavadora\CLavadora.h">
+      <Filter>Project\App\Loop\Game\Entities\Lavadora</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Project\App\Loop\Game\GameMode\CGMProto.h">
+      <Filter>Project\App\Loop\Game\GameMode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Project\App\Loop\Game\GameScene\CGameMap.h">
+      <Filter>Project\App\Loop\Game\GameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Project\App\Loop\Game\GameScene\CGameScene.h">
+      <Filter>Project\App\Loop\Game\GameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Project\App\Loop\Game\GameUtils\CBulletMgr.h">
+      <Filter>Project\App\Loop\Game\GameUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Project\App\Loop\Game\GameUtils\CColliderRenderer.h">
+      <Filter>Project\App\Loop\Game\GameUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Project\App\Loop\Game\GameUtils\Explosions\CExplosion.h">
+      <Filter>Project\App\Loop\Game\GameUtils\Explosions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Project\App\Loop\Game\GameUtils\Explosions\CExplosionMgr.h">
+      <Filter>Project\App\Loop\Game\GameUtils\Explosions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Project\App\Loop\Game\GameUtils\Explosions\CGenericExplosion.h">
+      <Filter>Project\App\Loop\Game\GameUtils\Explosions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Project\App\Loop\Game\GameUtils\Laser\CLaserManager.h">
+      <Filter>Project\App\Loop\Game\GameUtils\Laser</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Modules\Collision\CGColliderDefinitionFileWH.cpp">
+      <Filter>Modules\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Modules\Collision\CGColliderInstance.cpp">
+      <Filter>Modules\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Modules\Collision\CGColliderResourceWH.cpp">
+      <Filter>Modules\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Modules\Collision\CGGEntityCollisionMgr.cpp">
+      <Filter>Modules\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Modules\ModelWH\CGModelWH.cpp">
+      <Filter>Modules\ModelWH</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Modules\Video\CVideoAVIW32.cpp">
+      <Filter>Modules\Video</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Project\App\CApplication.cpp">
+      <Filter>Project\App</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Project\App\Loop\CLoop.cpp">
+      <Filter>Project\App\Loop</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Project\App\Loop\CLoopCB.cpp">
+      <Filter>Project\App\Loop</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Project\App\Loop\CLoopGlobals.cpp">
+      <Filter>Project\App\Loop</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Project\App\Loop\Game\CGame.cpp">
+      <Filter>Project\App\Loop\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Project\App\Loop\Game\CGameGlobals.cpp">
+      <Filter>Project\App\Loop\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Project\App\Loop\Game\Entities\CGameCamera.cpp">
+      <Filter>Project\App\Loop\Game\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Project\App\Loop\Game\Entities\CGameFlow.cpp">
+      <Filter>Project\App\Loop\Game\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Project\App\Loop\Game\Entities\CPlayer.cpp">
+      <Filter>Project\App\Loop\Game\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Project\App\Loop\Game\Entities\Enemies\CEnemy.cpp">
+      <Filter>Project\App\Loop\Game\Entities\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Project\App\Loop\Game\Entities\Enemies\CEnemyGroup.cpp">
+      <Filter>Project\App\Loop\Game\Entities\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Project\App\Loop\Game\Entities\Enemies\CEnemyGroupExt.cpp">
+      <Filter>Project\App\Loop\Game\Entities\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Project\App\Loop\Game\Entities\Lavadora\CLavadora.cpp">
+      <Filter>Project\App\Loop\Game\Entities\Lavadora</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Project\App\Loop\Game\GameMode\CGMProto.cpp">
+      <Filter>Project\App\Loop\Game\GameMode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Project\App\Loop\Game\GameScene\CGameMap.cpp">
+      <Filter>Project\App\Loop\Game\GameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Project\App\Loop\Game\GameScene\CGameScene.cpp">
+      <Filter>Project\App\Loop\Game\GameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Project\App\Loop\Game\GameUtils\CBulletMgr.cpp">
+      <Filter>Project\App\Loop\Game\GameUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Project\App\Loop\Game\GameUtils\CColliderRenderer.cpp">
+      <Filter>Project\App\Loop\Game\GameUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Project\App\Loop\Game\GameUtils\Explosions\CExplosion.cpp">
+      <Filter>Project\App\Loop\Game\GameUtils\Explosions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Project\App\Loop\Game\GameUtils\Explosions\CExplosionMgr.cpp">
+      <Filter>Project\App\Loop\Game\GameUtils\Explosions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Project\App\Loop\Game\GameUtils\Explosions\CGenericExplosion.cpp">
+      <Filter>Project\App\Loop\Game\GameUtils\Explosions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Project\App\Loop\Game\GameUtils\Laser\CLaserManager.cpp">
+      <Filter>Project\App\Loop\Game\GameUtils\Laser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Project\main.cpp">
+      <Filter>Project</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

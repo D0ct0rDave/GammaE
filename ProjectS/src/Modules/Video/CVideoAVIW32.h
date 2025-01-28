@@ -11,7 +11,7 @@ class CVideo
 		static void Finish();
  		static void Update(float _fDeltaT);
 		static void Render();
-		static CE3D_Shader* poGetFrame();
+		static CGShader* poGetFrame();
 
 		static void Play() { m_bPlaying = true; };
 		static void Stop() { m_bPlaying = false; };

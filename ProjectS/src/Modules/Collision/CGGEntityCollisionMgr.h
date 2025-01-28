@@ -5,6 +5,7 @@
 #include "GammaE.h"
 #include "CGColliderInstance.h"
 #include "CGColliderPrimitive.h"
+class CGGameEntity;
 //-----------------------------------------------------------------------------
 class CGCollisionInfo
 {
@@ -20,7 +21,7 @@ class CGCollisionInfo
 		float					m_fU;
 
 		/// Minimum point of collision
-		CVect3					m_oP;
+		CGVect3					m_oP;
 };
 //-----------------------------------------------------------------------------
 DECLARE_SINGLETON(CGGEntityCollisionMgr)
@@ -33,7 +34,7 @@ DECLARE_SINGLETON(CGGEntityCollisionMgr)
 		CGCollisionInfo*  poCheckCollision(CGGameEntity* _poSrcEnt);
 
 		/// Performs a collision test between a particle and the registered entities in the system
-		CGCollisionInfo*  poCheckParticleCollision(const CVect3& _roPos,const CVect3& _roOldPos,CGGameEntity* _poParent);
+		CGCollisionInfo*  poCheckParticleCollision(const CGVect3& _roPos,const CGVect3& _roOldPos,CGGameEntity* _poParent);
 	
 	protected:
 		
@@ -44,7 +45,7 @@ DECLARE_SINGLETON(CGGEntityCollisionMgr)
 		CGCollisionInfo*  poCheckCollision(CGColliderPrimitive* _poSrcCol,float _fSrcScale,CGColliderPrimitive* _poDstCol,float _fDstScale);
 
 		/// Performs a collision test between a sphere and a detination collider primitive
-		CGCollisionInfo*  poCheckCollision(const CVect3& _oSrcPos,float _fSrcRadius,CGColliderPrimitive* _poDstCol,float _fDstScale);
+		CGCollisionInfo*  poCheckCollision(const CGVect3& _oSrcPos,float _fSrcRadius,CGColliderPrimitive* _poDstCol,float _fDstScale);
 
 		/// Performs a collision test between a particle and the a specific registered entity
 		CGCollisionInfo*  poCheckParticleCollision(CGColliderInstance* _poEnt);

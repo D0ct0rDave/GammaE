@@ -32,10 +32,10 @@ class CGColliderInstance
 		float				m_fScale;
 
 		/// The position of the entity this frame
-		CVect3				m_oPos;
+		CGVect3				m_oPos;
 		
 		/// The previous position of the entity
-		CVect3				m_oOldPos;
+		CGVect3				m_oOldPos;
 
 		/// Collision information
 		CGColliderResource*	m_poResource;

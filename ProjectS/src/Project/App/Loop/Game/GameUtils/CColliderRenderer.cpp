@@ -21,7 +21,7 @@ CColliderRenderer::CColliderRenderer()
 	Disable();
 }
 // -----------------------------------------------------------------------------
-void CColliderRenderer::RenderCollider(CGColliderPrimitive* _poCT,const CVect3& _oOffset,float _fScale)
+void CColliderRenderer::RenderCollider(CGColliderPrimitive* _poCT,const CGVect3& _oOffset,float _fScale)
 {
 	switch (_poCT->eType())
 	{
@@ -29,7 +29,7 @@ void CColliderRenderer::RenderCollider(CGColliderPrimitive* _poCT,const CVect3& 
 		{
 			CGCPTSphere* poSph = (CGCPTSphere*)_poCT;
 
-			CVect3 oPos = poSph->m_oCenter;
+			CGVect3 oPos = poSph->m_oCenter;
 			oPos.Scale(_fScale);
 			oPos.Add(_oOffset);		
 

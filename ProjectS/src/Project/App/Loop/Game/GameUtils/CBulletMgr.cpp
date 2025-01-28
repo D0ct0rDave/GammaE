@@ -86,8 +86,8 @@ void* CBulletMgr_FireToPlayer(const CGString& _sParameters)
 		fRandomness = atof(oParams[1].szString());
 
 	// Retrieve position and direction
-	CVect3 oPos = poEnt->poGraphicInstance()->oPos();
-	CVect3 oTarget = gameGlobals.m_poPlayer->poGraphicInstance()->oPos();
+	CGVect3 oPos = poEnt->poGraphicInstance()->oPos();
+	CGVect3 oTarget = gameGlobals.m_poPlayer->poGraphicInstance()->oPos();
 	
 	oTarget.Sub(oPos);
 	oTarget.Normalize();
@@ -166,10 +166,10 @@ void CBulletMgr::BulletThink_Laser (float _fDeltaT,TBullet* _poBullet)
 	{
 		if (poCI)
 		{
-			CVect3 oDir = _poBullet->m_oPos - _poBullet->m_oOPos;
+			CGVect3 oDir = _poBullet->m_oPos - _poBullet->m_oOPos;
 
 			// Add special FX to denote bullet with world collision
-			CVect3 oCP = _poBullet->m_oOPos + oDir*poCI->fU0;
+			CGVect3 oCP = _poBullet->m_oOPos + oDir*poCI->fU0;
 			CPSysMgr::iAddSHPSys(WEAP_LASER_EXPLOSIONPSYS,oSFXPos(oCP),0.5f,2000.0f);
 
 			if (poCI->poEnt->m_iType == ENT_USER_00)
@@ -207,7 +207,7 @@ void CBulletMgr::BulletThink_Laser (float _fDeltaT,TBullet* _poBullet)
 			float fJFact = (j*fFact);
 			float fVal   = fJFact*fJFact*fJFact;
 
-			CVect3 oDir,oPos,oOPos;
+			CGVect3 oDir,oPos,oOPos;
 			oDir   = _poBullet->m_oPos - _poBullet->m_oOPos;
 			oOPos  = _poBullet->m_oPos + oDir * 10.0f;
 
@@ -262,14 +262,14 @@ void CBulletMgr::BulletThink_Plasma(float _fDeltaT,TBullet* _poBullet)
 				float fJFact = (j*fFact);
 				float fVal   = fJFact*fJFact*fJFact;
 	
-				CVect3 oDir,oPos,oOPos;
+				CGVect3 oDir,oPos,oOPos;
 				oDir = _poBullet->m_oPos;
 				oDir.Sub(_poBullet->m_oOPos);
 				oOPos.LineEq(_poBullet->m_oPos,oDir,10.0f);
 	
 				oPos.x = _poBullet->m_oPos.x;
-				oPos.y = MATH_Common::fLerp(oOPos.y,_poBullet->m_oPos.y,fVal);
-				oPos.z = MATH_Common::fLerp(oOPos.z,_poBullet->m_oPos.z,fVal);
+				oPos.y = Math::fLerp(oOPos.y,_poBullet->m_oPos.y,fVal);
+				oPos.z = Math::fLerp(oOPos.z,_poBullet->m_oPos.z,fVal);
 	
 				CGCoronaManager::I()->SetPos(_poBullet->m_hFl[j], oPos );
 			}
@@ -286,10 +286,10 @@ void CBulletMgr::BulletThink_Napalm(float _fDeltaT,TBullet* _poBullet)
 	{
 		if (poCI)
 		{
-			CVect3 oDir = _poBullet->m_oPos - _poBullet->m_oOPos;
+			CGVect3 oDir = _poBullet->m_oPos - _poBullet->m_oOPos;
 
 			// Add special FX to denote bullet with world collision
-			CVect3 oCP = _poBullet->m_oOPos + oDir*poCI->fU0;
+			CGVect3 oCP = _poBullet->m_oOPos + oDir*poCI->fU0;
 			CPSysMgr::iAddSHPSys(WEAP_NAPALM_EXPLOSIONPSYS,oSFXPos(oCP),0.5f,2000.0f);
 
 			if (poCI->poEnt->m_iType == ENT_USER_00)
@@ -361,7 +361,7 @@ TBullet *CBulletMgr::poGetFreeBullet()
 	return ( m_oList.poGet() );
 }
 // -----------------------------------------------------------------------------
-void CBulletMgr::FillBullet (TBullet* _poBullet,int _iType,const CVect3& _oPos,CGGameEntity* _poParent)
+void CBulletMgr::FillBullet (TBullet* _poBullet,int _iType,const CGVect3& _oPos,CGGameEntity* _poParent)
 {
 	// World position
 	_poBullet->m_iState	    = ENTSTATE_ALIVE;
@@ -415,7 +415,7 @@ void CBulletMgr::FillBullet (TBullet* _poBullet,int _iType,const CVect3& _oPos,C
 	}
 }
 // -----------------------------------------------------------------------------
-int CBulletMgr::iAddBullet(int _iType,const CVect3& _oPos,const CVect3& _oDir,CGGameEntity* _poParent)
+int CBulletMgr::iAddBullet(int _iType,const CGVect3& _oPos,const CGVect3& _oDir,CGGameEntity* _poParent)
 {
 	switch (_iType)
 	{

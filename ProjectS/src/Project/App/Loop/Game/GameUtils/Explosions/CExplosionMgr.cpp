@@ -22,7 +22,7 @@ void CExplosionMgr::Init()
 }
 // -----------------------------------------------------------------------------
 // Add a new explosion
-void CExplosionMgr::AddExplosion(EExplosionType _eExplosionType,const CVect3& _oPos)
+void CExplosionMgr::AddExplosion(EExplosionType _eExplosionType,const CGVect3& _oPos)
 {
 	switch (_eExplosionType)
 	{

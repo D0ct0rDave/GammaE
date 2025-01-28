@@ -67,7 +67,7 @@ CPlayer::~CPlayer()
 }
 // -----------------------------------------------------------------------------
 #define SQ(a) ((a)*(a))
-void CPlayer::Init(const CVect3& _oPos,int _iPlayerID)
+void CPlayer::Init(const CGVect3& _oPos,int _iPlayerID)
 {
 	// Set the player ID
 	m_iPlayerID = _iPlayerID;
@@ -109,7 +109,7 @@ void CPlayer::Init(const CVect3& _oPos,int _iPlayerID)
 	poPlayer->poGraphicResource()->Model(m_poMgr);
 
 	poPlayer->Scale(0.01f);
-	poPlayer->Pos( CVect3(7,GROUND_HEIGHT,0) );
+	poPlayer->Pos( CGVect3(7,GROUND_HEIGHT,0) );
 	poPlayer->Pitch(_PI2_);
 	poPlayer->Yaw(_PI_);
 	poPlayer->Roll(_PI_);
@@ -140,8 +140,8 @@ void CPlayer::Init(const CVect3& _oPos,int _iPlayerID)
 	// Create a collision structure
 	CGColliderInstance* poCI = mNew CGColliderInstance(PLAYER_MODEL);
 	poCI->m_fScale = 1.0f;
-	poCI->m_oPos   = CVect3::oZero();
-	poCI->m_oOldPos= CVect3::oZero();
+	poCI->m_oPos   = CGVect3::oZero();
+	poCI->m_oOldPos= CGVect3::oZero();
 
 	// Composite object
 	Collider((CCOL_Collider*)poCI);
@@ -156,7 +156,7 @@ void CPlayer::Init(const CVect3& _oPos,int _iPlayerID)
 	Reset();
 }
 // -----------------------------------------------------------------------------
-void CPlayer::UpdatePos(const CVect3& _oNewPos)
+void CPlayer::UpdatePos(const CGVect3& _oNewPos)
 {
 	CGGameEntity::UpdatePos(_oNewPos);
 
@@ -188,7 +188,7 @@ void CPlayer::ShuffleModels()
 {
 	for (uint i=0;i<3;i++)
 	{
-		m_uiModelIdxs[i] = MATH_Common::fRand()*3;
+		m_uiModelIdxs[i] = Math::fRand()*3;
 	}
 			// Resetup models
 	m_poMgr->pAnimObjs[HEAD]  = m_poModels[HEAD ][ m_uiModelIdxs[HEAD ] ];
@@ -200,9 +200,9 @@ void CPlayer::Think(float _fDeltaT)
 {
 	CGGameEntity::Think(_fDeltaT);
 
-	CVect3 oPos = poGraphicInstance()->oPos();
-	CVect3 oNewPos(0,0,0);
-	CVect3 oSpd(0,0,0);
+	CGVect3 oPos = poGraphicInstance()->oPos();
+	CGVect3 oNewPos(0,0,0);
+	CGVect3 oSpd(0,0,0);
 
 	/// Check X
 	oSpd.x = (poInput()->fGetValue("right") - poInput()->fGetValue("left")) *_fDeltaT* fRunSpeed[ m_uiModelIdxs[LEGS] ];
@@ -255,26 +255,26 @@ void CPlayer::Think(float _fDeltaT)
 		CheckEntityCollisions();
 
 		// Handle plasma weapon
-		m_oWD[0].m_fShotTime = MATH_Common::fMax(0.0f,m_oWD[0].m_fShotTime-m_fDeltaT);		// Time should pass although we're not pressing fire button
+		m_oWD[0].m_fShotTime = Math::fMax(0.0f,m_oWD[0].m_fShotTime-m_fDeltaT);		// Time should pass although we're not pressing fire button
 
 		if ( poInput()->fGetValue("fire") != 0.0f)
 		{
 			if (m_oWD[0].m_fShotTime <= 0.0f)
 			{
-				CVect3 oFPos1 = CVect3::oZero(); // poGraphicInstance()->poGraphicResource()->poGetCP("CP_Fire1")) ? poGraphicInstance()->poGraphicResource()->poGetCP("CP_Fire1")->m_oPos;
-				CVect3 oFPos2 = CVect3::oZero(); // (poGraphicInstance()->poGraphicResource()->poGetCP("CP_Fire2")) ? poGraphicInstance()->poGraphicResource()->poGetCP("CP_Fire2")->m_oPos;
+				CGVect3 oFPos1 = CGVect3::oZero(); // poGraphicInstance()->poGraphicResource()->poGetCP("CP_Fire1")) ? poGraphicInstance()->poGraphicResource()->poGetCP("CP_Fire1")->m_oPos;
+				CGVect3 oFPos2 = CGVect3::oZero(); // (poGraphicInstance()->poGraphicResource()->poGetCP("CP_Fire2")) ? poGraphicInstance()->poGraphicResource()->poGetCP("CP_Fire2")->m_oPos;
 
 				const CMatrix4x4& oMat = poGraphicInstance()->oTransform();
 				
-				CVect3 oWFPos1 = oFPos1;
-				CVect3 oWFPos2 = oFPos2;
+				CGVect3 oWFPos1 = oFPos1;
+				CGVect3 oWFPos2 = oFPos2;
 
 				oMat.TransformPoint(oWFPos1);
 				oMat.TransformPoint(oWFPos2);
 
 				m_oWD[0].m_fShotTime += m_oWD[0].m_fMaxShotTime;
-				CBulletMgr::iAddBullet(0,oWFPos1,CVect3::oX(),this);
-				CBulletMgr::iAddBullet(0,oWFPos2,CVect3::oX(),this);
+				CBulletMgr::iAddBullet(0,oWFPos1,CGVect3::oX(),this);
+				CBulletMgr::iAddBullet(0,oWFPos2,CGVect3::oX(),this);
 			}
 		}
 	}

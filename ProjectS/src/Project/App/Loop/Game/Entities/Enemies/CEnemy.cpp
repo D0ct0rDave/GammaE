@@ -14,7 +14,7 @@ CEnemy::~CEnemy()
 {
 }
 // -----------------------------------------------------------------------------
-void CEnemy::Init(float _fEnergy,const CVect3& _oPos,const CGString& _sAIScript,const CGString& _sGraphicRes,const CGString& _sPath,float _fScale)
+void CEnemy::Init(float _fEnergy,const CGVect3& _oPos,const CGString& _sAIScript,const CGString& _sGraphicRes,const CGString& _sPath,float _fScale)
 {
 	CGPathResource* poPathRes = NULL;
 	if (_sPath != "")
@@ -26,7 +26,7 @@ void CEnemy::Init(float _fEnergy,const CVect3& _oPos,const CGString& _sAIScript,
 		Init(_fEnergy,_oPos,_sAIScript,_sGraphicRes,NULL,_fScale);
 }
 // -----------------------------------------------------------------------------
-void CEnemy::Init(float _fEnergy,const CVect3& _oPos,const CGString& _sAIScript,const CGString& _sGraphicRes,CGPath* _poPath,float _fScale)
+void CEnemy::Init(float _fEnergy,const CGVect3& _oPos,const CGString& _sAIScript,const CGString& _sGraphicRes,CGPath* _poPath,float _fScale)
 {
 	m_fInitialEnergy = _fEnergy;
 
@@ -47,8 +47,8 @@ void CEnemy::Init(float _fEnergy,const CVect3& _oPos,const CGString& _sAIScript,
 	// Create a collision structure
 	CGColliderInstance* poCI = mNew CGColliderInstance(_sGraphicRes);
 	poCI->m_fScale = _fScale;
-	poCI->m_oPos   = CVect3::oZero();
-	poCI->m_oOldPos= CVect3::oZero();
+	poCI->m_oPos   = CGVect3::oZero();
+	poCI->m_oOldPos= CGVect3::oZero();
 
 	// Composite object
 	Collider((CCOL_Collider*)poCI);
@@ -64,9 +64,9 @@ void CEnemy::Init(float _fEnergy,const CVect3& _oPos,const CGString& _sAIScript,
 	Reset();
 }
 // -----------------------------------------------------------------------------
-CVect3 CEnemy::oGetPos(float _fTime)
+CGVect3 CEnemy::oGetPos(float _fTime)
 {
-	CVect3 oPos(0,0,0);
+	CGVect3 oPos(0,0,0);
 
 	if (m_poPath)
 		oPos = m_poPath->oPos(_fTime);
@@ -95,7 +95,7 @@ void CEnemy::Move(float _fDeltaT)
 	}
 }
 // -----------------------------------------------------------------------------
-void CEnemy::UpdatePos(const CVect3& _oNewPos)
+void CEnemy::UpdatePos(const CGVect3& _oNewPos)
 {
 	CGGameEntity::UpdatePos(_oNewPos);
 

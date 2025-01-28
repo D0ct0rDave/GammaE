@@ -14,7 +14,7 @@ public:
 
 	CGGameExtendedCI			m_oCI;
 
-	CSoundReceiver				m_oSndRcv;
+	CSoundReceiver					m_oSndRcv;
 	bool						m_bFinnishApplication;
 	float						m_fTimeMult;
 

@@ -30,7 +30,7 @@ class CExplosionMgr
 		static void Init();
 		
 		/// Add a new explosion
-		static void AddExplosion(EExplosionType _eExplosionType,const CVect3& _oPos);
+		static void AddExplosion(EExplosionType _eExplosionType,const CGVect3& _oPos);
 
 		/// Update the active explosions
 		static void Update(float _fDeltaT);

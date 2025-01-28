@@ -27,8 +27,8 @@ static uint			m_uiCurFrame	= 0;
 
 static bool			m_bLoop			= false;
 static CGMipMap*	m_poTex			= NULL;
-static CMesh_Rect*	m_poMesh		= NULL;
-static CE3D_Shader* m_poShader		= NULL;
+static CGMeshRect*	m_poMesh		= NULL;
+static CGShader* m_poShader		= NULL;
 
 float		CVideo::m_fTime			= 0.0f;
 float		CVideo::m_fTotalTime	= 0.0f;
@@ -95,10 +95,10 @@ bool CVideo::bInit(char* _szFilename,bool _bLoop)
 		
 		m_poTex->Invalidate();
 
-		m_poMesh   = mNew CMesh_Rect;
-		m_poShader = CE3D_ShaderUtils::poGenerateShaderFromMipMap(m_poTex,VIDEO_FRAME_SHADER);
-		CE3D_ShaderWH::I()->uiAdd(m_poShader,VIDEO_FRAME_SHADER);
-		CMipMapWH::I()->uiAdd(m_poTex,VIDEO_FRAME_SHADER);
+		m_poMesh   = mNew CGMeshRect;
+		m_poShader = CGShaderUtils::poGenerateShaderFromMipMap(m_poTex,VIDEO_FRAME_SHADER);
+		CGShaderWH::I()->uiAdd(m_poShader,VIDEO_FRAME_SHADER);
+		CGMipMapWH::I()->uiAdd(m_poTex,VIDEO_FRAME_SHADER);
 	}
 
 	// Sound
@@ -259,7 +259,7 @@ void CVideo::Render()
     CGRenderer::I()->RenderMesh(m_poMesh,m_poShader);
 }
 // ----------------------------------------------------------------------------
-CE3D_Shader* CVideo::poGetFrame()
+CGShader* CVideo::poGetFrame()
 {
 	return (m_poShader);
 }

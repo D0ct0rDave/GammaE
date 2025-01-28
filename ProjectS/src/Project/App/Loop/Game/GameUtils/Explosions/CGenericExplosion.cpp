@@ -40,41 +40,41 @@ CGenericExplosion::CGenericExplosion()
 {
 	m_fTime = 0.0f;
 	m_fOTime= 0.0f;
-	m_oPos  = CVect3::oZero();
-	m_oOPos = CVect3::oZero();
+	m_oPos  = CGVect3::oZero();
+	m_oOPos = CGVect3::oZero();
 }
 // -----------------------------------------------------------------------------
 CGenericExplosion::~CGenericExplosion()
 {
 }
 // -----------------------------------------------------------------------------
-void CGenericExplosion::Init(const CVect3& _oPos)
+void CGenericExplosion::Init(const CGVect3& _oPos)
 {
 	// CSFXObjectFactory::poGetInstance("GenericEnemyExplosion");
 	m_oPos  = _oPos;
-	m_fTime = MATH_Common::fLerp(MIN_DEBRIS_TIME,MAX_DEBRIS_TIME,MATH_Common::fRand());
+	m_fTime = Math::fLerp(MIN_DEBRIS_TIME,MAX_DEBRIS_TIME,Math::fRand());
 
 	// Core element
-	m_uiNumElems = MATH_Common::fRand() * MAX_DEBRIS_ELEMS_INT;
-	m_oEl[0].m_poDebris = CGPSIManager::I()->poGet(gssCoreExplosionTypes[ (uint)(MATH_Common::fRand()*MAX_CORE_EXPLOSION_TYPES)],0.5f,_oPos);
+	m_uiNumElems = Math::fRand() * MAX_DEBRIS_ELEMS_INT;
+	m_oEl[0].m_poDebris = CGPSIManager::I()->poGet(gssCoreExplosionTypes[ (uint)(Math::fRand()*MAX_CORE_EXPLOSION_TYPES)],0.5f,_oPos);
 	
 	m_oEl[0].m_poSmoke  = 0;
 	m_oEl[0].m_fLinearSpd = 0.0f;
-	m_oEl[0].m_oDir = CVect3::oZero();
+	m_oEl[0].m_oDir = CGVect3::oZero();
 	m_oEl[0].m_oPos = m_oPos;
 
 	// Elements of explosion			
 	for (uint i=1;i<m_uiNumElems;i++)
 	{
-		m_oEl[i].m_poDebris = CGPSIManager::I()->poGet(gssDebrisTypes[(uint)(MATH_Common::fRand()*MAX_DEBRIS_TYPES)],m_fTime,_oPos);
-		m_oEl[i].m_poSmoke  = CGPSIManager::I()->poGet(gssSmokesTypes[(uint)(MATH_Common::fRand()*MAX_SMOKES_TYPES)],m_fTime,_oPos);
+		m_oEl[i].m_poDebris = CGPSIManager::I()->poGet(gssDebrisTypes[(uint)(Math::fRand()*MAX_DEBRIS_TYPES)],m_fTime,_oPos);
+		m_oEl[i].m_poSmoke  = CGPSIManager::I()->poGet(gssSmokesTypes[(uint)(Math::fRand()*MAX_SMOKES_TYPES)],m_fTime,_oPos);
 
-		m_oEl[i].m_oDir.x = MATH_Common::fSRand();
-		m_oEl[i].m_oDir.y = MATH_Common::fSRand();
-		m_oEl[i].m_oDir.z = MATH_Common::fSRand();
+		m_oEl[i].m_oDir.x = Math::fSRand();
+		m_oEl[i].m_oDir.y = Math::fSRand();
+		m_oEl[i].m_oDir.z = Math::fSRand();
 		m_oEl[i].m_oDir.Normalize();
 
-		m_oEl[i].m_fLinearSpd = MATH_Common::fLerp(MIN_DEBRIS_SPEED,MAX_DEBRIS_SPEED,MATH_Common::fRand());
+		m_oEl[i].m_fLinearSpd = Math::fLerp(MIN_DEBRIS_SPEED,MAX_DEBRIS_SPEED,Math::fRand());
 		m_oEl[i].m_oPos = m_oPos;
 	}
 }

@@ -20,7 +20,7 @@ void CLavadora::Init()
 	// Load model
 	CGGraphicInstance* poLavadora = mNew CGGraphicInstance("data/actors/lavadora.gem");
 
-	CVect3 oPos = gameGlobals.m_poPlayer->poGraphicInstance()->oPos();
+	CGVect3 oPos = gameGlobals.m_poPlayer->poGraphicInstance()->oPos();
 	oPos.x += 3;
 	oPos.y  = 0;
 
@@ -48,8 +48,8 @@ void CLavadora::Init()
 	// Create a collision structure
 	CGColliderInstance* poCI = mNew CGColliderInstance("data/actors/lavadora.gem");
 	poCI->m_fScale = 1.0f;
-	poCI->m_oPos   = CVect3::oZero();
-	poCI->m_oOldPos= CVect3::oZero();
+	poCI->m_oPos   = CGVect3::oZero();
+	poCI->m_oOldPos= CGVect3::oZero();
 
 	// Composite object
 	Collider((CCOL_Collider*)poCI);
@@ -66,7 +66,7 @@ void CLavadora::Init()
 	m_eState = ENTSTATE_ALIVE;
 }
 //-----------------------------------------------------------------------------
-void CLavadora::UpdatePos(const CVect3& _oNewPos)
+void CLavadora::UpdatePos(const CGVect3& _oNewPos)
 {
 	CGGameEntity::UpdatePos(_oNewPos);
 	gameGlobals.m_oPerspCam.Pos = _oNewPos;
@@ -74,7 +74,7 @@ void CLavadora::UpdatePos(const CVect3& _oNewPos)
 //-----------------------------------------------------------------------------
 void CLavadora::Think(float _fDeltaT)
 {
-	CVect3 oNewPos = poGraphicInstance()->oPos();
+	CGVect3 oNewPos = poGraphicInstance()->oPos();
 	oNewPos.y +=  -9.8f*_fDeltaT;
 	
 	if (oNewPos.y < GROUND_HEIGHT)

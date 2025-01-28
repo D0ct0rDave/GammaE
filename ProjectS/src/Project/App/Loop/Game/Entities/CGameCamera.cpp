@@ -46,7 +46,7 @@ void CGameCamera::Init()
 	uiAddUserData(mNew CSmoother(0.0125));
 }
 //-----------------------------------------------------------------------------
-void CGameCamera::UpdatePos(const CVect3& _oNewPos)
+void CGameCamera::UpdatePos(const CGVect3& _oNewPos)
 {
 	CGGameEntity::UpdatePos(_oNewPos);
 	gameGlobals.m_oPerspCam.Pos = _oNewPos;
@@ -54,14 +54,14 @@ void CGameCamera::UpdatePos(const CVect3& _oNewPos)
 //-----------------------------------------------------------------------------
 void CGameCamera::Think(float _fDeltaT)
 {
-	CVect3 oOffset(3.0f,2.0f,0.0f);
-	CVect3 oPlayerPos = gameGlobals.m_poPlayer->poGraphicInstance()->oPos();
+	CGVect3 oOffset(3.0f,2.0f,0.0f);
+	CGVect3 oPlayerPos = gameGlobals.m_poPlayer->poGraphicInstance()->oPos();
 
 	gameGlobals.m_oPerspCam.Pos.x  = oPlayerPos.x + oOffset.x;
 	gameGlobals.m_oPerspCam.Pos.y  = oPlayerPos.y + oOffset.y;
 	gameGlobals.m_oPerspCam.Pos.z   = 10;
 
-	CVect3 oTargetPos = gameGlobals.m_oPerspCam.Pos;
+	CGVect3 oTargetPos = gameGlobals.m_oPerspCam.Pos;
 	oTargetPos.z = 0.0f;
 
 	gameGlobals.m_oPerspCam.LookAt( oTargetPos );
