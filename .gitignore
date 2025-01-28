@@ -415,3 +415,7 @@ CMakeCache.txt
 *.vcproj
 
 /ProjectR/data/FinalData/FreeImage.dll
+/GammaE/samples/graphics/simplerendering/data/FreeImage.dll
+/GammaE/samples/graphics/shaders/data/FreeImage.dll
+/GammaE/samples/graphics/culling/data/FreeImage.dll
+
