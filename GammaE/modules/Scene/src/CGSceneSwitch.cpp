@@ -26,3 +26,15 @@ CGSceneSwitch::~CGSceneSwitch()
         m_poObj->Deref();
 }
 // ----------------------------------------------------------------------------
+CGGraphBV* CGSceneSwitch::poGetBV()
+{
+    if (m_poObj)
+    {
+        return(m_poObj->poGetBV());
+    }
+    else
+    {
+        return(NULL);
+    }
+}
+// ----------------------------------------------------------------------------

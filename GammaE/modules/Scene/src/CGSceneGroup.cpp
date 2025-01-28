@@ -14,8 +14,8 @@
 // ----------------------------------------------------------------------------
 CGSceneGroup::CGSceneGroup()
 {
-    m_eNodeType = SNT_Node;
-    m_poBV = NULL;
+    m_eNodeType = SNT_Group;
+    m_poBV = CGGraphBVFactory::poCreate();
 }
 // ----------------------------------------------------------------------------
 CGSceneGroup::CGSceneGroup(uint _uiMaxSubObjs)
@@ -26,6 +26,7 @@ CGSceneGroup::CGSceneGroup(uint _uiMaxSubObjs)
 CGSceneGroup::~CGSceneGroup()
 {
     Clear();
+
     if ( m_poBV )
         mDel m_poBV;
 }
@@ -101,5 +102,18 @@ uint CGSceneGroup::uiNumSubObjs()
             uiNumSubObjects++;
 
     return(uiNumSubObjects);
+}
+// ----------------------------------------------------------------------------
+void CGSceneGroup::SetBV(CGGraphBV* _poBV)
+{
+    if (m_poBV)
+        mDel m_poBV;
+
+    m_poBV = _poBV;
+}
+// ----------------------------------------------------------------------------
+CGGraphBV* CGSceneGroup::poGetBV()
+{
+    return m_poBV;
 }
 // ----------------------------------------------------------------------------

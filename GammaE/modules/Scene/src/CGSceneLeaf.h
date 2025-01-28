@@ -47,6 +47,12 @@ class CGSceneLeaf : public CGSceneNode
             return(m_poShader);
         }
 
+        // / Returns the node bounding volume.
+        virtual CGGraphBV* poGetBV()
+        {
+            return(m_poMesh->poGetBV());
+        }
+
         // / General Processing Functionalities
         virtual void Accept(CGSceneVisitor* _poVisitor)
         {

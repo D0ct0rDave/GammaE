@@ -85,7 +85,7 @@ void CGPSGGenericQuad::InitParticle(CGPSGGenericQuadParticle* _poPart)
     CGRenderer::I()->GetWorldMatrix(&oWorldMat);
     _poPart->m_oPos = CGVect3::oZero();
 
-    oWorldMat.TransformPoint( _poPart->m_oPos );
+    oWorldMat.TransformPoint( &_poPart->m_oPos );
 }
 // -----------------------------------------------------------------------------
 void CGPSGGenericQuad::UpdateParticle(CGPSGGenericQuadParticle* _poPart,float _fDeltaT)
@@ -127,7 +127,7 @@ void CGPSGGenericQuad::UpdateInstance(CGParticleSystemInstance& _oPSI,float _fDe
 
     CGPSGGenericQuadParticle* poPart = (CGPSGGenericQuadParticle*)_oPSI.poGetParticlePool();
 
-    CGMesh* poMesh = _oPSI.poGetMesh();
+    CGUnmanagedMesh* poMesh = _oPSI.poGetMesh();
     CGVect3 NewPos;
     CGVect3* pVX = poMesh->m_poVX;
     CGColor* pVC = poMesh->m_poVC;
@@ -157,7 +157,7 @@ void CGPSGGenericQuad::UpdateInstance(CGParticleSystemInstance& _oPSI,float _fDe
         // Generate the geometry for this particle
         CGVect3 oNewPos;
         oNewPos.LineEq(poPart->m_oPos,poPart->m_oDir,poPart->m_fRadius);
-        oCameraMatrix.TransformPoint(oNewPos);
+        oCameraMatrix.TransformPoint(&oNewPos);
 
         float _fA = Math::fCos(poPart->m_fAngle) * poPart->m_fSize;
         float _fB = Math::fSin(poPart->m_fAngle) * poPart->m_fSize;
@@ -182,9 +182,8 @@ void CGPSGGenericQuad::UpdateInstance(CGParticleSystemInstance& _oPSI,float _fDe
         uiNumParts++;
     }
 
-    poMesh->m_uiNumPrims = uiNumParts;
-    poMesh->m_usNumVXs = poMesh->m_uiNumPrims * 4;
-    poMesh->m_uiNumIdxs = poMesh->m_uiNumPrims * 4;                    // Either is indexed or not we can do that
+    poMesh->SetNumVXs(uiNumParts * 4);
+    poMesh->SetNumPrims(uiNumParts);
 
     // Stablishes the number of live particles detected during the update step
     _oPSI.SetLiveParticles( uiNumParts );

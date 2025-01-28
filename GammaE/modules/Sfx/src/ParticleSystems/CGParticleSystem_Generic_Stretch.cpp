@@ -33,18 +33,18 @@ void CGParticleSystem_Generic_Stretch::InitParticle (int iPart)
 {
     TParticle_Stretch* P = &pParts[iPart];
 
-    P->Pos.V3   (0,0,0);
+    P->Pos.Set(0,0,0);
     P->OldPos.Set(0,0,0);
 
-    P->OldSpeed.V3   ( MATH_fRand(),MATH_fRand(),MATH_fRand() );
+    P->OldSpeed.Set  ( Math::fRand(),Math::fRand(),Math::fRand() );
     P->OldSpeed.Sub  (0.5f,0.5f,0.5f);
     P->OldSpeed.Scale(fPInitialSpeedFact);
     P->OldSpeed.Add  (PSSpeed);
 
     P->Speed.Assign  (P->OldSpeed);
 
-    P->fSize = fPInitialSizeFact * MATH_fRand();
-    P->fEnergy = fPInitialEnergyFact * MATH_fRand();
+    P->fSize = fPInitialSizeFact * Math::fRand();
+    P->fEnergy = fPInitialEnergyFact * Math::fRand();
 
     P->Color = RGBAInitialValue;
 }
@@ -87,8 +87,8 @@ void CGParticleSystem_Generic_Stretch::UpdatePS (CGMatrix4x4* _ViewMatrix)
     CGVect3 NewPos;
     CGVect3 OldPos;
     TParticle_Stretch* P = pParts;
-    CGVect3* pVX = poMesh->VXs;
-    CGColor* pVC = poMesh->VCs;
+    CGVect3* pVX = m_poMesh->m_poVX;
+    CGColor* pVC = m_poMesh->m_poVC;
     int cPart;
 
     for ( cPart = 0; cPart < iMaxParticles; cPart++ )
@@ -102,10 +102,10 @@ void CGParticleSystem_Generic_Stretch::UpdatePS (CGMatrix4x4* _ViewMatrix)
         UpdateParticle (cPart);
 
         NewPos.Assign( P->Pos );
-        _ViewMatrix->TransformPoint(NewPos);
+        _ViewMatrix->TransformPoint(&NewPos);
 
         OldPos.Assign( P->OldPos );
-        _ViewMatrix->TransformPoint(OldPos);
+        _ViewMatrix->TransformPoint(&OldPos);
 
         pVX[0].Set(-P->fSize,-P->fSize,0);
         pVX[0].Add(NewPos);

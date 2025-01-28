@@ -24,7 +24,7 @@ SCNUt_EdgeBuilder::~SCNUt_EdgeBuilder()
 {
 }
 
-SCNUt_EdgeList* SCNUt_EdgeBuilder::poBuild (CGMesh* _poMesh, CGMesh*&_poOutMesh)
+SCNUt_EdgeList* SCNUt_EdgeBuilder::poBuild (CGMesh* _poMesh, CGMesh*_poOutMesh)
 {
     if ( !_poMesh ) return(NULL);
 
@@ -40,7 +40,7 @@ SCNUt_EdgeList* SCNUt_EdgeBuilder::poBuild (CGMesh* _poMesh, CGMesh*&_poOutMesh)
     _poOutMesh = oMComp.poCompactMesh(*poTS);
 
     // Build the edge adjacency list
-    poEdgeList = poBuild_FromIndexedTriMesh (_poOutMesh);
+    poEdgeList = poBuildFromIndexedTriMesh (_poOutMesh);
 
     // Delete triangle scene & compact mesh
     mDel poTS;
@@ -56,7 +56,7 @@ SCNUt_EdgeList* SCNUt_EdgeBuilder::poBuildFromIndexedTriMesh (CGMesh* _poMesh)
 
     poEdgeList = mNew SCNUt_EdgeList;
 
-    for ( iTri = 0; iTri < _poMesh->m_uiNumPrims; iTri++ )
+    for ( iTri = 0; iTri < _poMesh->uiGetNumPrims(); iTri++ )
     {
         // Vertex 0
         oEdge.A = _poMesh->m_pusIdx[iTri * 3 + 0];

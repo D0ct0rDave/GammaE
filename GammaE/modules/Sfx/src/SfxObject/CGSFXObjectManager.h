@@ -47,11 +47,11 @@ class CGSFXObjectManager : public CGSingleton <BASECLASS>
                 virtual void Render()
                 {
                     // Update the Manager
-                    m_poSFXObjectManager->Update( CGRenderer::I()->REStats.DTime );
+                    m_poSFXObjectManager->Update( CGRenderer::I()->oGetStats().m_fDelta );
 
                     // Render all the objects of the manager
-                    if ( m_poSFXObjectManager->m_poRenderer )
-                        m_poSFXObjectManager->m_poRenderer->Render();
+                    if ( m_poSFXObjectManager->m_poSceneNodeRenderer )
+                        CGSCNVRenderer::I()->Render(m_poSFXObjectManager->m_poSceneNodeRenderer);
                 }
 
                 CGSFXObjectManager* m_poSFXObjectManager;
@@ -152,7 +152,7 @@ class CGSFXObjectManager : public CGSingleton <BASECLASS>
         CGSceneNode* m_poRenderingNode;
 
         // / The object which renders all the automanaged enabled instances
-        CGSceneNode* m_poRenderer;
+        CGSceneNode* m_poSceneNodeRenderer;
 };
 // ----------------------------------------------------------------------------
 template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
@@ -163,7 +163,7 @@ uint CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLAS
 
     TSFXInstancePool* poCIs = mNew TSFXInstancePool;
     poCIs->m_poGen = (GENERATORCLASS*)poCG;
-    poCIs->m_poGen->SetBillboardRenderer( (CGBillboardRenderer*)m_poRenderer );
+    poCIs->m_poGen->SetBillboardRenderer( (CGBillboardRenderer*)m_poSceneNodeRenderer );
 
     // Add this instance pool to the pool table
     uint uiType = m_oPool.uiAddVar(_sType,poCIs);
@@ -191,7 +191,7 @@ uint CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLAS
 template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
 void CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::Init()
 {
-    m_poRenderer = mNew CGBillboardRenderer(128,1000);
+    m_poSceneNodeRenderer = mNew CGBillboardRenderer(128,1000);
 }
 // ----------------------------------------------------------------------------
 template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
@@ -290,7 +290,7 @@ void CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLAS
 template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
 void CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::Update(float _fDeltaT)
 {
-    CGBillboardRenderer* poRenderer = (CGBillboardRenderer*)m_poRenderer;
+    CGBillboardRenderer* poRenderer = (CGBillboardRenderer*)m_poSceneNodeRenderer;
 
     // Updates ALL the instances of the manager both automanaged and user managed
     poRenderer->Reset();

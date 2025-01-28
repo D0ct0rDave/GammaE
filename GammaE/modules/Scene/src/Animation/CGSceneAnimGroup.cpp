@@ -24,19 +24,19 @@ CGSceneAnimGroup::~CGSceneAnimGroup()
     }
     m_poObjs.Clear();
 
-    for (uint uiState = 0; uiState < m_poBVolStates.uiNumElems(); uiState++)
+    for (uint uiState = 0; uiState < m_poStateBVs.uiNumElems(); uiState++)
     {
-        delete m_poBVolStates[uiState];
+        delete m_poStateBVs[uiState];
     }
-    m_poBVolStates.Clear();
+    m_poStateBVs.Clear();
 }
 // ----------------------------------------------------------------------------
 void CGSceneAnimGroup::Setup(uint _uiNumStates)
 {
-    m_poBVolStates.Init(_uiNumStates);
+    m_poStateBVs.Init(_uiNumStates);
 	for (uint uiState = 0; uiState < _uiNumStates; uiState++)
 	{
-		m_poBVolStates[uiState] = CGGraphBVFactory::poCreate();
+		m_poStateBVs[uiState] = CGGraphBVFactory::poCreate();
 	}
 
     m_uiNumStates = _uiNumStates;
@@ -51,7 +51,7 @@ void CGSceneAnimGroup::SetAnimState(uint _uiSrc, uint _uiDst, float _fFactor)
 			((CGSceneAnimNode*)m_poObjs[i])->SetAnimState(_uiSrc, _uiDst, _fFactor);
     }
 
-	m_poBV = m_poBVolStates[_uiSrc];
+	m_poBV = m_poStateBVs[_uiSrc];
 }
 // ----------------------------------------------------------------------------
 uint CGSceneAnimGroup::uiGetNumStates() const
@@ -61,7 +61,7 @@ uint CGSceneAnimGroup::uiGetNumStates() const
 // ----------------------------------------------------------------------------
 void CGSceneAnimGroup::ComputeStatesBVols()
 {
-	assert((m_poBVolStates.uiNumElems()>0) && "NULL Bounding Volume State array");
+	assert((m_poStateBVs.uiNumElems()>0) && "NULL Bounding Volume State array");
 
 	CGVect3			oCenter;
 	CGVect3*		pBVVXs;
@@ -105,15 +105,20 @@ void CGSceneAnimGroup::ComputeStatesBVols()
 				oCenter.z + pBVol->GetRange(2));
 		}
 
-		m_poBVolStates[uiState]->Compute(pBVVXs, m_poObjs.uiNumElems() * 2);
+		m_poStateBVs[uiState]->Compute(pBVVXs, m_poObjs.uiNumElems() * 2);
 	}
 
 	mDel[]pBVVXs;
-	m_poBV = m_poBVolStates[0];
+	m_poBV = m_poStateBVs[0];
 }
 // ----------------------------------------------------------------------------
 CGGraphBV* CGSceneAnimGroup::poGetStateBVol(int _iState)
 {
-	return m_poBVolStates[0];
+	return m_poStateBVs[0];
+}
+// ----------------------------------------------------------------------------
+CGGraphBV* CGSceneAnimGroup::poGetBV()
+{
+	return m_poBV;
 }
 // ----------------------------------------------------------------------------

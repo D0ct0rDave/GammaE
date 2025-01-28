@@ -10,8 +10,10 @@
 // ----------------------------------------------------------------------------
 #include "CGSceneNode.h"
 // ----------------------------------------------------------------------------
-CGSceneNode::CGSceneNode() :
+CGSceneNode::CGSceneNode() 
+/* :
     m_poBV(NULL)
+    */
 {
     m_eNodeType = SNT_Node;
 }

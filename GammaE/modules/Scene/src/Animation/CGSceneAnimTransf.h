@@ -43,10 +43,11 @@ class CGSceneAnimTransf : public CGSceneAnimNode
         // / Retrieves the object who will receive the transformation.
         CGSceneNode* poGetObject();
         
-        const CGMatrix4x4 oGetTransform();
-
         // Retrieve state transforms array
         CGMatrix4x4* poGetStateTransforms();
+
+        // / Returns the node bounding volume.
+        virtual CGGraphBV* poGetBV();
 
         // General Processing Functionalities
         virtual void Accept(CGSceneVisitor* _poVisitor)
@@ -58,6 +59,9 @@ class CGSceneAnimTransf : public CGSceneAnimNode
 
         // Array to store the transform keyframes
         CGMatrix4x4* m_poTransforms;
+        CGStArray<CGGraphBV*> m_poStateBVs;
+        CGGraphBV* m_poBV;
+
         uint m_uiNumStates;
 
         CGMatrix4x4 m_oTrans;

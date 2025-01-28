@@ -23,7 +23,7 @@ CGBVAABB::CGBVAABB(const CGBVAABB& _oVol)
 // ----------------------------------------------------------------------------
 void CGBVAABB::Init (const CGVect3& _oMax, const CGVect3& _oMin)
 {
-    m_oMins.Assign(_oMin);
-    m_oMaxs.Assign(_oMax);
+    m_oMin.Assign(_oMin);
+    m_oMax.Assign(_oMax);
 }
 // ----------------------------------------------------------------------------

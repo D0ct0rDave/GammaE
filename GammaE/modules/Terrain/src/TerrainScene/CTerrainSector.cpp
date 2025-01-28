@@ -8,18 +8,16 @@
  *  \par GammaE License
  */
 // -----------------------------------------------------------------------------
-// %X% %Q% %Z% %W%
 #include "GammaE_Mem.h"
 
 // CTerrainSector
 #include "TerrainScene\CTerrainSector.h"
 
 // Class CTerrainSector
-
+// -----------------------------------------------------------------------------
 CTerrainSector::CTerrainSector() : fLODs(NULL), iLODs(NULL), HF(NULL), LM(NULL), TM(NULL), TB(NULL), Tess(NULL), fXYScale(0)
 {
     m_poSectorBV = mNew CGGraphBVAABB();
-    SetBV(m_poSectorBV);
 }
 
 CTerrainSector::~CTerrainSector()
@@ -53,7 +51,7 @@ void CTerrainSector::Render ()
         if ( bEnableDefMode ) CGRenderer::I()->EnableDefferredMode();
     }
 }
-
+// -----------------------------------------------------------------------------
 void CTerrainSector::SetMaxsMins (CGVect3& _Maxs, CGVect3& _Mins)
 {
     Maxs.Assign(_Maxs);
@@ -61,5 +59,9 @@ void CTerrainSector::SetMaxsMins (CGVect3& _Maxs, CGVect3& _Mins)
 
     m_poSectorBV->Init(Maxs,Mins);
 }
-
-// Additional Declarations
+// -----------------------------------------------------------------------------
+CGGraphBV* CTerrainSector::poGetBV()
+{
+    return m_poSectorBV;
+}
+// -----------------------------------------------------------------------------

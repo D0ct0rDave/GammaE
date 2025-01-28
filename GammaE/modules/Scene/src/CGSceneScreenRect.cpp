@@ -19,6 +19,8 @@ CGSceneScreenRect::CGSceneScreenRect() :
 
     m_oMat.LoadIdentity();
     m_oMat.Set(1,1,-1.0f);
+
+    m_poBV = CGGraphBVFactory::poCreate();
 }
 // ----------------------------------------------------------------------------
 CGSceneScreenRect::~CGSceneScreenRect()
@@ -29,20 +31,25 @@ CGSceneScreenRect::~CGSceneScreenRect()
 // ----------------------------------------------------------------------------
 void CGSceneScreenRect::SetRect(float _fX,float _fY,float _fTX,float _fTY)
 {
-    /*
-       m_oMat.LoadIdentity();
-       m_oMat.Translate(-1.0f,1.0f,0.0f);
-       m_oMat.Translate(_fX/0.5f,-_fY/0.5f,0.0f);
-       m_oMat.Scale(_fTX,_fTY,1);
-       m_oMat.Translate(1.0f,-1.0f,0.0f);
-       m_oMat.Scale(2.0f,2.0f,1);
-       m_oMat.Scale(1.0f/_fTX,-1.0f/_fTY,1.0f);
-       m_oMat.Translate(_fX,_fY,0.0f);
-     */
+    m_oMat.LoadIdentity();
+    m_oMat.Translate(-1.0f,1.0f,0.0f);
+    m_oMat.Translate(_fX/0.5f,-_fY/0.5f,0.0f);
+    m_oMat.Scale(_fTX,_fTY,1);
+    m_oMat.Translate(1.0f,-1.0f,0.0f);
+    m_oMat.Scale(2.0f,2.0f,1);
+    m_oMat.Scale(1.0f/_fTX,-1.0f/_fTY,1.0f);
+    m_oMat.Translate(_fX,_fY,0.0f);
+    
     // m_oMat.LoadIdentity();
     // m_oMat.Scale(_fTX,-_fTY,1.0f);
     // m_oMat.Translate(_fX - 2.0f*_fTX,_fY - 2.0f*_fTY,0.0f);
 
     // ComputeBoundVol();
+}
+// ----------------------------------------------------------------------------
+// / Returns the node bounding volume.
+CGGraphBV* CGSceneScreenRect::poGetBV()
+{
+    return(m_poBV);
 }
 // ----------------------------------------------------------------------------

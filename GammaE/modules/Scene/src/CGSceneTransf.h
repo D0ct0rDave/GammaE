@@ -63,6 +63,12 @@ class CGSceneTransf : public CGSceneNode
 
         // / Retrieves the object who will receive the transformation.
         CGSceneNode* poGetObject();
+        
+        // Sets the bounding volume of the object
+        void SetBV(CGGraphBV* _poBV);
+
+        // / Returns the node bounding volume.
+        virtual CGGraphBV* poGetBV();
 
         // General Processing Functionalities
         virtual void Accept(CGSceneVisitor* _poVisitor)
@@ -82,6 +88,7 @@ class CGSceneTransf : public CGSceneNode
         CGVect3 m_oSide;
 
         CGSceneNode* m_poObj;
+        CGGraphBV* m_poBV;
 };
 
 // ----------------------------------------------------------------------------

@@ -24,16 +24,16 @@ CGBillboard_ScrAlign::~CGBillboard_ScrAlign()
 void CGBillboard_ScrAlign::Render ()
 {
     CGMatrix4x4 M,M1;
-    CE3D_Camera* Cam = CGRenderer::I()->GetCamera();
+    CGCamera* Cam = CGRenderer::I()->poGetCamera();
 
     CGVect3 e1,e2,e3;
     // e1.Assign(Cam->Side);	e1.Scale(-1);
-    e2.Assign(Cam->m_oUp  );
+    e2.Assign(Cam->oGetUp());
     e2.Scale( 1);
-    e3.Assign(Cam->m_oDir );
+    e3.Assign(Cam->oGetDir());
     e3.Scale(-1);
     e1.CrossProd(e2,e3);
-    M.LoadFromAxis(e1,e2,e3);
+    M.LoadFromAxes(e1,e2,e3);
 
     CGRenderer::I()->GetWorldMatrix(&M1);
 
@@ -44,8 +44,9 @@ void CGBillboard_ScrAlign::Render ()
 
     CGRenderer::I()->PushWorldMatrix();
 
-    CGRenderer::I()->MultiplyMatrix(&M);
-    CGSceneGroup::Render();
+    CGRenderer::I()->MultiplyMatrix(M);
+    
+    CGSCNVRenderer::I()->Render(this);
 
     CGRenderer::I()->PopWorldMatrix();
 }

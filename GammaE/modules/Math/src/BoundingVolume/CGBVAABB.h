@@ -37,29 +37,29 @@ class CGBVAABB : public CGBoundingVolume
         // / Retrieves the maximums of the AABB
         const CGVect3& oGetMax() const
         {
-            return (m_oMaxs);
+            return (m_oMax);
         }
 
         // / Retrieves the minimums of the AABB
         const CGVect3& oGetMin() const
         {
-            return (m_oMins);
+            return (m_oMin);
         }
 
         // / Returns the volume occupied by the bounding volume
         virtual float fGetVolume() const
         {
-            float fWidth = m_oMaxs.x - m_oMins.x;
-            float fHeight = m_oMaxs.y - m_oMins.y;
-            float fDepth = m_oMaxs.z - m_oMins.z;
+            float fWidth = oGetMax().x - oGetMin().x;
+            float fHeight = oGetMax().y - oGetMin().y;
+            float fDepth = oGetMax().z - oGetMin().z;
 
             return(fWidth * fHeight * fDepth);
         }
 
     protected:
 
-        CGVect3 m_oMaxs;
-        CGVect3 m_oMins;
+        CGVect3 m_oMax;
+        CGVect3 m_oMin;
 };
 
 // ----------------------------------------------------------------------------

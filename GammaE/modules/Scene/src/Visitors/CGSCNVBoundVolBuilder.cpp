@@ -114,7 +114,6 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneLeaf* _poNode)
         poBV->Compute(poMesh->m_poVX, poMesh->uiGetNumVXs());
 
         poMesh->SetBV( poBV );
-        _poNode->SetBV( poBV );
     }
 }
 // ----------------------------------------------------------------------------
@@ -180,10 +179,9 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneScreenRect* _poNode)
         
         CGGraphBV* poBV = (poMesh->poGetBV() != NULL) ? poMesh->poGetBV() : CGGraphBVFactory::poCreate();
         poBV->Compute(poMesh->m_poVX, poMesh->uiGetNumVXs());
+        poBV->Transform(_poNode->oGetMatrix());
 
-        // _poNode->poGetBV()->Transform( (CGMatrix4x4 &)_poNode->oGetMatrix() );
         poMesh->SetBV( poBV );
-        _poNode->SetBV( poBV );
     }
 }
 // ----------------------------------------------------------------------------
@@ -191,8 +189,6 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneSwitch* _poNode)
 {
     if ( _poNode->poGetObject() != NULL )
         _poNode->poGetObject()->Accept(this);
-
-    _poNode->SetBV(_poNode->poGetBV());
 }
 // ----------------------------------------------------------------------------
 void CGSCNVBoundVolBuilder::Visit(CGSceneTransf* _poNode)
@@ -201,7 +197,7 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneTransf* _poNode)
     CGGraphBV* poBV = (_poNode->poGetBV() != NULL) ? _poNode->poGetBV() : CGGraphBVFactory::poCreate();
     
     poBV->Copy(*_poNode->poGetObject()->poGetBV());
-    poBV->Transform((CGMatrix4x4&)_poNode->oTransf());
+    poBV->Transform(_poNode->oTransf());
 
     _poNode->SetBV(poBV);
 }
@@ -227,7 +223,6 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneAnimInstance* _poNode)
 {
     // Recompute the bounding volume of the startup mesh
     _poNode->poGetAnimatedObject()->Accept(this);
-    _poNode->SetBV(_poNode->poGetAnimatedObject()->poGetBV());
 }
 // ----------------------------------------------------------------------------
 void CGSCNVBoundVolBuilder::Visit(CGSceneAnimGroup* _poNode)

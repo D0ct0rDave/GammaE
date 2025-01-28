@@ -45,6 +45,12 @@ class CGSceneGroup : public CGSceneNode
 
         // / Retrieve the number of non NULL objects in the group.
         uint uiNumSubObjs();
+        
+        // Sets the bounding volume of the object
+        void SetBV(CGGraphBV* _poBV);
+
+        // / Returns the node bounding volume.
+        virtual CGGraphBV* poGetBV();
 
         // General Processing Functionalities.
         virtual void Accept(CGSceneVisitor* _poVisitor)
@@ -55,6 +61,7 @@ class CGSceneGroup : public CGSceneNode
     protected:
 
         CGStArray <CGSceneNode*> m_poSubObj;
+        CGGraphBV* m_poBV;
 };
 // ----------------------------------------------------------------------------
 #endif

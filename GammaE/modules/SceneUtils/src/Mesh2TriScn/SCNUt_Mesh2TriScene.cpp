@@ -23,7 +23,7 @@ SCNUt_Mesh2TriScene::~SCNUt_Mesh2TriScene()
 {
 }
 
-SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate (CGMesh& _oMesh, int _iMat)
+SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate (const CGMesh& _oMesh, int _iMat)
 {
     switch ( _oMesh.eGetPrimitiveType() )
     {
@@ -33,13 +33,13 @@ SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate (CGMesh& _oMesh, int _iMat)
         }
         break;
 
-        case E3D_PrimitiveType::E3D_PT_NITRIS:
+        case E3D_PrimitiveType::E3D_PT_TRIS:        
         {
             return( Generate_FromIndexedTriMesh(_oMesh,_iMat) );
         }
         break;
 
-        case E3D_PrimitiveType::E3D_PT_NIQUADS:
+        case E3D_PrimitiveType::E3D_PT_QUADS:
         {
             return( Generate_FromIndexedQuadMesh(_oMesh,_iMat) );
         }
@@ -86,7 +86,7 @@ SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate (CGMesh& _oMesh, int _iMat)
     }
 }
 
-SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromIndexedTriMesh (CGMesh& _oMesh, int _iMat)
+SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromIndexedTriMesh (const CGMesh& _oMesh, int _iMat)
 {
     if ( !_oMesh.m_pusIdx ) return(NULL);
 
@@ -107,9 +107,9 @@ SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromIndexedTriMesh (CGMesh& _oMesh
 
     int iTri,iIdx,iVert;
     SCNUt_TriScene* poTriScn = mNew SCNUt_TriScene;
-    poTriScn->Init(_oMesh.m_uiNumPrims);
+    poTriScn->Init(_oMesh.uiGetNumPrims());
 
-    for ( iTri = 0; iTri < _oMesh.m_uiNumPrims; iTri++ )
+    for ( iTri = 0; iTri < _oMesh.uiGetNumPrims(); iTri++ )
     {
         for ( iVert = 0; iVert < 3; iVert++ )
         {
@@ -152,12 +152,12 @@ SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromIndexedTriMesh (CGMesh& _oMesh
     return(poTriScn);
 }
 
-SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromIndexedQuadMesh (CGMesh& _oMesh, int _iMat)
+SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromIndexedQuadMesh (const CGMesh& _oMesh, int _iMat)
 {
     return(NULL);
 }
 
-SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromIndexedTriStripMesh (CGMesh& _oMesh, int _iMat)
+SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromIndexedTriStripMesh (const CGMesh& _oMesh, int _iMat)
 {
     if ( !_oMesh.m_pusIdx ) return(NULL);
 
@@ -182,9 +182,9 @@ SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromIndexedTriStripMesh (CGMesh& _
     CGVect2 oUV[3];
 
     SCNUt_TriScene* poTriScn = mNew SCNUt_TriScene;
-    poTriScn->Init( _oMesh.m_uiNumPrims );
+    poTriScn->Init( _oMesh.uiGetNumPrims());
 
-    for ( uint i = 0; i < _oMesh.m_uiNumIdxs; i++ )
+    for ( uint i = 0; i < _oMesh.uiGetNumIndices(); i++ )
     {
         int iIdx = _oMesh.m_pusIdx[ i ];
 
@@ -276,7 +276,7 @@ SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromIndexedTriStripMesh (CGMesh& _
     return(poTriScn);
 }
 
-SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromIndexedTriFanMesh (CGMesh& _oMesh, int _iMat)
+SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromIndexedTriFanMesh (const CGMesh& _oMesh, int _iMat)
 {
     if ( !_oMesh.m_pusIdx ) return(NULL);
 
@@ -302,9 +302,9 @@ SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromIndexedTriFanMesh (CGMesh& _oM
 
     int iTri,iIdx,iVert;
     SCNUt_TriScene* poTriScn = mNew SCNUt_TriScene;
-    poTriScn->Init( _oMesh.m_uiNumPrims );
+    poTriScn->Init( _oMesh.uiGetNumPrims() );
 
-    for ( iTri = 0; iTri < _oMesh.m_uiNumIdxs; iTri++ )
+    for ( iTri = 0; iTri < _oMesh.uiGetNumIndices(); iTri++ )
     {
         iIdx = _oMesh.m_pusIdx[ iTri ];
 
@@ -375,12 +375,12 @@ SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromIndexedTriFanMesh (CGMesh& _oM
     }
 }
 
-SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromIndexedQuadStripMesh (CGMesh& _oMesh, int _iMat)
+SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromIndexedQuadStripMesh (const CGMesh& _oMesh, int _iMat)
 {
     return(NULL);
 }
 
-SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromNonIndexedTriMesh (CGMesh& _oMesh, int _iMat)
+SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromNonIndexedTriMesh (const CGMesh& _oMesh, int _iMat)
 {
     if ( (!_oMesh.m_poVX) &&
         (!_oMesh.m_poVC) &&
@@ -399,9 +399,9 @@ SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromNonIndexedTriMesh (CGMesh& _oM
 
     int iTri,iIdx,iVert;
     SCNUt_TriScene* poTriScn = mNew SCNUt_TriScene;
-    poTriScn->Init(_oMesh.m_uiNumPrims);
+    poTriScn->Init(_oMesh.uiGetNumPrims());
 
-    for ( iTri = 0; iTri < _oMesh.m_uiNumPrims; iTri++ )
+    for ( iTri = 0; iTri < _oMesh.uiGetNumPrims(); iTri++ )
     {
         for ( iVert = 0; iVert < 3; iVert++ )
         {
@@ -444,12 +444,12 @@ SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromNonIndexedTriMesh (CGMesh& _oM
     return(poTriScn);
 }
 
-SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromNonIndexedQuadMesh (CGMesh& _oMesh, int _iMat)
+SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromNonIndexedQuadMesh (const CGMesh& _oMesh, int _iMat)
 {
     return(NULL);
 }
 
-SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromNonIndexedTriStripMesh (CGMesh& _oMesh, int _iMat)
+SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromNonIndexedTriStripMesh (const CGMesh& _oMesh, int _iMat)
 {
     if ( (!_oMesh.m_poVX) &&
         (!_oMesh.m_poVC) &&
@@ -473,9 +473,9 @@ SCNUt_TriScene* SCNUt_Mesh2TriScene::Generate_FromNonIndexedTriStripMesh (CGMesh
 
     int iTri,iIdx,iVert;
     SCNUt_TriScene* poTriScn = mNew SCNUt_TriScene;
-    poTriScn->Init( _oMesh.m_uiNumPrims );
+    poTriScn->Init( _oMesh.uiGetNumPrims() );
 
-    for ( iTri = 0; iTri < _oMesh.m_uiNumIdxs; iTri++ )
+    for ( iTri = 0; iTri < _oMesh.uiGetNumIndices(); iTri++)
     {
         iIdx = iTri;
 

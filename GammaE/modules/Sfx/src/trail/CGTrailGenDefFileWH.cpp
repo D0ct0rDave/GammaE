@@ -81,7 +81,7 @@ void CGTrailGenDefFileWH::ProcessTrailGenDefFile(const CGString& _sTrailDefFilen
         poTG->SetEnergyPars(fEnergy,fRndEnergy);
         poTG->SetMaxDivisions(uiMaxDivs);
         poTG->SetMaxPoints(uiMaxPoints);
-        poTG->SetShader( CE3D_ShaderWH::I()->poCreateShader( sShader.szString() ) );
+        poTG->SetShader( CGShaderWH::I()->poCreateShader( sShader.szString() ) );
     }
 }
 // ----------------------------------------------------------------------------

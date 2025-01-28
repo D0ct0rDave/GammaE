@@ -47,15 +47,13 @@ class CTerrainSector : public CGSceneNode
 
         float fXYScale;
 
-        // Additional Public Declarations
+        virtual CGGraphBV* poGetBV();
+        
         // General Processing Functionalities
         virtual void Accept(CGSceneVisitor* _poVisitor)
         {
             _poVisitor->Visit(this);
         }
-
-    protected:
-        // Additional Protected Declarations
 
     private:
 

@@ -56,9 +56,9 @@ SCNUt_AdjTriList* SCNUt_AdjTriListBuilder::poBuild_FromIndexedTriMesh (CGMesh* _
 
     // Create and init Adjacent Triangle List
     poATL = mNew SCNUt_AdjTriList;
-    poATL->Init(_poMesh->m_uiNumPrims);
+    poATL->Init(_poMesh->uiGetNumPrims());
 
-    for ( iTri = 0; iTri < _poMesh->m_uiNumPrims; iTri++ )
+    for ( iTri = 0; iTri < _poMesh->uiGetNumPrims(); iTri++ )
     {
         poATL->Tri[iTri].Visited = false;
         poATL->Tri[iTri].iNumNeighs = 0;
@@ -88,7 +88,7 @@ void SCNUt_AdjTriListBuilder::AddEdgeNeighs (CGMesh* _poMesh, SCNUt_AdjTriList* 
     int iTri;
     int iA,iB;
 
-    for ( iTri = 0; iTri < _poMesh->m_uiNumPrims; iTri++ )
+    for ( iTri = 0; iTri < _poMesh->uiGetNumPrims(); iTri++ )
     {
         if ( iTri != _iTri )
         {

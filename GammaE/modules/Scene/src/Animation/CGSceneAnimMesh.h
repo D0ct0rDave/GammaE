@@ -55,6 +55,9 @@ class CGSceneAnimMesh : public CGSceneAnimNode
         // / Retrieves the shader used by this leaf node.
         CGShader* poGetShader();    
 
+        // / Returns the node bounding volume.
+        virtual CGGraphBV* poGetBV();
+
         // General Processing Functionalities
         virtual void Accept(CGSceneVisitor* _poVisitor)
         {
@@ -72,8 +75,7 @@ class CGSceneAnimMesh : public CGSceneAnimNode
         uint m_uiNumStates;
         uint m_uiNumVerticesPerState;
 
-        CGStArray<CGGraphBV*> m_poBVolStates;
-        CGGraphBV* m_poBV;
+        CGStArray<CGGraphBV*> m_poStateBVs;
 };
 // --------------------------------------------------------------------------------
 #endif

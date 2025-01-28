@@ -258,8 +258,8 @@ float CCOL_DT_Box::fTestBox (const CGVect3& _oSMaxs, const CGVect3& _oSMins, con
         }
        }
 
-       MATH_Utils::GetMaxMins(u0.x,u0.y,u0.z,fU0,fAux);
-       MATH_Utils::GetMaxMins(u1.x,u1.y,u1.z,fAux,fU1);
+       Math::GetMaxMins(u0.x,u0.y,u0.z,fU0,fAux);
+       Math::GetMaxMins(u1.x,u1.y,u1.z,fAux,fU1);
 
        // if the first time of overlap happens after last time of overlap
        // the object have not collided

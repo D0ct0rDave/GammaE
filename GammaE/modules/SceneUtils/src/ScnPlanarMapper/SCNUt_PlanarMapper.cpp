@@ -37,8 +37,8 @@ void SCNUt_PlanarMapper::PlanarMap (SCNUt_TriScene& _oTriScn)
 
     // Get object dimensions
     CGVect3 oDims;
-    oDims.Assign(poBBox->m_oMaxs);
-    oDims.Sub   (poBBox->m_oMins);
+    oDims.Assign(poBBox->oGetMax());
+    oDims.Sub   (poBBox->oGetMin());
 
     // Modify texcoords
     float fU,fV,fVOfs;
@@ -56,8 +56,8 @@ void SCNUt_PlanarMapper::PlanarMap (SCNUt_TriScene& _oTriScn)
 
         for ( int iVX = 0; iVX < 3; iVX++ )
         {
-            fU = (_oTriScn.Tris[iTri].VXs[iVX].x - poBBox->m_oMins.x) / oDims.x;
-            fV = (_oTriScn.Tris[iTri].VXs[iVX].y - poBBox->m_oMins.y) / oDims.y;
+            fU = (_oTriScn.Tris[iTri].VXs[iVX].x - poBBox->oGetMin().x) / oDims.x;
+            fV = (_oTriScn.Tris[iTri].VXs[iVX].y - poBBox->oGetMin().y) / oDims.y;
 
             _oTriScn.Tris[iTri].UVs[iVX].Set(fU,0.5f * fV + fVOfs);
         }

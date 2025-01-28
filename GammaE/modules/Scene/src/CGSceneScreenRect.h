@@ -34,12 +34,6 @@ class CGSceneScreenRect : public CGSceneNode
             return (m_poShader);
         }
 
-        // General Processing Functionalities.
-        virtual void Accept(CGSceneVisitor* _poVisitor)
-        {
-            _poVisitor->Visit(this);
-        }
-
         // / Retrieves the matrix associated to the current node.
         const CGMatrix4x4& oGetMatrix()
         {
@@ -52,11 +46,22 @@ class CGSceneScreenRect : public CGSceneNode
             return(m_poMesh);
         }
 
+        // / Returns the node bounding volume.
+        virtual CGGraphBV* poGetBV();
+
+        // General Processing Functionalities.
+        virtual void Accept(CGSceneVisitor* _poVisitor)
+        {
+            _poVisitor->Visit(this);
+        }
+
     protected:
 
         CGBaseMesh* m_poMesh;
         CGShader* m_poShader;
         CGMatrix4x4 m_oMat;
+        CGGraphBV* m_poBV;
+
 };
 // ----------------------------------------------------------------------------
 #endif

@@ -26,6 +26,9 @@ public:
 
     // / This allows the user to setup programatically the mesh type
     void SetPrimitiveType(E3D_PrimitiveType _eMeshType);
+    
+    ///  Points the all internal unmanaged data to the given mesh data
+    void Link(CGMesh* _poMesh);
 
 protected:
     void ComputeNumberOfIndices();

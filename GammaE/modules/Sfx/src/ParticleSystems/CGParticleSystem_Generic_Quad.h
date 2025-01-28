@@ -8,11 +8,10 @@
  *  \par GammaE License
  */
 // -----------------------------------------------------------------------------
-// -----------------------------------------------------------------------------
 #ifndef CGParticleSystem_Generic_Quad_h
 #define CGParticleSystem_Generic_Quad_h 1
 // -----------------------------------------------------------------------------
-#include "ParticleSystems\CGParticleSystem_Generic.h"
+#include "CGParticleSystem_Generic.h"
 // -----------------------------------------------------------------------------
 typedef struct
 {
@@ -21,7 +20,7 @@ typedef struct
     CGVect3 Speed;
     CGVect3 OldSpeed;
 
-    CGVect4 Color;
+    CGColor Color;
 
     float fSize;
     float fEnergy;

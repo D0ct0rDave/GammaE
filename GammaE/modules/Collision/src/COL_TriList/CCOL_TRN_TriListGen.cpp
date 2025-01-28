@@ -27,7 +27,7 @@ inline void TEST_Triangle(CGVect3* _poVXs,int _iMat,int &_iTris,CCOL_TriList& _o
        oTri.Normal.Normalize();
        oTri.ComputeAll();
 
-       fSqrDist = MATH_Utils::fTriPointSqDistance(oTri,_oPos);
+       fSqrDist = Math::fTriPointSqDistance(oTri,_oPos);
        if ( fSqrDist < _fSqrRadius )
        {
         _oTriList.iAddTri(oTri.VXs,oTri.Normal,_iMat,0.0f);

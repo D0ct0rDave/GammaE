@@ -48,7 +48,7 @@ class SCNUt_MeshCompacter
 
     protected:
 
-        uint uiInsertVertex(CGMesh* Mesh, CGVect3 &VX, CGVect2& UV, CGVect4 &VC, CGVect3 &VN);
+        uint uiInsertVertex(CGUnmanagedMesh* Mesh, CGVect3 &VX, CGVect2& UV, CGVect4 &VC, CGVect3 &VN);
 };
 // ----------------------------------------------------------------------------
 #endif

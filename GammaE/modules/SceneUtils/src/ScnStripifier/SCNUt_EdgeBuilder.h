@@ -29,7 +29,7 @@ class SCNUt_EdgeBuilder
 
         ~SCNUt_EdgeBuilder();
 
-        SCNUt_EdgeList* poBuild(CGMesh* _poMesh, CGMesh*&_poOutMesh);
+        SCNUt_EdgeList* poBuild(CGMesh* _poMesh, CGMesh* _poOutMesh);
 
         SCNUt_EdgeList* poBuildFromIndexedTriMesh(CGMesh* _poMesh);
 

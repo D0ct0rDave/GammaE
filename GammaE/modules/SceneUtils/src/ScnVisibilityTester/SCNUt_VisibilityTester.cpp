@@ -56,7 +56,7 @@ bool SCNUt_VisibilityTester::bRayToPos (CGRay& _oRay, CGVect3& _oPos, SCNUt_TriS
         oTri.ComputeAll();
         oTri.Normal.Normalize();
 
-        if ( MATH_Utils::iTestSegTriIntersection(_oRay,oTri,oPoint) )
+        if ( Math::iTestSegTriIntersection(_oRay,oTri,oPoint) )
         {
             fCurDist = _oRay.Origin.fDistance(oPoint);
             if ( fCurDist + 1e-1f < fMaxDist )

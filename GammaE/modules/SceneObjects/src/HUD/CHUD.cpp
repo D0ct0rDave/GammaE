@@ -186,7 +186,7 @@ int CHUD::iCulled ()
     return(0);
 }
 // ----------------------------------------------------------------------------
-CGBoundingVolume* CHUD::poGetBV ()
+CGGraphBV* CHUD::poGetBV()
 {
     return (NULL);
 }

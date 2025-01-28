@@ -64,6 +64,12 @@ class CGSceneBSPNode : public CGSceneNode
             return(m_oPartitionPlane);
         }
 
+        // Sets the bounding volume of the object
+        void SetBV(CGGraphBV* _poBV);
+
+        // / Returns the node bounding volume.
+        virtual CGGraphBV* poGetBV();
+
         // General Processing Functionalities.
         virtual void Accept(CGSceneVisitor* _poVisitor)
         {
@@ -75,6 +81,7 @@ class CGSceneBSPNode : public CGSceneNode
         CGSceneNode* m_poBackNode;
         CGSceneNode* m_poFrontNode;
         CGPlane m_oPartitionPlane;
+        CGGraphBV* m_poBV;
 };
 // ----------------------------------------------------------------------------
 #endif

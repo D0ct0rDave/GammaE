@@ -51,7 +51,7 @@ void CGCoronaGenStd::UpdateCorona(CGCorona* _poCorona,float _fDeltaT)
         fFact = (Math::fSin(poCorona->m_fTime * _2PI_ * m_fFreq) + 1.0f) * 0.5f;
     }
 
-    poCorona->m_fSize = MATH_fLerp(m_fIniSize,m_fEndSize,fFact);
+    poCorona->m_fSize = Math::fLerp(m_fIniSize,m_fEndSize,fFact);
     poCorona->m_oColor.Lerp(m_oIniColor,m_oEndColor,fFact);
 }
 // ----------------------------------------------------------------------------
@@ -74,7 +74,7 @@ void CGCoronaGenStd::UpdateInstance(CGCoronaInstance* _poInst,float _fDeltaT)
 
     // Generate the geometry for this corona
     CGVect3 oNewPos = poCorona->m_oPos;
-    oCameraMatrix.TransformPoint(oNewPos);
+    oCameraMatrix.TransformPoint(&oNewPos);
 
     CGVect3 oX = CGVect3::oX();
     oX.Scale(poCorona->m_fSize);

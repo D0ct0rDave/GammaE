@@ -33,7 +33,7 @@ class CLensFlare : public CGSceneNode
 
         virtual void Render();
 
-        virtual CGBoundingVolume* poGetBV();
+        virtual CGGraphBV* poGetBV();
 
         virtual void ComputeBoundVol();
 

@@ -40,28 +40,27 @@ CGSceneNode* SCNUt_OctreeBuilder::poBuildOctreeRec (SCNUt_TriScene& _oScene, int
     // -----------------------------------------------------------
     // Split the node in height subspaces
     // -----------------------------------------------------------
-    CGBVAABB* poBox;
     SCNUt_ComputeBoundingBox oCBBox;
     SCNUt_TriSceneSplitter oTScnSplitter;
 
-    poBox = oCBBox.poComputeBoundingBox(&_oScene);
+    CGBVAABB* poBox = oCBBox.poComputeBoundingBox(&_oScene);
 
     CGVect3 oCenter;
     CGVect3 oHMP,oVMP,oDMP;                    // Horizontal middle point, Vertical Middle Point,Depth Middle Point
 
     // Get the center point of the BBox
-    oCenter.Assign(poBox->m_oMaxs);
-    oCenter.Add   (poBox->m_oMins);
+    oCenter.Assign(poBox->oGetMax());
+    oCenter.Add   (poBox->oGetMin());
     oCenter.Scale (0.5f);
 
     oHMP.Assign(oCenter);
-    oHMP.x = poBox->m_oMaxs.x;
+    oHMP.x = poBox->oGetMax().x;
 
     oDMP.Assign(oCenter);
-    oDMP.y = poBox->m_oMaxs.y;
+    oDMP.y = poBox->oGetMax().y;
 
     oVMP.Assign(oCenter);
-    oVMP.y = poBox->m_oMaxs.z;
+    oVMP.y = poBox->oGetMax().z;
 
     // Compute separating planes
     CGPlane oHPlane,oVPlane,oDPlane;                    // Horizontal,Vertical,Depth plane

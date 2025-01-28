@@ -33,12 +33,12 @@ void SCNUt_AnimMesh_NormalComputer::Generate (CGSceneAnimMesh* _pObj)
 
     int iState;
 
-    for ( iState = 0; iState < _pObj->uiGetNumKeyFrames(); iState++ )
+    for ( iState = 0; iState < _pObj->uiGetNumStates(); iState++ )
     {
-        pLeafMesh->m_poVX = _pObj->poGetVertexs() + _pObj->uiGetNumFrameVXs() * iState;
+        pLeafMesh->m_poVX = _pObj->poGetVertices() + _pObj->uiGetNumFrameVXs() * iState;
         pLeafMesh->m_poVN = _pObj->poGetNormals() + _pObj->uiGetNumFrameVXs() * iState;
 
-        NormalGen_ComputeVertexsNormals(*pLeafMesh);
+        MeshUtils::ComputeVertexsNormals(*pLeafMesh);
     }
 
     pLeafMesh->m_poVX = pOldVXs;

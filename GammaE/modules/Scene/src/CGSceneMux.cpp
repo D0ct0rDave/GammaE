@@ -18,11 +18,6 @@ CGSceneMux::CGSceneMux() : m_bSelected(NULL)
     m_eNodeType = SNT_Mux;
 }
 // ----------------------------------------------------------------------------
-CGSceneMux::~CGSceneMux()
-{
-    // if ( m_bSelected ) mDel [] m_bSelected;
-}
-// ----------------------------------------------------------------------------
 void CGSceneMux::Init(uint _uiMaxSubObjects)
 {
     CGSceneGroup::Init(_uiMaxSubObjects);

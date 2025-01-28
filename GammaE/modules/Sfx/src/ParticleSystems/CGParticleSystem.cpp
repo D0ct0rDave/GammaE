@@ -31,21 +31,6 @@
 // CGParticleSystem
 #include "CGParticleSystem.h"
 // ## begin module%3B72F78101D1.additionalDeclarations preserve=yes
-
-CGVect3* pCurrentVXs = NULL;
-
-int SortVXs( const void* a, const void* b)
-{
-    static CGVect3* pVXa,* pVXb;
-
-    pVXa = (CGVect3*)pCurrentVXs + *( (unsigned short*)a );
-    pVXb = (CGVect3*)pCurrentVXs + *( (unsigned short*)b );
-
-    if ( pVXa->z < pVXb->z ) return(-1);
-    else if ( pVXa->z > pVXb->z ) return(1);
-    else return(0);
-}
-
 // ## end module%3B72F78101D1.additionalDeclarations
 
 // Class CGParticleSystem
@@ -58,7 +43,6 @@ CGParticleSystem::CGParticleSystem()
     // ## begin CGParticleSystem::CGParticleSystem%.initialization preserve=yes
     // ## end CGParticleSystem::CGParticleSystem%.initialization
     // ## begin CGParticleSystem::CGParticleSystem%.body preserve=yes
-    bFrustumTest = 0;
     // ## end CGParticleSystem::CGParticleSystem%.body
 }
 
@@ -75,7 +59,7 @@ void CGParticleSystem::InitPS (int _iMaxParticles, bool _bZOrder, bool _bDisable
     int cPart;
 
     if ( Particle ) MEMFree(Particle);
-    if ( poMesh ) mDel(poMesh);
+    if (m_poMesh) mDel(m_poMesh);
 
     iMaxParticles = _iMaxParticles;
     Particle = MEMAlloc(iParticleBytes * iMaxParticles);
@@ -84,8 +68,8 @@ void CGParticleSystem::InitPS (int _iMaxParticles, bool _bZOrder, bool _bDisable
     // -----------------------------------------------------
     // InitMesh
     // -----------------------------------------------------
-    poMesh = mNew CMesh();
-    poMesh->Init(iMaxParticles * 4,iMaxParticles,E3D_MESH_QUADS,
+    m_poMesh = mNew CGMesh();
+    m_poMesh->Init(iMaxParticles * 4,iMaxParticles, E3D_PrimitiveType::E3D_PT_QUADS,
                  MESH_FIELD_VERTEXS |
                  MESH_FIELD_UVCOORDS |
                  MESH_FIELD_COLORS |
@@ -93,24 +77,23 @@ void CGParticleSystem::InitPS (int _iMaxParticles, bool _bZOrder, bool _bDisable
 
     for ( cPart = 0; cPart < iMaxParticles; cPart++ )
     {
-        poMesh->Idxs[cPart * 4 + 0] = cPart * 4 + 1;
-        poMesh->Idxs[cPart * 4 + 1] = cPart * 4 + 0;
-        poMesh->Idxs[cPart * 4 + 2] = cPart * 4 + 3;
-        poMesh->Idxs[cPart * 4 + 3] = cPart * 4 + 2;
+        m_poMesh->m_pusIdx[cPart * 4 + 0] = cPart * 4 + 1;
+        m_poMesh->m_pusIdx[cPart * 4 + 1] = cPart * 4 + 0;
+        m_poMesh->m_pusIdx[cPart * 4 + 2] = cPart * 4 + 3;
+        m_poMesh->m_pusIdx[cPart * 4 + 3] = cPart * 4 + 2;
 
-        poMesh->UVs[cPart * 4 + 0].Set(0.0f,0.0f);
-        poMesh->UVs[cPart * 4 + 1].Set(0.0f,1.0f);
-        poMesh->UVs[cPart * 4 + 2].Set(1.0f,1.0f);
-        poMesh->UVs[cPart * 4 + 3].Set(1.0f,0.0f);
+        m_poMesh->m_poUV[cPart * 4 + 0].Set(0.0f,0.0f);
+        m_poMesh->m_poUV[cPart * 4 + 1].Set(0.0f,1.0f);
+        m_poMesh->m_poUV[cPart * 4 + 2].Set(1.0f,1.0f);
+        m_poMesh->m_poUV[cPart * 4 + 3].Set(1.0f,0.0f);
 
-        poMesh->VXs[cPart * 4 + 0].Set(0.0f,0.0f,10000.0f);
-        poMesh->VXs[cPart * 4 + 1].Set(0.0f,0.0f,10000.0f);
-        poMesh->VXs[cPart * 4 + 2].Set(0.0f,0.0f,10000.0f);
-        poMesh->VXs[cPart * 4 + 3].Set(0.0f,0.0f,10000.0f);
+        m_poMesh->m_poVX[cPart * 4 + 0].Set(0.0f,0.0f,10000.0f);
+        m_poMesh->m_poVX[cPart * 4 + 1].Set(0.0f,0.0f,10000.0f);
+        m_poMesh->m_poVX[cPart * 4 + 2].Set(0.0f,0.0f,10000.0f);
+        m_poMesh->m_poVX[cPart * 4 + 3].Set(0.0f,0.0f,10000.0f);
     }
 
     // -----------------------------------------------------
-    BVol = poMesh->GetBoundVol();
     bZOrder = _bZOrder;
     bDisableZBuffer = _bDisableZBuffer;
     // ## end CGParticleSystem::InitPS%997390914.body
@@ -149,30 +132,22 @@ void CGParticleSystem::Render ()
     bool bEnableZBuffer = false;
 
     if ( bDisableZBuffer )
-        CGRenderer::I()->SetZPars(eE3D_ZTF_None,eE3D_ZW_Current);
+        CGRenderer::I()->SetZPars(E3D_ZTestFunc::E3D_ZTF_None, E3D_ZWrite::E3D_ZW_Current);
 
-    Think( CGRenderer::I()->REStats.DTime );
+    Think( CGRenderer::I()->oGetStats().m_fDelta );
 
     CGRenderer::I()->GetWorldMatrix(&CurrentViewMat);
 
     UpdatePS(&CurrentViewMat);
-    if ( bZOrder ) OrderPS ();
     CGRenderer::I()->ClearCameraMatrix();
-    CGSceneLeaf::Render();
+    
+    CGSCNVRenderer::I()->Render(this);
 
-    CGRenderer::I()->SetWorldMatrix(&CurrentViewMat);
+    CGRenderer::I()->SetWorldMatrix(CurrentViewMat);
 
     if ( bEnableZBuffer )
-        CGRenderer::I()->SetZPars(eE3D_ZTF_Last,eE3D_ZW_Current);
+        CGRenderer::I()->SetZPars(E3D_ZTestFunc::E3D_ZTF_Last, E3D_ZWrite::E3D_ZW_Current);
     // ## end CGParticleSystem::Render%997390917.body
-}
-
-void CGParticleSystem::OrderPS ()
-{
-    // ## begin CGParticleSystem::OrderPS%998089257.body preserve=yes
-    pCurrentVXs = poMesh->VXs;
-    qsort(poMesh->Idxs,iMaxParticles,4 * sizeof(unsigned short),SortVXs);
-    // ## end CGParticleSystem::OrderPS%998089257.body
 }
 
 // Additional Declarations

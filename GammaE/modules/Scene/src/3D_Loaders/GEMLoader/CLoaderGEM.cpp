@@ -159,7 +159,6 @@ CGSceneLeaf* CLoaderGEM::poLoad3DObj_Leaf ()
 
     // Write mesh
     poObj->SetMesh( poLoadMesh() );
-    poObj->SetBV( poObj->poGetMesh()->poGetBV() );
 
     return (poObj);
 }
@@ -264,7 +263,7 @@ CGSceneAnimMesh* CLoaderGEM::poLoad3DObj_AnimMesh ()
        CGMesh* poMesh = poLoadMesh(_oFile);
 
        // Load the the vertexs and normals state array
-       uint uiNumVXs = poMesh->m_usNumVXs;
+       uint uiNumVXs = poMesh->uiGetNumVXs();
        CGVect3* poVXs = mNew CGVect3[uiNumVXs];
        CGVect3* poVNs = mNew CGVect3[uiNumVXs];
        m_poFile->iRead( poVXs,uiNumKeyFrames * uiNumVXs * sizeof(CGVect3) );

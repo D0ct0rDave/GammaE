@@ -40,19 +40,11 @@ class SCNUt_SceneCompiler
 
     private:
         // Data Members for Class Attributes
-
-        bool bNULLMaterials;
+        void CompileMeshInLeaf(CGSceneLeaf* _poLeaf);
 
         // Additional Private Declarations
 
     private:                    // Additional Implementation Declarations
 };
-
-// Class SCNUt_SceneCompiler
-
-inline void SCNUt_SceneCompiler::SetNULLMaterials (bool _bNULL)
-{
-    bNULLMaterials = _bNULL;
-}
 
 #endif

@@ -21,14 +21,45 @@ CGUnmanagedMesh::~CGUnmanagedMesh()
     m_pusIdx = NULL;
 }
 // ----------------------------------------------------------------------------
+void CGUnmanagedMesh::Link(CGMesh* _poMesh)
+{
+    m_poVX = _poMesh->m_poVX;
+    m_poUV = _poMesh->m_poUV;
+    m_poVC = _poMesh->m_poVC;
+    m_poVN = _poMesh->m_poVN;
+    m_pusIdx = _poMesh->m_pusIdx;
+    m_poTN = _poMesh->m_poTN;
+    m_poUV2 = _poMesh->m_poUV2;
+
+    m_uiNumVXs = _poMesh->uiGetNumVXs();
+    m_uiNumPrims = _poMesh->uiGetNumPrims();
+    m_uiNumIdxs = _poMesh->uiGetNumIndices();
+
+    m_uiMaxVXs = _poMesh->uiGetNumVXs();
+    m_uiMaxPrims = _poMesh->uiGetNumPrims();
+
+    m_ePrimitiveType = _poMesh->eGetPrimitiveType();
+    m_eMeshType = _poMesh->eGetType();
+
+    m_poBV = _poMesh->poGetBV();
+}
+// ----------------------------------------------------------------------------
 void CGUnmanagedMesh::SetNumVXs(uint _uiNumVXs)
 {
+    if (m_uiNumVXs < m_uiMaxVXs)
+    {
+        m_uiNumVXs = _uiNumVXs;
+    }
     m_uiNumVXs = _uiNumVXs;
 }
 // ----------------------------------------------------------------------------
 void CGUnmanagedMesh::SetNumPrims(uint _uiNumPrims)
 {
-    m_uiNumPrims = _uiNumPrims;
+    if (_uiNumPrims < m_uiMaxPrims)
+    {
+        m_uiNumPrims = _uiNumPrims;
+    }
+
     ComputeNumberOfIndices();
 }
 // ----------------------------------------------------------------------------

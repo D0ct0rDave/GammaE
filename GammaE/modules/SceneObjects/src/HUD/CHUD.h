@@ -59,7 +59,7 @@ class CHUD : public CGSceneNode
 
         virtual void Render();
         virtual int iCulled();
-        virtual CGBoundingVolume* poGetBV();
+        virtual CGGraphBV* poGetBV();
         virtual void ComputeBoundVol();
 
         virtual void Accept(CGSceneVisitor* _poObj)

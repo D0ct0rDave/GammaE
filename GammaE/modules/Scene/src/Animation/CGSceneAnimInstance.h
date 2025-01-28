@@ -60,6 +60,10 @@ class CGSceneAnimInstance : public CGSceneNode
 
         void UpdateAnimState();
 
+        // / Returns the node bounding volume.
+        virtual CGGraphBV* poGetBV();
+
+
     protected:
 
         // The config used by object to be rendered

@@ -19,10 +19,10 @@ class CGPSIManagerNode : public CGSceneGroup
         virtual void Render()
         {
             // Update the PSIManager
-            CGPSIManager::I()->Update( CGRenderer::I()->REStats.DTime );
+            CGPSIManager::I()->Update( CGRenderer::I()->oGetStats().m_fDelta );
 
             // Render all the objects of the PSI
-            CGSceneGroup::Render();
+            CGSCNVRenderer::I()->Render(this);
         }
 };
 // ----------------------------------------------------------------------------

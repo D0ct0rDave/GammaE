@@ -139,9 +139,9 @@ void CDetailer::CreateTextureContents (CGMipMap* _pMipMap)
 
             /*
                if (iValue > 128)
-                if (MATH_fRand() < 0.9f)
+                if (Math::fRand() < 0.9f)
                 {
-                    iValue = MATH_fRand()*128;
+                    iValue = Math::fRand()*128;
                 }
              */
 

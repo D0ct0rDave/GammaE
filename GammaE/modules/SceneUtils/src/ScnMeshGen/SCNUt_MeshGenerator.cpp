@@ -33,7 +33,7 @@ CGMesh* SCNUt_MeshGenerator::GenerateMesh (SCNUt_TriScene &Scene)
     // Create a mesh
     // ----------------------------------
     Mesh = mNew CGMesh();
-    Mesh->Init(Scene.NumTris * 3,Scene.NumTris,E3D_MESH_NITRIS,MESH_FIELD_ALL);
+    Mesh->Init(Scene.NumTris * 3,Scene.NumTris,E3D_PrimitiveType::E3D_PT_NITRIS,MESH_FIELD_ALL);
 
     // ----------------------------------
     // Generate the new mesh

@@ -24,7 +24,7 @@ void CGCoronaInstance::SetPos(const CGVect3& _oNewPos)
 // ----------------------------------------------------------------------------
 void CGCoronaInstance::Render()
 {
-    m_poTG->UpdateInstance(this,CGRenderer::I()->REStats.DTime);
+    m_poTG->UpdateInstance(this,CGRenderer::I()->oGetStats().m_fDelta);
 }
 // ----------------------------------------------------------------------------
 void CGCoronaInstance::Reinit()

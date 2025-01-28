@@ -42,18 +42,18 @@ int ClassifyTriangles(CGVect3* _poSrcVXs,CGVect3* _poDstVXs)
     if ( fSrcArea > fDstArea )
     {
         // First look if dst triangle falls completely inside the source triangle bounding box
-        CGBVAABB oSrcBox;
+        CGGraphBVAABB oSrcBox;
         oSrcBox.Compute(_poSrcVXs,3);
 
-        if ( ( !CCOL_ST_Box::iTestPoint(oSrcBox.Vol.m_oMaxs,oSrcBox.Vol.m_oMins,_poDstVXs[0]) ) ||
-            ( !CCOL_ST_Box::iTestPoint(oSrcBox.Vol.m_oMaxs,oSrcBox.Vol.m_oMins,_poDstVXs[1]) ) ||
-            ( !CCOL_ST_Box::iTestPoint(oSrcBox.Vol.m_oMaxs,oSrcBox.Vol.m_oMins,_poDstVXs[2]) ) ) return(false);
+        if ( ( !CCOL_ST_Box::iTestPoint(oSrcBox.oGetBox().oGetMax(),oSrcBox.oGetBox().oGetMin(),_poDstVXs[0])) ||
+             ( !CCOL_ST_Box::iTestPoint(oSrcBox.oGetBox().oGetMax(),oSrcBox.oGetBox().oGetMin(),_poDstVXs[1]) ) ||
+             ( !CCOL_ST_Box::iTestPoint(oSrcBox.oGetBox().oGetMax(),oSrcBox.oGetBox().oGetMin(),_poDstVXs[2]) ) ) return(false);
 
         oSrcTri.Normal.Normalize();
 
-        if ( MATH_Utils::fTriPointSqDistance(oSrcTri,_poDstVXs[0]) < THRESHOLD_DIST ) iInside++;
-        if ( MATH_Utils::fTriPointSqDistance(oSrcTri,_poDstVXs[1]) < THRESHOLD_DIST ) iInside++;
-        if ( MATH_Utils::fTriPointSqDistance(oSrcTri,_poDstVXs[2]) < THRESHOLD_DIST ) iInside++;
+        if ( Math::fTriPointSqDistance(oSrcTri,_poDstVXs[0]) < THRESHOLD_DIST ) iInside++;
+        if ( Math::fTriPointSqDistance(oSrcTri,_poDstVXs[1]) < THRESHOLD_DIST ) iInside++;
+        if ( Math::fTriPointSqDistance(oSrcTri,_poDstVXs[2]) < THRESHOLD_DIST ) iInside++;
 
         if ( iInside >= 2 )
         {
@@ -65,18 +65,18 @@ int ClassifyTriangles(CGVect3* _poSrcVXs,CGVect3* _poDstVXs)
     else
     {
         // First look if src triangle falls completely inside the destination triangle bounding box
-        CGBVAABB oDstBox;
+        CGGraphBVAABB oDstBox;
         oDstBox.Compute(_poDstVXs,3);
 
-        if ( ( !CCOL_ST_Box::iTestPoint(oDstBox.Vol.m_oMaxs,oDstBox.Vol.m_oMins,_poSrcVXs[0]) ) ||
-            ( !CCOL_ST_Box::iTestPoint(oDstBox.Vol.m_oMaxs,oDstBox.Vol.m_oMins,_poSrcVXs[1]) ) ||
-            ( !CCOL_ST_Box::iTestPoint(oDstBox.Vol.m_oMaxs,oDstBox.Vol.m_oMins,_poSrcVXs[2]) ) ) return(false);
+        if ( ( !CCOL_ST_Box::iTestPoint(oDstBox.oGetBox().oGetMax(),oDstBox.oGetBox().oGetMin(),_poSrcVXs[0]) ) ||
+             ( !CCOL_ST_Box::iTestPoint(oDstBox.oGetBox().oGetMax(),oDstBox.oGetBox().oGetMin(),_poSrcVXs[1]) ) ||
+             ( !CCOL_ST_Box::iTestPoint(oDstBox.oGetBox().oGetMax(),oDstBox.oGetBox().oGetMin(),_poSrcVXs[2]) ) ) return(false);
 
         oDstTri.Normal.Normalize();
 
-        if ( MATH_Utils::fTriPointSqDistance(oDstTri,_poSrcVXs[0]) < THRESHOLD_DIST ) iInside++;
-        if ( MATH_Utils::fTriPointSqDistance(oDstTri,_poSrcVXs[1]) < THRESHOLD_DIST ) iInside++;
-        if ( MATH_Utils::fTriPointSqDistance(oDstTri,_poSrcVXs[2]) < THRESHOLD_DIST ) iInside++;
+        if ( Math::fTriPointSqDistance(oDstTri,_poSrcVXs[0]) < THRESHOLD_DIST ) iInside++;
+        if ( Math::fTriPointSqDistance(oDstTri,_poSrcVXs[1]) < THRESHOLD_DIST ) iInside++;
+        if ( Math::fTriPointSqDistance(oDstTri,_poSrcVXs[2]) < THRESHOLD_DIST ) iInside++;
 
         if ( iInside >= 2 )
             return(2);                     // Dst must survive
@@ -122,7 +122,7 @@ SCNUt_TriScene* SCNUt_CoplanarRemover::RemoveCoplanars (SCNUt_TriScene* _poScn)
                                              _poScn->Tris[cI].VXs[1],
                                              _poScn->Tris[cI].VXs[2]);
 
-                if ( oSrCGPlane.Coplanar(oDstPlane) )
+                if ( oSrCGPlane.bCoplanar(oDstPlane) )
                 {
                     // Look what of the triangles is completelly contained inside
                     // the other

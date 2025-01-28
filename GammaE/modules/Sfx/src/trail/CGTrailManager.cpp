@@ -23,14 +23,14 @@ class CGTrailManagerNode : public CGSceneGroup
             CGTrailManager::I()->Update( CGRenderer::I()->oGetStats().m_fDelta);
 
             // Render all the objects of the PSI
-            CGTrailManager::I()->m_poRenderer->Render();
+            CGTrailManager::I()->m_poSceneNodeRenderer->Render();
         }
 };
 // ----------------------------------------------------------------------------
 void CGTrailManager::Init()
 {
     // The renderer for all billboards of the trails
-    m_poRenderer = mNew CGBillboardRenderer(128,1000);
+    m_poSceneNodeRenderer = mNew CGBillboardRenderer(128,1000);
 
     // The scene node to render the trails
     m_poSceneNode = mNew CGTrailManagerNode;
@@ -52,11 +52,11 @@ CGTrailInstance* CGTrailManager::poGet(const CGString& _sType)
         CGGenInstsPair* poGIP = mNew CGGenInstsPair;
 
         poGIP->m_poTG = poTG;
-        poGIP->m_poTG->SetBillboardRenderer(m_poRenderer);
+        poGIP->m_poTG->SetBillboardRenderer(m_poSceneNodeRenderer);
 /*
         poGIP->m_poTG->SetMaxDivisions(100);
         poGIP->m_poTG->SetMaxPoints(25);
-        poGIP->m_poTG->SetShader( CE3D_ShaderWH::I()->poCreateShader("particletex2alpha") );
+        poGIP->m_poTG->SetShader( CGShaderWH::I()->poCreateShader("particletex2alpha") );
         poGIP->m_poTG->SetEnergyPars(1.0f,0.0f);
 
         CGColor oIni(1,1,0.2,1);
@@ -93,18 +93,18 @@ CGTrailInstance* CGTrailManager::poGet(const CGString& _sType)
 // ----------------------------------------------------------------------------
 void CGTrailManager::Update(float _fDeltaT)
 {
-    m_poRenderer->Reset();
+    m_poSceneNodeRenderer->Reset();
 
     for ( uint j = 0; j < m_oGIList.uiNumElems(); j++ )
     {
         CGGenInstsPair* poGIP = m_oGIList[j];
 
-        m_poRenderer->Begin( poGIP->m_poTG->poGetShader() );
+        m_poSceneNodeRenderer->Begin( poGIP->m_poTG->poGetShader() );
 
         for ( uint i = 0; i < poGIP->m_oInsts.uiNumElems(); i++ )
             poGIP->m_oInsts[i]->Update();
 
-        m_poRenderer->End();
+        m_poSceneNodeRenderer->End();
     }
 }
 // ----------------------------------------------------------------------------

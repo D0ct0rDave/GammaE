@@ -114,7 +114,7 @@ void CGPSGDefFileWH::ProcessPSGDefFile(const CGString& _sPSGDefFilename)
             poPSGQ->SetSizePars(fISize,fFSize,fIRSize,fFRSize);
             poPSGQ->SetAnglePars(fIAngle,fFAngle,fIRAngle,fFRAngle);
             poPSGQ->SetRadiusPars(fIRadius,fFRadius,fIRRadius,fFRRadius);
-            poPSGQ->SetShader( CE3D_ShaderWH::I()->poCreateShader( sShader.szString() ) );
+            poPSGQ->SetShader( CGShaderWH::I()->poCreateShader( sShader.szString() ) );
         }
     }
 }

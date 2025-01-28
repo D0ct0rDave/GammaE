@@ -79,17 +79,17 @@ SCNUt_TriScene* SCNUt_TriSceneLoader::poLoad (char* _szFilename, SCNUt_MaterialT
                     Token = Utils::Parse::ParseToken(StrPos);
 
                     // Add the material to the material table
-                    CGShader* poShader = CE3D_ShaderWH::I()->poCreateShader(Token);
+                    CGShader* poShader = CGShaderWH::I()->poCreateShader(Token);
                     if ( poShader == NULL )
                     {
                         poShader = mNew CGShader;
-                        CE3D_ShaderWH::I()->uiAdd(poShader,Token);
+                        CGShaderWH::I()->uiAdd(poShader,Token);
                     }
 
                     _oMTable.uiAdd(poShader,Token);
 
                     // const CGShader*poShader = poLeaf->poGetShader();
-                    // const char* szShaderName = CE3D_ShaderWH::I()->sGetName( poShader ).szString();
+                    // const char* szShaderName = CGShaderWH::I()->sGetName( poShader ).szString();
                     // pszMaterials[iMatNum] = Utils::Parse::CreateString(Token);
                 }
             }

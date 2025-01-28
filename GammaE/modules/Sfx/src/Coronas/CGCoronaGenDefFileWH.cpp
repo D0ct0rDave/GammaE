@@ -83,7 +83,7 @@ void CGCoronaGenDefFileWH::ProcessCoronaGenDefFile(const CGString& _sCoronaDefFi
             poTGS->SetFuncPars(CF_Sin,fFreq);
         }
 
-        poTG->SetShader( CE3D_ShaderWH::I()->poCreateShader( sShader.szString() ) );
+        poTG->SetShader( CGShaderWH::I()->poCreateShader( sShader.szString() ) );
     }
 }
 // ----------------------------------------------------------------------------

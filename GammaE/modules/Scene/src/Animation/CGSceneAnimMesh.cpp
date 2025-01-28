@@ -24,11 +24,11 @@ CGSceneAnimMesh::CGSceneAnimMesh() :
 // --------------------------------------------------------------------------------
 CGSceneAnimMesh::~CGSceneAnimMesh()
 {
-    for (uint uiState = 0; uiState < m_poBVolStates.uiNumElems(); uiState++)
+    for (uint uiState = 0; uiState < m_poStateBVs.uiNumElems(); uiState++)
     {
-        delete m_poBVolStates[uiState];
+        delete m_poStateBVs[uiState];
     }
-    m_poBVolStates.Clear();
+    m_poStateBVs.Clear();
 
     if ( m_poFrameVXs ) mDel [] m_poFrameVXs;
     if ( m_poFrameVNs ) mDel [] m_poFrameVNs;
@@ -43,10 +43,10 @@ void CGSceneAnimMesh::Setup(CGMesh* _poStartupMesh, uint _uiNumStates, uint _uiN
     m_uiNumStates = _uiNumStates;
     m_uiNumVerticesPerState = _uiNumVerticesPerState;
 
-    m_poBVolStates.Init(_uiNumStates);
+    m_poStateBVs.Init(_uiNumStates);
     for (uint uiState = 0; uiState < _uiNumStates; uiState++)
     {
-        m_poBVolStates[uiState] = CGGraphBVFactory::poCreate();
+        m_poStateBVs[uiState] = CGGraphBVFactory::poCreate();
     }
 }
 // --------------------------------------------------------------------------------
@@ -76,12 +76,13 @@ void CGSceneAnimMesh::SetAnimState (uint _uiSrc, uint _uiDst, float _fFactor)
     assert (m_poFrameVNs && "NULL Mesh state normal array");
     // assert (Leaf && "NULL Leaf Mesh");
 
+    CGGraphBV* poBV = NULL;
     if (m_uiNumStates == 1 )
     {
         memcpy(m_poMesh->m_poVX, m_poFrameVXs, m_uiNumVerticesPerState * sizeof(CGVect3) );
         memcpy(m_poMesh->m_poVN, m_poFrameVNs, m_uiNumVerticesPerState * sizeof(CGVect3) );
 
-        m_poBV = m_poBVolStates[0];
+        poBV = m_poStateBVs[0];
     }
     else
     {
@@ -149,24 +150,23 @@ void CGSceneAnimMesh::SetAnimState (uint _uiSrc, uint _uiDst, float _fFactor)
             memcpy(m_poMesh->m_poVN, m_poFrameVNs + m_uiNumVerticesPerState * _uiSrc, m_uiNumVerticesPerState * sizeof(CGVect3) );
         }
 
-        m_poBV = m_poBVolStates[_uiSrc];
+        poBV = m_poStateBVs[_uiSrc];
     }
-    
-    // m_poMesh->poGetBV().
-    // Leaf->poGetMesh()->BVol->Copy(BVol);
+
+    m_poMesh->poGetBV()->Copy(*poBV);
 }
 // --------------------------------------------------------------------------------
 void CGSceneAnimMesh::ComputeStatesBVols()
 {
-    for (uint uiState = 0; uiState < m_poBVolStates.uiNumElems(); uiState++)
-        m_poBVolStates[uiState]->Compute(m_poFrameVXs + (uiState * m_uiNumVerticesPerState), m_uiNumVerticesPerState);
+    for (uint uiState = 0; uiState < m_poStateBVs.uiNumElems(); uiState++)
+        m_poStateBVs[uiState]->Compute(m_poFrameVXs + (uiState * m_uiNumVerticesPerState), m_uiNumVerticesPerState);
 
-    m_poBV = m_poBVolStates[0]; 
+    m_poMesh->poGetBV()->Copy(*m_poStateBVs[0]);
 }
 // --------------------------------------------------------------------------------
 CGGraphBV* CGSceneAnimMesh::poGetStateBVol(int _iState)
 {
-    return m_poBVolStates[_iState];
+    return m_poStateBVs[_iState];
 }
 // --------------------------------------------------------------------------------
 void CGSceneAnimMesh::SetShader(CGShader* _poShader)
@@ -177,5 +177,10 @@ void CGSceneAnimMesh::SetShader(CGShader* _poShader)
 CGShader* CGSceneAnimMesh::poGetShader()
 {
     return(m_poShader);
+}
+// --------------------------------------------------------------------------------
+CGGraphBV* CGSceneAnimMesh::poGetBV()
+{
+    return(m_poMesh->poGetBV());
 }
 // --------------------------------------------------------------------------------

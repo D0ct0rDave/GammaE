@@ -15,9 +15,23 @@ CGSceneBSPNode::CGSceneBSPNode() :
     m_poFrontNode(NULL)
 {
     m_eNodeType = SNT_BSPNode;
+    m_poBV = CGGraphBVFactory::poCreate();
 }
 // ----------------------------------------------------------------------------
 CGSceneBSPNode::~CGSceneBSPNode()
 {
+}
+// ----------------------------------------------------------------------------
+void CGSceneBSPNode::SetBV(CGGraphBV* _poBV)
+{
+    if (m_poBV)
+        mDel m_poBV;
+
+    m_poBV = _poBV;
+}
+// ----------------------------------------------------------------------------
+CGGraphBV* CGSceneBSPNode::poGetBV()
+{
+    return m_poBV;
 }
 // ----------------------------------------------------------------------------

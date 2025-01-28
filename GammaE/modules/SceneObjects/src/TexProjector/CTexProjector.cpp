@@ -25,7 +25,7 @@ CTexProjector::~CTexProjector()
     oAuxMesh.m_poVX = NULL;
     oAuxMesh.m_uiNumIdxs = NULL;
     oAuxMesh.m_uiNumPrims = NULL;
-    oAuxMesh.m_usNumVXs = NULL;
+    oAuxMesh.uiGetNumVXs() = NULL;
     oAuxMesh.m_poUV = NULL;
     oAuxMesh.m_poUV = NULL;
     oAuxMesh.m_poVC = NULL;
@@ -45,8 +45,8 @@ void CTexProjector::Setup (CGMesh* _oSrcMesh, CGShader* _poShader, CGMatrix4x4& 
     oAuxMesh.m_pusIdx = _oSrcMesh->m_pusIdx;
     oAuxMesh.m_poVX = _oSrcMesh->m_poVX;
     oAuxMesh.m_uiNumIdxs = _oSrcMesh->m_uiNumIdxs;
-    oAuxMesh.m_uiNumPrims = _oSrcMesh->m_uiNumPrims;
-    oAuxMesh.m_usNumVXs = _oSrcMesh->m_usNumVXs;
+    oAuxMesh.m_uiNumPrims = _oSrcMesh.uiGetNumPrims();
+    oAuxMesh.uiGetNumVXs() = _oSrcMesh->uiGetNumVXs();
     oAuxMesh.m_poUV = (CGVect2*)_oSrcMesh->m_poVX;
     oAuxMesh.m_poUV = NULL;
     oAuxMesh.m_poVC = NULL;                             // _oSrCGMesh->VCs;

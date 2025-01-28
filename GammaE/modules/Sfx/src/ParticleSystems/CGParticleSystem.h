@@ -80,9 +80,6 @@ class CGParticleSystem : public CGSceneLeaf  // ## Inherits: <unnamed>%3B72F7930
         // ## Operation: UpdateParticle%997390919
         virtual void UpdateParticle(int iPart) = 0;
 
-        // ## Operation: OrderPS%998089257
-        void OrderPS();
-
         // Data Members for Class Attributes
 
         // ## Attribute: PSSpeed%3B74706500E6
@@ -145,6 +142,7 @@ class CGParticleSystem : public CGSceneLeaf  // ## Inherits: <unnamed>%3B72F7930
         // Additional Protected Declarations
         // ## begin CGParticleSystem%3B72F78101D1.protected preserve=yes
         // ## end CGParticleSystem%3B72F78101D1.protected
+        CGMesh* m_poMesh;
 
     private:
         // Data Members for Class Attributes
@@ -152,6 +150,7 @@ class CGParticleSystem : public CGSceneLeaf  // ## Inherits: <unnamed>%3B72F7930
         // ## Attribute: bDisableZBuffer%3B7DBBFF037C
         // ## begin CGParticleSystem::bDisableZBuffer%3B7DBBFF037C.attr preserve=no  private: bool {UA} false
         bool bDisableZBuffer;
+
         // ## end CGParticleSystem::bDisableZBuffer%3B7DBBFF037C.attr
 
         // Additional Private Declarations

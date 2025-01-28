@@ -23,6 +23,7 @@ CGSceneTransf::CGSceneTransf() :
     m_oUp.Set(0.0f,0.0f,1.0f);
 
     m_oTransf.LoadIdentity();
+    m_poBV = CGGraphBVFactory::poCreate();
 }
 // ----------------------------------------------------------------------------
 CGSceneTransf::~CGSceneTransf()
@@ -133,5 +134,18 @@ void CGSceneTransf::SetupTransformation ()
     // Recompute Bounding Volume
     m_poBV->Copy( *m_poObj->poGetBV() );
     m_poBV->Transform(m_oTransf);
+}
+// ----------------------------------------------------------------------------
+void CGSceneTransf::SetBV(CGGraphBV* _poBV)
+{
+    if (m_poBV)
+        mDel m_poBV;
+
+    m_poBV = _poBV;
+}
+// ----------------------------------------------------------------------------
+CGGraphBV* CGSceneTransf::poGetBV()
+{
+    return m_poBV;
 }
 // ----------------------------------------------------------------------------

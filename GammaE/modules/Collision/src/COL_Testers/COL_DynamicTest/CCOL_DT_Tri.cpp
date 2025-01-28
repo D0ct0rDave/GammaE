@@ -258,7 +258,7 @@ float CCOL_DT_Tri::fTestPoint (const CGVect3& _oPoint, const CGTriangle& _oTri)
 
     if ( Math::iTestSegTriIntersection(oRay,oATri,oPrj) )
     {
-        // return (MATH_Utils::fGetT () );
+        // return (Math::fGetT () );
 
         // Projected point relative to segment initial position
         oPrj.Sub(oPI);

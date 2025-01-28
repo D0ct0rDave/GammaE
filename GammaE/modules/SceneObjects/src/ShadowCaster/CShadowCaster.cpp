@@ -79,13 +79,9 @@ void CShadowCaster::Setup (CGVect3& _oLightPos, CGSceneNode* _poBlockerObj, CGMe
     ComputeTextureProjection();
 }
 // -----------------------------------------------------------------------------
-CGBoundingVolume* CShadowCaster::poGetBV ()
+CGGraphBV* CShadowCaster::poGetBV()
 {
     return (NULL);
-}
-// -----------------------------------------------------------------------------
-void CShadowCaster::ComputeBoundVol ()
-{
 }
 // -----------------------------------------------------------------------------
 void CShadowCaster::ComputeLightCamera ()

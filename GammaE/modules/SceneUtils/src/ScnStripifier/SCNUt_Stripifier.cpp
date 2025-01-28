@@ -70,12 +70,12 @@ CGMesh* SCNUt_Stripifier::poStripify (CGMesh* _poMesh, SCNUt_AdjTriList* _poATL)
 
     // Create a mesh only to store strip indexes
     PMesh = mNew CGMesh;
-    PMesh->Init(0,_poMesh->m_uiNumPrims * 5,E3D_MESH_TRISTRIPS,MESH_FIELD_INDEXES);
+    PMesh->Init(0,_poMesh->uiGetNumPrims() * 5,E3D_PrimitiveType::E3D_PT_TRISTRIPS,MESH_FIELD_INDEXES);
 
     // Initialize counters
     iNumStrips = 0;
     iStripIdx = 0;
-    iNumTris = _poMesh->m_uiNumPrims;
+    iNumTris = _poMesh->uiGetNumPrims();
 
     while ( iNumTris )
     {
@@ -147,14 +147,18 @@ CGMesh* SCNUt_Stripifier::poStripify (CGMesh* _poMesh, SCNUt_AdjTriList* _poATL)
     int iIdx;
 
     poResMesh = mNew CGMesh;
-    poResMesh->Init(_poMesh->m_usNumVXs,iStripIdx - 2,E3D_MESH_TRISTRIPS,MESH_FIELD_ALL);
+    poResMesh->Init(_poMesh->uiGetNumVXs(),iStripIdx - 2,E3D_PrimitiveType::E3D_PT_TRISTRIPS,MESH_FIELD_ALL);
 
-    memcpy( poResMesh->m_poVX,_poMesh->m_poVX,_poMesh->m_usNumVXs * sizeof(CGVect3) );
-    memcpy( poResMesh->m_poVN,_poMesh->m_poVN,_poMesh->m_usNumVXs * sizeof(CGVect3) );
-    memcpy( poResMesh->m_poVC,_poMesh->m_poVC,_poMesh->m_usNumVXs * sizeof(CGVect4) );
-    memcpy( poResMesh->m_poUV,_poMesh->m_poUV,_poMesh->m_usNumVXs * sizeof(CGVect2) );
+    CGGraphBVAABB* poBV = mNew CGGraphBVAABB();
+    poResMesh->SetBV(poBV);
+
+    memcpy( poResMesh->m_poVX,_poMesh->m_poVX,_poMesh->uiGetNumVXs() * sizeof(CGVect3) );
+    memcpy( poResMesh->m_poVN,_poMesh->m_poVN,_poMesh->uiGetNumVXs() * sizeof(CGVect3) );
+    memcpy( poResMesh->m_poVC,_poMesh->m_poVC,_poMesh->uiGetNumVXs() * sizeof(CGVect4) );
+    memcpy( poResMesh->m_poUV,_poMesh->m_poUV,_poMesh->uiGetNumVXs() * sizeof(CGVect2) );
     memcpy( poResMesh->m_pusIdx,PMesh->m_pusIdx,iStripIdx * sizeof(short) );
-    poResMesh->ComputeBoundVol();
+    
+    poBV->Compute(poResMesh->m_poVX, _poMesh->uiGetNumVXs());
 
     // Free auxiliary mesh
     mDel PMesh;

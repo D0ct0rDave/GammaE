@@ -291,7 +291,10 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
     // Free resources
     MEMFree (StrBuff);
 
-    // Return animated mesh
-    return (poACfg);
+    CGSceneAnimInstance* poInst = mNew CGSceneAnimInstance;
+    poInst->SetAnimatedObject(poAM);
+    poInst->SetAnimConfig(poACfg);
+
+    return (poInst);
 }
 // ----------------------------------------------------------------------------

@@ -51,7 +51,7 @@ DECLARE_SINGLETON(CGTrailManager)
         CGLookupArray <CGGenInstsPair*> m_oGIList;
 
         // The billboard renderer shared among all the generators
-        CGBillboardRenderer* m_poRenderer;
+        CGBillboardRenderer* m_poSceneNodeRenderer;
 
         // The scene node with the trail instances geometry
         CGSceneNode* m_poSceneNode;

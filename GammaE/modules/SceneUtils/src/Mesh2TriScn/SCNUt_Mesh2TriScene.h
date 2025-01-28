@@ -25,27 +25,27 @@ class SCNUt_Mesh2TriScene
 
         ~SCNUt_Mesh2TriScene();
 
-        SCNUt_TriScene* Generate(CGMesh& _oMesh, int _iMat);
+        SCNUt_TriScene* Generate(const CGMesh& _oMesh, int _iMat);
 
-        SCNUt_TriScene* Generate_FromIndexedTriFanMesh(CGMesh& _oMesh, int _iMat);
+        SCNUt_TriScene* Generate_FromIndexedTriFanMesh(const CGMesh& _oMesh, int _iMat);
 
-        SCNUt_TriScene* Generate_FromIndexedQuadStripMesh(CGMesh& _oMesh, int _iMat);
+        SCNUt_TriScene* Generate_FromIndexedQuadStripMesh(const CGMesh& _oMesh, int _iMat);
 
         // Additional Public Declarations
 
     protected:
 
-        SCNUt_TriScene* Generate_FromIndexedTriMesh(CGMesh& _oMesh, int _iMat);
+        SCNUt_TriScene* Generate_FromIndexedTriMesh(const CGMesh& _oMesh, int _iMat);
 
-        SCNUt_TriScene* Generate_FromIndexedQuadMesh(CGMesh& _oMesh, int _iMat);
+        SCNUt_TriScene* Generate_FromIndexedQuadMesh(const CGMesh& _oMesh, int _iMat);
 
-        SCNUt_TriScene* Generate_FromIndexedTriStripMesh(CGMesh& _oMesh, int _iMat);
+        SCNUt_TriScene* Generate_FromIndexedTriStripMesh(const CGMesh& _oMesh, int _iMat);
 
-        SCNUt_TriScene* Generate_FromNonIndexedTriMesh(CGMesh& _oMesh, int _iMat);
+        SCNUt_TriScene* Generate_FromNonIndexedTriMesh(const CGMesh& _oMesh, int _iMat);
 
-        SCNUt_TriScene* Generate_FromNonIndexedQuadMesh(CGMesh& _oMesh, int _iMat);
+        SCNUt_TriScene* Generate_FromNonIndexedQuadMesh(const CGMesh& _oMesh, int _iMat);
 
-        SCNUt_TriScene* Generate_FromNonIndexedTriStripMesh(CGMesh& _oMesh, int _iMat);
+        SCNUt_TriScene* Generate_FromNonIndexedTriStripMesh(const CGMesh& _oMesh, int _iMat);
 
         // Additional Protected Declarations
 

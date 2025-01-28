@@ -187,10 +187,10 @@ void SCNUt_TriSceneClassifier::ClassifyTriangleVertexs (SCNUt_Triangle* SrcTri, 
         // Obtener el vector del vértice actual del triángulo a
         // un punto cualquiera perteneciente al plano
         TriSegment.Assign(SrcTri->VXs[uiVert]);
-        TriSegment.Sub   ( Plane.Origin() );
+        TriSegment.Sub   ( Plane.oGetOrigin() );
         TriSegment.Normalize();
 
-        SrcTri->DProds[uiVert] = Plane.Normal().fDotProd(TriSegment);
+        SrcTri->DProds[uiVert] = Plane.oGetNormal().fDotProd(TriSegment);
         SrcTri->VertexSide[uiVert] = ClassifyVertex(SrcTri,uiVert);
     }
 }

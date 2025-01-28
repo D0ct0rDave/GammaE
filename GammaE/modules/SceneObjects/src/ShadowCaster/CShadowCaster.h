@@ -31,9 +31,7 @@ class CShadowCaster : public CGSceneNode
 
         void Setup(CGVect3& _oLightPos, CGSceneNode* _poBlockerObj, CGMesh* * _poRecObjs, int _iNumRecObjs);
 
-        virtual CGBoundingVolume* poGetBV();
-
-        virtual void ComputeBoundVol();
+        virtual CGGraphBV* poGetBV();
 
         void ComputeLightCamera();
 

@@ -1,44 +1,44 @@
 // -----------------------------------------------------------------------------
-#include "ParticleSystems\CParticleSystem_Generic_Quad.h"
+#include "CGParticleSystem_Generic_Quad.h"
 // -----------------------------------------------------------------------------
-CParticleSystem_Generic_Quad::CParticleSystem_Generic_Quad() : pParts(NULL)
+CGParticleSystem_Generic_Quad::CGParticleSystem_Generic_Quad() : pParts(NULL)
 {
     iParticleBytes = sizeof(TParticle_Quad);
 }
 // -----------------------------------------------------------------------------
-CParticleSystem_Generic_Quad::~CParticleSystem_Generic_Quad()
+CGParticleSystem_Generic_Quad::~CGParticleSystem_Generic_Quad()
 {
 }
 // -----------------------------------------------------------------------------
-void CParticleSystem_Generic_Quad::InitPS (int _iMaxParticles, bool _bZOrder, bool _bDisableZBuffer)
+void CGParticleSystem_Generic_Quad::InitPS (int _iMaxParticles, bool _bZOrder, bool _bDisableZBuffer)
 {
     iParticleBytes = sizeof(TParticle_Quad);
 
-    CParticleSystem::InitPS(_iMaxParticles,_bZOrder,_bDisableZBuffer);
+    CGParticleSystem::InitPS(_iMaxParticles,_bZOrder,_bDisableZBuffer);
 
     pParts = (TParticle_Quad*)Particle;
 }
 // -----------------------------------------------------------------------------
-void CParticleSystem_Generic_Quad::InitParticle (int iPart)
+void CGParticleSystem_Generic_Quad::InitParticle (int iPart)
 {
     TParticle_Quad* P = &pParts[iPart];
 
-    P->Pos.V3   (0,0,0);
-
-    P->OldSpeed.V3   ( MATH_fRand(),MATH_fRand(),MATH_fRand() );
+    P->Pos.Set(0,0,0);
+    
+    P->OldSpeed.Set  ( Math::fRand(),Math::fRand(),Math::fRand() );
     P->OldSpeed.Sub  (0.5f,0.5f,0.5f);
     P->OldSpeed.Scale(fPInitialSpeedFact);
     P->OldSpeed.Add  (PSSpeed);
 
     P->Speed.Assign  (P->OldSpeed);
 
-    P->fSize = fPInitialSizeFact * MATH_fRand();
-    P->fEnergy = fPInitialEnergyFact * MATH_fRand();
+    P->fSize = fPInitialSizeFact * Math::fRand();
+    P->fEnergy = fPInitialEnergyFact * Math::fRand();
 
-    P->Color.Assign(RGBAInitialValue);
+    P->Color = RGBAInitialValue;
 }
 // -----------------------------------------------------------------------------
-void CParticleSystem_Generic_Quad::UpdateParticle (int iPart)
+void CGParticleSystem_Generic_Quad::UpdateParticle (int iPart)
 {
     static CGVect3 Gravity(0,0,-9.8f);
     static CGVect3 Aux;
@@ -60,10 +60,13 @@ void CParticleSystem_Generic_Quad::UpdateParticle (int iPart)
     P->Speed.Add(Aux);
 
     // Setup alpha
-    P->Color.Sub(RGBAFact);
+    P->Color.r = P->Color.r - RGBAFact.r;
+    P->Color.g = P->Color.g - RGBAFact.g;
+    P->Color.b = P->Color.b - RGBAFact.b;
+    P->Color.a = P->Color.a - RGBAFact.a;
 }
 // -----------------------------------------------------------------------------
-void CParticleSystem_Generic_Quad::UpdatePS (CGMatrix4x4* _ViewMatrix)
+void CGParticleSystem_Generic_Quad::UpdatePS (CGMatrix4x4* _ViewMatrix)
 {
     if ( fPSEnergy <= 0 ) return;
 
@@ -77,8 +80,8 @@ void CParticleSystem_Generic_Quad::UpdatePS (CGMatrix4x4* _ViewMatrix)
 
     CGVect3 NewPos;
     TParticle_Quad* P = pParts;
-    CGVect3* pVX = poMesh->VXs;
-    CGVect4* pVC = poMesh->VCs;
+    CGVect3* pVX = m_poMesh->m_poVX;
+    CGColor* pVC = m_poMesh->m_poVC;
     int CPart;
 
     for ( CPart = 0; CPart < iMaxParticles; CPart++ )
@@ -91,7 +94,7 @@ void CParticleSystem_Generic_Quad::UpdatePS (CGMatrix4x4* _ViewMatrix)
         UpdateParticle (CPart);
 
         NewPos.Assign( P->Pos );
-        _ViewMatrix->TransformPoint(NewPos);
+        _ViewMatrix->TransformPoint(&NewPos);
 
         pVX[0].Set(-P->fSize,-P->fSize,0);
         pVX[0].Add(NewPos);
@@ -102,10 +105,10 @@ void CParticleSystem_Generic_Quad::UpdatePS (CGMatrix4x4* _ViewMatrix)
         pVX[3].Set( P->fSize,-P->fSize,0);
         pVX[3].Add(NewPos);
 
-        pVC[0].Assign(P->Color);
-        pVC[1].Assign(P->Color);
-        pVC[2].Assign(P->Color);
-        pVC[3].Assign(P->Color);
+        pVC[0] = P->Color;
+        pVC[1] = P->Color;
+        pVC[2] = P->Color;
+        pVC[3] = P->Color;
 
         pVX += 4;
         pVC += 4;

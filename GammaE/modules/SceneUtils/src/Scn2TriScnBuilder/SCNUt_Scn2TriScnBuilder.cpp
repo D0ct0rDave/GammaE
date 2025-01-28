@@ -44,30 +44,29 @@ SCNUt_TriScene* SCNUt_Scn2TriScnBuilder::poBuildRec (CGSceneNode* _poScene, CGMa
 
     switch ( _poScene->eGetNodeType() )
     {
-        case SNT_Gen:
+        case SNT_Node:
         break;
 
         case SNT_Leaf:
         {
-            CGSceneLeaf* poLeaf;
-            CGMesh* poMesh;
-            uint uiMatID;
+            CGSceneLeaf* poLeaf = (CGSceneLeaf*)_poScene;
+            if (poLeaf->poGetMesh()->eGetType() == E3D_MeshType::E3D_MT_Mesh)
+            {
+                CGMesh* poMesh = (CGMesh*)poLeaf->poGetMesh();
+                const CGShader* poShader = poLeaf->poGetShader();
+                const char* szShaderName = CGShaderWH::I()->sGetName( poShader ).szString();
 
-            poLeaf = (CGSceneLeaf*)_poScene;
-            poMesh = poLeaf->poGetMesh();
-            const CGShader* poShader = poLeaf->poGetShader();
-            const char* szShaderName = CE3D_ShaderWH::I()->sGetName( poShader ).szString();
+                int iMatID = _poMTab.iGetIdx(poShader);
 
-            uiMatID = _poMTab.iGetIdx(poShader);
+                if (iMatID == -1 )
+                    iMatID = _poMTab.uiAdd(poShader, szShaderName);
 
-            if ( uiMatID == -1 )
-                uiMatID = _poMTab.uiAdd(poShader, szShaderName);
-
-            return( poBuildMesh (*poMesh,uiMatID,_poMStack[_iMPos]) );
+                return( poBuildMesh(*poMesh, iMatID, _poMStack[_iMPos]) );
+            }
         }
         break;
 
-        case SNT_Node:
+        case SNT_Group:
         {
             CGSceneGroup* poNode;
             SCNUt_TriSceneAccumulator* poTSA;
@@ -113,10 +112,10 @@ SCNUt_TriScene* SCNUt_Scn2TriScnBuilder::poBuildRec (CGSceneNode* _poScene, CGMa
         }
         break;
 
-        case SNT_AnimObject:
+        case SNT_AnimNode:
         break;
 
-        case SNT_AnimNode:
+        case SNT_AnimGroup:
         break;
 
         case SNT_AnimMesh:
@@ -172,7 +171,7 @@ SCNUt_TriScene* SCNUt_Scn2TriScnBuilder::poBuildRec (CGSceneNode* _poScene, CGMa
     return(NULL);
 }
 
-SCNUt_TriScene* SCNUt_Scn2TriScnBuilder::poBuildMesh (CGMesh& _oMesh, int _iMat, CGMatrix4x4& _oMat)
+SCNUt_TriScene* SCNUt_Scn2TriScnBuilder::poBuildMesh(const CGMesh& _oMesh, int _iMat, const CGMatrix4x4& _oMat)
 {
     SCNUt_Mesh2TriScene oM2TS;
     SCNUt_TransformTriScene oTrTS;

@@ -59,6 +59,9 @@ class CGSceneSwitch : public CGSceneNode
             return(m_bEnabled);
         }
 
+        // / Returns the node bounding volume.
+        virtual CGGraphBV* poGetBV();
+
         // General Processing Functionalities.
         virtual void Accept(CGSceneVisitor* _poVisitor)
         {

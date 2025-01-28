@@ -59,6 +59,9 @@ class CGSceneAnimGroup : public CGSceneAnimNode
             m_poObjs.Clear();
         }
 
+        // / Returns the node bounding volume.
+        virtual CGGraphBV* poGetBV();
+
         // General Processing Functionalities
         virtual void Accept(CGSceneVisitor* _poVisitor)
         {
@@ -68,7 +71,7 @@ class CGSceneAnimGroup : public CGSceneAnimNode
     protected:
         uint m_uiNumStates;
         CGDynArray<CGSceneAnimNode*> m_poObjs;
-        CGStArray<CGGraphBV*> m_poBVolStates;
+        CGStArray<CGGraphBV*> m_poStateBVs;
         CGGraphBV* m_poBV;
 };
 

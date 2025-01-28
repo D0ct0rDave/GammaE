@@ -25,14 +25,15 @@ void SCNUt_ShaderAssigner::AssignShader (CGShader* _poShader, CGSceneNode* _poOb
 {
     switch ( _poObj->eGetNodeType() )
     {
-        case SNT_Gen:
+        case SNT_Node:
         break;
 
         case SNT_Leaf:
         ( (CGSceneLeaf*)_poObj )->SetShader(_poShader);
         break;
 
-        case SNT_Node:
+        case SNT_Group:
+        case SNT_Mux:
         int iSubObj;
         for ( iSubObj = 0; iSubObj < ( (CGSceneGroup*)_poObj )->uiNumSubObjs(); iSubObj++ )
         {
@@ -44,11 +45,14 @@ void SCNUt_ShaderAssigner::AssignShader (CGShader* _poShader, CGSceneNode* _poOb
         case SNT_Transf:
         AssignShader( _poShader, ( (CGSceneTransf*)_poObj )->poGetObject() );
         break;
-
-        case SNT_AnimObject:
+        case SNT_Switch:
+        AssignShader(_poShader, ((CGSceneSwitch*)_poObj)->poGetObject());
         break;
 
         case SNT_AnimNode:
+        break;
+
+        case SNT_AnimGroup:
         break;
 
         case SNT_AnimMesh:
@@ -68,12 +72,7 @@ void SCNUt_ShaderAssigner::AssignShader (CGShader* _poShader, CGSceneNode* _poOb
         AssignShader( _poShader, ( (CGSceneBSPNode*)_poObj )->poGetFrontNode() );
         break;
 
-        case SNT_Mux: 7 // iTest3DObj_Mux(_fd,(CGSceneMux*)_poObj);
-        break;
-
-        case SNT_CompiledLeaf:
-        ( (CGSceneCompiledLeaf*)_poObj )->SetShader( _poShader);
-        break;
+        
 
         default:
         break;

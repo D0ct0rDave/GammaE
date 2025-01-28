@@ -14,6 +14,7 @@ CGSceneAnimTransf::CGSceneAnimTransf() :
     m_poTransforms(NULL)
 {
     m_eNodeType = SNT_AnimTransf;
+    m_poBV = CGGraphBVFactory::poCreate();
 }
 // --------------------------------------------------------------------------------
 CGSceneAnimTransf::~CGSceneAnimTransf()
@@ -22,13 +23,24 @@ CGSceneAnimTransf::~CGSceneAnimTransf()
     {
         mDel [] m_poTransforms;
     }
+
+    for (uint i = 0; i < m_poStateBVs.uiNumElems(); i++)
+    {
+       mDel m_poStateBVs[i];
+    }
+    
+    m_poStateBVs.Clear();
 }
 // --------------------------------------------------------------------------------
 void CGSceneAnimTransf::Setup(uint _uiNumStates)
 {
     m_poTransforms = mNew CGMatrix4x4[_uiNumStates];
-    m_uiNumStates = _uiNumStates;
+    for (uint i = 0; i < _uiNumStates; i++)
+    {
+        m_poStateBVs.iAdd( CGGraphBVFactory::poCreate() );
+    }
 
+    m_uiNumStates = _uiNumStates;
     ComputeStatesBVols();
 }
 // --------------------------------------------------------------------------------
@@ -100,7 +112,7 @@ void CGSceneAnimTransf::SetAnimState (uint _uiSrc, uint _uiDst, float _fFactor)
 // --------------------------------------------------------------------------------
 CGGraphBV* CGSceneAnimTransf::poGetStateBVol(int _iState)
 {
-    return NULL;
+    return m_poStateBVs[_iState];
 }
 
 // --------------------------------------------------------------------------------
@@ -127,5 +139,10 @@ CGSceneNode* CGSceneAnimTransf::poGetObject()
 CGMatrix4x4* CGSceneAnimTransf::poGetStateTransforms()
 {
     return m_poTransforms;
+}
+// --------------------------------------------------------------------------------
+CGGraphBV* CGSceneAnimTransf::poGetBV()
+{
+    return m_poBV;
 }
 // --------------------------------------------------------------------------------
