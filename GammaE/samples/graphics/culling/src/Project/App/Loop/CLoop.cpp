@@ -99,7 +99,7 @@ void CLoop::Render()
         CGMatrix4x4 oMat;
         oMat.LoadIdentity();
         oMat.Translate(i * 10.0f,0.0f,0.0f);
-        CGRenderer::I()->SetWorldMatrix(&oMat);
+        CGRenderer::I()->SetWorldMatrix(oMat);
         CGRenderer::I()->RenderMesh(m_poSphere,m_poShader);
     }
 

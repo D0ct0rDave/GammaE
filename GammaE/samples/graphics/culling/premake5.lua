@@ -1,8 +1,11 @@
 -- Premake5.lua
-FinalDataRoot = "$(ProjectDir)../data"
-ProjectName = "CullingSample"
+ProjectName = "Culling"
 
-workspace(FinalDataRoot )
+ProjectRelativeFinalDataRoot = "$(ProjectDir)../data"
+ProjectRelativeSDKSRoot = "$(ProjectDir)../../../../../SDKS/"
+ProjectRelativeFrameworkRoot = "$(ProjectDir)../../../../"
+
+workspace "Culling"
     configurations { "Debug", "Release" }
     location "build" -- Where generated files (like Visual Studio solutions) will be stored
     architecture "x86_64"
@@ -14,11 +17,11 @@ project(ProjectName)
     targetdir "$(ProjectDir)/exe/%{cfg.buildcfg}" -- Output directory for binaries
     objdir "$(ProjectDir)/obj/%{cfg.buildcfg}" -- Output directory for intermediate files
 	characterset("ASCII")
-    debugdir(FinalDataRoot)
+    debugdir(ProjectRelativeFinalDataRoot)
 
 	-- Specify the root directory of the library
     local sourceRoot = os.getcwd()
-    frameworkRoot = sourceRoot .. "/../../../GammaE"
+    frameworkRoot = sourceRoot .. "/../../.."
 	print("Framework dir: " .. frameworkRoot)
   	
 	-- Recursively include all .cpp and .h files from the sourceRoot directory
@@ -49,20 +52,20 @@ project(ProjectName)
 	{
         -- Add include directories (sourceRoot is included by default)
 		sourceRoot,
-		"$(ProjectDir)../../../../GammaE/inc",
-		"$(ProjectDir)../../../../sdks/Externals/FreeImage/Dist;",
+		ProjectRelativeFrameworkRoot .. "inc",
+		ProjectRelativeSDKSRoot .. "Externals/FreeImage/Dist;",
     	}
 
 	-- Library directories common for all configurations
 	libdirs
 	{
-		"$(ProjectDir)../../../../sdks/Externals/FreeImage/Dist/x64;",
-		"$(ProjectDir)../../../../sdks/OpenAL 1.1 SDK/libs",
-		"$(ProjectDir)../../../../sdks/OpenAL 1.1 SDK/libs/Win64",
-		"$(ProjectDir)../../../../sdks/lua-5.4.7/lib/x64/%{cfg.buildcfg}",	
-		"$(ProjectDir)../../../../sdks/libsndfile/lib/x64/%{cfg.buildcfg}",
-		"$(ProjectDir)../../../../sdks/libconfig/lib/x64/%{cfg.buildcfg}",
-		"$(ProjectDir)../../../../GammaE/build/lib/%{cfg.buildcfg}",		
+		ProjectRelativeSDKSRoot .. "Externals/FreeImage/Dist/x64;",
+		ProjectRelativeSDKSRoot .. "OpenAL 1.1 SDK/libs",
+		ProjectRelativeSDKSRoot .. "OpenAL 1.1 SDK/libs/Win64",
+		ProjectRelativeSDKSRoot .. "lua-5.4.7/lib/x64/%{cfg.buildcfg}",	
+		ProjectRelativeSDKSRoot .. "libsndfile/lib/x64/%{cfg.buildcfg}",
+		ProjectRelativeSDKSRoot .. "libconfig/lib/x64/%{cfg.buildcfg}",
+		ProjectRelativeFrameworkRoot .. "build/lib/%{cfg.buildcfg}",
 	}
 	
 	links 
@@ -108,56 +111,45 @@ project(ProjectName)
 
     ------------------------------------------------------------------------------
 	local function includeLibraries(rootDir)
-	    local entries = os.matchdirs(rootDir .. "/*") -- Find all subdirectories
-        for _, entry in ipairs(entries) do
-			local projectFiles = os.matchfiles(entry .. "/*." .. projectExtension)				
-			for _, projectFile in ipairs(projectFiles) do
-				local projectName = projectFile:match("([^/\\]+)%..+$") -- Extract project name
+		local projectFiles = os.matchfiles(rootDir .. "/*." .. projectExtension)
+		for _, projectFile in ipairs(projectFiles) do
+			local projectName = projectFile:match("([^/\\]+)%..+$") -- Extract project name
 
-				print("Adding library: " .. projectFile)
-				links { projectName .. ".lib" }
-				links { projectName }
-			end
-
-			-- Recurse into subdirectories
-			includeLibraries(entry)
-        end
+			print("Adding library: " .. projectFile)
+			links { projectName .. ".lib" }
+			links { projectName }
+		end
     end
 	------------------------------------------------------------------------------
 	-- Step 2: Include external projects based on generated project files
 	local libraries= {} -- Collect all library names
 	local function includeProjects(rootDir)
-        local entries = os.matchdirs(rootDir .. "/*") -- Find all subdirectories
-        for _, entry in ipairs(entries) do
-			local projectFiles = os.matchfiles(entry .. "/*." .. projectExtension)
-			for _, projectFile in ipairs(projectFiles) do
-				local projectName = projectFile:match("([^/\\]+)%..+$") -- Extract project name
-			
 
-				print("Adding external project: " .. projectFile)
-				externalproject(projectName)
-					location(entry)
-					kind "StaticLib" -- Modify as needed
-					language "C++"
+		local projectFiles = os.matchfiles(rootDir .. "/*." .. projectExtension)
+		for _, projectFile in ipairs(projectFiles) do
+			local projectName = projectFile:match("([^/\\]+)%..+$") -- Extract project name
 
-				links { projectName }
-			end
-			-- Recurse into subdirectories
-			includeProjects(entry)
-        end
+			print("Adding external project: " .. projectFile)
+			externalproject(projectName)
+				location(rootDir)
+				kind "StaticLib" -- Modify as needed
+				language "C++"
+
+			links { projectName }
+		end
     end
 
 	------------------------------------------------------------------------------
 	-- Add the external project to the solution
-    includeLibraries(frameworkRoot)	
-    includeProjects(frameworkRoot)
+    includeLibraries(frameworkRoot .. "/build")	
+    includeProjects(frameworkRoot .. "/build")
 
 -- Install rules (using a post-build step for example purposes)
 
 project(ProjectName) -- for some reason this is reset, so we need to setup it again
-	print("Final data:" .. FinalDataRoot)
+	print("Final data:" .. ProjectRelativeFinalDataRoot)
 	postbuildcommands
 	{
 		-- "{MKDIR} %{wks.location}/dist/lib", -- Create output directory
-		"{COPYFILE} $(ProjectDir)../../../../sdks/Externals/FreeImage/Dist/x64/FreeImage.dll " .. FinalDataRoot	
+		"{COPYFILE} " .. ProjectRelativeSDKSRoot .. "Externals/FreeImage/Dist/x64/FreeImage.dll " .. ProjectRelativeFinalDataRoot
 	}

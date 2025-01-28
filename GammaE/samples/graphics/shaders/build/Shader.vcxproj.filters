@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="data">
+      <UniqueIdentifier>{5F91957C-4BC8-960D-F4B4-7C10E0CA120F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Project">
+      <UniqueIdentifier>{732C2D2D-DFE1-A522-68D6-9FF9D48A9C26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Project\App">
+      <UniqueIdentifier>{23171F20-8FA2-8CE4-98B3-0FD904BEE8E4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Project\App\Loop">
+      <UniqueIdentifier>{6C184807-58A7-D1D0-01C6-E5CBED33E276}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Project\Docs">
+      <UniqueIdentifier>{2B9B0324-1794-2276-40C6-07FB2C1E0282}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\Project\App\CApplication.h">
+      <Filter>src\Project\App</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Project\App\Loop\CLoop.h">
+      <Filter>src\Project\App\Loop</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Project\App\Loop\CLoopGlobals.h">
+      <Filter>src\Project\App\Loop</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Project\App\CApplication.cpp">
+      <Filter>src\Project\App</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Project\App\Loop\CLoop.cpp">
+      <Filter>src\Project\App\Loop</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Project\App\Loop\CLoopGlobals.cpp">
+      <Filter>src\Project\App\Loop</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Project\main.cpp">
+      <Filter>src\Project</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\data\shaders.txt">
+      <Filter>data</Filter>
+    </None>
+    <None Include="..\src\Project\Docs\Bugs.txt">
+      <Filter>src\Project\Docs</Filter>
+    </None>
+    <None Include="..\src\Project\Docs\Concept.txt">
+      <Filter>src\Project\Docs</Filter>
+    </None>
+    <None Include="..\src\Project\Docs\Dependencies.txt">
+      <Filter>src\Project\Docs</Filter>
+    </None>
+    <None Include="..\src\Project\Docs\Eula.txt">
+      <Filter>src\Project\Docs</Filter>
+    </None>
+    <None Include="..\src\Project\Docs\History.txt">
+      <Filter>src\Project\Docs</Filter>
+    </None>
+    <None Include="..\src\Project\Docs\Mejoras.txt">
+      <Filter>src\Project\Docs</Filter>
+    </None>
+    <None Include="..\src\Project\Docs\ProjectR_FrameWork.txt">
+      <Filter>src\Project\Docs</Filter>
+    </None>
+    <None Include="..\src\Project\Docs\TODO.txt">
+      <Filter>src\Project\Docs</Filter>
+    </None>
+    <None Include="..\src\Project\Docs\extensiones.txt">
+      <Filter>src\Project\Docs</Filter>
+    </None>
+    <None Include="..\src\Project\Docs\optimization.txt">
+      <Filter>src\Project\Docs</Filter>
+    </None>
+    <None Include="..\src\Project\Docs\pal.txt">
+      <Filter>src\Project\Docs</Filter>
+    </None>
+  </ItemGroup>
+</Project>
