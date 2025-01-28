@@ -116,8 +116,8 @@ void CLoopCB_Screenshot(unsigned int Enabled,unsigned int Par1,unsigned int Par2
 			CGRenderer::I()->DisableFlatRendering();
 		*/	
 		
-		uint uiScrWidth  = CGRenderer::I()->iGetScrTX();
-		uint uiScrHeight = CGRenderer::I()->iGetScrTY();
+		uint uiScrWidth  = CGRenderer::I()->uiGetScrTX();
+		uint uiScrHeight = CGRenderer::I()->uiGetScrTY();
 		
 		FIBITMAP *bitmap = FreeImage_Allocate(uiScrWidth,uiScrHeight,32,0x000000ff,0x0000ff00,0x00ff0000);
 		if (bitmap == NULL) return;
@@ -170,8 +170,8 @@ void CLoopCB_OnMouseMove    (unsigned int Enabled,unsigned int Par1,unsigned int
 	if (poTrail)
 	{
 		CGVect3 oPos;
-		oPos.x = (float)Par1 / (float)CGRenderer::I()->iGetScrTX();
-		oPos.y = 1.0f - ((float)Par2 / (float)CGRenderer::I()->iGetScrTY());
+		oPos.x = (float)Par1 / (float)CGRenderer::I()->uiGetScrTX();
+		oPos.y = 1.0f - ((float)Par2 / (float)CGRenderer::I()->uiGetScrTY());
 		oPos.z = -10.0f;
 
 		poTrail->SetPos(oPos);
@@ -192,11 +192,11 @@ void CLoopCB_ReloadMaterials(unsigned int Enabled,unsigned int Par1,unsigned int
 {
 	if (! Enabled) return;
 	
-	CMipMapWH::I()->Invalidate();
-	CTexObjWH::I()->Invalidate();
+	CGMipMapWH::I()->Invalidate();
+	CGTexObjWH::I()->Invalidate();
 
-	CE3D_ShaderDefFileWH::I()->Reload();
-	CE3D_ShaderWH::I()->Invalidate();
+	CGShaderDefFileWH::I()->Reload();
+	CGShaderWH::I()->Invalidate();
 	CGProgramWH::I()->Reload();
 }
 // ----------------------------------------------------------------------------

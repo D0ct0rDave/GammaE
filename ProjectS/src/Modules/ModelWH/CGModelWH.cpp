@@ -66,9 +66,12 @@ CGSceneNode* CGModelWH::poInstantiate(CGSceneNode* _poObj)
 		    return (poInstantiate((CGSceneAnimInstance*)_poObj));
 		break;
 		
+        /*
+        // DMC Refactor
         case ESceneNodeType::SNT_AnimCfg:
             return (poInstantiate((CGSceneAnimCfg*)_poObj));
 		break;
+        */
 	}
 
 	return (NULL);
@@ -97,8 +100,8 @@ CGSceneAnimMesh* CGModelWH::poInstantiate(CGSceneAnimMesh* _poObj)
 
     // Set references to original object
     // DMC Refactor
-    // poMesh->m_uiNumIdxs = poSrcMesh->usNumIdxs;
 
+    // poMesh->m_uiNumIdxs = poSrcMesh->usNumIdxs;
     poMesh->m_pusIdx = poSrcMesh->m_pusIdx;
     poMesh->m_poUV  = poSrcMesh->m_poUV;
     poMesh->m_poUV2 = poSrcMesh->m_poUV2;
@@ -120,8 +123,7 @@ CGSceneAnimCfg* CGModelWH::poInstantiate(CGSceneAnimCfg* _poObj)
 {
     CGSceneAnimCfg* poObj = mNew CGSceneAnimCfg;
 
-    *poObj = *_poObj;
-    poObj->AnimObj = (CObject3D_AnimGen*)poInstantiate( _poObj->AnimObj );
+    *poObj = *_poObj;    
 
     return (poObj);
 }

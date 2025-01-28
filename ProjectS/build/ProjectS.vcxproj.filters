@@ -10,6 +10,9 @@
     <Filter Include="Modules\ModelWH">
       <UniqueIdentifier>{9DD79387-0963-014C-1274-84407E7E5D4C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Modules\TileMap">
+      <UniqueIdentifier>{B9CEFC94-255A-6A59-2E6B-ED4D9A75C659}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Modules\Video">
       <UniqueIdentifier>{E4BEF5D9-507F-7110-19BA-BA8D8539B6EC}</UniqueIdentifier>
     </Filter>
@@ -49,6 +52,9 @@
     <Filter Include="Project\App\Loop\Game\GameUtils\Laser">
       <UniqueIdentifier>{1E9B572A-8A5F-561A-53C5-86E4BF48F24F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Project\Docs">
+      <UniqueIdentifier>{B4F4E210-A057-72B5-49DD-AA6B351F3E38}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Modules\Collision\CGColliderDefinitionFileWH.h">
@@ -71,6 +77,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Modules\ModelWH\CGModelWH.h">
       <Filter>Modules\ModelWH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Modules\TileMap\CTileMap.h">
+      <Filter>Modules\TileMap</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Modules\Video\CVideo.h">
       <Filter>Modules\Video</Filter>
@@ -164,6 +173,9 @@
     <ClCompile Include="..\src\Modules\ModelWH\CGModelWH.cpp">
       <Filter>Modules\ModelWH</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Modules\TileMap\CTileMap.cpp">
+      <Filter>Modules\TileMap</Filter>
+    </ClCompile>
     <ClCompile Include="..\src\Modules\Video\CVideoAVIW32.cpp">
       <Filter>Modules\Video</Filter>
     </ClCompile>
@@ -236,5 +248,34 @@
     <ClCompile Include="..\src\Project\main.cpp">
       <Filter>Project</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\Project\Docs\Bugs.txt">
+      <Filter>Project\Docs</Filter>
+    </None>
+    <None Include="..\src\Project\Docs\Concept.txt">
+      <Filter>Project\Docs</Filter>
+    </None>
+    <None Include="..\src\Project\Docs\Dependencies.txt">
+      <Filter>Project\Docs</Filter>
+    </None>
+    <None Include="..\src\Project\Docs\History.txt">
+      <Filter>Project\Docs</Filter>
+    </None>
+    <None Include="..\src\Project\Docs\Mejoras.txt">
+      <Filter>Project\Docs</Filter>
+    </None>
+    <None Include="..\src\Project\Docs\ProjectR_FrameWork.txt">
+      <Filter>Project\Docs</Filter>
+    </None>
+    <None Include="..\src\Project\Docs\TODO.txt">
+      <Filter>Project\Docs</Filter>
+    </None>
+    <None Include="..\src\Project\Docs\extensiones.txt">
+      <Filter>Project\Docs</Filter>
+    </None>
+    <None Include="..\src\Project\Docs\optimization.txt">
+      <Filter>Project\Docs</Filter>
+    </None>
   </ItemGroup>
 </Project>

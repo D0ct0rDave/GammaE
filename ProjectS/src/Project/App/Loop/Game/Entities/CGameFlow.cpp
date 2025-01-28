@@ -11,7 +11,7 @@
 void* CGGameFlow_CreateEntity(const CGString& _sParameters)
 {
 	CGDynArray<CGString> oParams;
-	if (ParseUtils_ParseParameters(_sParameters,&oParams,',') == 0) return(NULL);
+	if (Utils::Parse::ParseParameters(_sParameters,&oParams,',') == 0) return(NULL);
 
 	// Create the entity type
 	if ( oParams[0] |= "Player")
@@ -64,7 +64,7 @@ else if (oParams[0] |= "Enemy")
 void* CGGameFlow_CreateGroup(const CGString& _sParameters)
 {
 	CGDynArray<CGString> oParams;
-	if (ParseUtils_ParseParameters(_sParameters,&oParams,',') == 0) return(NULL);
+	if (Utils::Parse::ParseParameters(_sParameters,&oParams,',') == 0) return(NULL);
 
 	if (oParams.uiNumElems() < 9) return(NULL);
 
@@ -91,7 +91,7 @@ void* CGGameFlow_CreateGroup(const CGString& _sParameters)
 void* CGGameFlow_CreateGroupExt(const CGString& _sParameters)
 {
 	CGDynArray<CGString> oParams;
-	if (ParseUtils_ParseParameters(_sParameters,&oParams,',') == 0) return(NULL);
+	if (Utils::Parse::ParseParameters(_sParameters,&oParams,',') == 0) return(NULL);
 
 	if (oParams.uiNumElems() < 9) return(NULL);
 

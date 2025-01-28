@@ -2,7 +2,7 @@
 #define CGameMap_h 1
 
 #include "GammaE.h"
-#include "TexMap/TexMap.h"
+#include "TileMap/CTileMap.h"
 
 #define COL_TEST_LEFT	0x01
 #define COL_TEST_RIGHT	0x02
@@ -26,10 +26,16 @@ class CGameMap : public CGSceneNode
 		bool bCollAtPos(float _fX,float _fY);
 		bool bCOLSpriteMap(const CGVect3& _oPos,float _fWidth,float _fHeight,uint _uiFlags);
 		float fGetGroundHeight(const CGVect3& _oPos);
+		
+		virtual CGGraphBV* poGetBV();
+
+		void Accept(CGSceneVisitor* _poVisitor)
+		{
+			_poVisitor->Visit(this);
+		}
 
 	protected:
-		CTMSector_8_16* m_poTexMap;
-		// TTexMap* m_poTexMap;
+		CTileMap* m_poTileMap;
 		CGStArray<CGGraphicResource*> m_oTile;
 };
 

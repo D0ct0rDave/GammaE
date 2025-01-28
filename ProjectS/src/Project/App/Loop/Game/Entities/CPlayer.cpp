@@ -135,7 +135,7 @@ void CPlayer::Init(const CGVect3& _oPos,int _iPlayerID)
 	poInput()->Register("jump");
 
 	CGGameRegistry::I()->uiAddVar( "PlayerInput", poInput() );
-	uiAddUserData(mNew CSmoother(0.125));
+	uiAddUserData(mNew CGSmoother(0.125));
 
 	// Create a collision structure
 	CGColliderInstance* poCI = mNew CGColliderInstance(PLAYER_MODEL);
@@ -264,13 +264,13 @@ void CPlayer::Think(float _fDeltaT)
 				CGVect3 oFPos1 = CGVect3::oZero(); // poGraphicInstance()->poGraphicResource()->poGetCP("CP_Fire1")) ? poGraphicInstance()->poGraphicResource()->poGetCP("CP_Fire1")->m_oPos;
 				CGVect3 oFPos2 = CGVect3::oZero(); // (poGraphicInstance()->poGraphicResource()->poGetCP("CP_Fire2")) ? poGraphicInstance()->poGraphicResource()->poGetCP("CP_Fire2")->m_oPos;
 
-				const CMatrix4x4& oMat = poGraphicInstance()->oTransform();
+				const CGMatrix4x4& oMat = poGraphicInstance()->oTransform();
 				
 				CGVect3 oWFPos1 = oFPos1;
 				CGVect3 oWFPos2 = oFPos2;
 
-				oMat.TransformPoint(oWFPos1);
-				oMat.TransformPoint(oWFPos2);
+				oMat.TransformPoint(&oWFPos1);
+				oMat.TransformPoint(&oWFPos2);
 
 				m_oWD[0].m_fShotTime += m_oWD[0].m_fMaxShotTime;
 				CBulletMgr::iAddBullet(0,oWFPos1,CGVect3::oX(),this);

@@ -15,10 +15,13 @@ CGameCamera::~CGameCamera()
 //-----------------------------------------------------------------------------
 void CGameCamera::Init()
 {
-	gameGlobals.m_oPerspCam.Pos.V3 ( 0, 0, 0);
-    gameGlobals.m_oPerspCam.Up.V3  ( 0, 1, 0);
-    gameGlobals.m_oPerspCam.Dir.V3 ( 0, 0, -1);
-    gameGlobals.m_oPerspCam.Side.CrossProd(gameGlobals.m_oPerspCam.Dir,gameGlobals.m_oPerspCam.Up); 
+	gameGlobals.m_oPerspCam.SetPos( 0, 0, 0);
+
+	CGVect3 oUp(0,1,0);
+	CGVect3 oDir(0, 0, -1);
+	CGVect3 oSide;
+	oSide.CrossProd(oDir, oUp);
+    gameGlobals.m_oPerspCam.SetVectors(oDir, oUp, oSide);
 
 	gameGlobals.m_oPerspPrj.ePrjType	= E3D_PT_Perspective;
 	gameGlobals.m_oPerspPrj.fFOV		= 45.0f;
@@ -33,23 +36,23 @@ void CGameCamera::Init()
 
 	// Set graphic instance ... (invisible)
 	GraphicInstance( mNew CGGraphicInstance() );	
-	poGraphicInstance()->Pos( gameGlobals.m_oPerspCam.Pos );
+	poGraphicInstance()->Pos( gameGlobals.m_oPerspCam.oGetPos() );
 
 	// Set logic component
 	// Logic( mNew CGScriptInstance( SCRIPT_PATH + "/" + sClass()+".lua" ) );
 	
 	// Add smoother for camera movement
-	uiAddUserData(mNew CSmoother(0.125));
+	uiAddUserData(mNew CGSmoother(0.125));
 	// Add smoother for camera movement
-	uiAddUserData(mNew CSmoother(0.125));
+	uiAddUserData(mNew CGSmoother(0.125));
 	// Add smoother for camera movement
-	uiAddUserData(mNew CSmoother(0.0125));
+	uiAddUserData(mNew CGSmoother(0.0125));
 }
 //-----------------------------------------------------------------------------
 void CGameCamera::UpdatePos(const CGVect3& _oNewPos)
 {
 	CGGameEntity::UpdatePos(_oNewPos);
-	gameGlobals.m_oPerspCam.Pos = _oNewPos;
+	gameGlobals.m_oPerspCam.SetPos(_oNewPos);
 }
 //-----------------------------------------------------------------------------
 void CGameCamera::Think(float _fDeltaT)
@@ -57,11 +60,9 @@ void CGameCamera::Think(float _fDeltaT)
 	CGVect3 oOffset(3.0f,2.0f,0.0f);
 	CGVect3 oPlayerPos = gameGlobals.m_poPlayer->poGraphicInstance()->oPos();
 
-	gameGlobals.m_oPerspCam.Pos.x  = oPlayerPos.x + oOffset.x;
-	gameGlobals.m_oPerspCam.Pos.y  = oPlayerPos.y + oOffset.y;
-	gameGlobals.m_oPerspCam.Pos.z   = 10;
-
-	CGVect3 oTargetPos = gameGlobals.m_oPerspCam.Pos;
+	gameGlobals.m_oPerspCam.SetPos(oPlayerPos.x + oOffset.x, oPlayerPos.y + oOffset.y, 10.0f);
+	
+	CGVect3 oTargetPos = gameGlobals.m_oPerspCam.oGetPos();
 	oTargetPos.z = 0.0f;
 
 	gameGlobals.m_oPerspCam.LookAt( oTargetPos );

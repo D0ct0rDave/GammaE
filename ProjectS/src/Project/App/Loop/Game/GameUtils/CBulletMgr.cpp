@@ -71,7 +71,7 @@ void* CBulletMgr_FireToPlayer(const CGString& _sParameters)
 	return(NULL);
 
 	CGDynArray<CGString> oParams;
-	if (ParseUtils_ParseParameters(_sParameters,&oParams,',') == 0) return(NULL);
+	if (Utils::Parse::ParseParameters(_sParameters,&oParams,',') == 0) return(NULL);
 	if (oParams.uiNumElems() == 0) return(NULL);
 
 	// Retrieve source entity

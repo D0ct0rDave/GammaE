@@ -2,7 +2,7 @@
 ProjectName = "ProjectS"
 
 ProjectRelativeFinalDataRoot = "$(ProjectDir)../data/FinalData"
-ProjectRelativeSDKSRoot = "$(ProjectDir)../../../SDKS"
+ProjectRelativeSDKSRoot = "$(ProjectDir)../../SDKS"
 ProjectRelativeGammaERoot = "$(ProjectDir)../../GammaE"
 
 workspace "ProjectS"

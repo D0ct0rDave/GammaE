@@ -55,14 +55,16 @@ void CGameScene::Render ()
 	CGRenderer::I()->BeginRender();
 
 		// Camera viewpoint
-		gameGlobals.m_oCamera.PreRender();
+
+		// DMC: Refactor
+		// gameGlobals.m_oCamera.PreRender();
 
 			CGRenderer::I()->DisableFrustumCulling();
 
 				// CGRenderer::I()->EnableDefferredMode();
 
 					// Render Scene Objects
-					m_oList.Render();
+					CGSCNVRenderer::I()->Render(&m_oList);
 
 					// Render the entities
 					CGGEntityRenderMgr::I()->Render();
@@ -70,8 +72,9 @@ void CGameScene::Render ()
 				// CGRenderer::I()->DisableDefferredMode();
 
 			CGRenderer::I()->EnableFrustumCulling();
-
-		gameGlobals.m_oCamera.PostRender();
+		
+		// DMC: Refactor
+		// gameGlobals.m_oCamera.PostRender();
 
 	CGRenderer::I()->EndRender();
   //## end CGameScene::Render%997655866.body

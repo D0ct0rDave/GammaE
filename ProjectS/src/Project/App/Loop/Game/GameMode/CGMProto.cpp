@@ -18,7 +18,7 @@
 #include "App/Loop/Game/Entities/CGameFlow.h"
 #include "App/Loop/Game/GameUtils/Explosions/CExplosionMgr.h"
 
-#include "TexMap/TexMap.h"
+#include "TileMap/CTileMap.h"
 #include "Collision/CGGEntityCollisionMgr.h"
 #include "Video/CVideo.h"
 #include "App/Loop/Game/GameScene/CGameMap.h"
@@ -32,7 +32,7 @@ const int GI_TY = 4;
 // CSmoother m_oSmoother;
 CPlayer* m_poPlayer = NULL;
 CGSceneTransf* m_poPSys = NULL;
-CCurve oCurve;
+CGCurve oCurve;
 CGTrailInstance* m_poTrailInst = NULL;
 handler m_poCoronaInst = NULL;
 bool sbGameRunning = false;
@@ -144,7 +144,7 @@ void CGMProto::Init(uint _uiLevel,uint _uiSkill)
 	CVideo::Play();
 	
 	CGSceneScreenRect* poSR = mNew CGSceneScreenRect;
-	poSR->SetShader( CE3D_ShaderWH::I()->poCreateShader("GameBackground") );
+	poSR->SetShader( CGShaderWH::I()->poCreateShader("GameBackground") );
 	poSR->SetRect(0,0,1,1);
 
 	CGameScene::m_oList.iAddObject(poSR);
@@ -213,7 +213,7 @@ void CGMProto::Think(float _fDeltaT)
 		CVideo::Play();
 
 		CGSceneScreenRect* poSR = mNew CGSceneScreenRect;
-		poSR->SetShader( CE3D_ShaderWH::I()->poCreateShader("GameBackground") );
+		poSR->SetShader( CGShaderWH::I()->poCreateShader("GameBackground") );
 		poSR->SetRect(0,0,1,1);
 
 		CGameScene::m_oList.iAddObject(poSR);
@@ -348,7 +348,7 @@ void CGMProto::Think(float _fDeltaT)
  	CHUDLabel* poLabel = (CHUDLabel*)m_poHUD->poGetElem("FPS")->poObj;
 	if (poLabel)
 	{
-		float fFPS = CGRenderer::I()->REStats.FPS;
+		float fFPS = CGRenderer::I()->oGetStats().m_fFPS;
 		poLabel->SetText("FPS: %.1f",fFPS);
 	}
 	

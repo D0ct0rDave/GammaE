@@ -28,17 +28,17 @@ class CGameGlobals
 	public:
 
 		CGSceneCamera			m_oCamera;	
-		CE3D_Viewport		   		m_oViewport;
+		CGViewport		   		m_oViewport;
 
 		// CE3D_Camera			   		m_oOrthoCam;
 		// CE3D_Projector		   		m_oOrthoPrj;
 
-		CE3D_Camera			   		m_oPerspCam;
-		CE3D_Projector		   		m_oPerspPrj;
+		CGCamera			   		m_oPerspCam;
+		CGProjector		   			m_oPerspPrj;
 		
 		CGGameEntity*				m_poPlayer;
 		CGameMap*					m_poMap;
-		CGSceneAnimCfg*			m_poLavadora;
+		CGSceneAnimCfg*				m_poLavadora;
 };
 
 extern CGameGlobals gameGlobals;

@@ -59,7 +59,7 @@
       <WarningLevel>Level3</WarningLevel>
       <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>_MBCS;_OGL_;_OPENAL_;FREEIMAGE_LIB;WIN32;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..;$(ProjectDir)..\..\GammaE\inc;$(ProjectDir)..\src\Project;$(ProjectDir)..\src\Modules;$(ProjectDir)..\..\..\SDKS\Externals\FreeImage\Dist;;$(ProjectDir)..\..\..\SDKS\lua-5.4.7\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..;$(ProjectDir)..\..\GammaE\inc;$(ProjectDir)..\src\Project;$(ProjectDir)..\src\Modules;$(ProjectDir)..\..\SDKS\Externals\FreeImage\Dist;;$(ProjectDir)..\..\SDKS\lua-5.4.7\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -69,10 +69,10 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;libsndfile.lib;freeimage.lib;libconfig.lib;lua.lib;OpenAL32.lib;vfw32.lib;WSOCK32.LIB;AI.lib;Collision.lib;E3D.lib;FileSys.lib;Game.lib;Input.lib;Math.lib;Memory.lib;Misc.lib;Network.lib;Scene.lib;SceneObjects.lib;SceneUtils.lib;Sfx.lib;SoundSystem.lib;Terrain.lib;TerrainData.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\SDKS\Externals\FreeImage\Dist\x64;;$(ProjectDir)..\..\..\SDKS\OpenAL 1.1 SDK\libs;$(ProjectDir)..\..\..\SDKS\OpenAL 1.1 SDK\libs\Win64;$(ProjectDir)..\..\..\SDKS\lua-5.4.7\lib\x64\Debug;$(ProjectDir)..\..\..\SDKS\libsndfile\lib\x64\Debug;$(ProjectDir)..\..\..\SDKS\libconfig\lib\x64\Debug;$(ProjectDir)..\..\GammaE\build\lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\SDKS\Externals\FreeImage\Dist\x64;;$(ProjectDir)..\..\SDKS\OpenAL 1.1 SDK\libs;$(ProjectDir)..\..\SDKS\OpenAL 1.1 SDK\libs\Win64;$(ProjectDir)..\..\SDKS\lua-5.4.7\lib\x64\Debug;$(ProjectDir)..\..\SDKS\libsndfile\lib\x64\Debug;$(ProjectDir)..\..\SDKS\libconfig\lib\x64\Debug;$(ProjectDir)..\..\GammaE\build\lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy /B /Y $(ProjectDir)..\..\..\SDKS\Externals\FreeImage\Dist\x64\FreeImage.dll $(ProjectDir)..\data\FinalData</Command>
+      <Command>copy /B /Y $(ProjectDir)..\..\SDKS\Externals\FreeImage\Dist\x64\FreeImage.dll $(ProjectDir)..\data\FinalData</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -81,7 +81,7 @@
       <WarningLevel>Level3</WarningLevel>
       <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>_MBCS;_OGL_;_OPENAL_;FREEIMAGE_LIB;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..;$(ProjectDir)..\..\GammaE\inc;$(ProjectDir)..\src\Project;$(ProjectDir)..\src\Modules;$(ProjectDir)..\..\..\SDKS\Externals\FreeImage\Dist;;$(ProjectDir)..\..\..\SDKS\lua-5.4.7\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..;$(ProjectDir)..\..\GammaE\inc;$(ProjectDir)..\src\Project;$(ProjectDir)..\src\Modules;$(ProjectDir)..\..\SDKS\Externals\FreeImage\Dist;;$(ProjectDir)..\..\SDKS\lua-5.4.7\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -95,10 +95,10 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;libsndfile.lib;freeimage.lib;libconfig.lib;lua.lib;OpenAL32.lib;vfw32.lib;WSOCK32.LIB;AI.lib;Collision.lib;E3D.lib;FileSys.lib;Game.lib;Input.lib;Math.lib;Memory.lib;Misc.lib;Network.lib;Scene.lib;SceneObjects.lib;SceneUtils.lib;Sfx.lib;SoundSystem.lib;Terrain.lib;TerrainData.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\SDKS\Externals\FreeImage\Dist\x64;;$(ProjectDir)..\..\..\SDKS\OpenAL 1.1 SDK\libs;$(ProjectDir)..\..\..\SDKS\OpenAL 1.1 SDK\libs\Win64;$(ProjectDir)..\..\..\SDKS\lua-5.4.7\lib\x64\Release;$(ProjectDir)..\..\..\SDKS\libsndfile\lib\x64\Release;$(ProjectDir)..\..\..\SDKS\libconfig\lib\x64\Release;$(ProjectDir)..\..\GammaE\build\lib\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\SDKS\Externals\FreeImage\Dist\x64;;$(ProjectDir)..\..\SDKS\OpenAL 1.1 SDK\libs;$(ProjectDir)..\..\SDKS\OpenAL 1.1 SDK\libs\Win64;$(ProjectDir)..\..\SDKS\lua-5.4.7\lib\x64\Release;$(ProjectDir)..\..\SDKS\libsndfile\lib\x64\Release;$(ProjectDir)..\..\SDKS\libconfig\lib\x64\Release;$(ProjectDir)..\..\GammaE\build\lib\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy /B /Y $(ProjectDir)..\..\..\SDKS\Externals\FreeImage\Dist\x64\FreeImage.dll $(ProjectDir)..\data\FinalData</Command>
+      <Command>copy /B /Y $(ProjectDir)..\..\SDKS\Externals\FreeImage\Dist\x64\FreeImage.dll $(ProjectDir)..\data\FinalData</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -109,6 +109,7 @@
     <ClInclude Include="..\src\Modules\Collision\CGColliderResourceWH.h" />
     <ClInclude Include="..\src\Modules\Collision\CGGEntityCollisionMgr.h" />
     <ClInclude Include="..\src\Modules\ModelWH\CGModelWH.h" />
+    <ClInclude Include="..\src\Modules\TileMap\CTileMap.h" />
     <ClInclude Include="..\src\Modules\Video\CVideo.h" />
     <ClInclude Include="..\src\Modules\Video\CVideoAVIW32.h" />
     <ClInclude Include="..\src\Project\App\CApplication.h" />
@@ -141,6 +142,7 @@
     <ClCompile Include="..\src\Modules\Collision\CGColliderResourceWH.cpp" />
     <ClCompile Include="..\src\Modules\Collision\CGGEntityCollisionMgr.cpp" />
     <ClCompile Include="..\src\Modules\ModelWH\CGModelWH.cpp" />
+    <ClCompile Include="..\src\Modules\TileMap\CTileMap.cpp" />
     <ClCompile Include="..\src\Modules\Video\CVideoAVIW32.cpp" />
     <ClCompile Include="..\src\Project\App\CApplication.cpp" />
     <ClCompile Include="..\src\Project\App\Loop\CLoop.cpp" />
@@ -165,6 +167,17 @@
     <ClCompile Include="..\src\Project\App\Loop\Game\GameUtils\Explosions\CGenericExplosion.cpp" />
     <ClCompile Include="..\src\Project\App\Loop\Game\GameUtils\Laser\CLaserManager.cpp" />
     <ClCompile Include="..\src\Project\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\Project\Docs\Bugs.txt" />
+    <None Include="..\src\Project\Docs\Concept.txt" />
+    <None Include="..\src\Project\Docs\Dependencies.txt" />
+    <None Include="..\src\Project\Docs\History.txt" />
+    <None Include="..\src\Project\Docs\Mejoras.txt" />
+    <None Include="..\src\Project\Docs\ProjectR_FrameWork.txt" />
+    <None Include="..\src\Project\Docs\TODO.txt" />
+    <None Include="..\src\Project\Docs\extensiones.txt" />
+    <None Include="..\src\Project\Docs\optimization.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\GammaE\build\AI.vcxproj">

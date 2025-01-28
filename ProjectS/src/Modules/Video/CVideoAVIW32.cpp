@@ -3,8 +3,7 @@
 #include "CVideo.h"
 
 #include <vfw.h>
-#include <freeimage.h>
-
+#include "FreeImage.h"
 
 
 HDRAWDIB hdd;													// Handle For Our Dib
@@ -132,15 +131,15 @@ void CVideo::DecodeFrame(uint _uiFrame)
 	/*	
 	#if 0
 		
-		memcpy(m_poTex->m_pLOD[0],data,m_poTex->m_uiTX * m_poTex->m_uiTY * 3);	
+		memcpy(m_poTex->m_pLOD[0],data,m_poTex->m_uiWidth * m_poTex->m_uiHeight * 3);	
 
 	#else
 		// Copy flipped image
-		unsigned int uiStride	= m_poTex->m_uiTX * 3;
-		char* texdata			= (char*)m_poTex->m_pLOD[0] + uiStride*(m_poTex->m_uiTY-1);
+		unsigned int uiStride	= m_poTex->m_uiWidth * 3;
+		char* texdata			= (char*)m_poTex->m_pLOD[0] + uiStride*(m_poTex->m_uiHeight-1);
 		framedata				= (char*)data;
 
-		for (uint i=0;i<m_poTex->m_uiTY;i++)
+		for (uint i=0;i<m_poTex->m_uiHeight;i++)
 		{
 			memcpy(texdata,framedata,uiStride);
 
@@ -150,11 +149,11 @@ void CVideo::DecodeFrame(uint _uiFrame)
 	#endif
 
 	// Swap RB channels
-	uint uiPixels = m_poTex->m_uiTX * m_poTex->m_uiTY;
+	uint uiPixels = m_poTex->m_uiWidth * m_poTex->m_uiHeight;
 	char* srcdata			= (char*)m_poTex->m_pLOD[0]
 	char* dstdata			= (char*)framedata + (uiPixels-1)*3; // set the pointer to the last pixel
 
-	char* uiStride = m_poTex->m_uiTX*3;
+	char* uiStride = m_poTex->m_uiWidth*3;
 
 	while (uiPixels)
 	{ 
@@ -176,9 +175,9 @@ void CVideo::DecodeFrame(uint _uiFrame)
 		char* srcdata = (char*)m_poTex->m_pLOD[0];
 		char* dstdata = (char*)framedata + (m_poTex->m_uiTY-1) * uiStride; // set the pointer to the first pixel of the last line
 
-		for (uint j=0;j<m_poTex->m_uiTY;j++)
+		for (uint j=0;j<m_poTex->m_uiTX;j++)
 		{
-			for (uint i=0;i<m_poTex->m_uiTX;i++)
+			for (uint i=0;i<m_poTex->m_uiTY;i++)
 			{
 				srcdata[0] = dstdata[2];
 				srcdata[1] = dstdata[1];
@@ -197,7 +196,7 @@ void CVideo::DecodeFrame(uint _uiFrame)
 		// Flip Vertically and Swap R&B channels
 		uint uiStride = m_poTex->m_uiTX * 3;
 		char* srcdata = (char*)m_poTex->m_pLOD[0];
-		char* dstdata = (char*)framedata + (m_poTex->m_uiTY-1) * uiStride; // set the pointer to the first pixel of the last line
+		char* dstdata = (char*)framedata + (m_poTex->m_uiTY -1) * uiStride; // set the pointer to the first pixel of the last line
 
 		for (uint j=0;j<m_poTex->m_uiTY;j++)
 		{

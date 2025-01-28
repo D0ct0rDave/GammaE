@@ -32,10 +32,10 @@ void CApplication::OnCreate(void *_pParam,char *pszCmdLine)
 	#endif
 
 	// Initialize graphic system
-    CGRenderer::I()->Init(appGlobals.m_hWnd,E3D_RENDERER_OP_DBUFFER,appGlobals.m_uiScrWidth ,appGlobals.m_uiScrHeight,32);
+    CGRenderer::I()->bInit(appGlobals.m_hWnd, E3D_RENDERER_OP_DBUFFER,appGlobals.m_uiScrWidth ,appGlobals.m_uiScrHeight,32);
 
 	// Initialize networking capabilities
-	CNETSystem::Init();
+	CGNETSystem::Init();
 
 	// Initialize the scripting facilities	
 	CGScriptingSystem::I()->Init();

@@ -3,17 +3,17 @@
 #include "Collision/CGColliderInstance.h"
 // #include "Collision/CGGEntityCollisionMgr.h"
 // -----------------------------------------------------------------------------		
-CMesh_Sphere*		poSph;
+CGMeshSphere*		poSph;
 CGSceneLeaf*		poLeaf;
 CGSceneTransf*	poTransf;
 // -----------------------------------------------------------------------------
 CColliderRenderer::CColliderRenderer()
 {
-	poSph		= mNew CMesh_Sphere;
+	poSph		= mNew CGMeshSphere;
 	poTransf	= mNew CGSceneTransf;
 	poLeaf		= mNew CGSceneLeaf;
 	
-	poLeaf->SetShader( CE3D_ShaderWH::I()->poCreateShader("wireframe") );
+	poLeaf->SetShader( CGShaderWH::I()->poCreateShader("wireframe") );
 	poLeaf->SetMesh( poSph );
 	
 	poTransf->SetObject( poLeaf );
@@ -35,13 +35,14 @@ void CColliderRenderer::RenderCollider(CGColliderPrimitive* _poCT,const CGVect3&
 
 			float fScale = _fScale * poSph->m_fRadius;
 
-			CMatrix4x4 oMat;
+			CGMatrix4x4 oMat;
 			oMat.LoadIdentity();
 			oMat.Translate( oPos.x, oPos.y, oPos.z );
 			oMat.Scale(fScale,fScale,fScale);
 
 			poTransf->SetTransf( oMat );
-			poTransf->Render();
+			
+			CGSCNVRenderer::I()->Render(poTransf);
 		}
 		break;
 		

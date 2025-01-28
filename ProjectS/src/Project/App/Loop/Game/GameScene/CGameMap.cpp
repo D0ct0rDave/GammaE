@@ -35,7 +35,7 @@ float CGameMap::fGetGroundHeight(const CGVect3& _oPos)
 	int i = (int)(_oPos.x);
 	int j = (int)(-_oPos.y);
 	
-	while (( m_poTexMap->uiGetAt(i,j)  == 0) && (j < m_poTexMap->uiTY)) 
+	while (( m_poTileMap->uiGetAt(i,j)  == 0) && (j < m_poTileMap->uiGetHeight())) 
 		j++;
 	
 	return( -1.0f * (float)j);
@@ -56,7 +56,7 @@ int CGameMap::iGetTile(const CGVect3& _oPos)
 	if (i<0) return(-1);
 	if (j<0) return(-1);
 
-	return( m_poTexMap->uiGetAt(i,j) );
+	return( m_poTileMap->uiGetAt(i,j) );
 }
 
 bool CGameMap::bCollAtPos(float _fX,float _fY)
@@ -64,11 +64,11 @@ bool CGameMap::bCollAtPos(float _fX,float _fY)
 	int iX				=  _fX / 100.0f;
 	int iY				= -(_fY-200.0f) / 100.0f;
 
-	if ((iX >= m_poTexMap->uiTX) || (iY >= m_poTexMap->uiTY))
+	if ((iX >= m_poTileMap->uiGetWidth()) || (iY >= m_poTileMap->uiGetHeight()))
 		return(0);
 	else
 	{
-		int iTileID	= m_poTexMap->uiGetAt(iX,iY);
+		int iTileID	= m_poTileMap->uiGetAt(iX,iY);
 		return (iTileID != 0);
 	}
 }
@@ -105,7 +105,7 @@ CGameMap::~CGameMap()
 {
 }
 
-CGGraphBV *CGameMap::poGetBoundVol()
+CGGraphBV* CGameMap::poGetBV()
 {
     return(NULL);
 }
@@ -124,24 +124,14 @@ void CGameMap::Load(const CGString& _sFilename)
 {
 	// Cargar un mapa;
 	CGConfigFile oFile(_sFilename);
-	CGString szTexMap = oFile.sGetString("General.MapFile","none.ms");
+	CGString szTileMap = oFile.sGetString("General.MapFile","none.ms");
 
 	// Load the map
 	CGString sDir		 = Utils::ExtractFileDir(_sFilename);
-	CGString sTexMapPath = sDir + CGString("/") + szTexMap;
+	CGString sTileMapPath = sDir + CGString("/") + szTileMap;
 
-	m_poTexMap = mNew CTMSector_8_16;
-	m_poTexMap->iLoad( (char*)sTexMapPath.szString() );
-
-/*
-	FILE* fd = fopen((char*)sTexMapPath.szString(),"rb");
-if (fd)
-	{
-		m_poTexMap->LoadWithHandler(fd);
-		m_poTexMap->LoadWithHandler(fd);
-		fclose(fd);
-	}
-*/	
+	m_poTileMap = mNew CTileMap;
+	m_poTileMap->bLoad(sTileMapPath);
 
 	uint uiNumTiles = oFile.iGetInteger("General.NumTiles",0);
 	uiNumTiles = 256;
@@ -176,13 +166,13 @@ const int VMARGIN = 7;
 
 void CGameMap::Render ()
 {
-	int iX = gameGlobals.m_oPerspCam.Pos.x;
-	int iY = gameGlobals.m_oPerspCam.Pos.y;
+	int iX = gameGlobals.m_oPerspCam.oGetPos().x;
+	int iY = gameGlobals.m_oPerspCam.oGetPos().y;
 
-	int iIX = iClamp(0,m_poTexMap->uiTX-1,iX-HMARGIN);
-	int iIY = iClamp(0,m_poTexMap->uiTY-1,iY-VMARGIN);
-	int iFX = iClamp(0,m_poTexMap->uiTX-1,iX+HMARGIN);
-	int iFY = iClamp(0,m_poTexMap->uiTY-1,iY+VMARGIN);
+	int iIX = iClamp(0,m_poTileMap->uiGetWidth() - 1, iX - HMARGIN);
+	int iIY = iClamp(0,m_poTileMap->uiGetHeight() - 1, iY - VMARGIN);
+	int iFX = iClamp(0,m_poTileMap->uiGetWidth() - 1, iX + HMARGIN);
+	int iFY = iClamp(0,m_poTileMap->uiGetHeight() - 1, iY + VMARGIN);
 	if ((iFX - iIX) < HMARGIN*2)
 	{
 		iFX += (HMARGIN*2 - (iFX - iIX))-1;
@@ -196,7 +186,7 @@ void CGameMap::Render ()
 	for (uint j=iIY;j<iFY;j++)
 		for (uint i=iIX;i<iFX;i++)
 		{
-			uint uiIdx = m_poTexMap->uiGetAt(i,j); 
+			uint uiIdx = m_poTileMap->uiGetAt(i,j); 
 			CGGraphicResource* poTile = m_oTile[uiIdx];
 
 			if (poTile != NULL)

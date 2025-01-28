@@ -15,8 +15,8 @@
 // ----------------------------------------------------------------------------
 void CLoop::Init()
 {
-	CE3D_ShaderDefFileWH::I()->iLoad("data/Shaders.txt");
-	CE3D_ShaderDefFileWH::I()->iLoad("data/particleshaders.txt");
+	CGShaderDefFileWH::I()->iLoad("data/Shaders.txt");
+	CGShaderDefFileWH::I()->iLoad("data/particleshaders.txt");
 
 	CGPSGDefFileWH::I()->iLoad("data/particles.def");
 
@@ -39,11 +39,13 @@ void CLoop::Init()
 	// -------------------------------
 	// Perspective projection camera
 	// -------------------------------		
-	gameGlobals.m_oPerspCam.Pos.V3 ( 0, -20.0f, 0);
+	gameGlobals.m_oPerspCam.SetPos(0, -20.0f, 0);
  
-    gameGlobals.m_oPerspCam.Up.V3  ( 0, 0, 1);
-    gameGlobals.m_oPerspCam.Dir.V3 ( 0, 1, 0);
-    gameGlobals.m_oPerspCam.Side.CrossProd(gameGlobals.m_oPerspCam.Dir,gameGlobals.m_oPerspCam.Up); 
+	CGVect3 oUp(0, 0, 1);
+	CGVect3 oDir(0, 1, 0);
+	CGVect3 oSide;
+	oSide.CrossProd(oDir, oUp);
+    gameGlobals.m_oPerspCam.SetVectors(oDir, oUp, oSide);
 
 	gameGlobals.m_oPerspPrj.ePrjType	= E3D_PT_Perspective;
 	gameGlobals.m_oPerspPrj.fFOV		= 45.0f;
@@ -78,20 +80,20 @@ void CLoop::Init()
 
 // CGRenderer::I()->EnableDefferredMode();
 
-    CE3D_Light Light;
+    CGLight Light;
 
-    Light.oPos.V3(1,1,1);
-	Light.eType = LT_Point;
+    Light.m_oPos.Set(1,1,1);
+	Light.m_eType = LT_Point;
 
-    Light.oLitAmb.r = 0.25f;
-	Light.oLitAmb.g = 0.25f;
-	Light.oLitAmb.b = 0.25f;
-	Light.oLitAmb.a = 0.0f;
+    Light.m_oLitAmb.r = 0.25f;
+	Light.m_oLitAmb.g = 0.25f;
+	Light.m_oLitAmb.b = 0.25f;
+	Light.m_oLitAmb.a = 0.0f;
 
-    Light.oLitDiff.r = 1.0f;
-	Light.oLitDiff.g = 1.0f;
-	Light.oLitDiff.b = 1.0f;
-	Light.oLitDiff.a = 0.0f;
+    Light.m_oLitDiff.r = 1.0f;
+	Light.m_oLitDiff.g = 1.0f;
+	Light.m_oLitDiff.b = 1.0f;
+	Light.m_oLitDiff.a = 0.0f;
 
 	CGRenderer::I()->SetupLight(0,Light);
 
