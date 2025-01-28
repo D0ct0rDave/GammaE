@@ -17,7 +17,7 @@ DECLARE_INHERITANT_SINGLETON(CGameFlow,public,CGGameEntity)
 {
 	public:
 
-		PUBLISH_GAMEENTITY_CLASSNAME;
+		PUBLISH_GAMEENTITY_CLASSNAME();
 		
 		/// Initializes the game flow entity
 		void Init();

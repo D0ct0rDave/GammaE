@@ -98,43 +98,6 @@ void CLoop::Init()
 	// CGRenderer::I()->AddLight(Light);	
 	// CGRenderer::I()->AddLight((CLight *)Light);
 
-	// ------------------------
-	// Sound initialization stuff
-	// ------------------------
-	#ifdef GAMMAE_SOUND
-	if (! CGSoundRenderer::I()->Init(uiWinHandler,16,44100,256))
-		printf("Error intializing sound renderer. Start using no sound\n");
-
-	CSampleWH::I()->SetForcedParams(-1,-1);
-	CSampleWH::I()->Init(256);
-	CSoundWH::I()->Init(256);
-
-	// int iSmp = SmpWH.iLoadSample("I:\\Projects\\GammaE\\engine.wav");
-	// int iSmp = SmpWH.iLoadSample("F:\\Sound\\Untitled.wav");
-	// int iSmp = CSampleWH::iLoadSample("F:/Sound/Samples/EFFECTS/EFF1.WAV");
-	// int iSmp = CSampleWH::iLoadSample("F:/Sound/Samples/EFF_VOI/INMYHOUS.WAV");
-	// int iSmp = CSampleWH::iLoadSample("data/sound/bgm/03 Flight Of The Icarus.wav",true);
-	// int iSmp = CSampleWH::iLoadSample("data/sound/bgm/intro.wav");
-	int iSmp = CSampleWH::I()->iLoad("data/sound/bgm/loop.wav",false);
-	if (iSmp == -1) return;
-
-	// int iSmp2 = CSampleWH::iLoadSample("F:/Sound/Samples/EFFECTS/EFF2.WAV");
-	/*
-	int iSmp2 = CSampleWH::iLoadSample("F:/Sound/Samples/laser2.WAV");
-	if (iSmp2 == -1) return;
-	*/
-
-	poSound = mNew CSound;
-	poSound->iAddLayer(true,CSampleWH::I()->poGet(iSmp));
-	// poSound->iAddLayer(true,CSampleWH::poGetSample(iSmp2));
-	CSoundWH::I()->iAdd(poSound,"BGM");
-	// CSoundEmiter* poEmiter = SndRenderer.poAddEmiter(poSound,1.0f,CVect3(0,0,-2),10.0f);
-
-	SndRcv.Pos.V3(0,0,0);
-	SndRcv.Speed.V3(0,0,0);
-	CGSoundRenderer::I()->SetReceiver(&SndRcv);
-	#endif
-	
 		// E3D_GraphBV_Manager.SetBVMode(0);
 
 	// ------------------------------------------------

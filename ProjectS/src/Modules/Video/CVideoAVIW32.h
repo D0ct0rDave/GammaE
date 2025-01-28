@@ -25,6 +25,7 @@ class CVideo
 	protected:
 		static bool	m_bPlaying;
 		static float m_fTime;
+		static float m_fTotalTime;
 };
 
 // ----------------------------------------------------------------------------

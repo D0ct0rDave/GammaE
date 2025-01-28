@@ -4,6 +4,7 @@
 #include "App/Loop/Game/CGameGlobals.h"
 #include "App/Loop/Game/Entities/CPlayer.h"
 #include "App/Loop/Game/Entities/CGameCamera.h"
+#include "App/Loop/Game/Entities/Lavadora/CLavadora.h"
 #include "App/Loop/Game/Entities/Enemies/CEnemyGroup.h"
 #include "App/Loop/Game/Entities/Enemies/CEnemyGroupExt.h"
 //-----------------------------------------------------------------------------
@@ -25,6 +26,13 @@ else if ( oParams[0] |= "Camera")
 		CGameCamera* poCamera = mNew CGameCamera;
 		poCamera->Init();
 		return(poCamera);
+	}
+	// Create the entity type
+else if ( oParams[0] |= "Lavadora")
+	{
+  		CLavadora* poLavadora = mNew CLavadora;
+		poLavadora->Init();
+		return(poLavadora);
 	}
 else if (oParams[0] |= "Enemy")
 	{

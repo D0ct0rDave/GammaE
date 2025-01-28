@@ -18,7 +18,7 @@ typedef struct{
 class CPlayer : public CGLiveGameEntity
 {
 public:	
-		PUBLISH_GAMEENTITY_CLASSNAME;
+		PUBLISH_GAMEENTITY_CLASSNAME();
 
 		 CPlayer();
 		~CPlayer();
@@ -31,10 +31,18 @@ public:
 		virtual void CheckEntityCollisions();
 
 		virtual void Kill();
+		
+		void ShuffleModels();
 
 public:
+		bool			m_bJumping;
+		CVect3			m_oJumpDir;
+		float			m_fJumpSpd;
+		
 		int				m_iPlayerID;
 		TWeaponData		m_oWD[MAX_WEAPONS];		
+		CBoundingBox	m_oBox[9];
+		CBoundingBox*	m_oActiveCols[9];
 };
 // -----------------------------------------------------------------------------
 #endif

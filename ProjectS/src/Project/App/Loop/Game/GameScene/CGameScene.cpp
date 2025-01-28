@@ -20,7 +20,7 @@
 // CGameScene
 #include "CGameScene.h"
 //## begin module%3B65CB11028A.additionalDeclarations preserve=yes
-CObject3D_Node CGameScene::m_oList(1000);
+CGSceneGroup CGameScene::m_oList(1000);
 //## end module%3B65CB11028A.additionalDeclarations
 
 

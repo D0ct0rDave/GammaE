@@ -7,16 +7,35 @@
 #include "Collision/CGColliderResourceWH.h"
 #include "Collision/CGColliderInstance.h"
 #include "App/Loop/Game/GameUtils/Explosions/CExplosionMgr.h"
+#include "ModelWH/CGModelWH.h"
+
 // -----------------------------------------------------------------------------
 const uint ENTSTATE_SPAWNING		= ENTSTATE_UNUSED;
 const uint ENTSTATE_INVULNERABLE	= ENTSTATE_UNUSED + 1;
 const uint ENTSTATE_READY			= ENTSTATE_UNUSED + 2;
 // ----------------------------------------------------------------------------
 // const CGString PLAYER_MODEL = "data/actors/BrainSlug/BrainSlug.gem";
-const CGString PLAYER_MODEL = "data/actors/MarvinPig/MarvinPig.gem";
-// const CGString PLAYER_MODEL = "data/actors/umbrella/umbrella.gem";
+// const CGString PLAYER_MODEL = "data/actors/MarvinPig/MarvinPig.gem";
 // const CGString PLAYER_MODEL = "data/actors/mreye/mreye.gem";
 // const CGString PLAYER_MODEL = "data/actors/egg/egg.gem";
+// -----------------------------------------------------------------------------
+
+/// Habilities
+/// 
+const float fRunSpeed[3]  = { 2.0f, 3.0f, 6.0f };
+const float fJumpSpeed[3] = { 4.0f, 10.0f, 0.0f };
+const float fStrength[3]  = { 0.5f, 1.0f, 2.0f };
+const float fShootSpeed[3]  = { 0.5f, 1.0f, 2.0f };
+
+const uint HEAD  = 0;
+const uint TORSO = 1;
+const uint LEGS  = 2;
+
+
+static uint m_uiModelIdxs[3] = {0,0,0};
+
+CGSceneAnimCfg*		m_poModels[3][3];
+CGSceneAnimCfgMgr*	m_poMgr = NULL;
 // -----------------------------------------------------------------------------
 CPlayer::CPlayer()
 {
@@ -39,6 +58,8 @@ CPlayer::CPlayer()
 	m_oWD[2].m_fMaxShotTime = 1.0f / CBulletMgr::oGetBulletType(2).m_fFreq;
 	m_oWD[2].m_fShotTime	= 0.0f; // first shot should start inmediatly
 	m_oWD[2].m_iLevel		= 0;
+	m_bJumping = false;
+	m_fJumpSpd = 0.0f;
 }
 // -----------------------------------------------------------------------------
 CPlayer::~CPlayer()
@@ -52,21 +73,56 @@ void CPlayer::Init(const CVect3& _oPos,int _iPlayerID)
 	m_iPlayerID = _iPlayerID;
 
 	// Load model
-	CGGraphicInstance* poPlayer = mNew CGGraphicInstance( PLAYER_MODEL );
+	CGGraphicInstance* poPlayer = mNew CGGraphicInstance(PLAYER_MODEL);
+
+	m_poModels[HEAD][0] = (CGSceneAnimCfg*)CGModelWH::I()->poGetModel("data/actors/head_jason.gem");
+	m_poModels[HEAD][1] = (CGSceneAnimCfg*)CGModelWH::I()->poGetModel("data/actors/head_old.gem");
+	m_poModels[HEAD][2] = (CGSceneAnimCfg*)CGModelWH::I()->poGetModel("data/actors/head_old.gem");
+
+	m_poModels[TORSO][0] = (CGSceneAnimCfg*)CGModelWH::I()->poGetModel("data/actors/body_jason.gem");
+	m_poModels[TORSO][1] = (CGSceneAnimCfg*)CGModelWH::I()->poGetModel("data/actors/body_hulk.gem");
+	m_poModels[TORSO][2] = (CGSceneAnimCfg*)CGModelWH::I()->poGetModel("data/actors/body_cop.gem");
+
+	m_poModels[LEGS][0] = (CGSceneAnimCfg*)CGModelWH::I()->poGetModel("data/actors/legs_jason.gem");
+	m_poModels[LEGS][1] = (CGSceneAnimCfg*)CGModelWH::I()->poGetModel("data/actors/legs_robot.gem");
+	m_poModels[LEGS][2] = (CGSceneAnimCfg*)CGModelWH::I()->poGetModel("data/actors/legs_old.gem");
+
+	m_poMgr = mNew CGSceneAnimCfgMgr;
+	m_poMgr->Init(3);
+	m_poMgr->AddAnimObj(m_poModels[HEAD][0]);
+	m_poMgr->AddAnimObj(m_poModels[TORSO][0]);
+	m_poMgr->AddAnimObj(m_poModels[LEGS][0]);
+	m_poMgr->SetFrameAnim(1);
+
+	for (uint j=0;j<3;j++)
+		for (uint i=0;i<3;i++)
+		{
+			CGSceneAnimCfg* poAnimCfg = (CGSceneAnimCfg*)m_poModels[j][i];
+			for (uint k=0;k<poAnimCfg->iNumFrameAnims;k++)
+			{
+				uint uiFrames = (poAnimCfg->FrameAnim[k].FinalFrame -  poAnimCfg->FrameAnim[k].InitialFrame);
+				poAnimCfg->FrameAnim[k].TotalTime = (float)uiFrames / 30.0f;
+				poAnimCfg->FrameAnim[k].FrameTime = poAnimCfg->FrameAnim[k].TotalTime  / (float)uiFrames;
+			}
+		}
+
+	poPlayer->poGraphicResource()->Model(m_poMgr);
+
+	poPlayer->Scale(0.01f);
+	poPlayer->Pos( CVect3(7,GROUND_HEIGHT,0) );
+	poPlayer->Pitch(_PI2_);
+	poPlayer->Yaw(_PI_);
+	poPlayer->Roll(_PI_);
+
+	m_bJumping = true;	// empezamos en el aire
 	GraphicInstance( poPlayer );
-	// m_poGI->Scale(-0.001f);
-
-	poPlayer->Pos( _oPos );
-	// poPlayer->Scale( 0.05f );
-	poPlayer->Pitch( _PI2_ );
-
 	CGGameEntityMgr::I()->uiRegister(this);
 
 	// Set logger component
 	Logger( mNew CGLogger() );
 
 	// Set logic component
-	Logic( mNew CGScriptInstance( SCRIPT_PATH + "/" + sClass()+".lua" ) );
+	// Logic( mNew CGScriptInstance( SCRIPT_PATH + "/" + sClass()+".lua" ) );
 
 	// Set input component
 	Input( mNew CGInputHandler() );
@@ -76,6 +132,7 @@ void CPlayer::Init(const CVect3& _oPos,int _iPlayerID)
 	poInput()->Register("left");
 	poInput()->Register("right");
 	poInput()->Register("fire");
+	poInput()->Register("jump");
 
 	CGGameRegistry::I()->uiAddVar( "PlayerInput", poInput() );
 	uiAddUserData(mNew CSmoother(0.125));
@@ -91,9 +148,10 @@ void CPlayer::Init(const CVect3& _oPos,int _iPlayerID)
 
 	// Setup this global variable
 	CGGameRegistry::I()->uiAddVar( "player", this );
-	
+
 	gameGlobals.m_poPlayer = this;
-	
+
+
 	// Setup initial state
 	Reset();
 }
@@ -113,20 +171,85 @@ void CPlayer::CheckEntityCollisions()
 	// Tanto si se ha conseguido mover como si no, puede haber habido colision.
 	// Cuando el actor desliza sobre un objeto, una de las direcciones está bloqueada
 	// mientras que se permite movimiento en otra, por lo tanto, hay colisión y movimiento.
-	
 	CGCollisionInfo* poCI = CGGEntityCollisionMgr::I()->poCheckCollision(this);
-
+	
 	if (poCI)
 	{		
-		Kill();
+		//if (poCI->m_poEnt->sClass())
+		{
+			//
+			int a = 0;
+		}
+		// else
+			// Kill();
 	}
+}
+void CPlayer::ShuffleModels()
+{
+	for (uint i=0;i<3;i++)
+	{
+		m_uiModelIdxs[i] = MATH_Common::fRand()*3;
+	}
+			// Resetup models
+	m_poMgr->pAnimObjs[HEAD]  = m_poModels[HEAD ][ m_uiModelIdxs[HEAD ] ];
+	m_poMgr->pAnimObjs[TORSO] = m_poModels[TORSO][ m_uiModelIdxs[TORSO] ];
+	m_poMgr->pAnimObjs[LEGS]  = m_poModels[LEGS ][ m_uiModelIdxs[LEGS ] ];	
 }
 // -----------------------------------------------------------------------------
 void CPlayer::Think(float _fDeltaT)
 {
 	CGGameEntity::Think(_fDeltaT);
 
-	if (eGetState() == ENTSTATE_READY)
+	CVect3 oPos = poGraphicInstance()->oPos();
+	CVect3 oNewPos(0,0,0);
+	CVect3 oSpd(0,0,0);
+
+	/// Check X
+	oSpd.x = (poInput()->fGetValue("right") - poInput()->fGetValue("left")) *_fDeltaT* fRunSpeed[ m_uiModelIdxs[LEGS] ];
+	oNewPos.x = oPos.x + oSpd.x;
+
+	// Check height
+	// Check Y
+	oNewPos.y = oPos.y;
+	if (! m_bJumping)
+	{
+		if (poInput()->fGetValue("jump"))
+		{
+  			ShuffleModels();
+				
+			m_bJumping = true;
+			m_fJumpSpd = fJumpSpeed[ m_uiModelIdxs[LEGS] ];
+		}
+
+		// poner altura del tile
+		// float fH = gameGlobals.m_poMap->fGetGroundHeight(oPos);
+		// oNewPos.y = fH; // + offset
+	}
+	else
+	{
+		// Apply gravity
+		m_fJumpSpd = m_fJumpSpd + -9.8f*_fDeltaT;
+
+		oSpd.y =  + m_fJumpSpd;
+		oNewPos.y = oPos.y + oSpd.y;
+	}
+	
+	if (oNewPos.y < GROUND_HEIGHT)
+	{
+		oNewPos.y = GROUND_HEIGHT;	
+		m_bJumping = false;
+	}
+	if (oNewPos.x < 10)
+	{
+		oNewPos.x = 10;
+		m_bJumping = false;
+	}
+
+	oPos = oNewPos;
+	poGraphicInstance()->Pos(oPos);
+
+	TEntityState eState =eGetState();
+	if (eState == ENTSTATE_ALIVE)
 	{
 		// Only check collisions if player is ready
 		CheckEntityCollisions();
@@ -153,7 +276,7 @@ void CPlayer::Think(float _fDeltaT)
 				CBulletMgr::iAddBullet(0,oWFPos1,CVect3::oX(),this);
 				CBulletMgr::iAddBullet(0,oWFPos2,CVect3::oX(),this);
 			}
-		}	
+		}
 	}
 }
 // -----------------------------------------------------------------------------

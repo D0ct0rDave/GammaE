@@ -62,7 +62,7 @@ class CGameScene
       //## Association: Game::GameScene::<unnamed>%3CB33E02021B
       //## Role: CGameScene::oHUDMgr%3CB33E0203B5
       //## begin CGameScene::oHUDMgr%3CB33E0203B5.role preserve=no  public: CHUDMgr { -> VHAN}
-      static CObject3D_Node m_oList;
+      static CGSceneGroup m_oList;
       //## end CGameScene::oHUDMgr%3CB33E0203B5.role
 
     // Additional Public Declarations

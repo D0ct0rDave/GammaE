@@ -18,11 +18,13 @@ typedef struct TApplicationGlobals
 
 TApplicationGlobals appGlobals;
 // ----------------------------------------------------------------------------
+HWND globalwindow;
 void CApplication::OnCreate(void *_pParam,char *pszCmdLine)
 {
 	#ifdef WIN32
 	// Get system properties
 	appGlobals.m_hWnd = (HWND)_pParam;
+	globalwindow = appGlobals.m_hWnd;
 	RECT Rect;
 	GetWindowRect(appGlobals.m_hWnd,&Rect);
 	appGlobals.m_uiScrWidth  = Rect.right - Rect.left;

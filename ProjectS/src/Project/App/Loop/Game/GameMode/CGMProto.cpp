@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------
 #include "CGMProto.h"
-
+#include "ModelWH/CGModelWH.h"
 #include "App/Loop/Game/CGameGlobals.h"
 #include "App/Loop/Game/GameScene/CGameScene.h"
 // #include "Game/GameUtils/CExplosionMgr.h"
@@ -18,8 +18,10 @@
 #include "App/Loop/Game/Entities/CGameFlow.h"
 #include "App/Loop/Game/GameUtils/Explosions/CExplosionMgr.h"
 
+#include "TexMap/TexMap.h"
 #include "Collision/CGGEntityCollisionMgr.h"
 #include "Video/CVideo.h"
+#include "App/Loop/Game/GameScene/CGameMap.h"
 
 // ----------------------------------------------------------------------
 
@@ -29,10 +31,11 @@ const int GI_TY = 4;
 
 // CSmoother m_oSmoother;
 CPlayer* m_poPlayer = NULL;
-CObject3D_Transf* m_poPSys = NULL;
+CGSceneTransf* m_poPSys = NULL;
 CCurve oCurve;
 CGTrailInstance* m_poTrailInst = NULL;
 handler m_poCoronaInst = NULL;
+bool sbGameRunning = false;
 // ----------------------------------------------------------------------
 
 #define GMPHUD_TIME_LABEL		0
@@ -115,134 +118,36 @@ CGMProto::CGMProto()
 	// DMC PROJECTQ m_poHScn->bLoadScene("data/GameMode/History/HUD/GMPHUD.cfg");
 }
 // ----------------------------------------------------------------------
+CSoundRenderer_OpenAL	gSndRenderer;
+CSoundReceiver SndRcv;
+
 void CGMProto::Init(uint _uiLevel,uint _uiSkill)
 {
-	// Object for video rendering
-	CVideo::bInit("data/test.avi",true);
+	// --------------------------------------------------------
+	// Sound initialization stuff
+	// ------------------------
 	/*
-	CObject3D_ScreenRect* poSR = mNew CObject3D_ScreenRect;
+	extern HWND globalwindow;
+	if (! gSndRenderer.Init(globalwindow,16,44100,256))
+		printf("Error intializing sound renderer. Start using no sound\n");
+
+	CSound *poSound = CSoundWH::I()->poLoad("base/sound/fx/StartGame.wav");
+	gSndRenderer.poAddOmniEmiter(poSound,2.0f);
+	
+	SndRcv.Pos.V3(0,0,0);
+	SndRcv.Speed.V3(0,0,0);
+	gSndRenderer.SetReceiver(&SndRcv);
+	*/
+	
+	// Object for video rendering
+	CVideo::bInit("data/intro.avi",false);
+	CVideo::Play();
+	
+	CGSceneScreenRect* poSR = mNew CGSceneScreenRect;
 	poSR->SetShader( CE3D_ShaderWH::I()->poCreateShader("GameBackground") );
 	poSR->SetRect(0,0,1,1);
-	*/
-	
-	CObject3D_Leaf* poSR = mNew CObject3D_Leaf;
-	CMesh* poMesh = mNew CMesh_Rect; 
-	MeshTransform_Scale(*poMesh,CVect3(8.5*4.0f/3.0f,8.5f,1.0f));
-	poSR->SetMesh( poMesh );
-	poSR->SetShader( CE3D_ShaderWH::I()->poCreateShader("GameBackground") );
-	
+
 	CGameScene::m_oList.iAddObject(poSR);
-
-	// Create HUD and add to the scene
-	CHUDFile oFile;
-	m_poHUD = oFile.poLoad("data/hud/hud.txt");
-
-	
-	CGameScene::m_oList.iAddObject( CColliderRenderer::I() );
-	CGameScene::m_oList.iAddObject(m_poHUD);
-
-	// Create pools of particle instances
-	CGPSIManager::I()->uiCreatePool("psystype7",100);
-	CGPSIManager::I()->uiCreatePool("psystype8",10);
-	CGPSIManager::I()->uiCreatePool("psystype9",100);
-	CGPSIManager::I()->uiCreatePool("psystype10",100);
-	CGPSIManager::I()->uiCreatePool("psystype11",100);
-	CGPSIManager::I()->uiCreatePool("psystype12",100);
-	CGPSIManager::I()->uiCreatePool("psystype13",100);
-	CGPSIManager::I()->uiCreatePool("psystype14",100);
-	CGPSIManager::I()->uiCreatePool("psystype15",100);
-	CGPSIManager::I()->uiCreatePool("psystype19",100);
-	CGPSIManager::I()->uiCreatePool("psystype20",100);
-	
-	// CGPSIManager::I()->poAdd("test");
-	
-	// Add the particle system instances node to the game scene node
-	CGameScene::m_oList.iAddObject( CGPSIManager::I()->poGetNode() );
-
-	/*
-	CGParticleSystemGenerator* poPSysGen = CGPSysGenWH::I()->poFind("test");
-	CGParticleSystemInstance* poPSI = mNew CGParticleSystemInstance(poPSysGen);
-	poPSI->Regenerate(true);
-	poPSI->SetEnergy(1.0f);
-	m_poPSys = mNew CObject3D_Transf;
-	m_poPSys->SetObject( poPSI );
-		CGameScene::m_oList.iAddObject( m_poPSys );
-	*/
-
-	// Coronas
-	CGCoronaManager::I()->uiCreatePool("test",200);
-	CGameScene::m_oList.iAddObject( CGCoronaManager::I()->poGetManagerNode() );
-	// TEST m_poCoronaInst = CGCoronaManager::I()->hGet("test");
-	// TEST CGGameRegistry::I()->uiAddVar("Corona",m_poCoronaInst);
-
-	// Trails
-	CGTrailManager::I()->Init();
-	CGameScene::m_oList.iAddObject( CGTrailManager::I()->poGetNode() );
-	m_poTrailInst = CGTrailManager::I()->poGet("test");
-	CGGameRegistry::I()->uiAddVar("Trail",m_poTrailInst);
-
-	// Initialize the explosion manager
-	CExplosionMgr::Init();
-	
-	// Register Script Functions
-	CGScriptingSystem::I()->RegisterExtension("PlayVideo",CVideo::Play);
-	CGScriptingSystem::I()->RegisterExtension("StopVideo",CVideo::Stop);
-	CGScriptingSystem::I()->RegisterExtension("bPlayingVideo",CVideo::bPlaying);
-	CGScriptingSystem::I()->RegisterExtension("GotoVideoSec",GotoVideoSec,"f","");
-
-	
-	// ----------------------------
-	// Create and initialize game objects
-	// ----------------------------
-
-	// Initialize the entity spawner
-	CGGameEntitySpawner::I()->Init(100);
-	CGGameEntityMgr::I()->uiRegister( CGGameEntitySpawner::I() );
-	// CGameEntitySpawner* poES = mNew CGameEntitySpawner;
-	// poES->Init();
-
-	// Create the game flow entity
-	CGameFlow* poGF = mNew CGameFlow;
-	poGF->Init();
-
-	CGGameRegistry::I()->uiAddVar("score_label",m_poHUD->poGetElem("score")->poObj);
-	CGGameRegistry::I()->uiAddVar("timer_label",m_poHUD->poGetElem("timer")->poObj);
-	CGGameRegistry::I()->uiAddVar("GameFlow",poGF);
-
-	// m_poPlayer = (CPlayer*)poGF->hGetUserData(0);
-
-	// Init the bullet manager
-	CBulletMgr::Init();
-	
-	// Init the laser manager
-	// CSFXLaserManager::Init();
-	// oMT.bInit("(BackgroundFrame)",GI_TX,GI_TY,TEX_PF_ARGB32);	
-
-	// Register resources
-	/*
-	C3DObjWH::I()->iLoad("Player"
-	CGraphicResourceMgr::Register("Player",	pNew CGraphicResource(gszResources[GR_PLAYER]));	
-	CGraphicResourceMgr::Register("Moggle",	pNew CGraphicResource(gszResources[GR_MOGGLE]));
-	CGraphicResourceMgr::Register("Egg",	pNew CGraphicResource(gszResources[GR_EGG]));
-	CGraphicResourceMgr::Register("Foot",	pNew CGraphicResource(gszResources[GR_FOOT]));
-	*/
-
-
-	// Setup initial gamemode state
-	SetState(GMPSTATE_NONE);
-	
-	// Low down music
-	// CSndMixer::SetUserVol(SL_MusicCh0,0.0f);
-	
-	// Camera
-	/*
-	CCamera* poCam = pNew CCamera;
-	poCam->Init((MTH_CPoint3&)MTH_CPoint3::oZero,0);
-	poCam->m_iSubType = 8;
-	poCam->Visible(true);
-	*/
-	
-	m_fTime = 0.0f;
 }
 // ----------------------------------------------------------------------
 void CGMProto::Finish()
@@ -298,6 +203,146 @@ void GassianBlur(CTex* _poTex)
 // ----------------------------------------------------------------------
 void CGMProto::Think(float _fDeltaT)
 {
+//	gSndRenderer.Render(_fDeltaT);
+
+	if (! CVideo::bPlaying() && (! sbGameRunning))
+	{
+		sbGameRunning = true;
+
+		CVideo::bInit("data/levels/level0/niebla.avi",true);
+		CVideo::Play();
+
+		CGSceneScreenRect* poSR = mNew CGSceneScreenRect;
+		poSR->SetShader( CE3D_ShaderWH::I()->poCreateShader("GameBackground") );
+		poSR->SetRect(0,0,1,1);
+
+		CGameScene::m_oList.iAddObject(poSR);
+
+		gameGlobals.m_poMap = mNew CGameMap;
+		gameGlobals.m_poMap->Load("data/levels/level0/level0.map");
+		CGameScene::m_oList.iAddObject(gameGlobals.m_poMap);
+
+		// cargar la lavadora
+		gameGlobals.m_poLavadora = (CGSceneAnimCfg*)CGModelWH::I()->poGetInstance("data/actors/lavadora.gem");
+
+		// Create HUD and add to the scene
+		CHUDFile oFile;
+		m_poHUD = oFile.poLoad("data/hud/hud.txt");
+
+		
+		CGameScene::m_oList.iAddObject( CColliderRenderer::I() );
+		CGameScene::m_oList.iAddObject(m_poHUD);
+
+		// Create pools of particle instances
+		CGPSIManager::I()->uiCreatePool("psystype7",100);
+		CGPSIManager::I()->uiCreatePool("psystype8",10);
+		CGPSIManager::I()->uiCreatePool("psystype9",100);
+		CGPSIManager::I()->uiCreatePool("psystype10",100);
+		CGPSIManager::I()->uiCreatePool("psystype11",100);
+		CGPSIManager::I()->uiCreatePool("psystype12",100);
+		CGPSIManager::I()->uiCreatePool("psystype13",100);
+		CGPSIManager::I()->uiCreatePool("psystype14",100);
+		CGPSIManager::I()->uiCreatePool("psystype15",100);
+		CGPSIManager::I()->uiCreatePool("psystype19",100);
+		CGPSIManager::I()->uiCreatePool("psystype20",100);
+		
+		// CGPSIManager::I()->poAdd("test");
+		
+		// Add the particle system instances node to the game scene node
+		CGameScene::m_oList.iAddObject( CGPSIManager::I()->poGetNode() );
+
+		/*
+		CGParticleSystemGenerator* poPSysGen = CGPSysGenWH::I()->poFind("test");
+		CGParticleSystemInstance* poPSI = mNew CGParticleSystemInstance(poPSysGen);
+		poPSI->Regenerate(true);
+		poPSI->SetEnergy(1.0f);
+		m_poPSys = mNew CObject3D_Transf;
+		m_poPSys->SetObject( poPSI );
+			CGameScene::m_oList.iAddObject( m_poPSys );
+		*/
+
+		// Coronas
+		CGCoronaManager::I()->uiCreatePool("test",200);
+		CGameScene::m_oList.iAddObject( CGCoronaManager::I()->poGetManagerNode() );
+		// TEST m_poCoronaInst = CGCoronaManager::I()->hGet("test");
+		// TEST CGGameRegistry::I()->uiAddVar("Corona",m_poCoronaInst);
+
+		// Trails
+		CGTrailManager::I()->Init();
+		CGameScene::m_oList.iAddObject( CGTrailManager::I()->poGetNode() );
+		m_poTrailInst = CGTrailManager::I()->poGet("test");
+		CGGameRegistry::I()->uiAddVar("Trail",m_poTrailInst);
+
+		// Initialize the explosion manager
+		CExplosionMgr::Init();
+		
+		// Register Script Functions
+		CGScriptingSystem::I()->RegisterExtension("PlayVideo",CVideo::Play);
+		CGScriptingSystem::I()->RegisterExtension("StopVideo",CVideo::Stop);
+		CGScriptingSystem::I()->RegisterExtension("bPlayingVideo",CVideo::bPlaying);
+		CGScriptingSystem::I()->RegisterExtension("GotoVideoSec",GotoVideoSec,"f","");
+
+		
+		// ----------------------------
+		// Create and initialize game objects
+		// ----------------------------
+
+		// Initialize the entity spawner
+		CGGameEntitySpawner::I()->Init(100);
+		CGGameEntityMgr::I()->uiRegister( CGGameEntitySpawner::I() );
+		// CGameEntitySpawner* poES = mNew CGameEntitySpawner;
+		// poES->Init();
+
+		CGGameRegistry::I()->uiAddVar("score_label",m_poHUD->poGetElem("score")->poObj);
+		CGGameRegistry::I()->uiAddVar("timer_label",m_poHUD->poGetElem("timer")->poObj);
+
+		// m_poPlayer = (CPlayer*)poGF->hGetUserData(0);
+
+		// Init the bullet manager
+		CBulletMgr::Init();
+		
+		// Init the laser manager
+		// CSFXLaserManager::Init();
+		// oMT.bInit("(BackgroundFrame)",GI_TX,GI_TY,TEX_PF_ARGB32);	
+
+		// Register resources
+		/*
+		C3DObjWH::I()->iLoad("Player"
+		CGraphicResourceMgr::Register("Player",	pNew CGraphicResource(gszResources[GR_PLAYER]));	
+		CGraphicResourceMgr::Register("Moggle",	pNew CGraphicResource(gszResources[GR_MOGGLE]));
+		CGraphicResourceMgr::Register("Egg",	pNew CGraphicResource(gszResources[GR_EGG]));
+		CGraphicResourceMgr::Register("Foot",	pNew CGraphicResource(gszResources[GR_FOOT]));
+		*/
+
+
+		// Setup initial gamemode state
+		SetState(GMPSTATE_NONE);
+		
+		// Low down music
+		// CSndMixer::SetUserVol(SL_MusicCh0,0.0f);
+		
+		// Camera
+		/*
+		CCamera* poCam = pNew CCamera;
+		poCam->Init((MTH_CPoint3&)MTH_CPoint3::oZero,0);
+		poCam->m_iSubType = 8;
+		poCam->Visible(true);
+		*/
+		
+		m_fTime = 0.0f;
+		// Create the game flow entity
+		CGameFlow* poGF = mNew CGameFlow;
+		poGF->Init();
+		CGGameRegistry::I()->uiAddVar("GameFlow",poGF);
+	}
+	else
+	{
+		m_fTime += _fDeltaT;
+		CVideo::Update(_fDeltaT);
+
+		return;
+	}
+
 	m_fTime += _fDeltaT;
 
  	CHUDLabel* poLabel = (CHUDLabel*)m_poHUD->poGetElem("FPS")->poObj;

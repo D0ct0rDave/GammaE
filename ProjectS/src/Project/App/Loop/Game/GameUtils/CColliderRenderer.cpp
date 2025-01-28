@@ -4,14 +4,14 @@
 // #include "Collision/CGGEntityCollisionMgr.h"
 // -----------------------------------------------------------------------------		
 CMesh_Sphere*		poSph;
-CObject3D_Leaf*		poLeaf;
-CObject3D_Transf*	poTransf;
+CGSceneLeaf*		poLeaf;
+CGSceneTransf*	poTransf;
 // -----------------------------------------------------------------------------
 CColliderRenderer::CColliderRenderer()
 {
 	poSph		= mNew CMesh_Sphere;
-	poTransf	= mNew CObject3D_Transf;
-	poLeaf		= mNew CObject3D_Leaf;
+	poTransf	= mNew CGSceneTransf;
+	poLeaf		= mNew CGSceneLeaf;
 	
 	poLeaf->SetShader( CE3D_ShaderWH::I()->poCreateShader("wireframe") );
 	poLeaf->SetMesh( poSph );

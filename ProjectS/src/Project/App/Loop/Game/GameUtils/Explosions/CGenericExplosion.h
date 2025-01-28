@@ -16,8 +16,8 @@ typedef struct
 	float				m_fLinearSpd;
 
 	//
-	CObject3D_Transf*	m_poDebris;
-	CObject3D_Transf*	m_poSmoke;
+	CGSceneTransf*	m_poDebris;
+	CGSceneTransf*	m_poSmoke;
 
 }TGenericExplosionElem;
 // -----------------------------------------------------------------------------

@@ -15,9 +15,8 @@
 //-----------------------------------------------------------------------------
 class CGameCamera : public CGGameEntity
 {
-	public
-	:
-		PUBLISH_GAMEENTITY_CLASSNAME;
+	public:
+		PUBLISH_GAMEENTITY_CLASSNAME();
 	
 		CGameCamera();
 		~CGameCamera();

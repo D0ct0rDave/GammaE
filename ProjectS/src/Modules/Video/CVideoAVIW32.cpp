@@ -31,6 +31,7 @@ static CMesh_Rect*	m_poMesh		= NULL;
 static CE3D_Shader* m_poShader		= NULL;
 
 float		CVideo::m_fTime			= 0.0f;
+float		CVideo::m_fTotalTime	= 0.0f;
 bool		CVideo::m_bPlaying		= false;
 
 const EImageFormat TEXTUREFORMAT    = IF_RGB;
@@ -60,8 +61,8 @@ bool CVideo::bInit(char* _szFilename,bool _bLoop)
 	m_uiNumFrames = AVIStreamLength(pavi);						// The Last Frame Of The Stream
 	m_uiCurFrame  = 0;
 
-	float fTime = (float)AVIStreamSampleToTime(pavi,m_uiNumFrames) / 1000.0f;
-	m_fFPS = (float)m_uiNumFrames / fTime;	// Calculate Rough FPS
+	m_fTotalTime = (float)AVIStreamSampleToTime(pavi,m_uiNumFrames) / 1000.0f;
+	m_fFPS = (float)m_uiNumFrames / m_fTotalTime;	// Calculate Rough FPS
 
 	bmih.biSize			= sizeof (BITMAPINFOHEADER);			// Size Of The BitmapInfoHeader
 	bmih.biPlanes		= 1;									// Bitplanes	
@@ -85,22 +86,25 @@ bool CVideo::bInit(char* _szFilename,bool _bLoop)
 	// Information For The Title Bar (Width / Height / Last Frame)
 	// wsprintf (title, "NeHe's AVI Player: Width: %d, Height: %d, Frames: %d", width, height, lastframe);
 	// SetWindowText(g_window->hWnd, title);
-	if (TEXTUREFORMAT == IF_RGBA)
-		m_poTex = mNew CGMipMap(bmih.biWidth,bmih.biHeight,1,IF_RGBA);	
-	else
-		m_poTex = mNew CGMipMap(bmih.biWidth,bmih.biHeight,1,IF_RGB);	
-	
-	m_poTex->Invalidate();
+	if (m_poTex == NULL)
+	{
+		if (TEXTUREFORMAT == IF_RGBA)
+			m_poTex = mNew CGMipMap(bmih.biWidth,bmih.biHeight,1,IF_RGBA);	
+		else
+			m_poTex = mNew CGMipMap(bmih.biWidth,bmih.biHeight,1,IF_RGB);	
+		
+		m_poTex->Invalidate();
+
+		m_poMesh   = mNew CMesh_Rect;
+		m_poShader = CE3D_ShaderUtils::poGenerateShaderFromMipMap(m_poTex,VIDEO_FRAME_SHADER);
+		CE3D_ShaderWH::I()->uiAdd(m_poShader,VIDEO_FRAME_SHADER);
+		CMipMapWH::I()->uiAdd(m_poTex,VIDEO_FRAME_SHADER);
+	}
 
 	// Sound
 	m_fTime		= 0.0f;
 	m_bPlaying	= false;
 	m_bLoop     = _bLoop;
-
-	m_poMesh   = mNew CMesh_Rect;
-	m_poShader = CE3D_ShaderUtils::poGenerateShaderFromMipMap(m_poTex,VIDEO_FRAME_SHADER);
-	CE3D_ShaderWH::I()->uiAdd(m_poShader,VIDEO_FRAME_SHADER);
-	CMipMapWH::I()->uiAdd(m_poTex,VIDEO_FRAME_SHADER);
 
 	DecodeFrame(0);
 
@@ -232,11 +236,22 @@ void CVideo::Update(float _fDeltaT)
 
 	m_fTime   += _fDeltaT;
 
+	if (m_fTime >= m_fTotalTime)
+	{
+		m_fTime = m_fTotalTime;
+		
+		if (m_bLoop)
+			m_fTime = 0.0f;
+		else
+			m_bPlaying = false;
+	}
+	
 	int iRealFrame = (int)(m_fTime * m_fFPS);
 	if (iRealFrame != m_uiCurFrame)
 	{		
 		DecodeFrame(iRealFrame);
 	}
+	
 }
 // ----------------------------------------------------------------------------
 void CVideo::Render()

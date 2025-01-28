@@ -10,7 +10,7 @@
 // -----------------------------------------------------------------------------
 // Function prototypes
 // -----------------------------------------------------------------------------
-DECLARE_INHERITANT_SINGLETON(CColliderRenderer,public,CObject3D_Switch)
+DECLARE_INHERITANT_SINGLETON(CColliderRenderer,public,CGSceneSwitch)
 {
 	public:
 		CColliderRenderer();
