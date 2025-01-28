@@ -274,14 +274,14 @@ int iTestRayTriIntersection (const CGRay& _oRay, const CGTriangle& _oTri)
     return(1);
 }
 // ----------------------------------------------------------------------------
-int iTestRayTriIntersection (const CGRay& _oRay, const CGTriangle& _oTri, CGVect3* _poPoint)
+int iTestRayTriIntersection (const CGRay& _oRay, const CGTriangle& _oTri, CGVect3* _poProjectedPoint)
 {
     if ( iTestRayTriIntersection(_oRay,_oTri) )
     {
         // calculate t, ray intersects triangle
         fT = _oTri.e2.fDotProd(QVec) * fInvDet;
 
-        _poPoint->LineEq(_oRay.Origin,_oRay.Dir,fT);
+        _poProjectedPoint->LineEq(_oRay.Origin,_oRay.Dir,fT);
         return(1);
     }
     else
@@ -301,11 +301,11 @@ int iTestSegTriIntersection (const CGRay& _oRay, const CGTriangle& _oTri)
     return(0);
 }
 // ----------------------------------------------------------------------------
-int iTestSegTriIntersection (const CGRay& _oRay, const CGTriangle& _oTri, CGVect3* _poPoint)
+int iTestSegTriIntersection (const CGRay& _oRay, const CGTriangle& _oTri, CGVect3* _poProjectedPoint)
 {
     if ( iTestSegTriIntersection(_oRay,_oTri) )
     {
-        _poPoint->LineEq(_oRay.Origin,_oRay.Dir,fT);
+        _poProjectedPoint->LineEq(_oRay.Origin,_oRay.Dir,fT);
         return(1);
     }
     return(0);
@@ -316,14 +316,14 @@ float fGetT ()
     return(fT);
 }
 // ----------------------------------------------------------------------------
-int iPointInsideTriangle (const CGTriangle& _oTri, const CGVect3& _oPoint, const CGVect3& _oPPoint)
+int iPointInsideTriangle (const CGTriangle& _oTri, const CGVect3& _oPoint, CGVect3* _poProjectedPoint)
 {
     CGRay Ray;
 
     Ray.Origin.Assign(_oPoint);
     Ray.Dir.Assign   (_oTri.Normal);
 
-    return ( iTestRayTriIntersection (Ray, _oTri,_oPPoint) );
+    return ( iTestRayTriIntersection (Ray, _oTri, _poProjectedPoint) );
 }
 // ----------------------------------------------------------------------------
 int iPointInsideTriangle (const CGTriangle& _oTri, const CGVect3& _oPoint)
@@ -336,7 +336,7 @@ int iPointInsideTriangle (const CGTriangle& _oTri, const CGVect3& _oPoint)
     return ( iTestRayTriIntersection (Ray,_oTri) );
 }
 // ----------------------------------------------------------------------------
-int iTest3PlaneIntersection (const CGPlane& _oPlane0, const CGPlane& _oPlane1, const CGPlane& _oPlane2, CGVect3* _poPoint)
+int iTest3PlaneIntersection (const CGPlane& _oPlane0, const CGPlane& _oPlane1, const CGPlane& _oPlane2, CGVect3* _poIntersectionPoint)
 {
     float fDet;
     CGMatrix4x4 oMat;
@@ -364,10 +364,10 @@ int iTest3PlaneIntersection (const CGPlane& _oPlane0, const CGPlane& _oPlane1, c
     c.Scale( -1.0f * _oPlane2.fGetD() );
 
     // Setup intersection point
-    _poPoint->Assign(a);
-    _poPoint->Add   (b);
-    _poPoint->Add   (c);
-    _poPoint->Scale (1.0f / fDet);
+    _poIntersectionPoint->Assign(a);
+    _poIntersectionPoint->Add   (b);
+    _poIntersectionPoint->Add   (c);
+    _poIntersectionPoint->Scale (1.0f / fDet);
 
     return(1);
 }

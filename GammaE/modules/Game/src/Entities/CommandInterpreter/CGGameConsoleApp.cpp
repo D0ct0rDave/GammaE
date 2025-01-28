@@ -8,9 +8,11 @@
  *  \par GammaE License
  */
 // -----------------------------------------------------------------------------
-// -----------------------------------------------------------------------------
 #include "CGGameConsoleApp.h"
 #include "GameRes/Graphic/CGGraphicInstance.h"
+#include <stdlib.h>
+#include <varargs.h>
+#include <stdio.h>
 // -----------------------------------------------------------------------------
 #define MAX_CONSOLE_ROWS        40
 #define MAX_CONSOLE_COLS        80
@@ -34,10 +36,10 @@ void CGGameConsoleApp::Init(int _iCols,int _iRows)
     m_iRows = _iRows;
 
     // -----------------------------------------------------------------------------
-    CGraphBV_Manager::SetBVMode(eGraphBV_Box);
+    CGGraphBVFactory::SetBVMode(EGBoundingVolumeType::BVT_AABB);
     poConsole = mNew CConsole();
-    CGShader* poMBack = CE3D_ShaderWH::I()->poCreateShader("console_back_default");
-    CGShader* poMFont = CE3D_ShaderWH::I()->poCreateShader("console_font_default");
+    CGShader* poMBack = CGShaderWH::I()->poCreateShader("console_back_default");
+    CGShader* poMFont = CGShaderWH::I()->poCreateShader("console_font_default");
     poConsole->Init(1.0f,1.0,m_iCols,m_iRows,poMBack,poMFont);
     poConsole->ComputeBoundVol();
 

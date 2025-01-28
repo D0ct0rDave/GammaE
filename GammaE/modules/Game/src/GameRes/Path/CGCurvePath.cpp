@@ -11,7 +11,7 @@
 // -----------------------------------------------------------------------------
 #include "CGCurvePath.h"
 // -----------------------------------------------------------------------------
-void CGCurvePath::Init(CCurve* _poCurve)
+void CGCurvePath::Init(CGCurve* _poCurve)
 {
     m_poCurve = _poCurve;
 

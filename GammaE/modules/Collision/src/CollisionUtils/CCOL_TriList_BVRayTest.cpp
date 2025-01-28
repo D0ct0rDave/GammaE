@@ -74,7 +74,7 @@ float CCOL_TriList_BVRayTest::fGetRayTriListMinDist (CGRay& _ay, CCOL_TriList& _
         Tri.Init(&_TriList.poVXs[3 * iTri], _TriList.poVNs[iTri] );
         Tri.ComputeAll();
 
-        if ( Math::iTestSegTriIntersection(_ay,Tri,IPoint) )
+        if ( Math::iTestSegTriIntersection(_ay,Tri, &IPoint) )
         {
             fDist = _ay.Origin.fSqDistance(IPoint);
             if ( fDist < fMinDist )

@@ -22,7 +22,6 @@ class CGShInsGeoOp : public CGShaderInstruction
         CGShInsGeoOp() : CGShaderInstruction(E3D_SHI_GeoOp), m_poEval(NULL)
         {
         }
-        virtual ~CGShInsGeoOp();
 
         eShInsGeoOp_TypeID eGetGOpType ()
         {

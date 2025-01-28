@@ -43,13 +43,13 @@ class CGGraphicResource : public CGResource
         CGControlPoint* poGetCP(const CGString& _sCPName);
 
         // / Gets the model associated with the graphic resource
-        CGSceneNode* poModel()
+        CGSceneNode* poGetModel()
         {
             return (m_poModel);
         }
 
         // / Sets the model associated with the graphic resource
-        void Model(CGSceneNode* _poModel)
+        void SetModel(CGSceneNode* _poModel)
         {
             m_poModel = _poModel;
         }

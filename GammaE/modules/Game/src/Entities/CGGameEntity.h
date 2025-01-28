@@ -266,7 +266,7 @@ class CGGameEntity
 #define PUBLISH_GAMEENTITY_CLASSNAME \
     virtual CGString sClass() \
     { \
-        static CGString sClassName = ExtractShortFileName( CGString(__FILE__) ); \
+        static CGString sClassName = Utils::ExtractShortFileName( CGString(__FILE__) ); \
         return (sClassName); \
     }; \
 

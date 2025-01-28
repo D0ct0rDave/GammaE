@@ -13,14 +13,14 @@
 CGGraphicResource* CGGraphicResourceWH::poLoadResource(const CGString& _sFilename)
 {
     CGGraphicResource* poBObj;
-    CFile oFile;
+    CGFile oFile;
     CGControlPoint oCP;
 
-    if ( !oFile.bOpen( (char*)_sFilename.szString(),"rb" ) ) return(NULL);
+    if ( !oFile.bOpen( (char*)_sFilename.szString(), EFileOpenMode::FOM_READ) ) return(NULL);
 
     // Stablish alternate texture path
-    CGString sDir = ExtractFileDir(_sFilename);
-    CMipMapWH::I()->AlternatePath( sDir );
+    CGString sDir = Utils::ExtractFileDir(_sFilename);
+    CGMipMapWH::I()->AlternatePath( sDir );
 
     //
     unsigned int uiID;
@@ -38,7 +38,7 @@ CGGraphicResource* CGGraphicResourceWH::poLoadResource(const CGString& _sFilenam
         poBObj = mNew CGGraphicResource;
         poBObj->m_oCPs.Clear();
 
-        oFile.uiSeek(-8,eFile_SM_Cur);
+        oFile.iSeek( - 8, EFileSeekMode::FSM_CUR);
     }
     else
     {
@@ -53,10 +53,10 @@ CGGraphicResource* CGGraphicResourceWH::poLoadResource(const CGString& _sFilenam
         for ( int i = 0; i < uiNumCPs; i++ )
         {
             char szStr[9];
-            oFile.ReadCharArray (szStr,8);
+            oFile.ReadArray(szStr, 8);
             oCP.m_sName = CGString(szStr);
 
-            oFile.ReadFloatArray( (float*)oCP.m_oPos.V(),3 );
+            oFile.ReadArray((float*)oCP.m_oPos.V(),3 );
 
             // Add the control point to the list
             poBObj->m_oCPs.uiAdd(oCP);
@@ -70,17 +70,18 @@ CGGraphicResource* CGGraphicResourceWH::poLoadResource(const CGString& _sFilenam
 
     if ( uiID == GEM_FILE_IDENTIFIER )
     {
-        poBObj->Model( oLoader.poLoad(oFile) );
-        poBObj->poModel()->Ref();                    // Avoid being deleted by an instance
-        poBObj->poModel()->ComputeBoundVol();
+        poBObj->SetModel( oLoader.poLoad(oFile) );
+        poBObj->poGetModel()->Ref();                    // Avoid being deleted by an instance
+
+        CGSCNVBoundVolBuilder::I()->Visit(poBObj->poGetModel());
     }
     else
-        poBObj->Model(NULL);
+        poBObj->SetModel(NULL);
 
     oFile.Close();
 
     // Restore alternate path to default
-    CMipMapWH::I()->AlternatePath( "" );
+    CGMipMapWH::I()->AlternatePath( "" );
 
     return(poBObj);
 }

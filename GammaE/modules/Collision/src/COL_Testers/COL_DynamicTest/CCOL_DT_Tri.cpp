@@ -256,7 +256,7 @@ float CCOL_DT_Tri::fTestPoint (const CGVect3& _oPoint, const CGTriangle& _oTri)
     oATri.VXs[2].Sub( oATri.VXs[0] );
     oATri.VXs[0].Set(0.0f,0.0f,0.0f);
 
-    if ( Math::iTestSegTriIntersection(oRay,oATri,oPrj) )
+    if ( Math::iTestSegTriIntersection(oRay,oATri, &oPrj) )
     {
         // return (Math::fGetT () );
 

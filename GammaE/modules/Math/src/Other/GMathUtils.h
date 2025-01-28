@@ -43,19 +43,19 @@ void GetMaxMins(float a, float b, float c, float &fMax, float& fMin);
 
 int iTestRayTriIntersection(const CGRay& _oRay, const CGTriangle& _oTri);
 
-int iTestRayTriIntersection(const CGRay& _oRay, const CGTriangle& _oTri, const CGVect3& _oPoint);
+int iTestRayTriIntersection(const CGRay& _oRay, const CGTriangle& _oTri, CGVect3* _poProjectedPoint);
 
 int iTestSegTriIntersection(const CGRay& _oRay, const CGTriangle& _oTri);
 
-int iTestSegTriIntersection(const CGRay& _oRay, const CGTriangle& _oTri, const CGVect3& _oPoint);
+int iTestSegTriIntersection(const CGRay& _oRay, const CGTriangle& _oTri, CGVect3* _poProjectedPoint);
 
 float fGetT();
 
-int iPointInsideTriangle(const CGTriangle& _oTri, const CGVect3& _oPoint, const CGVect3& _oPPoint);
+int iPointInsideTriangle(const CGTriangle& _oTri, const CGVect3& _oPoint, CGVect3* _poProjectedPoint);
 
 int iPointInsideTriangle(const CGTriangle& _oTri, const CGVect3& _oPoint);
 
-int iTest3PlaneIntersection(const CGPlane& _oPlane0, const CGPlane& _oPlane1, const CGPlane& _oPlane2, const CGVect3& _oPoint);
+int iTest3PlaneIntersection(const CGPlane& _oPlane0, const CGPlane& _oPlane1, const CGPlane& _oPlane2, CGVect3* _poIntersectionPoint);
 
 int iTest2PlaneIntersection(const CGPlane& _oPlane0, const CGPlane& _oPlane1, const CGRay& _oRay);
 

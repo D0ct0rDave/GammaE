@@ -43,7 +43,7 @@ void CGPathDefinitionFileWH::ProcessPathDefFile(const CGString& _sPathDefFilenam
         // Read path properties
         if ( sType |= "curve" )
         {
-            CCurveDynamic* poCurve = mNew CCurveDynamic;
+            CGCurveDynamic* poCurve = mNew CGCurveDynamic;
             // Read the number of control points of the path
             uint uiNumPoints = oCfg.iGetInteger(sDef + ".NumPoints",0);
 

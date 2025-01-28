@@ -22,7 +22,7 @@ CGString CGGameEntity::sClass()
 // -----------------------------------------------------------------------------
 uint CGGameEntity::uiClass()
 {
-    static uint uiClassID = uiCRCGenerate( sClass().szString(),sClass().uiLen() );
+    static uint uiClassID = Utils::uiCRCGenerate( sClass().szString(),sClass().uiLen() );
     return (uiClassID);
 }
 // -----------------------------------------------------------------------------

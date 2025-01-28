@@ -67,6 +67,9 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PreBuildEvent>
+      <Command>$(ProjectDir)../../SDKS/swigwin-4.3.0/swig.exe -includeall -c++ -lua -ignoremissing -I$(ProjectDir)../inc $(ProjectDir)../modules/Game/src/GameRes/Script/CGScriptBinding.cpp</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -88,6 +91,9 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
+    <PreBuildEvent>
+      <Command>$(ProjectDir)../../SDKS/swigwin-4.3.0/swig.exe -includeall -c++ -lua -ignoremissing -I$(ProjectDir)../inc $(ProjectDir)../modules/Game/src/GameRes/Script/CGScriptBinding.cpp</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\modules\Game\src\Entities\CGGEntityRenderMgr.h" />

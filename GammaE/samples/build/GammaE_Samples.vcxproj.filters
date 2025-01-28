@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="culling">
+      <UniqueIdentifier>{330A50E1-9FE9-CE7C-A801-5A53146035DE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="culling\data">
+      <UniqueIdentifier>{9C636801-88C6-F7A5-314C-305C1D8EC328}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="culling\src">
+      <UniqueIdentifier>{CAA9FBC1-365F-74B7-BF53-6E8E2B086BBB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="culling\src\Project">
+      <UniqueIdentifier>{10780F1E-7CD9-EC2B-0547-33DE71A723EB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="culling\src\Project\App">
+      <UniqueIdentifier>{40E9470A-AC20-90A1-B52A-F4C421E1B69A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="culling\src\Project\App\Loop">
+      <UniqueIdentifier>{A9C469A9-957F-5955-3E37-D29F2AD1A3E5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="culling\src\Project\Docs">
+      <UniqueIdentifier>{E8B04653-D4D5-95D3-FD20-7B63E9A494F1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{0F45D591-7B24-542D-843C-DF03F09ABA8E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders\data">
+      <UniqueIdentifier>{F8C77019-E42A-00BE-8DB0-387479F2CB40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders\src">
+      <UniqueIdentifier>{A6F21A56-12A8-934B-9B9C-8D2207518A4F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders\src\Project">
+      <UniqueIdentifier>{ECDCE77B-583E-C589-E1AB-0B3C4D0CFC48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders\src\Project\App">
+      <UniqueIdentifier>{1C5C3FB5-8893-874C-919D-EB6FFD53AE45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders\src\Project\App\Loop">
+      <UniqueIdentifier>{056107B4-F11B-F75F-9AD3-6FAA866D41F0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders\src\Project\Docs">
+      <UniqueIdentifier>{447F2C5D-30A4-7BDD-59EF-606D45737AFB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="simplerendering">
+      <UniqueIdentifier>{4D075C6A-B992-C92E-C2A3-4C232EAE252F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="simplerendering\src">
+      <UniqueIdentifier>{E4A394BC-5005-72CA-D972-B87C45D3A889}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="simplerendering\src\Project">
+      <UniqueIdentifier>{2AECA58B-96F9-D371-1FE0-CF5C8BEC9F28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="simplerendering\src\Project\App">
+      <UniqueIdentifier>{5ADACE87-C6BD-DDC7-CFC0-0B043B23A418}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="simplerendering\src\Project\App\Loop">
+      <UniqueIdentifier>{037695F2-EF5C-57EA-98AD-BD078473D050}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="simplerendering\src\Project\Docs">
+      <UniqueIdentifier>{42C5AB81-2E16-97C3-577A-8585432A2A2D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\graphics\culling\src\Project\App\CApplication.h">
+      <Filter>culling\src\Project\App</Filter>
+    </ClInclude>
+    <ClInclude Include="..\graphics\culling\src\Project\App\Loop\CLoop.h">
+      <Filter>culling\src\Project\App\Loop</Filter>
+    </ClInclude>
+    <ClInclude Include="..\graphics\culling\src\Project\App\Loop\CLoopGlobals.h">
+      <Filter>culling\src\Project\App\Loop</Filter>
+    </ClInclude>
+    <ClInclude Include="..\graphics\shaders\src\Project\App\CApplication.h">
+      <Filter>shaders\src\Project\App</Filter>
+    </ClInclude>
+    <ClInclude Include="..\graphics\shaders\src\Project\App\Loop\CLoop.h">
+      <Filter>shaders\src\Project\App\Loop</Filter>
+    </ClInclude>
+    <ClInclude Include="..\graphics\shaders\src\Project\App\Loop\CLoopGlobals.h">
+      <Filter>shaders\src\Project\App\Loop</Filter>
+    </ClInclude>
+    <ClInclude Include="..\graphics\simplerendering\src\Project\App\CApplication.h">
+      <Filter>simplerendering\src\Project\App</Filter>
+    </ClInclude>
+    <ClInclude Include="..\graphics\simplerendering\src\Project\App\Loop\CLoop.h">
+      <Filter>simplerendering\src\Project\App\Loop</Filter>
+    </ClInclude>
+    <ClInclude Include="..\graphics\simplerendering\src\Project\App\Loop\CLoopGlobals.h">
+      <Filter>simplerendering\src\Project\App\Loop</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\graphics\culling\src\Project\App\CApplication.cpp">
+      <Filter>culling\src\Project\App</Filter>
+    </ClCompile>
+    <ClCompile Include="..\graphics\culling\src\Project\App\Loop\CLoop.cpp">
+      <Filter>culling\src\Project\App\Loop</Filter>
+    </ClCompile>
+    <ClCompile Include="..\graphics\culling\src\Project\App\Loop\CLoopGlobals.cpp">
+      <Filter>culling\src\Project\App\Loop</Filter>
+    </ClCompile>
+    <ClCompile Include="..\graphics\culling\src\Project\main.cpp">
+      <Filter>culling\src\Project</Filter>
+    </ClCompile>
+    <ClCompile Include="..\graphics\shaders\src\Project\App\CApplication.cpp">
+      <Filter>shaders\src\Project\App</Filter>
+    </ClCompile>
+    <ClCompile Include="..\graphics\shaders\src\Project\App\Loop\CLoop.cpp">
+      <Filter>shaders\src\Project\App\Loop</Filter>
+    </ClCompile>
+    <ClCompile Include="..\graphics\shaders\src\Project\App\Loop\CLoopGlobals.cpp">
+      <Filter>shaders\src\Project\App\Loop</Filter>
+    </ClCompile>
+    <ClCompile Include="..\graphics\shaders\src\Project\main.cpp">
+      <Filter>shaders\src\Project</Filter>
+    </ClCompile>
+    <ClCompile Include="..\graphics\simplerendering\src\Project\App\CApplication.cpp">
+      <Filter>simplerendering\src\Project\App</Filter>
+    </ClCompile>
+    <ClCompile Include="..\graphics\simplerendering\src\Project\App\Loop\CLoop.cpp">
+      <Filter>simplerendering\src\Project\App\Loop</Filter>
+    </ClCompile>
+    <ClCompile Include="..\graphics\simplerendering\src\Project\App\Loop\CLoopGlobals.cpp">
+      <Filter>simplerendering\src\Project\App\Loop</Filter>
+    </ClCompile>
+    <ClCompile Include="..\graphics\simplerendering\src\Project\main.cpp">
+      <Filter>simplerendering\src\Project</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\graphics\culling\data\shaders.txt">
+      <Filter>culling\data</Filter>
+    </None>
+    <None Include="..\graphics\culling\src\Project\Docs\Bugs.txt">
+      <Filter>culling\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\culling\src\Project\Docs\Concept.txt">
+      <Filter>culling\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\culling\src\Project\Docs\Dependencies.txt">
+      <Filter>culling\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\culling\src\Project\Docs\Eula.txt">
+      <Filter>culling\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\culling\src\Project\Docs\History.txt">
+      <Filter>culling\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\culling\src\Project\Docs\Mejoras.txt">
+      <Filter>culling\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\culling\src\Project\Docs\ProjectR_FrameWork.txt">
+      <Filter>culling\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\culling\src\Project\Docs\TODO.txt">
+      <Filter>culling\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\culling\src\Project\Docs\extensiones.txt">
+      <Filter>culling\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\culling\src\Project\Docs\optimization.txt">
+      <Filter>culling\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\culling\src\Project\Docs\pal.txt">
+      <Filter>culling\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\shaders\data\shaders.txt">
+      <Filter>shaders\data</Filter>
+    </None>
+    <None Include="..\graphics\shaders\src\Project\Docs\Bugs.txt">
+      <Filter>shaders\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\shaders\src\Project\Docs\Concept.txt">
+      <Filter>shaders\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\shaders\src\Project\Docs\Dependencies.txt">
+      <Filter>shaders\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\shaders\src\Project\Docs\Eula.txt">
+      <Filter>shaders\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\shaders\src\Project\Docs\History.txt">
+      <Filter>shaders\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\shaders\src\Project\Docs\Mejoras.txt">
+      <Filter>shaders\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\shaders\src\Project\Docs\ProjectR_FrameWork.txt">
+      <Filter>shaders\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\shaders\src\Project\Docs\TODO.txt">
+      <Filter>shaders\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\shaders\src\Project\Docs\extensiones.txt">
+      <Filter>shaders\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\shaders\src\Project\Docs\optimization.txt">
+      <Filter>shaders\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\shaders\src\Project\Docs\pal.txt">
+      <Filter>shaders\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\simplerendering\src\Project\Docs\Bugs.txt">
+      <Filter>simplerendering\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\simplerendering\src\Project\Docs\Concept.txt">
+      <Filter>simplerendering\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\simplerendering\src\Project\Docs\Dependencies.txt">
+      <Filter>simplerendering\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\simplerendering\src\Project\Docs\Eula.txt">
+      <Filter>simplerendering\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\simplerendering\src\Project\Docs\History.txt">
+      <Filter>simplerendering\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\simplerendering\src\Project\Docs\Mejoras.txt">
+      <Filter>simplerendering\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\simplerendering\src\Project\Docs\ProjectR_FrameWork.txt">
+      <Filter>simplerendering\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\simplerendering\src\Project\Docs\TODO.txt">
+      <Filter>simplerendering\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\simplerendering\src\Project\Docs\extensiones.txt">
+      <Filter>simplerendering\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\simplerendering\src\Project\Docs\optimization.txt">
+      <Filter>simplerendering\src\Project\Docs</Filter>
+    </None>
+    <None Include="..\graphics\simplerendering\src\Project\Docs\pal.txt">
+      <Filter>simplerendering\src\Project\Docs</Filter>
+    </None>
+  </ItemGroup>
+</Project>

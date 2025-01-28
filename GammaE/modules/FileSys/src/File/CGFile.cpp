@@ -16,6 +16,11 @@
 #include "FileManager/CGFileMgr.h"
 #include "CGFile.h"
 // ----------------------------------------------------------------------------
+CGFile::CGFile()
+{
+    m_hHandler = NULL;
+}
+// ----------------------------------------------------------------------------
 bool CGFile::bOpen (const CGString& _sFilename, EFileOpenMode _eOpenMode)
 {
     assert(gpoFILESYSMGR);

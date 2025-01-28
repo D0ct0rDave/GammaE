@@ -41,14 +41,14 @@ void CGGameApplication::Think (float _fDeltaT)
     // -----------------------------------------------------------------------------
     switch ( m_eGAState )
     {
-        case GAPPST_OPENING:    m_fSize += (CGRenderer::I()->REStats.DTime / m_fSecs);
+        case GAPPST_OPENING:    m_fSize += (CGRenderer::I()->oGetStats().m_fDelta / m_fSecs);
         if ( m_fSize >= 1.0f )
         {
             FullOpen();
         }
         break;
 
-        case GAPPST_CLOSING:    m_fSize -= (CGRenderer::I()->REStats.DTime / m_fSecs);
+        case GAPPST_CLOSING:    m_fSize -= (CGRenderer::I()->oGetStats().m_fDelta / m_fSecs);
         if ( m_fSize <= 0.0f )
         {
             FullClose();

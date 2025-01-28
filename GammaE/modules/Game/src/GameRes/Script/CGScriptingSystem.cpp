@@ -56,9 +56,9 @@ extern int luaopen_GammaE(lua_State* L);                    // declare the wrapp
 // -----------------------------------------------------------------------------
 void CGScriptingSystem::Init()
 {
-    lua_State* L;
+	lua_State* L = luaL_newstate();
 
-    L = lua_open();
+	// luaL_openlibs(L);
     luaopen_base(L);                    // load basic libs (eg. print)
     luaopen_string(L);
     int i = luaopen_GammaE(L);                    // load the wrappered module

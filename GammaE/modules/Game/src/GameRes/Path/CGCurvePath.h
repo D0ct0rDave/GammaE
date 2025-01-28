@@ -22,7 +22,7 @@ class CGCurvePath : public CGPath
         virtual const CGVect3& oPos(float _fFact);
 
         // / Initializes the path with the given curve
-        void Init(CCurve* _poCurve);
+        void Init(CGCurve* _poCurve);
 
         // / Retrieves the time of the path
         float fTime()
@@ -31,7 +31,7 @@ class CGCurvePath : public CGPath
         }
 
     protected:
-        CCurve* m_poCurve;
+        CGCurve* m_poCurve;
         float m_fPathTime;
 };
 // -----------------------------------------------------------------------------

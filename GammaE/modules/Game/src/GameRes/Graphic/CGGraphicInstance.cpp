@@ -117,12 +117,12 @@ void CGGraphicInstance::Render()
     {
         CGRenderer::I()->PushWorldMatrix();
 
-        CGRenderer::I()->MultiplyMatrix(&m_oMat);
+        CGRenderer::I()->MultiplyMatrix(m_oMat);
 
         CGRenderer::I()->SetConstantColor(m_oColor);
 
         // Render Object
-        m_poResource->poModel()->Render();
+        CGSCNVRenderer::I()->Render(m_poResource->poGetModel());
 
         CGRenderer::I()->PopWorldMatrix();
     }

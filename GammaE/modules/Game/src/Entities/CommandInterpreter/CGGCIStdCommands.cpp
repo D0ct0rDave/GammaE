@@ -103,7 +103,7 @@ ECIState CGGCICommandExec::Exec(CGString& _sPars)
 
     while ( *szLine )
     {
-        NextLine(szLine,szNextLine);
+        Utils::Parse::NextLine(szLine,szNextLine);
         m_poCI->AddInstruction( CGString(szLine) );
 
         szLine = szNextLine;

@@ -18,7 +18,6 @@ class CGFile
 {
     public:
         CGFile();
-        ~CGFile();
 
         // / Opens a given file with the given mode.
         virtual bool bOpen(const CGString& _sFilename, const EFileOpenMode _eOpenMode);

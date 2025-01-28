@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0D2FE071-79BA-4D36-82CB-D02AEED5A936}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>SimpleRendering</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)\exe\Debug\</OutDir>
+    <IntDir>$(ProjectDir)\obj\Debug\</IntDir>
+    <TargetName>SimpleRendering</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)\exe\Release\</OutDir>
+    <IntDir>$(ProjectDir)\obj\Release\</IntDir>
+    <TargetName>SimpleRendering</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>_MBCS;_OGL_;_OPENAL_;FREEIMAGE_LIB;WIN32;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..;$(ProjectDir)..\..\..\..\inc;$(ProjectDir)..\..\..\..\..\SDKS\Externals\FreeImage\Dist;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;libsndfile.lib;freeimage.lib;libconfig.lib;lua.lib;OpenAL32.lib;vfw32.lib;WSOCK32.LIB;AI.lib;Collision.lib;E3D.lib;FileSys.lib;Game.lib;Input.lib;Math.lib;Memory.lib;Misc.lib;Network.lib;Scene.lib;SceneObjects.lib;SceneUtils.lib;Sfx.lib;SoundSystem.lib;Terrain.lib;TerrainData.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\..\..\SDKS\Externals\FreeImage\Dist\x64;;$(ProjectDir)..\..\..\..\..\SDKS\OpenAL 1.1 SDK\libs;$(ProjectDir)..\..\..\..\..\SDKS\OpenAL 1.1 SDK\libs\Win64;$(ProjectDir)..\..\..\..\..\SDKS\lua-5.4.7\lib\x64\Debug;$(ProjectDir)..\..\..\..\..\SDKS\libsndfile\lib\x64\Debug;$(ProjectDir)..\..\..\..\..\SDKS\libconfig\lib\x64\Debug;$(ProjectDir)..\..\..\..\build\lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /B /Y $(ProjectDir)..\..\..\..\..\SDKS\Externals\FreeImage\Dist\x64\FreeImage.dll $(ProjectDir)..\data</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>_MBCS;_OGL_;_OPENAL_;FREEIMAGE_LIB;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..;$(ProjectDir)..\..\..\..\inc;$(ProjectDir)..\..\..\..\..\SDKS\Externals\FreeImage\Dist;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;libsndfile.lib;freeimage.lib;libconfig.lib;lua.lib;OpenAL32.lib;vfw32.lib;WSOCK32.LIB;AI.lib;Collision.lib;E3D.lib;FileSys.lib;Game.lib;Input.lib;Math.lib;Memory.lib;Misc.lib;Network.lib;Scene.lib;SceneObjects.lib;SceneUtils.lib;Sfx.lib;SoundSystem.lib;Terrain.lib;TerrainData.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\..\..\SDKS\Externals\FreeImage\Dist\x64;;$(ProjectDir)..\..\..\..\..\SDKS\OpenAL 1.1 SDK\libs;$(ProjectDir)..\..\..\..\..\SDKS\OpenAL 1.1 SDK\libs\Win64;$(ProjectDir)..\..\..\..\..\SDKS\lua-5.4.7\lib\x64\Release;$(ProjectDir)..\..\..\..\..\SDKS\libsndfile\lib\x64\Release;$(ProjectDir)..\..\..\..\..\SDKS\libconfig\lib\x64\Release;$(ProjectDir)..\..\..\..\build\lib\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /B /Y $(ProjectDir)..\..\..\..\..\SDKS\Externals\FreeImage\Dist\x64\FreeImage.dll $(ProjectDir)..\data</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\Project\App\CApplication.h" />
+    <ClInclude Include="..\src\Project\App\Loop\CLoop.h" />
+    <ClInclude Include="..\src\Project\App\Loop\CLoopGlobals.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Project\App\CApplication.cpp" />
+    <ClCompile Include="..\src\Project\App\Loop\CLoop.cpp" />
+    <ClCompile Include="..\src\Project\App\Loop\CLoopGlobals.cpp" />
+    <ClCompile Include="..\src\Project\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\Project\Docs\Bugs.txt" />
+    <None Include="..\src\Project\Docs\Concept.txt" />
+    <None Include="..\src\Project\Docs\Dependencies.txt" />
+    <None Include="..\src\Project\Docs\Eula.txt" />
+    <None Include="..\src\Project\Docs\History.txt" />
+    <None Include="..\src\Project\Docs\Mejoras.txt" />
+    <None Include="..\src\Project\Docs\ProjectR_FrameWork.txt" />
+    <None Include="..\src\Project\Docs\TODO.txt" />
+    <None Include="..\src\Project\Docs\extensiones.txt" />
+    <None Include="..\src\Project\Docs\optimization.txt" />
+    <None Include="..\src\Project\Docs\pal.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\build\AI.vcxproj">
+      <Project>{EF725900-DBFE-870B-44AD-880B3058880B}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\build\Collision.vcxproj">
+      <Project>{B11A655C-1D85-19D3-66C3-CA78D26CF727}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\build\E3D.vcxproj">
+      <Project>{41DF870B-ADE8-877C-3664-9E7CA26C937C}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\build\FileSys.vcxproj">
+      <Project>{040EF50C-70ED-73A8-7905-FF7EE563DA09}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\build\Game.vcxproj">
+      <Project>{7FA9857C-6BE0-860D-14CD-6C1000E3020F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\build\Input.vcxproj">
+      <Project>{953A660D-014F-8EBE-CAD0-311E36A48AEF}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\build\Math.vcxproj">
+      <Project>{AFF4887C-9B2B-8A0D-4418-7010302E060F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\build\Memory.vcxproj">
+      <Project>{BE94DDC2-AA36-0899-93F1-1BED7F328FE9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\build\Misc.vcxproj">
+      <Project>{9116897C-7D4D-8A0D-263A-70101250060F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\build\Network.vcxproj">
+      <Project>{8F6A0D6C-FB49-8C07-0462-17DE70C0F268}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\build\Scene.vcxproj">
+      <Project>{B3F7140E-1F0C-3DBF-E88D-E01E546139F0}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\build\SceneObjects.vcxproj">
+      <Project>{BD798A53-A9DC-19F8-5262-52AE3EA4E57A}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\build\SceneUtils.vcxproj">
+      <Project>{644B96CC-5003-D819-B90A-B175A5E1720A}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\build\Sfx.vcxproj">
+      <Project>{9621880B-022B-887C-8BA6-9E7CF7AE937C}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\build\SoundSystem.vcxproj">
+      <Project>{731E6186-DFD3-D97B-68C8-D352D47CD07F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\build\Terrain.vcxproj">
+      <Project>{7AABC339-E68A-42D5-EFA2-CDAB5B01A936}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\build\TerrainData.vcxproj">
+      <Project>{34CE6782-A083-E077-2978-DA4E952CD77B}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
