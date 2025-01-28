@@ -2,8 +2,8 @@
 ProjectName = "Culling"
 
 ProjectRelativeFinalDataRoot = "$(ProjectDir)../data"
-ProjectRelativeSDKSRoot = "$(ProjectDir)../../../../../SDKS/"
-ProjectRelativeFrameworkRoot = "$(ProjectDir)../../../../"
+ProjectRelativeSDKSRoot = "$(ProjectDir)../../../../../SDKS"
+ProjectRelativeGammaERoot = "$(ProjectDir)../../../.."
 
 workspace "Culling"
     configurations { "Debug", "Release" }
@@ -19,16 +19,12 @@ project(ProjectName)
 	characterset("ASCII")
     debugdir(ProjectRelativeFinalDataRoot)
 
-	-- Specify the root directory of the library
-    local sourceRoot = os.getcwd()
-    frameworkRoot = sourceRoot .. "/../../.."
-	print("Framework dir: " .. frameworkRoot)
-  	
 	-- Recursively include all .cpp and .h files from the sourceRoot directory
-    files {
+	local sourceRoot = os.getcwd()
+	files {
         sourceRoot .. "/**.cpp",
         sourceRoot .. "/**.h",
-	sourceRoot .. "/**.txt",
+		sourceRoot .. "/**.txt",
     }
 
 	-- specific defines for this project
@@ -37,7 +33,6 @@ project(ProjectName)
 		"_OGL_",
 		"_OPENAL_",
 		"FREEIMAGE_LIB",
-
 	}
 	
 	filter { "system:windows" }
@@ -48,24 +43,25 @@ project(ProjectName)
 	{
 		"4091",
 	}
+
 	includedirs 
 	{
         -- Add include directories (sourceRoot is included by default)
 		sourceRoot,
-		ProjectRelativeFrameworkRoot .. "inc",
-		ProjectRelativeSDKSRoot .. "Externals/FreeImage/Dist;",
+		ProjectRelativeGammaERoot .. "/inc",
+		ProjectRelativeSDKSRoot .. "/Externals/FreeImage/Dist;",
     	}
 
 	-- Library directories common for all configurations
 	libdirs
 	{
-		ProjectRelativeSDKSRoot .. "Externals/FreeImage/Dist/x64;",
-		ProjectRelativeSDKSRoot .. "OpenAL 1.1 SDK/libs",
-		ProjectRelativeSDKSRoot .. "OpenAL 1.1 SDK/libs/Win64",
-		ProjectRelativeSDKSRoot .. "lua-5.4.7/lib/x64/%{cfg.buildcfg}",	
-		ProjectRelativeSDKSRoot .. "libsndfile/lib/x64/%{cfg.buildcfg}",
-		ProjectRelativeSDKSRoot .. "libconfig/lib/x64/%{cfg.buildcfg}",
-		ProjectRelativeFrameworkRoot .. "build/lib/%{cfg.buildcfg}",
+		ProjectRelativeSDKSRoot .. "/Externals/FreeImage/Dist/x64;",
+		ProjectRelativeSDKSRoot .. "/OpenAL 1.1 SDK/libs",
+		ProjectRelativeSDKSRoot .. "/OpenAL 1.1 SDK/libs/Win64",
+		ProjectRelativeSDKSRoot .. "/lua-5.4.7/lib/x64/%{cfg.buildcfg}",	
+		ProjectRelativeSDKSRoot .. "/libsndfile/lib/x64/%{cfg.buildcfg}",
+		ProjectRelativeSDKSRoot .. "/libconfig/lib/x64/%{cfg.buildcfg}",
+		ProjectRelativeGammaERoot .. "/build/lib/%{cfg.buildcfg}",
 	}
 	
 	links 
@@ -140,6 +136,9 @@ project(ProjectName)
     end
 
 	------------------------------------------------------------------------------
+    frameworkRoot = sourceRoot .. "/../../.."
+	print("Framework dir: " .. frameworkRoot)
+ 
 	-- Add the external project to the solution
     includeLibraries(frameworkRoot .. "/build")	
     includeProjects(frameworkRoot .. "/build")
@@ -151,5 +150,5 @@ project(ProjectName) -- for some reason this is reset, so we need to setup it ag
 	postbuildcommands
 	{
 		-- "{MKDIR} %{wks.location}/dist/lib", -- Create output directory
-		"{COPYFILE} " .. ProjectRelativeSDKSRoot .. "Externals/FreeImage/Dist/x64/FreeImage.dll " .. ProjectRelativeFinalDataRoot
+		"{COPYFILE} " .. ProjectRelativeSDKSRoot .. "/Externals/FreeImage/Dist/x64/FreeImage.dll " .. ProjectRelativeFinalDataRoot
 	}
