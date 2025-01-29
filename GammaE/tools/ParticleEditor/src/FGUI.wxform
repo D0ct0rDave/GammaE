@@ -1,0 +1,2130 @@
+object frmNewForm: TfrmNewForm
+  Left = 8
+  Top = 8
+  AutoScroll = False
+  BorderIcons = [biSystemMenu, biMinimize]
+  Caption = 'PAKZ File Mgr'
+  ClientHeight = 621
+  ClientWidth = 871
+  Color = clAppWorkSpace
+  OldCreateOrder = True
+  PopupMenu = DesignerPopup.Owner
+  Visible = True
+  OnClick = FormClick
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnResize = FormResize
+  EVT_CLOSE = 'OnClose'
+  Wx_ICON.Data = {07544269746D617000000000}
+  Wx_Name = 'CGUI'
+  Wx_IDName = 'ID_DIALOG1'
+  Wx_IDValue = 1000
+  Wx_Class = 'wxFrame'
+  Wx_Center = False
+  Wx_Hidden = False
+  Wx_SizeToContents = True
+  Wx_GeneralStyle = []
+  Wx_DialogStyle = [wxCAPTION, wxSYSTEM_MENU, wxDIALOG_NO_PARENT, wxMINIMIZE_BOX, wxCLOSE_BOX]
+  Wx_DesignerType = dtWxFrame
+  Wx_Border = 0
+  Wx_BorderAlignment = []
+  isAuimanagerAvailable = False
+  PixelsPerInch = 96
+  TextHeight = 15
+  object WxPanel1: TWxPanel
+    Left = 0
+    Top = 0
+    Width = 871
+    Height = 621
+    Align = alClient
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 2
+    Wx_BKColor = clBlack
+    Wx_Class = 'wxPanel'
+    Wx_ControlOrientation = wxControlVertical
+    Wx_Default = False
+    Wx_EventList.Strings = (
+      'EVT_UPDATE_UI:OnUpdateUI')
+    Wx_FGColor = clBlack
+    Wx_GeneralStyle = []
+    Wx_Hidden = False
+    Wx_IDName = 'ID_WXPANEL1'
+    Wx_IDValue = 1009
+    Wx_Alignment = [wxALIGN_LEFT]
+    InvisibleBGColorString = 'DEF:'
+    InvisibleFGColorString = 'DEF:'
+    Wx_PaneCaption = 'WxPanel1'
+    Wx_PaneName = 'WxPanel1_Pane'
+    Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+    Wx_Aui_Dockable_Direction = []
+    Wx_Aui_Pane_Style = []
+    Wx_Aui_Pane_Buttons = []
+    Wx_BestSize_Height = 0
+    Wx_BestSize_Width = 0
+    Wx_MinSize_Height = 0
+    Wx_MinSize_Width = 0
+    Wx_MaxSize_Height = 0
+    Wx_MaxSize_Width = 0
+    Wx_Floating_Height = 0
+    Wx_Floating_Width = 0
+    Wx_Floating_X_Pos = 0
+    Wx_Floating_Y_Pos = 0
+    object pn_Display: TWxPanel
+      Left = 26
+      Top = 33
+      Width = 443
+      Height = 443
+      TabOrder = 0
+      Wx_BKColor = clBlack
+      Wx_Class = 'wxPanel'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_Default = False
+      Wx_EventList.Strings = (
+        'EVT_UPDATE_UI:OnUpdateUI')
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_Hidden = False
+      Wx_IDName = 'ID_PN_DISPLAY'
+      Wx_IDValue = 1010
+      Wx_PaneCaption = 'pn_Display'
+      Wx_PaneName = 'pn_Display_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object sld_IAlpha: TWxSlider
+      Left = 587
+      Top = 118
+      Width = 195
+      Height = 40
+      Max = 255
+      Orientation = trHorizontal
+      Frequency = 1
+      Position = 0
+      SelEnd = 0
+      SelStart = 0
+      TabOrder = 1
+      TickMarks = tmBottomRight
+      TickStyle = tsAuto
+      EVT_SLIDER = 'sld_FAlphaSlider'
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxSlider'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_IDName = 'ID_SLD_IR'
+      Wx_IDValue = 1012
+      Wx_SliderStyle = [wxSL_LABELS]
+      Wx_SliderOrientation = wxSL_HORIZONTAL
+      Wx_SliderRange = wxSL_SELRANGE
+      InvisibleBGColorString = 'DEF:'
+      Wx_PaneCaption = 'sld_IAlpha'
+      Wx_PaneName = 'sld_IAlpha_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object sld_FAlpha: TWxSlider
+      Left = 587
+      Top = 163
+      Width = 196
+      Height = 40
+      Max = 255
+      Orientation = trHorizontal
+      Frequency = 1
+      Position = 0
+      SelEnd = 0
+      SelStart = 0
+      TabOrder = 2
+      TickMarks = tmBottomRight
+      TickStyle = tsAuto
+      EVT_SLIDER = 'sld_FAlphaSlider'
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxSlider'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_IDName = 'ID_SLD_FALPHA'
+      Wx_IDValue = 1013
+      Wx_SliderStyle = [wxSL_LABELS]
+      Wx_SliderOrientation = wxSL_HORIZONTAL
+      Wx_SliderRange = wxSL_SELRANGE
+      InvisibleBGColorString = 'DEF:'
+      Wx_PaneCaption = 'sld_FAlpha'
+      Wx_PaneName = 'sld_FAlpha_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object WxStaticText1: TWxStaticText
+      Left = 543
+      Top = 102
+      Width = 57
+      Height = 18
+      Caption = 'RGB Color'
+      TabOrder = 3
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxStaticText'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_Hidden = False
+      Wx_IDName = 'ID_WXSTATICTEXT1'
+      Wx_IDValue = 1023
+      Wx_LabelStyle = []
+      Wx_PaneCaption = 'WxStaticText1'
+      Wx_PaneName = 'WxStaticText1_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object WxStaticText2: TWxStaticText
+      Left = 639
+      Top = 102
+      Width = 68
+      Height = 18
+      Caption = 'Alpha Value'
+      TabOrder = 4
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxStaticText'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_Hidden = False
+      Wx_IDName = 'ID_WXSTATICTEXT2'
+      Wx_IDValue = 1024
+      Wx_LabelStyle = []
+      Wx_PaneCaption = 'WxStaticText2'
+      Wx_PaneName = 'WxStaticText2_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object Initial: TWxStaticText
+      Left = 495
+      Top = 144
+      Width = 32
+      Height = 18
+      Caption = 'Initial'
+      TabOrder = 5
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxStaticText'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_Hidden = False
+      Wx_IDName = 'ID_INITIAL'
+      Wx_IDValue = 1025
+      Wx_LabelStyle = []
+      Wx_PaneCaption = 'Initial'
+      Wx_PaneName = 'Initial_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object WxStaticText3: TWxStaticText
+      Left = 495
+      Top = 186
+      Width = 27
+      Height = 18
+      Caption = 'Final'
+      TabOrder = 6
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxStaticText'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_Hidden = False
+      Wx_IDName = 'ID_WXSTATICTEXT3'
+      Wx_IDValue = 1026
+      Wx_LabelStyle = []
+      Wx_PaneCaption = 'WxStaticText3'
+      Wx_PaneName = 'WxStaticText3_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object sld_ICRand: TWxSlider
+      Left = 789
+      Top = 118
+      Width = 58
+      Height = 40
+      Max = 100
+      Orientation = trHorizontal
+      Frequency = 1
+      Position = 0
+      SelEnd = 0
+      SelStart = 0
+      TabOrder = 7
+      TickMarks = tmBottomRight
+      TickStyle = tsAuto
+      EVT_SLIDER = 'sld_FAlphaSlider'
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxSlider'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_IDName = 'ID_SLD_ICRAND'
+      Wx_IDValue = 1027
+      Wx_SliderStyle = [wxSL_LABELS]
+      Wx_SliderOrientation = wxSL_HORIZONTAL
+      Wx_SliderRange = wxSL_SELRANGE
+      InvisibleBGColorString = 'DEF:'
+      Wx_PaneCaption = 'sld_ICRand'
+      Wx_PaneName = 'sld_ICRand_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object sld_FCRand: TWxSlider
+      Left = 789
+      Top = 163
+      Width = 58
+      Height = 40
+      Max = 100
+      Orientation = trHorizontal
+      Frequency = 1
+      Position = 0
+      SelEnd = 0
+      SelStart = 0
+      TabOrder = 8
+      TickMarks = tmBottomRight
+      TickStyle = tsAuto
+      EVT_SLIDER = 'sld_FAlphaSlider'
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxSlider'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_IDName = 'ID_SLD_FCRAND'
+      Wx_IDValue = 1028
+      Wx_SliderStyle = [wxSL_LABELS]
+      Wx_SliderOrientation = wxSL_HORIZONTAL
+      Wx_SliderRange = wxSL_SELRANGE
+      InvisibleBGColorString = 'DEF:'
+      Wx_PaneCaption = 'sld_FCRand'
+      Wx_PaneName = 'sld_FCRand_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object WxStaticText4: TWxStaticText
+      Left = 797
+      Top = 102
+      Width = 72
+      Height = 18
+      Caption = 'Randomness'
+      TabOrder = 9
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxStaticText'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_Hidden = False
+      Wx_IDName = 'ID_WXSTATICTEXT4'
+      Wx_IDValue = 1029
+      Wx_LabelStyle = []
+      Wx_PaneCaption = 'WxStaticText4'
+      Wx_PaneName = 'WxStaticText4_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object sld_ISize: TWxSlider
+      Left = 535
+      Top = 251
+      Width = 195
+      Height = 40
+      Max = 255
+      Orientation = trHorizontal
+      Frequency = 1
+      Position = 0
+      SelEnd = 0
+      SelStart = 0
+      TabOrder = 10
+      TickMarks = tmBottomRight
+      TickStyle = tsAuto
+      EVT_SLIDER = 'sld_FAlphaSlider'
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxSlider'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_IDName = 'ID_SLD_ISIZE'
+      Wx_IDValue = 1047
+      Wx_SliderStyle = [wxSL_LABELS]
+      Wx_SliderOrientation = wxSL_HORIZONTAL
+      Wx_SliderRange = wxSL_SELRANGE
+      InvisibleBGColorString = 'DEF:'
+      Wx_PaneCaption = 'sld_ISize'
+      Wx_PaneName = 'sld_ISize_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object sld_FSize: TWxSlider
+      Left = 535
+      Top = 296
+      Width = 197
+      Height = 40
+      Max = 255
+      Orientation = trHorizontal
+      Frequency = 1
+      Position = 0
+      SelEnd = 0
+      SelStart = 0
+      TabOrder = 11
+      TickMarks = tmBottomRight
+      TickStyle = tsAuto
+      EVT_SLIDER = 'sld_FAlphaSlider'
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxSlider'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_IDName = 'ID_SLD_FSIZE'
+      Wx_IDValue = 1048
+      Wx_SliderStyle = [wxSL_LABELS]
+      Wx_SliderOrientation = wxSL_HORIZONTAL
+      Wx_SliderRange = wxSL_SELRANGE
+      InvisibleBGColorString = 'DEF:'
+      Wx_PaneCaption = 'sld_FSize'
+      Wx_PaneName = 'sld_FSize_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object sld_IRSize: TWxSlider
+      Left = 737
+      Top = 251
+      Width = 113
+      Height = 40
+      Max = 100
+      Orientation = trHorizontal
+      Frequency = 1
+      Position = 0
+      SelEnd = 0
+      SelStart = 0
+      TabOrder = 12
+      TickMarks = tmBottomRight
+      TickStyle = tsAuto
+      EVT_SLIDER = 'sld_FAlphaSlider'
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxSlider'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_IDName = 'ID_SLD_IRSIZE'
+      Wx_IDValue = 1049
+      Wx_SliderStyle = [wxSL_LABELS]
+      Wx_SliderOrientation = wxSL_HORIZONTAL
+      Wx_SliderRange = wxSL_SELRANGE
+      InvisibleBGColorString = 'DEF:'
+      Wx_PaneCaption = 'sld_IRSize'
+      Wx_PaneName = 'sld_IRSize_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object sld_FRSize: TWxSlider
+      Left = 737
+      Top = 296
+      Width = 113
+      Height = 40
+      Max = 100
+      Orientation = trHorizontal
+      Frequency = 1
+      Position = 0
+      SelEnd = 0
+      SelStart = 0
+      TabOrder = 13
+      TickMarks = tmBottomRight
+      TickStyle = tsAuto
+      EVT_SLIDER = 'sld_FAlphaSlider'
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxSlider'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_IDName = 'ID_SLD_FRSIZE'
+      Wx_IDValue = 1050
+      Wx_SliderStyle = [wxSL_LABELS]
+      Wx_SliderOrientation = wxSL_HORIZONTAL
+      Wx_SliderRange = wxSL_SELRANGE
+      InvisibleBGColorString = 'DEF:'
+      Wx_PaneCaption = 'sld_FRSize'
+      Wx_PaneName = 'sld_FRSize_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object WxStaticText5: TWxStaticText
+      Left = 749
+      Top = 233
+      Width = 72
+      Height = 18
+      Caption = 'Randomness'
+      TabOrder = 14
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxStaticText'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_Hidden = False
+      Wx_IDName = 'ID_WXSTATICTEXT5'
+      Wx_IDValue = 1051
+      Wx_LabelStyle = []
+      Wx_PaneCaption = 'WxStaticText5'
+      Wx_PaneName = 'WxStaticText5_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object WxStaticText6: TWxStaticText
+      Left = 495
+      Top = 233
+      Width = 25
+      Height = 18
+      Caption = 'Size'
+      TabOrder = 15
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxStaticText'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_Hidden = False
+      Wx_IDName = 'ID_WXSTATICTEXT6'
+      Wx_IDValue = 1052
+      Wx_LabelStyle = []
+      Wx_PaneCaption = 'WxStaticText6'
+      Wx_PaneName = 'WxStaticText6_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object WxStaticText7: TWxStaticText
+      Left = 495
+      Top = 313
+      Width = 27
+      Height = 18
+      Caption = 'Final'
+      TabOrder = 16
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxStaticText'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_Hidden = False
+      Wx_IDName = 'ID_WXSTATICTEXT7'
+      Wx_IDValue = 1054
+      Wx_LabelStyle = []
+      Wx_PaneCaption = 'WxStaticText7'
+      Wx_PaneName = 'WxStaticText7_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object WxStaticText8: TWxStaticText
+      Left = 495
+      Top = 270
+      Width = 32
+      Height = 18
+      Caption = 'Initial'
+      TabOrder = 17
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxStaticText'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_Hidden = False
+      Wx_IDName = 'ID_WXSTATICTEXT8'
+      Wx_IDValue = 1055
+      Wx_LabelStyle = []
+      Wx_PaneCaption = 'WxStaticText8'
+      Wx_PaneName = 'WxStaticText8_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object sld_FRAngle: TWxSlider
+      Left = 737
+      Top = 552
+      Width = 113
+      Height = 40
+      Max = 100
+      Orientation = trHorizontal
+      Frequency = 1
+      Position = 0
+      SelEnd = 0
+      SelStart = 0
+      TabOrder = 18
+      TickMarks = tmBottomRight
+      TickStyle = tsAuto
+      EVT_SLIDER = 'sld_FAlphaSlider'
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxSlider'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_IDName = 'ID_SLD_FRANGLE'
+      Wx_IDValue = 1084
+      Wx_SliderStyle = [wxSL_LABELS]
+      Wx_SliderOrientation = wxSL_HORIZONTAL
+      Wx_SliderRange = wxSL_SELRANGE
+      InvisibleBGColorString = 'DEF:'
+      Wx_PaneCaption = 'sld_FRAngle'
+      Wx_PaneName = 'sld_FRAngle_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object sld_IRAngle: TWxSlider
+      Left = 737
+      Top = 507
+      Width = 113
+      Height = 40
+      Max = 100
+      Orientation = trHorizontal
+      Frequency = 1
+      Position = 0
+      SelEnd = 0
+      SelStart = 0
+      TabOrder = 19
+      TickMarks = tmBottomRight
+      TickStyle = tsAuto
+      EVT_SLIDER = 'sld_FAlphaSlider'
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxSlider'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_IDName = 'ID_SLD_IRANGLE'
+      Wx_IDValue = 1085
+      Wx_SliderStyle = [wxSL_LABELS]
+      Wx_SliderOrientation = wxSL_HORIZONTAL
+      Wx_SliderRange = wxSL_SELRANGE
+      InvisibleBGColorString = 'DEF:'
+      Wx_PaneCaption = 'sld_IRAngle'
+      Wx_PaneName = 'sld_IRAngle_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object WxStaticText9: TWxStaticText
+      Left = 749
+      Top = 489
+      Width = 72
+      Height = 18
+      Caption = 'Randomness'
+      TabOrder = 20
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxStaticText'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_Hidden = False
+      Wx_IDName = 'ID_WXSTATICTEXT9'
+      Wx_IDValue = 1086
+      Wx_LabelStyle = []
+      Wx_PaneCaption = 'WxStaticText9'
+      Wx_PaneName = 'WxStaticText9_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object WxStaticText10: TWxStaticText
+      Left = 495
+      Top = 489
+      Width = 35
+      Height = 18
+      Caption = 'Angle'
+      TabOrder = 21
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxStaticText'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_Hidden = False
+      Wx_IDName = 'ID_WXSTATICTEXT10'
+      Wx_IDValue = 1087
+      Wx_LabelStyle = []
+      Wx_PaneCaption = 'WxStaticText10'
+      Wx_PaneName = 'WxStaticText10_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object sld_IAngle: TWxSlider
+      Left = 535
+      Top = 507
+      Width = 195
+      Height = 40
+      Max = 255
+      Orientation = trHorizontal
+      Frequency = 1
+      Position = 0
+      SelEnd = 0
+      SelStart = 0
+      TabOrder = 22
+      TickMarks = tmBottomRight
+      TickStyle = tsAuto
+      EVT_SLIDER = 'sld_FAlphaSlider'
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxSlider'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_IDName = 'ID_SLD_IANGLE'
+      Wx_IDValue = 1088
+      Wx_SliderStyle = [wxSL_LABELS]
+      Wx_SliderOrientation = wxSL_HORIZONTAL
+      Wx_SliderRange = wxSL_SELRANGE
+      InvisibleBGColorString = 'DEF:'
+      Wx_PaneCaption = 'sld_IAngle'
+      Wx_PaneName = 'sld_IAngle_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object sld_FAngle: TWxSlider
+      Left = 535
+      Top = 552
+      Width = 197
+      Height = 40
+      Max = 255
+      Orientation = trHorizontal
+      Frequency = 1
+      Position = 0
+      SelEnd = 0
+      SelStart = 0
+      TabOrder = 23
+      TickMarks = tmBottomRight
+      TickStyle = tsAuto
+      EVT_SLIDER = 'sld_FAlphaSlider'
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxSlider'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_IDName = 'ID_SLD_FANGLE'
+      Wx_IDValue = 1089
+      Wx_SliderStyle = [wxSL_LABELS]
+      Wx_SliderOrientation = wxSL_HORIZONTAL
+      Wx_SliderRange = wxSL_SELRANGE
+      InvisibleBGColorString = 'DEF:'
+      Wx_PaneCaption = 'sld_FAngle'
+      Wx_PaneName = 'sld_FAngle_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object WxStaticText11: TWxStaticText
+      Left = 495
+      Top = 569
+      Width = 27
+      Height = 18
+      Caption = 'Final'
+      TabOrder = 24
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxStaticText'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_Hidden = False
+      Wx_IDName = 'ID_WXSTATICTEXT11'
+      Wx_IDValue = 1090
+      Wx_LabelStyle = []
+      Wx_PaneCaption = 'WxStaticText11'
+      Wx_PaneName = 'WxStaticText11_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object WxStaticText12: TWxStaticText
+      Left = 495
+      Top = 526
+      Width = 32
+      Height = 18
+      Caption = 'Initial'
+      TabOrder = 25
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxStaticText'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_Hidden = False
+      Wx_IDName = 'ID_WXSTATICTEXT12'
+      Wx_IDValue = 1091
+      Wx_LabelStyle = []
+      Wx_PaneCaption = 'WxStaticText12'
+      Wx_PaneName = 'WxStaticText12_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object WxStaticText13: TWxStaticText
+      Left = 495
+      Top = 361
+      Width = 38
+      Height = 18
+      Caption = 'Radius'
+      TabOrder = 26
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxStaticText'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_Hidden = False
+      Wx_IDName = 'ID_WXSTATICTEXT13'
+      Wx_IDValue = 1120
+      Wx_LabelStyle = []
+      Wx_PaneCaption = 'WxStaticText13'
+      Wx_PaneName = 'WxStaticText13_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object sld_IRadius: TWxSlider
+      Left = 535
+      Top = 379
+      Width = 195
+      Height = 40
+      Max = 255
+      Orientation = trHorizontal
+      Frequency = 1
+      Position = 0
+      SelEnd = 0
+      SelStart = 0
+      TabOrder = 27
+      TickMarks = tmBottomRight
+      TickStyle = tsAuto
+      EVT_SLIDER = 'sld_FAlphaSlider'
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxSlider'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_IDName = 'ID_SLD_IRADIUS'
+      Wx_IDValue = 1121
+      Wx_SliderStyle = [wxSL_LABELS]
+      Wx_SliderOrientation = wxSL_HORIZONTAL
+      Wx_SliderRange = wxSL_SELRANGE
+      InvisibleBGColorString = 'DEF:'
+      Wx_PaneCaption = 'sld_IRadius'
+      Wx_PaneName = 'sld_IRadius_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object sld_FRadius: TWxSlider
+      Left = 535
+      Top = 424
+      Width = 197
+      Height = 40
+      Max = 255
+      Orientation = trHorizontal
+      Frequency = 1
+      Position = 0
+      SelEnd = 0
+      SelStart = 0
+      TabOrder = 28
+      TickMarks = tmBottomRight
+      TickStyle = tsAuto
+      EVT_SLIDER = 'sld_FAlphaSlider'
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxSlider'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_IDName = 'ID_SLD_FRADIUS'
+      Wx_IDValue = 1122
+      Wx_SliderStyle = [wxSL_LABELS]
+      Wx_SliderOrientation = wxSL_HORIZONTAL
+      Wx_SliderRange = wxSL_SELRANGE
+      InvisibleBGColorString = 'DEF:'
+      Wx_PaneCaption = 'sld_FRadius'
+      Wx_PaneName = 'sld_FRadius_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object WxStaticText14: TWxStaticText
+      Left = 495
+      Top = 441
+      Width = 27
+      Height = 18
+      Caption = 'Final'
+      TabOrder = 29
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxStaticText'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_Hidden = False
+      Wx_IDName = 'ID_WXSTATICTEXT14'
+      Wx_IDValue = 1123
+      Wx_LabelStyle = []
+      Wx_PaneCaption = 'WxStaticText14'
+      Wx_PaneName = 'WxStaticText14_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object WxStaticText15: TWxStaticText
+      Left = 495
+      Top = 398
+      Width = 32
+      Height = 18
+      Caption = 'Initial'
+      TabOrder = 30
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxStaticText'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_Hidden = False
+      Wx_IDName = 'ID_WXSTATICTEXT15'
+      Wx_IDValue = 1124
+      Wx_LabelStyle = []
+      Wx_PaneCaption = 'WxStaticText15'
+      Wx_PaneName = 'WxStaticText15_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object WxStaticText16: TWxStaticText
+      Left = 749
+      Top = 361
+      Width = 72
+      Height = 18
+      Caption = 'Randomness'
+      TabOrder = 31
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxStaticText'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_Hidden = False
+      Wx_IDName = 'ID_WXSTATICTEXT16'
+      Wx_IDValue = 1125
+      Wx_LabelStyle = []
+      Wx_PaneCaption = 'WxStaticText16'
+      Wx_PaneName = 'WxStaticText16_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object sld_IRRadius: TWxSlider
+      Left = 737
+      Top = 379
+      Width = 113
+      Height = 40
+      Max = 100
+      Orientation = trHorizontal
+      Frequency = 1
+      Position = 0
+      SelEnd = 0
+      SelStart = 0
+      TabOrder = 32
+      TickMarks = tmBottomRight
+      TickStyle = tsAuto
+      EVT_SLIDER = 'sld_FAlphaSlider'
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxSlider'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_IDName = 'ID_SLD_IRRADIUS'
+      Wx_IDValue = 1126
+      Wx_SliderStyle = [wxSL_LABELS]
+      Wx_SliderOrientation = wxSL_HORIZONTAL
+      Wx_SliderRange = wxSL_SELRANGE
+      InvisibleBGColorString = 'DEF:'
+      Wx_PaneCaption = 'sld_IRRadius'
+      Wx_PaneName = 'sld_IRRadius_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object sld_FRRadius: TWxSlider
+      Left = 737
+      Top = 424
+      Width = 113
+      Height = 40
+      Max = 100
+      Orientation = trHorizontal
+      Frequency = 1
+      Position = 0
+      SelEnd = 0
+      SelStart = 0
+      TabOrder = 33
+      TickMarks = tmBottomRight
+      TickStyle = tsAuto
+      EVT_SLIDER = 'sld_FAlphaSlider'
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxSlider'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_IDName = 'ID_SLD_FRRADIUS'
+      Wx_IDValue = 1127
+      Wx_SliderStyle = [wxSL_LABELS]
+      Wx_SliderOrientation = wxSL_HORIZONTAL
+      Wx_SliderRange = wxSL_SELRANGE
+      InvisibleBGColorString = 'DEF:'
+      Wx_PaneCaption = 'sld_FRRadius'
+      Wx_PaneName = 'sld_FRRadius_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object WxStaticText17: TWxStaticText
+      Left = 495
+      Top = 62
+      Width = 32
+      Height = 18
+      Caption = 'Initial'
+      TabOrder = 34
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxStaticText'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_Hidden = False
+      Wx_IDName = 'ID_WXSTATICTEXT17'
+      Wx_IDValue = 1138
+      Wx_LabelStyle = []
+      Wx_PaneCaption = 'WxStaticText8'
+      Wx_PaneName = 'WxStaticText8_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object sld_IEnergy: TWxSlider
+      Left = 535
+      Top = 43
+      Width = 195
+      Height = 40
+      Max = 255
+      Orientation = trHorizontal
+      Frequency = 1
+      Position = 0
+      SelEnd = 0
+      SelStart = 0
+      TabOrder = 35
+      TickMarks = tmBottomRight
+      TickStyle = tsAuto
+      EVT_SLIDER = 'sld_FAlphaSlider'
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxSlider'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_IDName = 'ID_SLD_IENERGY'
+      Wx_IDValue = 1139
+      Wx_SliderStyle = [wxSL_LABELS]
+      Wx_SliderOrientation = wxSL_HORIZONTAL
+      Wx_SliderRange = wxSL_SELRANGE
+      InvisibleBGColorString = 'DEF:'
+      Wx_PaneCaption = 'sld_ISize'
+      Wx_PaneName = 'sld_ISize_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object WxStaticText18: TWxStaticText
+      Left = 495
+      Top = 25
+      Width = 42
+      Height = 18
+      Caption = 'Energy'
+      TabOrder = 36
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxStaticText'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_Hidden = False
+      Wx_IDName = 'ID_WXSTATICTEXT18'
+      Wx_IDValue = 1140
+      Wx_LabelStyle = []
+      Wx_PaneCaption = 'WxStaticText6'
+      Wx_PaneName = 'WxStaticText6_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object WxStaticText19: TWxStaticText
+      Left = 749
+      Top = 25
+      Width = 72
+      Height = 18
+      Caption = 'Randomness'
+      TabOrder = 37
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxStaticText'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_Hidden = False
+      Wx_IDName = 'ID_WXSTATICTEXT19'
+      Wx_IDValue = 1141
+      Wx_LabelStyle = []
+      Wx_PaneCaption = 'WxStaticText5'
+      Wx_PaneName = 'WxStaticText5_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object sld_IREnergy: TWxSlider
+      Left = 737
+      Top = 43
+      Width = 113
+      Height = 40
+      Max = 100
+      Orientation = trHorizontal
+      Frequency = 1
+      Position = 0
+      SelEnd = 0
+      SelStart = 0
+      TabOrder = 38
+      TickMarks = tmBottomRight
+      TickStyle = tsAuto
+      EVT_SLIDER = 'sld_FAlphaSlider'
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxSlider'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_IDName = 'ID_SLD_IRENERGY'
+      Wx_IDValue = 1142
+      Wx_SliderStyle = [wxSL_LABELS]
+      Wx_SliderOrientation = wxSL_HORIZONTAL
+      Wx_SliderRange = wxSL_SELRANGE
+      InvisibleBGColorString = 'DEF:'
+      Wx_PaneCaption = 'sld_IRSize'
+      Wx_PaneName = 'sld_IRSize_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object cp_IColor: TWxColourPickerCtrl
+      Left = 544
+      Top = 136
+      Width = 24
+      Height = 24
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ButtonColor = clFuchsia
+      ShowEdit = False
+      EVT_COLOURPICKER_CHANGED = 'cp_IColorColourChanged'
+      Wx_BKColor = clBlack
+      Wx_ClrPickStyles = [wxCLRP_DEFAULT_STYLE]
+      Wx_Class = 'wxColourPickerCtrl'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_Default = False
+      Wx_EventList.Strings = (
+        'EVT_COLOURPICKER_CHANGED:OnColourChanged'
+        'EVT_UPDATE_UI:OnUpdateUI')
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_Hidden = False
+      Wx_IDName = 'ID_CP_ICOLOR'
+      Wx_IDValue = 1143
+      InvisibleColorString = 'CUS:255,0,255'
+      Wx_PaneCaption = 'WxColourPickerCtrl1'
+      Wx_PaneName = 'WxColourPickerCtrl1_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object cp_FColor: TWxColourPickerCtrl
+      Left = 544
+      Top = 176
+      Width = 24
+      Height = 24
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ButtonColor = clYellow
+      ShowEdit = False
+      Color = clSilver
+      EVT_COLOURPICKER_CHANGED = 'cp_FColorColourChanged'
+      Wx_BKColor = clBlack
+      Wx_ClrPickStyles = [wxCLRP_DEFAULT_STYLE]
+      Wx_Class = 'wxColourPickerCtrl'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_Default = False
+      Wx_EventList.Strings = (
+        'EVT_COLOURPICKER_CHANGED:OnColourChanged'
+        'EVT_UPDATE_UI:OnUpdateUI')
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_Hidden = False
+      Wx_IDName = 'ID_CP_FCOLOR'
+      Wx_IDValue = 1144
+      InvisibleBGColorString = 'CUS:192,192,192'
+      InvisibleColorString = 'CUS:255,255,0'
+      Wx_PaneCaption = 'WxColourPickerCtrl1'
+      Wx_PaneName = 'WxColourPickerCtrl1_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+    object WxStaticLine1: TWxStaticLine
+      Left = 480
+      Top = 352
+      Width = 390
+      Height = 7
+      TabOrder = 41
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxStaticLine'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_IDName = 'ID_WXSTATICLINE1'
+      Wx_IDValue = 1145
+      Wx_LIOrientation = wxLI_HORIZONTAL
+      Wx_Length = 390
+      LastOrientation = wxLI_HORIZONTAL
+    end
+    object WxStaticLine2: TWxStaticLine
+      Left = 480
+      Top = 480
+      Width = 390
+      Height = 7
+      TabOrder = 42
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxStaticLine'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_IDName = 'ID_WXSTATICLINE2'
+      Wx_IDValue = 1146
+      Wx_LIOrientation = wxLI_HORIZONTAL
+      Wx_Length = 390
+      LastOrientation = wxLI_HORIZONTAL
+    end
+    object WxStaticLine3: TWxStaticLine
+      Left = 480
+      Top = 224
+      Width = 390
+      Height = 7
+      TabOrder = 43
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxStaticLine'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_IDName = 'ID_WXSTATICLINE3'
+      Wx_IDValue = 1147
+      Wx_LIOrientation = wxLI_HORIZONTAL
+      Wx_Length = 390
+      LastOrientation = wxLI_HORIZONTAL
+    end
+    object WxStaticLine4: TWxStaticLine
+      Left = 480
+      Top = 88
+      Width = 390
+      Height = 7
+      TabOrder = 44
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxStaticLine'
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_IDName = 'ID_WXSTATICLINE4'
+      Wx_IDValue = 1148
+      Wx_LIOrientation = wxLI_HORIZONTAL
+      Wx_Length = 390
+      LastOrientation = wxLI_HORIZONTAL
+    end
+    object cb_PSGList: TWxComboBox
+      Left = 24
+      Top = 488
+      Width = 345
+      Height = 22
+      ItemHeight = 14
+      TabOrder = 45
+      EVT_COMBOBOX = 'WxComboBox1Selected'
+      Wx_BGColor = clBlack
+      Wx_Class = 'wxComboBox'
+      Wx_ComboboxStyle = []
+      Wx_EditStyle = []
+      Wx_ControlOrientation = wxControlVertical
+      Wx_FGColor = clBlack
+      Wx_GeneralStyle = []
+      Wx_Hidden = False
+      Wx_IDName = 'ID_CB_PSGLIST'
+      Wx_IDValue = 1149
+      Wx_PaneCaption = 'WxComboBox1'
+      Wx_PaneName = 'WxComboBox1_Pane'
+      Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+      Wx_Aui_Dockable_Direction = []
+      Wx_Aui_Pane_Style = []
+      Wx_Aui_Pane_Buttons = []
+      Wx_BestSize_Height = 0
+      Wx_BestSize_Width = 0
+      Wx_MinSize_Height = 0
+      Wx_MinSize_Width = 0
+      Wx_MaxSize_Height = 0
+      Wx_MaxSize_Width = 0
+      Wx_Floating_Height = 0
+      Wx_Floating_Width = 0
+      Wx_Floating_X_Pos = 0
+      Wx_Floating_Y_Pos = 0
+    end
+  end
+  object dlg_Open: TWxOpenFileDialog
+    Left = 438
+    Top = 52
+    Width = 28
+    Height = 27
+    TabOrder = 1
+    Glyph.Data = {
+      36090000424D3609000000000000360000002800000018000000180000000100
+      2000000000000009000000000000000000000000000000000000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080008080
+      8000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000000000000000000000000000000000000000
+      000000000000000000000000000000000000000000000000000000000000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000000000000000000000FFFF00C0C0C00000FFFF00C0C0
+      C00000FFFF00C0C0C00000FFFF00C0C0C00000FFFF00C0C0C00000FFFF000000
+      0000C0C0C000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C0000000000000FFFF000000000000FFFF00C0C0C00000FF
+      FF00C0C0C00000FFFF00C0C0C00000FFFF00C0C0C00000FFFF00C0C0C00000FF
+      FF0000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C00000000000FFFFFF0000000000C0C0C00000FFFF00C0C0
+      C00000FFFF00C0C0C00000FFFF00C0C0C00000FFFF00C0C0C00000FFFF00C0C0
+      C00000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C0000000000000FFFF00FFFFFF0000000000C0C0C00000FF
+      FF00C0C0C00000FFFF00C0C0C00000FFFF00C0C0C00000FFFF00C0C0C00000FF
+      FF00C0C0C00000000000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C00000000000FFFFFF0000FFFF00FFFFFF00000000000000
+      0000000000000000000000000000C0C0C00000FFFF00C0C0C00000FFFF00C0C0
+      C00000FFFF0000000000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C0000000000000FFFF00FFFFFF0000FFFF00FFFFFF0000FF
+      FF00FFFFFF0000FFFF00FFFFFF00000000000000000000000000000000000000
+      000000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C00000000000FFFFFF0000FFFF00FFFFFF0000FFFF00FFFF
+      FF0000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF000000
+      0000C0C0C000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C0000000000000FFFF00FFFFFF0000FFFF00FFFFFF0000FF
+      FF00FFFFFF0000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF00FFFFFF000000
+      0000C0C0C000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C00000000000FFFFFF0000FFFF00FFFFFF0000FFFF00FFFF
+      FF0000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF000000
+      0000C0C0C000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C0000000000000FFFF00FFFFFF0000FFFF00FFFFFF0000FF
+      FF0000000000000000000000000000000000000000000000000000000000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000000000000000000000000000000000000000
+      0000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000808000008080008080
+      8000FFFFFF0000000000FF000000FF000000FF000000FF000000FF000000FF00
+      0000FF000000FF000000FF000000FF000000FF000000FF000000FF000000FF00
+      000000000000FFFFFF0000000000FFFFFF000000000000808000008080008080
+      8000808080008080800080808000808080008080800080808000808080008080
+      8000808080008080800080808000808080008080800080808000808080008080
+      8000808080008080800080808000808080008080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000}
+    Wx_Class = 'wxFileDialog'
+    Wx_Message = 'Choose a file'
+    Wx_Extensions = '*.PAK'
+    Wx_DialogStyle = []
+  end
+  object WxMenuBar1: TWxMenuBar
+    Left = 436
+    Top = 18
+    Width = 28
+    Height = 27
+    TabOrder = 0
+    Glyph.Data = {
+      36090000424D3609000000000000360000002800000018000000180000000100
+      2000000000000009000000000000000000000000000000000000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000808080000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      800080808000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF0000000000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      800080808000FFFFFF0080000000800000008000000080000000FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF0000000000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      800080808000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF0000000000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000808080008000000080000000800000008000000080000000800000008000
+      0000800000008000000000000000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      800080808000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF0000000000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      800080808000FFFFFF008000000080000000800000008000000080000000FFFF
+      FF00FFFFFF00FFFFFF0000000000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      800080808000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF0000000000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      800080808000FFFFFF0080000000800000008000000080000000FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF0000000000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      800080808000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF0000000000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      800080808000FFFFFF008000000080000000800000008000000080000000FFFF
+      FF00FFFFFF00FFFFFF0000000000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      800080808000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF0000000000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080008080
+      8000808080008080800080808000808080008080800080808000808080008080
+      8000808080008080800080808000000000000000000000000000000000000000
+      0000000000008080800000808000008080000080800000808000008080008080
+      8000FFFFFF008000000080000000800000008000000080000000FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF008080800000808000008080000080800000808000008080008080
+      8000FFFFFF0080000000FFFFFF00FFFFFF00FFFFFF0080000000FFFFFF008000
+      00008000000080000000FFFFFF00FFFFFF00800000008000000080000000FFFF
+      FF00FFFFFF008080800000000000008080000080800000808000008080008080
+      8000FFFFFF008000000080000000800000008000000080000000FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF0080808000008080000080800000808000008080008080
+      8000808080008080800080808000808080008080800080808000808080008080
+      8000808080008080800080808000808080008080800080808000808080008080
+      8000808080008080800080808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000}
+    Wx_Class = 'wxMenuBar'
+    Wx_MenuItems.IsSubMenu = False
+    Wx_MenuItems.Wx_Enabled = True
+    Wx_MenuItems.Wx_Hidden = False
+    Wx_MenuItems.Wx_IDValue = 0
+    Wx_MenuItems.Wx_MenuItemStyle = wxMnuItm_Normal
+    Wx_MenuItems.Wx_Checked = False
+    Wx_MenuItems.Wx_FileHistory = False
+    Wx_MenuItems.WxCustomMenuItem = {
+      11000000545778437573746F6D4D656E754974656D5450463018547778437573
+      746F6D4D656E754974656D577261707065720011436172726965642E49735375
+      624D656E750812436172726965642E57785F456E61626C656409114361727269
+      65642E57785F48696464656E0811436172726965642E57785F49444E616D6506
+      1049445F4D4E555F46494C455F3130303112436172726965642E57785F494456
+      616C756503E90318436172726965642E57785F4D656E754974656D5374796C65
+      070F77784D6E7549746D5F4E6F726D616C12436172726965642E57785F436170
+      74696F6E060446696C6512436172726965642E57785F436865636B6564081643
+      6172726965642E57585F4249544D41502E446174610A0C00000007544269746D
+      61700000000016436172726965642E57785F46696C65486973746F7279081843
+      6172726965642E5778437573746F6D4D656E754974656D0A7404000011000000
+      545778437573746F6D4D656E754974656D5450463018547778437573746F6D4D
+      656E754974656D577261707065720011436172726965642E49735375624D656E
+      750810436172726965642E4556545F4D656E7506174D6E756E657770616B7A66
+      696C6531303032436C69636B12436172726965642E57785F456E61626C656409
+      11436172726965642E57785F48696464656E0811436172726965642E57785F49
+      444E616D65061749445F4D4E555F4E455750414B5A46494C455F313030321243
+      6172726965642E57785F494456616C756503EA0318436172726965642E57785F
+      4D656E754974656D5374796C65070F77784D6E7549746D5F4E6F726D616C1243
+      6172726965642E57785F43617074696F6E060D4E65772050414B5A2046696C65
+      12436172726965642E57785F436865636B65640816436172726965642E57585F
+      4249544D41502E446174610A0C00000007544269746D61700000000016436172
+      726965642E57785F46696C65486973746F727908000011000000545778437573
+      746F6D4D656E754974656D5450463018547778437573746F6D4D656E75497465
+      6D577261707065720011436172726965642E49735375624D656E750810436172
+      726965642E4556545F4D656E7506184D6E756C6F616470616B7A66696C653130
+      3035436C69636B12436172726965642E57785F456E61626C6564091143617272
+      6965642E57785F48696464656E0811436172726965642E57785F49444E616D65
+      061849445F4D4E555F4C4F414450414B5A46494C455F31303035124361727269
+      65642E57785F494456616C756503ED0318436172726965642E57785F4D656E75
+      4974656D5374796C65070F77784D6E7549746D5F4E6F726D616C124361727269
+      65642E57785F43617074696F6E060E4C6F61642050414B5A2046696C65124361
+      72726965642E57785F436865636B65640816436172726965642E57585F424954
+      4D41502E446174610A0C00000007544269746D61700000000016436172726965
+      642E57785F46696C65486973746F727908000011000000545778437573746F6D
+      4D656E754974656D5450463018547778437573746F6D4D656E754974656D5772
+      61707065720011436172726965642E49735375624D656E750810436172726965
+      642E4556545F4D656E7506184D6E757361766570616B7A66696C653130303443
+      6C69636B12436172726965642E57785F456E61626C6564091143617272696564
+      2E57785F48696464656E0811436172726965642E57785F49444E616D65061849
+      445F4D4E555F5341564550414B5A46494C455F3130303412436172726965642E
+      57785F494456616C756503EC0318436172726965642E57785F4D656E75497465
+      6D5374796C65070F77784D6E7549746D5F4E6F726D616C12436172726965642E
+      57785F43617074696F6E060E536176652050414B5A2046696C65124361727269
+      65642E57785F436865636B65640816436172726965642E57585F4249544D4150
+      2E446174610A0C00000007544269746D61700000000016436172726965642E57
+      785F46696C65486973746F72790800000000}
+    Wx_HasHistory = False
+  end
+  object dlg_SelectIColor: TWxColourDialog
+    Left = 471
+    Top = 19
+    Width = 28
+    Height = 27
+    TabOrder = 3
+    Glyph.Data = {
+      36090000424D3609000000000000360000002800000018000000180000000100
+      2000000000000009000000000000000000000000000000000000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080008080
+      8000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C0000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C0000000000000000000000000000000
+      0000000080000000800000000000008000000080000000000000C0C0C000C0C0
+      C00000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C0000000000000000000000000000000
+      0000000080000000800000000000008000000080000000000000C0C0C000C0C0
+      C00000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C0000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C0000000000080000000800000000000
+      0000800080008000800000000000808000008080000000000000808080008080
+      800000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C0000000000080000000800000000000
+      0000800080008000800000000000808000008080000000000000808080008080
+      800000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C0000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C00000000000C0C0C000C0C0C0000000
+      00000000FF000000FF000000000000FF000000FF00000000000000FFFF0000FF
+      FF0000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C00000000000C0C0C000C0C0C0000000
+      00000000FF000000FF000000000000FF000000FF00000000000000FFFF0000FF
+      FF0000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C0000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C00000000000FF000000FF0000000000
+      0000FF00FF00FF00FF0000000000FFFF0000FFFF000000000000FFFFFF00FFFF
+      FF0000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C00000000000FF000000FF0000000000
+      0000FF00FF00FF00FF0000000000FFFF0000FFFF000000000000FFFFFF00FFFF
+      FF0000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C0000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000808000008080008080
+      8000FFFFFF0000000000FF000000FF000000FF000000FF000000FF000000FF00
+      0000FF000000FF000000FF000000FF000000FF000000FF000000FF000000FF00
+      000000000000FFFFFF0000000000FFFFFF000000000000808000008080008080
+      8000808080008080800080808000808080008080800080808000808080008080
+      8000808080008080800080808000808080008080800080808000808080008080
+      8000808080008080800080808000808080008080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000}
+    Wx_Class = 'wxColourDialog'
+  end
+  object dlg_SelectFColor: TWxColourDialog
+    Left = 453
+    Top = 102
+    Width = 28
+    Height = 27
+    TabOrder = 4
+    Glyph.Data = {
+      36090000424D3609000000000000360000002800000018000000180000000100
+      2000000000000009000000000000000000000000000000000000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080008080
+      8000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C0000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C0000000000000000000000000000000
+      0000000080000000800000000000008000000080000000000000C0C0C000C0C0
+      C00000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C0000000000000000000000000000000
+      0000000080000000800000000000008000000080000000000000C0C0C000C0C0
+      C00000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C0000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C0000000000080000000800000000000
+      0000800080008000800000000000808000008080000000000000808080008080
+      800000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C0000000000080000000800000000000
+      0000800080008000800000000000808000008080000000000000808080008080
+      800000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C0000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C00000000000C0C0C000C0C0C0000000
+      00000000FF000000FF000000000000FF000000FF00000000000000FFFF0000FF
+      FF0000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C00000000000C0C0C000C0C0C0000000
+      00000000FF000000FF000000000000FF000000FF00000000000000FFFF0000FF
+      FF0000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C0000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C00000000000FF000000FF0000000000
+      0000FF00FF00FF00FF0000000000FFFF0000FFFF000000000000FFFFFF00FFFF
+      FF0000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C00000000000FF000000FF0000000000
+      0000FF00FF00FF00FF0000000000FFFF0000FFFF000000000000FFFFFF00FFFF
+      FF0000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C0000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
+      C000C0C0C000C0C0C000C0C0C000C0C0C0000000000000808000008080008080
+      8000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000808000008080008080
+      8000FFFFFF0000000000FF000000FF000000FF000000FF000000FF000000FF00
+      0000FF000000FF000000FF000000FF000000FF000000FF000000FF000000FF00
+      000000000000FFFFFF0000000000FFFFFF000000000000808000008080008080
+      8000808080008080800080808000808080008080800080808000808080008080
+      8000808080008080800080808000808080008080800080808000808080008080
+      8000808080008080800080808000808080008080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000008080000080
+      8000008080000080800000808000008080000080800000808000}
+    Wx_Class = 'wxColourDialog'
+  end
+end
