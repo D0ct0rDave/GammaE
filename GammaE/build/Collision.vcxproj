@@ -155,6 +155,7 @@
     <ClCompile Include="..\modules\Collision\src\CollisionSystem\CCOL_ColState.cpp" />
     <ClCompile Include="..\modules\Collision\src\CollisionSystem\CCOL_CollisionSystem.cpp" />
     <ClCompile Include="..\modules\Collision\src\CollisionUtils\CCOL_TriList_BVRayTest.cpp" />
+    <ClCompile Include="FileName.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

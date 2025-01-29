@@ -219,5 +219,6 @@
     <ClCompile Include="..\modules\Collision\src\CollisionUtils\CCOL_TriList_BVRayTest.cpp">
       <Filter>CollisionUtils</Filter>
     </ClCompile>
+    <ClCompile Include="FileName.cpp" />
   </ItemGroup>
 </Project>

@@ -12,10 +12,17 @@
 
 // CCOL_DT_Point
 #include "COL_Testers\COL_DynamicTest\CCOL_DT_Point.h"
-CGVect3 SrcIP,SrcFP,SrcSp;
-CGVect3 DstIP,DstFP,DstSp;
-CGVect3 DSSpeed;
+// CCOL_DT_Box
+#include "COL_Testers\COL_DynamicTest\CCOL_DT_Box.h"
+// CCOL_DT_Sphere
+#include "COL_Testers\COL_DynamicTest\CCOL_DT_Sphere.h"
 
+#include "CollisionSystem\CCOL_ColState.h"
+// -----------------------------------------------------------------------------
+static CGVect3 SrcIP,SrcFP,SrcSp;
+static CGVect3 DstIP,DstFP,DstSp;
+static CGVect3 DSSpeed;
+// -----------------------------------------------------------------------------
 inline void SaveStateVars()
 {
     // Backup variables
@@ -29,7 +36,7 @@ inline void SaveStateVars()
 
     DSSpeed.Assign(CCOL_ColState::DSSp   );
 }
-
+// -----------------------------------------------------------------------------
 inline void RestoreStateVars()
 {
     // Backup variables
@@ -43,7 +50,7 @@ inline void RestoreStateVars()
 
     CCOL_ColState::DSSp.Assign(DSSpeed);
 }
-
+// -----------------------------------------------------------------------------
 inline void SwapStateVars()
 {
     // Backup variables
@@ -57,17 +64,7 @@ inline void SwapStateVars()
 
     CCOL_ColState::DSSp.Scale(-1.0f);
 }
-
-// Class CCOL_DT_Point
-
-CCOL_DT_Point::CCOL_DT_Point()
-{
-}
-
-CCOL_DT_Point::~CCOL_DT_Point()
-{
-}
-
+// -----------------------------------------------------------------------------
 float CCOL_DT_Point::fTestSphere (const CGVect3& _oSPoint, const CGVect3& _oDCenter, float _fDRadius)
 {
     float fRes;
@@ -81,7 +78,7 @@ float CCOL_DT_Point::fTestSphere (const CGVect3& _oSPoint, const CGVect3& _oDCen
 
     return(fRes);
 }
-
+// -----------------------------------------------------------------------------
 float CCOL_DT_Point::fTestBox (const CGVect3& _oSPoint, const CGVect3& _oDMaxs, const CGVect3& _oDMins)
 {
     float fRes;
@@ -95,10 +92,10 @@ float CCOL_DT_Point::fTestBox (const CGVect3& _oSPoint, const CGVect3& _oDMaxs, 
 
     return(fRes);
 }
-
+// -----------------------------------------------------------------------------
 float CCOL_DT_Point::fTestPoint (const CGVect3& _oSPoint, float _fDRadius, const CGVect3& _oDCenter)
 {
     return(-1.0f);
 }
-
+// -----------------------------------------------------------------------------
 // Additional Declarations

@@ -13,35 +13,17 @@
 #ifndef CCOL_DT_Point_h
 #define CCOL_DT_Point_h 1
 
-// CCOL_ColState
-#include "CollisionSystem\CCOL_ColState.h"
-// CCOL_DT_Box
-#include "COL_Testers\COL_DynamicTest\CCOL_DT_Box.h"
-// CCOL_DT_Sphere
-#include "COL_Testers\COL_DynamicTest\CCOL_DT_Sphere.h"
+#include "Gammae_Math.h"
 
 class CCOL_DT_Point
 {
     public:
-        CCOL_DT_Point();
-
-        ~CCOL_DT_Point();
 
         static float fTestSphere(const CGVect3& _oSPoint, const CGVect3& _oDCenter, float _fDRadius);
 
         static float fTestBox(const CGVect3& _oSPoint, const CGVect3& _oDMaxs, const CGVect3& _oDMins);
 
         static float fTestPoint(const CGVect3& _oSPoint, float _fDRadius, const CGVect3& _oDCenter);
-
-        // Additional Public Declarations
-
-    protected:
-        // Additional Protected Declarations
-
-    private:
-        // Additional Private Declarations
-
-    private:   // Additional Implementation Declarations
 };
 
 // Class CCOL_DT_Point

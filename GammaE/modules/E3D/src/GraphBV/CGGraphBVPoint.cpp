@@ -75,4 +75,10 @@ const CGBVPoint& CGGraphBVPoint::oGetPoint() const
     return (m_oVol);
 }
 // -----------------------------------------------------------------------------
+EGBoundingVolumeType CGGraphBVPoint::eGetTypeID() const
+{
+    return EGBoundingVolumeType::BVT_POINT;
+}
+
+// -----------------------------------------------------------------------------
 // Additional Declarations

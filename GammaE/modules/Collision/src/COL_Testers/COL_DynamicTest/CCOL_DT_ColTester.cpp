@@ -12,6 +12,17 @@
 
 // CCOL_DT_ColTester
 #include "COL_Testers\COL_DynamicTest\CCOL_DT_ColTester.h"
+// CCOL_ColState
+#include "CollisionSystem\CCOL_ColState.h"
+// CCOL_DT_Box
+#include "COL_Testers\COL_DynamicTest\CCOL_DT_Box.h"
+// CCOL_DT_Point
+#include "COL_Testers\COL_DynamicTest\CCOL_DT_Point.h"
+// CCOL_DT_Tri
+#include "COL_Testers\COL_DynamicTest\CCOL_DT_Tri.h"
+// CCOL_DT_Sphere
+#include "COL_Testers\COL_DynamicTest\CCOL_DT_Sphere.h"
+
 #include <string.h>
 
 float CCOL_DT_ColTester::fTestCollision (CGGraphBV* SrcObj, CGGraphBV* DstObj)

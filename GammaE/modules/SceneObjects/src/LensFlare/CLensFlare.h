@@ -35,16 +35,12 @@ class CLensFlare : public CGSceneNode
 
         virtual CGGraphBV* poGetBV();
 
-        virtual void ComputeBoundVol();
-
         bool bVisible();
 
         void UpdateState();
 
-        // Additional Public Declarations
-
-    protected:
-        // Additional Protected Declarations
+        // / Generic function to perform processing functionalities.
+        virtual void Accept(CGSceneVisitor* _poVisitor);
 
     private:
         // Data Members for Class Attributes
@@ -68,10 +64,6 @@ class CLensFlare : public CGSceneNode
         CGMatrix4x4 oViewMat;
 
         CGMatrix4x4 oPrjMat;
-
-        // Additional Private Declarations
-
-    private:                    // Additional Implementation Declarations
 };
 
 // Class CLensFlare

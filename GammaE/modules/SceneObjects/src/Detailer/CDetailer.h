@@ -33,8 +33,6 @@ class CDetailer : public CGSceneLeaf
 
         CGShader* poCreateMaterial();
 
-        virtual void Render();
-
         // Additional Public Declarations
 
     protected:
@@ -43,13 +41,6 @@ class CDetailer : public CGSceneLeaf
         CGUnmanagedMesh* m_poDetailMesh;
         CGVect3 oCamPos;
         CGMipMap* poTex;
-
-        // Additional Protected Declarations
-
-    private:
-        // Additional Private Declarations
-
-    private:                    // Additional Implementation Declarations
 };
 
 // Class CDetailer

@@ -169,17 +169,6 @@
     <ClCompile Include="..\src\Project\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\src\Project\Docs\Bugs.txt" />
-    <None Include="..\src\Project\Docs\Concept.txt" />
-    <None Include="..\src\Project\Docs\Dependencies.txt" />
-    <None Include="..\src\Project\Docs\History.txt" />
-    <None Include="..\src\Project\Docs\Mejoras.txt" />
-    <None Include="..\src\Project\Docs\ProjectR_FrameWork.txt" />
-    <None Include="..\src\Project\Docs\TODO.txt" />
-    <None Include="..\src\Project\Docs\extensiones.txt" />
-    <None Include="..\src\Project\Docs\optimization.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\GammaE\build\AI.vcxproj">
       <Project>{EF725900-DBFE-870B-44AD-880B3058880B}</Project>
     </ProjectReference>

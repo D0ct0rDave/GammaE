@@ -314,7 +314,7 @@ void CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLAS
                         poID->m_fEnergy -= _fDeltaT;
                 }
 
-                poID->m_poSwitch->Render();
+                CGSCNVRenderer::I()->Render(poID->m_poSwitch);
             }
         }
 

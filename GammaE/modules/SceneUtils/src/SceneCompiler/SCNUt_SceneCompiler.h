@@ -31,20 +31,9 @@ class SCNUt_SceneCompiler
 
         void CompileScene(CGSceneNode* _poScn);
 
-        void SetNULLMaterials(bool _bNULL);
-
-        // Additional Public Declarations
-
-    protected:
-        // Additional Protected Declarations
-
     private:
         // Data Members for Class Attributes
         void CompileMeshInLeaf(CGSceneLeaf* _poLeaf);
-
-        // Additional Private Declarations
-
-    private:                    // Additional Implementation Declarations
 };
 
 #endif

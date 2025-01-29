@@ -13,17 +13,11 @@
 #ifndef CCOL_DT_Box_h
 #define CCOL_DT_Box_h 1
 
-// CCOL_ColState
-#include "CollisionSystem\CCOL_ColState.h"
-// CCOL_ST_Box
-#include "COL_Testers\COL_StaticTest\CCOL_ST_Box.h"
+#include "Gammae_Math.h"
 
 class CCOL_DT_Box
 {
     public:
-        CCOL_DT_Box();
-
-        ~CCOL_DT_Box();
 
         static float fTestSphere(const CGVect3& _oSMaxs, const CGVect3& _oSMins, const CGVect3& _oDCenter, float _fDRadius);
 

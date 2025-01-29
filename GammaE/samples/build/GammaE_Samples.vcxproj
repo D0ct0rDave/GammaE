@@ -136,40 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\graphics\culling\data\shaders.txt" />
-    <None Include="..\graphics\culling\src\Project\Docs\Bugs.txt" />
-    <None Include="..\graphics\culling\src\Project\Docs\Concept.txt" />
-    <None Include="..\graphics\culling\src\Project\Docs\Dependencies.txt" />
-    <None Include="..\graphics\culling\src\Project\Docs\Eula.txt" />
-    <None Include="..\graphics\culling\src\Project\Docs\History.txt" />
-    <None Include="..\graphics\culling\src\Project\Docs\Mejoras.txt" />
-    <None Include="..\graphics\culling\src\Project\Docs\ProjectR_FrameWork.txt" />
-    <None Include="..\graphics\culling\src\Project\Docs\TODO.txt" />
-    <None Include="..\graphics\culling\src\Project\Docs\extensiones.txt" />
-    <None Include="..\graphics\culling\src\Project\Docs\optimization.txt" />
-    <None Include="..\graphics\culling\src\Project\Docs\pal.txt" />
     <None Include="..\graphics\shaders\data\shaders.txt" />
-    <None Include="..\graphics\shaders\src\Project\Docs\Bugs.txt" />
-    <None Include="..\graphics\shaders\src\Project\Docs\Concept.txt" />
-    <None Include="..\graphics\shaders\src\Project\Docs\Dependencies.txt" />
-    <None Include="..\graphics\shaders\src\Project\Docs\Eula.txt" />
-    <None Include="..\graphics\shaders\src\Project\Docs\History.txt" />
-    <None Include="..\graphics\shaders\src\Project\Docs\Mejoras.txt" />
-    <None Include="..\graphics\shaders\src\Project\Docs\ProjectR_FrameWork.txt" />
-    <None Include="..\graphics\shaders\src\Project\Docs\TODO.txt" />
-    <None Include="..\graphics\shaders\src\Project\Docs\extensiones.txt" />
-    <None Include="..\graphics\shaders\src\Project\Docs\optimization.txt" />
-    <None Include="..\graphics\shaders\src\Project\Docs\pal.txt" />
-    <None Include="..\graphics\simplerendering\src\Project\Docs\Bugs.txt" />
-    <None Include="..\graphics\simplerendering\src\Project\Docs\Concept.txt" />
-    <None Include="..\graphics\simplerendering\src\Project\Docs\Dependencies.txt" />
-    <None Include="..\graphics\simplerendering\src\Project\Docs\Eula.txt" />
-    <None Include="..\graphics\simplerendering\src\Project\Docs\History.txt" />
-    <None Include="..\graphics\simplerendering\src\Project\Docs\Mejoras.txt" />
-    <None Include="..\graphics\simplerendering\src\Project\Docs\ProjectR_FrameWork.txt" />
-    <None Include="..\graphics\simplerendering\src\Project\Docs\TODO.txt" />
-    <None Include="..\graphics\simplerendering\src\Project\Docs\extensiones.txt" />
-    <None Include="..\graphics\simplerendering\src\Project\Docs\optimization.txt" />
-    <None Include="..\graphics\simplerendering\src\Project\Docs\pal.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

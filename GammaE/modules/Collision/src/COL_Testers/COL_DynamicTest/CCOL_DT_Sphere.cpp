@@ -12,6 +12,7 @@
 
 // CCOL_DT_Sphere
 #include "COL_Testers\COL_DynamicTest\CCOL_DT_Sphere.h"
+#include "CollisionSystem\CCOL_ColState.h"
 
 // Article by Miguel Gómez Gamasutra
 

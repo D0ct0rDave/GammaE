@@ -35152,29 +35152,6 @@ static int _wrap_CGSceneSwitch_poGetObject(lua_State* L) {
 }
 
 
-static int _wrap_CGSceneSwitch_Render(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSceneSwitch *arg1 = (CGSceneSwitch *) 0 ;
-    
-    SWIG_check_num_args("CGSceneSwitch::Render",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneSwitch::Render",1,"CGSceneSwitch *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneSwitch,0))){
-      SWIG_fail_ptr("CGSceneSwitch_Render",1,SWIGTYPE_p_CGSceneSwitch);
-    }
-    
-    (arg1)->Render();
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
 static int _wrap_CGSceneSwitch_Enable__SWIG_0(lua_State* L) {
   {
     int SWIG_arg = 0;
@@ -35392,7 +35369,6 @@ static swig_lua_attribute swig_CGSceneSwitch_attributes[] = {
 static swig_lua_method swig_CGSceneSwitch_methods[]= {
     { "SetObject", _wrap_CGSceneSwitch_SetObject},
     { "poGetObject", _wrap_CGSceneSwitch_poGetObject},
-    { "Render", _wrap_CGSceneSwitch_Render},
     { "Enable", _wrap_CGSceneSwitch_Enable},
     { "Disable", _wrap_CGSceneSwitch_Disable},
     { "bEnabled", _wrap_CGSceneSwitch_bEnabled},
@@ -43737,32 +43713,6 @@ static int _wrap_SCNUt_SceneCompiler_CompileScene(lua_State* L) {
 }
 
 
-static int _wrap_SCNUt_SceneCompiler_SetNULLMaterials(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    SCNUt_SceneCompiler *arg1 = (SCNUt_SceneCompiler *) 0 ;
-    bool arg2 ;
-    
-    SWIG_check_num_args("SCNUt_SceneCompiler::SetNULLMaterials",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("SCNUt_SceneCompiler::SetNULLMaterials",1,"SCNUt_SceneCompiler *");
-    if(!lua_isboolean(L,2)) SWIG_fail_arg("SCNUt_SceneCompiler::SetNULLMaterials",2,"bool");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_SCNUt_SceneCompiler,0))){
-      SWIG_fail_ptr("SCNUt_SceneCompiler_SetNULLMaterials",1,SWIGTYPE_p_SCNUt_SceneCompiler);
-    }
-    
-    arg2 = (lua_toboolean(L, 2)!=0);
-    (arg1)->SetNULLMaterials(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
 static void swig_delete_SCNUt_SceneCompiler(void *obj) {
 SCNUt_SceneCompiler *arg1 = (SCNUt_SceneCompiler *) obj;
 delete arg1;
@@ -43781,7 +43731,6 @@ static swig_lua_attribute swig_SCNUt_SceneCompiler_attributes[] = {
 static swig_lua_method swig_SCNUt_SceneCompiler_methods[]= {
     { "poCreateBoundVol", _wrap_SCNUt_SceneCompiler_poCreateBoundVol},
     { "CompileScene", _wrap_SCNUt_SceneCompiler_CompileScene},
-    { "SetNULLMaterials", _wrap_SCNUt_SceneCompiler_SetNULLMaterials},
     {0,0}
 };
 static swig_lua_method swig_SCNUt_SceneCompiler_meta[] = {
@@ -64067,6 +64016,23 @@ static swig_lua_class *swig_CLensFlare_Elem_bases[] = {0};
 static const char *swig_CLensFlare_Elem_base_names[] = {0};
 static swig_lua_class _wrap_class_CLensFlare_Elem = { "CLensFlare_Elem", "CLensFlare_Elem", &SWIGTYPE_p_CLensFlare_Elem,_proxy__wrap_new_CLensFlare_Elem, swig_delete_CLensFlare_Elem, swig_CLensFlare_Elem_methods, swig_CLensFlare_Elem_attributes, &swig_CLensFlare_Elem_Sf_SwigStatic, swig_CLensFlare_Elem_meta, swig_CLensFlare_Elem_bases, swig_CLensFlare_Elem_base_names };
 
+static int _wrap_new_CLensFlare(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CLensFlare *result = 0 ;
+    
+    SWIG_check_num_args("CLensFlare::CLensFlare",0,0)
+    result = (CLensFlare *)new CLensFlare();
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CLensFlare,1); SWIG_arg++; 
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
 static int _wrap_CLensFlare_InitLensFlare(lua_State* L) {
   {
     int SWIG_arg = 0;
@@ -64220,29 +64186,6 @@ static int _wrap_CLensFlare_poGetBV(lua_State* L) {
 }
 
 
-static int _wrap_CLensFlare_ComputeBoundVol(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CLensFlare *arg1 = (CLensFlare *) 0 ;
-    
-    SWIG_check_num_args("CLensFlare::ComputeBoundVol",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CLensFlare::ComputeBoundVol",1,"CLensFlare *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CLensFlare,0))){
-      SWIG_fail_ptr("CLensFlare_ComputeBoundVol",1,SWIGTYPE_p_CLensFlare);
-    }
-    
-    (arg1)->ComputeBoundVol();
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
 static int _wrap_CLensFlare_bVisible(lua_State* L) {
   {
     int SWIG_arg = 0;
@@ -64290,9 +64233,47 @@ static int _wrap_CLensFlare_UpdateState(lua_State* L) {
 }
 
 
+static int _wrap_CLensFlare_Accept(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CLensFlare *arg1 = (CLensFlare *) 0 ;
+    CGSceneVisitor *arg2 = (CGSceneVisitor *) 0 ;
+    
+    SWIG_check_num_args("CLensFlare::Accept",2,2)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CLensFlare::Accept",1,"CLensFlare *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CLensFlare::Accept",2,"CGSceneVisitor *");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CLensFlare,0))){
+      SWIG_fail_ptr("CLensFlare_Accept",1,SWIGTYPE_p_CLensFlare);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneVisitor,0))){
+      SWIG_fail_ptr("CLensFlare_Accept",2,SWIGTYPE_p_CGSceneVisitor);
+    }
+    
+    (arg1)->Accept(arg2);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
 static void swig_delete_CLensFlare(void *obj) {
 CLensFlare *arg1 = (CLensFlare *) obj;
 delete arg1;
+}
+static int _proxy__wrap_new_CLensFlare(lua_State *L) {
+    assert(lua_istable(L,1));
+    lua_pushcfunction(L,_wrap_new_CLensFlare);
+    assert(!lua_isnil(L,-1));
+    lua_replace(L,1); /* replace our table with real constructor */
+    lua_call(L,lua_gettop(L)-1,1);
+    return 1;
 }
 static swig_lua_attribute swig_CLensFlare_attributes[] = {
     {0,0,0}
@@ -64303,9 +64284,9 @@ static swig_lua_method swig_CLensFlare_methods[]= {
     { "UpdateMesh", _wrap_CLensFlare_UpdateMesh},
     { "Render", _wrap_CLensFlare_Render},
     { "poGetBV", _wrap_CLensFlare_poGetBV},
-    { "ComputeBoundVol", _wrap_CLensFlare_ComputeBoundVol},
     { "bVisible", _wrap_CLensFlare_bVisible},
     { "UpdateState", _wrap_CLensFlare_UpdateState},
+    { "Accept", _wrap_CLensFlare_Accept},
     {0,0}
 };
 static swig_lua_method swig_CLensFlare_meta[] = {
@@ -64335,7 +64316,7 @@ static swig_lua_namespace swig_CLensFlare_Sf_SwigStatic = {
 };
 static swig_lua_class *swig_CLensFlare_bases[] = {0,0};
 static const char *swig_CLensFlare_base_names[] = {"CGSceneNode *",0};
-static swig_lua_class _wrap_class_CLensFlare = { "CLensFlare", "CLensFlare", &SWIGTYPE_p_CLensFlare,0, swig_delete_CLensFlare, swig_CLensFlare_methods, swig_CLensFlare_attributes, &swig_CLensFlare_Sf_SwigStatic, swig_CLensFlare_meta, swig_CLensFlare_bases, swig_CLensFlare_base_names };
+static swig_lua_class _wrap_class_CLensFlare = { "CLensFlare", "CLensFlare", &SWIGTYPE_p_CLensFlare,_proxy__wrap_new_CLensFlare, swig_delete_CLensFlare, swig_CLensFlare_methods, swig_CLensFlare_attributes, &swig_CLensFlare_Sf_SwigStatic, swig_CLensFlare_meta, swig_CLensFlare_bases, swig_CLensFlare_base_names };
 
 static int _wrap_new_CGSceneReflector(lua_State* L) {
   {
@@ -64726,29 +64707,6 @@ static int _wrap_CDetailer_poCreateMaterial(lua_State* L) {
 }
 
 
-static int _wrap_CDetailer_Render(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CDetailer *arg1 = (CDetailer *) 0 ;
-    
-    SWIG_check_num_args("CDetailer::Render",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CDetailer::Render",1,"CDetailer *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CDetailer,0))){
-      SWIG_fail_ptr("CDetailer_Render",1,SWIGTYPE_p_CDetailer);
-    }
-    
-    (arg1)->Render();
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
 static void swig_delete_CDetailer(void *obj) {
 CDetailer *arg1 = (CDetailer *) obj;
 delete arg1;
@@ -64770,7 +64728,6 @@ static swig_lua_method swig_CDetailer_methods[]= {
     { "SetVertexTris", _wrap_CDetailer_SetVertexTris},
     { "CreateTextureContents", _wrap_CDetailer_CreateTextureContents},
     { "poCreateMaterial", _wrap_CDetailer_poCreateMaterial},
-    { "Render", _wrap_CDetailer_Render},
     {0,0}
 };
 static swig_lua_method swig_CDetailer_meta[] = {
@@ -98727,775 +98684,6 @@ static swig_lua_class *swig_CCOL_DT_Tri_bases[] = {0};
 static const char *swig_CCOL_DT_Tri_base_names[] = {0};
 static swig_lua_class _wrap_class_CCOL_DT_Tri = { "CCOL_DT_Tri", "CCOL_DT_Tri", &SWIGTYPE_p_CCOL_DT_Tri,_proxy__wrap_new_CCOL_DT_Tri, swig_delete_CCOL_DT_Tri, swig_CCOL_DT_Tri_methods, swig_CCOL_DT_Tri_attributes, &swig_CCOL_DT_Tri_Sf_SwigStatic, swig_CCOL_DT_Tri_meta, swig_CCOL_DT_Tri_bases, swig_CCOL_DT_Tri_base_names };
 
-static int _wrap_CCOL_ST_Box_iTestSphere(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGVect3 *arg1 = 0 ;
-    CGVect3 *arg2 = 0 ;
-    CGVect3 *arg3 = 0 ;
-    float arg4 ;
-    int result;
-    
-    SWIG_check_num_args("CCOL_ST_Box::iTestSphere",4,4)
-    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CCOL_ST_Box::iTestSphere",1,"CGVect3 const &");
-    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CCOL_ST_Box::iTestSphere",2,"CGVect3 const &");
-    if(!lua_isuserdata(L,3)) SWIG_fail_arg("CCOL_ST_Box::iTestSphere",3,"CGVect3 const &");
-    if(!lua_isnumber(L,4)) SWIG_fail_arg("CCOL_ST_Box::iTestSphere",4,"float");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_ST_Box_iTestSphere",1,SWIGTYPE_p_CGVect3);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_ST_Box_iTestSphere",2,SWIGTYPE_p_CGVect3);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_ST_Box_iTestSphere",3,SWIGTYPE_p_CGVect3);
-    }
-    
-    arg4 = (float)lua_tonumber(L, 4);
-    result = (int)CCOL_ST_Box::iTestSphere((CGVect3 const &)*arg1,(CGVect3 const &)*arg2,(CGVect3 const &)*arg3,arg4);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CCOL_ST_Box_iTestBox(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGVect3 *arg1 = 0 ;
-    CGVect3 *arg2 = 0 ;
-    CGVect3 *arg3 = 0 ;
-    CGVect3 *arg4 = 0 ;
-    int result;
-    
-    SWIG_check_num_args("CCOL_ST_Box::iTestBox",4,4)
-    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CCOL_ST_Box::iTestBox",1,"CGVect3 const &");
-    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CCOL_ST_Box::iTestBox",2,"CGVect3 const &");
-    if(!lua_isuserdata(L,3)) SWIG_fail_arg("CCOL_ST_Box::iTestBox",3,"CGVect3 const &");
-    if(!lua_isuserdata(L,4)) SWIG_fail_arg("CCOL_ST_Box::iTestBox",4,"CGVect3 const &");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_ST_Box_iTestBox",1,SWIGTYPE_p_CGVect3);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_ST_Box_iTestBox",2,SWIGTYPE_p_CGVect3);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_ST_Box_iTestBox",3,SWIGTYPE_p_CGVect3);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_ST_Box_iTestBox",4,SWIGTYPE_p_CGVect3);
-    }
-    
-    result = (int)CCOL_ST_Box::iTestBox((CGVect3 const &)*arg1,(CGVect3 const &)*arg2,(CGVect3 const &)*arg3,(CGVect3 const &)*arg4);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CCOL_ST_Box_iTestPoint(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGVect3 *arg1 = 0 ;
-    CGVect3 *arg2 = 0 ;
-    CGVect3 *arg3 = 0 ;
-    int result;
-    
-    SWIG_check_num_args("CCOL_ST_Box::iTestPoint",3,3)
-    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CCOL_ST_Box::iTestPoint",1,"CGVect3 const &");
-    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CCOL_ST_Box::iTestPoint",2,"CGVect3 const &");
-    if(!lua_isuserdata(L,3)) SWIG_fail_arg("CCOL_ST_Box::iTestPoint",3,"CGVect3 const &");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_ST_Box_iTestPoint",1,SWIGTYPE_p_CGVect3);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_ST_Box_iTestPoint",2,SWIGTYPE_p_CGVect3);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_ST_Box_iTestPoint",3,SWIGTYPE_p_CGVect3);
-    }
-    
-    result = (int)CCOL_ST_Box::iTestPoint((CGVect3 const &)*arg1,(CGVect3 const &)*arg2,(CGVect3 const &)*arg3);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_new_CCOL_ST_Box(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CCOL_ST_Box *result = 0 ;
-    
-    SWIG_check_num_args("CCOL_ST_Box::CCOL_ST_Box",0,0)
-    result = (CCOL_ST_Box *)new CCOL_ST_Box();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CCOL_ST_Box,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CCOL_ST_Box(void *obj) {
-CCOL_ST_Box *arg1 = (CCOL_ST_Box *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CCOL_ST_Box(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CCOL_ST_Box);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CCOL_ST_Box_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_method swig_CCOL_ST_Box_methods[]= {
-    {0,0}
-};
-static swig_lua_method swig_CCOL_ST_Box_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CCOL_ST_Box_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CCOL_ST_Box_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CCOL_ST_Box_Sf_SwigStatic_methods[]= {
-    { "iTestSphere", _wrap_CCOL_ST_Box_iTestSphere},
-    { "iTestBox", _wrap_CCOL_ST_Box_iTestBox},
-    { "iTestPoint", _wrap_CCOL_ST_Box_iTestPoint},
-    {0,0}
-};
-static swig_lua_class* swig_CCOL_ST_Box_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CCOL_ST_Box_Sf_SwigStatic = {
-    "CCOL_ST_Box",
-    swig_CCOL_ST_Box_Sf_SwigStatic_methods,
-    swig_CCOL_ST_Box_Sf_SwigStatic_attributes,
-    swig_CCOL_ST_Box_Sf_SwigStatic_constants,
-    swig_CCOL_ST_Box_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CCOL_ST_Box_bases[] = {0};
-static const char *swig_CCOL_ST_Box_base_names[] = {0};
-static swig_lua_class _wrap_class_CCOL_ST_Box = { "CCOL_ST_Box", "CCOL_ST_Box", &SWIGTYPE_p_CCOL_ST_Box,_proxy__wrap_new_CCOL_ST_Box, swig_delete_CCOL_ST_Box, swig_CCOL_ST_Box_methods, swig_CCOL_ST_Box_attributes, &swig_CCOL_ST_Box_Sf_SwigStatic, swig_CCOL_ST_Box_meta, swig_CCOL_ST_Box_bases, swig_CCOL_ST_Box_base_names };
-
-static int _wrap_new_CCOL_DT_Box(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CCOL_DT_Box *result = 0 ;
-    
-    SWIG_check_num_args("CCOL_DT_Box::CCOL_DT_Box",0,0)
-    result = (CCOL_DT_Box *)new CCOL_DT_Box();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CCOL_DT_Box,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CCOL_DT_Box_fTestSphere(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGVect3 *arg1 = 0 ;
-    CGVect3 *arg2 = 0 ;
-    CGVect3 *arg3 = 0 ;
-    float arg4 ;
-    float result;
-    
-    SWIG_check_num_args("CCOL_DT_Box::fTestSphere",4,4)
-    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CCOL_DT_Box::fTestSphere",1,"CGVect3 const &");
-    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CCOL_DT_Box::fTestSphere",2,"CGVect3 const &");
-    if(!lua_isuserdata(L,3)) SWIG_fail_arg("CCOL_DT_Box::fTestSphere",3,"CGVect3 const &");
-    if(!lua_isnumber(L,4)) SWIG_fail_arg("CCOL_DT_Box::fTestSphere",4,"float");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_DT_Box_fTestSphere",1,SWIGTYPE_p_CGVect3);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_DT_Box_fTestSphere",2,SWIGTYPE_p_CGVect3);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_DT_Box_fTestSphere",3,SWIGTYPE_p_CGVect3);
-    }
-    
-    arg4 = (float)lua_tonumber(L, 4);
-    result = (float)CCOL_DT_Box::fTestSphere((CGVect3 const &)*arg1,(CGVect3 const &)*arg2,(CGVect3 const &)*arg3,arg4);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CCOL_DT_Box_fTestBox(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGVect3 *arg1 = 0 ;
-    CGVect3 *arg2 = 0 ;
-    CGVect3 *arg3 = 0 ;
-    CGVect3 *arg4 = 0 ;
-    float result;
-    
-    SWIG_check_num_args("CCOL_DT_Box::fTestBox",4,4)
-    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CCOL_DT_Box::fTestBox",1,"CGVect3 const &");
-    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CCOL_DT_Box::fTestBox",2,"CGVect3 const &");
-    if(!lua_isuserdata(L,3)) SWIG_fail_arg("CCOL_DT_Box::fTestBox",3,"CGVect3 const &");
-    if(!lua_isuserdata(L,4)) SWIG_fail_arg("CCOL_DT_Box::fTestBox",4,"CGVect3 const &");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_DT_Box_fTestBox",1,SWIGTYPE_p_CGVect3);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_DT_Box_fTestBox",2,SWIGTYPE_p_CGVect3);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_DT_Box_fTestBox",3,SWIGTYPE_p_CGVect3);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_DT_Box_fTestBox",4,SWIGTYPE_p_CGVect3);
-    }
-    
-    result = (float)CCOL_DT_Box::fTestBox((CGVect3 const &)*arg1,(CGVect3 const &)*arg2,(CGVect3 const &)*arg3,(CGVect3 const &)*arg4);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CCOL_DT_Box_fTestPoint(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGVect3 *arg1 = 0 ;
-    CGVect3 *arg2 = 0 ;
-    CGVect3 *arg3 = 0 ;
-    float result;
-    
-    SWIG_check_num_args("CCOL_DT_Box::fTestPoint",3,3)
-    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CCOL_DT_Box::fTestPoint",1,"CGVect3 const &");
-    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CCOL_DT_Box::fTestPoint",2,"CGVect3 const &");
-    if(!lua_isuserdata(L,3)) SWIG_fail_arg("CCOL_DT_Box::fTestPoint",3,"CGVect3 const &");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_DT_Box_fTestPoint",1,SWIGTYPE_p_CGVect3);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_DT_Box_fTestPoint",2,SWIGTYPE_p_CGVect3);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_DT_Box_fTestPoint",3,SWIGTYPE_p_CGVect3);
-    }
-    
-    result = (float)CCOL_DT_Box::fTestPoint((CGVect3 const &)*arg1,(CGVect3 const &)*arg2,(CGVect3 const &)*arg3);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CCOL_DT_Box_iGetCollisionAxis(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    int result;
-    
-    SWIG_check_num_args("CCOL_DT_Box::iGetCollisionAxis",0,0)
-    result = (int)CCOL_DT_Box::iGetCollisionAxis();
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CCOL_DT_Box(void *obj) {
-CCOL_DT_Box *arg1 = (CCOL_DT_Box *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CCOL_DT_Box(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CCOL_DT_Box);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CCOL_DT_Box_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_method swig_CCOL_DT_Box_methods[]= {
-    {0,0}
-};
-static swig_lua_method swig_CCOL_DT_Box_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CCOL_DT_Box_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CCOL_DT_Box_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CCOL_DT_Box_Sf_SwigStatic_methods[]= {
-    { "fTestSphere", _wrap_CCOL_DT_Box_fTestSphere},
-    { "fTestBox", _wrap_CCOL_DT_Box_fTestBox},
-    { "fTestPoint", _wrap_CCOL_DT_Box_fTestPoint},
-    { "iGetCollisionAxis", _wrap_CCOL_DT_Box_iGetCollisionAxis},
-    {0,0}
-};
-static swig_lua_class* swig_CCOL_DT_Box_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CCOL_DT_Box_Sf_SwigStatic = {
-    "CCOL_DT_Box",
-    swig_CCOL_DT_Box_Sf_SwigStatic_methods,
-    swig_CCOL_DT_Box_Sf_SwigStatic_attributes,
-    swig_CCOL_DT_Box_Sf_SwigStatic_constants,
-    swig_CCOL_DT_Box_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CCOL_DT_Box_bases[] = {0};
-static const char *swig_CCOL_DT_Box_base_names[] = {0};
-static swig_lua_class _wrap_class_CCOL_DT_Box = { "CCOL_DT_Box", "CCOL_DT_Box", &SWIGTYPE_p_CCOL_DT_Box,_proxy__wrap_new_CCOL_DT_Box, swig_delete_CCOL_DT_Box, swig_CCOL_DT_Box_methods, swig_CCOL_DT_Box_attributes, &swig_CCOL_DT_Box_Sf_SwigStatic, swig_CCOL_DT_Box_meta, swig_CCOL_DT_Box_bases, swig_CCOL_DT_Box_base_names };
-
-static int _wrap_CCOL_DT_Sphere_fTestSphere(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGVect3 *arg1 = 0 ;
-    float arg2 ;
-    CGVect3 *arg3 = 0 ;
-    float arg4 ;
-    float result;
-    
-    SWIG_check_num_args("CCOL_DT_Sphere::fTestSphere",4,4)
-    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CCOL_DT_Sphere::fTestSphere",1,"CGVect3 const &");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CCOL_DT_Sphere::fTestSphere",2,"float");
-    if(!lua_isuserdata(L,3)) SWIG_fail_arg("CCOL_DT_Sphere::fTestSphere",3,"CGVect3 const &");
-    if(!lua_isnumber(L,4)) SWIG_fail_arg("CCOL_DT_Sphere::fTestSphere",4,"float");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_DT_Sphere_fTestSphere",1,SWIGTYPE_p_CGVect3);
-    }
-    
-    arg2 = (float)lua_tonumber(L, 2);
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_DT_Sphere_fTestSphere",3,SWIGTYPE_p_CGVect3);
-    }
-    
-    arg4 = (float)lua_tonumber(L, 4);
-    result = (float)CCOL_DT_Sphere::fTestSphere((CGVect3 const &)*arg1,arg2,(CGVect3 const &)*arg3,arg4);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CCOL_DT_Sphere_fTestBox(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGVect3 *arg1 = 0 ;
-    float arg2 ;
-    CGVect3 *arg3 = 0 ;
-    CGVect3 *arg4 = 0 ;
-    float result;
-    
-    SWIG_check_num_args("CCOL_DT_Sphere::fTestBox",4,4)
-    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CCOL_DT_Sphere::fTestBox",1,"CGVect3 const &");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CCOL_DT_Sphere::fTestBox",2,"float");
-    if(!lua_isuserdata(L,3)) SWIG_fail_arg("CCOL_DT_Sphere::fTestBox",3,"CGVect3 const &");
-    if(!lua_isuserdata(L,4)) SWIG_fail_arg("CCOL_DT_Sphere::fTestBox",4,"CGVect3 const &");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_DT_Sphere_fTestBox",1,SWIGTYPE_p_CGVect3);
-    }
-    
-    arg2 = (float)lua_tonumber(L, 2);
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_DT_Sphere_fTestBox",3,SWIGTYPE_p_CGVect3);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_DT_Sphere_fTestBox",4,SWIGTYPE_p_CGVect3);
-    }
-    
-    result = (float)CCOL_DT_Sphere::fTestBox((CGVect3 const &)*arg1,arg2,(CGVect3 const &)*arg3,(CGVect3 const &)*arg4);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CCOL_DT_Sphere_fTestPoint(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGVect3 *arg1 = 0 ;
-    float arg2 ;
-    CGVect3 *arg3 = 0 ;
-    float result;
-    
-    SWIG_check_num_args("CCOL_DT_Sphere::fTestPoint",3,3)
-    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CCOL_DT_Sphere::fTestPoint",1,"CGVect3 const &");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CCOL_DT_Sphere::fTestPoint",2,"float");
-    if(!lua_isuserdata(L,3)) SWIG_fail_arg("CCOL_DT_Sphere::fTestPoint",3,"CGVect3 const &");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_DT_Sphere_fTestPoint",1,SWIGTYPE_p_CGVect3);
-    }
-    
-    arg2 = (float)lua_tonumber(L, 2);
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_DT_Sphere_fTestPoint",3,SWIGTYPE_p_CGVect3);
-    }
-    
-    result = (float)CCOL_DT_Sphere::fTestPoint((CGVect3 const &)*arg1,arg2,(CGVect3 const &)*arg3);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_new_CCOL_DT_Sphere(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CCOL_DT_Sphere *result = 0 ;
-    
-    SWIG_check_num_args("CCOL_DT_Sphere::CCOL_DT_Sphere",0,0)
-    result = (CCOL_DT_Sphere *)new CCOL_DT_Sphere();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CCOL_DT_Sphere,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CCOL_DT_Sphere(void *obj) {
-CCOL_DT_Sphere *arg1 = (CCOL_DT_Sphere *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CCOL_DT_Sphere(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CCOL_DT_Sphere);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CCOL_DT_Sphere_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_method swig_CCOL_DT_Sphere_methods[]= {
-    {0,0}
-};
-static swig_lua_method swig_CCOL_DT_Sphere_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CCOL_DT_Sphere_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CCOL_DT_Sphere_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CCOL_DT_Sphere_Sf_SwigStatic_methods[]= {
-    { "fTestSphere", _wrap_CCOL_DT_Sphere_fTestSphere},
-    { "fTestBox", _wrap_CCOL_DT_Sphere_fTestBox},
-    { "fTestPoint", _wrap_CCOL_DT_Sphere_fTestPoint},
-    {0,0}
-};
-static swig_lua_class* swig_CCOL_DT_Sphere_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CCOL_DT_Sphere_Sf_SwigStatic = {
-    "CCOL_DT_Sphere",
-    swig_CCOL_DT_Sphere_Sf_SwigStatic_methods,
-    swig_CCOL_DT_Sphere_Sf_SwigStatic_attributes,
-    swig_CCOL_DT_Sphere_Sf_SwigStatic_constants,
-    swig_CCOL_DT_Sphere_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CCOL_DT_Sphere_bases[] = {0};
-static const char *swig_CCOL_DT_Sphere_base_names[] = {0};
-static swig_lua_class _wrap_class_CCOL_DT_Sphere = { "CCOL_DT_Sphere", "CCOL_DT_Sphere", &SWIGTYPE_p_CCOL_DT_Sphere,_proxy__wrap_new_CCOL_DT_Sphere, swig_delete_CCOL_DT_Sphere, swig_CCOL_DT_Sphere_methods, swig_CCOL_DT_Sphere_attributes, &swig_CCOL_DT_Sphere_Sf_SwigStatic, swig_CCOL_DT_Sphere_meta, swig_CCOL_DT_Sphere_bases, swig_CCOL_DT_Sphere_base_names };
-
-static int _wrap_new_CCOL_DT_Point(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CCOL_DT_Point *result = 0 ;
-    
-    SWIG_check_num_args("CCOL_DT_Point::CCOL_DT_Point",0,0)
-    result = (CCOL_DT_Point *)new CCOL_DT_Point();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CCOL_DT_Point,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CCOL_DT_Point_fTestSphere(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGVect3 *arg1 = 0 ;
-    CGVect3 *arg2 = 0 ;
-    float arg3 ;
-    float result;
-    
-    SWIG_check_num_args("CCOL_DT_Point::fTestSphere",3,3)
-    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CCOL_DT_Point::fTestSphere",1,"CGVect3 const &");
-    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CCOL_DT_Point::fTestSphere",2,"CGVect3 const &");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CCOL_DT_Point::fTestSphere",3,"float");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_DT_Point_fTestSphere",1,SWIGTYPE_p_CGVect3);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_DT_Point_fTestSphere",2,SWIGTYPE_p_CGVect3);
-    }
-    
-    arg3 = (float)lua_tonumber(L, 3);
-    result = (float)CCOL_DT_Point::fTestSphere((CGVect3 const &)*arg1,(CGVect3 const &)*arg2,arg3);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CCOL_DT_Point_fTestBox(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGVect3 *arg1 = 0 ;
-    CGVect3 *arg2 = 0 ;
-    CGVect3 *arg3 = 0 ;
-    float result;
-    
-    SWIG_check_num_args("CCOL_DT_Point::fTestBox",3,3)
-    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CCOL_DT_Point::fTestBox",1,"CGVect3 const &");
-    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CCOL_DT_Point::fTestBox",2,"CGVect3 const &");
-    if(!lua_isuserdata(L,3)) SWIG_fail_arg("CCOL_DT_Point::fTestBox",3,"CGVect3 const &");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_DT_Point_fTestBox",1,SWIGTYPE_p_CGVect3);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_DT_Point_fTestBox",2,SWIGTYPE_p_CGVect3);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_DT_Point_fTestBox",3,SWIGTYPE_p_CGVect3);
-    }
-    
-    result = (float)CCOL_DT_Point::fTestBox((CGVect3 const &)*arg1,(CGVect3 const &)*arg2,(CGVect3 const &)*arg3);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CCOL_DT_Point_fTestPoint(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGVect3 *arg1 = 0 ;
-    float arg2 ;
-    CGVect3 *arg3 = 0 ;
-    float result;
-    
-    SWIG_check_num_args("CCOL_DT_Point::fTestPoint",3,3)
-    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CCOL_DT_Point::fTestPoint",1,"CGVect3 const &");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CCOL_DT_Point::fTestPoint",2,"float");
-    if(!lua_isuserdata(L,3)) SWIG_fail_arg("CCOL_DT_Point::fTestPoint",3,"CGVect3 const &");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_DT_Point_fTestPoint",1,SWIGTYPE_p_CGVect3);
-    }
-    
-    arg2 = (float)lua_tonumber(L, 2);
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CCOL_DT_Point_fTestPoint",3,SWIGTYPE_p_CGVect3);
-    }
-    
-    result = (float)CCOL_DT_Point::fTestPoint((CGVect3 const &)*arg1,arg2,(CGVect3 const &)*arg3);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CCOL_DT_Point(void *obj) {
-CCOL_DT_Point *arg1 = (CCOL_DT_Point *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CCOL_DT_Point(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CCOL_DT_Point);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CCOL_DT_Point_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_method swig_CCOL_DT_Point_methods[]= {
-    {0,0}
-};
-static swig_lua_method swig_CCOL_DT_Point_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CCOL_DT_Point_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CCOL_DT_Point_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CCOL_DT_Point_Sf_SwigStatic_methods[]= {
-    { "fTestSphere", _wrap_CCOL_DT_Point_fTestSphere},
-    { "fTestBox", _wrap_CCOL_DT_Point_fTestBox},
-    { "fTestPoint", _wrap_CCOL_DT_Point_fTestPoint},
-    {0,0}
-};
-static swig_lua_class* swig_CCOL_DT_Point_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CCOL_DT_Point_Sf_SwigStatic = {
-    "CCOL_DT_Point",
-    swig_CCOL_DT_Point_Sf_SwigStatic_methods,
-    swig_CCOL_DT_Point_Sf_SwigStatic_attributes,
-    swig_CCOL_DT_Point_Sf_SwigStatic_constants,
-    swig_CCOL_DT_Point_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CCOL_DT_Point_bases[] = {0};
-static const char *swig_CCOL_DT_Point_base_names[] = {0};
-static swig_lua_class _wrap_class_CCOL_DT_Point = { "CCOL_DT_Point", "CCOL_DT_Point", &SWIGTYPE_p_CCOL_DT_Point,_proxy__wrap_new_CCOL_DT_Point, swig_delete_CCOL_DT_Point, swig_CCOL_DT_Point_methods, swig_CCOL_DT_Point_attributes, &swig_CCOL_DT_Point_Sf_SwigStatic, swig_CCOL_DT_Point_meta, swig_CCOL_DT_Point_bases, swig_CCOL_DT_Point_base_names };
-
-static int _wrap_new_CCOL_DT_ColTester(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CCOL_DT_ColTester *result = 0 ;
-    
-    SWIG_check_num_args("CCOL_DT_ColTester::CCOL_DT_ColTester",0,0)
-    result = (CCOL_DT_ColTester *)new CCOL_DT_ColTester();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CCOL_DT_ColTester,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
 static int _wrap_CCOL_DT_ColTester_fTestCollision(lua_State* L) {
   {
     int SWIG_arg = 0;
@@ -99589,6 +98777,23 @@ static int _wrap_CCOL_DT_ColTester_fTestTriangle(lua_State* L) {
 }
 
 
+static int _wrap_new_CCOL_DT_ColTester(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CCOL_DT_ColTester *result = 0 ;
+    
+    SWIG_check_num_args("CCOL_DT_ColTester::CCOL_DT_ColTester",0,0)
+    result = (CCOL_DT_ColTester *)new CCOL_DT_ColTester();
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CCOL_DT_ColTester,1); SWIG_arg++; 
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
 static void swig_delete_CCOL_DT_ColTester(void *obj) {
 CCOL_DT_ColTester *arg1 = (CCOL_DT_ColTester *) obj;
 delete arg1;
@@ -99639,23 +98844,6 @@ static swig_lua_class *swig_CCOL_DT_ColTester_bases[] = {0};
 static const char *swig_CCOL_DT_ColTester_base_names[] = {0};
 static swig_lua_class _wrap_class_CCOL_DT_ColTester = { "CCOL_DT_ColTester", "CCOL_DT_ColTester", &SWIGTYPE_p_CCOL_DT_ColTester,_proxy__wrap_new_CCOL_DT_ColTester, swig_delete_CCOL_DT_ColTester, swig_CCOL_DT_ColTester_methods, swig_CCOL_DT_ColTester_attributes, &swig_CCOL_DT_ColTester_Sf_SwigStatic, swig_CCOL_DT_ColTester_meta, swig_CCOL_DT_ColTester_bases, swig_CCOL_DT_ColTester_base_names };
 
-static int _wrap_new_CCOL_MT_CommonMesh(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CCOL_MT_CommonMesh *result = 0 ;
-    
-    SWIG_check_num_args("CCOL_MT_CommonMesh::CCOL_MT_CommonMesh",0,0)
-    result = (CCOL_MT_CommonMesh *)new CCOL_MT_CommonMesh();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CCOL_MT_CommonMesh,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
 static int _wrap_CCOL_MT_CommonMesh_iTestCollision(lua_State* L) {
   {
     int SWIG_arg = 0;
@@ -99695,6 +98883,23 @@ static int _wrap_CCOL_MT_CommonMesh_iTestCollision(lua_State* L) {
     
     result = (int)(arg1)->iTestCollision(arg2,arg3,arg4,*arg5);
     lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_new_CCOL_MT_CommonMesh(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CCOL_MT_CommonMesh *result = 0 ;
+    
+    SWIG_check_num_args("CCOL_MT_CommonMesh::CCOL_MT_CommonMesh",0,0)
+    result = (CCOL_MT_CommonMesh *)new CCOL_MT_CommonMesh();
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CCOL_MT_CommonMesh,1); SWIG_arg++; 
     return SWIG_arg;
     
     fail: SWIGUNUSED;
@@ -101020,6 +100225,197 @@ static swig_lua_class *swig_CCOL_ST_Point_bases[] = {0};
 static const char *swig_CCOL_ST_Point_base_names[] = {0};
 static swig_lua_class _wrap_class_CCOL_ST_Point = { "CCOL_ST_Point", "CCOL_ST_Point", &SWIGTYPE_p_CCOL_ST_Point,_proxy__wrap_new_CCOL_ST_Point, swig_delete_CCOL_ST_Point, swig_CCOL_ST_Point_methods, swig_CCOL_ST_Point_attributes, &swig_CCOL_ST_Point_Sf_SwigStatic, swig_CCOL_ST_Point_meta, swig_CCOL_ST_Point_bases, swig_CCOL_ST_Point_base_names };
 
+static int _wrap_CCOL_ST_Box_iTestSphere(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGVect3 *arg1 = 0 ;
+    CGVect3 *arg2 = 0 ;
+    CGVect3 *arg3 = 0 ;
+    float arg4 ;
+    int result;
+    
+    SWIG_check_num_args("CCOL_ST_Box::iTestSphere",4,4)
+    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CCOL_ST_Box::iTestSphere",1,"CGVect3 const &");
+    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CCOL_ST_Box::iTestSphere",2,"CGVect3 const &");
+    if(!lua_isuserdata(L,3)) SWIG_fail_arg("CCOL_ST_Box::iTestSphere",3,"CGVect3 const &");
+    if(!lua_isnumber(L,4)) SWIG_fail_arg("CCOL_ST_Box::iTestSphere",4,"float");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_ST_Box_iTestSphere",1,SWIGTYPE_p_CGVect3);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_ST_Box_iTestSphere",2,SWIGTYPE_p_CGVect3);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_ST_Box_iTestSphere",3,SWIGTYPE_p_CGVect3);
+    }
+    
+    arg4 = (float)lua_tonumber(L, 4);
+    result = (int)CCOL_ST_Box::iTestSphere((CGVect3 const &)*arg1,(CGVect3 const &)*arg2,(CGVect3 const &)*arg3,arg4);
+    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CCOL_ST_Box_iTestBox(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGVect3 *arg1 = 0 ;
+    CGVect3 *arg2 = 0 ;
+    CGVect3 *arg3 = 0 ;
+    CGVect3 *arg4 = 0 ;
+    int result;
+    
+    SWIG_check_num_args("CCOL_ST_Box::iTestBox",4,4)
+    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CCOL_ST_Box::iTestBox",1,"CGVect3 const &");
+    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CCOL_ST_Box::iTestBox",2,"CGVect3 const &");
+    if(!lua_isuserdata(L,3)) SWIG_fail_arg("CCOL_ST_Box::iTestBox",3,"CGVect3 const &");
+    if(!lua_isuserdata(L,4)) SWIG_fail_arg("CCOL_ST_Box::iTestBox",4,"CGVect3 const &");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_ST_Box_iTestBox",1,SWIGTYPE_p_CGVect3);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_ST_Box_iTestBox",2,SWIGTYPE_p_CGVect3);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_ST_Box_iTestBox",3,SWIGTYPE_p_CGVect3);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_ST_Box_iTestBox",4,SWIGTYPE_p_CGVect3);
+    }
+    
+    result = (int)CCOL_ST_Box::iTestBox((CGVect3 const &)*arg1,(CGVect3 const &)*arg2,(CGVect3 const &)*arg3,(CGVect3 const &)*arg4);
+    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CCOL_ST_Box_iTestPoint(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGVect3 *arg1 = 0 ;
+    CGVect3 *arg2 = 0 ;
+    CGVect3 *arg3 = 0 ;
+    int result;
+    
+    SWIG_check_num_args("CCOL_ST_Box::iTestPoint",3,3)
+    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CCOL_ST_Box::iTestPoint",1,"CGVect3 const &");
+    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CCOL_ST_Box::iTestPoint",2,"CGVect3 const &");
+    if(!lua_isuserdata(L,3)) SWIG_fail_arg("CCOL_ST_Box::iTestPoint",3,"CGVect3 const &");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_ST_Box_iTestPoint",1,SWIGTYPE_p_CGVect3);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_ST_Box_iTestPoint",2,SWIGTYPE_p_CGVect3);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_ST_Box_iTestPoint",3,SWIGTYPE_p_CGVect3);
+    }
+    
+    result = (int)CCOL_ST_Box::iTestPoint((CGVect3 const &)*arg1,(CGVect3 const &)*arg2,(CGVect3 const &)*arg3);
+    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_new_CCOL_ST_Box(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CCOL_ST_Box *result = 0 ;
+    
+    SWIG_check_num_args("CCOL_ST_Box::CCOL_ST_Box",0,0)
+    result = (CCOL_ST_Box *)new CCOL_ST_Box();
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CCOL_ST_Box,1); SWIG_arg++; 
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static void swig_delete_CCOL_ST_Box(void *obj) {
+CCOL_ST_Box *arg1 = (CCOL_ST_Box *) obj;
+delete arg1;
+}
+static int _proxy__wrap_new_CCOL_ST_Box(lua_State *L) {
+    assert(lua_istable(L,1));
+    lua_pushcfunction(L,_wrap_new_CCOL_ST_Box);
+    assert(!lua_isnil(L,-1));
+    lua_replace(L,1); /* replace our table with real constructor */
+    lua_call(L,lua_gettop(L)-1,1);
+    return 1;
+}
+static swig_lua_attribute swig_CCOL_ST_Box_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_method swig_CCOL_ST_Box_methods[]= {
+    {0,0}
+};
+static swig_lua_method swig_CCOL_ST_Box_meta[] = {
+    {0,0}
+};
+
+static swig_lua_attribute swig_CCOL_ST_Box_Sf_SwigStatic_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_const_info swig_CCOL_ST_Box_Sf_SwigStatic_constants[]= {
+    {0,0,0,0,0,0}
+};
+static swig_lua_method swig_CCOL_ST_Box_Sf_SwigStatic_methods[]= {
+    { "iTestSphere", _wrap_CCOL_ST_Box_iTestSphere},
+    { "iTestBox", _wrap_CCOL_ST_Box_iTestBox},
+    { "iTestPoint", _wrap_CCOL_ST_Box_iTestPoint},
+    {0,0}
+};
+static swig_lua_class* swig_CCOL_ST_Box_Sf_SwigStatic_classes[]= {
+    0
+};
+
+static swig_lua_namespace swig_CCOL_ST_Box_Sf_SwigStatic = {
+    "CCOL_ST_Box",
+    swig_CCOL_ST_Box_Sf_SwigStatic_methods,
+    swig_CCOL_ST_Box_Sf_SwigStatic_attributes,
+    swig_CCOL_ST_Box_Sf_SwigStatic_constants,
+    swig_CCOL_ST_Box_Sf_SwigStatic_classes,
+    0
+};
+static swig_lua_class *swig_CCOL_ST_Box_bases[] = {0};
+static const char *swig_CCOL_ST_Box_base_names[] = {0};
+static swig_lua_class _wrap_class_CCOL_ST_Box = { "CCOL_ST_Box", "CCOL_ST_Box", &SWIGTYPE_p_CCOL_ST_Box,_proxy__wrap_new_CCOL_ST_Box, swig_delete_CCOL_ST_Box, swig_CCOL_ST_Box_methods, swig_CCOL_ST_Box_attributes, &swig_CCOL_ST_Box_Sf_SwigStatic, swig_CCOL_ST_Box_meta, swig_CCOL_ST_Box_bases, swig_CCOL_ST_Box_base_names };
+
 static int _wrap_CCOL_ST_Sphere_iTestSphere(lua_State* L) {
   {
     int SWIG_arg = 0;
@@ -102321,6 +101717,567 @@ static swig_lua_namespace swig_CCOL_ST_Tris_Sf_SwigStatic = {
 static swig_lua_class *swig_CCOL_ST_Tris_bases[] = {0};
 static const char *swig_CCOL_ST_Tris_base_names[] = {0};
 static swig_lua_class _wrap_class_CCOL_ST_Tris = { "CCOL_ST_Tris", "CCOL_ST_Tris", &SWIGTYPE_p_CCOL_ST_Tris,_proxy__wrap_new_CCOL_ST_Tris, swig_delete_CCOL_ST_Tris, swig_CCOL_ST_Tris_methods, swig_CCOL_ST_Tris_attributes, &swig_CCOL_ST_Tris_Sf_SwigStatic, swig_CCOL_ST_Tris_meta, swig_CCOL_ST_Tris_bases, swig_CCOL_ST_Tris_base_names };
+
+static int _wrap_CCOL_DT_Box_fTestSphere(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGVect3 *arg1 = 0 ;
+    CGVect3 *arg2 = 0 ;
+    CGVect3 *arg3 = 0 ;
+    float arg4 ;
+    float result;
+    
+    SWIG_check_num_args("CCOL_DT_Box::fTestSphere",4,4)
+    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CCOL_DT_Box::fTestSphere",1,"CGVect3 const &");
+    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CCOL_DT_Box::fTestSphere",2,"CGVect3 const &");
+    if(!lua_isuserdata(L,3)) SWIG_fail_arg("CCOL_DT_Box::fTestSphere",3,"CGVect3 const &");
+    if(!lua_isnumber(L,4)) SWIG_fail_arg("CCOL_DT_Box::fTestSphere",4,"float");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_DT_Box_fTestSphere",1,SWIGTYPE_p_CGVect3);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_DT_Box_fTestSphere",2,SWIGTYPE_p_CGVect3);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_DT_Box_fTestSphere",3,SWIGTYPE_p_CGVect3);
+    }
+    
+    arg4 = (float)lua_tonumber(L, 4);
+    result = (float)CCOL_DT_Box::fTestSphere((CGVect3 const &)*arg1,(CGVect3 const &)*arg2,(CGVect3 const &)*arg3,arg4);
+    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CCOL_DT_Box_fTestBox(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGVect3 *arg1 = 0 ;
+    CGVect3 *arg2 = 0 ;
+    CGVect3 *arg3 = 0 ;
+    CGVect3 *arg4 = 0 ;
+    float result;
+    
+    SWIG_check_num_args("CCOL_DT_Box::fTestBox",4,4)
+    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CCOL_DT_Box::fTestBox",1,"CGVect3 const &");
+    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CCOL_DT_Box::fTestBox",2,"CGVect3 const &");
+    if(!lua_isuserdata(L,3)) SWIG_fail_arg("CCOL_DT_Box::fTestBox",3,"CGVect3 const &");
+    if(!lua_isuserdata(L,4)) SWIG_fail_arg("CCOL_DT_Box::fTestBox",4,"CGVect3 const &");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_DT_Box_fTestBox",1,SWIGTYPE_p_CGVect3);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_DT_Box_fTestBox",2,SWIGTYPE_p_CGVect3);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_DT_Box_fTestBox",3,SWIGTYPE_p_CGVect3);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_DT_Box_fTestBox",4,SWIGTYPE_p_CGVect3);
+    }
+    
+    result = (float)CCOL_DT_Box::fTestBox((CGVect3 const &)*arg1,(CGVect3 const &)*arg2,(CGVect3 const &)*arg3,(CGVect3 const &)*arg4);
+    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CCOL_DT_Box_fTestPoint(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGVect3 *arg1 = 0 ;
+    CGVect3 *arg2 = 0 ;
+    CGVect3 *arg3 = 0 ;
+    float result;
+    
+    SWIG_check_num_args("CCOL_DT_Box::fTestPoint",3,3)
+    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CCOL_DT_Box::fTestPoint",1,"CGVect3 const &");
+    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CCOL_DT_Box::fTestPoint",2,"CGVect3 const &");
+    if(!lua_isuserdata(L,3)) SWIG_fail_arg("CCOL_DT_Box::fTestPoint",3,"CGVect3 const &");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_DT_Box_fTestPoint",1,SWIGTYPE_p_CGVect3);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_DT_Box_fTestPoint",2,SWIGTYPE_p_CGVect3);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_DT_Box_fTestPoint",3,SWIGTYPE_p_CGVect3);
+    }
+    
+    result = (float)CCOL_DT_Box::fTestPoint((CGVect3 const &)*arg1,(CGVect3 const &)*arg2,(CGVect3 const &)*arg3);
+    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CCOL_DT_Box_iGetCollisionAxis(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    int result;
+    
+    SWIG_check_num_args("CCOL_DT_Box::iGetCollisionAxis",0,0)
+    result = (int)CCOL_DT_Box::iGetCollisionAxis();
+    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_new_CCOL_DT_Box(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CCOL_DT_Box *result = 0 ;
+    
+    SWIG_check_num_args("CCOL_DT_Box::CCOL_DT_Box",0,0)
+    result = (CCOL_DT_Box *)new CCOL_DT_Box();
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CCOL_DT_Box,1); SWIG_arg++; 
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static void swig_delete_CCOL_DT_Box(void *obj) {
+CCOL_DT_Box *arg1 = (CCOL_DT_Box *) obj;
+delete arg1;
+}
+static int _proxy__wrap_new_CCOL_DT_Box(lua_State *L) {
+    assert(lua_istable(L,1));
+    lua_pushcfunction(L,_wrap_new_CCOL_DT_Box);
+    assert(!lua_isnil(L,-1));
+    lua_replace(L,1); /* replace our table with real constructor */
+    lua_call(L,lua_gettop(L)-1,1);
+    return 1;
+}
+static swig_lua_attribute swig_CCOL_DT_Box_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_method swig_CCOL_DT_Box_methods[]= {
+    {0,0}
+};
+static swig_lua_method swig_CCOL_DT_Box_meta[] = {
+    {0,0}
+};
+
+static swig_lua_attribute swig_CCOL_DT_Box_Sf_SwigStatic_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_const_info swig_CCOL_DT_Box_Sf_SwigStatic_constants[]= {
+    {0,0,0,0,0,0}
+};
+static swig_lua_method swig_CCOL_DT_Box_Sf_SwigStatic_methods[]= {
+    { "fTestSphere", _wrap_CCOL_DT_Box_fTestSphere},
+    { "fTestBox", _wrap_CCOL_DT_Box_fTestBox},
+    { "fTestPoint", _wrap_CCOL_DT_Box_fTestPoint},
+    { "iGetCollisionAxis", _wrap_CCOL_DT_Box_iGetCollisionAxis},
+    {0,0}
+};
+static swig_lua_class* swig_CCOL_DT_Box_Sf_SwigStatic_classes[]= {
+    0
+};
+
+static swig_lua_namespace swig_CCOL_DT_Box_Sf_SwigStatic = {
+    "CCOL_DT_Box",
+    swig_CCOL_DT_Box_Sf_SwigStatic_methods,
+    swig_CCOL_DT_Box_Sf_SwigStatic_attributes,
+    swig_CCOL_DT_Box_Sf_SwigStatic_constants,
+    swig_CCOL_DT_Box_Sf_SwigStatic_classes,
+    0
+};
+static swig_lua_class *swig_CCOL_DT_Box_bases[] = {0};
+static const char *swig_CCOL_DT_Box_base_names[] = {0};
+static swig_lua_class _wrap_class_CCOL_DT_Box = { "CCOL_DT_Box", "CCOL_DT_Box", &SWIGTYPE_p_CCOL_DT_Box,_proxy__wrap_new_CCOL_DT_Box, swig_delete_CCOL_DT_Box, swig_CCOL_DT_Box_methods, swig_CCOL_DT_Box_attributes, &swig_CCOL_DT_Box_Sf_SwigStatic, swig_CCOL_DT_Box_meta, swig_CCOL_DT_Box_bases, swig_CCOL_DT_Box_base_names };
+
+static int _wrap_CCOL_DT_Sphere_fTestSphere(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGVect3 *arg1 = 0 ;
+    float arg2 ;
+    CGVect3 *arg3 = 0 ;
+    float arg4 ;
+    float result;
+    
+    SWIG_check_num_args("CCOL_DT_Sphere::fTestSphere",4,4)
+    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CCOL_DT_Sphere::fTestSphere",1,"CGVect3 const &");
+    if(!lua_isnumber(L,2)) SWIG_fail_arg("CCOL_DT_Sphere::fTestSphere",2,"float");
+    if(!lua_isuserdata(L,3)) SWIG_fail_arg("CCOL_DT_Sphere::fTestSphere",3,"CGVect3 const &");
+    if(!lua_isnumber(L,4)) SWIG_fail_arg("CCOL_DT_Sphere::fTestSphere",4,"float");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_DT_Sphere_fTestSphere",1,SWIGTYPE_p_CGVect3);
+    }
+    
+    arg2 = (float)lua_tonumber(L, 2);
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_DT_Sphere_fTestSphere",3,SWIGTYPE_p_CGVect3);
+    }
+    
+    arg4 = (float)lua_tonumber(L, 4);
+    result = (float)CCOL_DT_Sphere::fTestSphere((CGVect3 const &)*arg1,arg2,(CGVect3 const &)*arg3,arg4);
+    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CCOL_DT_Sphere_fTestBox(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGVect3 *arg1 = 0 ;
+    float arg2 ;
+    CGVect3 *arg3 = 0 ;
+    CGVect3 *arg4 = 0 ;
+    float result;
+    
+    SWIG_check_num_args("CCOL_DT_Sphere::fTestBox",4,4)
+    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CCOL_DT_Sphere::fTestBox",1,"CGVect3 const &");
+    if(!lua_isnumber(L,2)) SWIG_fail_arg("CCOL_DT_Sphere::fTestBox",2,"float");
+    if(!lua_isuserdata(L,3)) SWIG_fail_arg("CCOL_DT_Sphere::fTestBox",3,"CGVect3 const &");
+    if(!lua_isuserdata(L,4)) SWIG_fail_arg("CCOL_DT_Sphere::fTestBox",4,"CGVect3 const &");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_DT_Sphere_fTestBox",1,SWIGTYPE_p_CGVect3);
+    }
+    
+    arg2 = (float)lua_tonumber(L, 2);
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_DT_Sphere_fTestBox",3,SWIGTYPE_p_CGVect3);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_DT_Sphere_fTestBox",4,SWIGTYPE_p_CGVect3);
+    }
+    
+    result = (float)CCOL_DT_Sphere::fTestBox((CGVect3 const &)*arg1,arg2,(CGVect3 const &)*arg3,(CGVect3 const &)*arg4);
+    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CCOL_DT_Sphere_fTestPoint(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGVect3 *arg1 = 0 ;
+    float arg2 ;
+    CGVect3 *arg3 = 0 ;
+    float result;
+    
+    SWIG_check_num_args("CCOL_DT_Sphere::fTestPoint",3,3)
+    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CCOL_DT_Sphere::fTestPoint",1,"CGVect3 const &");
+    if(!lua_isnumber(L,2)) SWIG_fail_arg("CCOL_DT_Sphere::fTestPoint",2,"float");
+    if(!lua_isuserdata(L,3)) SWIG_fail_arg("CCOL_DT_Sphere::fTestPoint",3,"CGVect3 const &");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_DT_Sphere_fTestPoint",1,SWIGTYPE_p_CGVect3);
+    }
+    
+    arg2 = (float)lua_tonumber(L, 2);
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_DT_Sphere_fTestPoint",3,SWIGTYPE_p_CGVect3);
+    }
+    
+    result = (float)CCOL_DT_Sphere::fTestPoint((CGVect3 const &)*arg1,arg2,(CGVect3 const &)*arg3);
+    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_new_CCOL_DT_Sphere(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CCOL_DT_Sphere *result = 0 ;
+    
+    SWIG_check_num_args("CCOL_DT_Sphere::CCOL_DT_Sphere",0,0)
+    result = (CCOL_DT_Sphere *)new CCOL_DT_Sphere();
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CCOL_DT_Sphere,1); SWIG_arg++; 
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static void swig_delete_CCOL_DT_Sphere(void *obj) {
+CCOL_DT_Sphere *arg1 = (CCOL_DT_Sphere *) obj;
+delete arg1;
+}
+static int _proxy__wrap_new_CCOL_DT_Sphere(lua_State *L) {
+    assert(lua_istable(L,1));
+    lua_pushcfunction(L,_wrap_new_CCOL_DT_Sphere);
+    assert(!lua_isnil(L,-1));
+    lua_replace(L,1); /* replace our table with real constructor */
+    lua_call(L,lua_gettop(L)-1,1);
+    return 1;
+}
+static swig_lua_attribute swig_CCOL_DT_Sphere_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_method swig_CCOL_DT_Sphere_methods[]= {
+    {0,0}
+};
+static swig_lua_method swig_CCOL_DT_Sphere_meta[] = {
+    {0,0}
+};
+
+static swig_lua_attribute swig_CCOL_DT_Sphere_Sf_SwigStatic_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_const_info swig_CCOL_DT_Sphere_Sf_SwigStatic_constants[]= {
+    {0,0,0,0,0,0}
+};
+static swig_lua_method swig_CCOL_DT_Sphere_Sf_SwigStatic_methods[]= {
+    { "fTestSphere", _wrap_CCOL_DT_Sphere_fTestSphere},
+    { "fTestBox", _wrap_CCOL_DT_Sphere_fTestBox},
+    { "fTestPoint", _wrap_CCOL_DT_Sphere_fTestPoint},
+    {0,0}
+};
+static swig_lua_class* swig_CCOL_DT_Sphere_Sf_SwigStatic_classes[]= {
+    0
+};
+
+static swig_lua_namespace swig_CCOL_DT_Sphere_Sf_SwigStatic = {
+    "CCOL_DT_Sphere",
+    swig_CCOL_DT_Sphere_Sf_SwigStatic_methods,
+    swig_CCOL_DT_Sphere_Sf_SwigStatic_attributes,
+    swig_CCOL_DT_Sphere_Sf_SwigStatic_constants,
+    swig_CCOL_DT_Sphere_Sf_SwigStatic_classes,
+    0
+};
+static swig_lua_class *swig_CCOL_DT_Sphere_bases[] = {0};
+static const char *swig_CCOL_DT_Sphere_base_names[] = {0};
+static swig_lua_class _wrap_class_CCOL_DT_Sphere = { "CCOL_DT_Sphere", "CCOL_DT_Sphere", &SWIGTYPE_p_CCOL_DT_Sphere,_proxy__wrap_new_CCOL_DT_Sphere, swig_delete_CCOL_DT_Sphere, swig_CCOL_DT_Sphere_methods, swig_CCOL_DT_Sphere_attributes, &swig_CCOL_DT_Sphere_Sf_SwigStatic, swig_CCOL_DT_Sphere_meta, swig_CCOL_DT_Sphere_bases, swig_CCOL_DT_Sphere_base_names };
+
+static int _wrap_CCOL_DT_Point_fTestSphere(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGVect3 *arg1 = 0 ;
+    CGVect3 *arg2 = 0 ;
+    float arg3 ;
+    float result;
+    
+    SWIG_check_num_args("CCOL_DT_Point::fTestSphere",3,3)
+    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CCOL_DT_Point::fTestSphere",1,"CGVect3 const &");
+    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CCOL_DT_Point::fTestSphere",2,"CGVect3 const &");
+    if(!lua_isnumber(L,3)) SWIG_fail_arg("CCOL_DT_Point::fTestSphere",3,"float");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_DT_Point_fTestSphere",1,SWIGTYPE_p_CGVect3);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_DT_Point_fTestSphere",2,SWIGTYPE_p_CGVect3);
+    }
+    
+    arg3 = (float)lua_tonumber(L, 3);
+    result = (float)CCOL_DT_Point::fTestSphere((CGVect3 const &)*arg1,(CGVect3 const &)*arg2,arg3);
+    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CCOL_DT_Point_fTestBox(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGVect3 *arg1 = 0 ;
+    CGVect3 *arg2 = 0 ;
+    CGVect3 *arg3 = 0 ;
+    float result;
+    
+    SWIG_check_num_args("CCOL_DT_Point::fTestBox",3,3)
+    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CCOL_DT_Point::fTestBox",1,"CGVect3 const &");
+    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CCOL_DT_Point::fTestBox",2,"CGVect3 const &");
+    if(!lua_isuserdata(L,3)) SWIG_fail_arg("CCOL_DT_Point::fTestBox",3,"CGVect3 const &");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_DT_Point_fTestBox",1,SWIGTYPE_p_CGVect3);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_DT_Point_fTestBox",2,SWIGTYPE_p_CGVect3);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_DT_Point_fTestBox",3,SWIGTYPE_p_CGVect3);
+    }
+    
+    result = (float)CCOL_DT_Point::fTestBox((CGVect3 const &)*arg1,(CGVect3 const &)*arg2,(CGVect3 const &)*arg3);
+    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CCOL_DT_Point_fTestPoint(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGVect3 *arg1 = 0 ;
+    float arg2 ;
+    CGVect3 *arg3 = 0 ;
+    float result;
+    
+    SWIG_check_num_args("CCOL_DT_Point::fTestPoint",3,3)
+    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CCOL_DT_Point::fTestPoint",1,"CGVect3 const &");
+    if(!lua_isnumber(L,2)) SWIG_fail_arg("CCOL_DT_Point::fTestPoint",2,"float");
+    if(!lua_isuserdata(L,3)) SWIG_fail_arg("CCOL_DT_Point::fTestPoint",3,"CGVect3 const &");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_DT_Point_fTestPoint",1,SWIGTYPE_p_CGVect3);
+    }
+    
+    arg2 = (float)lua_tonumber(L, 2);
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_CGVect3,0))){
+      SWIG_fail_ptr("CCOL_DT_Point_fTestPoint",3,SWIGTYPE_p_CGVect3);
+    }
+    
+    result = (float)CCOL_DT_Point::fTestPoint((CGVect3 const &)*arg1,arg2,(CGVect3 const &)*arg3);
+    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_new_CCOL_DT_Point(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CCOL_DT_Point *result = 0 ;
+    
+    SWIG_check_num_args("CCOL_DT_Point::CCOL_DT_Point",0,0)
+    result = (CCOL_DT_Point *)new CCOL_DT_Point();
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CCOL_DT_Point,1); SWIG_arg++; 
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static void swig_delete_CCOL_DT_Point(void *obj) {
+CCOL_DT_Point *arg1 = (CCOL_DT_Point *) obj;
+delete arg1;
+}
+static int _proxy__wrap_new_CCOL_DT_Point(lua_State *L) {
+    assert(lua_istable(L,1));
+    lua_pushcfunction(L,_wrap_new_CCOL_DT_Point);
+    assert(!lua_isnil(L,-1));
+    lua_replace(L,1); /* replace our table with real constructor */
+    lua_call(L,lua_gettop(L)-1,1);
+    return 1;
+}
+static swig_lua_attribute swig_CCOL_DT_Point_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_method swig_CCOL_DT_Point_methods[]= {
+    {0,0}
+};
+static swig_lua_method swig_CCOL_DT_Point_meta[] = {
+    {0,0}
+};
+
+static swig_lua_attribute swig_CCOL_DT_Point_Sf_SwigStatic_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_const_info swig_CCOL_DT_Point_Sf_SwigStatic_constants[]= {
+    {0,0,0,0,0,0}
+};
+static swig_lua_method swig_CCOL_DT_Point_Sf_SwigStatic_methods[]= {
+    { "fTestSphere", _wrap_CCOL_DT_Point_fTestSphere},
+    { "fTestBox", _wrap_CCOL_DT_Point_fTestBox},
+    { "fTestPoint", _wrap_CCOL_DT_Point_fTestPoint},
+    {0,0}
+};
+static swig_lua_class* swig_CCOL_DT_Point_Sf_SwigStatic_classes[]= {
+    0
+};
+
+static swig_lua_namespace swig_CCOL_DT_Point_Sf_SwigStatic = {
+    "CCOL_DT_Point",
+    swig_CCOL_DT_Point_Sf_SwigStatic_methods,
+    swig_CCOL_DT_Point_Sf_SwigStatic_attributes,
+    swig_CCOL_DT_Point_Sf_SwigStatic_constants,
+    swig_CCOL_DT_Point_Sf_SwigStatic_classes,
+    0
+};
+static swig_lua_class *swig_CCOL_DT_Point_bases[] = {0};
+static const char *swig_CCOL_DT_Point_base_names[] = {0};
+static swig_lua_class _wrap_class_CCOL_DT_Point = { "CCOL_DT_Point", "CCOL_DT_Point", &SWIGTYPE_p_CCOL_DT_Point,_proxy__wrap_new_CCOL_DT_Point, swig_delete_CCOL_DT_Point, swig_CCOL_DT_Point_methods, swig_CCOL_DT_Point_attributes, &swig_CCOL_DT_Point_Sf_SwigStatic, swig_CCOL_DT_Point_meta, swig_CCOL_DT_Point_bases, swig_CCOL_DT_Point_base_names };
 
 static int _wrap_CGAIMathFuncs_GetRotatedY(lua_State* L) {
   {
@@ -105947,10 +105904,6 @@ static swig_lua_const_info swig_SwigModule_constants[]= {
     {SWIG_LUA_CONSTTAB_INT("CCOL_ColState_h", (1))},
     {SWIG_LUA_CONSTTAB_INT("CCOL_DT_Tri_h", (1))},
     {SWIG_LUA_CONSTTAB_INT("CCOL_DT_ColTester_h", (1))},
-    {SWIG_LUA_CONSTTAB_INT("CCOL_DT_Box_h", (1))},
-    {SWIG_LUA_CONSTTAB_INT("CCOL_ST_Box_h", (1))},
-    {SWIG_LUA_CONSTTAB_INT("CCOL_DT_Point_h", (1))},
-    {SWIG_LUA_CONSTTAB_INT("CCOL_DT_Sphere_h", (1))},
     {SWIG_LUA_CONSTTAB_INT("CCOL_MT_CommonMesh_h", (1))},
     {SWIG_LUA_CONSTTAB_INT("CCOL_TriList_BVRayTest_h", (1))},
     {SWIG_LUA_CONSTTAB_INT("CCOL_Scn_TriListGen_h", (1))},
@@ -105960,8 +105913,12 @@ static swig_lua_const_info swig_SwigModule_constants[]= {
     {SWIG_LUA_CONSTTAB_INT("CCOL_ST_ColTester_h", (1))},
     {SWIG_LUA_CONSTTAB_INT("CCOL_ST_Point_h", (1))},
     {SWIG_LUA_CONSTTAB_INT("CCOL_ST_Sphere_h", (1))},
+    {SWIG_LUA_CONSTTAB_INT("CCOL_ST_Box_h", (1))},
     {SWIG_LUA_CONSTTAB_INT("CCOL_Mesh_h", (1))},
     {SWIG_LUA_CONSTTAB_INT("CCOL_ST_Tris_h", (1))},
+    {SWIG_LUA_CONSTTAB_INT("CCOL_DT_Box_h", (1))},
+    {SWIG_LUA_CONSTTAB_INT("CCOL_DT_Sphere_h", (1))},
+    {SWIG_LUA_CONSTTAB_INT("CCOL_DT_Point_h", (1))},
     {SWIG_LUA_CONSTTAB_INT("SHIFT", (0))},
     {SWIG_LUA_CONSTTAB_INT("TILESIZE", (1))},
     {0,0,0,0,0,0}
@@ -106056,19 +106013,6 @@ static swig_lua_method swig_SwigModule_methods[]= {
     { "CCOL_DT_Tri_fTestSphere", _wrap_CCOL_DT_Tri_fTestSphere},
     { "CCOL_DT_Tri_fTestBox", _wrap_CCOL_DT_Tri_fTestBox},
     { "CCOL_DT_Tri_fTestPoint", _wrap_CCOL_DT_Tri_fTestPoint},
-    { "CCOL_ST_Box_iTestSphere", _wrap_CCOL_ST_Box_iTestSphere},
-    { "CCOL_ST_Box_iTestBox", _wrap_CCOL_ST_Box_iTestBox},
-    { "CCOL_ST_Box_iTestPoint", _wrap_CCOL_ST_Box_iTestPoint},
-    { "CCOL_DT_Box_fTestSphere", _wrap_CCOL_DT_Box_fTestSphere},
-    { "CCOL_DT_Box_fTestBox", _wrap_CCOL_DT_Box_fTestBox},
-    { "CCOL_DT_Box_fTestPoint", _wrap_CCOL_DT_Box_fTestPoint},
-    { "CCOL_DT_Box_iGetCollisionAxis", _wrap_CCOL_DT_Box_iGetCollisionAxis},
-    { "CCOL_DT_Sphere_fTestSphere", _wrap_CCOL_DT_Sphere_fTestSphere},
-    { "CCOL_DT_Sphere_fTestBox", _wrap_CCOL_DT_Sphere_fTestBox},
-    { "CCOL_DT_Sphere_fTestPoint", _wrap_CCOL_DT_Sphere_fTestPoint},
-    { "CCOL_DT_Point_fTestSphere", _wrap_CCOL_DT_Point_fTestSphere},
-    { "CCOL_DT_Point_fTestBox", _wrap_CCOL_DT_Point_fTestBox},
-    { "CCOL_DT_Point_fTestPoint", _wrap_CCOL_DT_Point_fTestPoint},
     { "CCOL_DT_ColTester_fTestCollision", _wrap_CCOL_DT_ColTester_fTestCollision},
     { "CCOL_DT_ColTester_fTestPlane", _wrap_CCOL_DT_ColTester_fTestPlane},
     { "CCOL_DT_ColTester_fTestTriangle", _wrap_CCOL_DT_ColTester_fTestTriangle},
@@ -106079,6 +106023,9 @@ static swig_lua_method swig_SwigModule_methods[]= {
     { "CCOL_ST_Point_iTestSphere", _wrap_CCOL_ST_Point_iTestSphere},
     { "CCOL_ST_Point_iTestBox", _wrap_CCOL_ST_Point_iTestBox},
     { "CCOL_ST_Point_iTestPoint", _wrap_CCOL_ST_Point_iTestPoint},
+    { "CCOL_ST_Box_iTestSphere", _wrap_CCOL_ST_Box_iTestSphere},
+    { "CCOL_ST_Box_iTestBox", _wrap_CCOL_ST_Box_iTestBox},
+    { "CCOL_ST_Box_iTestPoint", _wrap_CCOL_ST_Box_iTestPoint},
     { "CCOL_ST_Sphere_iTestSphere", _wrap_CCOL_ST_Sphere_iTestSphere},
     { "CCOL_ST_Sphere_iTestBox", _wrap_CCOL_ST_Sphere_iTestBox},
     { "CCOL_ST_Sphere_iTestPoint", _wrap_CCOL_ST_Sphere_iTestPoint},
@@ -106098,6 +106045,16 @@ static swig_lua_method swig_SwigModule_methods[]= {
     { "CCOL_ST_Tris_iTestTriangleSphere", _wrap_CCOL_ST_Tris_iTestTriangleSphere},
     { "CCOL_ST_Tris_iTestTriangleBox", _wrap_CCOL_ST_Tris_iTestTriangleBox},
     { "CCOL_ST_Tris_iTestTriangleRay", _wrap_CCOL_ST_Tris_iTestTriangleRay},
+    { "CCOL_DT_Box_fTestSphere", _wrap_CCOL_DT_Box_fTestSphere},
+    { "CCOL_DT_Box_fTestBox", _wrap_CCOL_DT_Box_fTestBox},
+    { "CCOL_DT_Box_fTestPoint", _wrap_CCOL_DT_Box_fTestPoint},
+    { "CCOL_DT_Box_iGetCollisionAxis", _wrap_CCOL_DT_Box_iGetCollisionAxis},
+    { "CCOL_DT_Sphere_fTestSphere", _wrap_CCOL_DT_Sphere_fTestSphere},
+    { "CCOL_DT_Sphere_fTestBox", _wrap_CCOL_DT_Sphere_fTestBox},
+    { "CCOL_DT_Sphere_fTestPoint", _wrap_CCOL_DT_Sphere_fTestPoint},
+    { "CCOL_DT_Point_fTestSphere", _wrap_CCOL_DT_Point_fTestSphere},
+    { "CCOL_DT_Point_fTestBox", _wrap_CCOL_DT_Point_fTestBox},
+    { "CCOL_DT_Point_fTestPoint", _wrap_CCOL_DT_Point_fTestPoint},
     { "DebugPrint", _wrap_DebugPrint},
     { "DebugClear", _wrap_DebugClear},
     { "CallExtension", _wrap_CallExtension},
@@ -106438,10 +106395,6 @@ static swig_lua_class* swig_SwigModule_classes[]= {
 &_wrap_class_CCOL_Collider,
 &_wrap_class_CCOL_ColState,
 &_wrap_class_CCOL_DT_Tri,
-&_wrap_class_CCOL_ST_Box,
-&_wrap_class_CCOL_DT_Box,
-&_wrap_class_CCOL_DT_Sphere,
-&_wrap_class_CCOL_DT_Point,
 &_wrap_class_CCOL_DT_ColTester,
 &_wrap_class_CCOL_MT_CommonMesh,
 &_wrap_class_CCOL_CollisionSystem,
@@ -106450,11 +106403,15 @@ static swig_lua_class* swig_SwigModule_classes[]= {
 &_wrap_class_CCOL_TRN_TriListGen,
 &_wrap_class_CCOL_MT_TerrainMesh,
 &_wrap_class_CCOL_ST_Point,
+&_wrap_class_CCOL_ST_Box,
 &_wrap_class_CCOL_ST_Sphere,
 &_wrap_class_CCOL_ST_ColTester,
 &_wrap_class_CCOL_Mesh,
 &_wrap_class_CCOL_Scn_ColTester,
 &_wrap_class_CCOL_ST_Tris,
+&_wrap_class_CCOL_DT_Box,
+&_wrap_class_CCOL_DT_Sphere,
+&_wrap_class_CCOL_DT_Point,
 &_wrap_class_CGAIMathFuncs,
 &_wrap_class_CGAIMap,
 &_wrap_class_CGAIDXAStar,

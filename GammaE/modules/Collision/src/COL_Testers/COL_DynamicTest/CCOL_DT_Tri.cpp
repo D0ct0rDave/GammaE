@@ -12,6 +12,7 @@
 
 // CCOL_DT_Tri
 #include "COL_Testers\COL_DynamicTest\CCOL_DT_Tri.h"
+#include "CollisionSystem\CCOL_ColState.h"
 
 void ProjectTriangle (const CGVect3& _oD, const CGTriangle& _oTri, float& _fMin, float& _fMax)
 {

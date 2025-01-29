@@ -13,10 +13,7 @@
 #ifndef CCOL_DT_Sphere_h
 #define CCOL_DT_Sphere_h 1
 
-// CCOL_ColState
-#include "CollisionSystem\CCOL_ColState.h"
-// CCOL_DT_Box
-#include "COL_Testers\COL_DynamicTest\CCOL_DT_Box.h"
+#include "Gammae_Math.h"
 
 class CCOL_DT_Sphere
 {

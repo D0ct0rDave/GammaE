@@ -130,7 +130,7 @@ inline T* CGCircularArray <T>::poGet()
 template <class T>
 inline void CGCircularArray <T>::Release(T* _poElem)
 {
-    uint uiIdx = _poElem - m_poElems;
+    size_t uiIdx = _poElem - m_poElems;
     m_bFree[uiIdx] = true;
 }
 // ----------------------------------------------------------------------------

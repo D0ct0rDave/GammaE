@@ -27,6 +27,17 @@ CGGraphBV* CGGraphBVFileIO::pLoadGraphBV(CGFile& _oFile)
 
     switch ( uiObjID )
     {
+        case MAKE_RIFF_ID('B', 'P', 'N', 'T'):
+        {
+            CGVect3 oCenter;
+            _oFile.ReadArray(oCenter.V(), 3);
+
+            CGGraphBVPoint* pPnt = mNew CGGraphBVPoint;
+            pPnt->Init(oCenter);
+            return (pPnt);
+        }
+        break;
+
         case MAKE_RIFF_ID('B','S','P','H'):
         {
             CGVect3 oCenter;
@@ -75,9 +86,19 @@ CGGraphBV* CGGraphBVFileIO::pLoadGraphBV(CGFile& _oFile)
 
 int CGGraphBVFileIO::iSaveGraphBV (CGFile& _oFile, CGGraphBV* _pGBV)
 {
-
     switch ( _pGBV->eGetTypeID() )
     {
+        case EGBoundingVolumeType::BVT_POINT:
+        {
+            CGGraphBVPoint* pPnt = (CGGraphBVPoint*)_pGBV;
+            CGVect3 oCenter = pPnt->oGetCenter();
+            
+            CGFileUtils::BeginRIFFBlock(MAKE_RIFF_ID('B', 'P', 'N', 'T'), _oFile);
+            _oFile.WriteArray(oCenter.V(), 3);
+            CGFileUtils::EndRIFFBlock(_oFile);
+        }
+        break;
+        
         case EGBoundingVolumeType::BVT_SPHERE:
         {
             CGGraphBVSphere* pSph = (CGGraphBVSphere*)_pGBV;

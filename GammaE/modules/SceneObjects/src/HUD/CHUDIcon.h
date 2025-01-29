@@ -20,7 +20,6 @@ class CHUDIcon : public CHUDObject
 {
     public:     
         CHUDIcon();
-        virtual ~CHUDIcon();
         void SetIcon(CGShader* _poShader);
 
 private:

@@ -15,8 +15,6 @@
 
 // GammaE_E3D
 #include "GammaE_E3D.h"
-// CCOL_ColState
-#include "CollisionSystem\CCOL_ColState.h"
 
 class CCOL_DT_Tri
 {

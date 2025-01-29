@@ -38,9 +38,6 @@ class CGSceneSwitch : public CGSceneNode
             return(m_poObj);
         }
 
-        // / Renders the geometry associated to this node.
-        virtual void Render();
-
         // / Enables or disables the rendering of this node. By default enables it.
         void Enable(bool _bEnable = true)
         {

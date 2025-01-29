@@ -52,9 +52,6 @@
     <Filter Include="Project\App\Loop\Game\GameUtils\Laser">
       <UniqueIdentifier>{1E9B572A-8A5F-561A-53C5-86E4BF48F24F}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Project\Docs">
-      <UniqueIdentifier>{B4F4E210-A057-72B5-49DD-AA6B351F3E38}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Modules\Collision\CGColliderDefinitionFileWH.h">
@@ -248,34 +245,5 @@
     <ClCompile Include="..\src\Project\main.cpp">
       <Filter>Project</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\src\Project\Docs\Bugs.txt">
-      <Filter>Project\Docs</Filter>
-    </None>
-    <None Include="..\src\Project\Docs\Concept.txt">
-      <Filter>Project\Docs</Filter>
-    </None>
-    <None Include="..\src\Project\Docs\Dependencies.txt">
-      <Filter>Project\Docs</Filter>
-    </None>
-    <None Include="..\src\Project\Docs\History.txt">
-      <Filter>Project\Docs</Filter>
-    </None>
-    <None Include="..\src\Project\Docs\Mejoras.txt">
-      <Filter>Project\Docs</Filter>
-    </None>
-    <None Include="..\src\Project\Docs\ProjectR_FrameWork.txt">
-      <Filter>Project\Docs</Filter>
-    </None>
-    <None Include="..\src\Project\Docs\TODO.txt">
-      <Filter>Project\Docs</Filter>
-    </None>
-    <None Include="..\src\Project\Docs\extensiones.txt">
-      <Filter>Project\Docs</Filter>
-    </None>
-    <None Include="..\src\Project\Docs\optimization.txt">
-      <Filter>Project\Docs</Filter>
-    </None>
   </ItemGroup>
 </Project>

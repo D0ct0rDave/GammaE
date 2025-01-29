@@ -12,6 +12,8 @@
 
 // CCOL_DT_Box
 #include "COL_Testers\COL_DynamicTest\CCOL_DT_Box.h"
+#include "COL_Testers\COL_StaticTest\CCOL_ST_Box.h"
+#include "CollisionSystem\CCOL_ColState.h"
 
 int CCOL_DT_Box::iColAxis = 0;
 
@@ -66,16 +68,6 @@ bool bFindIntersection (CGVect3& _oOrigin,CGVect3& _oDir,CGVect3& _oExt,float &_
             ( (_fT0 != fSaveT0) || (_fT1 != fSaveT1) ) );
 }
 // -----------------------------------------------------------------------------
-
-// Class CCOL_DT_Box
-
-CCOL_DT_Box::CCOL_DT_Box()
-{
-}
-
-CCOL_DT_Box::~CCOL_DT_Box()
-{
-}
 
 float CCOL_DT_Box::fTestSphere (const CGVect3& _oSMaxs, const CGVect3& _oSMins, const CGVect3& _oDCenter, float _fDRadius)
 {

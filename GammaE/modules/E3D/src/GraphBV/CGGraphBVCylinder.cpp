@@ -72,3 +72,8 @@ const CGBoundingVolume& CGGraphBVCylinder::oGetBV() const
     return (m_oVol);
 }
 // -----------------------------------------------------------------------------
+EGBoundingVolumeType CGGraphBVCylinder::eGetTypeID() const
+{
+    return EGBoundingVolumeType::BVT_CYLINDER;
+}
+// -----------------------------------------------------------------------------
