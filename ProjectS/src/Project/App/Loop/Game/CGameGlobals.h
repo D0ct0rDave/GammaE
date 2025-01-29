@@ -38,7 +38,7 @@ class CGameGlobals
 		
 		CGGameEntity*				m_poPlayer;
 		CGameMap*					m_poMap;
-		CGSceneAnimCfg*				m_poLavadora;
+		CGSceneAnimActionSet*		m_poLavadora;
 };
 
 extern CGameGlobals gameGlobals;

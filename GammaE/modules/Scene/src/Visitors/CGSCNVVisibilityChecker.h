@@ -32,8 +32,6 @@ DECLARE_INHERITANT_SINGLETON(CGSCNVVisibilityChecker,public,CGSceneVisitor)
 
         virtual void Visit(CGSceneCamera * _poNode);
 
-        virtual void Visit(CGSceneCompiledLeaf * _poNode);
-
         virtual void Visit(CGSceneInstance * _poNode);
 
         virtual void Visit(CGSceneLeaf * _poNode);
@@ -48,17 +46,11 @@ DECLARE_INHERITANT_SINGLETON(CGSCNVVisibilityChecker,public,CGSceneVisitor)
 
         virtual void Visit(CGSceneTransf * _poNode);
 
-        virtual void Visit(CGSceneAnimCfg * _poNode);
-
-        virtual void Visit(CGSceneAnimCfgGen * _poNode);
-
-        virtual void Visit(CGSceneAnimCfgMgr * _poNode);
+        virtual void Visit(CGSceneAnimActionSet* _poNode);
 
         virtual void Visit(CGSceneAnimNode * _poNode);
 
         virtual void Visit(CGSceneAnimMesh * _poNode);
-
-        virtual void Visit(CGSceneAnimInstance * _poNode);
 
         virtual void Visit(CGSceneAnimGroup * _poNode);
 

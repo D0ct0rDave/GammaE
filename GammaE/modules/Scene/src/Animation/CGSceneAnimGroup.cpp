@@ -12,6 +12,8 @@
 #include <assert.h>
 // ----------------------------------------------------------------------------
 CGSceneAnimGroup::CGSceneAnimGroup()
+	: m_uiNumStates(0)
+	, m_poBV(NULL)
 {
     m_eNodeType = SNT_AnimGroup;
 }
@@ -26,7 +28,7 @@ CGSceneAnimGroup::~CGSceneAnimGroup()
 
     for (uint uiState = 0; uiState < m_poStateBVs.uiNumElems(); uiState++)
     {
-        delete m_poStateBVs[uiState];
+        mDel m_poStateBVs[uiState];
     }
     m_poStateBVs.Clear();
 }
@@ -64,20 +66,9 @@ void CGSceneAnimGroup::ComputeStatesBVols()
 	assert((m_poStateBVs.uiNumElems()>0) && "NULL Bounding Volume State array");
 
 	CGVect3			oCenter;
-	CGVect3*		pBVVXs;
-	CGGraphBV*		pBVol;
+	CGVect3*		poBVVXs;
+	CGGraphBV*		poBVol;
 	ESceneNodeType	eObjType;
-
-	pBVVXs = mNew CGVect3[m_poObjs.uiNumElems()* 2];
-	for (uint uiObj = 0; uiObj < m_poObjs.uiNumElems(); uiObj++)
-	{
-		eObjType = m_poObjs[uiObj]->eGetNodeType();
-
-		if ((eObjType > SNT_Anim_Begin) && (eObjType < SNT_Anim_End))
-		{
-			((CGSceneAnimNode*)m_poObjs[uiObj])->ComputeStatesBVols();
-		}
-	}
 
 	for (uint uiState = 0; uiState < m_uiNumStates; uiState++)
 	{
@@ -87,28 +78,28 @@ void CGSceneAnimGroup::ComputeStatesBVols()
 
 			if ((eObjType > SNT_Anim_Begin) && (eObjType < SNT_Anim_End))
 			{
-				pBVol = ((CGSceneAnimNode*)m_poObjs[uiObj])->poGetStateBVol(uiState);
+				poBVol = ((CGSceneAnimNode*)m_poObjs[uiObj])->poGetStateBVol(uiState);
 			}
 			else
 			{
-				pBVol = m_poObjs[uiObj]->poGetBV();
+				poBVol = m_poObjs[uiObj]->poGetBV();
 			}
 
-			oCenter = pBVol->oGetCenter();
+			oCenter = poBVol->oGetCenter();
 
-			pBVVXs[uiObj * 2 + 0].Set(oCenter.x - pBVol->GetRange(0),
-				oCenter.y - pBVol->GetRange(1),
-				oCenter.z - pBVol->GetRange(2));
+			poBVVXs[uiObj * 2 + 0].Set(oCenter.x - poBVol->GetRange(0),
+				oCenter.y - poBVol->GetRange(1),
+				oCenter.z - poBVol->GetRange(2));
 
-			pBVVXs[uiObj * 2 + 1].Set(oCenter.x + pBVol->GetRange(0),
-				oCenter.y + pBVol->GetRange(1),
-				oCenter.z + pBVol->GetRange(2));
+			poBVVXs[uiObj * 2 + 1].Set(oCenter.x + poBVol->GetRange(0),
+				oCenter.y + poBVol->GetRange(1),
+				oCenter.z + poBVol->GetRange(2));
 		}
 
-		m_poStateBVs[uiState]->Compute(pBVVXs, m_poObjs.uiNumElems() * 2);
+		m_poStateBVs[uiState]->Compute(poBVVXs, m_poObjs.uiNumElems() * 2);
 	}
 
-	mDel[]pBVVXs;
+	mDel[]poBVVXs;
 	m_poBV = m_poStateBVs[0];
 }
 // ----------------------------------------------------------------------------

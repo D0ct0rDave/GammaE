@@ -15,8 +15,6 @@
 #include "GammaE_Mem.h"
 #include "Gammae_Misc.h"
 #include "Gammae_SceneUtils.h"
-#include "Animation/CGSceneAnimInstance.h"
-
 #include "MD3Model.h"
 
 // CLoaderMD3
@@ -60,7 +58,7 @@
 
 #define TOTAL_MD3FRAME_ANIMS        25
 #define TOTAL_MD3FRAME_ANIM_TIME    100
-
+// ----------------------------------------------------------------------------
 CLoaderMD3::CLoaderMD3()
 {
 }
@@ -68,7 +66,7 @@ CLoaderMD3::CLoaderMD3()
 CLoaderMD3::~CLoaderMD3()
 {
 }
-
+// ----------------------------------------------------------------------------
 int CLoaderMD3::iParseSkinSentence (char* _Buffer, char* SkinName, char* MeshName)
 {
     int iNumFields = 0;
@@ -106,7 +104,7 @@ int CLoaderMD3::iParseSkinSentence (char* _Buffer, char* SkinName, char* MeshNam
 
     return (2);
 }
-
+// ----------------------------------------------------------------------------
 void CLoaderMD3::LoadSkinInfo (char* _Filename)
 {
     FILE* fd;
@@ -174,7 +172,7 @@ void CLoaderMD3::LoadSkinInfo (char* _Filename)
 
     fclose(fd);
 }
-
+// ----------------------------------------------------------------------------
 CGShader* CLoaderMD3::poGetShader (char* _szMeshName)
 {
     int iSkin;
@@ -188,7 +186,7 @@ CGShader* CLoaderMD3::poGetShader (char* _szMeshName)
 
     return (NULL);
 }
-
+// ----------------------------------------------------------------------------
 CGSceneAnimTransf* CLoaderMD3::CreateAnimTransfNode (tag_t* _pTags, int _iNumTags, int _iTagStep)
 {
     CGSceneAnimTransf* pAnimTransf;
@@ -231,7 +229,7 @@ CGSceneAnimTransf* CLoaderMD3::CreateAnimTransfNode (tag_t* _pTags, int _iNumTag
 
     return(pAnimTransf);
 }
-
+// ----------------------------------------------------------------------------
 CGSceneAnimMesh* CLoaderMD3::pCreateAnimMesh (mesh_header_t& _Header, skin_t &_Skin, Q3triangle_t* _Tris, vertice_t* _VXs, tex_coord_t* _UVs)
 {
     // ----------------------------------
@@ -288,7 +286,7 @@ CGSceneAnimMesh* CLoaderMD3::pCreateAnimMesh (mesh_header_t& _Header, skin_t &_S
 
     return (AnimMesh);
 }
-
+// ----------------------------------------------------------------------------
 CGSceneNode* CLoaderMD3::pLoadModel (char* Filename)
 {
     FILE* md3file;
@@ -339,7 +337,6 @@ CGSceneNode* CLoaderMD3::pLoadModel (char* Filename)
 
     // Create animation transformation node (bones)
     AnimTransf = CreateAnimTransfNode(tags,header.numBoneFrames,header.numTags);
-
 
     // free buffers
     MEMFree (tags);
@@ -394,13 +391,13 @@ CGSceneNode* CLoaderMD3::pLoadModel (char* Filename)
     fclose (md3file);
     return (AnimTransf);
 }
-
+// ----------------------------------------------------------------------------
 CGSceneNode* CLoaderMD3::pLoad (char* _ModelName, char* _SkinName)
 {
     LoadSkinInfo(_SkinName);
     return ( pLoadModel(_ModelName) );
 }
-
+// ----------------------------------------------------------------------------
 CGSceneNode* CLoaderMD3::pLoad (char* Filename)
 {
     char* SkinFilename;
@@ -415,7 +412,7 @@ CGSceneNode* CLoaderMD3::pLoad (char* Filename)
     SkinFilename[ iFilenameLen - 3 ] = 's';                    // previously 'm'
     SkinFilename[ iFilenameLen - 2 ] = 'k';                    // previously 'd'
     SkinFilename[ iFilenameLen - 1 ] = 'i';                    // previously '3'
-    SkinFilename[ iFilenameLen   ] = 'n';                    // previously  0
+    SkinFilename[ iFilenameLen     ] = 'n';                    // previously  0
     SkinFilename[ iFilenameLen + 1 ] = 0;
 
     LoadSkinInfo( SkinFilename );
@@ -423,8 +420,8 @@ CGSceneNode* CLoaderMD3::pLoad (char* Filename)
     pLoad(Filename,SkinFilename);
     return (NULL);
 }
-
-CGSceneAnimInstance* CLoaderMD3::pLoadQ3Player (char* _Path, char* _SkinName)
+// ----------------------------------------------------------------------------
+CGSceneAnimActionSet* CLoaderMD3::pLoadQ3Player(char* _Path, char* _SkinName)
 {
     char l_mpath[1024], u_mpath[1024], h_mpath[1024];
     char l_spath[1024], u_spath[1024], h_spath[1024];
@@ -448,13 +445,13 @@ CGSceneAnimInstance* CLoaderMD3::pLoadQ3Player (char* _Path, char* _SkinName)
     U->uiAddAnimObject(H);
     sprintf(a_path,"%s/Animation.cfg",_Path);
 
-    CGSceneAnimInstance* pQ3Player = pLoadAnimation(a_path,L,U);
+    CGSceneAnimActionSet* pQ3Player = pLoadAnimation(a_path,L,U);
 
     // Esto realmente va afuera, pero de momento se deja aqui
-    return (pQ3Player);
+    return pQ3Player;
 }
-
-CGSceneAnimInstance* CLoaderMD3::pLoadAnimation (char* _Filename, CGSceneAnimGroup* _pLegs, CGSceneAnimGroup* _pTorso)
+// ----------------------------------------------------------------------------
+CGSceneAnimActionSet* CLoaderMD3::pLoadAnimation(char* _Filename, CGSceneAnimGroup* _pLegs, CGSceneAnimGroup* _pTorso)
 {
     char* Buffer = Utils::Parse::ReadFile(_Filename);
     char* szHeader = Buffer;
@@ -508,27 +505,25 @@ CGSceneAnimInstance* CLoaderMD3::pLoadAnimation (char* _Filename, CGSceneAnimGro
     // --------------------------------
     // Ok: go to process animation info:
     // --------------------------------
-    CGSceneAnimCfg* Anim = mNew CGSceneAnimCfg;
-    Anim->uiAddAction("allframes", 0, _pLegs->uiGetNumStates() - 1, TOTAL_MD3FRAME_ANIM_TIME, true);
+    CGSceneAnimActionSet* poActionSet = mNew CGSceneAnimActionSet;
+    poActionSet->uiAddAction("allframes", 0, _pLegs->uiGetNumStates() - 1, TOTAL_MD3FRAME_ANIM_TIME, true);
     
-    SetupAnim(1, AnimCfg, Anim);
-    SetupAnim(2, AnimCfg, Anim);
-    SetupAnim(3, AnimCfg, Anim);
-    SetupAnim(7, AnimCfg, Anim);
+    SetupAnim(1, AnimCfg, poActionSet);
+    SetupAnim(2, AnimCfg, poActionSet);
+    SetupAnim(3, AnimCfg, poActionSet);
+    SetupAnim(7, AnimCfg, poActionSet);
 
     CGSceneAnimGroup* poPlayer = mNew CGSceneAnimGroup;
     poPlayer->Setup(_pLegs->uiGetNumStates());
     poPlayer->uiAddAnimObject(_pTorso);
     poPlayer->uiAddAnimObject(_pLegs);
 
-    CGSceneAnimInstance* pQ3Player = mNew CGSceneAnimInstance;
-    pQ3Player->SetAnimatedObject(poPlayer);
-    pQ3Player->SetAnimConfig(Anim);
+    poActionSet->SetAnimObj(poPlayer);
 
-    return (pQ3Player);
+    return (poActionSet);
 }
-
-void CLoaderMD3::SetupAnim(int _iAnimNum, anim_t* _MD3Anim, CGSceneAnimCfg* _poAnimCfg)
+// ----------------------------------------------------------------------------
+void CLoaderMD3::SetupAnim(int _iAnimNum, anim_t* _MD3Anim, CGSceneAnimActionSet* _poAnimActionSet)
 {
 /*
     Code ripped from
@@ -589,7 +584,7 @@ void CLoaderMD3::SetupAnim(int _iAnimNum, anim_t* _MD3Anim, CGSceneAnimCfg* _poA
     switch ( _iAnimNum )
     {
         case 1:                    // Stand
-            _poAnimCfg->uiAddAction("Stand",
+            _poAnimActionSet->uiAddAction("Stand",
                                _MD3Anim[22].first_frame,
                                _MD3Anim[22].first_frame + _MD3Anim[22].num_frames - 1,
                                (float)_MD3Anim[22].num_frames / (float)_MD3Anim[22].frames_per_second,
@@ -597,7 +592,7 @@ void CLoaderMD3::SetupAnim(int _iAnimNum, anim_t* _MD3Anim, CGSceneAnimCfg* _poA
         break;
 
         case 2:                    // Run
-            _poAnimCfg->uiAddAction("Run",
+            _poAnimActionSet->uiAddAction("Run",
                                 _MD3Anim[15].first_frame,
                                 _MD3Anim[15].first_frame + _MD3Anim[15].num_frames - 1,
                                 (float)_MD3Anim[15].num_frames / (float)_MD3Anim[15].frames_per_second,
@@ -605,7 +600,7 @@ void CLoaderMD3::SetupAnim(int _iAnimNum, anim_t* _MD3Anim, CGSceneAnimCfg* _poA
         break;
 
         case 3:                    // Attack
-            _poAnimCfg->uiAddAction("Attack",
+            _poAnimActionSet->uiAddAction("Attack",
                                 _MD3Anim[12].first_frame,
                                 _MD3Anim[12].first_frame + _MD3Anim[12].num_frames - 1,
                                 (float)_MD3Anim[12].num_frames / (float)_MD3Anim[12].frames_per_second,
@@ -613,7 +608,7 @@ void CLoaderMD3::SetupAnim(int _iAnimNum, anim_t* _MD3Anim, CGSceneAnimCfg* _poA
         break;
 
         case 7:                    // Jump
-            _poAnimCfg->uiAddAction("Jump",
+            _poAnimActionSet->uiAddAction("Jump",
                                 _MD3Anim[20].first_frame,
                                 _MD3Anim[20].first_frame + _MD3Anim[20].num_frames - 1,
                                 (float)_MD3Anim[20].num_frames / (float)_MD3Anim[20].frames_per_second,
@@ -621,3 +616,4 @@ void CLoaderMD3::SetupAnim(int _iAnimNum, anim_t* _MD3Anim, CGSceneAnimCfg* _poA
         break;
     }
 }
+// ----------------------------------------------------------------------------

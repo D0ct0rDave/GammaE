@@ -268,16 +268,16 @@ int CLoaderMD2::GetNumFrames ()
     return (MD2Header->numFrames);
 }
 // ----------------------------------------------------------------------------
-CGSceneAnimCfg* CLoaderMD2::pLoadQ2Player(char* Filename)
+CGSceneAnimActionSet* CLoaderMD2::pLoadQ2Player(char* Filename)
 {
-    CGSceneAnimCfg* pQ2Player;
+    CGSceneAnimActionSet* pQ2Player;
     CGSceneAnimMesh* pQ2Model;
 
     pQ2Model = (CGSceneAnimMesh*)pLoad(Filename);
 
     if ( pQ2Model )
     {
-        pQ2Player = mNew CGSceneAnimCfg();
+        pQ2Player = mNew CGSceneAnimActionSet();
         pQ2Player->uiAddAction("full", 0,MD2Header->numFrames,40,true);
 
         pQ2Player->uiAddAction("stand", 0, 39, 10.0f, true);    // stand

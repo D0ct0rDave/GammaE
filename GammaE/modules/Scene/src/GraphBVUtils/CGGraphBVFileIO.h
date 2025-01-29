@@ -15,7 +15,7 @@
 #include "GammaE_Math.h"
 #include "GammaE_E3D.h"
 // -----------------------------------------------------------------------------
-class CGraphBV_FileIO
+class CGGraphBVFileIO
 {
     public:
         static CGGraphBV* pLoadGraphBV(CGFile& _oFile);

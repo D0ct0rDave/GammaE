@@ -11,7 +11,7 @@
 #ifndef CGShInsGeoOpH
 #define CGShInsGeoOpH
 // ----------------------------------------------------------------------------
-#include "Shaders\ShaderInstructions\eShInsGeoOp_TypeID.h"
+#include "Shaders\ShaderInstructions\EShInsGeoOp.h"
 #include "Shaders\ShaderInstructions\CGShaderInstruction.h"
 
 #include "GammaE_Math.h"
@@ -23,13 +23,13 @@ class CGShInsGeoOp : public CGShaderInstruction
         {
         }
 
-        eShInsGeoOp_TypeID eGetGOpType ()
+        EShInsGeoOp eGetGeoOp ()
         {
-            return(m_eGOpType);
+            return(m_eGeoOp);
         }
-        void SetGOpType(eShInsGeoOp_TypeID _eGOpType)
+        void SetGOpType(EShInsGeoOp _eGeoOp)
         {
-            m_eGOpType = _eGOpType;
+            m_eGeoOp = _eGeoOp;
         }
 
         CGEvaluator* poGetEvaluator()
@@ -43,7 +43,7 @@ class CGShInsGeoOp : public CGShaderInstruction
 
     protected:
         CGEvaluator* m_poEval;
-        eShInsGeoOp_TypeID m_eGOpType;
+        EShInsGeoOp m_eGeoOp;
 };
 // ----------------------------------------------------------------------------
 #endif

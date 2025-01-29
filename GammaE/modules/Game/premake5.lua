@@ -23,7 +23,7 @@ workspace("GammaE_" .. project_name)
 -- Install rules (using a post-build step for example purposes)
 prebuildcommands 
 {
-	"$(ProjectDir)../../SDKS/swigwin-4.3.0/swig.exe -includeall -c++ -lua -ignoremissing -I$(ProjectDir)../inc $(ProjectDir)../modules/Game/src/GameRes/Script/CGScriptBinding.cpp"
+	"$(ProjectDir)../../SDKS/swigwin-4.3.0/swig.exe -includeall -c++ -lua -ignoremissing -DGAMMAE_NO_SOUND -DGAMMAE_NO_NETWORK -I$(ProjectDir)../inc $(ProjectDir)../modules/Game/src/GameRes/Script/CGScriptBinding.cpp"
 }
 
 postbuildcommands 

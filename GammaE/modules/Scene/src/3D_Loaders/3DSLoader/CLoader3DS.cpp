@@ -181,7 +181,7 @@ CGMesh* CLoader3DS::poCreateMeshFromFields (uint _uiNumFaces, uint _uiNumVertexs
     // Compute BBox, Normals, Etc ...
     poMesh->SetBV( MeshUtils::poComputeBV( *poMesh ) );
 
-    MeshUtils::ComputeVertexsNormals(*poMesh);
+    MeshUtils::ComputeVertexNormals(*poMesh);
 
     return(poMesh);
 }

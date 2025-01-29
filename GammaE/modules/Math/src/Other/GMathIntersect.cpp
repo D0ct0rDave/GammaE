@@ -15,11 +15,19 @@
 #include "GMathCommon.h"
 #include "Vector\CGVect3.h"
 #include "GammaE_Misc.h"
+#include <assert.h>
 // ----------------------------------------------------------------------------
 namespace Math {
 // ----------------------------------------------------------------------------
-bool bBVsIntersect(CGBoundingVolume* _poBVA,CGBoundingVolume* _poBVB)
+bool bBVsIntersect(class CGBoundingVolume const& _poBVA, class CGBoundingVolume const& _poBVB)
 {
+    assert(false && "Warning Not Implemented");
+    return(false);
+}
+// ----------------------------------------------------------------------------
+bool bBVsIntersect(const CGBoundingVolume& _oBV1, const CGMatrix4x4& _oTransfBV1, const CGBoundingVolume& _oBV2, const CGMatrix4x4& _oTransfBV2)
+{
+    assert(false && "Warning Not Implemented");
     return(false);
 }
 // ----------------------------------------------------------------------------

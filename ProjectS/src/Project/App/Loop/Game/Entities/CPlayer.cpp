@@ -33,9 +33,10 @@ const uint LEGS  = 2;
 
 
 static uint m_uiModelIdxs[3] = {0,0,0};
-
-CGSceneAnimCfg*		m_poModels[3][3];
-CGSceneAnimCfgMgr*	m_poMgr = NULL;
+// -----------------------------------------------------------------------------
+CGSceneAnimNode*		m_poModels[3][3];
+CGSceneAnimActionSet*	m_poMgr = NULL;
+CGSceneAnimGroup*		m_poAnimGroup = NULL;
 // -----------------------------------------------------------------------------
 CPlayer::CPlayer()
 {
@@ -75,27 +76,30 @@ void CPlayer::Init(const CGVect3& _oPos,int _iPlayerID)
 	// Load model
 	CGGraphicInstance* poPlayer = mNew CGGraphicInstance(PLAYER_MODEL);
 
-	m_poModels[HEAD][0] = (CGSceneAnimCfg*)CGModelWH::I()->poGetModel("data/actors/head_jason.gem");
-	m_poModels[HEAD][1] = (CGSceneAnimCfg*)CGModelWH::I()->poGetModel("data/actors/head_old.gem");
-	m_poModels[HEAD][2] = (CGSceneAnimCfg*)CGModelWH::I()->poGetModel("data/actors/head_old.gem");
+	m_poModels[HEAD][0] = (CGSceneAnimNode*)CGModelWH::I()->poGetModel("data/actors/head_jason.gem");
+	m_poModels[HEAD][1] = (CGSceneAnimNode*)CGModelWH::I()->poGetModel("data/actors/head_old.gem");
+	m_poModels[HEAD][2] = (CGSceneAnimNode*)CGModelWH::I()->poGetModel("data/actors/head_old.gem");
 
-	m_poModels[TORSO][0] = (CGSceneAnimCfg*)CGModelWH::I()->poGetModel("data/actors/body_jason.gem");
-	m_poModels[TORSO][1] = (CGSceneAnimCfg*)CGModelWH::I()->poGetModel("data/actors/body_hulk.gem");
-	m_poModels[TORSO][2] = (CGSceneAnimCfg*)CGModelWH::I()->poGetModel("data/actors/body_cop.gem");
+	m_poModels[TORSO][0] = (CGSceneAnimNode*)CGModelWH::I()->poGetModel("data/actors/body_jason.gem");
+	m_poModels[TORSO][1] = (CGSceneAnimNode*)CGModelWH::I()->poGetModel("data/actors/body_hulk.gem");
+	m_poModels[TORSO][2] = (CGSceneAnimNode*)CGModelWH::I()->poGetModel("data/actors/body_cop.gem");
 
-	m_poModels[LEGS][0] = (CGSceneAnimCfg*)CGModelWH::I()->poGetModel("data/actors/legs_jason.gem");
-	m_poModels[LEGS][1] = (CGSceneAnimCfg*)CGModelWH::I()->poGetModel("data/actors/legs_robot.gem");
-	m_poModels[LEGS][2] = (CGSceneAnimCfg*)CGModelWH::I()->poGetModel("data/actors/legs_old.gem");
+	m_poModels[LEGS][0] = (CGSceneAnimNode*)CGModelWH::I()->poGetModel("data/actors/legs_jason.gem");
+	m_poModels[LEGS][1] = (CGSceneAnimNode*)CGModelWH::I()->poGetModel("data/actors/legs_robot.gem");
+	m_poModels[LEGS][2] = (CGSceneAnimNode*)CGModelWH::I()->poGetModel("data/actors/legs_old.gem");
 
-	m_poMgr = mNew CGSceneAnimCfgMgr;
-	m_poMgr->Init(3);
-	m_poMgr->AddAnimObj(m_poModels[HEAD][0]);
-	m_poMgr->AddAnimObj(m_poModels[TORSO][0]);
-	m_poMgr->AddAnimObj(m_poModels[LEGS][0]);
-	m_poMgr->SetFrameAnim(1);
+	m_poAnimGroup = mNew CGSceneAnimGroup;
+	m_poAnimGroup->uiAddAnimObject(m_poModels[HEAD][0]);
+	m_poAnimGroup->uiAddAnimObject(m_poModels[TORSO][0]);
+	m_poAnimGroup->uiAddAnimObject(m_poModels[LEGS][0]);
 
+	m_poMgr = mNew CGSceneAnimActionSet;
+	m_poMgr->SetAnimObj(m_poAnimGroup);
+
+	/*
+	// DMC: Refactor
 	for (uint j=0;j<3;j++)
-		for (uint i=0;i<3;i++)
+	{	for (uint i=0;i<3;i++)
 		{
 			CGSceneAnimCfg* poAnimCfg = (CGSceneAnimCfg*)m_poModels[j][i];
 			for (uint k=0;k<poAnimCfg->iNumFrameAnims;k++)
@@ -105,8 +109,10 @@ void CPlayer::Init(const CGVect3& _oPos,int _iPlayerID)
 				poAnimCfg->FrameAnim[k].FrameTime = poAnimCfg->FrameAnim[k].TotalTime  / (float)uiFrames;
 			}
 		}
+	}
+	*/
 
-	poPlayer->poGraphicResource()->Model(m_poMgr);
+	poPlayer->poGraphicResource()->SetModel(m_poMgr);
 
 	poPlayer->Scale(0.01f);
 	poPlayer->Pos( CGVect3(7,GROUND_HEIGHT,0) );
@@ -184,16 +190,19 @@ void CPlayer::CheckEntityCollisions()
 			// Kill();
 	}
 }
+// -----------------------------------------------------------------------------
 void CPlayer::ShuffleModels()
 {
 	for (uint i=0;i<3;i++)
 	{
 		m_uiModelIdxs[i] = Math::fRand()*3;
 	}
-			// Resetup models
-	m_poMgr->pAnimObjs[HEAD]  = m_poModels[HEAD ][ m_uiModelIdxs[HEAD ] ];
-	m_poMgr->pAnimObjs[TORSO] = m_poModels[TORSO][ m_uiModelIdxs[TORSO] ];
-	m_poMgr->pAnimObjs[LEGS]  = m_poModels[LEGS ][ m_uiModelIdxs[LEGS ] ];	
+	
+	// Resetup models
+	m_poAnimGroup->Clear();
+	m_poAnimGroup->uiAddAnimObject(m_poModels[HEAD ][m_uiModelIdxs[HEAD ]]);
+	m_poAnimGroup->uiAddAnimObject(m_poModels[TORSO][m_uiModelIdxs[TORSO]]);
+	m_poAnimGroup->uiAddAnimObject(m_poModels[LEGS ][m_uiModelIdxs[LEGS ]]);
 }
 // -----------------------------------------------------------------------------
 void CPlayer::Think(float _fDeltaT)

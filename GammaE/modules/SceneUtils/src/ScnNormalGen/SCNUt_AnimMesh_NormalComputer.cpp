@@ -38,7 +38,7 @@ void SCNUt_AnimMesh_NormalComputer::Generate (CGSceneAnimMesh* _pObj)
         pLeafMesh->m_poVX = _pObj->poGetVertices() + _pObj->uiGetNumFrameVXs() * iState;
         pLeafMesh->m_poVN = _pObj->poGetNormals() + _pObj->uiGetNumFrameVXs() * iState;
 
-        MeshUtils::ComputeVertexsNormals(*pLeafMesh);
+        MeshUtils::ComputeVertexNormals(*pLeafMesh);
     }
 
     pLeafMesh->m_poVX = pOldVXs;

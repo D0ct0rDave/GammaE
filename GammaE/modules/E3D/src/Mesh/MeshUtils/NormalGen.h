@@ -15,8 +15,8 @@
 // ----------------------------------------------------------------------------
 namespace MeshUtils {
 // ----------------------------------------------------------------------------
-void ComputePrimitiveNormals(CGMesh &Mesh);
-void ComputeVertexsNormals(CGMesh &Mesh);
+void ComputePrimitiveNormals(CGMesh &_oMesh);
+void ComputeVertexNormals(CGMesh & _oMesh);
 // ----------------------------------------------------------------------------
 }; // MeshUtils
 // ----------------------------------------------------------------------------

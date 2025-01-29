@@ -50,6 +50,11 @@ void CGSceneAnimMesh::Setup(CGMesh* _poStartupMesh, uint _uiNumStates, uint _uiN
     }
 }
 // --------------------------------------------------------------------------------
+uint CGSceneAnimMesh::uiGetNumStates() const
+{
+    return(m_uiNumStates);
+}
+// --------------------------------------------------------------------------------
 uint CGSceneAnimMesh::uiGetNumFrameVXs()
 {
     return (m_poMesh->uiGetNumVXs());

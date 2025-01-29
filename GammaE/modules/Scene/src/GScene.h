@@ -24,9 +24,8 @@
 #include "CGSceneSwitch.h"
 #include "CGSceneTransf.h"
 
-#include "Animation/CGSceneAnimCfg.h"
+#include "Animation/CGSceneAnimActionSet.h"
 #include "Animation/CGSceneAnimGroup.h"
-#include "Animation/CGSceneAnimInstance.h"
 #include "Animation/CGSceneAnimMesh.h"
 #include "Animation/CGSceneAnimNode.h"
 #include "Animation/CGSceneAnimTransf.h"
@@ -43,6 +42,9 @@
 #include "Visitors/CGSCNVBoundVolBuilder.h"
 #include "Visitors/CGSCNVRenderer.h"
 #include "Visitors/CGSCNVVisibilityChecker.h"
+
+#include "GraphBVUtils/CGGraphBVFileIO.h"
+
 // ----------------------------------------------------------------------------
 #endif
 // ----------------------------------------------------------------------------

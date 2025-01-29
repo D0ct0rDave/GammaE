@@ -70,12 +70,9 @@ void SCNUt_SceneCompiler::CompileScene (CGSceneNode* _poScn)
 
         case SNT_AnimTransf:      break;
 
-        case SNT_AnimCfg:         break;
+        case SNT_AnimActionSet:   break;
 
-        case SNT_AnimInstance:    break;
-
-        
-        default:                    break;
+        default:                  break;
     }
 }
 // -----------------------------------------------------------------------------

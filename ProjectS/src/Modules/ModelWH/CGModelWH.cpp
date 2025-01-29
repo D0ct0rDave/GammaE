@@ -62,8 +62,8 @@ CGSceneNode* CGModelWH::poInstantiate(CGSceneNode* _poObj)
 		case ESceneNodeType::SNT_AnimTransf:	
             return (poInstantiate((CGSceneAnimTransf*)_poObj));
 		break;
-        case ESceneNodeType::SNT_AnimInstance:
-		    return (poInstantiate((CGSceneAnimInstance*)_poObj));
+        case ESceneNodeType::SNT_AnimActionSet:
+		    return (poInstantiate((CGSceneAnimActionSet*)_poObj));
 		break;
 		
         /*
@@ -119,19 +119,22 @@ CGSceneAnimTransf* CGModelWH::poInstantiate(CGSceneAnimTransf* _poObj)
     return (_poObj);
 }
 //-----------------------------------------------------------------------------
-CGSceneAnimCfg* CGModelWH::poInstantiate(CGSceneAnimCfg* _poObj)
+CGSceneAnimActionSet* CGModelWH::poInstantiate(CGSceneAnimActionSet* _poObj)
 {
-    CGSceneAnimCfg* poObj = mNew CGSceneAnimCfg;
+    CGSceneAnimActionSet* poObj = mNew CGSceneAnimActionSet;
 
-    *poObj = *_poObj;    
+    // Copy action set first
+    for (uint i = 0; i < _poObj->uiNumActions(); i++)
+    {
+        const CAnimAction& oAct = _poObj->oGetAnimAction(i);
+        const CGString& sActionName = _poObj->sGetActionName(i);
+
+        poObj->uiAddAction(sActionName, oAct.m_uiIniFrame, oAct.m_uiEndFrame, oAct.m_fFrameTime, oAct.m_bLoop);
+    }
+
+    // Instantiate anim obj
+    poObj->SetAnimObj( poInstantiate(_poObj->poGetAnimObj()) );
 
     return (poObj);
-}
-//-----------------------------------------------------------------------------
-CGSceneAnimCfgMgr* CGModelWH::poInstantiate(CGSceneAnimCfgMgr* _poObj)
-{
-    // TODO
-    // CObject3D_AnimCfgMgr* poObj = mNew CObject3D_AnimCfgMgr;
-    return (_poObj);
 }
 //-----------------------------------------------------------------------------

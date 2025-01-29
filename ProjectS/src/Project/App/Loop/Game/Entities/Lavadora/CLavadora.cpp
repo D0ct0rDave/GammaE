@@ -30,14 +30,18 @@ void CLavadora::Init()
 	poLavadora->Yaw(_PI_);
 	poLavadora->Roll(_PI_);
 
-	CGSceneAnimCfg* poAnimCfg = (CGSceneAnimCfg*)poLavadora->poGraphicResource()->poModel(); // CGModelWH::I()->poGetModel("data/actors/lavadora.gem");
+	CGSceneAnimActionSet* poActionSet = (CGSceneAnimActionSet*)poLavadora->poGraphicResource()->poGetModel();
+	// CGModelWH::I()->poGetModel("data/actors/lavadora.gem");
+
+	/*
 	poAnimCfg->FrameAnim[0].FinalFrame   = 9;
 	poAnimCfg->FrameAnim[0].InitialFrame = 0;
 	uint uiFrames = (poAnimCfg->FrameAnim[0].FinalFrame -  poAnimCfg->FrameAnim[0].InitialFrame);
 	poAnimCfg->FrameAnim[0].TotalTime = (poAnimCfg->FrameAnim[0].FinalFrame - poAnimCfg->FrameAnim[0].InitialFrame) / 30.0f;
 	poAnimCfg->FrameAnim[0].FrameTime = poAnimCfg->FrameAnim[0].TotalTime / (float)uiFrames;
+	*/
 
-	poLavadora->poGraphicResource()->Model(poAnimCfg);
+	poLavadora->poGraphicResource()->SetModel(poActionSet);
 	GraphicInstance( poLavadora);	
 
 	CGGameEntityMgr::I()->uiRegister(this);
@@ -69,7 +73,7 @@ void CLavadora::Init()
 void CLavadora::UpdatePos(const CGVect3& _oNewPos)
 {
 	CGGameEntity::UpdatePos(_oNewPos);
-	gameGlobals.m_oPerspCam.Pos = _oNewPos;
+	gameGlobals.m_oPerspCam.SetPos(_oNewPos);
 }
 //-----------------------------------------------------------------------------
 void CLavadora::Think(float _fDeltaT)

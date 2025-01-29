@@ -168,45 +168,45 @@ void CGOGLShaderRenderer::Render_ShInsGeoOp (CGShInsGeoOp* _poTI)
         fValue = 0.0f;
 
     glMatrixMode(GL_MODELVIEW);
-    switch ( _poTI->eGetGOpType() )
+    switch ( _poTI->eGetGeoOp() )
     {
-        case eSIGeoOp_RotateX:
+        case ESIGeoOpRotateX:
         glRotatef(fValue,1.0f,0.0f,0.0f);
         break;
 
-        case eSIGeoOp_RotateY:
+        case ESIGeoOpRotateY:
         glRotatef(fValue,0.0f,1.0f,0.0f);
         break;
 
-        case eSIGeoOp_RotateZ:
+        case ESIGeoOpRotateZ:
         glRotatef(fValue,0.0f,0.0f,1.0f);
         break;
 
-        case eSIGeoOp_Scale:
+        case ESIGeoOpScale:
         glScalef (fValue,fValue,fValue);
         break;
 
-        case eSIGeoOp_ScaleX:
+        case ESIGeoOpScaleX:
         glScalef (fValue,1.0f,1.0f);
         break;
 
-        case eSIGeoOp_ScaleY:
+        case ESIGeoOpScaleY:
         glScalef (1.0f,fValue,1.0f);
         break;
 
-        case eSIGeoOp_ScaleZ:
+        case ESIGeoOpScaleZ:
         glScalef (1.0f,1.0f,fValue);
         break;
 
-        case eSIGeoOp_TransX:
+        case ESIGeoOpTransX:
         glTranslatef(fValue,0.0f,0.0f);
         break;
 
-        case eSIGeoOp_TransY:
+        case ESIGeoOpTransY:
         glTranslatef(0.0f,fValue,0.0f);
         break;
 
-        case eSIGeoOp_TransZ:
+        case ESIGeoOpTransZ:
         glTranslatef(0.0f,0.0f,fValue);
         break;
     }
@@ -223,34 +223,34 @@ void CGOGLShaderRenderer::Render_ShInsTexOp (CGShInsTexOp* _poTI)
         fValue = 0.0f;
 
     glMatrixMode(GL_TEXTURE);
-    switch ( _poTI->eGetTOpType() )
+    switch ( _poTI->eGetTexOp() )
     {
-        case eSITexOp_Rotate:
+        case ESITexOpRotate:
         glRotatef(fValue,0.0f,0.0f,1.0f);
 
         break;
 
-        case eSITexOp_Scale:
+        case ESITexOpScale:
         glScalef (fValue,fValue,1.0f);
         break;
 
-        case eSITexOp_ScaleU:
+        case ESITexOpScaleU:
         glScalef (fValue,1.0f,1.0f);
         break;
 
-        case eSITexOp_ScaleV:
+        case ESITexOpScaleV:
         glScalef (1.0f,fValue,1.0f);
         break;
 
-        case eSITexOp_TransU:
+        case ESITexOpTransU:
         glTranslatef(fValue,0.0f,0.0f);
         break;
 
-        case eSITexOp_TransV:
+        case ESITexOpTransV:
         glTranslatef(0.0f,fValue,0.0f);
         break;
 
-        case eSITexOp_ReflectMap:
+        case ESITexOpReflectMap:
         glTexGeni(GL_S,GL_TEXTURE_GEN_MODE,GL_SPHERE_MAP);
         glTexGeni(GL_T,GL_TEXTURE_GEN_MODE,GL_SPHERE_MAP);
 
@@ -258,7 +258,7 @@ void CGOGLShaderRenderer::Render_ShInsTexOp (CGShInsTexOp* _poTI)
         glEnable(GL_TEXTURE_GEN_T);
         break;
 
-        case eSITexOp_EnvMap:
+        case ESITexOpEnvMap:
         /*
            // DMC REFACT
            float fX;
@@ -277,11 +277,11 @@ void CGOGLShaderRenderer::Render_ShInsTexOp (CGShInsTexOp* _poTI)
          */
         break;
 
-        case eSITexOp_Matrix:
+        case ESITexOpMatrix:
         glMultMatrixf( _poTI->m_poMat->pfGetData() );
         break;
 
-        case eSITexOp_FrameSet:
+        case ESITexOpFrameSet:
         int iFrame;
         int iXFrame;
         int iYFrame;

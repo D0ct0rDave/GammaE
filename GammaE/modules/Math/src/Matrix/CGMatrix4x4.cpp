@@ -222,6 +222,11 @@ void CGMatrix4x4::Rotate(float _fPitch,float _fYaw,float _fRoll)
     }
 }
 // ----------------------------------------------------------------------------
+void CGMatrix4x4::RotateFromArbitraryAxis(float _fAngle, const CGVect3& _oAxis)
+{
+    RotateFromArbitraryAxis(_fAngle, _oAxis.x, _oAxis.y, _oAxis.z);
+}
+// ----------------------------------------------------------------------------
 void CGMatrix4x4::RotateFromArbitraryAxis(float _fAngle,float x,float y,float z)
 {
     CGMatrix4x4 R;
@@ -415,7 +420,7 @@ const CGVect3& CGMatrix4x4::oTransformPoint(const CGVect3& _oVect) const
     return(v);
 }
 // ----------------------------------------------------------------------------
-// Dot product entre vector4D (x,y,z,0) y matrix
+// Dot product entre vector3D (x,y,z,0) y matrix
 // ----------------------------------------------------------------------------
 void CGMatrix4x4::TransformVector(CGVect3* _poVect) const
 {
@@ -447,6 +452,11 @@ const CGVect3& CGMatrix4x4::oTransformVector(const CGVect3& _oVect) const
 // ----------------------------------------------------------------------------
 // Dot product entre point4D (x,y,z,w) y matrix
 // ----------------------------------------------------------------------------
+void CGMatrix4x4::TransformVector(CGVect4* _poVect) const
+{
+    *_poVect = oTransformVector(*_poVect);
+}
+
 const CGVect4& CGMatrix4x4::oTransformVector(const CGVect4& _oVect) const
 {
     static CGVect4 v;

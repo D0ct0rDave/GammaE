@@ -8,32 +8,33 @@
  *  \par GammaE License
  */
 // ----------------------------------------------------------------------------
-#include "CGSceneAnimInstance.h"
-#include "CGSceneAnimNode.h"
-#include "CGSceneAnimCfg.h"
+#include "GammaE_Mem.h"
+#include "Animation\CGSceneAnimActionSet.h"
 // --------------------------------------------------------------------------------
-CGSceneAnimInstance::CGSceneAnimInstance()
+CGSceneAnimActionSet::CGSceneAnimActionSet()
 {
-    m_eNodeType = ESceneNodeType::SNT_AnimInstance;
+	m_eNodeType = SNT_AnimActionSet;
 }
 // --------------------------------------------------------------------------------
-CGSceneAnimInstance::~CGSceneAnimInstance()
+CGSceneAnimActionSet::~CGSceneAnimActionSet()
 {
+    m_oActions.Clear();
 }
 // --------------------------------------------------------------------------------
-void CGSceneAnimInstance::SetAnim(uint _uiAnim)
+void CGSceneAnimActionSet::SetAction(uint _uiAction)
 {
-    m_uiAnim = _uiAnim;
-	m_oAnimAction = m_poCfg->oGetFrameAnim(m_uiAnim);
-	m_fTotalAnimTime = (m_oAnimAction.m_uiEndFrame - m_oAnimAction.m_uiIniFrame + 1) * m_oAnimAction.m_fFrameTime;
-	
+	m_uiAction = _uiAction;
+	const CAnimAction& oCurrentAnimation = oGetAnimAction(_uiAction);
+	m_fTotalAnimTime = (oCurrentAnimation.m_uiEndFrame - oCurrentAnimation.m_uiIniFrame + 1) * oCurrentAnimation.m_fFrameTime;
+
 	m_fCurrentAnimTime = 0.0f;
 }
 // --------------------------------------------------------------------------------
-void CGSceneAnimInstance::UpdateAnimState()
+void CGSceneAnimActionSet::UpdateAnimState()
 {
 	if (CGRenderer::I()->oGetStats().m_uiCurrentFrame != iLastFrame)
 	{
+		const CAnimAction& oCurrentAnimation = oGetAnimAction(m_uiAction);
 		iLastFrame = CGRenderer::I()->oGetStats().m_uiCurrentFrame;
 
 		unsigned int		iCurrFrame;
@@ -51,30 +52,35 @@ void CGSceneAnimInstance::UpdateAnimState()
 		fFrameAnimTime = Math::fMod(m_fCurrentAnimTime, m_fTotalAnimTime);
 
 		// Frame que toca relativo al frame inicial de la animación
-		fFrame = fFrameAnimTime / m_oAnimAction.m_fFrameTime;
+		fFrame = fFrameAnimTime / oCurrentAnimation.m_fFrameTime;
 		iCurrFrame = (int)fFrame;
 
 		// Factor de cercanía hacia el siguiente frame: (->1 muy cerca de siguiente frame)
 		fFactor = fFrame - iCurrFrame;
 
 		// Frame real dentro de la tabla de frames	
-		iRealFrame = m_oAnimAction.m_uiIniFrame + iCurrFrame;
+		iRealFrame = oCurrentAnimation.m_uiIniFrame + iCurrFrame;
 
 		// Setup next frame
-		if (iRealFrame >= m_oAnimAction.m_uiEndFrame)
+		if (iRealFrame >= oCurrentAnimation.m_uiEndFrame)
 		{
-			if (m_oAnimAction.m_bLoop)
-				iNextFrame = m_oAnimAction.m_uiIniFrame;
+			if (oCurrentAnimation.m_bLoop)
+				iNextFrame = oCurrentAnimation.m_uiIniFrame;
 			else
 			{
-				iNextFrame = m_oAnimAction.m_uiEndFrame - 1;
+				iNextFrame = oCurrentAnimation.m_uiEndFrame - 1;
 				fFactor = 0.0f;
 			}
 		}
 		else
 			iNextFrame = iRealFrame + 1;
 
-		m_poObj->SetAnimState(iRealFrame, iNextFrame, fFactor);
+		m_poAnimObj->SetAnimState(iRealFrame, iNextFrame, fFactor);
 	}
+}
+// --------------------------------------------------------------------------------
+CGGraphBV* CGSceneAnimActionSet::poGetBV()
+{
+	return m_poAnimObj->poGetBV();
 }
 // --------------------------------------------------------------------------------

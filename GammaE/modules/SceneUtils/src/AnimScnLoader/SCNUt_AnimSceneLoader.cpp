@@ -7,7 +7,6 @@
  *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
  *  \par GammaE License
  */
-// -----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
 #include "GammaE_Misc.h"
 #include <string.h>
@@ -67,7 +66,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
                 Token = Utils::Parse::ParseToken(StrPos);
 
                 int iNumMaterials;
-                sscanf(Token,"%d",&iNumMaterials);
+                sscanf_s(Token,"%d",&iNumMaterials);
 
                 // skip opening bracket
                 StrPos = Utils::Parse::SkipLine(StrPos);
@@ -77,7 +76,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
                 {
                     // Get the material number
                     Token = Utils::Parse::ParseToken(StrPos);
-                    sscanf(Token,"%d",&iMatNum);
+                    sscanf_s(Token,"%d",&iMatNum);
                     iMatNum--;  // Materials are 1 based
 
                     // Get the material
@@ -89,7 +88,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
             {
                 Token = Utils::Parse::ParseToken(StrPos);
 
-                sscanf(Token,"%d",&iTris);
+                sscanf_s(Token,"%d",&iTris);
 
                 // skip opening bracket
                 StrPos = Utils::Parse::SkipLine(StrPos);
@@ -105,7 +104,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
 
                     // Read triangle material
                     Token = Utils::Parse::ParseToken(StrPos);
-                    sscanf(Token,"<%d>",&iMat);
+                    sscanf_s(Token,"<%d>",&iMat);
                     iMat--;     // Materials are 1 based
 
                     // Read triangle coordinates
@@ -113,7 +112,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
                     StrPos = Utils::Parse::SkipLine(StrPos);
                     *(char*)(StrPos - 1) = 0;
 
-                    sscanf( Token,"<%f %f %f><%f %f %f><%f %f %f>",
+                    sscanf_s( Token,"<%f %f %f><%f %f %f><%f %f %f>",
                            &VXa.v(0),&VXa.v(1),&VXa.v(2),
                            &VXb.v(0),&VXb.v(1),&VXb.v(2),
                            &VXc.v(0),&VXc.v(1),&VXc.v(2) );
@@ -123,7 +122,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
                     StrPos = Utils::Parse::SkipLine(StrPos);
                     *(char*)(StrPos - 1) = 0;
 
-                    sscanf( Token,"<%f %f %f><%f %f %f><%f %f %f>",
+                    sscanf_s( Token,"<%f %f %f><%f %f %f><%f %f %f>",
                            &VNa.v(0),&VNa.v(1),&VNa.v(2),
                            &VNb.v(0),&VNb.v(1),&VNb.v(2),
                            &VNc.v(0),&VNc.v(1),&VNc.v(2) );
@@ -133,7 +132,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
                     StrPos = Utils::Parse::SkipLine(StrPos);
                     *(char*)(StrPos - 1) = 0;
 
-                    sscanf( Token,"<%f %f %f><%f %f %f><%f %f %f>",
+                    sscanf_s( Token,"<%f %f %f><%f %f %f><%f %f %f>",
                            &VCa.v(0),&VCa.v(1),&VCa.v(2),
                            &VCb.v(0),&VCb.v(1),&VCb.v(2),
                            &VCc.v(0),&VCc.v(1),&VCc.v(2) );
@@ -156,7 +155,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
                     StrPos = Utils::Parse::SkipLine(StrPos);
                     *(char*)(StrPos - 1) = 0;
 
-                    sscanf( Token,"<%f %f><%f %f><%f %f>",
+                    sscanf_s( Token,"<%f %f><%f %f><%f %f>",
                            &UVa.v(0),&UVa.v(1),
                            &UVb.v(0),&UVb.v(1),
                            &UVc.v(0),&UVc.v(1) );
@@ -188,7 +187,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
             {
                 Token = Utils::Parse::ParseToken(StrPos);
 
-                sscanf(Token,"%f",&iNumFrames);
+                sscanf_s(Token,"%i",&iNumFrames);
 
                 //
             }
@@ -214,7 +213,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
                     StrPos = Utils::Parse::SkipLine(StrPos);
                     *(char*)(StrPos - 1) = 0;
 
-                    sscanf( Token,"<%f %f %f><%f %f %f><%f %f %f>",
+                    sscanf_s( Token,"<%f %f %f><%f %f %f><%f %f %f>",
                            &VXa.v(0),&VXa.v(1),&VXa.v(2),
                            &VXb.v(0),&VXb.v(1),&VXb.v(2),
                            &VXc.v(0),&VXc.v(1),&VXc.v(2) );
@@ -224,7 +223,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
                     StrPos = Utils::Parse::SkipLine(StrPos);
                     *(char*)(StrPos - 1) = 0;
 
-                    sscanf( Token,"<%f %f %f><%f %f %f><%f %f %f>",
+                    sscanf_s( Token,"<%f %f %f><%f %f %f><%f %f %f>",
                            &VNa.v(0),&VNa.v(1),&VNa.v(2),
                            &VNb.v(0),&VNb.v(1),&VNb.v(2),
                            &VNc.v(0),&VNc.v(1),&VNc.v(2) );
@@ -281,7 +280,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
     poAM->Setup(oCD.m_poMesh, oFrames.uiNumElems(), oCD.m_oInvTable.uiNumElems());
 
     // Create configuration
-    CGSceneAnimCfg* poACfg = mNew CGSceneAnimCfg;
+    CGSceneAnimActionSet* poACfg = mNew CGSceneAnimActionSet;
     poACfg->uiAddAction("TEST",0,oFrames.uiNumElems(),30.0f,true);
     poACfg->SetAnimObj(poAM);
 
@@ -291,10 +290,6 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
     // Free resources
     MEMFree (StrBuff);
 
-    CGSceneAnimInstance* poInst = mNew CGSceneAnimInstance;
-    poInst->SetAnimatedObject(poAM);
-    poInst->SetAnimConfig(poACfg);
-
-    return (poInst);
+    return (poACfg);
 }
 // ----------------------------------------------------------------------------

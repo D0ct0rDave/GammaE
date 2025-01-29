@@ -17,8 +17,7 @@ DECLARE_SINGLETON(CGModelWH)
 		CGSceneAnimNode* poInstantiate(CGSceneAnimNode* _poObj);
 		CGSceneAnimMesh* poInstantiate(CGSceneAnimMesh* _poObj);
 		CGSceneAnimTransf* poInstantiate(CGSceneAnimTransf* _poObj);
-		CGSceneAnimCfg* poInstantiate(CGSceneAnimCfg* _poObj);
-		CGSceneAnimCfgMgr* poInstantiate(CGSceneAnimCfgMgr* _poObj);
+		CGSceneAnimActionSet* poInstantiate(CGSceneAnimActionSet * _poObj);
 };
 //-----------------------------------------------------------------------------
 #endif

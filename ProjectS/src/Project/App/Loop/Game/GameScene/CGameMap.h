@@ -19,9 +19,6 @@ class CGameMap : public CGSceneNode
 		void Load(const CGString& _sFilename);
 		void Render ();
 
-		virtual CGGraphBV *poGetBoundVol();
-		virtual CGGraphBV *poCreateBoundVol();
-		virtual void ComputeBoundVol();
 		int iGetTile(const CGVect3& _oPos);
 		bool bCollAtPos(float _fX,float _fY);
 		bool bCOLSpriteMap(const CGVect3& _oPos,float _fWidth,float _fHeight,uint _uiFlags);

@@ -14,18 +14,18 @@
 
 typedef enum
 {
-    eSITexOp_NULL,    // 0
-    eSITexOp_Rotate,    // 1
-    eSITexOp_Scale,    // 2
-    eSITexOp_ScaleU,    // 3
-    eSITexOp_ScaleV,    // 4
-    eSITexOp_TransU,    // 5
-    eSITexOp_TransV,    // 6
-    eSITexOp_ReflectMap,    // 7
-    eSITexOp_EnvMap,    // 8
-    eSITexOp_Matrix,    // 9
-    eSITexOp_FrameSet     // 10
-} eShInsTexOp_TypeID;
+    ESITexOpNULL,    // 0
+    ESITexOpRotate,    // 1
+    ESITexOpScale,    // 2
+    ESITexOpScaleU,    // 3
+    ESITexOpScaleV,    // 4
+    ESITexOpTransU,    // 5
+    ESITexOpTransV,    // 6
+    ESITexOpReflectMap,    // 7
+    ESITexOpEnvMap,    // 8
+    ESITexOpMatrix,    // 9
+    ESITexOpFrameSet     // 10
+} EShInsTexOp;
 
 // ----------------------------------------------------------------------------
 #endif

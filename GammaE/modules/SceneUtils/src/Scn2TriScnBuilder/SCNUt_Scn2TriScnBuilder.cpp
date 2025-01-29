@@ -124,10 +124,7 @@ SCNUt_TriScene* SCNUt_Scn2TriScnBuilder::poBuildRec (CGSceneNode* _poScene, CGMa
         case SNT_AnimTransf:
         break;
 
-        case SNT_AnimCfg:
-        break;
-
-        case SNT_AnimInstance:
+        case SNT_AnimActionSet:
         break;
 
         case SNT_BSPNode:

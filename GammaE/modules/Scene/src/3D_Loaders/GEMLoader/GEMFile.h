@@ -29,8 +29,7 @@ const uint GEM_ANIMNODE_IDENTIFIER = MAKE_RIFF_ID('A','O','B','J');
 const uint GEM_ANIMGROUP_IDENTIFIER = MAKE_RIFF_ID('A','N','O','D');
 const uint GEM_ANIMMESH_IDENTIFIER = MAKE_RIFF_ID('A','M','S','H');
 const uint GEM_ANIMTRANSF_IDENTIFIER = MAKE_RIFF_ID('A','T','R','A');
-const uint GEM_ANIMCFG_IDENTIFIER = MAKE_RIFF_ID('A','C','F','G');
-const uint GEM_ANIMINST_IDENTIFIER = MAKE_RIFF_ID('A','I','N','S');
+const uint GEM_ANIMACTIONSET_IDENTIFIER = MAKE_RIFF_ID('A','C','F','G');
 const uint GEM_CAMERA_IDENTIFIER = MAKE_RIFF_ID('C','A','M',' ');
 const uint GEM_BSPNODE_IDENTIFIER = MAKE_RIFF_ID('B','S','P','N');
 const uint GEM_MUX_IDENTIFIER = MAKE_RIFF_ID('M','U','X',' ');
@@ -63,9 +62,7 @@ inline uint GEMFile_Translate_TypeID2FileID(ESceneNodeType _eType)
 
         case SNT_AnimTransf:     return (GEM_ANIMTRANSF_IDENTIFIER);
 
-        case SNT_AnimCfg:        return (GEM_ANIMCFG_IDENTIFIER);
-
-        case SNT_AnimInstance:   return (GEM_ANIMINST_IDENTIFIER);
+        case SNT_AnimActionSet:  return (GEM_ANIMACTIONSET_IDENTIFIER);
 
         default:    return (0);
     }
@@ -92,9 +89,7 @@ inline ESceneNodeType GEMFile_Translate_FileID2TypeID2(uint uiFileID)
 
         case MAKE_RIFF_ID('A','T','R','A'): return (SNT_AnimTransf);
 
-        case MAKE_RIFF_ID('A','C','F','G'): return (SNT_AnimCfg);
-
-        case MAKE_RIFF_ID('A','I','N','S'): return (SNT_AnimInstance);
+        case MAKE_RIFF_ID('A','C','F','G'): return (SNT_AnimActionSet);
 
         case MAKE_RIFF_ID('C','A','M',' '): return (SNT_Camera);
 

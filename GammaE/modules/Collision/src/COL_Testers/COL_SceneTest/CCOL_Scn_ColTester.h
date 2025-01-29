@@ -41,8 +41,6 @@ class CCOL_Scn_ColTester
 
         static int iTest3DObj_Transf(CGSceneTransf* _poObj);
 
-        static int iTest3DObj_CompiledLeaf(CGSceneCompiledLeaf* _poObj);
-
         static int iTest3DObj_Leaf(CGSceneLeaf* _poObj);
 
         static int iTest3DObj_BSPNode(CGSceneBSPNode* _poObj);

@@ -61,7 +61,7 @@ void CShadowCaster::Init (int _iRes)
 
     // Add matrix texture operation
     CGShInsTexOp* poTop = mNew CGShInsTexOp;
-    poTop->SetTOpType(eSITexOp_Matrix);
+    poTop->SetTexOp(ESITexOpMatrix);
     poTop->m_poMat = &oPrjTexMat;
     poShader->PushInstruction(poTop);
 }

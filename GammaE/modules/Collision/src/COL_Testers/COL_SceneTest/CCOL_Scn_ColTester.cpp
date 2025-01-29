@@ -65,10 +65,7 @@ int CCOL_Scn_ColTester::iTest3DObj_Rec (CGSceneNode* _poObj)
         case SNT_AnimTransf:    iRes = 0;
         break;
 
-        case SNT_AnimCfg:       iRes = 0;
-        break;
-
-        case SNT_AnimInstance:  iRes = 0;
+        case SNT_AnimActionSet: iRes = 0;
         break;
 
         case SNT_BSPNode:       iRes = iTest3DObj_BSPNode( (CGSceneBSPNode*)_poObj );

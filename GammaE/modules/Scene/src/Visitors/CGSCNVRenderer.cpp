@@ -23,9 +23,8 @@
 #include "CGSceneScreenRect.h"
 
 #include "Animation/CGSceneAnimNode.h"
-#include "Animation/CGSceneAnimCfg.h"
+#include "Animation/CGSceneAnimActionSet.h"
 #include "Animation/CGSceneAnimMesh.h"
-#include "Animation/CGSceneAnimInstance.h"
 #include "Animation/CGSceneAnimGroup.h"
 #include "Animation/CGSceneAnimTransf.h"
 // ----------------------------------------------------------------------------
@@ -209,8 +208,9 @@ void CGSCNVRenderer::Visit(CGSceneTransf* _poNode)
     CGRenderer::I()->PopWorldMatrix();
 }
 // ----------------------------------------------------------------------------
-void CGSCNVRenderer::Visit(CGSceneAnimCfg* _poNode)
+void CGSCNVRenderer::Visit(CGSceneAnimActionSet* _poNode)
 {
+    _poNode->poGetAnimObj()->Accept(this);
 }
 // ----------------------------------------------------------------------------
 void CGSCNVRenderer::Visit(CGSceneAnimNode* _poNode)
@@ -225,11 +225,6 @@ void CGSCNVRenderer::Visit(CGSceneAnimMesh* _poNode)
     }
 
     CGRenderer::I()->RenderMesh(_poNode->poGetMesh(), _poNode->poGetShader());
-}
-// ----------------------------------------------------------------------------
-void CGSCNVRenderer::Visit(CGSceneAnimInstance* _poNode)
-{
-    _poNode->poGetAnimatedObject()->Accept(this);
 }
 // ----------------------------------------------------------------------------
 void CGSCNVRenderer::Visit(CGSceneAnimGroup* _poNode)

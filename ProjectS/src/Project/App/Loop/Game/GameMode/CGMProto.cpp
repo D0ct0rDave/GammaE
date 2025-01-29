@@ -223,7 +223,7 @@ void CGMProto::Think(float _fDeltaT)
 		CGameScene::m_oList.iAddObject(gameGlobals.m_poMap);
 
 		// cargar la lavadora
-		gameGlobals.m_poLavadora = (CGSceneAnimCfg*)CGModelWH::I()->poGetInstance("data/actors/lavadora.gem");
+		gameGlobals.m_poLavadora = (CGSceneAnimActionSet*)CGModelWH::I()->poGetInstance("data/actors/lavadora.gem");
 
 		// Create HUD and add to the scene
 		CHUDFile oFile;

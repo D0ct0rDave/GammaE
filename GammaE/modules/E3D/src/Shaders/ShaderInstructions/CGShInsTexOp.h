@@ -11,7 +11,7 @@
 #ifndef CGShInsTexOpH
 #define CGShInsTexOpH
 // ----------------------------------------------------------------------------
-#include "Shaders\ShaderInstructions\eShInsTexOp_TypeID.h"
+#include "Shaders\ShaderInstructions\EShInsTexOp.h"
 #include "Shaders\ShaderInstructions\CGShaderInstruction.h"
 #include "GammaE_Math.h"
 // ----------------------------------------------------------------------------
@@ -21,15 +21,14 @@ class CGShInsTexOp : public CGShaderInstruction
         CGShInsTexOp() : m_poEval(NULL), m_poMat(NULL), m_uiImgRows(0), m_uiImgCols(0), m_fFreq(0.0f)
         {
         }
-        ~CGShInsTexOp();
 
-        eShInsTexOp_TypeID eGetTOpType ()
+        EShInsTexOp eGetTexOp ()
         {
-            return(m_eTOpType);
+            return(m_eTexOp);
         }
-        void SetTOpType(eShInsTexOp_TypeID _eTOpType)
+        void SetTexOp(EShInsTexOp _eTexOp)
         {
-            m_eTOpType = _eTOpType;
+            m_eTexOp = _eTexOp;
         }
 
         CGEvaluator* poGetEvaluator()
@@ -48,7 +47,7 @@ class CGShInsTexOp : public CGShaderInstruction
 
     protected:
         CGEvaluator* m_poEval;
-        eShInsTexOp_TypeID m_eTOpType;
+        EShInsTexOp m_eTexOp;
 };
 // ----------------------------------------------------------------------------
 #endif

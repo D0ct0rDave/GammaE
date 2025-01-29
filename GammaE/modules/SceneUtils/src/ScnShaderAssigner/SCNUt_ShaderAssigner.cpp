@@ -61,11 +61,9 @@ void SCNUt_ShaderAssigner::AssignShader (CGShader* _poShader, CGSceneNode* _poOb
         case SNT_AnimTransf:
         break;
 
-        case SNT_AnimCfg:
+        case SNT_AnimActionSet:
         break;
 
-        case SNT_AnimInstance:
-        break;
 
         case SNT_BSPNode:
         AssignShader( _poShader, ( (CGSceneBSPNode*)_poObj )->poGetBackNode() );

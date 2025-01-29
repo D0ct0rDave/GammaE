@@ -25,9 +25,8 @@
 #include "CGSceneTransf.h"
 
 #include "Animation/CGSceneAnimNode.h"
-#include "Animation/CGSceneAnimCfg.h"
+#include "Animation/CGSceneAnimActionSet.h"
 #include "Animation/CGSceneAnimMesh.h"
-#include "Animation/CGSceneAnimInstance.h"
 #include "Animation/CGSceneAnimGroup.h"
 #include "Animation/CGSceneAnimTransf.h"
 // ----------------------------------------------------------------------------
@@ -94,10 +93,6 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneBSPNode* _poNode)
 void CGSCNVBoundVolBuilder::Visit(CGSceneCamera* _poNode)
 {
     Visit( (CGSceneGroup*)_poNode );
-}
-// ----------------------------------------------------------------------------
-void CGSCNVBoundVolBuilder::Visit(CGSceneCompiledLeaf* _poNode)
-{
 }
 // ----------------------------------------------------------------------------
 void CGSCNVBoundVolBuilder::Visit(CGSceneInstance* _poNode)
@@ -206,11 +201,9 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneAnimNode* _poNode)
 {
 }
 // ----------------------------------------------------------------------------
-void CGSCNVBoundVolBuilder::Visit(CGSceneAnimCfg* _poNode)
+void CGSCNVBoundVolBuilder::Visit(CGSceneAnimActionSet* _poNode)
 {
     _poNode->poGetAnimObj()->Accept(this);
-    // _poNode->poGetBoundVol()->Copy( _poNode->poGetAnimObj()->poGetKeyFrameBVol );
-    // _poNode->poGetBoundVol()->Transform( (CGMatrix4x4&)_poNode->oTransf() );
 }
 // ----------------------------------------------------------------------------
 void CGSCNVBoundVolBuilder::Visit(CGSceneAnimMesh* _poNode)
@@ -219,33 +212,17 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneAnimMesh* _poNode)
     _poNode->ComputeStatesBVols();
 }
 // ----------------------------------------------------------------------------
-void CGSCNVBoundVolBuilder::Visit(CGSceneAnimInstance* _poNode)
-{
-    // Recompute the bounding volume of the startup mesh
-    _poNode->poGetAnimatedObject()->Accept(this);
-}
-// ----------------------------------------------------------------------------
 void CGSCNVBoundVolBuilder::Visit(CGSceneAnimGroup* _poNode)
 {
     for ( uint i = 0; i < _poNode->uiNumAnimObjects(); i++ )
-        _poNode->poGetAnimObject(i)->Accept(this);
+        _poNode->poGetAnimObject(i)->Accept(this);   
+
+    _poNode->ComputeStatesBVols();
 }
 // ----------------------------------------------------------------------------
 void CGSCNVBoundVolBuilder::Visit(CGSceneAnimTransf* _poNode)
-{
-    /*
-       DMC: To be implemented
-       _poNode->
-       for (uint i=0;i<_poNode->uiNumAnimObjects();i++)
-        _poNode->poGetAnimObject(i)->Accept(this);
-
-       CGVect3 Max,Min;
-
-       Max.Set(0,0,0);
-       Min.Set(0,0,0);
-
-       BVol = CGraphBV_Manager::poCreate();
-       BVol->Init(Max,Min);
-     */
+{    
+    // Recompute the bounding volume of the startup mesh
+    _poNode->ComputeStatesBVols();
 }
 // ---------------------------------------------------------------------

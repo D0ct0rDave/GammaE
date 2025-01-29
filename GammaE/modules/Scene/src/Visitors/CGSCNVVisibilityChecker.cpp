@@ -22,10 +22,6 @@ void CGSCNVVisibilityChecker::Visit(CGSceneCamera* _poNode)
 {
 }
 // ----------------------------------------------------------------------------
-void CGSCNVVisibilityChecker::Visit(CGSceneCompiledLeaf* _poNode)
-{
-}
-// ----------------------------------------------------------------------------
 void CGSCNVVisibilityChecker::Visit(CGSceneInstance* _poNode)
 {
 }
@@ -54,15 +50,7 @@ void CGSCNVVisibilityChecker::Visit(CGSceneTransf* _poNode)
 {
 }
 // ----------------------------------------------------------------------------
-void CGSCNVVisibilityChecker::Visit(CGSceneAnimCfg* _poNode)
-{
-}
-// ----------------------------------------------------------------------------
-void CGSCNVVisibilityChecker::Visit(CGSceneAnimCfgGen* _poNode)
-{
-}
-// ----------------------------------------------------------------------------
-void CGSCNVVisibilityChecker::Visit(CGSceneAnimCfgMgr* _poNode)
+void CGSCNVVisibilityChecker::Visit(CGSceneAnimActionSet* _poNode)
 {
 }
 // ----------------------------------------------------------------------------
@@ -71,10 +59,6 @@ void CGSCNVVisibilityChecker::Visit(CGSceneAnimNode* _poNode)
 }
 // ----------------------------------------------------------------------------
 void CGSCNVVisibilityChecker::Visit(CGSceneAnimMesh* _poNode)
-{
-}
-// ----------------------------------------------------------------------------
-void CGSCNVVisibilityChecker::Visit(CGSceneAnimInstance* _poNode)
 {
 }
 // ----------------------------------------------------------------------------

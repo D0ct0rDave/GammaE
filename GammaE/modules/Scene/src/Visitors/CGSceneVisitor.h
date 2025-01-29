@@ -19,7 +19,6 @@
 class CGSceneNode;
 class CGSceneBSPNode;
 class CGSceneCamera;
-class CGSceneCompiledLeaf;
 class CGSceneInstance;
 class CGSceneLeaf;
 class CGSceneMux;
@@ -27,14 +26,11 @@ class CGSceneGroup;
 class CGSceneScreenRect;
 class CGSceneSwitch;
 class CGSceneTransf;
-class CGSceneAnimCfg;
-class CGSceneAnimCfgGen;
-class CGSceneAnimCfgMgr;
 class CGSceneAnimNode;
 class CGSceneAnimMesh;
-class CGSceneAnimInstance;
 class CGSceneAnimGroup;
 class CGSceneAnimTransf;
+class CGSceneAnimActionSet;
 
 // ---------------------------------------------------------------------
 class CGSceneVisitor
@@ -46,8 +42,6 @@ class CGSceneVisitor
         virtual void Visit(CGSceneBSPNode* _poNode) = 0;
 
         virtual void Visit(CGSceneCamera* _poNode) = 0;
-
-        virtual void Visit(CGSceneCompiledLeaf* _poNode) = 0;
 
         virtual void Visit(CGSceneInstance* _poNode) = 0;
 
@@ -63,17 +57,15 @@ class CGSceneVisitor
 
         virtual void Visit(CGSceneTransf* _poNode) = 0;
 
-        virtual void Visit(CGSceneAnimCfg* _poNode) = 0;
-
         virtual void Visit(CGSceneAnimNode* _poNode) = 0;
 
         virtual void Visit(CGSceneAnimMesh* _poNode) = 0;
 
-        virtual void Visit(CGSceneAnimInstance* _poNode) = 0;
-
         virtual void Visit(CGSceneAnimGroup* _poNode) = 0;
 
         virtual void Visit(CGSceneAnimTransf* _poNode) = 0;
+
+        virtual void Visit(CGSceneAnimActionSet* _poNode) = 0;
 };
 // ---------------------------------------------------------------------
 #endif

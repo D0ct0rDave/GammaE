@@ -13,10 +13,10 @@
 #include "GammaE_Math.h"
 
 // CGraphBV_FileIO
-#include "CGraphBV_FileIO.h"
+#include "CGGraphBVFileIO.h"
 
 // -----------------------------------------------------------------------------
-CGGraphBV* CGraphBV_FileIO::pLoadGraphBV(CGFile& _oFile)
+CGGraphBV* CGGraphBVFileIO::pLoadGraphBV(CGFile& _oFile)
 {
     unsigned int uiObjID;
     unsigned int uiBlockLen;
@@ -73,7 +73,7 @@ CGGraphBV* CGraphBV_FileIO::pLoadGraphBV(CGFile& _oFile)
     return (NULL);
 }
 
-int CGraphBV_FileIO::iSaveGraphBV (CGFile& _oFile, CGGraphBV* _pGBV)
+int CGGraphBVFileIO::iSaveGraphBV (CGFile& _oFile, CGGraphBV* _pGBV)
 {
 
     switch ( _pGBV->eGetTypeID() )

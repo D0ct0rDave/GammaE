@@ -8,23 +8,23 @@
  *  \par GammaE License
  */
 // ----------------------------------------------------------------------------
-#ifndef eShInsGeoOp_TypeID_h
-#define eShInsGeoOp_TypeID_H
+#ifndef eShInsBlendOp_TypeID_h
+#define eShInsBlendOp_TypeID_H
 // ----------------------------------------------------------------------------
 typedef enum
 {
-    eSIGeoOp_NULL,    // 0
-    eSIGeoOp_RotateX,    // 1
-    eSIGeoOp_RotateY,    // 2
-    eSIGeoOp_RotateZ,    // 3
-    eSIGeoOp_Scale,    // 4
-    eSIGeoOp_ScaleX,    // 5
-    eSIGeoOp_ScaleY,    // 6
-    eSIGeoOp_ScaleZ,    // 7
-    eSIGeoOp_TransX,    // 8
-    eSIGeoOp_TransY,    // 9
-    eSIGeoOp_TransZ     // 10
-} eShInsGeoOp_TypeID;
+    E3D_BM_NULL,    // 0
+    E3D_BM_Copy,    // 1
+    E3D_BM_Mult,    // 2
+    E3D_BM_Mult2x,    // 3
+    E3D_BM_Add,    // 4
+    E3D_BM_AddAndMult,    // 5
+    E3D_BM_MultAndAdd,    // 6
+    E3D_BM_Alpha,    // 7
+    E3D_BM_AlphaAdd,    // 8
+    E3D_BM_AlphaInv,    // 9
+    E3D_BM_AlphaThrough     // 10
+} EShInsBlendOp;
 // ----------------------------------------------------------------------------
 #endif
 // ----------------------------------------------------------------------------

@@ -20,8 +20,6 @@ class CGSceneMux : public CGSceneGroup
 
         CGSceneMux();
 
-        virtual ~CGSceneMux();
-
         // / Initializes the class.
         virtual void Init(uint _uiMaxSubObjects);
 

@@ -22,7 +22,7 @@
 // CGSceneAnimMesh
 #include "Animation\CGSceneAnimMesh.h"
 // CGSceneAnimCfg
-#include "Animation\CGSceneAnimCfg.h"
+#include "Animation\CGSceneAnimActionSet.h"
 // ----------------------------------------------------------------------------
 class CLoaderMD2 : public C3DLoader
 {
@@ -39,7 +39,7 @@ class CLoaderMD2 : public C3DLoader
 
         int GetNumFrames();
 
-        CGSceneAnimCfg* pLoadQ2Player(char* Filename);
+        CGSceneAnimActionSet* pLoadQ2Player(char* Filename);
 
     protected:
 

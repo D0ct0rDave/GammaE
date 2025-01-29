@@ -68,7 +68,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PreBuildEvent>
-      <Command>$(ProjectDir)../../SDKS/swigwin-4.3.0/swig.exe -includeall -c++ -lua -ignoremissing -I$(ProjectDir)../inc $(ProjectDir)../modules/Game/src/GameRes/Script/CGScriptBinding.cpp</Command>
+      <Command>$(ProjectDir)../../SDKS/swigwin-4.3.0/swig.exe -includeall -c++ -lua -ignoremissing -DGAMMAE_NO_SOUND -DGAMMAE_NO_NETWORK -I$(ProjectDir)../inc $(ProjectDir)../modules/Game/src/GameRes/Script/CGScriptBinding.cpp</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -92,7 +92,7 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PreBuildEvent>
-      <Command>$(ProjectDir)../../SDKS/swigwin-4.3.0/swig.exe -includeall -c++ -lua -ignoremissing -I$(ProjectDir)../inc $(ProjectDir)../modules/Game/src/GameRes/Script/CGScriptBinding.cpp</Command>
+      <Command>$(ProjectDir)../../SDKS/swigwin-4.3.0/swig.exe -includeall -c++ -lua -ignoremissing -DGAMMAE_NO_SOUND -DGAMMAE_NO_NETWORK -I$(ProjectDir)../inc $(ProjectDir)../modules/Game/src/GameRes/Script/CGScriptBinding.cpp</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

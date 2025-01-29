@@ -2858,332 +2858,310 @@ SWIG_Lua_dostring(lua_State *L, const char *str) {
 #define SWIGTYPE_p_CGGraphBVAABB swig_types[117]
 #define SWIGTYPE_p_CGGraphBVCylinder swig_types[118]
 #define SWIGTYPE_p_CGGraphBVFactory swig_types[119]
-#define SWIGTYPE_p_CGGraphBVPoint swig_types[120]
-#define SWIGTYPE_p_CGGraphBVSphere swig_types[121]
-#define SWIGTYPE_p_CGGraphicInstance swig_types[122]
-#define SWIGTYPE_p_CGGraphicResource swig_types[123]
-#define SWIGTYPE_p_CGGraphicResourceWH swig_types[124]
-#define SWIGTYPE_p_CGInputHandler swig_types[125]
-#define SWIGTYPE_p_CGInputRegistry swig_types[126]
-#define SWIGTYPE_p_CGLight swig_types[127]
-#define SWIGTYPE_p_CGLiveGameEntity swig_types[128]
-#define SWIGTYPE_p_CGLogChannel swig_types[129]
-#define SWIGTYPE_p_CGLogger swig_types[130]
-#define SWIGTYPE_p_CGMatrix4x4 swig_types[131]
-#define SWIGTYPE_p_CGMesh swig_types[132]
-#define SWIGTYPE_p_CGMeshBox swig_types[133]
-#define SWIGTYPE_p_CGMeshCross swig_types[134]
-#define SWIGTYPE_p_CGMeshRect swig_types[135]
-#define SWIGTYPE_p_CGMeshSphere swig_types[136]
-#define SWIGTYPE_p_CGMipMap swig_types[137]
-#define SWIGTYPE_p_CGMipMapWH swig_types[138]
-#define SWIGTYPE_p_CGNETClient swig_types[139]
-#define SWIGTYPE_p_CGNETServer swig_types[140]
-#define SWIGTYPE_p_CGNETSystem swig_types[141]
-#define SWIGTYPE_p_CGOSFile swig_types[142]
-#define SWIGTYPE_p_CGPSGDefFileWH swig_types[143]
-#define SWIGTYPE_p_CGPSGGeneric swig_types[144]
-#define SWIGTYPE_p_CGPSGGenericQuad swig_types[145]
-#define SWIGTYPE_p_CGPSGGenericQuadOrbit swig_types[146]
-#define SWIGTYPE_p_CGPSGGenericQuadParticle swig_types[147]
-#define SWIGTYPE_p_CGPSIManager swig_types[148]
-#define SWIGTYPE_p_CGPSysGenWH swig_types[149]
-#define SWIGTYPE_p_CGParticle swig_types[150]
-#define SWIGTYPE_p_CGParticleSystemGenerator swig_types[151]
-#define SWIGTYPE_p_CGParticleSystemInstance swig_types[152]
-#define SWIGTYPE_p_CGPath swig_types[153]
-#define SWIGTYPE_p_CGPathDefinitionFileWH swig_types[154]
-#define SWIGTYPE_p_CGPathResource swig_types[155]
-#define SWIGTYPE_p_CGPathResourceWH swig_types[156]
-#define SWIGTYPE_p_CGPlane swig_types[157]
-#define SWIGTYPE_p_CGProgram swig_types[158]
-#define SWIGTYPE_p_CGProgramWH swig_types[159]
-#define SWIGTYPE_p_CGProjector swig_types[160]
-#define SWIGTYPE_p_CGQuaternion swig_types[161]
-#define SWIGTYPE_p_CGRay swig_types[162]
-#define SWIGTYPE_p_CGReferenceCounter swig_types[163]
-#define SWIGTYPE_p_CGRenderState swig_types[164]
-#define SWIGTYPE_p_CGRenderStats swig_types[165]
-#define SWIGTYPE_p_CGRenderVars swig_types[166]
-#define SWIGTYPE_p_CGRenderer swig_types[167]
-#define SWIGTYPE_p_CGResource swig_types[168]
-#define SWIGTYPE_p_CGSCNVBoundVolBuilder swig_types[169]
-#define SWIGTYPE_p_CGSCNVRenderer swig_types[170]
-#define SWIGTYPE_p_CGSCNVVisibilityChecker swig_types[171]
-#define SWIGTYPE_p_CGSceneAnimCfg swig_types[172]
-#define SWIGTYPE_p_CGSceneAnimCfgGen swig_types[173]
-#define SWIGTYPE_p_CGSceneAnimCfgMgr swig_types[174]
-#define SWIGTYPE_p_CGSceneAnimGroup swig_types[175]
-#define SWIGTYPE_p_CGSceneAnimInstance swig_types[176]
-#define SWIGTYPE_p_CGSceneAnimMesh swig_types[177]
-#define SWIGTYPE_p_CGSceneAnimNode swig_types[178]
-#define SWIGTYPE_p_CGSceneAnimTransf swig_types[179]
-#define SWIGTYPE_p_CGSceneBSPNode swig_types[180]
-#define SWIGTYPE_p_CGSceneCamera swig_types[181]
-#define SWIGTYPE_p_CGSceneCompiledLeaf swig_types[182]
-#define SWIGTYPE_p_CGSceneGroup swig_types[183]
-#define SWIGTYPE_p_CGSceneInstance swig_types[184]
-#define SWIGTYPE_p_CGSceneLeaf swig_types[185]
-#define SWIGTYPE_p_CGSceneMux swig_types[186]
-#define SWIGTYPE_p_CGSceneNode swig_types[187]
-#define SWIGTYPE_p_CGSceneReflector swig_types[188]
-#define SWIGTYPE_p_CGSceneScreenRect swig_types[189]
-#define SWIGTYPE_p_CGSceneSwitch swig_types[190]
-#define SWIGTYPE_p_CGSceneTransf swig_types[191]
-#define SWIGTYPE_p_CGSceneVisitor swig_types[192]
-#define SWIGTYPE_p_CGScriptInstance swig_types[193]
-#define SWIGTYPE_p_CGScriptResource swig_types[194]
-#define SWIGTYPE_p_CGScriptResourceWH swig_types[195]
-#define SWIGTYPE_p_CGScriptingSystem swig_types[196]
-#define SWIGTYPE_p_CGSegment swig_types[197]
-#define SWIGTYPE_p_CGShInsBlendOp swig_types[198]
-#define SWIGTYPE_p_CGShInsColor swig_types[199]
-#define SWIGTYPE_p_CGShInsExtension swig_types[200]
-#define SWIGTYPE_p_CGShInsGeoOp swig_types[201]
-#define SWIGTYPE_p_CGShInsProgram swig_types[202]
-#define SWIGTYPE_p_CGShInsSetTMU swig_types[203]
-#define SWIGTYPE_p_CGShInsTexOp swig_types[204]
-#define SWIGTYPE_p_CGShInsTexture swig_types[205]
-#define SWIGTYPE_p_CGShInsWireframe swig_types[206]
-#define SWIGTYPE_p_CGShInsZOp swig_types[207]
-#define SWIGTYPE_p_CGShader swig_types[208]
-#define SWIGTYPE_p_CGShaderDefFileWH swig_types[209]
-#define SWIGTYPE_p_CGShaderDefWH swig_types[210]
-#define SWIGTYPE_p_CGShaderExtDB swig_types[211]
-#define SWIGTYPE_p_CGShaderInstruction swig_types[212]
-#define SWIGTYPE_p_CGShaderParser swig_types[213]
-#define SWIGTYPE_p_CGShaderUtils swig_types[214]
-#define SWIGTYPE_p_CGShaderWH swig_types[215]
-#define SWIGTYPE_p_CGSmoother swig_types[216]
-#define SWIGTYPE_p_CGSpiralPath swig_types[217]
-#define SWIGTYPE_p_CGStandardLC swig_types[218]
-#define SWIGTYPE_p_CGString swig_types[219]
-#define SWIGTYPE_p_CGSystemLC swig_types[220]
-#define SWIGTYPE_p_CGTexObjWH swig_types[221]
-#define SWIGTYPE_p_CGTextResource swig_types[222]
-#define SWIGTYPE_p_CGTextureObj swig_types[223]
-#define SWIGTYPE_p_CGTrail swig_types[224]
-#define SWIGTYPE_p_CGTrailGenDefFileWH swig_types[225]
-#define SWIGTYPE_p_CGTrailGenStd swig_types[226]
-#define SWIGTYPE_p_CGTrailGenWH swig_types[227]
-#define SWIGTYPE_p_CGTrailGenerator swig_types[228]
-#define SWIGTYPE_p_CGTrailInstance swig_types[229]
-#define SWIGTYPE_p_CGTrailManager swig_types[230]
-#define SWIGTYPE_p_CGTriangle swig_types[231]
-#define SWIGTYPE_p_CGUObject swig_types[232]
-#define SWIGTYPE_p_CGUnmanagedMesh swig_types[233]
-#define SWIGTYPE_p_CGVect2 swig_types[234]
-#define SWIGTYPE_p_CGVect3 swig_types[235]
-#define SWIGTYPE_p_CGVect4 swig_types[236]
-#define SWIGTYPE_p_CGViewport swig_types[237]
-#define SWIGTYPE_p_CGWarningLC swig_types[238]
-#define SWIGTYPE_p_CHFSector swig_types[239]
-#define SWIGTYPE_p_CHFSector_FN swig_types[240]
-#define SWIGTYPE_p_CHUD swig_types[241]
-#define SWIGTYPE_p_CHUDElem swig_types[242]
-#define SWIGTYPE_p_CHUDFile swig_types[243]
-#define SWIGTYPE_p_CHUDFont swig_types[244]
-#define SWIGTYPE_p_CHUDFontWH swig_types[245]
-#define SWIGTYPE_p_CHUDIcon swig_types[246]
-#define SWIGTYPE_p_CHUDLabel swig_types[247]
-#define SWIGTYPE_p_CHUDMsgBox swig_types[248]
-#define SWIGTYPE_p_CHUDObject swig_types[249]
-#define SWIGTYPE_p_CHUDProgressBar swig_types[250]
-#define SWIGTYPE_p_CHeight swig_types[251]
-#define SWIGTYPE_p_CHeightField swig_types[252]
-#define SWIGTYPE_p_CLMSector swig_types[253]
-#define SWIGTYPE_p_CLMSector_Gray swig_types[254]
-#define SWIGTYPE_p_CLMSector_Pal swig_types[255]
-#define SWIGTYPE_p_CLMSector_RGB24 swig_types[256]
-#define SWIGTYPE_p_CLODSelector swig_types[257]
-#define SWIGTYPE_p_CLODSelector_Array swig_types[258]
-#define SWIGTYPE_p_CLensFlare swig_types[259]
-#define SWIGTYPE_p_CLensFlare_Elem swig_types[260]
-#define SWIGTYPE_p_CLightElem swig_types[261]
-#define SWIGTYPE_p_CLightMap swig_types[262]
-#define SWIGTYPE_p_CLoader3DS swig_types[263]
-#define SWIGTYPE_p_CLoaderBSP2 swig_types[264]
-#define SWIGTYPE_p_CLoaderGEM swig_types[265]
-#define SWIGTYPE_p_CLoaderMD2 swig_types[266]
-#define SWIGTYPE_p_CLoaderMD3 swig_types[267]
-#define SWIGTYPE_p_CMenuTextGrid swig_types[268]
-#define SWIGTYPE_p_CSFXObjectInstance swig_types[269]
-#define SWIGTYPE_p_CSLM_HFieldSect swig_types[270]
-#define SWIGTYPE_p_CSLM_LMapSect swig_types[271]
-#define SWIGTYPE_p_CSLM_TMapSect swig_types[272]
-#define SWIGTYPE_p_CSample swig_types[273]
-#define SWIGTYPE_p_CSampleWH swig_types[274]
-#define SWIGTYPE_p_CSaverGEM swig_types[275]
-#define SWIGTYPE_p_CSectElem swig_types[276]
-#define SWIGTYPE_p_CSector swig_types[277]
-#define SWIGTYPE_p_CSectorLoaderManager swig_types[278]
-#define SWIGTYPE_p_CSectorMatrix swig_types[279]
-#define SWIGTYPE_p_CShadowCaster swig_types[280]
-#define SWIGTYPE_p_CSkyBox swig_types[281]
-#define SWIGTYPE_p_CSkyDome swig_types[282]
-#define SWIGTYPE_p_CSound swig_types[283]
-#define SWIGTYPE_p_CSoundEmiter swig_types[284]
-#define SWIGTYPE_p_CSoundEmiter_DSound swig_types[285]
-#define SWIGTYPE_p_CSoundEmiter_OpenAL swig_types[286]
-#define SWIGTYPE_p_CSoundEntity swig_types[287]
-#define SWIGTYPE_p_CSoundLayer swig_types[288]
-#define SWIGTYPE_p_CSoundMixPars swig_types[289]
-#define SWIGTYPE_p_CSoundMixer swig_types[290]
-#define SWIGTYPE_p_CSoundReceiver swig_types[291]
-#define SWIGTYPE_p_CSoundRenderer swig_types[292]
-#define SWIGTYPE_p_CSoundRenderer_DSound swig_types[293]
-#define SWIGTYPE_p_CSoundRenderer_OpenAL swig_types[294]
-#define SWIGTYPE_p_CSoundWH swig_types[295]
-#define SWIGTYPE_p_CTMSector swig_types[296]
-#define SWIGTYPE_p_CTMSector_8_16 swig_types[297]
-#define SWIGTYPE_p_CTerrainCircuit swig_types[298]
-#define SWIGTYPE_p_CTerrainSector swig_types[299]
-#define SWIGTYPE_p_CTerrainTesselator swig_types[300]
-#define SWIGTYPE_p_CTerrainTesselatorGM swig_types[301]
-#define SWIGTYPE_p_CTexMap swig_types[302]
-#define SWIGTYPE_p_CTexProjector swig_types[303]
-#define SWIGTYPE_p_CTexSector swig_types[304]
-#define SWIGTYPE_p_CTile swig_types[305]
-#define SWIGTYPE_p_CTileBookmark swig_types[306]
-#define SWIGTYPE_p_E3D_BlendMode swig_types[307]
-#define SWIGTYPE_p_E3D_ChannelMask swig_types[308]
-#define SWIGTYPE_p_E3D_FogMode swig_types[309]
-#define SWIGTYPE_p_E3D_MeshType swig_types[310]
-#define SWIGTYPE_p_E3D_PrimitiveType swig_types[311]
-#define SWIGTYPE_p_E3D_ProjectorType swig_types[312]
-#define SWIGTYPE_p_E3D_RenderBuffer_Type swig_types[313]
-#define SWIGTYPE_p_E3D_ShaderInstructionType swig_types[314]
-#define SWIGTYPE_p_E3D_StencilAction swig_types[315]
-#define SWIGTYPE_p_E3D_StencilFunc swig_types[316]
-#define SWIGTYPE_p_E3D_ZTestFunc swig_types[317]
-#define SWIGTYPE_p_E3D_ZWrite swig_types[318]
-#define SWIGTYPE_p_ECOL_ColliderType swig_types[319]
-#define SWIGTYPE_p_ECOL_TestType swig_types[320]
-#define SWIGTYPE_p_EFileOpenMode swig_types[321]
-#define SWIGTYPE_p_EFileOperationResult swig_types[322]
-#define SWIGTYPE_p_EFileSeekMode swig_types[323]
-#define SWIGTYPE_p_EGenerationMethod swig_types[324]
-#define SWIGTYPE_p_EImageFormat swig_types[325]
-#define SWIGTYPE_p_ESceneNodeType swig_types[326]
-#define SWIGTYPE_p_FILE swig_types[327]
-#define SWIGTYPE_p_Q3triangle_t swig_types[328]
-#define SWIGTYPE_p_SCNUt_AdjTri swig_types[329]
-#define SWIGTYPE_p_SCNUt_AdjTriList swig_types[330]
-#define SWIGTYPE_p_SCNUt_AdjTriListBuilder swig_types[331]
-#define SWIGTYPE_p_SCNUt_AnimMesh_NormalComputer swig_types[332]
-#define SWIGTYPE_p_SCNUt_AnimSceneLoader swig_types[333]
-#define SWIGTYPE_p_SCNUt_BSPBuilder swig_types[334]
-#define SWIGTYPE_p_SCNUt_ComputeBoundingBox swig_types[335]
-#define SWIGTYPE_p_SCNUt_CoplanarRemover swig_types[336]
-#define SWIGTYPE_p_SCNUt_Edge swig_types[337]
-#define SWIGTYPE_p_SCNUt_EdgeBuilder swig_types[338]
-#define SWIGTYPE_p_SCNUt_EdgeList swig_types[339]
-#define SWIGTYPE_p_SCNUt_MaterialTable swig_types[340]
-#define SWIGTYPE_p_SCNUt_Mesh2TriScene swig_types[341]
-#define SWIGTYPE_p_SCNUt_MeshCompacter swig_types[342]
-#define SWIGTYPE_p_SCNUt_MeshGenerator swig_types[343]
-#define SWIGTYPE_p_SCNUt_OctreeBuilder swig_types[344]
-#define SWIGTYPE_p_SCNUt_PlanarMapper swig_types[345]
-#define SWIGTYPE_p_SCNUt_SceneBuilder swig_types[346]
-#define SWIGTYPE_p_SCNUt_SceneCompiler swig_types[347]
-#define SWIGTYPE_p_SCNUt_Scn2TriScnBuilder swig_types[348]
-#define SWIGTYPE_p_SCNUt_ShaderAssigner swig_types[349]
-#define SWIGTYPE_p_SCNUt_Stripifier swig_types[350]
-#define SWIGTYPE_p_SCNUt_TransformTriScene swig_types[351]
-#define SWIGTYPE_p_SCNUt_TriScene swig_types[352]
-#define SWIGTYPE_p_SCNUt_TriSceneAccumulator swig_types[353]
-#define SWIGTYPE_p_SCNUt_TriSceneClassifier swig_types[354]
-#define SWIGTYPE_p_SCNUt_TriSceneLoader swig_types[355]
-#define SWIGTYPE_p_SCNUt_TriSceneSaver swig_types[356]
-#define SWIGTYPE_p_SCNUt_TriSceneSeparator swig_types[357]
-#define SWIGTYPE_p_SCNUt_TriSceneSplitter swig_types[358]
-#define SWIGTYPE_p_SCNUt_TriUtils swig_types[359]
-#define SWIGTYPE_p_SCNUt_Triangle swig_types[360]
-#define SWIGTYPE_p_SCNUt_VisibilityTester swig_types[361]
-#define SWIGTYPE_p_SCNUt_ePolyState swig_types[362]
-#define SWIGTYPE_p_T3DS_Chunk swig_types[363]
-#define SWIGTYPE_p_TERSceneLoader swig_types[364]
-#define SWIGTYPE_p_TEnvironmentPars swig_types[365]
-#define SWIGTYPE_p_TGMState swig_types[366]
-#define SWIGTYPE_p_THeightFieldData swig_types[367]
-#define SWIGTYPE_p_TMsgLine swig_types[368]
-#define SWIGTYPE_p_TSpiralPathParams swig_types[369]
-#define SWIGTYPE_p_TTexSet swig_types[370]
-#define SWIGTYPE_p_TTextureEntry swig_types[371]
-#define SWIGTYPE_p_TVertexRef swig_types[372]
-#define SWIGTYPE_p_a_3__float swig_types[373]
-#define SWIGTYPE_p_animNumber_t swig_types[374]
-#define SWIGTYPE_p_anim_t swig_types[375]
-#define SWIGTYPE_p_boneframe_t swig_types[376]
-#define SWIGTYPE_p_bsp_edge swig_types[377]
-#define SWIGTYPE_p_bsp_face swig_types[378]
-#define SWIGTYPE_p_bsp_face_edge swig_types[379]
-#define SWIGTYPE_p_bsp_header swig_types[380]
-#define SWIGTYPE_p_bsp_leaf swig_types[381]
-#define SWIGTYPE_p_bsp_leaf_face swig_types[382]
-#define SWIGTYPE_p_bsp_lump swig_types[383]
-#define SWIGTYPE_p_bsp_node swig_types[384]
-#define SWIGTYPE_p_bsp_plane swig_types[385]
-#define SWIGTYPE_p_bsp_point3f swig_types[386]
-#define SWIGTYPE_p_bsp_point3s swig_types[387]
-#define SWIGTYPE_p_bsp_texinfo swig_types[388]
-#define SWIGTYPE_p_bsp_vis swig_types[389]
-#define SWIGTYPE_p_bsp_vis_offset swig_types[390]
-#define SWIGTYPE_p_char swig_types[391]
-#define SWIGTYPE_p_eLightType swig_types[392]
-#define SWIGTYPE_p_eShInsGeoOp_TypeID swig_types[393]
-#define SWIGTYPE_p_eShInsTexOp_TypeID swig_types[394]
-#define SWIGTYPE_p_ext_texinfo swig_types[395]
-#define SWIGTYPE_p_f_int__void swig_types[396]
-#define SWIGTYPE_p_f_p_void__void swig_types[397]
-#define SWIGTYPE_p_f_unsigned_int_unsigned_int_unsigned_int_r_q_const__CGString__void swig_types[398]
-#define SWIGTYPE_p_float swig_types[399]
-#define SWIGTYPE_p_frame_t swig_types[400]
-#define SWIGTYPE_p_int swig_types[401]
-#define SWIGTYPE_p_long swig_types[402]
-#define SWIGTYPE_p_md3_header_t swig_types[403]
-#define SWIGTYPE_p_mesh_header_t swig_types[404]
-#define SWIGTYPE_p_mesh_t swig_types[405]
-#define SWIGTYPE_p_model_t swig_types[406]
-#define SWIGTYPE_p_p_CCOL_Collider swig_types[407]
-#define SWIGTYPE_p_p_CGMesh swig_types[408]
-#define SWIGTYPE_p_p_CGMeshBox swig_types[409]
-#define SWIGTYPE_p_p_CGMeshCross swig_types[410]
-#define SWIGTYPE_p_p_CGMeshRect swig_types[411]
-#define SWIGTYPE_p_p_CGMeshSphere swig_types[412]
-#define SWIGTYPE_p_p_CGShInsBlendOp swig_types[413]
-#define SWIGTYPE_p_p_CGShInsColor swig_types[414]
-#define SWIGTYPE_p_p_CGShInsExtension swig_types[415]
-#define SWIGTYPE_p_p_CGShInsGeoOp swig_types[416]
-#define SWIGTYPE_p_p_CGShInsProgram swig_types[417]
-#define SWIGTYPE_p_p_CGShInsSetTMU swig_types[418]
-#define SWIGTYPE_p_p_CGShInsTexOp swig_types[419]
-#define SWIGTYPE_p_p_CGShInsTexture swig_types[420]
-#define SWIGTYPE_p_p_CGShInsWireframe swig_types[421]
-#define SWIGTYPE_p_p_CGShInsZOp swig_types[422]
-#define SWIGTYPE_p_p_CGShader swig_types[423]
-#define SWIGTYPE_p_p_CGShaderInstruction swig_types[424]
-#define SWIGTYPE_p_p_CGUnmanagedMesh swig_types[425]
-#define SWIGTYPE_p_p_CMenuTextGrid swig_types[426]
-#define SWIGTYPE_p_p_char swig_types[427]
-#define SWIGTYPE_p_p_void swig_types[428]
-#define SWIGTYPE_p_short swig_types[429]
-#define SWIGTYPE_p_skin_file_t swig_types[430]
-#define SWIGTYPE_p_skin_mesh_entry_t swig_types[431]
-#define SWIGTYPE_p_skin_t swig_types[432]
-#define SWIGTYPE_p_skin_tag_entry_t swig_types[433]
-#define SWIGTYPE_p_tag_t swig_types[434]
-#define SWIGTYPE_p_tex_coord_t swig_types[435]
-#define SWIGTYPE_p_textureCoordinate_t swig_types[436]
-#define SWIGTYPE_p_triangleVertex_t swig_types[437]
-#define SWIGTYPE_p_triangle_t swig_types[438]
-#define SWIGTYPE_p_unsigned_char swig_types[439]
-#define SWIGTYPE_p_unsigned_int swig_types[440]
-#define SWIGTYPE_p_unsigned_short swig_types[441]
-#define SWIGTYPE_p_vertice_t swig_types[442]
-#define SWIGTYPE_p_void swig_types[443]
-static swig_type_info *swig_types[445];
-static swig_module_info swig_module = {swig_types, 444, 0, 0, 0, 0};
+#define SWIGTYPE_p_CGGraphBVFileIO swig_types[120]
+#define SWIGTYPE_p_CGGraphBVPoint swig_types[121]
+#define SWIGTYPE_p_CGGraphBVSphere swig_types[122]
+#define SWIGTYPE_p_CGGraphicInstance swig_types[123]
+#define SWIGTYPE_p_CGGraphicResource swig_types[124]
+#define SWIGTYPE_p_CGGraphicResourceWH swig_types[125]
+#define SWIGTYPE_p_CGInputHandler swig_types[126]
+#define SWIGTYPE_p_CGInputRegistry swig_types[127]
+#define SWIGTYPE_p_CGLight swig_types[128]
+#define SWIGTYPE_p_CGLiveGameEntity swig_types[129]
+#define SWIGTYPE_p_CGLogChannel swig_types[130]
+#define SWIGTYPE_p_CGLogger swig_types[131]
+#define SWIGTYPE_p_CGMatrix4x4 swig_types[132]
+#define SWIGTYPE_p_CGMesh swig_types[133]
+#define SWIGTYPE_p_CGMeshBox swig_types[134]
+#define SWIGTYPE_p_CGMeshCross swig_types[135]
+#define SWIGTYPE_p_CGMeshRect swig_types[136]
+#define SWIGTYPE_p_CGMeshSphere swig_types[137]
+#define SWIGTYPE_p_CGMipMap swig_types[138]
+#define SWIGTYPE_p_CGMipMapWH swig_types[139]
+#define SWIGTYPE_p_CGOSFile swig_types[140]
+#define SWIGTYPE_p_CGPSGDefFileWH swig_types[141]
+#define SWIGTYPE_p_CGPSGGeneric swig_types[142]
+#define SWIGTYPE_p_CGPSGGenericQuad swig_types[143]
+#define SWIGTYPE_p_CGPSGGenericQuadOrbit swig_types[144]
+#define SWIGTYPE_p_CGPSGGenericQuadParticle swig_types[145]
+#define SWIGTYPE_p_CGPSIManager swig_types[146]
+#define SWIGTYPE_p_CGPSysGenWH swig_types[147]
+#define SWIGTYPE_p_CGParticle swig_types[148]
+#define SWIGTYPE_p_CGParticleSystemGenerator swig_types[149]
+#define SWIGTYPE_p_CGParticleSystemInstance swig_types[150]
+#define SWIGTYPE_p_CGPath swig_types[151]
+#define SWIGTYPE_p_CGPathDefinitionFileWH swig_types[152]
+#define SWIGTYPE_p_CGPathResource swig_types[153]
+#define SWIGTYPE_p_CGPathResourceWH swig_types[154]
+#define SWIGTYPE_p_CGPlane swig_types[155]
+#define SWIGTYPE_p_CGProgram swig_types[156]
+#define SWIGTYPE_p_CGProgramWH swig_types[157]
+#define SWIGTYPE_p_CGProjector swig_types[158]
+#define SWIGTYPE_p_CGQuaternion swig_types[159]
+#define SWIGTYPE_p_CGRay swig_types[160]
+#define SWIGTYPE_p_CGReferenceCounter swig_types[161]
+#define SWIGTYPE_p_CGRenderState swig_types[162]
+#define SWIGTYPE_p_CGRenderStats swig_types[163]
+#define SWIGTYPE_p_CGRenderVars swig_types[164]
+#define SWIGTYPE_p_CGRenderer swig_types[165]
+#define SWIGTYPE_p_CGResource swig_types[166]
+#define SWIGTYPE_p_CGSCNVBoundVolBuilder swig_types[167]
+#define SWIGTYPE_p_CGSCNVRenderer swig_types[168]
+#define SWIGTYPE_p_CGSCNVVisibilityChecker swig_types[169]
+#define SWIGTYPE_p_CGSceneAnimActionSet swig_types[170]
+#define SWIGTYPE_p_CGSceneAnimGroup swig_types[171]
+#define SWIGTYPE_p_CGSceneAnimMesh swig_types[172]
+#define SWIGTYPE_p_CGSceneAnimNode swig_types[173]
+#define SWIGTYPE_p_CGSceneAnimTransf swig_types[174]
+#define SWIGTYPE_p_CGSceneBSPNode swig_types[175]
+#define SWIGTYPE_p_CGSceneCamera swig_types[176]
+#define SWIGTYPE_p_CGSceneGroup swig_types[177]
+#define SWIGTYPE_p_CGSceneInstance swig_types[178]
+#define SWIGTYPE_p_CGSceneLeaf swig_types[179]
+#define SWIGTYPE_p_CGSceneMux swig_types[180]
+#define SWIGTYPE_p_CGSceneNode swig_types[181]
+#define SWIGTYPE_p_CGSceneReflector swig_types[182]
+#define SWIGTYPE_p_CGSceneScreenRect swig_types[183]
+#define SWIGTYPE_p_CGSceneSwitch swig_types[184]
+#define SWIGTYPE_p_CGSceneTransf swig_types[185]
+#define SWIGTYPE_p_CGSceneVisitor swig_types[186]
+#define SWIGTYPE_p_CGScriptInstance swig_types[187]
+#define SWIGTYPE_p_CGScriptResource swig_types[188]
+#define SWIGTYPE_p_CGScriptResourceWH swig_types[189]
+#define SWIGTYPE_p_CGScriptingSystem swig_types[190]
+#define SWIGTYPE_p_CGSegment swig_types[191]
+#define SWIGTYPE_p_CGShInsBlendOp swig_types[192]
+#define SWIGTYPE_p_CGShInsColor swig_types[193]
+#define SWIGTYPE_p_CGShInsExtension swig_types[194]
+#define SWIGTYPE_p_CGShInsGeoOp swig_types[195]
+#define SWIGTYPE_p_CGShInsProgram swig_types[196]
+#define SWIGTYPE_p_CGShInsSetTMU swig_types[197]
+#define SWIGTYPE_p_CGShInsTexOp swig_types[198]
+#define SWIGTYPE_p_CGShInsTexture swig_types[199]
+#define SWIGTYPE_p_CGShInsWireframe swig_types[200]
+#define SWIGTYPE_p_CGShInsZOp swig_types[201]
+#define SWIGTYPE_p_CGShader swig_types[202]
+#define SWIGTYPE_p_CGShaderDefFileWH swig_types[203]
+#define SWIGTYPE_p_CGShaderDefWH swig_types[204]
+#define SWIGTYPE_p_CGShaderExtDB swig_types[205]
+#define SWIGTYPE_p_CGShaderInstruction swig_types[206]
+#define SWIGTYPE_p_CGShaderParser swig_types[207]
+#define SWIGTYPE_p_CGShaderUtils swig_types[208]
+#define SWIGTYPE_p_CGShaderWH swig_types[209]
+#define SWIGTYPE_p_CGSmoother swig_types[210]
+#define SWIGTYPE_p_CGSpiralPath swig_types[211]
+#define SWIGTYPE_p_CGStandardLC swig_types[212]
+#define SWIGTYPE_p_CGString swig_types[213]
+#define SWIGTYPE_p_CGSystemLC swig_types[214]
+#define SWIGTYPE_p_CGTexObjWH swig_types[215]
+#define SWIGTYPE_p_CGTextResource swig_types[216]
+#define SWIGTYPE_p_CGTextureObj swig_types[217]
+#define SWIGTYPE_p_CGTrail swig_types[218]
+#define SWIGTYPE_p_CGTrailGenDefFileWH swig_types[219]
+#define SWIGTYPE_p_CGTrailGenStd swig_types[220]
+#define SWIGTYPE_p_CGTrailGenWH swig_types[221]
+#define SWIGTYPE_p_CGTrailGenerator swig_types[222]
+#define SWIGTYPE_p_CGTrailInstance swig_types[223]
+#define SWIGTYPE_p_CGTrailManager swig_types[224]
+#define SWIGTYPE_p_CGTriangle swig_types[225]
+#define SWIGTYPE_p_CGUObject swig_types[226]
+#define SWIGTYPE_p_CGUnmanagedMesh swig_types[227]
+#define SWIGTYPE_p_CGVect2 swig_types[228]
+#define SWIGTYPE_p_CGVect3 swig_types[229]
+#define SWIGTYPE_p_CGVect4 swig_types[230]
+#define SWIGTYPE_p_CGViewport swig_types[231]
+#define SWIGTYPE_p_CGWarningLC swig_types[232]
+#define SWIGTYPE_p_CHFSector swig_types[233]
+#define SWIGTYPE_p_CHFSector_FN swig_types[234]
+#define SWIGTYPE_p_CHUD swig_types[235]
+#define SWIGTYPE_p_CHUDElem swig_types[236]
+#define SWIGTYPE_p_CHUDFile swig_types[237]
+#define SWIGTYPE_p_CHUDFont swig_types[238]
+#define SWIGTYPE_p_CHUDFontWH swig_types[239]
+#define SWIGTYPE_p_CHUDIcon swig_types[240]
+#define SWIGTYPE_p_CHUDLabel swig_types[241]
+#define SWIGTYPE_p_CHUDMsgBox swig_types[242]
+#define SWIGTYPE_p_CHUDObject swig_types[243]
+#define SWIGTYPE_p_CHUDProgressBar swig_types[244]
+#define SWIGTYPE_p_CHeight swig_types[245]
+#define SWIGTYPE_p_CHeightField swig_types[246]
+#define SWIGTYPE_p_CLMSector swig_types[247]
+#define SWIGTYPE_p_CLMSector_Gray swig_types[248]
+#define SWIGTYPE_p_CLMSector_Pal swig_types[249]
+#define SWIGTYPE_p_CLMSector_RGB24 swig_types[250]
+#define SWIGTYPE_p_CLODSelector swig_types[251]
+#define SWIGTYPE_p_CLODSelector_Array swig_types[252]
+#define SWIGTYPE_p_CLensFlare swig_types[253]
+#define SWIGTYPE_p_CLensFlare_Elem swig_types[254]
+#define SWIGTYPE_p_CLightElem swig_types[255]
+#define SWIGTYPE_p_CLightMap swig_types[256]
+#define SWIGTYPE_p_CLoader3DS swig_types[257]
+#define SWIGTYPE_p_CLoaderBSP2 swig_types[258]
+#define SWIGTYPE_p_CLoaderGEM swig_types[259]
+#define SWIGTYPE_p_CLoaderMD2 swig_types[260]
+#define SWIGTYPE_p_CLoaderMD3 swig_types[261]
+#define SWIGTYPE_p_CMenuTextGrid swig_types[262]
+#define SWIGTYPE_p_CSFXObjectInstance swig_types[263]
+#define SWIGTYPE_p_CSLM_HFieldSect swig_types[264]
+#define SWIGTYPE_p_CSLM_LMapSect swig_types[265]
+#define SWIGTYPE_p_CSLM_TMapSect swig_types[266]
+#define SWIGTYPE_p_CSaverGEM swig_types[267]
+#define SWIGTYPE_p_CSectElem swig_types[268]
+#define SWIGTYPE_p_CSector swig_types[269]
+#define SWIGTYPE_p_CSectorLoaderManager swig_types[270]
+#define SWIGTYPE_p_CSectorMatrix swig_types[271]
+#define SWIGTYPE_p_CShadowCaster swig_types[272]
+#define SWIGTYPE_p_CSkyBox swig_types[273]
+#define SWIGTYPE_p_CSkyDome swig_types[274]
+#define SWIGTYPE_p_CTMSector swig_types[275]
+#define SWIGTYPE_p_CTMSector_8_16 swig_types[276]
+#define SWIGTYPE_p_CTerrainCircuit swig_types[277]
+#define SWIGTYPE_p_CTerrainSector swig_types[278]
+#define SWIGTYPE_p_CTerrainTesselator swig_types[279]
+#define SWIGTYPE_p_CTerrainTesselatorGM swig_types[280]
+#define SWIGTYPE_p_CTexMap swig_types[281]
+#define SWIGTYPE_p_CTexProjector swig_types[282]
+#define SWIGTYPE_p_CTexSector swig_types[283]
+#define SWIGTYPE_p_CTile swig_types[284]
+#define SWIGTYPE_p_CTileBookmark swig_types[285]
+#define SWIGTYPE_p_E3D_BlendMode swig_types[286]
+#define SWIGTYPE_p_E3D_ChannelMask swig_types[287]
+#define SWIGTYPE_p_E3D_FogMode swig_types[288]
+#define SWIGTYPE_p_E3D_MeshType swig_types[289]
+#define SWIGTYPE_p_E3D_PrimitiveType swig_types[290]
+#define SWIGTYPE_p_E3D_ProjectorType swig_types[291]
+#define SWIGTYPE_p_E3D_RenderBuffer_Type swig_types[292]
+#define SWIGTYPE_p_E3D_ShaderInstructionType swig_types[293]
+#define SWIGTYPE_p_E3D_StencilAction swig_types[294]
+#define SWIGTYPE_p_E3D_StencilFunc swig_types[295]
+#define SWIGTYPE_p_E3D_ZTestFunc swig_types[296]
+#define SWIGTYPE_p_E3D_ZWrite swig_types[297]
+#define SWIGTYPE_p_ECOL_ColliderType swig_types[298]
+#define SWIGTYPE_p_ECOL_TestType swig_types[299]
+#define SWIGTYPE_p_EFileOpenMode swig_types[300]
+#define SWIGTYPE_p_EFileOperationResult swig_types[301]
+#define SWIGTYPE_p_EFileSeekMode swig_types[302]
+#define SWIGTYPE_p_EGenerationMethod swig_types[303]
+#define SWIGTYPE_p_EImageFormat swig_types[304]
+#define SWIGTYPE_p_ESceneNodeType swig_types[305]
+#define SWIGTYPE_p_EShInsGeoOp swig_types[306]
+#define SWIGTYPE_p_EShInsTexOp swig_types[307]
+#define SWIGTYPE_p_FILE swig_types[308]
+#define SWIGTYPE_p_Q3triangle_t swig_types[309]
+#define SWIGTYPE_p_SCNUt_AdjTri swig_types[310]
+#define SWIGTYPE_p_SCNUt_AdjTriList swig_types[311]
+#define SWIGTYPE_p_SCNUt_AdjTriListBuilder swig_types[312]
+#define SWIGTYPE_p_SCNUt_AnimMesh_NormalComputer swig_types[313]
+#define SWIGTYPE_p_SCNUt_AnimSceneLoader swig_types[314]
+#define SWIGTYPE_p_SCNUt_BSPBuilder swig_types[315]
+#define SWIGTYPE_p_SCNUt_ComputeBoundingBox swig_types[316]
+#define SWIGTYPE_p_SCNUt_CoplanarRemover swig_types[317]
+#define SWIGTYPE_p_SCNUt_Edge swig_types[318]
+#define SWIGTYPE_p_SCNUt_EdgeBuilder swig_types[319]
+#define SWIGTYPE_p_SCNUt_EdgeList swig_types[320]
+#define SWIGTYPE_p_SCNUt_MaterialTable swig_types[321]
+#define SWIGTYPE_p_SCNUt_Mesh2TriScene swig_types[322]
+#define SWIGTYPE_p_SCNUt_MeshCompacter swig_types[323]
+#define SWIGTYPE_p_SCNUt_MeshGenerator swig_types[324]
+#define SWIGTYPE_p_SCNUt_OctreeBuilder swig_types[325]
+#define SWIGTYPE_p_SCNUt_PlanarMapper swig_types[326]
+#define SWIGTYPE_p_SCNUt_SceneBuilder swig_types[327]
+#define SWIGTYPE_p_SCNUt_SceneCompiler swig_types[328]
+#define SWIGTYPE_p_SCNUt_Scn2TriScnBuilder swig_types[329]
+#define SWIGTYPE_p_SCNUt_ShaderAssigner swig_types[330]
+#define SWIGTYPE_p_SCNUt_Stripifier swig_types[331]
+#define SWIGTYPE_p_SCNUt_TransformTriScene swig_types[332]
+#define SWIGTYPE_p_SCNUt_TriScene swig_types[333]
+#define SWIGTYPE_p_SCNUt_TriSceneAccumulator swig_types[334]
+#define SWIGTYPE_p_SCNUt_TriSceneClassifier swig_types[335]
+#define SWIGTYPE_p_SCNUt_TriSceneLoader swig_types[336]
+#define SWIGTYPE_p_SCNUt_TriSceneSaver swig_types[337]
+#define SWIGTYPE_p_SCNUt_TriSceneSeparator swig_types[338]
+#define SWIGTYPE_p_SCNUt_TriSceneSplitter swig_types[339]
+#define SWIGTYPE_p_SCNUt_TriUtils swig_types[340]
+#define SWIGTYPE_p_SCNUt_Triangle swig_types[341]
+#define SWIGTYPE_p_SCNUt_VisibilityTester swig_types[342]
+#define SWIGTYPE_p_SCNUt_ePolyState swig_types[343]
+#define SWIGTYPE_p_T3DS_Chunk swig_types[344]
+#define SWIGTYPE_p_TERSceneLoader swig_types[345]
+#define SWIGTYPE_p_TEnvironmentPars swig_types[346]
+#define SWIGTYPE_p_TGMState swig_types[347]
+#define SWIGTYPE_p_THeightFieldData swig_types[348]
+#define SWIGTYPE_p_TMsgLine swig_types[349]
+#define SWIGTYPE_p_TSpiralPathParams swig_types[350]
+#define SWIGTYPE_p_TTexSet swig_types[351]
+#define SWIGTYPE_p_TTextureEntry swig_types[352]
+#define SWIGTYPE_p_TVertexRef swig_types[353]
+#define SWIGTYPE_p_a_3__float swig_types[354]
+#define SWIGTYPE_p_animNumber_t swig_types[355]
+#define SWIGTYPE_p_anim_t swig_types[356]
+#define SWIGTYPE_p_boneframe_t swig_types[357]
+#define SWIGTYPE_p_bsp_edge swig_types[358]
+#define SWIGTYPE_p_bsp_face swig_types[359]
+#define SWIGTYPE_p_bsp_face_edge swig_types[360]
+#define SWIGTYPE_p_bsp_header swig_types[361]
+#define SWIGTYPE_p_bsp_leaf swig_types[362]
+#define SWIGTYPE_p_bsp_leaf_face swig_types[363]
+#define SWIGTYPE_p_bsp_lump swig_types[364]
+#define SWIGTYPE_p_bsp_node swig_types[365]
+#define SWIGTYPE_p_bsp_plane swig_types[366]
+#define SWIGTYPE_p_bsp_point3f swig_types[367]
+#define SWIGTYPE_p_bsp_point3s swig_types[368]
+#define SWIGTYPE_p_bsp_texinfo swig_types[369]
+#define SWIGTYPE_p_bsp_vis swig_types[370]
+#define SWIGTYPE_p_bsp_vis_offset swig_types[371]
+#define SWIGTYPE_p_char swig_types[372]
+#define SWIGTYPE_p_eLightType swig_types[373]
+#define SWIGTYPE_p_ext_texinfo swig_types[374]
+#define SWIGTYPE_p_f_p_void__void swig_types[375]
+#define SWIGTYPE_p_f_unsigned_int_unsigned_int_unsigned_int_r_q_const__CGString__void swig_types[376]
+#define SWIGTYPE_p_float swig_types[377]
+#define SWIGTYPE_p_frame_t swig_types[378]
+#define SWIGTYPE_p_int swig_types[379]
+#define SWIGTYPE_p_long swig_types[380]
+#define SWIGTYPE_p_md3_header_t swig_types[381]
+#define SWIGTYPE_p_mesh_header_t swig_types[382]
+#define SWIGTYPE_p_mesh_t swig_types[383]
+#define SWIGTYPE_p_model_t swig_types[384]
+#define SWIGTYPE_p_p_CCOL_Collider swig_types[385]
+#define SWIGTYPE_p_p_CGMesh swig_types[386]
+#define SWIGTYPE_p_p_CGMeshBox swig_types[387]
+#define SWIGTYPE_p_p_CGMeshCross swig_types[388]
+#define SWIGTYPE_p_p_CGMeshRect swig_types[389]
+#define SWIGTYPE_p_p_CGMeshSphere swig_types[390]
+#define SWIGTYPE_p_p_CGShInsBlendOp swig_types[391]
+#define SWIGTYPE_p_p_CGShInsColor swig_types[392]
+#define SWIGTYPE_p_p_CGShInsExtension swig_types[393]
+#define SWIGTYPE_p_p_CGShInsGeoOp swig_types[394]
+#define SWIGTYPE_p_p_CGShInsProgram swig_types[395]
+#define SWIGTYPE_p_p_CGShInsSetTMU swig_types[396]
+#define SWIGTYPE_p_p_CGShInsTexOp swig_types[397]
+#define SWIGTYPE_p_p_CGShInsTexture swig_types[398]
+#define SWIGTYPE_p_p_CGShInsWireframe swig_types[399]
+#define SWIGTYPE_p_p_CGShInsZOp swig_types[400]
+#define SWIGTYPE_p_p_CGShader swig_types[401]
+#define SWIGTYPE_p_p_CGShaderInstruction swig_types[402]
+#define SWIGTYPE_p_p_CGUnmanagedMesh swig_types[403]
+#define SWIGTYPE_p_p_CMenuTextGrid swig_types[404]
+#define SWIGTYPE_p_p_char swig_types[405]
+#define SWIGTYPE_p_p_void swig_types[406]
+#define SWIGTYPE_p_short swig_types[407]
+#define SWIGTYPE_p_skin_file_t swig_types[408]
+#define SWIGTYPE_p_skin_mesh_entry_t swig_types[409]
+#define SWIGTYPE_p_skin_t swig_types[410]
+#define SWIGTYPE_p_skin_tag_entry_t swig_types[411]
+#define SWIGTYPE_p_tag_t swig_types[412]
+#define SWIGTYPE_p_tex_coord_t swig_types[413]
+#define SWIGTYPE_p_textureCoordinate_t swig_types[414]
+#define SWIGTYPE_p_triangleVertex_t swig_types[415]
+#define SWIGTYPE_p_triangle_t swig_types[416]
+#define SWIGTYPE_p_unsigned_char swig_types[417]
+#define SWIGTYPE_p_unsigned_int swig_types[418]
+#define SWIGTYPE_p_unsigned_short swig_types[419]
+#define SWIGTYPE_p_vertice_t swig_types[420]
+#define SWIGTYPE_p_void swig_types[421]
+static swig_type_info *swig_types[423];
+static swig_module_info swig_module = {swig_types, 422, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -24380,19 +24358,19 @@ static int _wrap_ComputePrimitiveNormals(lua_State* L) {
 }
 
 
-static int _wrap_ComputeVertexsNormals(lua_State* L) {
+static int _wrap_ComputeVertexNormals(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGMesh *arg1 = 0 ;
     
-    SWIG_check_num_args("MeshUtils::ComputeVertexsNormals",1,1)
-    if(!lua_isuserdata(L,1)) SWIG_fail_arg("MeshUtils::ComputeVertexsNormals",1,"CGMesh &");
+    SWIG_check_num_args("MeshUtils::ComputeVertexNormals",1,1)
+    if(!lua_isuserdata(L,1)) SWIG_fail_arg("MeshUtils::ComputeVertexNormals",1,"CGMesh &");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGMesh,0))){
-      SWIG_fail_ptr("ComputeVertexsNormals",1,SWIGTYPE_p_CGMesh);
+      SWIG_fail_ptr("ComputeVertexNormals",1,SWIGTYPE_p_CGMesh);
     }
     
-    MeshUtils::ComputeVertexsNormals(*arg1);
+    MeshUtils::ComputeVertexNormals(*arg1);
     
     return SWIG_arg;
     
@@ -25133,20 +25111,20 @@ static int _wrap_new_CGShInsTexOp(lua_State* L) {
 }
 
 
-static int _wrap_CGShInsTexOp_eGetTOpType(lua_State* L) {
+static int _wrap_CGShInsTexOp_eGetTexOp(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGShInsTexOp *arg1 = (CGShInsTexOp *) 0 ;
-    eShInsTexOp_TypeID result;
+    EShInsTexOp result;
     
-    SWIG_check_num_args("CGShInsTexOp::eGetTOpType",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGShInsTexOp::eGetTOpType",1,"CGShInsTexOp *");
+    SWIG_check_num_args("CGShInsTexOp::eGetTexOp",1,1)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGShInsTexOp::eGetTexOp",1,"CGShInsTexOp *");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGShInsTexOp,0))){
-      SWIG_fail_ptr("CGShInsTexOp_eGetTOpType",1,SWIGTYPE_p_CGShInsTexOp);
+      SWIG_fail_ptr("CGShInsTexOp_eGetTexOp",1,SWIGTYPE_p_CGShInsTexOp);
     }
     
-    result = (eShInsTexOp_TypeID)(arg1)->eGetTOpType();
+    result = (EShInsTexOp)(arg1)->eGetTexOp();
     lua_pushnumber(L, (lua_Number)(int)(result)); SWIG_arg++;
     return SWIG_arg;
     
@@ -25157,22 +25135,22 @@ static int _wrap_CGShInsTexOp_eGetTOpType(lua_State* L) {
 }
 
 
-static int _wrap_CGShInsTexOp_SetTOpType(lua_State* L) {
+static int _wrap_CGShInsTexOp_SetTexOp(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGShInsTexOp *arg1 = (CGShInsTexOp *) 0 ;
-    eShInsTexOp_TypeID arg2 ;
+    EShInsTexOp arg2 ;
     
-    SWIG_check_num_args("CGShInsTexOp::SetTOpType",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGShInsTexOp::SetTOpType",1,"CGShInsTexOp *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CGShInsTexOp::SetTOpType",2,"eShInsTexOp_TypeID");
+    SWIG_check_num_args("CGShInsTexOp::SetTexOp",2,2)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGShInsTexOp::SetTexOp",1,"CGShInsTexOp *");
+    if(!lua_isnumber(L,2)) SWIG_fail_arg("CGShInsTexOp::SetTexOp",2,"EShInsTexOp");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGShInsTexOp,0))){
-      SWIG_fail_ptr("CGShInsTexOp_SetTOpType",1,SWIGTYPE_p_CGShInsTexOp);
+      SWIG_fail_ptr("CGShInsTexOp_SetTexOp",1,SWIGTYPE_p_CGShInsTexOp);
     }
     
-    arg2 = (eShInsTexOp_TypeID)(int)lua_tonumber(L, 2);
-    (arg1)->SetTOpType(arg2);
+    arg2 = (EShInsTexOp)(int)lua_tonumber(L, 2);
+    (arg1)->SetTexOp(arg2);
     
     return SWIG_arg;
     
@@ -25463,8 +25441,8 @@ static swig_lua_attribute swig_CGShInsTexOp_attributes[] = {
     {0,0,0}
 };
 static swig_lua_method swig_CGShInsTexOp_methods[]= {
-    { "eGetTOpType", _wrap_CGShInsTexOp_eGetTOpType},
-    { "SetTOpType", _wrap_CGShInsTexOp_SetTOpType},
+    { "eGetTexOp", _wrap_CGShInsTexOp_eGetTexOp},
+    { "SetTexOp", _wrap_CGShInsTexOp_SetTexOp},
     { "poGetEvaluator", _wrap_CGShInsTexOp_poGetEvaluator},
     { "SetEvaluator", _wrap_CGShInsTexOp_SetEvaluator},
     {0,0}
@@ -25515,20 +25493,20 @@ static int _wrap_new_CGShInsGeoOp(lua_State* L) {
 }
 
 
-static int _wrap_CGShInsGeoOp_eGetGOpType(lua_State* L) {
+static int _wrap_CGShInsGeoOp_eGetGeoOp(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGShInsGeoOp *arg1 = (CGShInsGeoOp *) 0 ;
-    eShInsGeoOp_TypeID result;
+    EShInsGeoOp result;
     
-    SWIG_check_num_args("CGShInsGeoOp::eGetGOpType",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGShInsGeoOp::eGetGOpType",1,"CGShInsGeoOp *");
+    SWIG_check_num_args("CGShInsGeoOp::eGetGeoOp",1,1)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGShInsGeoOp::eGetGeoOp",1,"CGShInsGeoOp *");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGShInsGeoOp,0))){
-      SWIG_fail_ptr("CGShInsGeoOp_eGetGOpType",1,SWIGTYPE_p_CGShInsGeoOp);
+      SWIG_fail_ptr("CGShInsGeoOp_eGetGeoOp",1,SWIGTYPE_p_CGShInsGeoOp);
     }
     
-    result = (eShInsGeoOp_TypeID)(arg1)->eGetGOpType();
+    result = (EShInsGeoOp)(arg1)->eGetGeoOp();
     lua_pushnumber(L, (lua_Number)(int)(result)); SWIG_arg++;
     return SWIG_arg;
     
@@ -25543,17 +25521,17 @@ static int _wrap_CGShInsGeoOp_SetGOpType(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGShInsGeoOp *arg1 = (CGShInsGeoOp *) 0 ;
-    eShInsGeoOp_TypeID arg2 ;
+    EShInsGeoOp arg2 ;
     
     SWIG_check_num_args("CGShInsGeoOp::SetGOpType",2,2)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGShInsGeoOp::SetGOpType",1,"CGShInsGeoOp *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CGShInsGeoOp::SetGOpType",2,"eShInsGeoOp_TypeID");
+    if(!lua_isnumber(L,2)) SWIG_fail_arg("CGShInsGeoOp::SetGOpType",2,"EShInsGeoOp");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGShInsGeoOp,0))){
       SWIG_fail_ptr("CGShInsGeoOp_SetGOpType",1,SWIGTYPE_p_CGShInsGeoOp);
     }
     
-    arg2 = (eShInsGeoOp_TypeID)(int)lua_tonumber(L, 2);
+    arg2 = (EShInsGeoOp)(int)lua_tonumber(L, 2);
     (arg1)->SetGOpType(arg2);
     
     return SWIG_arg;
@@ -25635,7 +25613,7 @@ static swig_lua_attribute swig_CGShInsGeoOp_attributes[] = {
     {0,0,0}
 };
 static swig_lua_method swig_CGShInsGeoOp_methods[]= {
-    { "eGetGOpType", _wrap_CGShInsGeoOp_eGetGOpType},
+    { "eGetGeoOp", _wrap_CGShInsGeoOp_eGetGeoOp},
     { "SetGOpType", _wrap_CGShInsGeoOp_SetGOpType},
     { "poGetEvaluator", _wrap_CGShInsGeoOp_poGetEvaluator},
     { "SetEvaluator", _wrap_CGShInsGeoOp_SetEvaluator},
@@ -31744,36 +31722,6 @@ static int _wrap_CGSceneVisitor_Visit__SWIG_3(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSceneVisitor *arg1 = (CGSceneVisitor *) 0 ;
-    CGSceneCompiledLeaf *arg2 = (CGSceneCompiledLeaf *) 0 ;
-    
-    SWIG_check_num_args("CGSceneVisitor::Visit",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneVisitor::Visit",1,"CGSceneVisitor *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSceneVisitor::Visit",2,"CGSceneCompiledLeaf *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneVisitor,0))){
-      SWIG_fail_ptr("CGSceneVisitor_Visit",1,SWIGTYPE_p_CGSceneVisitor);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneCompiledLeaf,0))){
-      SWIG_fail_ptr("CGSceneVisitor_Visit",2,SWIGTYPE_p_CGSceneCompiledLeaf);
-    }
-    
-    (arg1)->Visit(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGSceneVisitor_Visit__SWIG_4(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSceneVisitor *arg1 = (CGSceneVisitor *) 0 ;
     CGSceneInstance *arg2 = (CGSceneInstance *) 0 ;
     
     SWIG_check_num_args("CGSceneVisitor::Visit",2,2)
@@ -31800,7 +31748,7 @@ static int _wrap_CGSceneVisitor_Visit__SWIG_4(lua_State* L) {
 }
 
 
-static int _wrap_CGSceneVisitor_Visit__SWIG_5(lua_State* L) {
+static int _wrap_CGSceneVisitor_Visit__SWIG_4(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSceneVisitor *arg1 = (CGSceneVisitor *) 0 ;
@@ -31830,7 +31778,7 @@ static int _wrap_CGSceneVisitor_Visit__SWIG_5(lua_State* L) {
 }
 
 
-static int _wrap_CGSceneVisitor_Visit__SWIG_6(lua_State* L) {
+static int _wrap_CGSceneVisitor_Visit__SWIG_5(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSceneVisitor *arg1 = (CGSceneVisitor *) 0 ;
@@ -31860,7 +31808,7 @@ static int _wrap_CGSceneVisitor_Visit__SWIG_6(lua_State* L) {
 }
 
 
-static int _wrap_CGSceneVisitor_Visit__SWIG_7(lua_State* L) {
+static int _wrap_CGSceneVisitor_Visit__SWIG_6(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSceneVisitor *arg1 = (CGSceneVisitor *) 0 ;
@@ -31890,7 +31838,7 @@ static int _wrap_CGSceneVisitor_Visit__SWIG_7(lua_State* L) {
 }
 
 
-static int _wrap_CGSceneVisitor_Visit__SWIG_8(lua_State* L) {
+static int _wrap_CGSceneVisitor_Visit__SWIG_7(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSceneVisitor *arg1 = (CGSceneVisitor *) 0 ;
@@ -31920,7 +31868,7 @@ static int _wrap_CGSceneVisitor_Visit__SWIG_8(lua_State* L) {
 }
 
 
-static int _wrap_CGSceneVisitor_Visit__SWIG_9(lua_State* L) {
+static int _wrap_CGSceneVisitor_Visit__SWIG_8(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSceneVisitor *arg1 = (CGSceneVisitor *) 0 ;
@@ -31950,7 +31898,7 @@ static int _wrap_CGSceneVisitor_Visit__SWIG_9(lua_State* L) {
 }
 
 
-static int _wrap_CGSceneVisitor_Visit__SWIG_10(lua_State* L) {
+static int _wrap_CGSceneVisitor_Visit__SWIG_9(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSceneVisitor *arg1 = (CGSceneVisitor *) 0 ;
@@ -31980,37 +31928,7 @@ static int _wrap_CGSceneVisitor_Visit__SWIG_10(lua_State* L) {
 }
 
 
-static int _wrap_CGSceneVisitor_Visit__SWIG_11(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSceneVisitor *arg1 = (CGSceneVisitor *) 0 ;
-    CGSceneAnimCfg *arg2 = (CGSceneAnimCfg *) 0 ;
-    
-    SWIG_check_num_args("CGSceneVisitor::Visit",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneVisitor::Visit",1,"CGSceneVisitor *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSceneVisitor::Visit",2,"CGSceneAnimCfg *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneVisitor,0))){
-      SWIG_fail_ptr("CGSceneVisitor_Visit",1,SWIGTYPE_p_CGSceneVisitor);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneAnimCfg,0))){
-      SWIG_fail_ptr("CGSceneVisitor_Visit",2,SWIGTYPE_p_CGSceneAnimCfg);
-    }
-    
-    (arg1)->Visit(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGSceneVisitor_Visit__SWIG_12(lua_State* L) {
+static int _wrap_CGSceneVisitor_Visit__SWIG_10(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSceneVisitor *arg1 = (CGSceneVisitor *) 0 ;
@@ -32040,7 +31958,7 @@ static int _wrap_CGSceneVisitor_Visit__SWIG_12(lua_State* L) {
 }
 
 
-static int _wrap_CGSceneVisitor_Visit__SWIG_13(lua_State* L) {
+static int _wrap_CGSceneVisitor_Visit__SWIG_11(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSceneVisitor *arg1 = (CGSceneVisitor *) 0 ;
@@ -32070,37 +31988,7 @@ static int _wrap_CGSceneVisitor_Visit__SWIG_13(lua_State* L) {
 }
 
 
-static int _wrap_CGSceneVisitor_Visit__SWIG_14(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSceneVisitor *arg1 = (CGSceneVisitor *) 0 ;
-    CGSceneAnimInstance *arg2 = (CGSceneAnimInstance *) 0 ;
-    
-    SWIG_check_num_args("CGSceneVisitor::Visit",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneVisitor::Visit",1,"CGSceneVisitor *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSceneVisitor::Visit",2,"CGSceneAnimInstance *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneVisitor,0))){
-      SWIG_fail_ptr("CGSceneVisitor_Visit",1,SWIGTYPE_p_CGSceneVisitor);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneAnimInstance,0))){
-      SWIG_fail_ptr("CGSceneVisitor_Visit",2,SWIGTYPE_p_CGSceneAnimInstance);
-    }
-    
-    (arg1)->Visit(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGSceneVisitor_Visit__SWIG_15(lua_State* L) {
+static int _wrap_CGSceneVisitor_Visit__SWIG_12(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSceneVisitor *arg1 = (CGSceneVisitor *) 0 ;
@@ -32130,7 +32018,7 @@ static int _wrap_CGSceneVisitor_Visit__SWIG_15(lua_State* L) {
 }
 
 
-static int _wrap_CGSceneVisitor_Visit__SWIG_16(lua_State* L) {
+static int _wrap_CGSceneVisitor_Visit__SWIG_13(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSceneVisitor *arg1 = (CGSceneVisitor *) 0 ;
@@ -32147,6 +32035,36 @@ static int _wrap_CGSceneVisitor_Visit__SWIG_16(lua_State* L) {
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneAnimTransf,0))){
       SWIG_fail_ptr("CGSceneVisitor_Visit",2,SWIGTYPE_p_CGSceneAnimTransf);
+    }
+    
+    (arg1)->Visit(arg2);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CGSceneVisitor_Visit__SWIG_14(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGSceneVisitor *arg1 = (CGSceneVisitor *) 0 ;
+    CGSceneAnimActionSet *arg2 = (CGSceneAnimActionSet *) 0 ;
+    
+    SWIG_check_num_args("CGSceneVisitor::Visit",2,2)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneVisitor::Visit",1,"CGSceneVisitor *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSceneVisitor::Visit",2,"CGSceneAnimActionSet *");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneVisitor,0))){
+      SWIG_fail_ptr("CGSceneVisitor_Visit",1,SWIGTYPE_p_CGSceneVisitor);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneAnimActionSet,0))){
+      SWIG_fail_ptr("CGSceneVisitor_Visit",2,SWIGTYPE_p_CGSceneAnimActionSet);
     }
     
     (arg1)->Visit(arg2);
@@ -32235,30 +32153,6 @@ static int _wrap_CGSceneVisitor_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSceneVisitor_Visit__SWIG_4(L);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CGSceneVisitor, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneCompiledLeaf, 0)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
         return _wrap_CGSceneVisitor_Visit__SWIG_3(L);
       }
     }
@@ -32283,7 +32177,7 @@ static int _wrap_CGSceneVisitor_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSceneVisitor_Visit__SWIG_5(L);
+        return _wrap_CGSceneVisitor_Visit__SWIG_4(L);
       }
     }
   }
@@ -32307,7 +32201,7 @@ static int _wrap_CGSceneVisitor_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSceneVisitor_Visit__SWIG_6(L);
+        return _wrap_CGSceneVisitor_Visit__SWIG_5(L);
       }
     }
   }
@@ -32331,7 +32225,7 @@ static int _wrap_CGSceneVisitor_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSceneVisitor_Visit__SWIG_7(L);
+        return _wrap_CGSceneVisitor_Visit__SWIG_6(L);
       }
     }
   }
@@ -32355,7 +32249,7 @@ static int _wrap_CGSceneVisitor_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSceneVisitor_Visit__SWIG_8(L);
+        return _wrap_CGSceneVisitor_Visit__SWIG_7(L);
       }
     }
   }
@@ -32379,7 +32273,7 @@ static int _wrap_CGSceneVisitor_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSceneVisitor_Visit__SWIG_9(L);
+        return _wrap_CGSceneVisitor_Visit__SWIG_8(L);
       }
     }
   }
@@ -32403,7 +32297,7 @@ static int _wrap_CGSceneVisitor_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSceneVisitor_Visit__SWIG_10(L);
+        return _wrap_CGSceneVisitor_Visit__SWIG_9(L);
       }
     }
   }
@@ -32421,30 +32315,6 @@ static int _wrap_CGSceneVisitor_Visit(lua_State* L) {
       {
         void *ptr;
         if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneAnimMesh, 0)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
-        return _wrap_CGSceneVisitor_Visit__SWIG_13(L);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CGSceneVisitor, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneAnimCfg, 0)) {
           _v = 0;
         } else {
           _v = 1;
@@ -32475,31 +32345,7 @@ static int _wrap_CGSceneVisitor_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSceneVisitor_Visit__SWIG_15(L);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CGSceneVisitor, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneAnimInstance, 0)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
-        return _wrap_CGSceneVisitor_Visit__SWIG_14(L);
+        return _wrap_CGSceneVisitor_Visit__SWIG_12(L);
       }
     }
   }
@@ -32523,7 +32369,7 @@ static int _wrap_CGSceneVisitor_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSceneVisitor_Visit__SWIG_16(L);
+        return _wrap_CGSceneVisitor_Visit__SWIG_13(L);
       }
     }
   }
@@ -32547,7 +32393,31 @@ static int _wrap_CGSceneVisitor_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSceneVisitor_Visit__SWIG_12(L);
+        return _wrap_CGSceneVisitor_Visit__SWIG_10(L);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    {
+      void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CGSceneVisitor, 0)) {
+        _v = 0;
+      } else {
+        _v = 1;
+      }
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneAnimActionSet, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        return _wrap_CGSceneVisitor_Visit__SWIG_14(L);
       }
     }
   }
@@ -32581,7 +32451,6 @@ static int _wrap_CGSceneVisitor_Visit(lua_State* L) {
     "    CGSceneVisitor::Visit(CGSceneNode *)\n"
     "    CGSceneVisitor::Visit(CGSceneBSPNode *)\n"
     "    CGSceneVisitor::Visit(CGSceneCamera *)\n"
-    "    CGSceneVisitor::Visit(CGSceneCompiledLeaf *)\n"
     "    CGSceneVisitor::Visit(CGSceneInstance *)\n"
     "    CGSceneVisitor::Visit(CGSceneLeaf *)\n"
     "    CGSceneVisitor::Visit(CGSceneMux *)\n"
@@ -32589,12 +32458,11 @@ static int _wrap_CGSceneVisitor_Visit(lua_State* L) {
     "    CGSceneVisitor::Visit(CGSceneScreenRect *)\n"
     "    CGSceneVisitor::Visit(CGSceneSwitch *)\n"
     "    CGSceneVisitor::Visit(CGSceneTransf *)\n"
-    "    CGSceneVisitor::Visit(CGSceneAnimCfg *)\n"
     "    CGSceneVisitor::Visit(CGSceneAnimNode *)\n"
     "    CGSceneVisitor::Visit(CGSceneAnimMesh *)\n"
-    "    CGSceneVisitor::Visit(CGSceneAnimInstance *)\n"
     "    CGSceneVisitor::Visit(CGSceneAnimGroup *)\n"
-    "    CGSceneVisitor::Visit(CGSceneAnimTransf *)\n");
+    "    CGSceneVisitor::Visit(CGSceneAnimTransf *)\n"
+    "    CGSceneVisitor::Visit(CGSceneAnimActionSet *)\n");
   lua_error(L);return 0;
 }
 
@@ -35619,29 +35487,6 @@ static int _wrap_CGSceneAnimNode_uiGetNumStates(lua_State* L) {
 }
 
 
-static int _wrap_CGSceneAnimNode_ComputeStatesBVols(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSceneAnimNode *arg1 = (CGSceneAnimNode *) 0 ;
-    
-    SWIG_check_num_args("CGSceneAnimNode::ComputeStatesBVols",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimNode::ComputeStatesBVols",1,"CGSceneAnimNode *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimNode,0))){
-      SWIG_fail_ptr("CGSceneAnimNode_ComputeStatesBVols",1,SWIGTYPE_p_CGSceneAnimNode);
-    }
-    
-    (arg1)->ComputeStatesBVols();
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
 static int _wrap_CGSceneAnimNode_poGetStateBVol(lua_State* L) {
   {
     int SWIG_arg = 0;
@@ -35679,7 +35524,6 @@ static swig_lua_attribute swig_CGSceneAnimNode_attributes[] = {
 static swig_lua_method swig_CGSceneAnimNode_methods[]= {
     { "SetAnimState", _wrap_CGSceneAnimNode_SetAnimState},
     { "uiGetNumStates", _wrap_CGSceneAnimNode_uiGetNumStates},
-    { "ComputeStatesBVols", _wrap_CGSceneAnimNode_ComputeStatesBVols},
     { "poGetStateBVol", _wrap_CGSceneAnimNode_poGetStateBVol},
     {0,0}
 };
@@ -35982,14 +35826,14 @@ static swig_lua_class *swig_CAnimAction_bases[] = {0};
 static const char *swig_CAnimAction_base_names[] = {0};
 static swig_lua_class _wrap_class_CAnimAction = { "CAnimAction", "CAnimAction", &SWIGTYPE_p_CAnimAction,_proxy__wrap_new_CAnimAction, swig_delete_CAnimAction, swig_CAnimAction_methods, swig_CAnimAction_attributes, &swig_CAnimAction_Sf_SwigStatic, swig_CAnimAction_meta, swig_CAnimAction_bases, swig_CAnimAction_base_names };
 
-static int _wrap_new_CGSceneAnimCfg(lua_State* L) {
+static int _wrap_new_CGSceneAnimActionSet(lua_State* L) {
   {
     int SWIG_arg = 0;
-    CGSceneAnimCfg *result = 0 ;
+    CGSceneAnimActionSet *result = 0 ;
     
-    SWIG_check_num_args("CGSceneAnimCfg::CGSceneAnimCfg",0,0)
-    result = (CGSceneAnimCfg *)new CGSceneAnimCfg();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGSceneAnimCfg,1); SWIG_arg++; 
+    SWIG_check_num_args("CGSceneAnimActionSet::CGSceneAnimActionSet",0,0)
+    result = (CGSceneAnimActionSet *)new CGSceneAnimActionSet();
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGSceneAnimActionSet,1); SWIG_arg++; 
     return SWIG_arg;
     
     fail: SWIGUNUSED;
@@ -35999,10 +35843,10 @@ static int _wrap_new_CGSceneAnimCfg(lua_State* L) {
 }
 
 
-static int _wrap_CGSceneAnimCfg_uiAddAction(lua_State* L) {
+static int _wrap_CGSceneAnimActionSet_uiAddAction(lua_State* L) {
   {
     int SWIG_arg = 0;
-    CGSceneAnimCfg *arg1 = (CGSceneAnimCfg *) 0 ;
+    CGSceneAnimActionSet *arg1 = (CGSceneAnimActionSet *) 0 ;
     CGString *arg2 = 0 ;
     uint arg3 ;
     uint arg4 ;
@@ -36010,21 +35854,21 @@ static int _wrap_CGSceneAnimCfg_uiAddAction(lua_State* L) {
     bool arg6 ;
     uint result;
     
-    SWIG_check_num_args("CGSceneAnimCfg::uiAddAction",6,6)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimCfg::uiAddAction",1,"CGSceneAnimCfg *");
-    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CGSceneAnimCfg::uiAddAction",2,"CGString const &");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CGSceneAnimCfg::uiAddAction",3,"uint");
-    if(!lua_isnumber(L,4)) SWIG_fail_arg("CGSceneAnimCfg::uiAddAction",4,"uint");
-    if(!lua_isnumber(L,5)) SWIG_fail_arg("CGSceneAnimCfg::uiAddAction",5,"float");
-    if(!lua_isboolean(L,6)) SWIG_fail_arg("CGSceneAnimCfg::uiAddAction",6,"bool");
+    SWIG_check_num_args("CGSceneAnimActionSet::uiAddAction",6,6)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimActionSet::uiAddAction",1,"CGSceneAnimActionSet *");
+    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CGSceneAnimActionSet::uiAddAction",2,"CGString const &");
+    if(!lua_isnumber(L,3)) SWIG_fail_arg("CGSceneAnimActionSet::uiAddAction",3,"uint");
+    if(!lua_isnumber(L,4)) SWIG_fail_arg("CGSceneAnimActionSet::uiAddAction",4,"uint");
+    if(!lua_isnumber(L,5)) SWIG_fail_arg("CGSceneAnimActionSet::uiAddAction",5,"float");
+    if(!lua_isboolean(L,6)) SWIG_fail_arg("CGSceneAnimActionSet::uiAddAction",6,"bool");
     
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimCfg,0))){
-      SWIG_fail_ptr("CGSceneAnimCfg_uiAddAction",1,SWIGTYPE_p_CGSceneAnimCfg);
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimActionSet,0))){
+      SWIG_fail_ptr("CGSceneAnimActionSet_uiAddAction",1,SWIGTYPE_p_CGSceneAnimActionSet);
     }
     
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGString,0))){
-      SWIG_fail_ptr("CGSceneAnimCfg_uiAddAction",2,SWIGTYPE_p_CGString);
+      SWIG_fail_ptr("CGSceneAnimActionSet_uiAddAction",2,SWIGTYPE_p_CGString);
     }
     
     SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
@@ -36044,20 +35888,20 @@ static int _wrap_CGSceneAnimCfg_uiAddAction(lua_State* L) {
 }
 
 
-static int _wrap_CGSceneAnimCfg_uiNumActions(lua_State* L) {
+static int _wrap_CGSceneAnimActionSet_uiNumActions(lua_State* L) {
   {
     int SWIG_arg = 0;
-    CGSceneAnimCfg *arg1 = (CGSceneAnimCfg *) 0 ;
+    CGSceneAnimActionSet *arg1 = (CGSceneAnimActionSet *) 0 ;
     uint result;
     
-    SWIG_check_num_args("CGSceneAnimCfg::uiNumActions",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimCfg::uiNumActions",1,"CGSceneAnimCfg *");
+    SWIG_check_num_args("CGSceneAnimActionSet::uiNumActions",1,1)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimActionSet::uiNumActions",1,"CGSceneAnimActionSet const *");
     
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimCfg,0))){
-      SWIG_fail_ptr("CGSceneAnimCfg_uiNumActions",1,SWIGTYPE_p_CGSceneAnimCfg);
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimActionSet,0))){
+      SWIG_fail_ptr("CGSceneAnimActionSet_uiNumActions",1,SWIGTYPE_p_CGSceneAnimActionSet);
     }
     
-    result = (uint)(arg1)->uiNumActions();
+    result = (uint)((CGSceneAnimActionSet const *)arg1)->uiNumActions();
     lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
     return SWIG_arg;
     
@@ -36068,191 +35912,19 @@ static int _wrap_CGSceneAnimCfg_uiNumActions(lua_State* L) {
 }
 
 
-static int _wrap_CGSceneAnimCfg_poGetAnimObj(lua_State* L) {
+static int _wrap_CGSceneAnimActionSet_sGetActionName(lua_State* L) {
   {
     int SWIG_arg = 0;
-    CGSceneAnimCfg *arg1 = (CGSceneAnimCfg *) 0 ;
-    CGSceneAnimNode *result = 0 ;
-    
-    SWIG_check_num_args("CGSceneAnimCfg::poGetAnimObj",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimCfg::poGetAnimObj",1,"CGSceneAnimCfg *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimCfg,0))){
-      SWIG_fail_ptr("CGSceneAnimCfg_poGetAnimObj",1,SWIGTYPE_p_CGSceneAnimCfg);
-    }
-    
-    result = (CGSceneAnimNode *)(arg1)->poGetAnimObj();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGSceneAnimNode,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGSceneAnimCfg_SetAnimObj(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSceneAnimCfg *arg1 = (CGSceneAnimCfg *) 0 ;
-    CGSceneAnimNode *arg2 = (CGSceneAnimNode *) 0 ;
-    
-    SWIG_check_num_args("CGSceneAnimCfg::SetAnimObj",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimCfg::SetAnimObj",1,"CGSceneAnimCfg *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSceneAnimCfg::SetAnimObj",2,"CGSceneAnimNode *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimCfg,0))){
-      SWIG_fail_ptr("CGSceneAnimCfg_SetAnimObj",1,SWIGTYPE_p_CGSceneAnimCfg);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneAnimNode,0))){
-      SWIG_fail_ptr("CGSceneAnimCfg_SetAnimObj",2,SWIGTYPE_p_CGSceneAnimNode);
-    }
-    
-    (arg1)->SetAnimObj(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGSceneAnimCfg_oGetFrameAnim__SWIG_0(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSceneAnimCfg *arg1 = (CGSceneAnimCfg *) 0 ;
-    uint arg2 ;
-    CAnimAction *result = 0 ;
-    
-    SWIG_check_num_args("CGSceneAnimCfg::oGetFrameAnim",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimCfg::oGetFrameAnim",1,"CGSceneAnimCfg *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CGSceneAnimCfg::oGetFrameAnim",2,"uint");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimCfg,0))){
-      SWIG_fail_ptr("CGSceneAnimCfg_oGetFrameAnim",1,SWIGTYPE_p_CGSceneAnimCfg);
-    }
-    
-    SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-    arg2 = (uint)lua_tonumber(L, 2);
-    result = (CAnimAction *) &(arg1)->oGetFrameAnim(arg2);
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CAnimAction,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGSceneAnimCfg_oGetFrameAnim__SWIG_1(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSceneAnimCfg *arg1 = (CGSceneAnimCfg *) 0 ;
-    CGString *arg2 = 0 ;
-    CAnimAction *result = 0 ;
-    
-    SWIG_check_num_args("CGSceneAnimCfg::oGetFrameAnim",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimCfg::oGetFrameAnim",1,"CGSceneAnimCfg *");
-    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CGSceneAnimCfg::oGetFrameAnim",2,"CGString const &");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimCfg,0))){
-      SWIG_fail_ptr("CGSceneAnimCfg_oGetFrameAnim",1,SWIGTYPE_p_CGSceneAnimCfg);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGString,0))){
-      SWIG_fail_ptr("CGSceneAnimCfg_oGetFrameAnim",2,SWIGTYPE_p_CGString);
-    }
-    
-    result = (CAnimAction *) &(arg1)->oGetFrameAnim((CGString const &)*arg2);
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CAnimAction,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGSceneAnimCfg_oGetFrameAnim(lua_State* L) {
-  int argc;
-  int argv[3]={
-    1,2,3
-  };
-  
-  argc = lua_gettop(L);
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CGSceneAnimCfg, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGString, SWIG_POINTER_NO_NULL)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
-        return _wrap_CGSceneAnimCfg_oGetFrameAnim__SWIG_1(L);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CGSceneAnimCfg, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        return _wrap_CGSceneAnimCfg_oGetFrameAnim__SWIG_0(L);
-      }
-    }
-  }
-  
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'CGSceneAnimCfg_oGetFrameAnim'\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    CGSceneAnimCfg::oGetFrameAnim(uint)\n"
-    "    CGSceneAnimCfg::oGetFrameAnim(CGString const &)\n");
-  lua_error(L);return 0;
-}
-
-
-static int _wrap_CGSceneAnimCfg_sGetActionName(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSceneAnimCfg *arg1 = (CGSceneAnimCfg *) 0 ;
+    CGSceneAnimActionSet *arg1 = (CGSceneAnimActionSet *) 0 ;
     uint arg2 ;
     CGString *result = 0 ;
     
-    SWIG_check_num_args("CGSceneAnimCfg::sGetActionName",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimCfg::sGetActionName",1,"CGSceneAnimCfg *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CGSceneAnimCfg::sGetActionName",2,"uint");
+    SWIG_check_num_args("CGSceneAnimActionSet::sGetActionName",2,2)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimActionSet::sGetActionName",1,"CGSceneAnimActionSet *");
+    if(!lua_isnumber(L,2)) SWIG_fail_arg("CGSceneAnimActionSet::sGetActionName",2,"uint");
     
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimCfg,0))){
-      SWIG_fail_ptr("CGSceneAnimCfg_sGetActionName",1,SWIGTYPE_p_CGSceneAnimCfg);
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimActionSet,0))){
+      SWIG_fail_ptr("CGSceneAnimActionSet_sGetActionName",1,SWIGTYPE_p_CGSceneAnimActionSet);
     }
     
     SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
@@ -36268,23 +35940,295 @@ static int _wrap_CGSceneAnimCfg_sGetActionName(lua_State* L) {
 }
 
 
-static int _wrap_CGSceneAnimCfg_Accept(lua_State* L) {
+static int _wrap_CGSceneAnimActionSet_oGetAnimAction__SWIG_0(lua_State* L) {
   {
     int SWIG_arg = 0;
-    CGSceneAnimCfg *arg1 = (CGSceneAnimCfg *) 0 ;
+    CGSceneAnimActionSet *arg1 = (CGSceneAnimActionSet *) 0 ;
+    uint arg2 ;
+    CAnimAction *result = 0 ;
+    
+    SWIG_check_num_args("CGSceneAnimActionSet::oGetAnimAction",2,2)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimActionSet::oGetAnimAction",1,"CGSceneAnimActionSet *");
+    if(!lua_isnumber(L,2)) SWIG_fail_arg("CGSceneAnimActionSet::oGetAnimAction",2,"uint");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimActionSet,0))){
+      SWIG_fail_ptr("CGSceneAnimActionSet_oGetAnimAction",1,SWIGTYPE_p_CGSceneAnimActionSet);
+    }
+    
+    SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+    arg2 = (uint)lua_tonumber(L, 2);
+    result = (CAnimAction *) &(arg1)->oGetAnimAction(arg2);
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CAnimAction,0); SWIG_arg++; 
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CGSceneAnimActionSet_oGetAnimAction__SWIG_1(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGSceneAnimActionSet *arg1 = (CGSceneAnimActionSet *) 0 ;
+    CGString *arg2 = 0 ;
+    CAnimAction *result = 0 ;
+    
+    SWIG_check_num_args("CGSceneAnimActionSet::oGetAnimAction",2,2)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimActionSet::oGetAnimAction",1,"CGSceneAnimActionSet *");
+    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CGSceneAnimActionSet::oGetAnimAction",2,"CGString const &");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimActionSet,0))){
+      SWIG_fail_ptr("CGSceneAnimActionSet_oGetAnimAction",1,SWIGTYPE_p_CGSceneAnimActionSet);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGString,0))){
+      SWIG_fail_ptr("CGSceneAnimActionSet_oGetAnimAction",2,SWIGTYPE_p_CGString);
+    }
+    
+    result = (CAnimAction *) &(arg1)->oGetAnimAction((CGString const &)*arg2);
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CAnimAction,0); SWIG_arg++; 
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CGSceneAnimActionSet_oGetAnimAction(lua_State* L) {
+  int argc;
+  int argv[3]={
+    1,2,3
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 2) {
+    int _v = 0;
+    {
+      void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CGSceneAnimActionSet, 0)) {
+        _v = 0;
+      } else {
+        _v = 1;
+      }
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGString, SWIG_POINTER_NO_NULL)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        return _wrap_CGSceneAnimActionSet_oGetAnimAction__SWIG_1(L);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    {
+      void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CGSceneAnimActionSet, 0)) {
+        _v = 0;
+      } else {
+        _v = 1;
+      }
+    }
+    if (_v) {
+      {
+        _v = lua_isnumber(L,argv[1]);
+      }
+      if (_v) {
+        return _wrap_CGSceneAnimActionSet_oGetAnimAction__SWIG_0(L);
+      }
+    }
+  }
+  
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'CGSceneAnimActionSet_oGetAnimAction'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    CGSceneAnimActionSet::oGetAnimAction(uint)\n"
+    "    CGSceneAnimActionSet::oGetAnimAction(CGString const &)\n");
+  lua_error(L);return 0;
+}
+
+
+static int _wrap_CGSceneAnimActionSet_SetAction(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGSceneAnimActionSet *arg1 = (CGSceneAnimActionSet *) 0 ;
+    uint arg2 ;
+    
+    SWIG_check_num_args("CGSceneAnimActionSet::SetAction",2,2)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimActionSet::SetAction",1,"CGSceneAnimActionSet *");
+    if(!lua_isnumber(L,2)) SWIG_fail_arg("CGSceneAnimActionSet::SetAction",2,"uint");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimActionSet,0))){
+      SWIG_fail_ptr("CGSceneAnimActionSet_SetAction",1,SWIGTYPE_p_CGSceneAnimActionSet);
+    }
+    
+    SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
+    arg2 = (uint)lua_tonumber(L, 2);
+    (arg1)->SetAction(arg2);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CGSceneAnimActionSet_Enable(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGSceneAnimActionSet *arg1 = (CGSceneAnimActionSet *) 0 ;
+    bool arg2 ;
+    
+    SWIG_check_num_args("CGSceneAnimActionSet::Enable",2,2)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimActionSet::Enable",1,"CGSceneAnimActionSet *");
+    if(!lua_isboolean(L,2)) SWIG_fail_arg("CGSceneAnimActionSet::Enable",2,"bool");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimActionSet,0))){
+      SWIG_fail_ptr("CGSceneAnimActionSet_Enable",1,SWIGTYPE_p_CGSceneAnimActionSet);
+    }
+    
+    arg2 = (lua_toboolean(L, 2)!=0);
+    (arg1)->Enable(arg2);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CGSceneAnimActionSet_UpdateAnimState(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGSceneAnimActionSet *arg1 = (CGSceneAnimActionSet *) 0 ;
+    
+    SWIG_check_num_args("CGSceneAnimActionSet::UpdateAnimState",1,1)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimActionSet::UpdateAnimState",1,"CGSceneAnimActionSet *");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimActionSet,0))){
+      SWIG_fail_ptr("CGSceneAnimActionSet_UpdateAnimState",1,SWIGTYPE_p_CGSceneAnimActionSet);
+    }
+    
+    (arg1)->UpdateAnimState();
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CGSceneAnimActionSet_poGetAnimObj(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGSceneAnimActionSet *arg1 = (CGSceneAnimActionSet *) 0 ;
+    CGSceneAnimNode *result = 0 ;
+    
+    SWIG_check_num_args("CGSceneAnimActionSet::poGetAnimObj",1,1)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimActionSet::poGetAnimObj",1,"CGSceneAnimActionSet *");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimActionSet,0))){
+      SWIG_fail_ptr("CGSceneAnimActionSet_poGetAnimObj",1,SWIGTYPE_p_CGSceneAnimActionSet);
+    }
+    
+    result = (CGSceneAnimNode *)(arg1)->poGetAnimObj();
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGSceneAnimNode,0); SWIG_arg++; 
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CGSceneAnimActionSet_SetAnimObj(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGSceneAnimActionSet *arg1 = (CGSceneAnimActionSet *) 0 ;
+    CGSceneAnimNode *arg2 = (CGSceneAnimNode *) 0 ;
+    
+    SWIG_check_num_args("CGSceneAnimActionSet::SetAnimObj",2,2)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimActionSet::SetAnimObj",1,"CGSceneAnimActionSet *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSceneAnimActionSet::SetAnimObj",2,"CGSceneAnimNode *");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimActionSet,0))){
+      SWIG_fail_ptr("CGSceneAnimActionSet_SetAnimObj",1,SWIGTYPE_p_CGSceneAnimActionSet);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneAnimNode,0))){
+      SWIG_fail_ptr("CGSceneAnimActionSet_SetAnimObj",2,SWIGTYPE_p_CGSceneAnimNode);
+    }
+    
+    (arg1)->SetAnimObj(arg2);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CGSceneAnimActionSet_poGetBV(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGSceneAnimActionSet *arg1 = (CGSceneAnimActionSet *) 0 ;
+    CGGraphBV *result = 0 ;
+    
+    SWIG_check_num_args("CGSceneAnimActionSet::poGetBV",1,1)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimActionSet::poGetBV",1,"CGSceneAnimActionSet *");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimActionSet,0))){
+      SWIG_fail_ptr("CGSceneAnimActionSet_poGetBV",1,SWIGTYPE_p_CGSceneAnimActionSet);
+    }
+    
+    result = (CGGraphBV *)(arg1)->poGetBV();
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGGraphBV,0); SWIG_arg++; 
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CGSceneAnimActionSet_Accept(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGSceneAnimActionSet *arg1 = (CGSceneAnimActionSet *) 0 ;
     CGSceneVisitor *arg2 = (CGSceneVisitor *) 0 ;
     
-    SWIG_check_num_args("CGSceneAnimCfg::Accept",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimCfg::Accept",1,"CGSceneAnimCfg *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSceneAnimCfg::Accept",2,"CGSceneVisitor *");
+    SWIG_check_num_args("CGSceneAnimActionSet::Accept",2,2)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimActionSet::Accept",1,"CGSceneAnimActionSet *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSceneAnimActionSet::Accept",2,"CGSceneVisitor *");
     
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimCfg,0))){
-      SWIG_fail_ptr("CGSceneAnimCfg_Accept",1,SWIGTYPE_p_CGSceneAnimCfg);
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimActionSet,0))){
+      SWIG_fail_ptr("CGSceneAnimActionSet_Accept",1,SWIGTYPE_p_CGSceneAnimActionSet);
     }
     
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneVisitor,0))){
-      SWIG_fail_ptr("CGSceneAnimCfg_Accept",2,SWIGTYPE_p_CGSceneVisitor);
+      SWIG_fail_ptr("CGSceneAnimActionSet_Accept",2,SWIGTYPE_p_CGSceneVisitor);
     }
     
     (arg1)->Accept(arg2);
@@ -36298,59 +36242,63 @@ static int _wrap_CGSceneAnimCfg_Accept(lua_State* L) {
 }
 
 
-static void swig_delete_CGSceneAnimCfg(void *obj) {
-CGSceneAnimCfg *arg1 = (CGSceneAnimCfg *) obj;
+static void swig_delete_CGSceneAnimActionSet(void *obj) {
+CGSceneAnimActionSet *arg1 = (CGSceneAnimActionSet *) obj;
 delete arg1;
 }
-static int _proxy__wrap_new_CGSceneAnimCfg(lua_State *L) {
+static int _proxy__wrap_new_CGSceneAnimActionSet(lua_State *L) {
     assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CGSceneAnimCfg);
+    lua_pushcfunction(L,_wrap_new_CGSceneAnimActionSet);
     assert(!lua_isnil(L,-1));
     lua_replace(L,1); /* replace our table with real constructor */
     lua_call(L,lua_gettop(L)-1,1);
     return 1;
 }
-static swig_lua_attribute swig_CGSceneAnimCfg_attributes[] = {
+static swig_lua_attribute swig_CGSceneAnimActionSet_attributes[] = {
     {0,0,0}
 };
-static swig_lua_method swig_CGSceneAnimCfg_methods[]= {
-    { "uiAddAction", _wrap_CGSceneAnimCfg_uiAddAction},
-    { "uiNumActions", _wrap_CGSceneAnimCfg_uiNumActions},
-    { "poGetAnimObj", _wrap_CGSceneAnimCfg_poGetAnimObj},
-    { "SetAnimObj", _wrap_CGSceneAnimCfg_SetAnimObj},
-    { "oGetFrameAnim", _wrap_CGSceneAnimCfg_oGetFrameAnim},
-    { "sGetActionName", _wrap_CGSceneAnimCfg_sGetActionName},
-    { "Accept", _wrap_CGSceneAnimCfg_Accept},
+static swig_lua_method swig_CGSceneAnimActionSet_methods[]= {
+    { "uiAddAction", _wrap_CGSceneAnimActionSet_uiAddAction},
+    { "uiNumActions", _wrap_CGSceneAnimActionSet_uiNumActions},
+    { "sGetActionName", _wrap_CGSceneAnimActionSet_sGetActionName},
+    { "oGetAnimAction", _wrap_CGSceneAnimActionSet_oGetAnimAction},
+    { "SetAction", _wrap_CGSceneAnimActionSet_SetAction},
+    { "Enable", _wrap_CGSceneAnimActionSet_Enable},
+    { "UpdateAnimState", _wrap_CGSceneAnimActionSet_UpdateAnimState},
+    { "poGetAnimObj", _wrap_CGSceneAnimActionSet_poGetAnimObj},
+    { "SetAnimObj", _wrap_CGSceneAnimActionSet_SetAnimObj},
+    { "poGetBV", _wrap_CGSceneAnimActionSet_poGetBV},
+    { "Accept", _wrap_CGSceneAnimActionSet_Accept},
     {0,0}
 };
-static swig_lua_method swig_CGSceneAnimCfg_meta[] = {
+static swig_lua_method swig_CGSceneAnimActionSet_meta[] = {
     {0,0}
 };
 
-static swig_lua_attribute swig_CGSceneAnimCfg_Sf_SwigStatic_attributes[] = {
+static swig_lua_attribute swig_CGSceneAnimActionSet_Sf_SwigStatic_attributes[] = {
     {0,0,0}
 };
-static swig_lua_const_info swig_CGSceneAnimCfg_Sf_SwigStatic_constants[]= {
+static swig_lua_const_info swig_CGSceneAnimActionSet_Sf_SwigStatic_constants[]= {
     {0,0,0,0,0,0}
 };
-static swig_lua_method swig_CGSceneAnimCfg_Sf_SwigStatic_methods[]= {
+static swig_lua_method swig_CGSceneAnimActionSet_Sf_SwigStatic_methods[]= {
     {0,0}
 };
-static swig_lua_class* swig_CGSceneAnimCfg_Sf_SwigStatic_classes[]= {
+static swig_lua_class* swig_CGSceneAnimActionSet_Sf_SwigStatic_classes[]= {
     0
 };
 
-static swig_lua_namespace swig_CGSceneAnimCfg_Sf_SwigStatic = {
-    "CGSceneAnimCfg",
-    swig_CGSceneAnimCfg_Sf_SwigStatic_methods,
-    swig_CGSceneAnimCfg_Sf_SwigStatic_attributes,
-    swig_CGSceneAnimCfg_Sf_SwigStatic_constants,
-    swig_CGSceneAnimCfg_Sf_SwigStatic_classes,
+static swig_lua_namespace swig_CGSceneAnimActionSet_Sf_SwigStatic = {
+    "CGSceneAnimActionSet",
+    swig_CGSceneAnimActionSet_Sf_SwigStatic_methods,
+    swig_CGSceneAnimActionSet_Sf_SwigStatic_attributes,
+    swig_CGSceneAnimActionSet_Sf_SwigStatic_constants,
+    swig_CGSceneAnimActionSet_Sf_SwigStatic_classes,
     0
 };
-static swig_lua_class *swig_CGSceneAnimCfg_bases[] = {0};
-static const char *swig_CGSceneAnimCfg_base_names[] = {0};
-static swig_lua_class _wrap_class_CGSceneAnimCfg = { "CGSceneAnimCfg", "CGSceneAnimCfg", &SWIGTYPE_p_CGSceneAnimCfg,_proxy__wrap_new_CGSceneAnimCfg, swig_delete_CGSceneAnimCfg, swig_CGSceneAnimCfg_methods, swig_CGSceneAnimCfg_attributes, &swig_CGSceneAnimCfg_Sf_SwigStatic, swig_CGSceneAnimCfg_meta, swig_CGSceneAnimCfg_bases, swig_CGSceneAnimCfg_base_names };
+static swig_lua_class *swig_CGSceneAnimActionSet_bases[] = {0,0};
+static const char *swig_CGSceneAnimActionSet_base_names[] = {"CGSceneNode *",0};
+static swig_lua_class _wrap_class_CGSceneAnimActionSet = { "CGSceneAnimActionSet", "CGSceneAnimActionSet", &SWIGTYPE_p_CGSceneAnimActionSet,_proxy__wrap_new_CGSceneAnimActionSet, swig_delete_CGSceneAnimActionSet, swig_CGSceneAnimActionSet_methods, swig_CGSceneAnimActionSet_attributes, &swig_CGSceneAnimActionSet_Sf_SwigStatic, swig_CGSceneAnimActionSet_meta, swig_CGSceneAnimActionSet_bases, swig_CGSceneAnimActionSet_base_names };
 
 static int _wrap_new_CGSceneAnimGroup(lua_State* L) {
   {
@@ -36721,317 +36669,6 @@ static swig_lua_namespace swig_CGSceneAnimGroup_SwigStatic = {
 static swig_lua_class *swig_CGSceneAnimGroup_bases[] = {0,0};
 static const char *swig_CGSceneAnimGroup_base_names[] = {"CGSceneAnimNode *",0};
 static swig_lua_class _wrap_class_CGSceneAnimGroup = { "CGSceneAnimGroup", "CGSceneAnimGroup", &SWIGTYPE_p_CGSceneAnimGroup,_proxy__wrap_new_CGSceneAnimGroup, swig_delete_CGSceneAnimGroup, swig_CGSceneAnimGroup_methods, swig_CGSceneAnimGroup_attributes, &swig_CGSceneAnimGroup_SwigStatic, swig_CGSceneAnimGroup_meta, swig_CGSceneAnimGroup_bases, swig_CGSceneAnimGroup_base_names };
-
-static int _wrap_new_CGSceneAnimInstance(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSceneAnimInstance *result = 0 ;
-    
-    SWIG_check_num_args("CGSceneAnimInstance::CGSceneAnimInstance",0,0)
-    result = (CGSceneAnimInstance *)new CGSceneAnimInstance();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGSceneAnimInstance,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGSceneAnimInstance_Accept(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSceneAnimInstance *arg1 = (CGSceneAnimInstance *) 0 ;
-    CGSceneVisitor *arg2 = (CGSceneVisitor *) 0 ;
-    
-    SWIG_check_num_args("CGSceneAnimInstance::Accept",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimInstance::Accept",1,"CGSceneAnimInstance *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSceneAnimInstance::Accept",2,"CGSceneVisitor *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimInstance,0))){
-      SWIG_fail_ptr("CGSceneAnimInstance_Accept",1,SWIGTYPE_p_CGSceneAnimInstance);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneVisitor,0))){
-      SWIG_fail_ptr("CGSceneAnimInstance_Accept",2,SWIGTYPE_p_CGSceneVisitor);
-    }
-    
-    (arg1)->Accept(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGSceneAnimInstance_SetAnim(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSceneAnimInstance *arg1 = (CGSceneAnimInstance *) 0 ;
-    uint arg2 ;
-    
-    SWIG_check_num_args("CGSceneAnimInstance::SetAnim",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimInstance::SetAnim",1,"CGSceneAnimInstance *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CGSceneAnimInstance::SetAnim",2,"uint");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimInstance,0))){
-      SWIG_fail_ptr("CGSceneAnimInstance_SetAnim",1,SWIGTYPE_p_CGSceneAnimInstance);
-    }
-    
-    SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-    arg2 = (uint)lua_tonumber(L, 2);
-    (arg1)->SetAnim(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGSceneAnimInstance_Enable(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSceneAnimInstance *arg1 = (CGSceneAnimInstance *) 0 ;
-    bool arg2 ;
-    
-    SWIG_check_num_args("CGSceneAnimInstance::Enable",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimInstance::Enable",1,"CGSceneAnimInstance *");
-    if(!lua_isboolean(L,2)) SWIG_fail_arg("CGSceneAnimInstance::Enable",2,"bool");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimInstance,0))){
-      SWIG_fail_ptr("CGSceneAnimInstance_Enable",1,SWIGTYPE_p_CGSceneAnimInstance);
-    }
-    
-    arg2 = (lua_toboolean(L, 2)!=0);
-    (arg1)->Enable(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGSceneAnimInstance_SetAnimatedObject(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSceneAnimInstance *arg1 = (CGSceneAnimInstance *) 0 ;
-    CGSceneAnimNode *arg2 = (CGSceneAnimNode *) 0 ;
-    
-    SWIG_check_num_args("CGSceneAnimInstance::SetAnimatedObject",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimInstance::SetAnimatedObject",1,"CGSceneAnimInstance *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSceneAnimInstance::SetAnimatedObject",2,"CGSceneAnimNode *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimInstance,0))){
-      SWIG_fail_ptr("CGSceneAnimInstance_SetAnimatedObject",1,SWIGTYPE_p_CGSceneAnimInstance);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneAnimNode,0))){
-      SWIG_fail_ptr("CGSceneAnimInstance_SetAnimatedObject",2,SWIGTYPE_p_CGSceneAnimNode);
-    }
-    
-    (arg1)->SetAnimatedObject(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGSceneAnimInstance_poGetAnimatedObject(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSceneAnimInstance *arg1 = (CGSceneAnimInstance *) 0 ;
-    CGSceneAnimNode *result = 0 ;
-    
-    SWIG_check_num_args("CGSceneAnimInstance::poGetAnimatedObject",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimInstance::poGetAnimatedObject",1,"CGSceneAnimInstance *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimInstance,0))){
-      SWIG_fail_ptr("CGSceneAnimInstance_poGetAnimatedObject",1,SWIGTYPE_p_CGSceneAnimInstance);
-    }
-    
-    result = (CGSceneAnimNode *)(arg1)->poGetAnimatedObject();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGSceneAnimNode,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGSceneAnimInstance_SetAnimConfig(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSceneAnimInstance *arg1 = (CGSceneAnimInstance *) 0 ;
-    CGSceneAnimCfg *arg2 = (CGSceneAnimCfg *) 0 ;
-    
-    SWIG_check_num_args("CGSceneAnimInstance::SetAnimConfig",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimInstance::SetAnimConfig",1,"CGSceneAnimInstance *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSceneAnimInstance::SetAnimConfig",2,"CGSceneAnimCfg *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimInstance,0))){
-      SWIG_fail_ptr("CGSceneAnimInstance_SetAnimConfig",1,SWIGTYPE_p_CGSceneAnimInstance);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneAnimCfg,0))){
-      SWIG_fail_ptr("CGSceneAnimInstance_SetAnimConfig",2,SWIGTYPE_p_CGSceneAnimCfg);
-    }
-    
-    (arg1)->SetAnimConfig(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGSceneAnimInstance_poGetAnimConfig(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSceneAnimInstance *arg1 = (CGSceneAnimInstance *) 0 ;
-    CGSceneAnimCfg *result = 0 ;
-    
-    SWIG_check_num_args("CGSceneAnimInstance::poGetAnimConfig",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimInstance::poGetAnimConfig",1,"CGSceneAnimInstance *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimInstance,0))){
-      SWIG_fail_ptr("CGSceneAnimInstance_poGetAnimConfig",1,SWIGTYPE_p_CGSceneAnimInstance);
-    }
-    
-    result = (CGSceneAnimCfg *)(arg1)->poGetAnimConfig();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGSceneAnimCfg,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGSceneAnimInstance_UpdateAnimState(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSceneAnimInstance *arg1 = (CGSceneAnimInstance *) 0 ;
-    
-    SWIG_check_num_args("CGSceneAnimInstance::UpdateAnimState",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimInstance::UpdateAnimState",1,"CGSceneAnimInstance *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimInstance,0))){
-      SWIG_fail_ptr("CGSceneAnimInstance_UpdateAnimState",1,SWIGTYPE_p_CGSceneAnimInstance);
-    }
-    
-    (arg1)->UpdateAnimState();
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGSceneAnimInstance_poGetBV(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSceneAnimInstance *arg1 = (CGSceneAnimInstance *) 0 ;
-    CGGraphBV *result = 0 ;
-    
-    SWIG_check_num_args("CGSceneAnimInstance::poGetBV",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimInstance::poGetBV",1,"CGSceneAnimInstance *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimInstance,0))){
-      SWIG_fail_ptr("CGSceneAnimInstance_poGetBV",1,SWIGTYPE_p_CGSceneAnimInstance);
-    }
-    
-    result = (CGGraphBV *)(arg1)->poGetBV();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGGraphBV,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CGSceneAnimInstance(void *obj) {
-CGSceneAnimInstance *arg1 = (CGSceneAnimInstance *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CGSceneAnimInstance(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CGSceneAnimInstance);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CGSceneAnimInstance_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_method swig_CGSceneAnimInstance_methods[]= {
-    { "Accept", _wrap_CGSceneAnimInstance_Accept},
-    { "SetAnim", _wrap_CGSceneAnimInstance_SetAnim},
-    { "Enable", _wrap_CGSceneAnimInstance_Enable},
-    { "SetAnimatedObject", _wrap_CGSceneAnimInstance_SetAnimatedObject},
-    { "poGetAnimatedObject", _wrap_CGSceneAnimInstance_poGetAnimatedObject},
-    { "SetAnimConfig", _wrap_CGSceneAnimInstance_SetAnimConfig},
-    { "poGetAnimConfig", _wrap_CGSceneAnimInstance_poGetAnimConfig},
-    { "UpdateAnimState", _wrap_CGSceneAnimInstance_UpdateAnimState},
-    { "poGetBV", _wrap_CGSceneAnimInstance_poGetBV},
-    {0,0}
-};
-static swig_lua_method swig_CGSceneAnimInstance_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CGSceneAnimInstance_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CGSceneAnimInstance_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CGSceneAnimInstance_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_CGSceneAnimInstance_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CGSceneAnimInstance_Sf_SwigStatic = {
-    "CGSceneAnimInstance",
-    swig_CGSceneAnimInstance_Sf_SwigStatic_methods,
-    swig_CGSceneAnimInstance_Sf_SwigStatic_attributes,
-    swig_CGSceneAnimInstance_Sf_SwigStatic_constants,
-    swig_CGSceneAnimInstance_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CGSceneAnimInstance_bases[] = {0,0};
-static const char *swig_CGSceneAnimInstance_base_names[] = {"CGSceneNode *",0};
-static swig_lua_class _wrap_class_CGSceneAnimInstance = { "CGSceneAnimInstance", "CGSceneAnimInstance", &SWIGTYPE_p_CGSceneAnimInstance,_proxy__wrap_new_CGSceneAnimInstance, swig_delete_CGSceneAnimInstance, swig_CGSceneAnimInstance_methods, swig_CGSceneAnimInstance_attributes, &swig_CGSceneAnimInstance_Sf_SwigStatic, swig_CGSceneAnimInstance_meta, swig_CGSceneAnimInstance_bases, swig_CGSceneAnimInstance_base_names };
 
 static int _wrap_new_CGSceneAnimMesh(lua_State* L) {
   {
@@ -46385,7 +46022,7 @@ static int _wrap_CLoaderMD2_pLoadQ2Player(lua_State* L) {
     int SWIG_arg = 0;
     CLoaderMD2 *arg1 = (CLoaderMD2 *) 0 ;
     char *arg2 = (char *) 0 ;
-    CGSceneAnimCfg *result = 0 ;
+    CGSceneAnimActionSet *result = 0 ;
     
     SWIG_check_num_args("CLoaderMD2::pLoadQ2Player",2,2)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CLoaderMD2::pLoadQ2Player",1,"CLoaderMD2 *");
@@ -46396,8 +46033,8 @@ static int _wrap_CLoaderMD2_pLoadQ2Player(lua_State* L) {
     }
     
     arg2 = (char *)lua_tostring(L, 2);
-    result = (CGSceneAnimCfg *)(arg1)->pLoadQ2Player(arg2);
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGSceneAnimCfg,0); SWIG_arg++; 
+    result = (CGSceneAnimActionSet *)(arg1)->pLoadQ2Player(arg2);
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGSceneAnimActionSet,0); SWIG_arg++; 
     return SWIG_arg;
     
     fail: SWIGUNUSED;
@@ -50443,7 +50080,7 @@ static int _wrap_CLoaderMD3_pLoadQ3Player(lua_State* L) {
     CLoaderMD3 *arg1 = (CLoaderMD3 *) 0 ;
     char *arg2 = (char *) 0 ;
     char *arg3 = (char *) 0 ;
-    CGSceneAnimInstance *result = 0 ;
+    CGSceneAnimActionSet *result = 0 ;
     
     SWIG_check_num_args("CLoaderMD3::pLoadQ3Player",3,3)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CLoaderMD3::pLoadQ3Player",1,"CLoaderMD3 *");
@@ -50456,8 +50093,8 @@ static int _wrap_CLoaderMD3_pLoadQ3Player(lua_State* L) {
     
     arg2 = (char *)lua_tostring(L, 2);
     arg3 = (char *)lua_tostring(L, 3);
-    result = (CGSceneAnimInstance *)(arg1)->pLoadQ3Player(arg2,arg3);
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGSceneAnimInstance,0); SWIG_arg++; 
+    result = (CGSceneAnimActionSet *)(arg1)->pLoadQ3Player(arg2,arg3);
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGSceneAnimActionSet,0); SWIG_arg++; 
     return SWIG_arg;
     
     fail: SWIGUNUSED;
@@ -50474,7 +50111,7 @@ static int _wrap_CLoaderMD3_pLoadAnimation(lua_State* L) {
     char *arg2 = (char *) 0 ;
     CGSceneAnimGroup *arg3 = (CGSceneAnimGroup *) 0 ;
     CGSceneAnimGroup *arg4 = (CGSceneAnimGroup *) 0 ;
-    CGSceneAnimInstance *result = 0 ;
+    CGSceneAnimActionSet *result = 0 ;
     
     SWIG_check_num_args("CLoaderMD3::pLoadAnimation",4,4)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CLoaderMD3::pLoadAnimation",1,"CLoaderMD3 *");
@@ -50497,8 +50134,8 @@ static int _wrap_CLoaderMD3_pLoadAnimation(lua_State* L) {
       SWIG_fail_ptr("CLoaderMD3_pLoadAnimation",4,SWIGTYPE_p_CGSceneAnimGroup);
     }
     
-    result = (CGSceneAnimInstance *)(arg1)->pLoadAnimation(arg2,arg3,arg4);
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGSceneAnimInstance,0); SWIG_arg++; 
+    result = (CGSceneAnimActionSet *)(arg1)->pLoadAnimation(arg2,arg3,arg4);
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGSceneAnimActionSet,0); SWIG_arg++; 
     return SWIG_arg;
     
     fail: SWIGUNUSED;
@@ -50514,13 +50151,13 @@ static int _wrap_CLoaderMD3_SetupAnim(lua_State* L) {
     CLoaderMD3 *arg1 = (CLoaderMD3 *) 0 ;
     int arg2 ;
     anim_t *arg3 = (anim_t *) 0 ;
-    CGSceneAnimCfg *arg4 = (CGSceneAnimCfg *) 0 ;
+    CGSceneAnimActionSet *arg4 = (CGSceneAnimActionSet *) 0 ;
     
     SWIG_check_num_args("CLoaderMD3::SetupAnim",4,4)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CLoaderMD3::SetupAnim",1,"CLoaderMD3 *");
     if(!lua_isnumber(L,2)) SWIG_fail_arg("CLoaderMD3::SetupAnim",2,"int");
     if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("CLoaderMD3::SetupAnim",3,"anim_t *");
-    if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("CLoaderMD3::SetupAnim",4,"CGSceneAnimCfg *");
+    if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("CLoaderMD3::SetupAnim",4,"CGSceneAnimActionSet *");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CLoaderMD3,0))){
       SWIG_fail_ptr("CLoaderMD3_SetupAnim",1,SWIGTYPE_p_CLoaderMD3);
@@ -50533,8 +50170,8 @@ static int _wrap_CLoaderMD3_SetupAnim(lua_State* L) {
     }
     
     
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_CGSceneAnimCfg,0))){
-      SWIG_fail_ptr("CLoaderMD3_SetupAnim",4,SWIGTYPE_p_CGSceneAnimCfg);
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_CGSceneAnimActionSet,0))){
+      SWIG_fail_ptr("CLoaderMD3_SetupAnim",4,SWIGTYPE_p_CGSceneAnimActionSet);
     }
     
     (arg1)->SetupAnim(arg2,arg3,arg4);
@@ -58313,30 +57950,13 @@ static int _wrap_GEM_ANIMTRANSF_IDENTIFIER_get(lua_State* L) {
 }
 
 
-static int _wrap_GEM_ANIMCFG_IDENTIFIER_get(lua_State* L) {
+static int _wrap_GEM_ANIMACTIONSET_IDENTIFIER_get(lua_State* L) {
   {
     int SWIG_arg = 0;
     uint result;
     
-    SWIG_check_num_args("GEM_ANIMCFG_IDENTIFIER",0,0)
-    result = (uint)(uint)GEM_ANIMCFG_IDENTIFIER;
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_GEM_ANIMINST_IDENTIFIER_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    uint result;
-    
-    SWIG_check_num_args("GEM_ANIMINST_IDENTIFIER",0,0)
-    result = (uint)(uint)GEM_ANIMINST_IDENTIFIER;
+    SWIG_check_num_args("GEM_ANIMACTIONSET_IDENTIFIER",0,0)
+    result = (uint)(uint)GEM_ANIMACTIONSET_IDENTIFIER;
     lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
     return SWIG_arg;
     
@@ -58725,23 +58345,6 @@ static swig_lua_class *swig_C3DSaver_bases[] = {0,0};
 static const char *swig_C3DSaver_base_names[] = {"CGSceneVisitor *",0};
 static swig_lua_class _wrap_class_C3DSaver = { "C3DSaver", "C3DSaver", &SWIGTYPE_p_C3DSaver,0, swig_delete_C3DSaver, swig_C3DSaver_methods, swig_C3DSaver_attributes, &swig_C3DSaver_Sf_SwigStatic, swig_C3DSaver_meta, swig_C3DSaver_bases, swig_C3DSaver_base_names };
 
-static int _wrap_new_CSaverGEM(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSaverGEM *result = 0 ;
-    
-    SWIG_check_num_args("CSaverGEM::CSaverGEM",0,0)
-    result = (CSaverGEM *)new CSaverGEM();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSaverGEM,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
 static int _wrap_CSaverGEM_Visit__SWIG_0(lua_State* L) {
   {
     int SWIG_arg = 0;
@@ -58806,96 +58409,6 @@ static int _wrap_CSaverGEM_Visit__SWIG_2(lua_State* L) {
   {
     int SWIG_arg = 0;
     CSaverGEM *arg1 = (CSaverGEM *) 0 ;
-    CGSceneCamera *arg2 = (CGSceneCamera *) 0 ;
-    
-    SWIG_check_num_args("CSaverGEM::Visit",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSaverGEM::Visit",1,"CSaverGEM *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSaverGEM::Visit",2,"CGSceneCamera *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSaverGEM,0))){
-      SWIG_fail_ptr("CSaverGEM_Visit",1,SWIGTYPE_p_CSaverGEM);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneCamera,0))){
-      SWIG_fail_ptr("CSaverGEM_Visit",2,SWIGTYPE_p_CGSceneCamera);
-    }
-    
-    (arg1)->Visit(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSaverGEM_Visit__SWIG_3(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSaverGEM *arg1 = (CSaverGEM *) 0 ;
-    CGSceneCompiledLeaf *arg2 = (CGSceneCompiledLeaf *) 0 ;
-    
-    SWIG_check_num_args("CSaverGEM::Visit",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSaverGEM::Visit",1,"CSaverGEM *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSaverGEM::Visit",2,"CGSceneCompiledLeaf *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSaverGEM,0))){
-      SWIG_fail_ptr("CSaverGEM_Visit",1,SWIGTYPE_p_CSaverGEM);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneCompiledLeaf,0))){
-      SWIG_fail_ptr("CSaverGEM_Visit",2,SWIGTYPE_p_CGSceneCompiledLeaf);
-    }
-    
-    (arg1)->Visit(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSaverGEM_Visit__SWIG_4(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSaverGEM *arg1 = (CSaverGEM *) 0 ;
-    CGSceneInstance *arg2 = (CGSceneInstance *) 0 ;
-    
-    SWIG_check_num_args("CSaverGEM::Visit",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSaverGEM::Visit",1,"CSaverGEM *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSaverGEM::Visit",2,"CGSceneInstance *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSaverGEM,0))){
-      SWIG_fail_ptr("CSaverGEM_Visit",1,SWIGTYPE_p_CSaverGEM);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneInstance,0))){
-      SWIG_fail_ptr("CSaverGEM_Visit",2,SWIGTYPE_p_CGSceneInstance);
-    }
-    
-    (arg1)->Visit(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSaverGEM_Visit__SWIG_5(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSaverGEM *arg1 = (CSaverGEM *) 0 ;
     CGSceneLeaf *arg2 = (CGSceneLeaf *) 0 ;
     
     SWIG_check_num_args("CSaverGEM::Visit",2,2)
@@ -58922,7 +58435,7 @@ static int _wrap_CSaverGEM_Visit__SWIG_5(lua_State* L) {
 }
 
 
-static int _wrap_CSaverGEM_Visit__SWIG_6(lua_State* L) {
+static int _wrap_CSaverGEM_Visit__SWIG_3(lua_State* L) {
   {
     int SWIG_arg = 0;
     CSaverGEM *arg1 = (CSaverGEM *) 0 ;
@@ -58952,7 +58465,7 @@ static int _wrap_CSaverGEM_Visit__SWIG_6(lua_State* L) {
 }
 
 
-static int _wrap_CSaverGEM_Visit__SWIG_7(lua_State* L) {
+static int _wrap_CSaverGEM_Visit__SWIG_4(lua_State* L) {
   {
     int SWIG_arg = 0;
     CSaverGEM *arg1 = (CSaverGEM *) 0 ;
@@ -58982,67 +58495,7 @@ static int _wrap_CSaverGEM_Visit__SWIG_7(lua_State* L) {
 }
 
 
-static int _wrap_CSaverGEM_Visit__SWIG_8(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSaverGEM *arg1 = (CSaverGEM *) 0 ;
-    CGSceneScreenRect *arg2 = (CGSceneScreenRect *) 0 ;
-    
-    SWIG_check_num_args("CSaverGEM::Visit",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSaverGEM::Visit",1,"CSaverGEM *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSaverGEM::Visit",2,"CGSceneScreenRect *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSaverGEM,0))){
-      SWIG_fail_ptr("CSaverGEM_Visit",1,SWIGTYPE_p_CSaverGEM);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneScreenRect,0))){
-      SWIG_fail_ptr("CSaverGEM_Visit",2,SWIGTYPE_p_CGSceneScreenRect);
-    }
-    
-    (arg1)->Visit(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSaverGEM_Visit__SWIG_9(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSaverGEM *arg1 = (CSaverGEM *) 0 ;
-    CGSceneSwitch *arg2 = (CGSceneSwitch *) 0 ;
-    
-    SWIG_check_num_args("CSaverGEM::Visit",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSaverGEM::Visit",1,"CSaverGEM *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSaverGEM::Visit",2,"CGSceneSwitch *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSaverGEM,0))){
-      SWIG_fail_ptr("CSaverGEM_Visit",1,SWIGTYPE_p_CSaverGEM);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneSwitch,0))){
-      SWIG_fail_ptr("CSaverGEM_Visit",2,SWIGTYPE_p_CGSceneSwitch);
-    }
-    
-    (arg1)->Visit(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSaverGEM_Visit__SWIG_10(lua_State* L) {
+static int _wrap_CSaverGEM_Visit__SWIG_5(lua_State* L) {
   {
     int SWIG_arg = 0;
     CSaverGEM *arg1 = (CSaverGEM *) 0 ;
@@ -59072,23 +58525,23 @@ static int _wrap_CSaverGEM_Visit__SWIG_10(lua_State* L) {
 }
 
 
-static int _wrap_CSaverGEM_Visit__SWIG_11(lua_State* L) {
+static int _wrap_CSaverGEM_Visit__SWIG_6(lua_State* L) {
   {
     int SWIG_arg = 0;
     CSaverGEM *arg1 = (CSaverGEM *) 0 ;
-    CGSceneAnimCfg *arg2 = (CGSceneAnimCfg *) 0 ;
+    CGSceneAnimActionSet *arg2 = (CGSceneAnimActionSet *) 0 ;
     
     SWIG_check_num_args("CSaverGEM::Visit",2,2)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSaverGEM::Visit",1,"CSaverGEM *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSaverGEM::Visit",2,"CGSceneAnimCfg *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSaverGEM::Visit",2,"CGSceneAnimActionSet *");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSaverGEM,0))){
       SWIG_fail_ptr("CSaverGEM_Visit",1,SWIGTYPE_p_CSaverGEM);
     }
     
     
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneAnimCfg,0))){
-      SWIG_fail_ptr("CSaverGEM_Visit",2,SWIGTYPE_p_CGSceneAnimCfg);
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneAnimActionSet,0))){
+      SWIG_fail_ptr("CSaverGEM_Visit",2,SWIGTYPE_p_CGSceneAnimActionSet);
     }
     
     (arg1)->Visit(arg2);
@@ -59102,37 +58555,7 @@ static int _wrap_CSaverGEM_Visit__SWIG_11(lua_State* L) {
 }
 
 
-static int _wrap_CSaverGEM_Visit__SWIG_12(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSaverGEM *arg1 = (CSaverGEM *) 0 ;
-    CGSceneAnimNode *arg2 = (CGSceneAnimNode *) 0 ;
-    
-    SWIG_check_num_args("CSaverGEM::Visit",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSaverGEM::Visit",1,"CSaverGEM *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSaverGEM::Visit",2,"CGSceneAnimNode *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSaverGEM,0))){
-      SWIG_fail_ptr("CSaverGEM_Visit",1,SWIGTYPE_p_CSaverGEM);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneAnimNode,0))){
-      SWIG_fail_ptr("CSaverGEM_Visit",2,SWIGTYPE_p_CGSceneAnimNode);
-    }
-    
-    (arg1)->Visit(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSaverGEM_Visit__SWIG_13(lua_State* L) {
+static int _wrap_CSaverGEM_Visit__SWIG_7(lua_State* L) {
   {
     int SWIG_arg = 0;
     CSaverGEM *arg1 = (CSaverGEM *) 0 ;
@@ -59162,37 +58585,7 @@ static int _wrap_CSaverGEM_Visit__SWIG_13(lua_State* L) {
 }
 
 
-static int _wrap_CSaverGEM_Visit__SWIG_14(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSaverGEM *arg1 = (CSaverGEM *) 0 ;
-    CGSceneAnimInstance *arg2 = (CGSceneAnimInstance *) 0 ;
-    
-    SWIG_check_num_args("CSaverGEM::Visit",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSaverGEM::Visit",1,"CSaverGEM *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSaverGEM::Visit",2,"CGSceneAnimInstance *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSaverGEM,0))){
-      SWIG_fail_ptr("CSaverGEM_Visit",1,SWIGTYPE_p_CSaverGEM);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneAnimInstance,0))){
-      SWIG_fail_ptr("CSaverGEM_Visit",2,SWIGTYPE_p_CGSceneAnimInstance);
-    }
-    
-    (arg1)->Visit(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSaverGEM_Visit__SWIG_15(lua_State* L) {
+static int _wrap_CSaverGEM_Visit__SWIG_8(lua_State* L) {
   {
     int SWIG_arg = 0;
     CSaverGEM *arg1 = (CSaverGEM *) 0 ;
@@ -59222,7 +58615,7 @@ static int _wrap_CSaverGEM_Visit__SWIG_15(lua_State* L) {
 }
 
 
-static int _wrap_CSaverGEM_Visit__SWIG_16(lua_State* L) {
+static int _wrap_CSaverGEM_Visit__SWIG_9(lua_State* L) {
   {
     int SWIG_arg = 0;
     CSaverGEM *arg1 = (CSaverGEM *) 0 ;
@@ -59296,7 +58689,7 @@ static int _wrap_CSaverGEM_Visit(lua_State* L) {
     if (_v) {
       {
         void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneCamera, 0)) {
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneLeaf, 0)) {
           _v = 0;
         } else {
           _v = 1;
@@ -59320,31 +58713,7 @@ static int _wrap_CSaverGEM_Visit(lua_State* L) {
     if (_v) {
       {
         void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneInstance, 0)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
-        return _wrap_CSaverGEM_Visit__SWIG_4(L);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CSaverGEM, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneCompiledLeaf, 0)) {
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneMux, 0)) {
           _v = 0;
         } else {
           _v = 1;
@@ -59368,54 +58737,6 @@ static int _wrap_CSaverGEM_Visit(lua_State* L) {
     if (_v) {
       {
         void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneLeaf, 0)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
-        return _wrap_CSaverGEM_Visit__SWIG_5(L);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CSaverGEM, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneMux, 0)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
-        return _wrap_CSaverGEM_Visit__SWIG_6(L);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CSaverGEM, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
         if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneGroup, 0)) {
           _v = 0;
         } else {
@@ -59423,55 +58744,7 @@ static int _wrap_CSaverGEM_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CSaverGEM_Visit__SWIG_7(L);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CSaverGEM, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneScreenRect, 0)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
-        return _wrap_CSaverGEM_Visit__SWIG_8(L);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CSaverGEM, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneSwitch, 0)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
-        return _wrap_CSaverGEM_Visit__SWIG_9(L);
+        return _wrap_CSaverGEM_Visit__SWIG_4(L);
       }
     }
   }
@@ -59495,7 +58768,31 @@ static int _wrap_CSaverGEM_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CSaverGEM_Visit__SWIG_10(L);
+        return _wrap_CSaverGEM_Visit__SWIG_5(L);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    {
+      void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CSaverGEM, 0)) {
+        _v = 0;
+      } else {
+        _v = 1;
+      }
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneAnimActionSet, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        return _wrap_CSaverGEM_Visit__SWIG_6(L);
       }
     }
   }
@@ -59519,31 +58816,7 @@ static int _wrap_CSaverGEM_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CSaverGEM_Visit__SWIG_13(L);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CSaverGEM, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneAnimCfg, 0)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
-        return _wrap_CSaverGEM_Visit__SWIG_11(L);
+        return _wrap_CSaverGEM_Visit__SWIG_7(L);
       }
     }
   }
@@ -59567,31 +58840,7 @@ static int _wrap_CSaverGEM_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CSaverGEM_Visit__SWIG_15(L);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CSaverGEM, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneAnimInstance, 0)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
-        return _wrap_CSaverGEM_Visit__SWIG_14(L);
+        return _wrap_CSaverGEM_Visit__SWIG_8(L);
       }
     }
   }
@@ -59615,31 +58864,7 @@ static int _wrap_CSaverGEM_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CSaverGEM_Visit__SWIG_16(L);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CSaverGEM, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneAnimNode, 0)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
-        return _wrap_CSaverGEM_Visit__SWIG_12(L);
+        return _wrap_CSaverGEM_Visit__SWIG_9(L);
       }
     }
   }
@@ -59672,19 +58897,12 @@ static int _wrap_CSaverGEM_Visit(lua_State* L) {
     "  Possible C/C++ prototypes are:\n"
     "    CSaverGEM::Visit(CGSceneNode *)\n"
     "    CSaverGEM::Visit(CGSceneBSPNode *)\n"
-    "    CSaverGEM::Visit(CGSceneCamera *)\n"
-    "    CSaverGEM::Visit(CGSceneCompiledLeaf *)\n"
-    "    CSaverGEM::Visit(CGSceneInstance *)\n"
     "    CSaverGEM::Visit(CGSceneLeaf *)\n"
     "    CSaverGEM::Visit(CGSceneMux *)\n"
     "    CSaverGEM::Visit(CGSceneGroup *)\n"
-    "    CSaverGEM::Visit(CGSceneScreenRect *)\n"
-    "    CSaverGEM::Visit(CGSceneSwitch *)\n"
     "    CSaverGEM::Visit(CGSceneTransf *)\n"
-    "    CSaverGEM::Visit(CGSceneAnimCfg *)\n"
-    "    CSaverGEM::Visit(CGSceneAnimNode *)\n"
+    "    CSaverGEM::Visit(CGSceneAnimActionSet *)\n"
     "    CSaverGEM::Visit(CGSceneAnimMesh *)\n"
-    "    CSaverGEM::Visit(CGSceneAnimInstance *)\n"
     "    CSaverGEM::Visit(CGSceneAnimGroup *)\n"
     "    CSaverGEM::Visit(CGSceneAnimTransf *)\n");
   lua_error(L);return 0;
@@ -59855,14 +59073,6 @@ static void swig_delete_CSaverGEM(void *obj) {
 CSaverGEM *arg1 = (CSaverGEM *) obj;
 delete arg1;
 }
-static int _proxy__wrap_new_CSaverGEM(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CSaverGEM);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
 static swig_lua_attribute swig_CSaverGEM_attributes[] = {
     {0,0,0}
 };
@@ -59898,7 +59108,7 @@ static swig_lua_namespace swig_CSaverGEM_Sf_SwigStatic = {
 };
 static swig_lua_class *swig_CSaverGEM_bases[] = {0,0};
 static const char *swig_CSaverGEM_base_names[] = {"C3DSaver *",0};
-static swig_lua_class _wrap_class_CSaverGEM = { "CSaverGEM", "CSaverGEM", &SWIGTYPE_p_CSaverGEM,_proxy__wrap_new_CSaverGEM, swig_delete_CSaverGEM, swig_CSaverGEM_methods, swig_CSaverGEM_attributes, &swig_CSaverGEM_Sf_SwigStatic, swig_CSaverGEM_meta, swig_CSaverGEM_bases, swig_CSaverGEM_base_names };
+static swig_lua_class _wrap_class_CSaverGEM = { "CSaverGEM", "CSaverGEM", &SWIGTYPE_p_CSaverGEM,0, swig_delete_CSaverGEM, swig_CSaverGEM_methods, swig_CSaverGEM_attributes, &swig_CSaverGEM_Sf_SwigStatic, swig_CSaverGEM_meta, swig_CSaverGEM_bases, swig_CSaverGEM_base_names };
 
 static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_0(lua_State* L) {
   {
@@ -59994,36 +59204,6 @@ static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_3(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVBoundVolBuilder *arg1 = (CGSCNVBoundVolBuilder *) 0 ;
-    CGSceneCompiledLeaf *arg2 = (CGSceneCompiledLeaf *) 0 ;
-    
-    SWIG_check_num_args("CGSCNVBoundVolBuilder::Visit",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSCNVBoundVolBuilder::Visit",1,"CGSCNVBoundVolBuilder *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSCNVBoundVolBuilder::Visit",2,"CGSceneCompiledLeaf *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSCNVBoundVolBuilder,0))){
-      SWIG_fail_ptr("CGSCNVBoundVolBuilder_Visit",1,SWIGTYPE_p_CGSCNVBoundVolBuilder);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneCompiledLeaf,0))){
-      SWIG_fail_ptr("CGSCNVBoundVolBuilder_Visit",2,SWIGTYPE_p_CGSceneCompiledLeaf);
-    }
-    
-    (arg1)->Visit(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_4(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSCNVBoundVolBuilder *arg1 = (CGSCNVBoundVolBuilder *) 0 ;
     CGSceneInstance *arg2 = (CGSceneInstance *) 0 ;
     
     SWIG_check_num_args("CGSCNVBoundVolBuilder::Visit",2,2)
@@ -60050,7 +59230,7 @@ static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_4(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_5(lua_State* L) {
+static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_4(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVBoundVolBuilder *arg1 = (CGSCNVBoundVolBuilder *) 0 ;
@@ -60080,7 +59260,7 @@ static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_5(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_6(lua_State* L) {
+static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_5(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVBoundVolBuilder *arg1 = (CGSCNVBoundVolBuilder *) 0 ;
@@ -60110,7 +59290,7 @@ static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_6(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_7(lua_State* L) {
+static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_6(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVBoundVolBuilder *arg1 = (CGSCNVBoundVolBuilder *) 0 ;
@@ -60140,7 +59320,7 @@ static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_7(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_8(lua_State* L) {
+static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_7(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVBoundVolBuilder *arg1 = (CGSCNVBoundVolBuilder *) 0 ;
@@ -60170,7 +59350,7 @@ static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_8(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_9(lua_State* L) {
+static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_8(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVBoundVolBuilder *arg1 = (CGSCNVBoundVolBuilder *) 0 ;
@@ -60200,7 +59380,7 @@ static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_9(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_10(lua_State* L) {
+static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_9(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVBoundVolBuilder *arg1 = (CGSCNVBoundVolBuilder *) 0 ;
@@ -60230,23 +59410,23 @@ static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_10(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_11(lua_State* L) {
+static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_10(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVBoundVolBuilder *arg1 = (CGSCNVBoundVolBuilder *) 0 ;
-    CGSceneAnimCfg *arg2 = (CGSceneAnimCfg *) 0 ;
+    CGSceneAnimActionSet *arg2 = (CGSceneAnimActionSet *) 0 ;
     
     SWIG_check_num_args("CGSCNVBoundVolBuilder::Visit",2,2)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSCNVBoundVolBuilder::Visit",1,"CGSCNVBoundVolBuilder *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSCNVBoundVolBuilder::Visit",2,"CGSceneAnimCfg *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSCNVBoundVolBuilder::Visit",2,"CGSceneAnimActionSet *");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSCNVBoundVolBuilder,0))){
       SWIG_fail_ptr("CGSCNVBoundVolBuilder_Visit",1,SWIGTYPE_p_CGSCNVBoundVolBuilder);
     }
     
     
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneAnimCfg,0))){
-      SWIG_fail_ptr("CGSCNVBoundVolBuilder_Visit",2,SWIGTYPE_p_CGSceneAnimCfg);
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneAnimActionSet,0))){
+      SWIG_fail_ptr("CGSCNVBoundVolBuilder_Visit",2,SWIGTYPE_p_CGSceneAnimActionSet);
     }
     
     (arg1)->Visit(arg2);
@@ -60260,7 +59440,7 @@ static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_11(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_12(lua_State* L) {
+static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_11(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVBoundVolBuilder *arg1 = (CGSCNVBoundVolBuilder *) 0 ;
@@ -60290,7 +59470,7 @@ static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_12(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_13(lua_State* L) {
+static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_12(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVBoundVolBuilder *arg1 = (CGSCNVBoundVolBuilder *) 0 ;
@@ -60320,37 +59500,7 @@ static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_13(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_14(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSCNVBoundVolBuilder *arg1 = (CGSCNVBoundVolBuilder *) 0 ;
-    CGSceneAnimInstance *arg2 = (CGSceneAnimInstance *) 0 ;
-    
-    SWIG_check_num_args("CGSCNVBoundVolBuilder::Visit",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSCNVBoundVolBuilder::Visit",1,"CGSCNVBoundVolBuilder *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSCNVBoundVolBuilder::Visit",2,"CGSceneAnimInstance *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSCNVBoundVolBuilder,0))){
-      SWIG_fail_ptr("CGSCNVBoundVolBuilder_Visit",1,SWIGTYPE_p_CGSCNVBoundVolBuilder);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneAnimInstance,0))){
-      SWIG_fail_ptr("CGSCNVBoundVolBuilder_Visit",2,SWIGTYPE_p_CGSceneAnimInstance);
-    }
-    
-    (arg1)->Visit(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_15(lua_State* L) {
+static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_13(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVBoundVolBuilder *arg1 = (CGSCNVBoundVolBuilder *) 0 ;
@@ -60380,7 +59530,7 @@ static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_15(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_16(lua_State* L) {
+static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_14(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVBoundVolBuilder *arg1 = (CGSCNVBoundVolBuilder *) 0 ;
@@ -60485,30 +59635,6 @@ static int _wrap_CGSCNVBoundVolBuilder_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_4(L);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CGSCNVBoundVolBuilder, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneCompiledLeaf, 0)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
         return _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_3(L);
       }
     }
@@ -60533,7 +59659,7 @@ static int _wrap_CGSCNVBoundVolBuilder_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_5(L);
+        return _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_4(L);
       }
     }
   }
@@ -60557,7 +59683,7 @@ static int _wrap_CGSCNVBoundVolBuilder_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_6(L);
+        return _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_5(L);
       }
     }
   }
@@ -60581,7 +59707,7 @@ static int _wrap_CGSCNVBoundVolBuilder_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_7(L);
+        return _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_6(L);
       }
     }
   }
@@ -60605,7 +59731,7 @@ static int _wrap_CGSCNVBoundVolBuilder_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_8(L);
+        return _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_7(L);
       }
     }
   }
@@ -60629,7 +59755,7 @@ static int _wrap_CGSCNVBoundVolBuilder_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_9(L);
+        return _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_8(L);
       }
     }
   }
@@ -60647,6 +59773,30 @@ static int _wrap_CGSCNVBoundVolBuilder_Visit(lua_State* L) {
       {
         void *ptr;
         if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneTransf, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        return _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_9(L);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    {
+      void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CGSCNVBoundVolBuilder, 0)) {
+        _v = 0;
+      } else {
+        _v = 1;
+      }
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneAnimActionSet, 0)) {
           _v = 0;
         } else {
           _v = 1;
@@ -60677,31 +59827,7 @@ static int _wrap_CGSCNVBoundVolBuilder_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_13(L);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CGSCNVBoundVolBuilder, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneAnimCfg, 0)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
-        return _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_11(L);
+        return _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_12(L);
       }
     }
   }
@@ -60725,31 +59851,7 @@ static int _wrap_CGSCNVBoundVolBuilder_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_15(L);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CGSCNVBoundVolBuilder, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneAnimInstance, 0)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
-        return _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_14(L);
+        return _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_13(L);
       }
     }
   }
@@ -60773,7 +59875,7 @@ static int _wrap_CGSCNVBoundVolBuilder_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_16(L);
+        return _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_14(L);
       }
     }
   }
@@ -60797,7 +59899,7 @@ static int _wrap_CGSCNVBoundVolBuilder_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_12(L);
+        return _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_11(L);
       }
     }
   }
@@ -60831,7 +59933,6 @@ static int _wrap_CGSCNVBoundVolBuilder_Visit(lua_State* L) {
     "    CGSCNVBoundVolBuilder::Visit(CGSceneNode *)\n"
     "    CGSCNVBoundVolBuilder::Visit(CGSceneBSPNode *)\n"
     "    CGSCNVBoundVolBuilder::Visit(CGSceneCamera *)\n"
-    "    CGSCNVBoundVolBuilder::Visit(CGSceneCompiledLeaf *)\n"
     "    CGSCNVBoundVolBuilder::Visit(CGSceneInstance *)\n"
     "    CGSCNVBoundVolBuilder::Visit(CGSceneLeaf *)\n"
     "    CGSCNVBoundVolBuilder::Visit(CGSceneMux *)\n"
@@ -60839,10 +59940,9 @@ static int _wrap_CGSCNVBoundVolBuilder_Visit(lua_State* L) {
     "    CGSCNVBoundVolBuilder::Visit(CGSceneScreenRect *)\n"
     "    CGSCNVBoundVolBuilder::Visit(CGSceneSwitch *)\n"
     "    CGSCNVBoundVolBuilder::Visit(CGSceneTransf *)\n"
-    "    CGSCNVBoundVolBuilder::Visit(CGSceneAnimCfg *)\n"
+    "    CGSCNVBoundVolBuilder::Visit(CGSceneAnimActionSet *)\n"
     "    CGSCNVBoundVolBuilder::Visit(CGSceneAnimNode *)\n"
     "    CGSCNVBoundVolBuilder::Visit(CGSceneAnimMesh *)\n"
-    "    CGSCNVBoundVolBuilder::Visit(CGSceneAnimInstance *)\n"
     "    CGSCNVBoundVolBuilder::Visit(CGSceneAnimGroup *)\n"
     "    CGSCNVBoundVolBuilder::Visit(CGSceneAnimTransf *)\n");
   lua_error(L);return 0;
@@ -61038,36 +60138,6 @@ static int _wrap_CGSCNVRenderer_Visit__SWIG_3(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVRenderer *arg1 = (CGSCNVRenderer *) 0 ;
-    CGSceneCompiledLeaf *arg2 = (CGSceneCompiledLeaf *) 0 ;
-    
-    SWIG_check_num_args("CGSCNVRenderer::Visit",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSCNVRenderer::Visit",1,"CGSCNVRenderer *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSCNVRenderer::Visit",2,"CGSceneCompiledLeaf *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSCNVRenderer,0))){
-      SWIG_fail_ptr("CGSCNVRenderer_Visit",1,SWIGTYPE_p_CGSCNVRenderer);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneCompiledLeaf,0))){
-      SWIG_fail_ptr("CGSCNVRenderer_Visit",2,SWIGTYPE_p_CGSceneCompiledLeaf);
-    }
-    
-    (arg1)->Visit(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGSCNVRenderer_Visit__SWIG_4(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSCNVRenderer *arg1 = (CGSCNVRenderer *) 0 ;
     CGSceneInstance *arg2 = (CGSceneInstance *) 0 ;
     
     SWIG_check_num_args("CGSCNVRenderer::Visit",2,2)
@@ -61094,7 +60164,7 @@ static int _wrap_CGSCNVRenderer_Visit__SWIG_4(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVRenderer_Visit__SWIG_5(lua_State* L) {
+static int _wrap_CGSCNVRenderer_Visit__SWIG_4(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVRenderer *arg1 = (CGSCNVRenderer *) 0 ;
@@ -61124,7 +60194,7 @@ static int _wrap_CGSCNVRenderer_Visit__SWIG_5(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVRenderer_Visit__SWIG_6(lua_State* L) {
+static int _wrap_CGSCNVRenderer_Visit__SWIG_5(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVRenderer *arg1 = (CGSCNVRenderer *) 0 ;
@@ -61154,7 +60224,7 @@ static int _wrap_CGSCNVRenderer_Visit__SWIG_6(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVRenderer_Visit__SWIG_7(lua_State* L) {
+static int _wrap_CGSCNVRenderer_Visit__SWIG_6(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVRenderer *arg1 = (CGSCNVRenderer *) 0 ;
@@ -61184,7 +60254,7 @@ static int _wrap_CGSCNVRenderer_Visit__SWIG_7(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVRenderer_Visit__SWIG_8(lua_State* L) {
+static int _wrap_CGSCNVRenderer_Visit__SWIG_7(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVRenderer *arg1 = (CGSCNVRenderer *) 0 ;
@@ -61214,7 +60284,7 @@ static int _wrap_CGSCNVRenderer_Visit__SWIG_8(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVRenderer_Visit__SWIG_9(lua_State* L) {
+static int _wrap_CGSCNVRenderer_Visit__SWIG_8(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVRenderer *arg1 = (CGSCNVRenderer *) 0 ;
@@ -61244,7 +60314,7 @@ static int _wrap_CGSCNVRenderer_Visit__SWIG_9(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVRenderer_Visit__SWIG_10(lua_State* L) {
+static int _wrap_CGSCNVRenderer_Visit__SWIG_9(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVRenderer *arg1 = (CGSCNVRenderer *) 0 ;
@@ -61274,23 +60344,23 @@ static int _wrap_CGSCNVRenderer_Visit__SWIG_10(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVRenderer_Visit__SWIG_11(lua_State* L) {
+static int _wrap_CGSCNVRenderer_Visit__SWIG_10(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVRenderer *arg1 = (CGSCNVRenderer *) 0 ;
-    CGSceneAnimCfg *arg2 = (CGSceneAnimCfg *) 0 ;
+    CGSceneAnimActionSet *arg2 = (CGSceneAnimActionSet *) 0 ;
     
     SWIG_check_num_args("CGSCNVRenderer::Visit",2,2)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSCNVRenderer::Visit",1,"CGSCNVRenderer *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSCNVRenderer::Visit",2,"CGSceneAnimCfg *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSCNVRenderer::Visit",2,"CGSceneAnimActionSet *");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSCNVRenderer,0))){
       SWIG_fail_ptr("CGSCNVRenderer_Visit",1,SWIGTYPE_p_CGSCNVRenderer);
     }
     
     
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneAnimCfg,0))){
-      SWIG_fail_ptr("CGSCNVRenderer_Visit",2,SWIGTYPE_p_CGSceneAnimCfg);
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneAnimActionSet,0))){
+      SWIG_fail_ptr("CGSCNVRenderer_Visit",2,SWIGTYPE_p_CGSceneAnimActionSet);
     }
     
     (arg1)->Visit(arg2);
@@ -61304,7 +60374,7 @@ static int _wrap_CGSCNVRenderer_Visit__SWIG_11(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVRenderer_Visit__SWIG_12(lua_State* L) {
+static int _wrap_CGSCNVRenderer_Visit__SWIG_11(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVRenderer *arg1 = (CGSCNVRenderer *) 0 ;
@@ -61334,7 +60404,7 @@ static int _wrap_CGSCNVRenderer_Visit__SWIG_12(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVRenderer_Visit__SWIG_13(lua_State* L) {
+static int _wrap_CGSCNVRenderer_Visit__SWIG_12(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVRenderer *arg1 = (CGSCNVRenderer *) 0 ;
@@ -61364,37 +60434,7 @@ static int _wrap_CGSCNVRenderer_Visit__SWIG_13(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVRenderer_Visit__SWIG_14(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSCNVRenderer *arg1 = (CGSCNVRenderer *) 0 ;
-    CGSceneAnimInstance *arg2 = (CGSceneAnimInstance *) 0 ;
-    
-    SWIG_check_num_args("CGSCNVRenderer::Visit",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSCNVRenderer::Visit",1,"CGSCNVRenderer *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSCNVRenderer::Visit",2,"CGSceneAnimInstance *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSCNVRenderer,0))){
-      SWIG_fail_ptr("CGSCNVRenderer_Visit",1,SWIGTYPE_p_CGSCNVRenderer);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneAnimInstance,0))){
-      SWIG_fail_ptr("CGSCNVRenderer_Visit",2,SWIGTYPE_p_CGSceneAnimInstance);
-    }
-    
-    (arg1)->Visit(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGSCNVRenderer_Visit__SWIG_15(lua_State* L) {
+static int _wrap_CGSCNVRenderer_Visit__SWIG_13(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVRenderer *arg1 = (CGSCNVRenderer *) 0 ;
@@ -61424,7 +60464,7 @@ static int _wrap_CGSCNVRenderer_Visit__SWIG_15(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVRenderer_Visit__SWIG_16(lua_State* L) {
+static int _wrap_CGSCNVRenderer_Visit__SWIG_14(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVRenderer *arg1 = (CGSCNVRenderer *) 0 ;
@@ -61529,30 +60569,6 @@ static int _wrap_CGSCNVRenderer_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVRenderer_Visit__SWIG_4(L);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CGSCNVRenderer, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneCompiledLeaf, 0)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
         return _wrap_CGSCNVRenderer_Visit__SWIG_3(L);
       }
     }
@@ -61577,7 +60593,7 @@ static int _wrap_CGSCNVRenderer_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVRenderer_Visit__SWIG_5(L);
+        return _wrap_CGSCNVRenderer_Visit__SWIG_4(L);
       }
     }
   }
@@ -61601,7 +60617,7 @@ static int _wrap_CGSCNVRenderer_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVRenderer_Visit__SWIG_6(L);
+        return _wrap_CGSCNVRenderer_Visit__SWIG_5(L);
       }
     }
   }
@@ -61625,7 +60641,7 @@ static int _wrap_CGSCNVRenderer_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVRenderer_Visit__SWIG_7(L);
+        return _wrap_CGSCNVRenderer_Visit__SWIG_6(L);
       }
     }
   }
@@ -61649,7 +60665,7 @@ static int _wrap_CGSCNVRenderer_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVRenderer_Visit__SWIG_8(L);
+        return _wrap_CGSCNVRenderer_Visit__SWIG_7(L);
       }
     }
   }
@@ -61673,7 +60689,7 @@ static int _wrap_CGSCNVRenderer_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVRenderer_Visit__SWIG_9(L);
+        return _wrap_CGSCNVRenderer_Visit__SWIG_8(L);
       }
     }
   }
@@ -61691,6 +60707,30 @@ static int _wrap_CGSCNVRenderer_Visit(lua_State* L) {
       {
         void *ptr;
         if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneTransf, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        return _wrap_CGSCNVRenderer_Visit__SWIG_9(L);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    {
+      void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CGSCNVRenderer, 0)) {
+        _v = 0;
+      } else {
+        _v = 1;
+      }
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneAnimActionSet, 0)) {
           _v = 0;
         } else {
           _v = 1;
@@ -61721,31 +60761,7 @@ static int _wrap_CGSCNVRenderer_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVRenderer_Visit__SWIG_13(L);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CGSCNVRenderer, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneAnimCfg, 0)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
-        return _wrap_CGSCNVRenderer_Visit__SWIG_11(L);
+        return _wrap_CGSCNVRenderer_Visit__SWIG_12(L);
       }
     }
   }
@@ -61769,31 +60785,7 @@ static int _wrap_CGSCNVRenderer_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVRenderer_Visit__SWIG_15(L);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CGSCNVRenderer, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneAnimInstance, 0)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
-        return _wrap_CGSCNVRenderer_Visit__SWIG_14(L);
+        return _wrap_CGSCNVRenderer_Visit__SWIG_13(L);
       }
     }
   }
@@ -61817,7 +60809,7 @@ static int _wrap_CGSCNVRenderer_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVRenderer_Visit__SWIG_16(L);
+        return _wrap_CGSCNVRenderer_Visit__SWIG_14(L);
       }
     }
   }
@@ -61841,7 +60833,7 @@ static int _wrap_CGSCNVRenderer_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVRenderer_Visit__SWIG_12(L);
+        return _wrap_CGSCNVRenderer_Visit__SWIG_11(L);
       }
     }
   }
@@ -61875,7 +60867,6 @@ static int _wrap_CGSCNVRenderer_Visit(lua_State* L) {
     "    CGSCNVRenderer::Visit(CGSceneNode *)\n"
     "    CGSCNVRenderer::Visit(CGSceneBSPNode *)\n"
     "    CGSCNVRenderer::Visit(CGSceneCamera *)\n"
-    "    CGSCNVRenderer::Visit(CGSceneCompiledLeaf *)\n"
     "    CGSCNVRenderer::Visit(CGSceneInstance *)\n"
     "    CGSCNVRenderer::Visit(CGSceneLeaf *)\n"
     "    CGSCNVRenderer::Visit(CGSceneMux *)\n"
@@ -61883,10 +60874,9 @@ static int _wrap_CGSCNVRenderer_Visit(lua_State* L) {
     "    CGSCNVRenderer::Visit(CGSceneScreenRect *)\n"
     "    CGSCNVRenderer::Visit(CGSceneSwitch *)\n"
     "    CGSCNVRenderer::Visit(CGSceneTransf *)\n"
-    "    CGSCNVRenderer::Visit(CGSceneAnimCfg *)\n"
+    "    CGSCNVRenderer::Visit(CGSceneAnimActionSet *)\n"
     "    CGSCNVRenderer::Visit(CGSceneAnimNode *)\n"
     "    CGSCNVRenderer::Visit(CGSceneAnimMesh *)\n"
-    "    CGSCNVRenderer::Visit(CGSceneAnimInstance *)\n"
     "    CGSCNVRenderer::Visit(CGSceneAnimGroup *)\n"
     "    CGSCNVRenderer::Visit(CGSceneAnimTransf *)\n");
   lua_error(L);return 0;
@@ -62084,36 +61074,6 @@ static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_3(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVVisibilityChecker *arg1 = (CGSCNVVisibilityChecker *) 0 ;
-    CGSceneCompiledLeaf *arg2 = (CGSceneCompiledLeaf *) 0 ;
-    
-    SWIG_check_num_args("CGSCNVVisibilityChecker::Visit",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSCNVVisibilityChecker::Visit",1,"CGSCNVVisibilityChecker *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSCNVVisibilityChecker::Visit",2,"CGSceneCompiledLeaf *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSCNVVisibilityChecker,0))){
-      SWIG_fail_ptr("CGSCNVVisibilityChecker_Visit",1,SWIGTYPE_p_CGSCNVVisibilityChecker);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneCompiledLeaf,0))){
-      SWIG_fail_ptr("CGSCNVVisibilityChecker_Visit",2,SWIGTYPE_p_CGSceneCompiledLeaf);
-    }
-    
-    (arg1)->Visit(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_4(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSCNVVisibilityChecker *arg1 = (CGSCNVVisibilityChecker *) 0 ;
     CGSceneInstance *arg2 = (CGSceneInstance *) 0 ;
     
     SWIG_check_num_args("CGSCNVVisibilityChecker::Visit",2,2)
@@ -62140,7 +61100,7 @@ static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_4(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_5(lua_State* L) {
+static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_4(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVVisibilityChecker *arg1 = (CGSCNVVisibilityChecker *) 0 ;
@@ -62170,7 +61130,7 @@ static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_5(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_6(lua_State* L) {
+static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_5(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVVisibilityChecker *arg1 = (CGSCNVVisibilityChecker *) 0 ;
@@ -62200,7 +61160,7 @@ static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_6(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_7(lua_State* L) {
+static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_6(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVVisibilityChecker *arg1 = (CGSCNVVisibilityChecker *) 0 ;
@@ -62230,7 +61190,7 @@ static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_7(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_8(lua_State* L) {
+static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_7(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVVisibilityChecker *arg1 = (CGSCNVVisibilityChecker *) 0 ;
@@ -62260,7 +61220,7 @@ static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_8(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_9(lua_State* L) {
+static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_8(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVVisibilityChecker *arg1 = (CGSCNVVisibilityChecker *) 0 ;
@@ -62290,7 +61250,7 @@ static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_9(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_10(lua_State* L) {
+static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_9(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVVisibilityChecker *arg1 = (CGSCNVVisibilityChecker *) 0 ;
@@ -62320,97 +61280,37 @@ static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_10(lua_State* L) {
 }
 
 
+static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_10(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGSCNVVisibilityChecker *arg1 = (CGSCNVVisibilityChecker *) 0 ;
+    CGSceneAnimActionSet *arg2 = (CGSceneAnimActionSet *) 0 ;
+    
+    SWIG_check_num_args("CGSCNVVisibilityChecker::Visit",2,2)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSCNVVisibilityChecker::Visit",1,"CGSCNVVisibilityChecker *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSCNVVisibilityChecker::Visit",2,"CGSceneAnimActionSet *");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSCNVVisibilityChecker,0))){
+      SWIG_fail_ptr("CGSCNVVisibilityChecker_Visit",1,SWIGTYPE_p_CGSCNVVisibilityChecker);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneAnimActionSet,0))){
+      SWIG_fail_ptr("CGSCNVVisibilityChecker_Visit",2,SWIGTYPE_p_CGSceneAnimActionSet);
+    }
+    
+    (arg1)->Visit(arg2);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
 static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_11(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSCNVVisibilityChecker *arg1 = (CGSCNVVisibilityChecker *) 0 ;
-    CGSceneAnimCfg *arg2 = (CGSceneAnimCfg *) 0 ;
-    
-    SWIG_check_num_args("CGSCNVVisibilityChecker::Visit",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSCNVVisibilityChecker::Visit",1,"CGSCNVVisibilityChecker *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSCNVVisibilityChecker::Visit",2,"CGSceneAnimCfg *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSCNVVisibilityChecker,0))){
-      SWIG_fail_ptr("CGSCNVVisibilityChecker_Visit",1,SWIGTYPE_p_CGSCNVVisibilityChecker);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneAnimCfg,0))){
-      SWIG_fail_ptr("CGSCNVVisibilityChecker_Visit",2,SWIGTYPE_p_CGSceneAnimCfg);
-    }
-    
-    (arg1)->Visit(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_12(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSCNVVisibilityChecker *arg1 = (CGSCNVVisibilityChecker *) 0 ;
-    CGSceneAnimCfgGen *arg2 = (CGSceneAnimCfgGen *) 0 ;
-    
-    SWIG_check_num_args("CGSCNVVisibilityChecker::Visit",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSCNVVisibilityChecker::Visit",1,"CGSCNVVisibilityChecker *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSCNVVisibilityChecker::Visit",2,"CGSceneAnimCfgGen *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSCNVVisibilityChecker,0))){
-      SWIG_fail_ptr("CGSCNVVisibilityChecker_Visit",1,SWIGTYPE_p_CGSCNVVisibilityChecker);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneAnimCfgGen,0))){
-      SWIG_fail_ptr("CGSCNVVisibilityChecker_Visit",2,SWIGTYPE_p_CGSceneAnimCfgGen);
-    }
-    
-    (arg1)->Visit(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_13(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSCNVVisibilityChecker *arg1 = (CGSCNVVisibilityChecker *) 0 ;
-    CGSceneAnimCfgMgr *arg2 = (CGSceneAnimCfgMgr *) 0 ;
-    
-    SWIG_check_num_args("CGSCNVVisibilityChecker::Visit",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSCNVVisibilityChecker::Visit",1,"CGSCNVVisibilityChecker *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSCNVVisibilityChecker::Visit",2,"CGSceneAnimCfgMgr *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSCNVVisibilityChecker,0))){
-      SWIG_fail_ptr("CGSCNVVisibilityChecker_Visit",1,SWIGTYPE_p_CGSCNVVisibilityChecker);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneAnimCfgMgr,0))){
-      SWIG_fail_ptr("CGSCNVVisibilityChecker_Visit",2,SWIGTYPE_p_CGSceneAnimCfgMgr);
-    }
-    
-    (arg1)->Visit(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_14(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVVisibilityChecker *arg1 = (CGSCNVVisibilityChecker *) 0 ;
@@ -62440,7 +61340,7 @@ static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_14(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_15(lua_State* L) {
+static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_12(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVVisibilityChecker *arg1 = (CGSCNVVisibilityChecker *) 0 ;
@@ -62470,37 +61370,7 @@ static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_15(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_16(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSCNVVisibilityChecker *arg1 = (CGSCNVVisibilityChecker *) 0 ;
-    CGSceneAnimInstance *arg2 = (CGSceneAnimInstance *) 0 ;
-    
-    SWIG_check_num_args("CGSCNVVisibilityChecker::Visit",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSCNVVisibilityChecker::Visit",1,"CGSCNVVisibilityChecker *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSCNVVisibilityChecker::Visit",2,"CGSceneAnimInstance *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSCNVVisibilityChecker,0))){
-      SWIG_fail_ptr("CGSCNVVisibilityChecker_Visit",1,SWIGTYPE_p_CGSCNVVisibilityChecker);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneAnimInstance,0))){
-      SWIG_fail_ptr("CGSCNVVisibilityChecker_Visit",2,SWIGTYPE_p_CGSceneAnimInstance);
-    }
-    
-    (arg1)->Visit(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_17(lua_State* L) {
+static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_13(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVVisibilityChecker *arg1 = (CGSCNVVisibilityChecker *) 0 ;
@@ -62530,7 +61400,7 @@ static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_17(lua_State* L) {
 }
 
 
-static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_18(lua_State* L) {
+static int _wrap_CGSCNVVisibilityChecker_Visit__SWIG_14(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSCNVVisibilityChecker *arg1 = (CGSCNVVisibilityChecker *) 0 ;
@@ -62635,30 +61505,6 @@ static int _wrap_CGSCNVVisibilityChecker_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVVisibilityChecker_Visit__SWIG_4(L);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CGSCNVVisibilityChecker, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneCompiledLeaf, 0)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
         return _wrap_CGSCNVVisibilityChecker_Visit__SWIG_3(L);
       }
     }
@@ -62683,7 +61529,7 @@ static int _wrap_CGSCNVVisibilityChecker_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVVisibilityChecker_Visit__SWIG_5(L);
+        return _wrap_CGSCNVVisibilityChecker_Visit__SWIG_4(L);
       }
     }
   }
@@ -62707,7 +61553,7 @@ static int _wrap_CGSCNVVisibilityChecker_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVVisibilityChecker_Visit__SWIG_6(L);
+        return _wrap_CGSCNVVisibilityChecker_Visit__SWIG_5(L);
       }
     }
   }
@@ -62731,7 +61577,7 @@ static int _wrap_CGSCNVVisibilityChecker_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVVisibilityChecker_Visit__SWIG_7(L);
+        return _wrap_CGSCNVVisibilityChecker_Visit__SWIG_6(L);
       }
     }
   }
@@ -62755,7 +61601,7 @@ static int _wrap_CGSCNVVisibilityChecker_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVVisibilityChecker_Visit__SWIG_8(L);
+        return _wrap_CGSCNVVisibilityChecker_Visit__SWIG_7(L);
       }
     }
   }
@@ -62779,7 +61625,7 @@ static int _wrap_CGSCNVVisibilityChecker_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVVisibilityChecker_Visit__SWIG_9(L);
+        return _wrap_CGSCNVVisibilityChecker_Visit__SWIG_8(L);
       }
     }
   }
@@ -62797,6 +61643,30 @@ static int _wrap_CGSCNVVisibilityChecker_Visit(lua_State* L) {
       {
         void *ptr;
         if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneTransf, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        return _wrap_CGSCNVVisibilityChecker_Visit__SWIG_9(L);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    {
+      void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CGSCNVVisibilityChecker, 0)) {
+        _v = 0;
+      } else {
+        _v = 1;
+      }
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneAnimActionSet, 0)) {
           _v = 0;
         } else {
           _v = 1;
@@ -62827,79 +61697,7 @@ static int _wrap_CGSCNVVisibilityChecker_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVVisibilityChecker_Visit__SWIG_15(L);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CGSCNVVisibilityChecker, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneAnimCfg, 0)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
-        return _wrap_CGSCNVVisibilityChecker_Visit__SWIG_11(L);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CGSCNVVisibilityChecker, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneAnimCfgGen, 0)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
         return _wrap_CGSCNVVisibilityChecker_Visit__SWIG_12(L);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CGSCNVVisibilityChecker, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneAnimCfgMgr, 0)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
-        return _wrap_CGSCNVVisibilityChecker_Visit__SWIG_13(L);
       }
     }
   }
@@ -62923,31 +61721,7 @@ static int _wrap_CGSCNVVisibilityChecker_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVVisibilityChecker_Visit__SWIG_17(L);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CGSCNVVisibilityChecker, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneAnimInstance, 0)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
-        return _wrap_CGSCNVVisibilityChecker_Visit__SWIG_16(L);
+        return _wrap_CGSCNVVisibilityChecker_Visit__SWIG_13(L);
       }
     }
   }
@@ -62971,7 +61745,7 @@ static int _wrap_CGSCNVVisibilityChecker_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVVisibilityChecker_Visit__SWIG_18(L);
+        return _wrap_CGSCNVVisibilityChecker_Visit__SWIG_14(L);
       }
     }
   }
@@ -62995,7 +61769,7 @@ static int _wrap_CGSCNVVisibilityChecker_Visit(lua_State* L) {
         }
       }
       if (_v) {
-        return _wrap_CGSCNVVisibilityChecker_Visit__SWIG_14(L);
+        return _wrap_CGSCNVVisibilityChecker_Visit__SWIG_11(L);
       }
     }
   }
@@ -63029,7 +61803,6 @@ static int _wrap_CGSCNVVisibilityChecker_Visit(lua_State* L) {
     "    CGSCNVVisibilityChecker::Visit(CGSceneNode *)\n"
     "    CGSCNVVisibilityChecker::Visit(CGSceneBSPNode *)\n"
     "    CGSCNVVisibilityChecker::Visit(CGSceneCamera *)\n"
-    "    CGSCNVVisibilityChecker::Visit(CGSceneCompiledLeaf *)\n"
     "    CGSCNVVisibilityChecker::Visit(CGSceneInstance *)\n"
     "    CGSCNVVisibilityChecker::Visit(CGSceneLeaf *)\n"
     "    CGSCNVVisibilityChecker::Visit(CGSceneMux *)\n"
@@ -63037,12 +61810,9 @@ static int _wrap_CGSCNVVisibilityChecker_Visit(lua_State* L) {
     "    CGSCNVVisibilityChecker::Visit(CGSceneScreenRect *)\n"
     "    CGSCNVVisibilityChecker::Visit(CGSceneSwitch *)\n"
     "    CGSCNVVisibilityChecker::Visit(CGSceneTransf *)\n"
-    "    CGSCNVVisibilityChecker::Visit(CGSceneAnimCfg *)\n"
-    "    CGSCNVVisibilityChecker::Visit(CGSceneAnimCfgGen *)\n"
-    "    CGSCNVVisibilityChecker::Visit(CGSceneAnimCfgMgr *)\n"
+    "    CGSCNVVisibilityChecker::Visit(CGSceneAnimActionSet *)\n"
     "    CGSCNVVisibilityChecker::Visit(CGSceneAnimNode *)\n"
     "    CGSCNVVisibilityChecker::Visit(CGSceneAnimMesh *)\n"
-    "    CGSCNVVisibilityChecker::Visit(CGSceneAnimInstance *)\n"
     "    CGSCNVVisibilityChecker::Visit(CGSceneAnimGroup *)\n"
     "    CGSCNVVisibilityChecker::Visit(CGSceneAnimTransf *)\n");
   lua_error(L);return 0;
@@ -63114,6 +61884,127 @@ static swig_lua_namespace swig_CGSCNVVisibilityChecker_Sf_SwigStatic = {
 static swig_lua_class *swig_CGSCNVVisibilityChecker_bases[] = {0,0};
 static const char *swig_CGSCNVVisibilityChecker_base_names[] = {"CGSceneVisitor *",0};
 static swig_lua_class _wrap_class_CGSCNVVisibilityChecker = { "CGSCNVVisibilityChecker", "CGSCNVVisibilityChecker", &SWIGTYPE_p_CGSCNVVisibilityChecker,_proxy__wrap_new_CGSCNVVisibilityChecker, swig_delete_CGSCNVVisibilityChecker, swig_CGSCNVVisibilityChecker_methods, swig_CGSCNVVisibilityChecker_attributes, &swig_CGSCNVVisibilityChecker_Sf_SwigStatic, swig_CGSCNVVisibilityChecker_meta, swig_CGSCNVVisibilityChecker_bases, swig_CGSCNVVisibilityChecker_base_names };
+
+static int _wrap_CGGraphBVFileIO_pLoadGraphBV(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGFile *arg1 = 0 ;
+    CGGraphBV *result = 0 ;
+    
+    SWIG_check_num_args("CGGraphBVFileIO::pLoadGraphBV",1,1)
+    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CGGraphBVFileIO::pLoadGraphBV",1,"CGFile &");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGFile,0))){
+      SWIG_fail_ptr("CGGraphBVFileIO_pLoadGraphBV",1,SWIGTYPE_p_CGFile);
+    }
+    
+    result = (CGGraphBV *)CGGraphBVFileIO::pLoadGraphBV(*arg1);
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGGraphBV,0); SWIG_arg++; 
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CGGraphBVFileIO_iSaveGraphBV(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGFile *arg1 = 0 ;
+    CGGraphBV *arg2 = (CGGraphBV *) 0 ;
+    int result;
+    
+    SWIG_check_num_args("CGGraphBVFileIO::iSaveGraphBV",2,2)
+    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CGGraphBVFileIO::iSaveGraphBV",1,"CGFile &");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGGraphBVFileIO::iSaveGraphBV",2,"CGGraphBV *");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGFile,0))){
+      SWIG_fail_ptr("CGGraphBVFileIO_iSaveGraphBV",1,SWIGTYPE_p_CGFile);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGGraphBV,0))){
+      SWIG_fail_ptr("CGGraphBVFileIO_iSaveGraphBV",2,SWIGTYPE_p_CGGraphBV);
+    }
+    
+    result = (int)CGGraphBVFileIO::iSaveGraphBV(*arg1,arg2);
+    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_new_CGGraphBVFileIO(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGGraphBVFileIO *result = 0 ;
+    
+    SWIG_check_num_args("CGGraphBVFileIO::CGGraphBVFileIO",0,0)
+    result = (CGGraphBVFileIO *)new CGGraphBVFileIO();
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGGraphBVFileIO,1); SWIG_arg++; 
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static void swig_delete_CGGraphBVFileIO(void *obj) {
+CGGraphBVFileIO *arg1 = (CGGraphBVFileIO *) obj;
+delete arg1;
+}
+static int _proxy__wrap_new_CGGraphBVFileIO(lua_State *L) {
+    assert(lua_istable(L,1));
+    lua_pushcfunction(L,_wrap_new_CGGraphBVFileIO);
+    assert(!lua_isnil(L,-1));
+    lua_replace(L,1); /* replace our table with real constructor */
+    lua_call(L,lua_gettop(L)-1,1);
+    return 1;
+}
+static swig_lua_attribute swig_CGGraphBVFileIO_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_method swig_CGGraphBVFileIO_methods[]= {
+    {0,0}
+};
+static swig_lua_method swig_CGGraphBVFileIO_meta[] = {
+    {0,0}
+};
+
+static swig_lua_attribute swig_CGGraphBVFileIO_Sf_SwigStatic_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_const_info swig_CGGraphBVFileIO_Sf_SwigStatic_constants[]= {
+    {0,0,0,0,0,0}
+};
+static swig_lua_method swig_CGGraphBVFileIO_Sf_SwigStatic_methods[]= {
+    { "pLoadGraphBV", _wrap_CGGraphBVFileIO_pLoadGraphBV},
+    { "iSaveGraphBV", _wrap_CGGraphBVFileIO_iSaveGraphBV},
+    {0,0}
+};
+static swig_lua_class* swig_CGGraphBVFileIO_Sf_SwigStatic_classes[]= {
+    0
+};
+
+static swig_lua_namespace swig_CGGraphBVFileIO_Sf_SwigStatic = {
+    "CGGraphBVFileIO",
+    swig_CGGraphBVFileIO_Sf_SwigStatic_methods,
+    swig_CGGraphBVFileIO_Sf_SwigStatic_attributes,
+    swig_CGGraphBVFileIO_Sf_SwigStatic_constants,
+    swig_CGGraphBVFileIO_Sf_SwigStatic_classes,
+    0
+};
+static swig_lua_class *swig_CGGraphBVFileIO_bases[] = {0};
+static const char *swig_CGGraphBVFileIO_base_names[] = {0};
+static swig_lua_class _wrap_class_CGGraphBVFileIO = { "CGGraphBVFileIO", "CGGraphBVFileIO", &SWIGTYPE_p_CGGraphBVFileIO,_proxy__wrap_new_CGGraphBVFileIO, swig_delete_CGGraphBVFileIO, swig_CGGraphBVFileIO_methods, swig_CGGraphBVFileIO_attributes, &swig_CGGraphBVFileIO_Sf_SwigStatic, swig_CGGraphBVFileIO_meta, swig_CGGraphBVFileIO_bases, swig_CGGraphBVFileIO_base_names };
 
 static int _wrap_new_CHUDElem__SWIG_0(lua_State* L) {
   {
@@ -102807,30 +101698,6 @@ static int _wrap_CCOL_Scn_ColTester_iTest3DObj_Transf(lua_State* L) {
 }
 
 
-static int _wrap_CCOL_Scn_ColTester_iTest3DObj_CompiledLeaf(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGSceneCompiledLeaf *arg1 = (CGSceneCompiledLeaf *) 0 ;
-    int result;
-    
-    SWIG_check_num_args("CCOL_Scn_ColTester::iTest3DObj_CompiledLeaf",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CCOL_Scn_ColTester::iTest3DObj_CompiledLeaf",1,"CGSceneCompiledLeaf *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneCompiledLeaf,0))){
-      SWIG_fail_ptr("CCOL_Scn_ColTester_iTest3DObj_CompiledLeaf",1,SWIGTYPE_p_CGSceneCompiledLeaf);
-    }
-    
-    result = (int)CCOL_Scn_ColTester::iTest3DObj_CompiledLeaf(arg1);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
 static int _wrap_CCOL_Scn_ColTester_iTest3DObj_Leaf(lua_State* L) {
   {
     int SWIG_arg = 0;
@@ -103094,7 +101961,6 @@ static swig_lua_method swig_CCOL_Scn_ColTester_Sf_SwigStatic_methods[]= {
     { "iTest3DObj", _wrap_CCOL_Scn_ColTester_iTest3DObj},
     { "iTest3DObj_Node", _wrap_CCOL_Scn_ColTester_iTest3DObj_Node},
     { "iTest3DObj_Transf", _wrap_CCOL_Scn_ColTester_iTest3DObj_Transf},
-    { "iTest3DObj_CompiledLeaf", _wrap_CCOL_Scn_ColTester_iTest3DObj_CompiledLeaf},
     { "iTest3DObj_Leaf", _wrap_CCOL_Scn_ColTester_iTest3DObj_Leaf},
     { "iTest3DObj_BSPNode", _wrap_CCOL_Scn_ColTester_iTest3DObj_BSPNode},
     {0,0}
@@ -103455,5245 +102321,6 @@ static swig_lua_namespace swig_CCOL_ST_Tris_Sf_SwigStatic = {
 static swig_lua_class *swig_CCOL_ST_Tris_bases[] = {0};
 static const char *swig_CCOL_ST_Tris_base_names[] = {0};
 static swig_lua_class _wrap_class_CCOL_ST_Tris = { "CCOL_ST_Tris", "CCOL_ST_Tris", &SWIGTYPE_p_CCOL_ST_Tris,_proxy__wrap_new_CCOL_ST_Tris, swig_delete_CCOL_ST_Tris, swig_CCOL_ST_Tris_methods, swig_CCOL_ST_Tris_attributes, &swig_CCOL_ST_Tris_Sf_SwigStatic, swig_CCOL_ST_Tris_meta, swig_CCOL_ST_Tris_bases, swig_CCOL_ST_Tris_base_names };
-
-static int _wrap_new_CSoundEntity(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEntity *result = 0 ;
-    
-    SWIG_check_num_args("CSoundEntity::CSoundEntity",0,0)
-    result = (CSoundEntity *)new CSoundEntity();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundEntity,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEntity_Pos_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEntity *arg1 = (CSoundEntity *) 0 ;
-    CGVect3 *arg2 = (CGVect3 *) 0 ;
-    
-    SWIG_check_num_args("CSoundEntity::Pos",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEntity::Pos",1,"CSoundEntity *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundEntity::Pos",2,"CGVect3 *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEntity,0))){
-      SWIG_fail_ptr("CSoundEntity_Pos_set",1,SWIGTYPE_p_CSoundEntity);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CSoundEntity_Pos_set",2,SWIGTYPE_p_CGVect3);
-    }
-    
-    if (arg1) (arg1)->Pos = *arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEntity_Pos_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEntity *arg1 = (CSoundEntity *) 0 ;
-    CGVect3 *result = 0 ;
-    
-    SWIG_check_num_args("CSoundEntity::Pos",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEntity::Pos",1,"CSoundEntity *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEntity,0))){
-      SWIG_fail_ptr("CSoundEntity_Pos_get",1,SWIGTYPE_p_CSoundEntity);
-    }
-    
-    result = (CGVect3 *)& ((arg1)->Pos);
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGVect3,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEntity_Speed_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEntity *arg1 = (CSoundEntity *) 0 ;
-    CGVect3 *arg2 = (CGVect3 *) 0 ;
-    
-    SWIG_check_num_args("CSoundEntity::Speed",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEntity::Speed",1,"CSoundEntity *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundEntity::Speed",2,"CGVect3 *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEntity,0))){
-      SWIG_fail_ptr("CSoundEntity_Speed_set",1,SWIGTYPE_p_CSoundEntity);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CSoundEntity_Speed_set",2,SWIGTYPE_p_CGVect3);
-    }
-    
-    if (arg1) (arg1)->Speed = *arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEntity_Speed_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEntity *arg1 = (CSoundEntity *) 0 ;
-    CGVect3 *result = 0 ;
-    
-    SWIG_check_num_args("CSoundEntity::Speed",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEntity::Speed",1,"CSoundEntity *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEntity,0))){
-      SWIG_fail_ptr("CSoundEntity_Speed_get",1,SWIGTYPE_p_CSoundEntity);
-    }
-    
-    result = (CGVect3 *)& ((arg1)->Speed);
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGVect3,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CSoundEntity(void *obj) {
-CSoundEntity *arg1 = (CSoundEntity *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CSoundEntity(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CSoundEntity);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CSoundEntity_attributes[] = {
-    { "Pos", _wrap_CSoundEntity_Pos_get, _wrap_CSoundEntity_Pos_set },
-    { "Speed", _wrap_CSoundEntity_Speed_get, _wrap_CSoundEntity_Speed_set },
-    {0,0,0}
-};
-static swig_lua_method swig_CSoundEntity_methods[]= {
-    {0,0}
-};
-static swig_lua_method swig_CSoundEntity_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CSoundEntity_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CSoundEntity_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CSoundEntity_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_CSoundEntity_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CSoundEntity_Sf_SwigStatic = {
-    "CSoundEntity",
-    swig_CSoundEntity_Sf_SwigStatic_methods,
-    swig_CSoundEntity_Sf_SwigStatic_attributes,
-    swig_CSoundEntity_Sf_SwigStatic_constants,
-    swig_CSoundEntity_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CSoundEntity_bases[] = {0};
-static const char *swig_CSoundEntity_base_names[] = {0};
-static swig_lua_class _wrap_class_CSoundEntity = { "CSoundEntity", "CSoundEntity", &SWIGTYPE_p_CSoundEntity,_proxy__wrap_new_CSoundEntity, swig_delete_CSoundEntity, swig_CSoundEntity_methods, swig_CSoundEntity_attributes, &swig_CSoundEntity_Sf_SwigStatic, swig_CSoundEntity_meta, swig_CSoundEntity_bases, swig_CSoundEntity_base_names };
-
-static int _wrap_new_CSample(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSample *result = 0 ;
-    
-    SWIG_check_num_args("CSample::CSample",0,0)
-    result = (CSample *)new CSample();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSample,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSample_iChannels_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSample *arg1 = (CSample *) 0 ;
-    int arg2 ;
-    
-    SWIG_check_num_args("CSample::iChannels",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSample::iChannels",1,"CSample *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSample::iChannels",2,"int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSample,0))){
-      SWIG_fail_ptr("CSample_iChannels_set",1,SWIGTYPE_p_CSample);
-    }
-    
-    arg2 = (int)lua_tonumber(L, 2);
-    if (arg1) (arg1)->iChannels = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSample_iChannels_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSample *arg1 = (CSample *) 0 ;
-    int result;
-    
-    SWIG_check_num_args("CSample::iChannels",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSample::iChannels",1,"CSample *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSample,0))){
-      SWIG_fail_ptr("CSample_iChannels_get",1,SWIGTYPE_p_CSample);
-    }
-    
-    result = (int) ((arg1)->iChannels);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSample_iBits_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSample *arg1 = (CSample *) 0 ;
-    int arg2 ;
-    
-    SWIG_check_num_args("CSample::iBits",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSample::iBits",1,"CSample *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSample::iBits",2,"int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSample,0))){
-      SWIG_fail_ptr("CSample_iBits_set",1,SWIGTYPE_p_CSample);
-    }
-    
-    arg2 = (int)lua_tonumber(L, 2);
-    if (arg1) (arg1)->iBits = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSample_iBits_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSample *arg1 = (CSample *) 0 ;
-    int result;
-    
-    SWIG_check_num_args("CSample::iBits",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSample::iBits",1,"CSample *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSample,0))){
-      SWIG_fail_ptr("CSample_iBits_get",1,SWIGTYPE_p_CSample);
-    }
-    
-    result = (int) ((arg1)->iBits);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSample_iSRate_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSample *arg1 = (CSample *) 0 ;
-    int arg2 ;
-    
-    SWIG_check_num_args("CSample::iSRate",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSample::iSRate",1,"CSample *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSample::iSRate",2,"int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSample,0))){
-      SWIG_fail_ptr("CSample_iSRate_set",1,SWIGTYPE_p_CSample);
-    }
-    
-    arg2 = (int)lua_tonumber(L, 2);
-    if (arg1) (arg1)->iSRate = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSample_iSRate_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSample *arg1 = (CSample *) 0 ;
-    int result;
-    
-    SWIG_check_num_args("CSample::iSRate",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSample::iSRate",1,"CSample *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSample,0))){
-      SWIG_fail_ptr("CSample_iSRate_get",1,SWIGTYPE_p_CSample);
-    }
-    
-    result = (int) ((arg1)->iSRate);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSample_iSamples_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSample *arg1 = (CSample *) 0 ;
-    int arg2 ;
-    
-    SWIG_check_num_args("CSample::iSamples",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSample::iSamples",1,"CSample *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSample::iSamples",2,"int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSample,0))){
-      SWIG_fail_ptr("CSample_iSamples_set",1,SWIGTYPE_p_CSample);
-    }
-    
-    arg2 = (int)lua_tonumber(L, 2);
-    if (arg1) (arg1)->iSamples = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSample_iSamples_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSample *arg1 = (CSample *) 0 ;
-    int result;
-    
-    SWIG_check_num_args("CSample::iSamples",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSample::iSamples",1,"CSample *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSample,0))){
-      SWIG_fail_ptr("CSample_iSamples_get",1,SWIGTYPE_p_CSample);
-    }
-    
-    result = (int) ((arg1)->iSamples);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSample_iHandle_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSample *arg1 = (CSample *) 0 ;
-    int arg2 ;
-    
-    SWIG_check_num_args("CSample::iHandle",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSample::iHandle",1,"CSample *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSample::iHandle",2,"int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSample,0))){
-      SWIG_fail_ptr("CSample_iHandle_set",1,SWIGTYPE_p_CSample);
-    }
-    
-    arg2 = (int)lua_tonumber(L, 2);
-    if (arg1) (arg1)->iHandle = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSample_iHandle_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSample *arg1 = (CSample *) 0 ;
-    int result;
-    
-    SWIG_check_num_args("CSample::iHandle",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSample::iHandle",1,"CSample *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSample,0))){
-      SWIG_fail_ptr("CSample_iHandle_get",1,SWIGTYPE_p_CSample);
-    }
-    
-    result = (int) ((arg1)->iHandle);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSample_iGetData(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSample *arg1 = (CSample *) 0 ;
-    int arg2 ;
-    void *arg3 = (void *) 0 ;
-    int arg4 ;
-    int result;
-    
-    SWIG_check_num_args("CSample::iGetData",4,4)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSample::iGetData",1,"CSample *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSample::iGetData",2,"int");
-    if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("CSample::iGetData",3,"void *");
-    if(!lua_isnumber(L,4)) SWIG_fail_arg("CSample::iGetData",4,"int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSample,0))){
-      SWIG_fail_ptr("CSample_iGetData",1,SWIGTYPE_p_CSample);
-    }
-    
-    arg2 = (int)lua_tonumber(L, 2);
-    arg3=(void *)SWIG_MustGetPtr(L,3,0,0,3,"CSample_iGetData");
-    arg4 = (int)lua_tonumber(L, 4);
-    result = (int)(arg1)->iGetData(arg2,arg3,arg4);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSample_pGetInternalData(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSample *arg1 = (CSample *) 0 ;
-    void *result = 0 ;
-    
-    SWIG_check_num_args("CSample::pGetInternalData",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSample::pGetInternalData",1,"CSample *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSample,0))){
-      SWIG_fail_ptr("CSample_pGetInternalData",1,SWIGTYPE_p_CSample);
-    }
-    
-    result = (void *)(arg1)->pGetInternalData();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_void,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CSample(void *obj) {
-CSample *arg1 = (CSample *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CSample(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CSample);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CSample_attributes[] = {
-    { "iChannels", _wrap_CSample_iChannels_get, _wrap_CSample_iChannels_set },
-    { "iBits", _wrap_CSample_iBits_get, _wrap_CSample_iBits_set },
-    { "iSRate", _wrap_CSample_iSRate_get, _wrap_CSample_iSRate_set },
-    { "iSamples", _wrap_CSample_iSamples_get, _wrap_CSample_iSamples_set },
-    { "iHandle", _wrap_CSample_iHandle_get, _wrap_CSample_iHandle_set },
-    {0,0,0}
-};
-static swig_lua_method swig_CSample_methods[]= {
-    { "iGetData", _wrap_CSample_iGetData},
-    { "pGetInternalData", _wrap_CSample_pGetInternalData},
-    {0,0}
-};
-static swig_lua_method swig_CSample_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CSample_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CSample_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CSample_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_CSample_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CSample_Sf_SwigStatic = {
-    "CSample",
-    swig_CSample_Sf_SwigStatic_methods,
-    swig_CSample_Sf_SwigStatic_attributes,
-    swig_CSample_Sf_SwigStatic_constants,
-    swig_CSample_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CSample_bases[] = {0,0};
-static const char *swig_CSample_base_names[] = {"CGResource *",0};
-static swig_lua_class _wrap_class_CSample = { "CSample", "CSample", &SWIGTYPE_p_CSample,_proxy__wrap_new_CSample, swig_delete_CSample, swig_CSample_methods, swig_CSample_attributes, &swig_CSample_Sf_SwigStatic, swig_CSample_meta, swig_CSample_bases, swig_CSample_base_names };
-
-static int _wrap_new_CSoundLayer(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundLayer *result = 0 ;
-    
-    SWIG_check_num_args("CSoundLayer::CSoundLayer",0,0)
-    result = (CSoundLayer *)new CSoundLayer();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundLayer,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundLayer_bLoop_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundLayer *arg1 = (CSoundLayer *) 0 ;
-    bool arg2 ;
-    
-    SWIG_check_num_args("CSoundLayer::bLoop",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundLayer::bLoop",1,"CSoundLayer *");
-    if(!lua_isboolean(L,2)) SWIG_fail_arg("CSoundLayer::bLoop",2,"bool");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundLayer,0))){
-      SWIG_fail_ptr("CSoundLayer_bLoop_set",1,SWIGTYPE_p_CSoundLayer);
-    }
-    
-    arg2 = (lua_toboolean(L, 2)!=0);
-    if (arg1) (arg1)->bLoop = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundLayer_bLoop_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundLayer *arg1 = (CSoundLayer *) 0 ;
-    bool result;
-    
-    SWIG_check_num_args("CSoundLayer::bLoop",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundLayer::bLoop",1,"CSoundLayer *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundLayer,0))){
-      SWIG_fail_ptr("CSoundLayer_bLoop_get",1,SWIGTYPE_p_CSoundLayer);
-    }
-    
-    result = (bool) ((arg1)->bLoop);
-    lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundLayer_poSample_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundLayer *arg1 = (CSoundLayer *) 0 ;
-    CSample *arg2 = (CSample *) 0 ;
-    
-    SWIG_check_num_args("CSoundLayer::poSample",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundLayer::poSample",1,"CSoundLayer *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundLayer::poSample",2,"CSample *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundLayer,0))){
-      SWIG_fail_ptr("CSoundLayer_poSample_set",1,SWIGTYPE_p_CSoundLayer);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CSample,SWIG_POINTER_DISOWN))){
-      SWIG_fail_ptr("CSoundLayer_poSample_set",2,SWIGTYPE_p_CSample);
-    }
-    
-    if (arg1) (arg1)->poSample = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundLayer_poSample_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundLayer *arg1 = (CSoundLayer *) 0 ;
-    CSample *result = 0 ;
-    
-    SWIG_check_num_args("CSoundLayer::poSample",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundLayer::poSample",1,"CSoundLayer *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundLayer,0))){
-      SWIG_fail_ptr("CSoundLayer_poSample_get",1,SWIGTYPE_p_CSoundLayer);
-    }
-    
-    result = (CSample *) ((arg1)->poSample);
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSample,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CSoundLayer(void *obj) {
-CSoundLayer *arg1 = (CSoundLayer *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CSoundLayer(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CSoundLayer);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CSoundLayer_attributes[] = {
-    { "bLoop", _wrap_CSoundLayer_bLoop_get, _wrap_CSoundLayer_bLoop_set },
-    { "poSample", _wrap_CSoundLayer_poSample_get, _wrap_CSoundLayer_poSample_set },
-    {0,0,0}
-};
-static swig_lua_method swig_CSoundLayer_methods[]= {
-    {0,0}
-};
-static swig_lua_method swig_CSoundLayer_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CSoundLayer_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CSoundLayer_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CSoundLayer_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_CSoundLayer_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CSoundLayer_Sf_SwigStatic = {
-    "CSoundLayer",
-    swig_CSoundLayer_Sf_SwigStatic_methods,
-    swig_CSoundLayer_Sf_SwigStatic_attributes,
-    swig_CSoundLayer_Sf_SwigStatic_constants,
-    swig_CSoundLayer_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CSoundLayer_bases[] = {0};
-static const char *swig_CSoundLayer_base_names[] = {0};
-static swig_lua_class _wrap_class_CSoundLayer = { "CSoundLayer", "CSoundLayer", &SWIGTYPE_p_CSoundLayer,_proxy__wrap_new_CSoundLayer, swig_delete_CSoundLayer, swig_CSoundLayer_methods, swig_CSoundLayer_attributes, &swig_CSoundLayer_Sf_SwigStatic, swig_CSoundLayer_meta, swig_CSoundLayer_bases, swig_CSoundLayer_base_names };
-
-static int _wrap_new_CSound(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSound *result = 0 ;
-    
-    SWIG_check_num_args("CSound::CSound",0,0)
-    result = (CSound *)new CSound();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSound,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSound_iAddLayer__SWIG_0(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSound *arg1 = (CSound *) 0 ;
-    CSoundLayer *arg2 = 0 ;
-    int result;
-    
-    SWIG_check_num_args("CSound::iAddLayer",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSound::iAddLayer",1,"CSound *");
-    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CSound::iAddLayer",2,"CSoundLayer &");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSound,0))){
-      SWIG_fail_ptr("CSound_iAddLayer",1,SWIGTYPE_p_CSound);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CSoundLayer,0))){
-      SWIG_fail_ptr("CSound_iAddLayer",2,SWIGTYPE_p_CSoundLayer);
-    }
-    
-    result = (int)(arg1)->iAddLayer(*arg2);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSound_iAddLayer__SWIG_1(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSound *arg1 = (CSound *) 0 ;
-    bool arg2 ;
-    CSample *arg3 = (CSample *) 0 ;
-    int result;
-    
-    SWIG_check_num_args("CSound::iAddLayer",3,3)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSound::iAddLayer",1,"CSound *");
-    if(!lua_isboolean(L,2)) SWIG_fail_arg("CSound::iAddLayer",2,"bool");
-    if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("CSound::iAddLayer",3,"CSample *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSound,0))){
-      SWIG_fail_ptr("CSound_iAddLayer",1,SWIGTYPE_p_CSound);
-    }
-    
-    arg2 = (lua_toboolean(L, 2)!=0);
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_CSample,0))){
-      SWIG_fail_ptr("CSound_iAddLayer",3,SWIGTYPE_p_CSample);
-    }
-    
-    result = (int)(arg1)->iAddLayer(arg2,arg3);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSound_iAddLayer(lua_State* L) {
-  int argc;
-  int argv[4]={
-    1,2,3,4
-  };
-  
-  argc = lua_gettop(L);
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CSound, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CSoundLayer, SWIG_POINTER_NO_NULL)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
-        return _wrap_CSound_iAddLayer__SWIG_0(L);
-      }
-    }
-  }
-  if (argc == 3) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CSound, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isboolean(L,argv[1]);
-      }
-      if (_v) {
-        {
-          void *ptr;
-          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_CSample, 0)) {
-            _v = 0;
-          } else {
-            _v = 1;
-          }
-        }
-        if (_v) {
-          return _wrap_CSound_iAddLayer__SWIG_1(L);
-        }
-      }
-    }
-  }
-  
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'CSound_iAddLayer'\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    CSound::iAddLayer(CSoundLayer &)\n"
-    "    CSound::iAddLayer(bool,CSample *)\n");
-  lua_error(L);return 0;
-}
-
-
-static int _wrap_CSound_iNumLayers_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSound *arg1 = (CSound *) 0 ;
-    int arg2 ;
-    
-    SWIG_check_num_args("CSound::iNumLayers",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSound::iNumLayers",1,"CSound *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSound::iNumLayers",2,"int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSound,0))){
-      SWIG_fail_ptr("CSound_iNumLayers_set",1,SWIGTYPE_p_CSound);
-    }
-    
-    arg2 = (int)lua_tonumber(L, 2);
-    if (arg1) (arg1)->iNumLayers = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSound_iNumLayers_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSound *arg1 = (CSound *) 0 ;
-    int result;
-    
-    SWIG_check_num_args("CSound::iNumLayers",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSound::iNumLayers",1,"CSound *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSound,0))){
-      SWIG_fail_ptr("CSound_iNumLayers_get",1,SWIGTYPE_p_CSound);
-    }
-    
-    result = (int) ((arg1)->iNumLayers);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSound_poSLayer_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSound *arg1 = (CSound *) 0 ;
-    CSoundLayer *arg2 = (CSoundLayer *) 0 ;
-    
-    SWIG_check_num_args("CSound::poSLayer",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSound::poSLayer",1,"CSound *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSound::poSLayer",2,"CSoundLayer *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSound,0))){
-      SWIG_fail_ptr("CSound_poSLayer_set",1,SWIGTYPE_p_CSound);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CSoundLayer,SWIG_POINTER_DISOWN))){
-      SWIG_fail_ptr("CSound_poSLayer_set",2,SWIGTYPE_p_CSoundLayer);
-    }
-    
-    if (arg1) (arg1)->poSLayer = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSound_poSLayer_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSound *arg1 = (CSound *) 0 ;
-    CSoundLayer *result = 0 ;
-    
-    SWIG_check_num_args("CSound::poSLayer",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSound::poSLayer",1,"CSound *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSound,0))){
-      SWIG_fail_ptr("CSound_poSLayer_get",1,SWIGTYPE_p_CSound);
-    }
-    
-    result = (CSoundLayer *) ((arg1)->poSLayer);
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundLayer,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CSound(void *obj) {
-CSound *arg1 = (CSound *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CSound(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CSound);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CSound_attributes[] = {
-    { "iNumLayers", _wrap_CSound_iNumLayers_get, _wrap_CSound_iNumLayers_set },
-    { "poSLayer", _wrap_CSound_poSLayer_get, _wrap_CSound_poSLayer_set },
-    {0,0,0}
-};
-static swig_lua_method swig_CSound_methods[]= {
-    { "iAddLayer", _wrap_CSound_iAddLayer},
-    {0,0}
-};
-static swig_lua_method swig_CSound_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CSound_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CSound_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CSound_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_CSound_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CSound_Sf_SwigStatic = {
-    "CSound",
-    swig_CSound_Sf_SwigStatic_methods,
-    swig_CSound_Sf_SwigStatic_attributes,
-    swig_CSound_Sf_SwigStatic_constants,
-    swig_CSound_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CSound_bases[] = {0,0};
-static const char *swig_CSound_base_names[] = {"CGResource *",0};
-static swig_lua_class _wrap_class_CSound = { "CSound", "CSound", &SWIGTYPE_p_CSound,_proxy__wrap_new_CSound, swig_delete_CSound, swig_CSound_methods, swig_CSound_attributes, &swig_CSound_Sf_SwigStatic, swig_CSound_meta, swig_CSound_bases, swig_CSound_base_names };
-
-static int _wrap_new_CSoundEmiter(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter *result = 0 ;
-    
-    SWIG_check_num_args("CSoundEmiter::CSoundEmiter",0,0)
-    result = (CSoundEmiter *)new CSoundEmiter();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundEmiter,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEmiter_Unlock(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter *arg1 = (CSoundEmiter *) 0 ;
-    
-    SWIG_check_num_args("CSoundEmiter::Unlock",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEmiter::Unlock",1,"CSoundEmiter *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEmiter,0))){
-      SWIG_fail_ptr("CSoundEmiter_Unlock",1,SWIGTYPE_p_CSoundEmiter);
-    }
-    
-    (arg1)->Unlock();
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEmiter_fRadius_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter *arg1 = (CSoundEmiter *) 0 ;
-    float arg2 ;
-    
-    SWIG_check_num_args("CSoundEmiter::fRadius",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEmiter::fRadius",1,"CSoundEmiter *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSoundEmiter::fRadius",2,"float");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEmiter,0))){
-      SWIG_fail_ptr("CSoundEmiter_fRadius_set",1,SWIGTYPE_p_CSoundEmiter);
-    }
-    
-    arg2 = (float)lua_tonumber(L, 2);
-    if (arg1) (arg1)->fRadius = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEmiter_fRadius_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter *arg1 = (CSoundEmiter *) 0 ;
-    float result;
-    
-    SWIG_check_num_args("CSoundEmiter::fRadius",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEmiter::fRadius",1,"CSoundEmiter *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEmiter,0))){
-      SWIG_fail_ptr("CSoundEmiter_fRadius_get",1,SWIGTYPE_p_CSoundEmiter);
-    }
-    
-    result = (float) ((arg1)->fRadius);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEmiter_fVol_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter *arg1 = (CSoundEmiter *) 0 ;
-    float arg2 ;
-    
-    SWIG_check_num_args("CSoundEmiter::fVol",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEmiter::fVol",1,"CSoundEmiter *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSoundEmiter::fVol",2,"float");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEmiter,0))){
-      SWIG_fail_ptr("CSoundEmiter_fVol_set",1,SWIGTYPE_p_CSoundEmiter);
-    }
-    
-    arg2 = (float)lua_tonumber(L, 2);
-    if (arg1) (arg1)->fVol = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEmiter_fVol_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter *arg1 = (CSoundEmiter *) 0 ;
-    float result;
-    
-    SWIG_check_num_args("CSoundEmiter::fVol",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEmiter::fVol",1,"CSoundEmiter *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEmiter,0))){
-      SWIG_fail_ptr("CSoundEmiter_fVol_get",1,SWIGTYPE_p_CSoundEmiter);
-    }
-    
-    result = (float) ((arg1)->fVol);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEmiter_iType_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter *arg1 = (CSoundEmiter *) 0 ;
-    int arg2 ;
-    
-    SWIG_check_num_args("CSoundEmiter::iType",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEmiter::iType",1,"CSoundEmiter *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSoundEmiter::iType",2,"int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEmiter,0))){
-      SWIG_fail_ptr("CSoundEmiter_iType_set",1,SWIGTYPE_p_CSoundEmiter);
-    }
-    
-    arg2 = (int)lua_tonumber(L, 2);
-    if (arg1) (arg1)->iType = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEmiter_iType_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter *arg1 = (CSoundEmiter *) 0 ;
-    int result;
-    
-    SWIG_check_num_args("CSoundEmiter::iType",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEmiter::iType",1,"CSoundEmiter *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEmiter,0))){
-      SWIG_fail_ptr("CSoundEmiter_iType_get",1,SWIGTYPE_p_CSoundEmiter);
-    }
-    
-    result = (int) ((arg1)->iType);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEmiter_Dir_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter *arg1 = (CSoundEmiter *) 0 ;
-    CGVect3 *arg2 = (CGVect3 *) 0 ;
-    
-    SWIG_check_num_args("CSoundEmiter::Dir",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEmiter::Dir",1,"CSoundEmiter *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundEmiter::Dir",2,"CGVect3 *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEmiter,0))){
-      SWIG_fail_ptr("CSoundEmiter_Dir_set",1,SWIGTYPE_p_CSoundEmiter);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CSoundEmiter_Dir_set",2,SWIGTYPE_p_CGVect3);
-    }
-    
-    if (arg1) (arg1)->Dir = *arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEmiter_Dir_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter *arg1 = (CSoundEmiter *) 0 ;
-    CGVect3 *result = 0 ;
-    
-    SWIG_check_num_args("CSoundEmiter::Dir",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEmiter::Dir",1,"CSoundEmiter *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEmiter,0))){
-      SWIG_fail_ptr("CSoundEmiter_Dir_get",1,SWIGTYPE_p_CSoundEmiter);
-    }
-    
-    result = (CGVect3 *)& ((arg1)->Dir);
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGVect3,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEmiter_bLUnlock_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter *arg1 = (CSoundEmiter *) 0 ;
-    bool arg2 ;
-    
-    SWIG_check_num_args("CSoundEmiter::bLUnlock",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEmiter::bLUnlock",1,"CSoundEmiter *");
-    if(!lua_isboolean(L,2)) SWIG_fail_arg("CSoundEmiter::bLUnlock",2,"bool");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEmiter,0))){
-      SWIG_fail_ptr("CSoundEmiter_bLUnlock_set",1,SWIGTYPE_p_CSoundEmiter);
-    }
-    
-    arg2 = (lua_toboolean(L, 2)!=0);
-    if (arg1) (arg1)->bLUnlock = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEmiter_bLUnlock_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter *arg1 = (CSoundEmiter *) 0 ;
-    bool result;
-    
-    SWIG_check_num_args("CSoundEmiter::bLUnlock",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEmiter::bLUnlock",1,"CSoundEmiter *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEmiter,0))){
-      SWIG_fail_ptr("CSoundEmiter_bLUnlock_get",1,SWIGTYPE_p_CSoundEmiter);
-    }
-    
-    result = (bool) ((arg1)->bLUnlock);
-    lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEmiter_poSound_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter *arg1 = (CSoundEmiter *) 0 ;
-    CSound *arg2 = (CSound *) 0 ;
-    
-    SWIG_check_num_args("CSoundEmiter::poSound",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEmiter::poSound",1,"CSoundEmiter *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundEmiter::poSound",2,"CSound *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEmiter,0))){
-      SWIG_fail_ptr("CSoundEmiter_poSound_set",1,SWIGTYPE_p_CSoundEmiter);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CSound,SWIG_POINTER_DISOWN))){
-      SWIG_fail_ptr("CSoundEmiter_poSound_set",2,SWIGTYPE_p_CSound);
-    }
-    
-    if (arg1) (arg1)->poSound = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEmiter_poSound_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter *arg1 = (CSoundEmiter *) 0 ;
-    CSound *result = 0 ;
-    
-    SWIG_check_num_args("CSoundEmiter::poSound",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEmiter::poSound",1,"CSoundEmiter *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEmiter,0))){
-      SWIG_fail_ptr("CSoundEmiter_poSound_get",1,SWIGTYPE_p_CSoundEmiter);
-    }
-    
-    result = (CSound *) ((arg1)->poSound);
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSound,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CSoundEmiter(void *obj) {
-CSoundEmiter *arg1 = (CSoundEmiter *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CSoundEmiter(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CSoundEmiter);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CSoundEmiter_attributes[] = {
-    { "fRadius", _wrap_CSoundEmiter_fRadius_get, _wrap_CSoundEmiter_fRadius_set },
-    { "fVol", _wrap_CSoundEmiter_fVol_get, _wrap_CSoundEmiter_fVol_set },
-    { "iType", _wrap_CSoundEmiter_iType_get, _wrap_CSoundEmiter_iType_set },
-    { "Dir", _wrap_CSoundEmiter_Dir_get, _wrap_CSoundEmiter_Dir_set },
-    { "bLUnlock", _wrap_CSoundEmiter_bLUnlock_get, _wrap_CSoundEmiter_bLUnlock_set },
-    { "poSound", _wrap_CSoundEmiter_poSound_get, _wrap_CSoundEmiter_poSound_set },
-    {0,0,0}
-};
-static swig_lua_method swig_CSoundEmiter_methods[]= {
-    { "Unlock", _wrap_CSoundEmiter_Unlock},
-    {0,0}
-};
-static swig_lua_method swig_CSoundEmiter_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CSoundEmiter_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CSoundEmiter_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CSoundEmiter_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_CSoundEmiter_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CSoundEmiter_Sf_SwigStatic = {
-    "CSoundEmiter",
-    swig_CSoundEmiter_Sf_SwigStatic_methods,
-    swig_CSoundEmiter_Sf_SwigStatic_attributes,
-    swig_CSoundEmiter_Sf_SwigStatic_constants,
-    swig_CSoundEmiter_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CSoundEmiter_bases[] = {0,0};
-static const char *swig_CSoundEmiter_base_names[] = {"CSoundEntity *",0};
-static swig_lua_class _wrap_class_CSoundEmiter = { "CSoundEmiter", "CSoundEmiter", &SWIGTYPE_p_CSoundEmiter,_proxy__wrap_new_CSoundEmiter, swig_delete_CSoundEmiter, swig_CSoundEmiter_methods, swig_CSoundEmiter_attributes, &swig_CSoundEmiter_Sf_SwigStatic, swig_CSoundEmiter_meta, swig_CSoundEmiter_bases, swig_CSoundEmiter_base_names };
-
-static int _wrap_new_CSoundReceiver(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundReceiver *result = 0 ;
-    
-    SWIG_check_num_args("CSoundReceiver::CSoundReceiver",0,0)
-    result = (CSoundReceiver *)new CSoundReceiver();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundReceiver,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundReceiver_Dir_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundReceiver *arg1 = (CSoundReceiver *) 0 ;
-    CGVect3 *arg2 = (CGVect3 *) 0 ;
-    
-    SWIG_check_num_args("CSoundReceiver::Dir",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundReceiver::Dir",1,"CSoundReceiver *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundReceiver::Dir",2,"CGVect3 *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundReceiver,0))){
-      SWIG_fail_ptr("CSoundReceiver_Dir_set",1,SWIGTYPE_p_CSoundReceiver);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CSoundReceiver_Dir_set",2,SWIGTYPE_p_CGVect3);
-    }
-    
-    if (arg1) (arg1)->Dir = *arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundReceiver_Dir_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundReceiver *arg1 = (CSoundReceiver *) 0 ;
-    CGVect3 *result = 0 ;
-    
-    SWIG_check_num_args("CSoundReceiver::Dir",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundReceiver::Dir",1,"CSoundReceiver *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundReceiver,0))){
-      SWIG_fail_ptr("CSoundReceiver_Dir_get",1,SWIGTYPE_p_CSoundReceiver);
-    }
-    
-    result = (CGVect3 *)& ((arg1)->Dir);
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGVect3,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundReceiver_Up_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundReceiver *arg1 = (CSoundReceiver *) 0 ;
-    CGVect3 *arg2 = (CGVect3 *) 0 ;
-    
-    SWIG_check_num_args("CSoundReceiver::Up",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundReceiver::Up",1,"CSoundReceiver *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundReceiver::Up",2,"CGVect3 *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundReceiver,0))){
-      SWIG_fail_ptr("CSoundReceiver_Up_set",1,SWIGTYPE_p_CSoundReceiver);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CSoundReceiver_Up_set",2,SWIGTYPE_p_CGVect3);
-    }
-    
-    if (arg1) (arg1)->Up = *arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundReceiver_Up_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundReceiver *arg1 = (CSoundReceiver *) 0 ;
-    CGVect3 *result = 0 ;
-    
-    SWIG_check_num_args("CSoundReceiver::Up",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundReceiver::Up",1,"CSoundReceiver *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundReceiver,0))){
-      SWIG_fail_ptr("CSoundReceiver_Up_get",1,SWIGTYPE_p_CSoundReceiver);
-    }
-    
-    result = (CGVect3 *)& ((arg1)->Up);
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGVect3,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundReceiver_Side_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundReceiver *arg1 = (CSoundReceiver *) 0 ;
-    CGVect3 *arg2 = (CGVect3 *) 0 ;
-    
-    SWIG_check_num_args("CSoundReceiver::Side",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundReceiver::Side",1,"CSoundReceiver *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundReceiver::Side",2,"CGVect3 *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundReceiver,0))){
-      SWIG_fail_ptr("CSoundReceiver_Side_set",1,SWIGTYPE_p_CSoundReceiver);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CSoundReceiver_Side_set",2,SWIGTYPE_p_CGVect3);
-    }
-    
-    if (arg1) (arg1)->Side = *arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundReceiver_Side_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundReceiver *arg1 = (CSoundReceiver *) 0 ;
-    CGVect3 *result = 0 ;
-    
-    SWIG_check_num_args("CSoundReceiver::Side",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundReceiver::Side",1,"CSoundReceiver *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundReceiver,0))){
-      SWIG_fail_ptr("CSoundReceiver_Side_get",1,SWIGTYPE_p_CSoundReceiver);
-    }
-    
-    result = (CGVect3 *)& ((arg1)->Side);
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGVect3,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundReceiver_fSensitivity_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundReceiver *arg1 = (CSoundReceiver *) 0 ;
-    float arg2 ;
-    
-    SWIG_check_num_args("CSoundReceiver::fSensitivity",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundReceiver::fSensitivity",1,"CSoundReceiver *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSoundReceiver::fSensitivity",2,"float");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundReceiver,0))){
-      SWIG_fail_ptr("CSoundReceiver_fSensitivity_set",1,SWIGTYPE_p_CSoundReceiver);
-    }
-    
-    arg2 = (float)lua_tonumber(L, 2);
-    if (arg1) (arg1)->fSensitivity = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundReceiver_fSensitivity_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundReceiver *arg1 = (CSoundReceiver *) 0 ;
-    float result;
-    
-    SWIG_check_num_args("CSoundReceiver::fSensitivity",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundReceiver::fSensitivity",1,"CSoundReceiver *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundReceiver,0))){
-      SWIG_fail_ptr("CSoundReceiver_fSensitivity_get",1,SWIGTYPE_p_CSoundReceiver);
-    }
-    
-    result = (float) ((arg1)->fSensitivity);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CSoundReceiver(void *obj) {
-CSoundReceiver *arg1 = (CSoundReceiver *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CSoundReceiver(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CSoundReceiver);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CSoundReceiver_attributes[] = {
-    { "Dir", _wrap_CSoundReceiver_Dir_get, _wrap_CSoundReceiver_Dir_set },
-    { "Up", _wrap_CSoundReceiver_Up_get, _wrap_CSoundReceiver_Up_set },
-    { "Side", _wrap_CSoundReceiver_Side_get, _wrap_CSoundReceiver_Side_set },
-    { "fSensitivity", _wrap_CSoundReceiver_fSensitivity_get, _wrap_CSoundReceiver_fSensitivity_set },
-    {0,0,0}
-};
-static swig_lua_method swig_CSoundReceiver_methods[]= {
-    {0,0}
-};
-static swig_lua_method swig_CSoundReceiver_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CSoundReceiver_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CSoundReceiver_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CSoundReceiver_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_CSoundReceiver_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CSoundReceiver_Sf_SwigStatic = {
-    "CSoundReceiver",
-    swig_CSoundReceiver_Sf_SwigStatic_methods,
-    swig_CSoundReceiver_Sf_SwigStatic_attributes,
-    swig_CSoundReceiver_Sf_SwigStatic_constants,
-    swig_CSoundReceiver_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CSoundReceiver_bases[] = {0,0};
-static const char *swig_CSoundReceiver_base_names[] = {"CSoundEntity *",0};
-static swig_lua_class _wrap_class_CSoundReceiver = { "CSoundReceiver", "CSoundReceiver", &SWIGTYPE_p_CSoundReceiver,_proxy__wrap_new_CSoundReceiver, swig_delete_CSoundReceiver, swig_CSoundReceiver_methods, swig_CSoundReceiver_attributes, &swig_CSoundReceiver_Sf_SwigStatic, swig_CSoundReceiver_meta, swig_CSoundReceiver_bases, swig_CSoundReceiver_base_names };
-
-static int _wrap_CSoundRenderer_Init(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer *arg1 = (CSoundRenderer *) 0 ;
-    void *arg2 = (void *) 0 ;
-    int arg3 ;
-    int arg4 ;
-    int arg5 ;
-    int result;
-    
-    SWIG_check_num_args("CSoundRenderer::Init",5,5)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer::Init",1,"CSoundRenderer *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundRenderer::Init",2,"void *");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CSoundRenderer::Init",3,"int");
-    if(!lua_isnumber(L,4)) SWIG_fail_arg("CSoundRenderer::Init",4,"int");
-    if(!lua_isnumber(L,5)) SWIG_fail_arg("CSoundRenderer::Init",5,"int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer,0))){
-      SWIG_fail_ptr("CSoundRenderer_Init",1,SWIGTYPE_p_CSoundRenderer);
-    }
-    
-    arg2=(void *)SWIG_MustGetPtr(L,2,0,0,2,"CSoundRenderer_Init");
-    arg3 = (int)lua_tonumber(L, 3);
-    arg4 = (int)lua_tonumber(L, 4);
-    arg5 = (int)lua_tonumber(L, 5);
-    result = (int)(arg1)->Init(arg2,arg3,arg4,arg5);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_Render(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer *arg1 = (CSoundRenderer *) 0 ;
-    float arg2 ;
-    
-    SWIG_check_num_args("CSoundRenderer::Render",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer::Render",1,"CSoundRenderer *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSoundRenderer::Render",2,"float");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer,0))){
-      SWIG_fail_ptr("CSoundRenderer_Render",1,SWIGTYPE_p_CSoundRenderer);
-    }
-    
-    arg2 = (float)lua_tonumber(L, 2);
-    (arg1)->Render(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_poAddDirEmiter(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer *arg1 = (CSoundRenderer *) 0 ;
-    CSound *arg2 = (CSound *) 0 ;
-    float arg3 ;
-    CGVect3 *arg4 = 0 ;
-    float arg5 ;
-    CGVect3 *arg6 = 0 ;
-    CSoundEmiter *result = 0 ;
-    
-    SWIG_check_num_args("CSoundRenderer::poAddDirEmiter",6,6)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer::poAddDirEmiter",1,"CSoundRenderer *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundRenderer::poAddDirEmiter",2,"CSound *");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CSoundRenderer::poAddDirEmiter",3,"float");
-    if(!lua_isuserdata(L,4)) SWIG_fail_arg("CSoundRenderer::poAddDirEmiter",4,"CGVect3 &");
-    if(!lua_isnumber(L,5)) SWIG_fail_arg("CSoundRenderer::poAddDirEmiter",5,"float");
-    if(!lua_isuserdata(L,6)) SWIG_fail_arg("CSoundRenderer::poAddDirEmiter",6,"CGVect3 &");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer,0))){
-      SWIG_fail_ptr("CSoundRenderer_poAddDirEmiter",1,SWIGTYPE_p_CSoundRenderer);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_poAddDirEmiter",2,SWIGTYPE_p_CSound);
-    }
-    
-    arg3 = (float)lua_tonumber(L, 3);
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CSoundRenderer_poAddDirEmiter",4,SWIGTYPE_p_CGVect3);
-    }
-    
-    arg5 = (float)lua_tonumber(L, 5);
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,6,(void**)&arg6,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CSoundRenderer_poAddDirEmiter",6,SWIGTYPE_p_CGVect3);
-    }
-    
-    result = (CSoundEmiter *)(arg1)->poAddDirEmiter(arg2,arg3,*arg4,arg5,*arg6);
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundEmiter,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_poAddEmiter(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer *arg1 = (CSoundRenderer *) 0 ;
-    CSound *arg2 = (CSound *) 0 ;
-    float arg3 ;
-    CGVect3 *arg4 = 0 ;
-    float arg5 ;
-    CSoundEmiter *result = 0 ;
-    
-    SWIG_check_num_args("CSoundRenderer::poAddEmiter",5,5)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer::poAddEmiter",1,"CSoundRenderer *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundRenderer::poAddEmiter",2,"CSound *");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CSoundRenderer::poAddEmiter",3,"float");
-    if(!lua_isuserdata(L,4)) SWIG_fail_arg("CSoundRenderer::poAddEmiter",4,"CGVect3 &");
-    if(!lua_isnumber(L,5)) SWIG_fail_arg("CSoundRenderer::poAddEmiter",5,"float");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer,0))){
-      SWIG_fail_ptr("CSoundRenderer_poAddEmiter",1,SWIGTYPE_p_CSoundRenderer);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_poAddEmiter",2,SWIGTYPE_p_CSound);
-    }
-    
-    arg3 = (float)lua_tonumber(L, 3);
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_CGVect3,0))){
-      SWIG_fail_ptr("CSoundRenderer_poAddEmiter",4,SWIGTYPE_p_CGVect3);
-    }
-    
-    arg5 = (float)lua_tonumber(L, 5);
-    result = (CSoundEmiter *)(arg1)->poAddEmiter(arg2,arg3,*arg4,arg5);
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundEmiter,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_poAddOmniEmiter(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer *arg1 = (CSoundRenderer *) 0 ;
-    CSound *arg2 = (CSound *) 0 ;
-    float arg3 ;
-    CSoundEmiter *result = 0 ;
-    
-    SWIG_check_num_args("CSoundRenderer::poAddOmniEmiter",3,3)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer::poAddOmniEmiter",1,"CSoundRenderer *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundRenderer::poAddOmniEmiter",2,"CSound *");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CSoundRenderer::poAddOmniEmiter",3,"float");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer,0))){
-      SWIG_fail_ptr("CSoundRenderer_poAddOmniEmiter",1,SWIGTYPE_p_CSoundRenderer);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_poAddOmniEmiter",2,SWIGTYPE_p_CSound);
-    }
-    
-    arg3 = (float)lua_tonumber(L, 3);
-    result = (CSoundEmiter *)(arg1)->poAddOmniEmiter(arg2,arg3);
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundEmiter,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_SetReceiver(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer *arg1 = (CSoundRenderer *) 0 ;
-    CSoundReceiver *arg2 = (CSoundReceiver *) 0 ;
-    
-    SWIG_check_num_args("CSoundRenderer::SetReceiver",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer::SetReceiver",1,"CSoundRenderer *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundRenderer::SetReceiver",2,"CSoundReceiver *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer,0))){
-      SWIG_fail_ptr("CSoundRenderer_SetReceiver",1,SWIGTYPE_p_CSoundRenderer);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CSoundReceiver,0))){
-      SWIG_fail_ptr("CSoundRenderer_SetReceiver",2,SWIGTYPE_p_CSoundReceiver);
-    }
-    
-    (arg1)->SetReceiver(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_poGetReceiver(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer *arg1 = (CSoundRenderer *) 0 ;
-    CSoundReceiver *result = 0 ;
-    
-    SWIG_check_num_args("CSoundRenderer::poGetReceiver",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer::poGetReceiver",1,"CSoundRenderer *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer,0))){
-      SWIG_fail_ptr("CSoundRenderer_poGetReceiver",1,SWIGTYPE_p_CSoundRenderer);
-    }
-    
-    result = (CSoundReceiver *)(arg1)->poGetReceiver();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundReceiver,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_InvalidateEmiters(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer *arg1 = (CSoundRenderer *) 0 ;
-    
-    SWIG_check_num_args("CSoundRenderer::InvalidateEmiters",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer::InvalidateEmiters",1,"CSoundRenderer *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer,0))){
-      SWIG_fail_ptr("CSoundRenderer_InvalidateEmiters",1,SWIGTYPE_p_CSoundRenderer);
-    }
-    
-    (arg1)->InvalidateEmiters();
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_SetGlobalVolume(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer *arg1 = (CSoundRenderer *) 0 ;
-    float arg2 ;
-    
-    SWIG_check_num_args("CSoundRenderer::SetGlobalVolume",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer::SetGlobalVolume",1,"CSoundRenderer *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSoundRenderer::SetGlobalVolume",2,"float");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer,0))){
-      SWIG_fail_ptr("CSoundRenderer_SetGlobalVolume",1,SWIGTYPE_p_CSoundRenderer);
-    }
-    
-    arg2 = (float)lua_tonumber(L, 2);
-    (arg1)->SetGlobalVolume(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_fGetGlobalVolume(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer *arg1 = (CSoundRenderer *) 0 ;
-    float result;
-    
-    SWIG_check_num_args("CSoundRenderer::fGetGlobalVolume",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer::fGetGlobalVolume",1,"CSoundRenderer *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer,0))){
-      SWIG_fail_ptr("CSoundRenderer_fGetGlobalVolume",1,SWIGTYPE_p_CSoundRenderer);
-    }
-    
-    result = (float)(arg1)->fGetGlobalVolume();
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_poGetFreeEmiter(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer *arg1 = (CSoundRenderer *) 0 ;
-    CSoundEmiter *result = 0 ;
-    
-    SWIG_check_num_args("CSoundRenderer::poGetFreeEmiter",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer::poGetFreeEmiter",1,"CSoundRenderer *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer,0))){
-      SWIG_fail_ptr("CSoundRenderer_poGetFreeEmiter",1,SWIGTYPE_p_CSoundRenderer);
-    }
-    
-    result = (CSoundEmiter *)(arg1)->poGetFreeEmiter();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundEmiter,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_UploadSound(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer *arg1 = (CSoundRenderer *) 0 ;
-    CSound *arg2 = (CSound *) 0 ;
-    
-    SWIG_check_num_args("CSoundRenderer::UploadSound",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer::UploadSound",1,"CSoundRenderer *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundRenderer::UploadSound",2,"CSound *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer,0))){
-      SWIG_fail_ptr("CSoundRenderer_UploadSound",1,SWIGTYPE_p_CSoundRenderer);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_UploadSound",2,SWIGTYPE_p_CSound);
-    }
-    
-    (arg1)->UploadSound(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CSoundRenderer(void *obj) {
-CSoundRenderer *arg1 = (CSoundRenderer *) obj;
-delete arg1;
-}
-static swig_lua_attribute swig_CSoundRenderer_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_method swig_CSoundRenderer_methods[]= {
-    { "Init", _wrap_CSoundRenderer_Init},
-    { "Render", _wrap_CSoundRenderer_Render},
-    { "poAddDirEmiter", _wrap_CSoundRenderer_poAddDirEmiter},
-    { "poAddEmiter", _wrap_CSoundRenderer_poAddEmiter},
-    { "poAddOmniEmiter", _wrap_CSoundRenderer_poAddOmniEmiter},
-    { "SetReceiver", _wrap_CSoundRenderer_SetReceiver},
-    { "poGetReceiver", _wrap_CSoundRenderer_poGetReceiver},
-    { "InvalidateEmiters", _wrap_CSoundRenderer_InvalidateEmiters},
-    { "SetGlobalVolume", _wrap_CSoundRenderer_SetGlobalVolume},
-    { "fGetGlobalVolume", _wrap_CSoundRenderer_fGetGlobalVolume},
-    { "poGetFreeEmiter", _wrap_CSoundRenderer_poGetFreeEmiter},
-    { "UploadSound", _wrap_CSoundRenderer_UploadSound},
-    {0,0}
-};
-static swig_lua_method swig_CSoundRenderer_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CSoundRenderer_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CSoundRenderer_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CSoundRenderer_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_CSoundRenderer_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CSoundRenderer_Sf_SwigStatic = {
-    "CSoundRenderer",
-    swig_CSoundRenderer_Sf_SwigStatic_methods,
-    swig_CSoundRenderer_Sf_SwigStatic_attributes,
-    swig_CSoundRenderer_Sf_SwigStatic_constants,
-    swig_CSoundRenderer_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CSoundRenderer_bases[] = {0};
-static const char *swig_CSoundRenderer_base_names[] = {0};
-static swig_lua_class _wrap_class_CSoundRenderer = { "CSoundRenderer", "CSoundRenderer", &SWIGTYPE_p_CSoundRenderer,0, swig_delete_CSoundRenderer, swig_CSoundRenderer_methods, swig_CSoundRenderer_attributes, &swig_CSoundRenderer_Sf_SwigStatic, swig_CSoundRenderer_meta, swig_CSoundRenderer_bases, swig_CSoundRenderer_base_names };
-
-static int _wrap_new_CSoundMixPars(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *result = 0 ;
-    
-    SWIG_check_num_args("CSoundMixPars::CSoundMixPars",0,0)
-    result = (CSoundMixPars *)new CSoundMixPars();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundMixPars,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_fLVol_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    float arg2 ;
-    
-    SWIG_check_num_args("CSoundMixPars::fLVol",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::fLVol",1,"CSoundMixPars *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSoundMixPars::fLVol",2,"float");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_fLVol_set",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    arg2 = (float)lua_tonumber(L, 2);
-    if (arg1) (arg1)->fLVol = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_fLVol_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    float result;
-    
-    SWIG_check_num_args("CSoundMixPars::fLVol",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::fLVol",1,"CSoundMixPars *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_fLVol_get",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    result = (float) ((arg1)->fLVol);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_fRVol_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    float arg2 ;
-    
-    SWIG_check_num_args("CSoundMixPars::fRVol",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::fRVol",1,"CSoundMixPars *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSoundMixPars::fRVol",2,"float");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_fRVol_set",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    arg2 = (float)lua_tonumber(L, 2);
-    if (arg1) (arg1)->fRVol = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_fRVol_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    float result;
-    
-    SWIG_check_num_args("CSoundMixPars::fRVol",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::fRVol",1,"CSoundMixPars *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_fRVol_get",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    result = (float) ((arg1)->fRVol);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_iSPos_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    int arg2 ;
-    
-    SWIG_check_num_args("CSoundMixPars::iSPos",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::iSPos",1,"CSoundMixPars *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSoundMixPars::iSPos",2,"int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_iSPos_set",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    arg2 = (int)lua_tonumber(L, 2);
-    if (arg1) (arg1)->iSPos = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_iSPos_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    int result;
-    
-    SWIG_check_num_args("CSoundMixPars::iSPos",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::iSPos",1,"CSoundMixPars *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_iSPos_get",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    result = (int) ((arg1)->iSPos);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_iCLayer_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    int arg2 ;
-    
-    SWIG_check_num_args("CSoundMixPars::iCLayer",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::iCLayer",1,"CSoundMixPars *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSoundMixPars::iCLayer",2,"int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_iCLayer_set",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    arg2 = (int)lua_tonumber(L, 2);
-    if (arg1) (arg1)->iCLayer = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_iCLayer_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    int result;
-    
-    SWIG_check_num_args("CSoundMixPars::iCLayer",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::iCLayer",1,"CSoundMixPars *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_iCLayer_get",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    result = (int) ((arg1)->iCLayer);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_bLUnlock_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    bool arg2 ;
-    
-    SWIG_check_num_args("CSoundMixPars::bLUnlock",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::bLUnlock",1,"CSoundMixPars *");
-    if(!lua_isboolean(L,2)) SWIG_fail_arg("CSoundMixPars::bLUnlock",2,"bool");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_bLUnlock_set",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    arg2 = (lua_toboolean(L, 2)!=0);
-    if (arg1) (arg1)->bLUnlock = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_bLUnlock_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    bool result;
-    
-    SWIG_check_num_args("CSoundMixPars::bLUnlock",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::bLUnlock",1,"CSoundMixPars *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_bLUnlock_get",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    result = (bool) ((arg1)->bLUnlock);
-    lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_bEnd_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    bool arg2 ;
-    
-    SWIG_check_num_args("CSoundMixPars::bEnd",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::bEnd",1,"CSoundMixPars *");
-    if(!lua_isboolean(L,2)) SWIG_fail_arg("CSoundMixPars::bEnd",2,"bool");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_bEnd_set",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    arg2 = (lua_toboolean(L, 2)!=0);
-    if (arg1) (arg1)->bEnd = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_bEnd_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    bool result;
-    
-    SWIG_check_num_args("CSoundMixPars::bEnd",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::bEnd",1,"CSoundMixPars *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_bEnd_get",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    result = (bool) ((arg1)->bEnd);
-    lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_poSound_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    CSound *arg2 = (CSound *) 0 ;
-    
-    SWIG_check_num_args("CSoundMixPars::poSound",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::poSound",1,"CSoundMixPars *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundMixPars::poSound",2,"CSound *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_poSound_set",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CSound,SWIG_POINTER_DISOWN))){
-      SWIG_fail_ptr("CSoundMixPars_poSound_set",2,SWIGTYPE_p_CSound);
-    }
-    
-    if (arg1) (arg1)->poSound = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixPars_poSound_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = (CSoundMixPars *) 0 ;
-    CSound *result = 0 ;
-    
-    SWIG_check_num_args("CSoundMixPars::poSound",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundMixPars::poSound",1,"CSoundMixPars *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixPars_poSound_get",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    result = (CSound *) ((arg1)->poSound);
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSound,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CSoundMixPars(void *obj) {
-CSoundMixPars *arg1 = (CSoundMixPars *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CSoundMixPars(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CSoundMixPars);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CSoundMixPars_attributes[] = {
-    { "fLVol", _wrap_CSoundMixPars_fLVol_get, _wrap_CSoundMixPars_fLVol_set },
-    { "fRVol", _wrap_CSoundMixPars_fRVol_get, _wrap_CSoundMixPars_fRVol_set },
-    { "iSPos", _wrap_CSoundMixPars_iSPos_get, _wrap_CSoundMixPars_iSPos_set },
-    { "iCLayer", _wrap_CSoundMixPars_iCLayer_get, _wrap_CSoundMixPars_iCLayer_set },
-    { "bLUnlock", _wrap_CSoundMixPars_bLUnlock_get, _wrap_CSoundMixPars_bLUnlock_set },
-    { "bEnd", _wrap_CSoundMixPars_bEnd_get, _wrap_CSoundMixPars_bEnd_set },
-    { "poSound", _wrap_CSoundMixPars_poSound_get, _wrap_CSoundMixPars_poSound_set },
-    {0,0,0}
-};
-static swig_lua_method swig_CSoundMixPars_methods[]= {
-    {0,0}
-};
-static swig_lua_method swig_CSoundMixPars_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CSoundMixPars_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CSoundMixPars_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CSoundMixPars_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_CSoundMixPars_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CSoundMixPars_Sf_SwigStatic = {
-    "CSoundMixPars",
-    swig_CSoundMixPars_Sf_SwigStatic_methods,
-    swig_CSoundMixPars_Sf_SwigStatic_attributes,
-    swig_CSoundMixPars_Sf_SwigStatic_constants,
-    swig_CSoundMixPars_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CSoundMixPars_bases[] = {0};
-static const char *swig_CSoundMixPars_base_names[] = {0};
-static swig_lua_class _wrap_class_CSoundMixPars = { "CSoundMixPars", "CSoundMixPars", &SWIGTYPE_p_CSoundMixPars,_proxy__wrap_new_CSoundMixPars, swig_delete_CSoundMixPars, swig_CSoundMixPars_methods, swig_CSoundMixPars_attributes, &swig_CSoundMixPars_Sf_SwigStatic, swig_CSoundMixPars_meta, swig_CSoundMixPars_bases, swig_CSoundMixPars_base_names };
-
-static int _wrap_new_CSoundMixer(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixer *result = 0 ;
-    
-    SWIG_check_num_args("CSoundMixer::CSoundMixer",0,0)
-    result = (CSoundMixer *)new CSoundMixer();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundMixer,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixer_Clear(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    
-    SWIG_check_num_args("CSoundMixer::Clear",0,0)
-    CSoundMixer::Clear();
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixer_SetupBuffer(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    unsigned int arg1 ;
-    unsigned int arg2 ;
-    int arg3 ;
-    
-    SWIG_check_num_args("CSoundMixer::SetupBuffer",3,3)
-    if(!lua_isnumber(L,1)) SWIG_fail_arg("CSoundMixer::SetupBuffer",1,"unsigned int");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSoundMixer::SetupBuffer",2,"unsigned int");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CSoundMixer::SetupBuffer",3,"int");
-    SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
-    arg1 = (unsigned int)lua_tonumber(L, 1);
-    SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-    arg2 = (unsigned int)lua_tonumber(L, 2);
-    arg3 = (int)lua_tonumber(L, 3);
-    CSoundMixer::SetupBuffer(arg1,arg2,arg3);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixer_Mix__SWIG_0(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = 0 ;
-    unsigned int arg2 ;
-    unsigned int arg3 ;
-    
-    SWIG_check_num_args("CSoundMixer::Mix",3,3)
-    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CSoundMixer::Mix",1,"CSoundMixPars &");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSoundMixer::Mix",2,"unsigned int");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CSoundMixer::Mix",3,"unsigned int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixer_Mix",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-    arg2 = (unsigned int)lua_tonumber(L, 2);
-    SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
-    arg3 = (unsigned int)lua_tonumber(L, 3);
-    CSoundMixer::Mix(*arg1,arg2,arg3);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixer_Mix__SWIG_1(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = 0 ;
-    unsigned int arg2 ;
-    
-    SWIG_check_num_args("CSoundMixer::Mix",2,2)
-    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CSoundMixer::Mix",1,"CSoundMixPars &");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSoundMixer::Mix",2,"unsigned int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixer_Mix",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-    arg2 = (unsigned int)lua_tonumber(L, 2);
-    CSoundMixer::Mix(*arg1,arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixer_Mix(lua_State* L) {
-  int argc;
-  int argv[4]={
-    1,2,3,4
-  };
-  
-  argc = lua_gettop(L);
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CSoundMixPars, SWIG_POINTER_NO_NULL)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        return _wrap_CSoundMixer_Mix__SWIG_1(L);
-      }
-    }
-  }
-  if (argc == 3) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CSoundMixPars, SWIG_POINTER_NO_NULL)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        {
-          _v = lua_isnumber(L,argv[2]);
-        }
-        if (_v) {
-          return _wrap_CSoundMixer_Mix__SWIG_0(L);
-        }
-      }
-    }
-  }
-  
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'CSoundMixer_Mix'\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    CSoundMixer::Mix(CSoundMixPars &,unsigned int,unsigned int)\n"
-    "    CSoundMixer::Mix(CSoundMixPars &,unsigned int)\n");
-  lua_error(L);return 0;
-}
-
-
-static int _wrap_CSoundMixer_iMix16M(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = 0 ;
-    CSample *arg2 = (CSample *) 0 ;
-    unsigned int arg3 ;
-    unsigned int arg4 ;
-    int result;
-    
-    SWIG_check_num_args("CSoundMixer::iMix16M",4,4)
-    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CSoundMixer::iMix16M",1,"CSoundMixPars &");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundMixer::iMix16M",2,"CSample *");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CSoundMixer::iMix16M",3,"unsigned int");
-    if(!lua_isnumber(L,4)) SWIG_fail_arg("CSoundMixer::iMix16M",4,"unsigned int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixer_iMix16M",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CSample,0))){
-      SWIG_fail_ptr("CSoundMixer_iMix16M",2,SWIGTYPE_p_CSample);
-    }
-    
-    SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
-    arg3 = (unsigned int)lua_tonumber(L, 3);
-    SWIG_contract_assert((lua_tonumber(L,4)>=0),"number must not be negative");
-    arg4 = (unsigned int)lua_tonumber(L, 4);
-    result = (int)CSoundMixer::iMix16M(*arg1,arg2,arg3,arg4);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixer_iMix16S(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = 0 ;
-    CSample *arg2 = (CSample *) 0 ;
-    unsigned int arg3 ;
-    unsigned int arg4 ;
-    int result;
-    
-    SWIG_check_num_args("CSoundMixer::iMix16S",4,4)
-    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CSoundMixer::iMix16S",1,"CSoundMixPars &");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundMixer::iMix16S",2,"CSample *");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CSoundMixer::iMix16S",3,"unsigned int");
-    if(!lua_isnumber(L,4)) SWIG_fail_arg("CSoundMixer::iMix16S",4,"unsigned int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixer_iMix16S",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CSample,0))){
-      SWIG_fail_ptr("CSoundMixer_iMix16S",2,SWIGTYPE_p_CSample);
-    }
-    
-    SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
-    arg3 = (unsigned int)lua_tonumber(L, 3);
-    SWIG_contract_assert((lua_tonumber(L,4)>=0),"number must not be negative");
-    arg4 = (unsigned int)lua_tonumber(L, 4);
-    result = (int)CSoundMixer::iMix16S(*arg1,arg2,arg3,arg4);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixer_iMix8M(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = 0 ;
-    CSample *arg2 = (CSample *) 0 ;
-    unsigned int arg3 ;
-    unsigned int arg4 ;
-    int result;
-    
-    SWIG_check_num_args("CSoundMixer::iMix8M",4,4)
-    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CSoundMixer::iMix8M",1,"CSoundMixPars &");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundMixer::iMix8M",2,"CSample *");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CSoundMixer::iMix8M",3,"unsigned int");
-    if(!lua_isnumber(L,4)) SWIG_fail_arg("CSoundMixer::iMix8M",4,"unsigned int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixer_iMix8M",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CSample,0))){
-      SWIG_fail_ptr("CSoundMixer_iMix8M",2,SWIGTYPE_p_CSample);
-    }
-    
-    SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
-    arg3 = (unsigned int)lua_tonumber(L, 3);
-    SWIG_contract_assert((lua_tonumber(L,4)>=0),"number must not be negative");
-    arg4 = (unsigned int)lua_tonumber(L, 4);
-    result = (int)CSoundMixer::iMix8M(*arg1,arg2,arg3,arg4);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixer_iMix8S(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundMixPars *arg1 = 0 ;
-    CSample *arg2 = (CSample *) 0 ;
-    unsigned int arg3 ;
-    unsigned int arg4 ;
-    int result;
-    
-    SWIG_check_num_args("CSoundMixer::iMix8S",4,4)
-    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CSoundMixer::iMix8S",1,"CSoundMixPars &");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundMixer::iMix8S",2,"CSample *");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CSoundMixer::iMix8S",3,"unsigned int");
-    if(!lua_isnumber(L,4)) SWIG_fail_arg("CSoundMixer::iMix8S",4,"unsigned int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundMixer_iMix8S",1,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CSample,0))){
-      SWIG_fail_ptr("CSoundMixer_iMix8S",2,SWIGTYPE_p_CSample);
-    }
-    
-    SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
-    arg3 = (unsigned int)lua_tonumber(L, 3);
-    SWIG_contract_assert((lua_tonumber(L,4)>=0),"number must not be negative");
-    arg4 = (unsigned int)lua_tonumber(L, 4);
-    result = (int)CSoundMixer::iMix8S(*arg1,arg2,arg3,arg4);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixer_pGetBuffer(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    void *result = 0 ;
-    
-    SWIG_check_num_args("CSoundMixer::pGetBuffer",0,0)
-    result = (void *)CSoundMixer::pGetBuffer();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_void,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixer_uiGetBufferSize(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    unsigned int result;
-    
-    SWIG_check_num_args("CSoundMixer::uiGetBufferSize",0,0)
-    result = (unsigned int)CSoundMixer::uiGetBufferSize();
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixer_Finish(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    
-    SWIG_check_num_args("CSoundMixer::Finish",0,0)
-    CSoundMixer::Finish();
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundMixer_PostProcess(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    
-    SWIG_check_num_args("CSoundMixer::PostProcess",0,0)
-    CSoundMixer::PostProcess();
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CSoundMixer(void *obj) {
-CSoundMixer *arg1 = (CSoundMixer *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CSoundMixer(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CSoundMixer);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CSoundMixer_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_method swig_CSoundMixer_methods[]= {
-    {0,0}
-};
-static swig_lua_method swig_CSoundMixer_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CSoundMixer_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CSoundMixer_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CSoundMixer_Sf_SwigStatic_methods[]= {
-    { "Clear", _wrap_CSoundMixer_Clear},
-    { "SetupBuffer", _wrap_CSoundMixer_SetupBuffer},
-    { "Mix", _wrap_CSoundMixer_Mix},
-    { "iMix16M", _wrap_CSoundMixer_iMix16M},
-    { "iMix16S", _wrap_CSoundMixer_iMix16S},
-    { "iMix8M", _wrap_CSoundMixer_iMix8M},
-    { "iMix8S", _wrap_CSoundMixer_iMix8S},
-    { "pGetBuffer", _wrap_CSoundMixer_pGetBuffer},
-    { "uiGetBufferSize", _wrap_CSoundMixer_uiGetBufferSize},
-    { "Finish", _wrap_CSoundMixer_Finish},
-    { "PostProcess", _wrap_CSoundMixer_PostProcess},
-    {0,0}
-};
-static swig_lua_class* swig_CSoundMixer_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CSoundMixer_Sf_SwigStatic = {
-    "CSoundMixer",
-    swig_CSoundMixer_Sf_SwigStatic_methods,
-    swig_CSoundMixer_Sf_SwigStatic_attributes,
-    swig_CSoundMixer_Sf_SwigStatic_constants,
-    swig_CSoundMixer_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CSoundMixer_bases[] = {0};
-static const char *swig_CSoundMixer_base_names[] = {0};
-static swig_lua_class _wrap_class_CSoundMixer = { "CSoundMixer", "CSoundMixer", &SWIGTYPE_p_CSoundMixer,_proxy__wrap_new_CSoundMixer, swig_delete_CSoundMixer, swig_CSoundMixer_methods, swig_CSoundMixer_attributes, &swig_CSoundMixer_Sf_SwigStatic, swig_CSoundMixer_meta, swig_CSoundMixer_bases, swig_CSoundMixer_base_names };
-
-static int _wrap_new_CSoundEmiter_DSound(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter_DSound *result = 0 ;
-    
-    SWIG_check_num_args("CSoundEmiter_DSound::CSoundEmiter_DSound",0,0)
-    result = (CSoundEmiter_DSound *)new CSoundEmiter_DSound();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundEmiter_DSound,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEmiter_DSound_oSMP_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter_DSound *arg1 = (CSoundEmiter_DSound *) 0 ;
-    CSoundMixPars *arg2 = (CSoundMixPars *) 0 ;
-    
-    SWIG_check_num_args("CSoundEmiter_DSound::oSMP",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEmiter_DSound::oSMP",1,"CSoundEmiter_DSound *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundEmiter_DSound::oSMP",2,"CSoundMixPars *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEmiter_DSound,0))){
-      SWIG_fail_ptr("CSoundEmiter_DSound_oSMP_set",1,SWIGTYPE_p_CSoundEmiter_DSound);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CSoundMixPars,0))){
-      SWIG_fail_ptr("CSoundEmiter_DSound_oSMP_set",2,SWIGTYPE_p_CSoundMixPars);
-    }
-    
-    if (arg1) (arg1)->oSMP = *arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEmiter_DSound_oSMP_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter_DSound *arg1 = (CSoundEmiter_DSound *) 0 ;
-    CSoundMixPars *result = 0 ;
-    
-    SWIG_check_num_args("CSoundEmiter_DSound::oSMP",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEmiter_DSound::oSMP",1,"CSoundEmiter_DSound *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEmiter_DSound,0))){
-      SWIG_fail_ptr("CSoundEmiter_DSound_oSMP_get",1,SWIGTYPE_p_CSoundEmiter_DSound);
-    }
-    
-    result = (CSoundMixPars *)& ((arg1)->oSMP);
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundMixPars,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CSoundEmiter_DSound(void *obj) {
-CSoundEmiter_DSound *arg1 = (CSoundEmiter_DSound *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CSoundEmiter_DSound(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CSoundEmiter_DSound);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CSoundEmiter_DSound_attributes[] = {
-    { "oSMP", _wrap_CSoundEmiter_DSound_oSMP_get, _wrap_CSoundEmiter_DSound_oSMP_set },
-    {0,0,0}
-};
-static swig_lua_method swig_CSoundEmiter_DSound_methods[]= {
-    {0,0}
-};
-static swig_lua_method swig_CSoundEmiter_DSound_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CSoundEmiter_DSound_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CSoundEmiter_DSound_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CSoundEmiter_DSound_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_CSoundEmiter_DSound_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CSoundEmiter_DSound_Sf_SwigStatic = {
-    "CSoundEmiter_DSound",
-    swig_CSoundEmiter_DSound_Sf_SwigStatic_methods,
-    swig_CSoundEmiter_DSound_Sf_SwigStatic_attributes,
-    swig_CSoundEmiter_DSound_Sf_SwigStatic_constants,
-    swig_CSoundEmiter_DSound_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CSoundEmiter_DSound_bases[] = {0,0};
-static const char *swig_CSoundEmiter_DSound_base_names[] = {"CSoundEmiter *",0};
-static swig_lua_class _wrap_class_CSoundEmiter_DSound = { "CSoundEmiter_DSound", "CSoundEmiter_DSound", &SWIGTYPE_p_CSoundEmiter_DSound,_proxy__wrap_new_CSoundEmiter_DSound, swig_delete_CSoundEmiter_DSound, swig_CSoundEmiter_DSound_methods, swig_CSoundEmiter_DSound_attributes, &swig_CSoundEmiter_DSound_Sf_SwigStatic, swig_CSoundEmiter_DSound_meta, swig_CSoundEmiter_DSound_bases, swig_CSoundEmiter_DSound_base_names };
-
-static int _wrap_new_CSoundRenderer_DSound(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_DSound *result = 0 ;
-    
-    SWIG_check_num_args("CSoundRenderer_DSound::CSoundRenderer_DSound",0,0)
-    result = (CSoundRenderer_DSound *)new CSoundRenderer_DSound();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundRenderer_DSound,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_DSound_Init(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_DSound *arg1 = (CSoundRenderer_DSound *) 0 ;
-    void *arg2 = (void *) 0 ;
-    int arg3 ;
-    int arg4 ;
-    int arg5 ;
-    int result;
-    
-    SWIG_check_num_args("CSoundRenderer_DSound::Init",5,5)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_DSound::Init",1,"CSoundRenderer_DSound *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundRenderer_DSound::Init",2,"void *");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CSoundRenderer_DSound::Init",3,"int");
-    if(!lua_isnumber(L,4)) SWIG_fail_arg("CSoundRenderer_DSound::Init",4,"int");
-    if(!lua_isnumber(L,5)) SWIG_fail_arg("CSoundRenderer_DSound::Init",5,"int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_DSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_DSound_Init",1,SWIGTYPE_p_CSoundRenderer_DSound);
-    }
-    
-    arg2=(void *)SWIG_MustGetPtr(L,2,0,0,2,"CSoundRenderer_DSound_Init");
-    arg3 = (int)lua_tonumber(L, 3);
-    arg4 = (int)lua_tonumber(L, 4);
-    arg5 = (int)lua_tonumber(L, 5);
-    result = (int)(arg1)->Init(arg2,arg3,arg4,arg5);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_DSound_Finish(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_DSound *arg1 = (CSoundRenderer_DSound *) 0 ;
-    
-    SWIG_check_num_args("CSoundRenderer_DSound::Finish",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_DSound::Finish",1,"CSoundRenderer_DSound *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_DSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_DSound_Finish",1,SWIGTYPE_p_CSoundRenderer_DSound);
-    }
-    
-    (arg1)->Finish();
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_DSound_iLoadDirectSound(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_DSound *arg1 = (CSoundRenderer_DSound *) 0 ;
-    int result;
-    
-    SWIG_check_num_args("CSoundRenderer_DSound::iLoadDirectSound",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_DSound::iLoadDirectSound",1,"CSoundRenderer_DSound *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_DSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_DSound_iLoadDirectSound",1,SWIGTYPE_p_CSoundRenderer_DSound);
-    }
-    
-    result = (int)(arg1)->iLoadDirectSound();
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_DSound_iUnloadDirectSound(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_DSound *arg1 = (CSoundRenderer_DSound *) 0 ;
-    int result;
-    
-    SWIG_check_num_args("CSoundRenderer_DSound::iUnloadDirectSound",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_DSound::iUnloadDirectSound",1,"CSoundRenderer_DSound *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_DSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_DSound_iUnloadDirectSound",1,SWIGTYPE_p_CSoundRenderer_DSound);
-    }
-    
-    result = (int)(arg1)->iUnloadDirectSound();
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_DSound_iCreateBuffers(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_DSound *arg1 = (CSoundRenderer_DSound *) 0 ;
-    int result;
-    
-    SWIG_check_num_args("CSoundRenderer_DSound::iCreateBuffers",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_DSound::iCreateBuffers",1,"CSoundRenderer_DSound *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_DSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_DSound_iCreateBuffers",1,SWIGTYPE_p_CSoundRenderer_DSound);
-    }
-    
-    result = (int)(arg1)->iCreateBuffers();
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_DSound_Render(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_DSound *arg1 = (CSoundRenderer_DSound *) 0 ;
-    float arg2 ;
-    
-    SWIG_check_num_args("CSoundRenderer_DSound::Render",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_DSound::Render",1,"CSoundRenderer_DSound *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSoundRenderer_DSound::Render",2,"float");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_DSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_DSound_Render",1,SWIGTYPE_p_CSoundRenderer_DSound);
-    }
-    
-    arg2 = (float)lua_tonumber(L, 2);
-    (arg1)->Render(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_DSound_TransferData(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_DSound *arg1 = (CSoundRenderer_DSound *) 0 ;
-    
-    SWIG_check_num_args("CSoundRenderer_DSound::TransferData",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_DSound::TransferData",1,"CSoundRenderer_DSound *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_DSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_DSound_TransferData",1,SWIGTYPE_p_CSoundRenderer_DSound);
-    }
-    
-    (arg1)->TransferData();
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_DSound_bComputeVolumeFactors(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_DSound *arg1 = (CSoundRenderer_DSound *) 0 ;
-    CSoundEmiter_DSound *arg2 = (CSoundEmiter_DSound *) 0 ;
-    bool result;
-    
-    SWIG_check_num_args("CSoundRenderer_DSound::bComputeVolumeFactors",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_DSound::bComputeVolumeFactors",1,"CSoundRenderer_DSound *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundRenderer_DSound::bComputeVolumeFactors",2,"CSoundEmiter_DSound *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_DSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_DSound_bComputeVolumeFactors",1,SWIGTYPE_p_CSoundRenderer_DSound);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CSoundEmiter_DSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_DSound_bComputeVolumeFactors",2,SWIGTYPE_p_CSoundEmiter_DSound);
-    }
-    
-    result = (bool)(arg1)->bComputeVolumeFactors(arg2);
-    lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_DSound_poGetFreeEmiter(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_DSound *arg1 = (CSoundRenderer_DSound *) 0 ;
-    CSoundEmiter *result = 0 ;
-    
-    SWIG_check_num_args("CSoundRenderer_DSound::poGetFreeEmiter",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_DSound::poGetFreeEmiter",1,"CSoundRenderer_DSound *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_DSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_DSound_poGetFreeEmiter",1,SWIGTYPE_p_CSoundRenderer_DSound);
-    }
-    
-    result = (CSoundEmiter *)(arg1)->poGetFreeEmiter();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundEmiter,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CSoundRenderer_DSound(void *obj) {
-CSoundRenderer_DSound *arg1 = (CSoundRenderer_DSound *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CSoundRenderer_DSound(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CSoundRenderer_DSound);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CSoundRenderer_DSound_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_method swig_CSoundRenderer_DSound_methods[]= {
-    { "Init", _wrap_CSoundRenderer_DSound_Init},
-    { "Finish", _wrap_CSoundRenderer_DSound_Finish},
-    { "iLoadDirectSound", _wrap_CSoundRenderer_DSound_iLoadDirectSound},
-    { "iUnloadDirectSound", _wrap_CSoundRenderer_DSound_iUnloadDirectSound},
-    { "iCreateBuffers", _wrap_CSoundRenderer_DSound_iCreateBuffers},
-    { "Render", _wrap_CSoundRenderer_DSound_Render},
-    { "TransferData", _wrap_CSoundRenderer_DSound_TransferData},
-    { "bComputeVolumeFactors", _wrap_CSoundRenderer_DSound_bComputeVolumeFactors},
-    { "poGetFreeEmiter", _wrap_CSoundRenderer_DSound_poGetFreeEmiter},
-    {0,0}
-};
-static swig_lua_method swig_CSoundRenderer_DSound_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CSoundRenderer_DSound_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CSoundRenderer_DSound_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CSoundRenderer_DSound_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_CSoundRenderer_DSound_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CSoundRenderer_DSound_Sf_SwigStatic = {
-    "CSoundRenderer_DSound",
-    swig_CSoundRenderer_DSound_Sf_SwigStatic_methods,
-    swig_CSoundRenderer_DSound_Sf_SwigStatic_attributes,
-    swig_CSoundRenderer_DSound_Sf_SwigStatic_constants,
-    swig_CSoundRenderer_DSound_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CSoundRenderer_DSound_bases[] = {0,0};
-static const char *swig_CSoundRenderer_DSound_base_names[] = {"CSoundRenderer *",0};
-static swig_lua_class _wrap_class_CSoundRenderer_DSound = { "CSoundRenderer_DSound", "CSoundRenderer_DSound", &SWIGTYPE_p_CSoundRenderer_DSound,_proxy__wrap_new_CSoundRenderer_DSound, swig_delete_CSoundRenderer_DSound, swig_CSoundRenderer_DSound_methods, swig_CSoundRenderer_DSound_attributes, &swig_CSoundRenderer_DSound_Sf_SwigStatic, swig_CSoundRenderer_DSound_meta, swig_CSoundRenderer_DSound_bases, swig_CSoundRenderer_DSound_base_names };
-
-static int _wrap_new_CSoundEmiter_OpenAL(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter_OpenAL *result = 0 ;
-    
-    SWIG_check_num_args("CSoundEmiter_OpenAL::CSoundEmiter_OpenAL",0,0)
-    result = (CSoundEmiter_OpenAL *)new CSoundEmiter_OpenAL();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundEmiter_OpenAL,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEmiter_OpenAL_uiSourceHandler_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter_OpenAL *arg1 = (CSoundEmiter_OpenAL *) 0 ;
-    unsigned int arg2 ;
-    
-    SWIG_check_num_args("CSoundEmiter_OpenAL::uiSourceHandler",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEmiter_OpenAL::uiSourceHandler",1,"CSoundEmiter_OpenAL *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSoundEmiter_OpenAL::uiSourceHandler",2,"unsigned int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEmiter_OpenAL,0))){
-      SWIG_fail_ptr("CSoundEmiter_OpenAL_uiSourceHandler_set",1,SWIGTYPE_p_CSoundEmiter_OpenAL);
-    }
-    
-    SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-    arg2 = (unsigned int)lua_tonumber(L, 2);
-    if (arg1) (arg1)->uiSourceHandler = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEmiter_OpenAL_uiSourceHandler_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter_OpenAL *arg1 = (CSoundEmiter_OpenAL *) 0 ;
-    unsigned int result;
-    
-    SWIG_check_num_args("CSoundEmiter_OpenAL::uiSourceHandler",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEmiter_OpenAL::uiSourceHandler",1,"CSoundEmiter_OpenAL *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEmiter_OpenAL,0))){
-      SWIG_fail_ptr("CSoundEmiter_OpenAL_uiSourceHandler_get",1,SWIGTYPE_p_CSoundEmiter_OpenAL);
-    }
-    
-    result = (unsigned int) ((arg1)->uiSourceHandler);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEmiter_OpenAL_bPlaying_set(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter_OpenAL *arg1 = (CSoundEmiter_OpenAL *) 0 ;
-    bool arg2 ;
-    
-    SWIG_check_num_args("CSoundEmiter_OpenAL::bPlaying",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEmiter_OpenAL::bPlaying",1,"CSoundEmiter_OpenAL *");
-    if(!lua_isboolean(L,2)) SWIG_fail_arg("CSoundEmiter_OpenAL::bPlaying",2,"bool");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEmiter_OpenAL,0))){
-      SWIG_fail_ptr("CSoundEmiter_OpenAL_bPlaying_set",1,SWIGTYPE_p_CSoundEmiter_OpenAL);
-    }
-    
-    arg2 = (lua_toboolean(L, 2)!=0);
-    if (arg1) (arg1)->bPlaying = arg2;
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundEmiter_OpenAL_bPlaying_get(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundEmiter_OpenAL *arg1 = (CSoundEmiter_OpenAL *) 0 ;
-    bool result;
-    
-    SWIG_check_num_args("CSoundEmiter_OpenAL::bPlaying",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundEmiter_OpenAL::bPlaying",1,"CSoundEmiter_OpenAL *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundEmiter_OpenAL,0))){
-      SWIG_fail_ptr("CSoundEmiter_OpenAL_bPlaying_get",1,SWIGTYPE_p_CSoundEmiter_OpenAL);
-    }
-    
-    result = (bool) ((arg1)->bPlaying);
-    lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CSoundEmiter_OpenAL(void *obj) {
-CSoundEmiter_OpenAL *arg1 = (CSoundEmiter_OpenAL *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CSoundEmiter_OpenAL(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CSoundEmiter_OpenAL);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CSoundEmiter_OpenAL_attributes[] = {
-    { "uiSourceHandler", _wrap_CSoundEmiter_OpenAL_uiSourceHandler_get, _wrap_CSoundEmiter_OpenAL_uiSourceHandler_set },
-    { "bPlaying", _wrap_CSoundEmiter_OpenAL_bPlaying_get, _wrap_CSoundEmiter_OpenAL_bPlaying_set },
-    {0,0,0}
-};
-static swig_lua_method swig_CSoundEmiter_OpenAL_methods[]= {
-    {0,0}
-};
-static swig_lua_method swig_CSoundEmiter_OpenAL_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CSoundEmiter_OpenAL_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CSoundEmiter_OpenAL_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CSoundEmiter_OpenAL_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_CSoundEmiter_OpenAL_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CSoundEmiter_OpenAL_Sf_SwigStatic = {
-    "CSoundEmiter_OpenAL",
-    swig_CSoundEmiter_OpenAL_Sf_SwigStatic_methods,
-    swig_CSoundEmiter_OpenAL_Sf_SwigStatic_attributes,
-    swig_CSoundEmiter_OpenAL_Sf_SwigStatic_constants,
-    swig_CSoundEmiter_OpenAL_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CSoundEmiter_OpenAL_bases[] = {0,0};
-static const char *swig_CSoundEmiter_OpenAL_base_names[] = {"CSoundEmiter *",0};
-static swig_lua_class _wrap_class_CSoundEmiter_OpenAL = { "CSoundEmiter_OpenAL", "CSoundEmiter_OpenAL", &SWIGTYPE_p_CSoundEmiter_OpenAL,_proxy__wrap_new_CSoundEmiter_OpenAL, swig_delete_CSoundEmiter_OpenAL, swig_CSoundEmiter_OpenAL_methods, swig_CSoundEmiter_OpenAL_attributes, &swig_CSoundEmiter_OpenAL_Sf_SwigStatic, swig_CSoundEmiter_OpenAL_meta, swig_CSoundEmiter_OpenAL_bases, swig_CSoundEmiter_OpenAL_base_names };
-
-static int _wrap_new_CSoundRenderer_OpenAL(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_OpenAL *result = 0 ;
-    
-    SWIG_check_num_args("CSoundRenderer_OpenAL::CSoundRenderer_OpenAL",0,0)
-    result = (CSoundRenderer_OpenAL *)new CSoundRenderer_OpenAL();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundRenderer_OpenAL,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_OpenAL_Init(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_OpenAL *arg1 = (CSoundRenderer_OpenAL *) 0 ;
-    void *arg2 = (void *) 0 ;
-    int arg3 ;
-    int arg4 ;
-    int arg5 ;
-    int result;
-    
-    SWIG_check_num_args("CSoundRenderer_OpenAL::Init",5,5)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_OpenAL::Init",1,"CSoundRenderer_OpenAL *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundRenderer_OpenAL::Init",2,"void *");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CSoundRenderer_OpenAL::Init",3,"int");
-    if(!lua_isnumber(L,4)) SWIG_fail_arg("CSoundRenderer_OpenAL::Init",4,"int");
-    if(!lua_isnumber(L,5)) SWIG_fail_arg("CSoundRenderer_OpenAL::Init",5,"int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_OpenAL,0))){
-      SWIG_fail_ptr("CSoundRenderer_OpenAL_Init",1,SWIGTYPE_p_CSoundRenderer_OpenAL);
-    }
-    
-    arg2=(void *)SWIG_MustGetPtr(L,2,0,0,2,"CSoundRenderer_OpenAL_Init");
-    arg3 = (int)lua_tonumber(L, 3);
-    arg4 = (int)lua_tonumber(L, 4);
-    arg5 = (int)lua_tonumber(L, 5);
-    result = (int)(arg1)->Init(arg2,arg3,arg4,arg5);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_OpenAL_Render(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_OpenAL *arg1 = (CSoundRenderer_OpenAL *) 0 ;
-    float arg2 ;
-    
-    SWIG_check_num_args("CSoundRenderer_OpenAL::Render",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_OpenAL::Render",1,"CSoundRenderer_OpenAL *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSoundRenderer_OpenAL::Render",2,"float");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_OpenAL,0))){
-      SWIG_fail_ptr("CSoundRenderer_OpenAL_Render",1,SWIGTYPE_p_CSoundRenderer_OpenAL);
-    }
-    
-    arg2 = (float)lua_tonumber(L, 2);
-    (arg1)->Render(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_OpenAL_poAddOmniEmiter(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_OpenAL *arg1 = (CSoundRenderer_OpenAL *) 0 ;
-    CSound *arg2 = (CSound *) 0 ;
-    float arg3 ;
-    CSoundEmiter *result = 0 ;
-    
-    SWIG_check_num_args("CSoundRenderer_OpenAL::poAddOmniEmiter",3,3)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_OpenAL::poAddOmniEmiter",1,"CSoundRenderer_OpenAL *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundRenderer_OpenAL::poAddOmniEmiter",2,"CSound *");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CSoundRenderer_OpenAL::poAddOmniEmiter",3,"float");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_OpenAL,0))){
-      SWIG_fail_ptr("CSoundRenderer_OpenAL_poAddOmniEmiter",1,SWIGTYPE_p_CSoundRenderer_OpenAL);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_OpenAL_poAddOmniEmiter",2,SWIGTYPE_p_CSound);
-    }
-    
-    arg3 = (float)lua_tonumber(L, 3);
-    result = (CSoundEmiter *)(arg1)->poAddOmniEmiter(arg2,arg3);
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundEmiter,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_OpenAL_poGetFreeEmiter(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_OpenAL *arg1 = (CSoundRenderer_OpenAL *) 0 ;
-    CSoundEmiter *result = 0 ;
-    
-    SWIG_check_num_args("CSoundRenderer_OpenAL::poGetFreeEmiter",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_OpenAL::poGetFreeEmiter",1,"CSoundRenderer_OpenAL *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_OpenAL,0))){
-      SWIG_fail_ptr("CSoundRenderer_OpenAL_poGetFreeEmiter",1,SWIGTYPE_p_CSoundRenderer_OpenAL);
-    }
-    
-    result = (CSoundEmiter *)(arg1)->poGetFreeEmiter();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundEmiter,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_OpenAL_InvalidateEmiters(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_OpenAL *arg1 = (CSoundRenderer_OpenAL *) 0 ;
-    
-    SWIG_check_num_args("CSoundRenderer_OpenAL::InvalidateEmiters",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_OpenAL::InvalidateEmiters",1,"CSoundRenderer_OpenAL *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_OpenAL,0))){
-      SWIG_fail_ptr("CSoundRenderer_OpenAL_InvalidateEmiters",1,SWIGTYPE_p_CSoundRenderer_OpenAL);
-    }
-    
-    (arg1)->InvalidateEmiters();
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundRenderer_OpenAL_UploadSound(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundRenderer_OpenAL *arg1 = (CSoundRenderer_OpenAL *) 0 ;
-    CSound *arg2 = (CSound *) 0 ;
-    
-    SWIG_check_num_args("CSoundRenderer_OpenAL::UploadSound",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundRenderer_OpenAL::UploadSound",1,"CSoundRenderer_OpenAL *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSoundRenderer_OpenAL::UploadSound",2,"CSound *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundRenderer_OpenAL,0))){
-      SWIG_fail_ptr("CSoundRenderer_OpenAL_UploadSound",1,SWIGTYPE_p_CSoundRenderer_OpenAL);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CSound,0))){
-      SWIG_fail_ptr("CSoundRenderer_OpenAL_UploadSound",2,SWIGTYPE_p_CSound);
-    }
-    
-    (arg1)->UploadSound(arg2);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CSoundRenderer_OpenAL(void *obj) {
-CSoundRenderer_OpenAL *arg1 = (CSoundRenderer_OpenAL *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CSoundRenderer_OpenAL(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CSoundRenderer_OpenAL);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CSoundRenderer_OpenAL_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_method swig_CSoundRenderer_OpenAL_methods[]= {
-    { "Init", _wrap_CSoundRenderer_OpenAL_Init},
-    { "Render", _wrap_CSoundRenderer_OpenAL_Render},
-    { "poAddOmniEmiter", _wrap_CSoundRenderer_OpenAL_poAddOmniEmiter},
-    { "poGetFreeEmiter", _wrap_CSoundRenderer_OpenAL_poGetFreeEmiter},
-    { "InvalidateEmiters", _wrap_CSoundRenderer_OpenAL_InvalidateEmiters},
-    { "UploadSound", _wrap_CSoundRenderer_OpenAL_UploadSound},
-    {0,0}
-};
-static swig_lua_method swig_CSoundRenderer_OpenAL_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CSoundRenderer_OpenAL_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CSoundRenderer_OpenAL_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CSoundRenderer_OpenAL_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_CSoundRenderer_OpenAL_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CSoundRenderer_OpenAL_Sf_SwigStatic = {
-    "CSoundRenderer_OpenAL",
-    swig_CSoundRenderer_OpenAL_Sf_SwigStatic_methods,
-    swig_CSoundRenderer_OpenAL_Sf_SwigStatic_attributes,
-    swig_CSoundRenderer_OpenAL_Sf_SwigStatic_constants,
-    swig_CSoundRenderer_OpenAL_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CSoundRenderer_OpenAL_bases[] = {0,0};
-static const char *swig_CSoundRenderer_OpenAL_base_names[] = {"CSoundRenderer *",0};
-static swig_lua_class _wrap_class_CSoundRenderer_OpenAL = { "CSoundRenderer_OpenAL", "CSoundRenderer_OpenAL", &SWIGTYPE_p_CSoundRenderer_OpenAL,_proxy__wrap_new_CSoundRenderer_OpenAL, swig_delete_CSoundRenderer_OpenAL, swig_CSoundRenderer_OpenAL_methods, swig_CSoundRenderer_OpenAL_attributes, &swig_CSoundRenderer_OpenAL_Sf_SwigStatic, swig_CSoundRenderer_OpenAL_meta, swig_CSoundRenderer_OpenAL_bases, swig_CSoundRenderer_OpenAL_base_names };
-
-static int _wrap_new_CSampleWH(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSampleWH *result = 0 ;
-    
-    SWIG_check_num_args("CSampleWH::CSampleWH",0,0)
-    result = (CSampleWH *)new CSampleWH();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSampleWH,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSampleWH_iLoad__SWIG_0(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSampleWH *arg1 = (CSampleWH *) 0 ;
-    CGString *arg2 = 0 ;
-    bool arg3 ;
-    int result;
-    
-    SWIG_check_num_args("CSampleWH::iLoad",3,3)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSampleWH::iLoad",1,"CSampleWH *");
-    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CSampleWH::iLoad",2,"CGString const &");
-    if(!lua_isboolean(L,3)) SWIG_fail_arg("CSampleWH::iLoad",3,"bool");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSampleWH,0))){
-      SWIG_fail_ptr("CSampleWH_iLoad",1,SWIGTYPE_p_CSampleWH);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGString,0))){
-      SWIG_fail_ptr("CSampleWH_iLoad",2,SWIGTYPE_p_CGString);
-    }
-    
-    arg3 = (lua_toboolean(L, 3)!=0);
-    result = (int)(arg1)->iLoad((CGString const &)*arg2,arg3);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSampleWH_iLoad__SWIG_1(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSampleWH *arg1 = (CSampleWH *) 0 ;
-    CGString *arg2 = 0 ;
-    int result;
-    
-    SWIG_check_num_args("CSampleWH::iLoad",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSampleWH::iLoad",1,"CSampleWH *");
-    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CSampleWH::iLoad",2,"CGString const &");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSampleWH,0))){
-      SWIG_fail_ptr("CSampleWH_iLoad",1,SWIGTYPE_p_CSampleWH);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGString,0))){
-      SWIG_fail_ptr("CSampleWH_iLoad",2,SWIGTYPE_p_CGString);
-    }
-    
-    result = (int)(arg1)->iLoad((CGString const &)*arg2);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSampleWH_iLoad(lua_State* L) {
-  int argc;
-  int argv[4]={
-    1,2,3,4
-  };
-  
-  argc = lua_gettop(L);
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CSampleWH, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGString, SWIG_POINTER_NO_NULL)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
-        return _wrap_CSampleWH_iLoad__SWIG_1(L);
-      }
-    }
-  }
-  if (argc == 3) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CSampleWH, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGString, SWIG_POINTER_NO_NULL)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
-        {
-          _v = lua_isboolean(L,argv[2]);
-        }
-        if (_v) {
-          return _wrap_CSampleWH_iLoad__SWIG_0(L);
-        }
-      }
-    }
-  }
-  
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'CSampleWH_iLoad'\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    CSampleWH::iLoad(CGString const &,bool)\n"
-    "    CSampleWH::iLoad(CGString const &)\n");
-  lua_error(L);return 0;
-}
-
-
-static int _wrap_CSampleWH_poLoadResource(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSampleWH *arg1 = (CSampleWH *) 0 ;
-    CGString *arg2 = 0 ;
-    CSample *result = 0 ;
-    
-    SWIG_check_num_args("CSampleWH::poLoadResource",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSampleWH::poLoadResource",1,"CSampleWH *");
-    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CSampleWH::poLoadResource",2,"CGString const &");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSampleWH,0))){
-      SWIG_fail_ptr("CSampleWH_poLoadResource",1,SWIGTYPE_p_CSampleWH);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGString,0))){
-      SWIG_fail_ptr("CSampleWH_poLoadResource",2,SWIGTYPE_p_CGString);
-    }
-    
-    result = (CSample *)(arg1)->poLoadResource((CGString const &)*arg2);
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSample,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSampleWH_poLoadResourceExt__SWIG_0(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSampleWH *arg1 = (CSampleWH *) 0 ;
-    CGString *arg2 = 0 ;
-    bool arg3 ;
-    CSample *result = 0 ;
-    
-    SWIG_check_num_args("CSampleWH::poLoadResourceExt",3,3)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSampleWH::poLoadResourceExt",1,"CSampleWH *");
-    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CSampleWH::poLoadResourceExt",2,"CGString const &");
-    if(!lua_isboolean(L,3)) SWIG_fail_arg("CSampleWH::poLoadResourceExt",3,"bool");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSampleWH,0))){
-      SWIG_fail_ptr("CSampleWH_poLoadResourceExt",1,SWIGTYPE_p_CSampleWH);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGString,0))){
-      SWIG_fail_ptr("CSampleWH_poLoadResourceExt",2,SWIGTYPE_p_CGString);
-    }
-    
-    arg3 = (lua_toboolean(L, 3)!=0);
-    result = (CSample *)(arg1)->poLoadResourceExt((CGString const &)*arg2,arg3);
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSample,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSampleWH_poLoadResourceExt__SWIG_1(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSampleWH *arg1 = (CSampleWH *) 0 ;
-    CGString *arg2 = 0 ;
-    CSample *result = 0 ;
-    
-    SWIG_check_num_args("CSampleWH::poLoadResourceExt",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSampleWH::poLoadResourceExt",1,"CSampleWH *");
-    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CSampleWH::poLoadResourceExt",2,"CGString const &");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSampleWH,0))){
-      SWIG_fail_ptr("CSampleWH_poLoadResourceExt",1,SWIGTYPE_p_CSampleWH);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGString,0))){
-      SWIG_fail_ptr("CSampleWH_poLoadResourceExt",2,SWIGTYPE_p_CGString);
-    }
-    
-    result = (CSample *)(arg1)->poLoadResourceExt((CGString const &)*arg2);
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSample,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSampleWH_poLoadResourceExt(lua_State* L) {
-  int argc;
-  int argv[4]={
-    1,2,3,4
-  };
-  
-  argc = lua_gettop(L);
-  if (argc == 2) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CSampleWH, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGString, SWIG_POINTER_NO_NULL)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
-        return _wrap_CSampleWH_poLoadResourceExt__SWIG_1(L);
-      }
-    }
-  }
-  if (argc == 3) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CSampleWH, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGString, SWIG_POINTER_NO_NULL)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
-        {
-          _v = lua_isboolean(L,argv[2]);
-        }
-        if (_v) {
-          return _wrap_CSampleWH_poLoadResourceExt__SWIG_0(L);
-        }
-      }
-    }
-  }
-  
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'CSampleWH_poLoadResourceExt'\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    CSampleWH::poLoadResourceExt(CGString const &,bool)\n"
-    "    CSampleWH::poLoadResourceExt(CGString const &)\n");
-  lua_error(L);return 0;
-}
-
-
-static int _wrap_CSampleWH_SetForcedParams(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSampleWH *arg1 = (CSampleWH *) 0 ;
-    uint arg2 ;
-    uint arg3 ;
-    
-    SWIG_check_num_args("CSampleWH::SetForcedParams",3,3)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSampleWH::SetForcedParams",1,"CSampleWH *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CSampleWH::SetForcedParams",2,"uint");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CSampleWH::SetForcedParams",3,"uint");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSampleWH,0))){
-      SWIG_fail_ptr("CSampleWH_SetForcedParams",1,SWIGTYPE_p_CSampleWH);
-    }
-    
-    SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-    arg2 = (uint)lua_tonumber(L, 2);
-    SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
-    arg3 = (uint)lua_tonumber(L, 3);
-    (arg1)->SetForcedParams(arg2,arg3);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CSampleWH(void *obj) {
-CSampleWH *arg1 = (CSampleWH *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CSampleWH(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CSampleWH);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CSampleWH_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_method swig_CSampleWH_methods[]= {
-    { "iLoad", _wrap_CSampleWH_iLoad},
-    { "poLoadResource", _wrap_CSampleWH_poLoadResource},
-    { "poLoadResourceExt", _wrap_CSampleWH_poLoadResourceExt},
-    { "SetForcedParams", _wrap_CSampleWH_SetForcedParams},
-    {0,0}
-};
-static swig_lua_method swig_CSampleWH_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CSampleWH_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CSampleWH_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CSampleWH_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_CSampleWH_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CSampleWH_Sf_SwigStatic = {
-    "CSampleWH",
-    swig_CSampleWH_Sf_SwigStatic_methods,
-    swig_CSampleWH_Sf_SwigStatic_attributes,
-    swig_CSampleWH_Sf_SwigStatic_constants,
-    swig_CSampleWH_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CSampleWH_bases[] = {0};
-static const char *swig_CSampleWH_base_names[] = {0};
-static swig_lua_class _wrap_class_CSampleWH = { "CSampleWH", "CSampleWH", &SWIGTYPE_p_CSampleWH,_proxy__wrap_new_CSampleWH, swig_delete_CSampleWH, swig_CSampleWH_methods, swig_CSampleWH_attributes, &swig_CSampleWH_Sf_SwigStatic, swig_CSampleWH_meta, swig_CSampleWH_bases, swig_CSampleWH_base_names };
-
-static int _wrap_new_CSoundWH(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundWH *result = 0 ;
-    
-    SWIG_check_num_args("CSoundWH::CSoundWH",0,0)
-    result = (CSoundWH *)new CSoundWH();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSoundWH,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CSoundWH_poLoadResource(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CSoundWH *arg1 = (CSoundWH *) 0 ;
-    CGString *arg2 = 0 ;
-    CSound *result = 0 ;
-    
-    SWIG_check_num_args("CSoundWH::poLoadResource",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSoundWH::poLoadResource",1,"CSoundWH *");
-    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CSoundWH::poLoadResource",2,"CGString const &");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSoundWH,0))){
-      SWIG_fail_ptr("CSoundWH_poLoadResource",1,SWIGTYPE_p_CSoundWH);
-    }
-    
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGString,0))){
-      SWIG_fail_ptr("CSoundWH_poLoadResource",2,SWIGTYPE_p_CGString);
-    }
-    
-    result = (CSound *)(arg1)->poLoadResource((CGString const &)*arg2);
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSound,0); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CSoundWH(void *obj) {
-CSoundWH *arg1 = (CSoundWH *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CSoundWH(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CSoundWH);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CSoundWH_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_method swig_CSoundWH_methods[]= {
-    { "poLoadResource", _wrap_CSoundWH_poLoadResource},
-    {0,0}
-};
-static swig_lua_method swig_CSoundWH_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CSoundWH_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CSoundWH_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CSoundWH_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_CSoundWH_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CSoundWH_Sf_SwigStatic = {
-    "CSoundWH",
-    swig_CSoundWH_Sf_SwigStatic_methods,
-    swig_CSoundWH_Sf_SwigStatic_attributes,
-    swig_CSoundWH_Sf_SwigStatic_constants,
-    swig_CSoundWH_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CSoundWH_bases[] = {0};
-static const char *swig_CSoundWH_base_names[] = {0};
-static swig_lua_class _wrap_class_CSoundWH = { "CSoundWH", "CSoundWH", &SWIGTYPE_p_CSoundWH,_proxy__wrap_new_CSoundWH, swig_delete_CSoundWH, swig_CSoundWH_methods, swig_CSoundWH_attributes, &swig_CSoundWH_Sf_SwigStatic, swig_CSoundWH_meta, swig_CSoundWH_bases, swig_CSoundWH_base_names };
-
-static int _wrap_new_CGNETSystem(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGNETSystem *result = 0 ;
-    
-    SWIG_check_num_args("CGNETSystem::CGNETSystem",0,0)
-    result = (CGNETSystem *)new CGNETSystem();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGNETSystem,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGNETSystem_Init(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    
-    SWIG_check_num_args("CGNETSystem::Init",0,0)
-    CGNETSystem::Init();
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGNETSystem_Finish(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    
-    SWIG_check_num_args("CGNETSystem::Finish",0,0)
-    CGNETSystem::Finish();
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGNETSystem_CreateServer(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    uint *arg1 = 0 ;
-    char *arg2 = (char *) 0 ;
-    uint arg3 ;
-    int result;
-    
-    SWIG_check_num_args("CGNETSystem::CreateServer",3,3)
-    if(!lua_isuserdata(L,1)) SWIG_fail_arg("CGNETSystem::CreateServer",1,"uint &");
-    if(!SWIG_lua_isnilstring(L,2)) SWIG_fail_arg("CGNETSystem::CreateServer",2,"char *");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CGNETSystem::CreateServer",3,"uint");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_unsigned_int,0))){
-      SWIG_fail_ptr("CGNETSystem_CreateServer",1,SWIGTYPE_p_unsigned_int);
-    }
-    
-    arg2 = (char *)lua_tostring(L, 2);
-    SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
-    arg3 = (uint)lua_tonumber(L, 3);
-    result = (int)CGNETSystem::CreateServer(*arg1,arg2,arg3);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGNETSystem_WriteToClient(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    int arg1 ;
-    void *arg2 = (void *) 0 ;
-    int arg3 ;
-    int result;
-    
-    SWIG_check_num_args("CGNETSystem::WriteToClient",3,3)
-    if(!lua_isnumber(L,1)) SWIG_fail_arg("CGNETSystem::WriteToClient",1,"int");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGNETSystem::WriteToClient",2,"void *");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CGNETSystem::WriteToClient",3,"int");
-    arg1 = (int)lua_tonumber(L, 1);
-    arg2=(void *)SWIG_MustGetPtr(L,2,0,0,2,"CGNETSystem_WriteToClient");
-    arg3 = (int)lua_tonumber(L, 3);
-    result = (int)CGNETSystem::WriteToClient(arg1,arg2,arg3);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGNETSystem_ReadFromClient(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    int arg1 ;
-    void *arg2 = (void *) 0 ;
-    int arg3 ;
-    int result;
-    
-    SWIG_check_num_args("CGNETSystem::ReadFromClient",3,3)
-    if(!lua_isnumber(L,1)) SWIG_fail_arg("CGNETSystem::ReadFromClient",1,"int");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGNETSystem::ReadFromClient",2,"void *");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CGNETSystem::ReadFromClient",3,"int");
-    arg1 = (int)lua_tonumber(L, 1);
-    arg2=(void *)SWIG_MustGetPtr(L,2,0,0,2,"CGNETSystem_ReadFromClient");
-    arg3 = (int)lua_tonumber(L, 3);
-    result = (int)CGNETSystem::ReadFromClient(arg1,arg2,arg3);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGNETSystem_AcceptConnections(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    int arg1 ;
-    int result;
-    
-    SWIG_check_num_args("CGNETSystem::AcceptConnections",1,1)
-    if(!lua_isnumber(L,1)) SWIG_fail_arg("CGNETSystem::AcceptConnections",1,"int");
-    arg1 = (int)lua_tonumber(L, 1);
-    result = (int)CGNETSystem::AcceptConnections(arg1);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGNETSystem_bPendingInfo(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    int arg1 ;
-    bool result;
-    
-    SWIG_check_num_args("CGNETSystem::bPendingInfo",1,1)
-    if(!lua_isnumber(L,1)) SWIG_fail_arg("CGNETSystem::bPendingInfo",1,"int");
-    arg1 = (int)lua_tonumber(L, 1);
-    result = (bool)CGNETSystem::bPendingInfo(arg1);
-    lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGNETSystem_ConnectToServer__SWIG_0(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    char *arg1 = (char *) 0 ;
-    uint arg2 ;
-    int result;
-    
-    SWIG_check_num_args("CGNETSystem::ConnectToServer",2,2)
-    if(!SWIG_lua_isnilstring(L,1)) SWIG_fail_arg("CGNETSystem::ConnectToServer",1,"char *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CGNETSystem::ConnectToServer",2,"uint");
-    arg1 = (char *)lua_tostring(L, 1);
-    SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-    arg2 = (uint)lua_tonumber(L, 2);
-    result = (int)CGNETSystem::ConnectToServer(arg1,arg2);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGNETSystem_ConnectToServer__SWIG_1(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    uint arg1 ;
-    uint arg2 ;
-    int result;
-    
-    SWIG_check_num_args("CGNETSystem::ConnectToServer",2,2)
-    if(!lua_isnumber(L,1)) SWIG_fail_arg("CGNETSystem::ConnectToServer",1,"uint");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CGNETSystem::ConnectToServer",2,"uint");
-    SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
-    arg1 = (uint)lua_tonumber(L, 1);
-    SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-    arg2 = (uint)lua_tonumber(L, 2);
-    result = (int)CGNETSystem::ConnectToServer(arg1,arg2);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGNETSystem_ConnectToServer(lua_State* L) {
-  int argc;
-  int argv[3]={
-    1,2,3
-  };
-  
-  argc = lua_gettop(L);
-  if (argc == 2) {
-    int _v = 0;
-    {
-      _v = lua_isnumber(L,argv[0]);
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        return _wrap_CGNETSystem_ConnectToServer__SWIG_1(L);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    {
-      _v = SWIG_lua_isnilstring(L,argv[0]);
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        return _wrap_CGNETSystem_ConnectToServer__SWIG_0(L);
-      }
-    }
-  }
-  
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'CGNETSystem_ConnectToServer'\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    CGNETSystem::ConnectToServer(char *,uint)\n"
-    "    CGNETSystem::ConnectToServer(uint,uint)\n");
-  lua_error(L);return 0;
-}
-
-
-static int _wrap_CGNETSystem_Disconnect(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    
-    SWIG_check_num_args("CGNETSystem::Disconnect",0,0)
-    CGNETSystem::Disconnect();
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGNETSystem_WriteToServer(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    void *arg1 = (void *) 0 ;
-    int arg2 ;
-    int result;
-    
-    SWIG_check_num_args("CGNETSystem::WriteToServer",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGNETSystem::WriteToServer",1,"void *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CGNETSystem::WriteToServer",2,"int");
-    arg1=(void *)SWIG_MustGetPtr(L,1,0,0,1,"CGNETSystem_WriteToServer");
-    arg2 = (int)lua_tonumber(L, 2);
-    result = (int)CGNETSystem::WriteToServer(arg1,arg2);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGNETSystem_ReadFromServer(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    void *arg1 = (void *) 0 ;
-    int arg2 ;
-    int result;
-    
-    SWIG_check_num_args("CGNETSystem::ReadFromServer",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGNETSystem::ReadFromServer",1,"void *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CGNETSystem::ReadFromServer",2,"int");
-    arg1=(void *)SWIG_MustGetPtr(L,1,0,0,1,"CGNETSystem_ReadFromServer");
-    arg2 = (int)lua_tonumber(L, 2);
-    result = (int)CGNETSystem::ReadFromServer(arg1,arg2);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGNETSystem_GetHostName(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    char *arg1 = (char *) 0 ;
-    
-    SWIG_check_num_args("CGNETSystem::GetHostName",1,1)
-    if(!SWIG_lua_isnilstring(L,1)) SWIG_fail_arg("CGNETSystem::GetHostName",1,"char *");
-    arg1 = (char *)lua_tostring(L, 1);
-    CGNETSystem::GetHostName(arg1);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGNETSystem_uiGetHostByName(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    char *arg1 = (char *) 0 ;
-    uint result;
-    
-    SWIG_check_num_args("CGNETSystem::uiGetHostByName",1,1)
-    if(!SWIG_lua_isnilstring(L,1)) SWIG_fail_arg("CGNETSystem::uiGetHostByName",1,"char *");
-    arg1 = (char *)lua_tostring(L, 1);
-    result = (uint)CGNETSystem::uiGetHostByName(arg1);
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CGNETSystem(void *obj) {
-CGNETSystem *arg1 = (CGNETSystem *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CGNETSystem(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CGNETSystem);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CGNETSystem_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_method swig_CGNETSystem_methods[]= {
-    {0,0}
-};
-static swig_lua_method swig_CGNETSystem_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CGNETSystem_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CGNETSystem_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CGNETSystem_Sf_SwigStatic_methods[]= {
-    { "Init", _wrap_CGNETSystem_Init},
-    { "Finish", _wrap_CGNETSystem_Finish},
-    { "CreateServer", _wrap_CGNETSystem_CreateServer},
-    { "WriteToClient", _wrap_CGNETSystem_WriteToClient},
-    { "ReadFromClient", _wrap_CGNETSystem_ReadFromClient},
-    { "AcceptConnections", _wrap_CGNETSystem_AcceptConnections},
-    { "bPendingInfo", _wrap_CGNETSystem_bPendingInfo},
-    { "ConnectToServer", _wrap_CGNETSystem_ConnectToServer},
-    { "Disconnect", _wrap_CGNETSystem_Disconnect},
-    { "WriteToServer", _wrap_CGNETSystem_WriteToServer},
-    { "ReadFromServer", _wrap_CGNETSystem_ReadFromServer},
-    { "GetHostName", _wrap_CGNETSystem_GetHostName},
-    { "uiGetHostByName", _wrap_CGNETSystem_uiGetHostByName},
-    {0,0}
-};
-static swig_lua_class* swig_CGNETSystem_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CGNETSystem_Sf_SwigStatic = {
-    "CGNETSystem",
-    swig_CGNETSystem_Sf_SwigStatic_methods,
-    swig_CGNETSystem_Sf_SwigStatic_attributes,
-    swig_CGNETSystem_Sf_SwigStatic_constants,
-    swig_CGNETSystem_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CGNETSystem_bases[] = {0};
-static const char *swig_CGNETSystem_base_names[] = {0};
-static swig_lua_class _wrap_class_CGNETSystem = { "CGNETSystem", "CGNETSystem", &SWIGTYPE_p_CGNETSystem,_proxy__wrap_new_CGNETSystem, swig_delete_CGNETSystem, swig_CGNETSystem_methods, swig_CGNETSystem_attributes, &swig_CGNETSystem_Sf_SwigStatic, swig_CGNETSystem_meta, swig_CGNETSystem_bases, swig_CGNETSystem_base_names };
-
-static int _wrap_new_CGNETServer(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGNETServer *result = 0 ;
-    
-    SWIG_check_num_args("CGNETServer::CGNETServer",0,0)
-    result = (CGNETServer *)new CGNETServer();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGNETServer,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGNETServer_Init(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    uint arg1 ;
-    
-    SWIG_check_num_args("CGNETServer::Init",1,1)
-    if(!lua_isnumber(L,1)) SWIG_fail_arg("CGNETServer::Init",1,"uint");
-    SWIG_contract_assert((lua_tonumber(L,1)>=0),"number must not be negative");
-    arg1 = (uint)lua_tonumber(L, 1);
-    CGNETServer::Init(arg1);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGNETServer_Loop(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    
-    SWIG_check_num_args("CGNETServer::Loop",0,0)
-    CGNETServer::Loop();
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGNETServer_bSendInfo(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    int arg1 ;
-    void *arg2 = (void *) 0 ;
-    uint arg3 ;
-    bool result;
-    
-    SWIG_check_num_args("CGNETServer::bSendInfo",3,3)
-    if(!lua_isnumber(L,1)) SWIG_fail_arg("CGNETServer::bSendInfo",1,"int");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGNETServer::bSendInfo",2,"void *");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CGNETServer::bSendInfo",3,"uint");
-    arg1 = (int)lua_tonumber(L, 1);
-    arg2=(void *)SWIG_MustGetPtr(L,2,0,0,2,"CGNETServer_bSendInfo");
-    SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
-    arg3 = (uint)lua_tonumber(L, 3);
-    result = (bool)CGNETServer::bSendInfo(arg1,arg2,arg3);
-    lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGNETServer_bGetInfo(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    int arg1 ;
-    void *arg2 = (void *) 0 ;
-    uint *arg3 = 0 ;
-    bool result;
-    
-    SWIG_check_num_args("CGNETServer::bGetInfo",3,3)
-    if(!lua_isnumber(L,1)) SWIG_fail_arg("CGNETServer::bGetInfo",1,"int");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGNETServer::bGetInfo",2,"void *");
-    if(!lua_isuserdata(L,3)) SWIG_fail_arg("CGNETServer::bGetInfo",3,"uint &");
-    arg1 = (int)lua_tonumber(L, 1);
-    arg2=(void *)SWIG_MustGetPtr(L,2,0,0,2,"CGNETServer_bGetInfo");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_unsigned_int,0))){
-      SWIG_fail_ptr("CGNETServer_bGetInfo",3,SWIGTYPE_p_unsigned_int);
-    }
-    
-    result = (bool)CGNETServer::bGetInfo(arg1,arg2,*arg3);
-    lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGNETServer_SetConnectionCallback(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    TConnectionCallback arg1 = (TConnectionCallback) 0 ;
-    
-    SWIG_check_num_args("CGNETServer::SetConnectionCallback",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGNETServer::SetConnectionCallback",1,"TConnectionCallback");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_f_int__void,0))){
-      SWIG_fail_ptr("CGNETServer_SetConnectionCallback",1,SWIGTYPE_p_f_int__void);
-    }
-    
-    CGNETServer::SetConnectionCallback(arg1);
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CGNETServer(void *obj) {
-CGNETServer *arg1 = (CGNETServer *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CGNETServer(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CGNETServer);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CGNETServer_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_method swig_CGNETServer_methods[]= {
-    {0,0}
-};
-static swig_lua_method swig_CGNETServer_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CGNETServer_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CGNETServer_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CGNETServer_Sf_SwigStatic_methods[]= {
-    { "Init", _wrap_CGNETServer_Init},
-    { "Loop", _wrap_CGNETServer_Loop},
-    { "bSendInfo", _wrap_CGNETServer_bSendInfo},
-    { "bGetInfo", _wrap_CGNETServer_bGetInfo},
-    { "SetConnectionCallback", _wrap_CGNETServer_SetConnectionCallback},
-    {0,0}
-};
-static swig_lua_class* swig_CGNETServer_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CGNETServer_Sf_SwigStatic = {
-    "CGNETServer",
-    swig_CGNETServer_Sf_SwigStatic_methods,
-    swig_CGNETServer_Sf_SwigStatic_attributes,
-    swig_CGNETServer_Sf_SwigStatic_constants,
-    swig_CGNETServer_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CGNETServer_bases[] = {0};
-static const char *swig_CGNETServer_base_names[] = {0};
-static swig_lua_class _wrap_class_CGNETServer = { "CGNETServer", "CGNETServer", &SWIGTYPE_p_CGNETServer,_proxy__wrap_new_CGNETServer, swig_delete_CGNETServer, swig_CGNETServer_methods, swig_CGNETServer_attributes, &swig_CGNETServer_Sf_SwigStatic, swig_CGNETServer_meta, swig_CGNETServer_bases, swig_CGNETServer_base_names };
-
-static int _wrap_new_CGNETClient(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGNETClient *result = 0 ;
-    
-    SWIG_check_num_args("CGNETClient::CGNETClient",0,0)
-    result = (CGNETClient *)new CGNETClient();
-    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGNETClient,1); SWIG_arg++; 
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGNETClient_bConnect__SWIG_0(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGNETClient *arg1 = (CGNETClient *) 0 ;
-    uint arg2 ;
-    uint arg3 ;
-    bool result;
-    
-    SWIG_check_num_args("CGNETClient::bConnect",3,3)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGNETClient::bConnect",1,"CGNETClient *");
-    if(!lua_isnumber(L,2)) SWIG_fail_arg("CGNETClient::bConnect",2,"uint");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CGNETClient::bConnect",3,"uint");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGNETClient,0))){
-      SWIG_fail_ptr("CGNETClient_bConnect",1,SWIGTYPE_p_CGNETClient);
-    }
-    
-    SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative");
-    arg2 = (uint)lua_tonumber(L, 2);
-    SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
-    arg3 = (uint)lua_tonumber(L, 3);
-    result = (bool)(arg1)->bConnect(arg2,arg3);
-    lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGNETClient_bConnect__SWIG_1(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGNETClient *arg1 = (CGNETClient *) 0 ;
-    char *arg2 = (char *) 0 ;
-    uint arg3 ;
-    bool result;
-    
-    SWIG_check_num_args("CGNETClient::bConnect",3,3)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGNETClient::bConnect",1,"CGNETClient *");
-    if(!SWIG_lua_isnilstring(L,2)) SWIG_fail_arg("CGNETClient::bConnect",2,"char *");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CGNETClient::bConnect",3,"uint");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGNETClient,0))){
-      SWIG_fail_ptr("CGNETClient_bConnect",1,SWIGTYPE_p_CGNETClient);
-    }
-    
-    arg2 = (char *)lua_tostring(L, 2);
-    SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
-    arg3 = (uint)lua_tonumber(L, 3);
-    result = (bool)(arg1)->bConnect(arg2,arg3);
-    lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGNETClient_bConnect(lua_State* L) {
-  int argc;
-  int argv[4]={
-    1,2,3,4
-  };
-  
-  argc = lua_gettop(L);
-  if (argc == 3) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CGNETClient, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = lua_isnumber(L,argv[1]);
-      }
-      if (_v) {
-        {
-          _v = lua_isnumber(L,argv[2]);
-        }
-        if (_v) {
-          return _wrap_CGNETClient_bConnect__SWIG_0(L);
-        }
-      }
-    }
-  }
-  if (argc == 3) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CGNETClient, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        _v = SWIG_lua_isnilstring(L,argv[1]);
-      }
-      if (_v) {
-        {
-          _v = lua_isnumber(L,argv[2]);
-        }
-        if (_v) {
-          return _wrap_CGNETClient_bConnect__SWIG_1(L);
-        }
-      }
-    }
-  }
-  
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'CGNETClient_bConnect'\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    CGNETClient::bConnect(uint,uint)\n"
-    "    CGNETClient::bConnect(char *,uint)\n");
-  lua_error(L);return 0;
-}
-
-
-static int _wrap_CGNETClient_bGetInfo(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGNETClient *arg1 = (CGNETClient *) 0 ;
-    void *arg2 = (void *) 0 ;
-    int *arg3 = 0 ;
-    bool result;
-    
-    SWIG_check_num_args("CGNETClient::bGetInfo",3,3)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGNETClient::bGetInfo",1,"CGNETClient *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGNETClient::bGetInfo",2,"void *");
-    if(!lua_isuserdata(L,3)) SWIG_fail_arg("CGNETClient::bGetInfo",3,"int &");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGNETClient,0))){
-      SWIG_fail_ptr("CGNETClient_bGetInfo",1,SWIGTYPE_p_CGNETClient);
-    }
-    
-    arg2=(void *)SWIG_MustGetPtr(L,2,0,0,2,"CGNETClient_bGetInfo");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_int,0))){
-      SWIG_fail_ptr("CGNETClient_bGetInfo",3,SWIGTYPE_p_int);
-    }
-    
-    result = (bool)(arg1)->bGetInfo(arg2,*arg3);
-    lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGNETClient_bSendInfo(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGNETClient *arg1 = (CGNETClient *) 0 ;
-    void *arg2 = (void *) 0 ;
-    int arg3 ;
-    bool result;
-    
-    SWIG_check_num_args("CGNETClient::bSendInfo",3,3)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGNETClient::bSendInfo",1,"CGNETClient *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGNETClient::bSendInfo",2,"void *");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CGNETClient::bSendInfo",3,"int");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGNETClient,0))){
-      SWIG_fail_ptr("CGNETClient_bSendInfo",1,SWIGTYPE_p_CGNETClient);
-    }
-    
-    arg2=(void *)SWIG_MustGetPtr(L,2,0,0,2,"CGNETClient_bSendInfo");
-    arg3 = (int)lua_tonumber(L, 3);
-    result = (bool)(arg1)->bSendInfo(arg2,arg3);
-    lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_CGNETClient_iGetState(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGNETClient *arg1 = (CGNETClient *) 0 ;
-    int result;
-    
-    SWIG_check_num_args("CGNETClient::iGetState",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGNETClient::iGetState",1,"CGNETClient *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGNETClient,0))){
-      SWIG_fail_ptr("CGNETClient_iGetState",1,SWIGTYPE_p_CGNETClient);
-    }
-    
-    result = (int)(arg1)->iGetState();
-    lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
-static void swig_delete_CGNETClient(void *obj) {
-CGNETClient *arg1 = (CGNETClient *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_CGNETClient(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_CGNETClient);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_CGNETClient_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_method swig_CGNETClient_methods[]= {
-    { "bConnect", _wrap_CGNETClient_bConnect},
-    { "bGetInfo", _wrap_CGNETClient_bGetInfo},
-    { "bSendInfo", _wrap_CGNETClient_bSendInfo},
-    { "iGetState", _wrap_CGNETClient_iGetState},
-    {0,0}
-};
-static swig_lua_method swig_CGNETClient_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_CGNETClient_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_CGNETClient_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_CGNETClient_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_CGNETClient_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_CGNETClient_Sf_SwigStatic = {
-    "CGNETClient",
-    swig_CGNETClient_Sf_SwigStatic_methods,
-    swig_CGNETClient_Sf_SwigStatic_attributes,
-    swig_CGNETClient_Sf_SwigStatic_constants,
-    swig_CGNETClient_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_CGNETClient_bases[] = {0};
-static const char *swig_CGNETClient_base_names[] = {0};
-static swig_lua_class _wrap_class_CGNETClient = { "CGNETClient", "CGNETClient", &SWIGTYPE_p_CGNETClient,_proxy__wrap_new_CGNETClient, swig_delete_CGNETClient, swig_CGNETClient_methods, swig_CGNETClient_attributes, &swig_CGNETClient_Sf_SwigStatic, swig_CGNETClient_meta, swig_CGNETClient_bases, swig_CGNETClient_base_names };
 
 static int _wrap_CGAIMathFuncs_GetRotatedY(lua_State* L) {
   {
@@ -111867,8 +105494,7 @@ static swig_lua_attribute swig_SwigModule_attributes[] = {
     { "GEM_ANIMGROUP_IDENTIFIER", _wrap_GEM_ANIMGROUP_IDENTIFIER_get, SWIG_Lua_set_immutable },
     { "GEM_ANIMMESH_IDENTIFIER", _wrap_GEM_ANIMMESH_IDENTIFIER_get, SWIG_Lua_set_immutable },
     { "GEM_ANIMTRANSF_IDENTIFIER", _wrap_GEM_ANIMTRANSF_IDENTIFIER_get, SWIG_Lua_set_immutable },
-    { "GEM_ANIMCFG_IDENTIFIER", _wrap_GEM_ANIMCFG_IDENTIFIER_get, SWIG_Lua_set_immutable },
-    { "GEM_ANIMINST_IDENTIFIER", _wrap_GEM_ANIMINST_IDENTIFIER_get, SWIG_Lua_set_immutable },
+    { "GEM_ANIMACTIONSET_IDENTIFIER", _wrap_GEM_ANIMACTIONSET_IDENTIFIER_get, SWIG_Lua_set_immutable },
     { "GEM_CAMERA_IDENTIFIER", _wrap_GEM_CAMERA_IDENTIFIER_get, SWIG_Lua_set_immutable },
     { "GEM_BSPNODE_IDENTIFIER", _wrap_GEM_BSPNODE_IDENTIFIER_get, SWIG_Lua_set_immutable },
     { "GEM_MUX_IDENTIFIER", _wrap_GEM_MUX_IDENTIFIER_get, SWIG_Lua_set_immutable },
@@ -112013,28 +105639,28 @@ static swig_lua_const_info swig_SwigModule_constants[]= {
     {SWIG_LUA_CONSTTAB_INT("E3D_SHI_Program", (E3D_SHI_Program))},
     {SWIG_LUA_CONSTTAB_INT("E3D_SHI_ZOp", (E3D_SHI_ZOp))},
     {SWIG_LUA_CONSTTAB_INT("E3D_SHI_NumInsts", (E3D_SHI_NumInsts))},
-    {SWIG_LUA_CONSTTAB_INT("eSITexOp_NULL", (eSITexOp_NULL))},
-    {SWIG_LUA_CONSTTAB_INT("eSITexOp_Rotate", (eSITexOp_Rotate))},
-    {SWIG_LUA_CONSTTAB_INT("eSITexOp_Scale", (eSITexOp_Scale))},
-    {SWIG_LUA_CONSTTAB_INT("eSITexOp_ScaleU", (eSITexOp_ScaleU))},
-    {SWIG_LUA_CONSTTAB_INT("eSITexOp_ScaleV", (eSITexOp_ScaleV))},
-    {SWIG_LUA_CONSTTAB_INT("eSITexOp_TransU", (eSITexOp_TransU))},
-    {SWIG_LUA_CONSTTAB_INT("eSITexOp_TransV", (eSITexOp_TransV))},
-    {SWIG_LUA_CONSTTAB_INT("eSITexOp_ReflectMap", (eSITexOp_ReflectMap))},
-    {SWIG_LUA_CONSTTAB_INT("eSITexOp_EnvMap", (eSITexOp_EnvMap))},
-    {SWIG_LUA_CONSTTAB_INT("eSITexOp_Matrix", (eSITexOp_Matrix))},
-    {SWIG_LUA_CONSTTAB_INT("eSITexOp_FrameSet", (eSITexOp_FrameSet))},
-    {SWIG_LUA_CONSTTAB_INT("eSIGeoOp_NULL", (eSIGeoOp_NULL))},
-    {SWIG_LUA_CONSTTAB_INT("eSIGeoOp_RotateX", (eSIGeoOp_RotateX))},
-    {SWIG_LUA_CONSTTAB_INT("eSIGeoOp_RotateY", (eSIGeoOp_RotateY))},
-    {SWIG_LUA_CONSTTAB_INT("eSIGeoOp_RotateZ", (eSIGeoOp_RotateZ))},
-    {SWIG_LUA_CONSTTAB_INT("eSIGeoOp_Scale", (eSIGeoOp_Scale))},
-    {SWIG_LUA_CONSTTAB_INT("eSIGeoOp_ScaleX", (eSIGeoOp_ScaleX))},
-    {SWIG_LUA_CONSTTAB_INT("eSIGeoOp_ScaleY", (eSIGeoOp_ScaleY))},
-    {SWIG_LUA_CONSTTAB_INT("eSIGeoOp_ScaleZ", (eSIGeoOp_ScaleZ))},
-    {SWIG_LUA_CONSTTAB_INT("eSIGeoOp_TransX", (eSIGeoOp_TransX))},
-    {SWIG_LUA_CONSTTAB_INT("eSIGeoOp_TransY", (eSIGeoOp_TransY))},
-    {SWIG_LUA_CONSTTAB_INT("eSIGeoOp_TransZ", (eSIGeoOp_TransZ))},
+    {SWIG_LUA_CONSTTAB_INT("ESITexOpNULL", (ESITexOpNULL))},
+    {SWIG_LUA_CONSTTAB_INT("ESITexOpRotate", (ESITexOpRotate))},
+    {SWIG_LUA_CONSTTAB_INT("ESITexOpScale", (ESITexOpScale))},
+    {SWIG_LUA_CONSTTAB_INT("ESITexOpScaleU", (ESITexOpScaleU))},
+    {SWIG_LUA_CONSTTAB_INT("ESITexOpScaleV", (ESITexOpScaleV))},
+    {SWIG_LUA_CONSTTAB_INT("ESITexOpTransU", (ESITexOpTransU))},
+    {SWIG_LUA_CONSTTAB_INT("ESITexOpTransV", (ESITexOpTransV))},
+    {SWIG_LUA_CONSTTAB_INT("ESITexOpReflectMap", (ESITexOpReflectMap))},
+    {SWIG_LUA_CONSTTAB_INT("ESITexOpEnvMap", (ESITexOpEnvMap))},
+    {SWIG_LUA_CONSTTAB_INT("ESITexOpMatrix", (ESITexOpMatrix))},
+    {SWIG_LUA_CONSTTAB_INT("ESITexOpFrameSet", (ESITexOpFrameSet))},
+    {SWIG_LUA_CONSTTAB_INT("ESIGeoOpNULL", (ESIGeoOpNULL))},
+    {SWIG_LUA_CONSTTAB_INT("ESIGeoOpRotateX", (ESIGeoOpRotateX))},
+    {SWIG_LUA_CONSTTAB_INT("ESIGeoOpRotateY", (ESIGeoOpRotateY))},
+    {SWIG_LUA_CONSTTAB_INT("ESIGeoOpRotateZ", (ESIGeoOpRotateZ))},
+    {SWIG_LUA_CONSTTAB_INT("ESIGeoOpScale", (ESIGeoOpScale))},
+    {SWIG_LUA_CONSTTAB_INT("ESIGeoOpScaleX", (ESIGeoOpScaleX))},
+    {SWIG_LUA_CONSTTAB_INT("ESIGeoOpScaleY", (ESIGeoOpScaleY))},
+    {SWIG_LUA_CONSTTAB_INT("ESIGeoOpScaleZ", (ESIGeoOpScaleZ))},
+    {SWIG_LUA_CONSTTAB_INT("ESIGeoOpTransX", (ESIGeoOpTransX))},
+    {SWIG_LUA_CONSTTAB_INT("ESIGeoOpTransY", (ESIGeoOpTransY))},
+    {SWIG_LUA_CONSTTAB_INT("ESIGeoOpTransZ", (ESIGeoOpTransZ))},
     {SWIG_LUA_CONSTTAB_INT("IF_NONE", (IF_NONE))},
     {SWIG_LUA_CONSTTAB_INT("IF_PALETTE", (IF_PALETTE))},
     {SWIG_LUA_CONSTTAB_INT("IF_RGB16", (IF_RGB16))},
@@ -112074,8 +105700,7 @@ static swig_lua_const_info swig_SwigModule_constants[]= {
     {SWIG_LUA_CONSTTAB_INT("SNT_AnimGroup", (SNT_AnimGroup))},
     {SWIG_LUA_CONSTTAB_INT("SNT_AnimMesh", (SNT_AnimMesh))},
     {SWIG_LUA_CONSTTAB_INT("SNT_AnimTransf", (SNT_AnimTransf))},
-    {SWIG_LUA_CONSTTAB_INT("SNT_AnimCfg", (SNT_AnimCfg))},
-    {SWIG_LUA_CONSTTAB_INT("SNT_AnimInstance", (SNT_AnimInstance))},
+    {SWIG_LUA_CONSTTAB_INT("SNT_AnimActionSet", (SNT_AnimActionSet))},
     {SWIG_LUA_CONSTTAB_INT("SNT_Anim_End", (SNT_Anim_End))},
     {SWIG_LUA_CONSTTAB_INT("SNT_Camera", (SNT_Camera))},
     {SWIG_LUA_CONSTTAB_INT("SNT_Mux", (SNT_Mux))},
@@ -112187,6 +105812,7 @@ static swig_lua_const_info swig_SwigModule_constants[]= {
     {SWIG_LUA_CONSTTAB_INT("RES_OP_WARNING", (RES_OP_WARNING))},
     {SWIG_LUA_CONSTTAB_INT("GEM_MAJOR_VERSION", (1))},
     {SWIG_LUA_CONSTTAB_INT("GEM_MINOR_VERSION", (1))},
+    {SWIG_LUA_CONSTTAB_INT("CGraphBV_FileIO_h", (1))},
     {SWIG_LUA_CONSTTAB_INT("CConsole_h", (1))},
     {SWIG_LUA_CONSTTAB_INT("CHUD_h", (1))},
     {SWIG_LUA_CONSTTAB_INT("CSkyDome_h", (1))},
@@ -112336,27 +105962,6 @@ static swig_lua_const_info swig_SwigModule_constants[]= {
     {SWIG_LUA_CONSTTAB_INT("CCOL_ST_Sphere_h", (1))},
     {SWIG_LUA_CONSTTAB_INT("CCOL_Mesh_h", (1))},
     {SWIG_LUA_CONSTTAB_INT("CCOL_ST_Tris_h", (1))},
-    {SWIG_LUA_CONSTTAB_INT("CSoundRenderer_h", (1))},
-    {SWIG_LUA_CONSTTAB_INT("CSoundEmiter_h", (1))},
-    {SWIG_LUA_CONSTTAB_INT("CSoundEntity_h", (1))},
-    {SWIG_LUA_CONSTTAB_INT("CSound_h", (1))},
-    {SWIG_LUA_CONSTTAB_INT("CSoundLayer_h", (1))},
-    {SWIG_LUA_CONSTTAB_INT("CSample_h", (1))},
-    {SWIG_LUA_CONSTTAB_INT("CSoundReceiver_h", (1))},
-    {SWIG_LUA_CONSTTAB_INT("CSoundRenderer_DSound_h", (1))},
-    {SWIG_LUA_CONSTTAB_INT("CSoundMixer_h", (1))},
-    {SWIG_LUA_CONSTTAB_INT("CSoundMixPars_h", (1))},
-    {SWIG_LUA_CONSTTAB_INT("CSoundEmiter_DSound_h", (1))},
-    {SWIG_LUA_CONSTTAB_INT("CSoundRenderer_OpenAL_h", (1))},
-    {SWIG_LUA_CONSTTAB_INT("CSoundEmiter_OpenAL_h", (1))},
-    {SWIG_LUA_CONSTTAB_INT("CSampleWH_h", (1))},
-    {SWIG_LUA_CONSTTAB_INT("CSoundWH_h", (1))},
-    {SWIG_LUA_CONSTTAB_INT("MAXC_SNAME", (256))},
-    {SWIG_LUA_CONSTTAB_INT("MAX_CONNECTIONS", (128))},
-    {SWIG_LUA_CONSTTAB_INT("MAX_PACKET_SIZE", ((65536-8)))},
-    {SWIG_LUA_CONSTTAB_INT("CLST_DISCONNECTED", (0))},
-    {SWIG_LUA_CONSTTAB_INT("CLST_CONNECTED", (1))},
-    {SWIG_LUA_CONSTTAB_INT("CLST_REGISTERED", (2))},
     {SWIG_LUA_CONSTTAB_INT("SHIFT", (0))},
     {SWIG_LUA_CONSTTAB_INT("TILESIZE", (1))},
     {0,0,0,0,0,0}
@@ -112418,7 +106023,7 @@ static swig_lua_method swig_SwigModule_methods[]= {
     { "bBVIntersectFrustum", _wrap_bBVIntersectFrustum},
     { "CGRenderer_I", _wrap_CGRenderer_I},
     { "ComputePrimitiveNormals", _wrap_ComputePrimitiveNormals},
-    { "ComputeVertexsNormals", _wrap_ComputeVertexsNormals},
+    { "ComputeVertexNormals", _wrap_ComputeVertexNormals},
     { "ComputeUVOrthoMapping", _wrap_ComputeUVOrthoMapping},
     { "TranslateMesh", _wrap_TranslateMesh},
     { "ScaleMesh", _wrap_ScaleMesh},
@@ -112446,6 +106051,8 @@ static swig_lua_method swig_SwigModule_methods[]= {
     { "CGFileUtils_EndRIFFBlock", _wrap_CGFileUtils_EndRIFFBlock},
     { "GEMFile_Translate_TypeID2FileID", _wrap_GEMFile_Translate_TypeID2FileID},
     { "GEMFile_Translate_FileID2TypeID2", _wrap_GEMFile_Translate_FileID2TypeID2},
+    { "CGGraphBVFileIO_pLoadGraphBV", _wrap_CGGraphBVFileIO_pLoadGraphBV},
+    { "CGGraphBVFileIO_iSaveGraphBV", _wrap_CGGraphBVFileIO_iSaveGraphBV},
     { "CCOL_DT_Tri_fTestSphere", _wrap_CCOL_DT_Tri_fTestSphere},
     { "CCOL_DT_Tri_fTestBox", _wrap_CCOL_DT_Tri_fTestBox},
     { "CCOL_DT_Tri_fTestPoint", _wrap_CCOL_DT_Tri_fTestPoint},
@@ -112482,7 +106089,6 @@ static swig_lua_method swig_SwigModule_methods[]= {
     { "CCOL_Scn_ColTester_iTest3DObj", _wrap_CCOL_Scn_ColTester_iTest3DObj},
     { "CCOL_Scn_ColTester_iTest3DObj_Node", _wrap_CCOL_Scn_ColTester_iTest3DObj_Node},
     { "CCOL_Scn_ColTester_iTest3DObj_Transf", _wrap_CCOL_Scn_ColTester_iTest3DObj_Transf},
-    { "CCOL_Scn_ColTester_iTest3DObj_CompiledLeaf", _wrap_CCOL_Scn_ColTester_iTest3DObj_CompiledLeaf},
     { "CCOL_Scn_ColTester_iTest3DObj_Leaf", _wrap_CCOL_Scn_ColTester_iTest3DObj_Leaf},
     { "CCOL_Scn_ColTester_iTest3DObj_BSPNode", _wrap_CCOL_Scn_ColTester_iTest3DObj_BSPNode},
     { "CCOL_ST_Tris_iTestCollision", _wrap_CCOL_ST_Tris_iTestCollision},
@@ -112492,35 +106098,6 @@ static swig_lua_method swig_SwigModule_methods[]= {
     { "CCOL_ST_Tris_iTestTriangleSphere", _wrap_CCOL_ST_Tris_iTestTriangleSphere},
     { "CCOL_ST_Tris_iTestTriangleBox", _wrap_CCOL_ST_Tris_iTestTriangleBox},
     { "CCOL_ST_Tris_iTestTriangleRay", _wrap_CCOL_ST_Tris_iTestTriangleRay},
-    { "CSoundMixer_Clear", _wrap_CSoundMixer_Clear},
-    { "CSoundMixer_SetupBuffer", _wrap_CSoundMixer_SetupBuffer},
-    { "CSoundMixer_Mix", _wrap_CSoundMixer_Mix},
-    { "CSoundMixer_iMix16M", _wrap_CSoundMixer_iMix16M},
-    { "CSoundMixer_iMix16S", _wrap_CSoundMixer_iMix16S},
-    { "CSoundMixer_iMix8M", _wrap_CSoundMixer_iMix8M},
-    { "CSoundMixer_iMix8S", _wrap_CSoundMixer_iMix8S},
-    { "CSoundMixer_pGetBuffer", _wrap_CSoundMixer_pGetBuffer},
-    { "CSoundMixer_uiGetBufferSize", _wrap_CSoundMixer_uiGetBufferSize},
-    { "CSoundMixer_Finish", _wrap_CSoundMixer_Finish},
-    { "CSoundMixer_PostProcess", _wrap_CSoundMixer_PostProcess},
-    { "CGNETSystem_Init", _wrap_CGNETSystem_Init},
-    { "CGNETSystem_Finish", _wrap_CGNETSystem_Finish},
-    { "CGNETSystem_CreateServer", _wrap_CGNETSystem_CreateServer},
-    { "CGNETSystem_WriteToClient", _wrap_CGNETSystem_WriteToClient},
-    { "CGNETSystem_ReadFromClient", _wrap_CGNETSystem_ReadFromClient},
-    { "CGNETSystem_AcceptConnections", _wrap_CGNETSystem_AcceptConnections},
-    { "CGNETSystem_bPendingInfo", _wrap_CGNETSystem_bPendingInfo},
-    { "CGNETSystem_ConnectToServer", _wrap_CGNETSystem_ConnectToServer},
-    { "CGNETSystem_Disconnect", _wrap_CGNETSystem_Disconnect},
-    { "CGNETSystem_WriteToServer", _wrap_CGNETSystem_WriteToServer},
-    { "CGNETSystem_ReadFromServer", _wrap_CGNETSystem_ReadFromServer},
-    { "CGNETSystem_GetHostName", _wrap_CGNETSystem_GetHostName},
-    { "CGNETSystem_uiGetHostByName", _wrap_CGNETSystem_uiGetHostByName},
-    { "CGNETServer_Init", _wrap_CGNETServer_Init},
-    { "CGNETServer_Loop", _wrap_CGNETServer_Loop},
-    { "CGNETServer_bSendInfo", _wrap_CGNETServer_bSendInfo},
-    { "CGNETServer_bGetInfo", _wrap_CGNETServer_bGetInfo},
-    { "CGNETServer_SetConnectionCallback", _wrap_CGNETServer_SetConnectionCallback},
     { "DebugPrint", _wrap_DebugPrint},
     { "DebugClear", _wrap_DebugClear},
     { "CallExtension", _wrap_CallExtension},
@@ -112638,9 +106215,8 @@ static swig_lua_class* swig_SwigModule_classes[]= {
 &_wrap_class_CGSceneSwitch,
 &_wrap_class_CGSceneAnimNode,
 &_wrap_class_CAnimAction,
-&_wrap_class_CGSceneAnimCfg,
+&_wrap_class_CGSceneAnimActionSet,
 &_wrap_class_CGSceneAnimGroup,
-&_wrap_class_CGSceneAnimInstance,
 &_wrap_class_CGSceneAnimMesh,
 &_wrap_class_CGSceneAnimTransf,
 &_wrap_class_C3DLoader,
@@ -112731,6 +106307,7 @@ static swig_lua_class* swig_SwigModule_classes[]= {
 &_wrap_class_CGSCNVBoundVolBuilder,
 &_wrap_class_CGSCNVRenderer,
 &_wrap_class_CGSCNVVisibilityChecker,
+&_wrap_class_CGGraphBVFileIO,
 &_wrap_class_CHUDElem,
 &_wrap_class_CHUD,
 &_wrap_class_CConsole,
@@ -112878,24 +106455,6 @@ static swig_lua_class* swig_SwigModule_classes[]= {
 &_wrap_class_CCOL_Mesh,
 &_wrap_class_CCOL_Scn_ColTester,
 &_wrap_class_CCOL_ST_Tris,
-&_wrap_class_CSoundEntity,
-&_wrap_class_CSample,
-&_wrap_class_CSoundLayer,
-&_wrap_class_CSound,
-&_wrap_class_CSoundEmiter,
-&_wrap_class_CSoundReceiver,
-&_wrap_class_CSoundRenderer,
-&_wrap_class_CSoundMixPars,
-&_wrap_class_CSoundMixer,
-&_wrap_class_CSoundEmiter_DSound,
-&_wrap_class_CSoundRenderer_DSound,
-&_wrap_class_CSoundEmiter_OpenAL,
-&_wrap_class_CSoundRenderer_OpenAL,
-&_wrap_class_CSampleWH,
-&_wrap_class_CSoundWH,
-&_wrap_class_CGNETSystem,
-&_wrap_class_CGNETServer,
-&_wrap_class_CGNETClient,
 &_wrap_class_CGAIMathFuncs,
 &_wrap_class_CGAIMap,
 &_wrap_class_CGAIDXAStar,
@@ -113263,11 +106822,11 @@ static void *_p_CGProgramTo_p_CGReferenceCounter(void *x, int *SWIGUNUSEDPARM(ne
 static void *_p_CGResourceTo_p_CGReferenceCounter(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((CGReferenceCounter *)  ((CGResource *) x));
 }
+static void *_p_CGSceneAnimActionSetTo_p_CGReferenceCounter(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((CGReferenceCounter *) (CGSceneNode *) ((CGSceneAnimActionSet *) x));
+}
 static void *_p_CGSceneAnimGroupTo_p_CGReferenceCounter(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((CGReferenceCounter *) (CGSceneNode *)(CGSceneAnimNode *) ((CGSceneAnimGroup *) x));
-}
-static void *_p_CGSceneAnimInstanceTo_p_CGReferenceCounter(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((CGReferenceCounter *) (CGSceneNode *) ((CGSceneAnimInstance *) x));
 }
 static void *_p_CGSceneAnimMeshTo_p_CGReferenceCounter(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((CGReferenceCounter *) (CGSceneNode *)(CGSceneAnimNode *) ((CGSceneAnimMesh *) x));
@@ -113353,9 +106912,6 @@ static void *_p_CHUDProgressBarTo_p_CGReferenceCounter(void *x, int *SWIGUNUSEDP
 static void *_p_CLensFlareTo_p_CGReferenceCounter(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((CGReferenceCounter *) (CGSceneNode *) ((CLensFlare *) x));
 }
-static void *_p_CSampleTo_p_CGReferenceCounter(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((CGReferenceCounter *) (CGResource *) ((CSample *) x));
-}
 static void *_p_CShadowCasterTo_p_CGReferenceCounter(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((CGReferenceCounter *) (CGSceneNode *) ((CShadowCaster *) x));
 }
@@ -113364,9 +106920,6 @@ static void *_p_CSkyBoxTo_p_CGReferenceCounter(void *x, int *SWIGUNUSEDPARM(newm
 }
 static void *_p_CSkyDomeTo_p_CGReferenceCounter(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((CGReferenceCounter *) (CGSceneNode *)(CGSceneLeaf *) ((CSkyDome *) x));
-}
-static void *_p_CSoundTo_p_CGReferenceCounter(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((CGReferenceCounter *) (CGResource *) ((CSound *) x));
 }
 static void *_p_CTerrainCircuitTo_p_CGReferenceCounter(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((CGReferenceCounter *) (CGSceneNode *)(CGSceneGroup *) ((CTerrainCircuit *) x));
@@ -113427,12 +106980,6 @@ static void *_p_CGTrailGeneratorTo_p_CGResource(void *x, int *SWIGUNUSEDPARM(new
 }
 static void *_p_CHUDFontTo_p_CGResource(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((CGResource *)  ((CHUDFont *) x));
-}
-static void *_p_CSampleTo_p_CGResource(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((CGResource *)  ((CSample *) x));
-}
-static void *_p_CSoundTo_p_CGResource(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((CGResource *)  ((CSound *) x));
 }
 static void *_p_CGSceneAnimGroupTo_p_CGSceneAnimNode(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((CGSceneAnimNode *)  ((CGSceneAnimGroup *) x));
@@ -113512,11 +107059,11 @@ static void *_p_CGCoronaInstanceTo_p_CGSceneNode(void *x, int *SWIGUNUSEDPARM(ne
 static void *_p_CGParticleSystemInstanceTo_p_CGSceneNode(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((CGSceneNode *) (CGSceneSwitch *) ((CGParticleSystemInstance *) x));
 }
+static void *_p_CGSceneAnimActionSetTo_p_CGSceneNode(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((CGSceneNode *)  ((CGSceneAnimActionSet *) x));
+}
 static void *_p_CGSceneAnimGroupTo_p_CGSceneNode(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((CGSceneNode *) (CGSceneAnimNode *) ((CGSceneAnimGroup *) x));
-}
-static void *_p_CGSceneAnimInstanceTo_p_CGSceneNode(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((CGSceneNode *)  ((CGSceneAnimInstance *) x));
 }
 static void *_p_CGSceneAnimMeshTo_p_CGSceneNode(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((CGSceneNode *) (CGSceneAnimNode *) ((CGSceneAnimMesh *) x));
@@ -113767,30 +107314,6 @@ static void *_p_CLightMapTo_p_CSectorMatrix(void *x, int *SWIGUNUSEDPARM(newmemo
 static void *_p_CTexMapTo_p_CSectorMatrix(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((CSectorMatrix *)  ((CTexMap *) x));
 }
-static void *_p_CSoundEmiter_DSoundTo_p_CSoundEmiter(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((CSoundEmiter *)  ((CSoundEmiter_DSound *) x));
-}
-static void *_p_CSoundEmiter_OpenALTo_p_CSoundEmiter(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((CSoundEmiter *)  ((CSoundEmiter_OpenAL *) x));
-}
-static void *_p_CSoundEmiterTo_p_CSoundEntity(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((CSoundEntity *)  ((CSoundEmiter *) x));
-}
-static void *_p_CSoundEmiter_DSoundTo_p_CSoundEntity(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((CSoundEntity *) (CSoundEmiter *) ((CSoundEmiter_DSound *) x));
-}
-static void *_p_CSoundEmiter_OpenALTo_p_CSoundEntity(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((CSoundEntity *) (CSoundEmiter *) ((CSoundEmiter_OpenAL *) x));
-}
-static void *_p_CSoundReceiverTo_p_CSoundEntity(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((CSoundEntity *)  ((CSoundReceiver *) x));
-}
-static void *_p_CSoundRenderer_DSoundTo_p_CSoundRenderer(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((CSoundRenderer *)  ((CSoundRenderer_DSound *) x));
-}
-static void *_p_CSoundRenderer_OpenALTo_p_CSoundRenderer(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((CSoundRenderer *)  ((CSoundRenderer_OpenAL *) x));
-}
 static void *_p_CTMSector_8_16To_p_CTMSector(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((CTMSector *)  ((CTMSector_8_16 *) x));
 }
@@ -113968,6 +107491,7 @@ static swig_type_info _swigt__p_CGGraphBV = {"_p_CGGraphBV", "CGGraphBV *", 0, 0
 static swig_type_info _swigt__p_CGGraphBVAABB = {"_p_CGGraphBVAABB", "CGGraphBVAABB *", 0, 0, (void*)&_wrap_class_CGGraphBVAABB, 0};
 static swig_type_info _swigt__p_CGGraphBVCylinder = {"_p_CGGraphBVCylinder", "CGGraphBVCylinder *", 0, 0, (void*)&_wrap_class_CGGraphBVCylinder, 0};
 static swig_type_info _swigt__p_CGGraphBVFactory = {"_p_CGGraphBVFactory", "CGGraphBVFactory *", 0, 0, (void*)&_wrap_class_CGGraphBVFactory, 0};
+static swig_type_info _swigt__p_CGGraphBVFileIO = {"_p_CGGraphBVFileIO", "CGGraphBVFileIO *", 0, 0, (void*)&_wrap_class_CGGraphBVFileIO, 0};
 static swig_type_info _swigt__p_CGGraphBVPoint = {"_p_CGGraphBVPoint", "CGGraphBVPoint *", 0, 0, (void*)&_wrap_class_CGGraphBVPoint, 0};
 static swig_type_info _swigt__p_CGGraphBVSphere = {"_p_CGGraphBVSphere", "CGGraphBVSphere *", 0, 0, (void*)&_wrap_class_CGGraphBVSphere, 0};
 static swig_type_info _swigt__p_CGGraphicInstance = {"_p_CGGraphicInstance", "CGGraphicInstance *", 0, 0, (void*)&_wrap_class_CGGraphicInstance, 0};
@@ -113987,9 +107511,6 @@ static swig_type_info _swigt__p_CGMeshRect = {"_p_CGMeshRect", "CGMeshRect *", 0
 static swig_type_info _swigt__p_CGMeshSphere = {"_p_CGMeshSphere", "CGMeshSphere *", 0, 0, (void*)&_wrap_class_CGMeshSphere, 0};
 static swig_type_info _swigt__p_CGMipMap = {"_p_CGMipMap", "CGMipMap *", 0, 0, (void*)&_wrap_class_CGMipMap, 0};
 static swig_type_info _swigt__p_CGMipMapWH = {"_p_CGMipMapWH", "CGMipMapWH *", 0, 0, (void*)&_wrap_class_CGMipMapWH, 0};
-static swig_type_info _swigt__p_CGNETClient = {"_p_CGNETClient", "CGNETClient *", 0, 0, (void*)&_wrap_class_CGNETClient, 0};
-static swig_type_info _swigt__p_CGNETServer = {"_p_CGNETServer", "CGNETServer *", 0, 0, (void*)&_wrap_class_CGNETServer, 0};
-static swig_type_info _swigt__p_CGNETSystem = {"_p_CGNETSystem", "CGNETSystem *", 0, 0, (void*)&_wrap_class_CGNETSystem, 0};
 static swig_type_info _swigt__p_CGOSFile = {"_p_CGOSFile", "CGOSFile *", 0, 0, (void*)&_wrap_class_CGOSFile, 0};
 static swig_type_info _swigt__p_CGPSGDefFileWH = {"_p_CGPSGDefFileWH", "CGPSGDefFileWH *", 0, 0, (void*)&_wrap_class_CGPSGDefFileWH, 0};
 static swig_type_info _swigt__p_CGPSGGeneric = {"_p_CGPSGGeneric", "CGPSGGeneric *", 0, 0, (void*)&_wrap_class_CGPSGGeneric, 0};
@@ -114020,17 +107541,13 @@ static swig_type_info _swigt__p_CGResource = {"_p_CGResource", "CGResource *", 0
 static swig_type_info _swigt__p_CGSCNVBoundVolBuilder = {"_p_CGSCNVBoundVolBuilder", "CGSCNVBoundVolBuilder *", 0, 0, (void*)&_wrap_class_CGSCNVBoundVolBuilder, 0};
 static swig_type_info _swigt__p_CGSCNVRenderer = {"_p_CGSCNVRenderer", "CGSCNVRenderer *", 0, 0, (void*)&_wrap_class_CGSCNVRenderer, 0};
 static swig_type_info _swigt__p_CGSCNVVisibilityChecker = {"_p_CGSCNVVisibilityChecker", "CGSCNVVisibilityChecker *", 0, 0, (void*)&_wrap_class_CGSCNVVisibilityChecker, 0};
-static swig_type_info _swigt__p_CGSceneAnimCfg = {"_p_CGSceneAnimCfg", "CGSceneAnimCfg *", 0, 0, (void*)&_wrap_class_CGSceneAnimCfg, 0};
-static swig_type_info _swigt__p_CGSceneAnimCfgGen = {"_p_CGSceneAnimCfgGen", "CGSceneAnimCfgGen *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_CGSceneAnimCfgMgr = {"_p_CGSceneAnimCfgMgr", "CGSceneAnimCfgMgr *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_CGSceneAnimActionSet = {"_p_CGSceneAnimActionSet", "CGSceneAnimActionSet *", 0, 0, (void*)&_wrap_class_CGSceneAnimActionSet, 0};
 static swig_type_info _swigt__p_CGSceneAnimGroup = {"_p_CGSceneAnimGroup", "CGSceneAnimGroup *", 0, 0, (void*)&_wrap_class_CGSceneAnimGroup, 0};
-static swig_type_info _swigt__p_CGSceneAnimInstance = {"_p_CGSceneAnimInstance", "CGSceneAnimInstance *", 0, 0, (void*)&_wrap_class_CGSceneAnimInstance, 0};
 static swig_type_info _swigt__p_CGSceneAnimMesh = {"_p_CGSceneAnimMesh", "CGSceneAnimMesh *", 0, 0, (void*)&_wrap_class_CGSceneAnimMesh, 0};
 static swig_type_info _swigt__p_CGSceneAnimNode = {"_p_CGSceneAnimNode", "CGSceneAnimNode *", 0, 0, (void*)&_wrap_class_CGSceneAnimNode, 0};
 static swig_type_info _swigt__p_CGSceneAnimTransf = {"_p_CGSceneAnimTransf", "CGSceneAnimTransf *", 0, 0, (void*)&_wrap_class_CGSceneAnimTransf, 0};
 static swig_type_info _swigt__p_CGSceneBSPNode = {"_p_CGSceneBSPNode", "CGSceneBSPNode *", 0, 0, (void*)&_wrap_class_CGSceneBSPNode, 0};
 static swig_type_info _swigt__p_CGSceneCamera = {"_p_CGSceneCamera", "CGSceneCamera *", 0, 0, (void*)&_wrap_class_CGSceneCamera, 0};
-static swig_type_info _swigt__p_CGSceneCompiledLeaf = {"_p_CGSceneCompiledLeaf", "CGSceneCompiledLeaf *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_CGSceneGroup = {"_p_CGSceneGroup", "CGSceneGroup *", 0, 0, (void*)&_wrap_class_CGSceneGroup, 0};
 static swig_type_info _swigt__p_CGSceneInstance = {"_p_CGSceneInstance", "CGSceneInstance *", 0, 0, (void*)&_wrap_class_CGSceneInstance, 0};
 static swig_type_info _swigt__p_CGSceneLeaf = {"_p_CGSceneLeaf", "CGSceneLeaf *", 0, 0, (void*)&_wrap_class_CGSceneLeaf, 0};
@@ -114121,8 +107638,6 @@ static swig_type_info _swigt__p_CSFXObjectInstance = {"_p_CSFXObjectInstance", "
 static swig_type_info _swigt__p_CSLM_HFieldSect = {"_p_CSLM_HFieldSect", "CSLM_HFieldSect *", 0, 0, (void*)&_wrap_class_CSLM_HFieldSect, 0};
 static swig_type_info _swigt__p_CSLM_LMapSect = {"_p_CSLM_LMapSect", "CSLM_LMapSect *", 0, 0, (void*)&_wrap_class_CSLM_LMapSect, 0};
 static swig_type_info _swigt__p_CSLM_TMapSect = {"_p_CSLM_TMapSect", "CSLM_TMapSect *", 0, 0, (void*)&_wrap_class_CSLM_TMapSect, 0};
-static swig_type_info _swigt__p_CSample = {"_p_CSample", "CSample *", 0, 0, (void*)&_wrap_class_CSample, 0};
-static swig_type_info _swigt__p_CSampleWH = {"_p_CSampleWH", "CSampleWH *", 0, 0, (void*)&_wrap_class_CSampleWH, 0};
 static swig_type_info _swigt__p_CSaverGEM = {"_p_CSaverGEM", "CSaverGEM *", 0, 0, (void*)&_wrap_class_CSaverGEM, 0};
 static swig_type_info _swigt__p_CSectElem = {"_p_CSectElem", "CSectElem *", 0, 0, (void*)&_wrap_class_CSectElem, 0};
 static swig_type_info _swigt__p_CSector = {"_p_CSector", "CSector *", 0, 0, (void*)&_wrap_class_CSector, 0};
@@ -114131,19 +107646,6 @@ static swig_type_info _swigt__p_CSectorMatrix = {"_p_CSectorMatrix", "CSectorMat
 static swig_type_info _swigt__p_CShadowCaster = {"_p_CShadowCaster", "CShadowCaster *", 0, 0, (void*)&_wrap_class_CShadowCaster, 0};
 static swig_type_info _swigt__p_CSkyBox = {"_p_CSkyBox", "CSkyBox *", 0, 0, (void*)&_wrap_class_CSkyBox, 0};
 static swig_type_info _swigt__p_CSkyDome = {"_p_CSkyDome", "CSkyDome *", 0, 0, (void*)&_wrap_class_CSkyDome, 0};
-static swig_type_info _swigt__p_CSound = {"_p_CSound", "CSound *", 0, 0, (void*)&_wrap_class_CSound, 0};
-static swig_type_info _swigt__p_CSoundEmiter = {"_p_CSoundEmiter", "CSoundEmiter *", 0, 0, (void*)&_wrap_class_CSoundEmiter, 0};
-static swig_type_info _swigt__p_CSoundEmiter_DSound = {"_p_CSoundEmiter_DSound", "CSoundEmiter_DSound *", 0, 0, (void*)&_wrap_class_CSoundEmiter_DSound, 0};
-static swig_type_info _swigt__p_CSoundEmiter_OpenAL = {"_p_CSoundEmiter_OpenAL", "CSoundEmiter_OpenAL *", 0, 0, (void*)&_wrap_class_CSoundEmiter_OpenAL, 0};
-static swig_type_info _swigt__p_CSoundEntity = {"_p_CSoundEntity", "CSoundEntity *", 0, 0, (void*)&_wrap_class_CSoundEntity, 0};
-static swig_type_info _swigt__p_CSoundLayer = {"_p_CSoundLayer", "CSoundLayer *", 0, 0, (void*)&_wrap_class_CSoundLayer, 0};
-static swig_type_info _swigt__p_CSoundMixPars = {"_p_CSoundMixPars", "CSoundMixPars *", 0, 0, (void*)&_wrap_class_CSoundMixPars, 0};
-static swig_type_info _swigt__p_CSoundMixer = {"_p_CSoundMixer", "CSoundMixer *", 0, 0, (void*)&_wrap_class_CSoundMixer, 0};
-static swig_type_info _swigt__p_CSoundReceiver = {"_p_CSoundReceiver", "CSoundReceiver *", 0, 0, (void*)&_wrap_class_CSoundReceiver, 0};
-static swig_type_info _swigt__p_CSoundRenderer = {"_p_CSoundRenderer", "CSoundRenderer *", 0, 0, (void*)&_wrap_class_CSoundRenderer, 0};
-static swig_type_info _swigt__p_CSoundRenderer_DSound = {"_p_CSoundRenderer_DSound", "CSoundRenderer_DSound *", 0, 0, (void*)&_wrap_class_CSoundRenderer_DSound, 0};
-static swig_type_info _swigt__p_CSoundRenderer_OpenAL = {"_p_CSoundRenderer_OpenAL", "CSoundRenderer_OpenAL *", 0, 0, (void*)&_wrap_class_CSoundRenderer_OpenAL, 0};
-static swig_type_info _swigt__p_CSoundWH = {"_p_CSoundWH", "CSoundWH *", 0, 0, (void*)&_wrap_class_CSoundWH, 0};
 static swig_type_info _swigt__p_CTMSector = {"_p_CTMSector", "CTMSector *", 0, 0, (void*)&_wrap_class_CTMSector, 0};
 static swig_type_info _swigt__p_CTMSector_8_16 = {"_p_CTMSector_8_16", "CTMSector_8_16 *", 0, 0, (void*)&_wrap_class_CTMSector_8_16, 0};
 static swig_type_info _swigt__p_CTerrainCircuit = {"_p_CTerrainCircuit", "CTerrainCircuit *", 0, 0, (void*)&_wrap_class_CTerrainCircuit, 0};
@@ -114175,6 +107677,8 @@ static swig_type_info _swigt__p_EFileSeekMode = {"_p_EFileSeekMode", "EFileSeekM
 static swig_type_info _swigt__p_EGenerationMethod = {"_p_EGenerationMethod", "EGenerationMethod *|enum EGenerationMethod *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_EImageFormat = {"_p_EImageFormat", "EImageFormat *|enum EImageFormat *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_ESceneNodeType = {"_p_ESceneNodeType", "ESceneNodeType *|enum ESceneNodeType *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_EShInsGeoOp = {"_p_EShInsGeoOp", "EShInsGeoOp *|enum EShInsGeoOp *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_EShInsTexOp = {"_p_EShInsTexOp", "EShInsTexOp *|enum EShInsTexOp *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FILE = {"_p_FILE", "FILE *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Q3triangle_t = {"_p_Q3triangle_t", "Q3triangle_t *", 0, 0, (void*)&_wrap_class_Q3triangle_t, 0};
 static swig_type_info _swigt__p_SCNUt_AdjTri = {"_p_SCNUt_AdjTri", "SCNUt_AdjTri *", 0, 0, (void*)&_wrap_class_SCNUt_AdjTri, 0};
@@ -114241,10 +107745,7 @@ static swig_type_info _swigt__p_bsp_vis = {"_p_bsp_vis", "bsp_vis *", 0, 0, (voi
 static swig_type_info _swigt__p_bsp_vis_offset = {"_p_bsp_vis_offset", "bsp_vis_offset *", 0, 0, (void*)&_wrap_class_bsp_vis_offset, 0};
 static swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_eLightType = {"_p_eLightType", "eLightType *|enum eLightType *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_eShInsGeoOp_TypeID = {"_p_eShInsGeoOp_TypeID", "eShInsGeoOp_TypeID *|enum eShInsGeoOp_TypeID *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_eShInsTexOp_TypeID = {"_p_eShInsTexOp_TypeID", "eShInsTexOp_TypeID *|enum eShInsTexOp_TypeID *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_ext_texinfo = {"_p_ext_texinfo", "ext_texinfo *", 0, 0, (void*)&_wrap_class_ext_texinfo, 0};
-static swig_type_info _swigt__p_f_int__void = {"_p_f_int__void", "TConnectionCallback|void (*)(int)", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_f_p_void__void = {"_p_f_p_void__void", "TExtensionFunction|void (*)(void *)", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_f_unsigned_int_unsigned_int_unsigned_int_r_q_const__CGString__void = {"_p_f_unsigned_int_unsigned_int_unsigned_int_r_q_const__CGString__void", "TDispatchCommandCallback|void (*)(unsigned int,unsigned int,unsigned int,CGString const &)", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_float = {"_p_float", "float *", 0, 0, (void*)0, 0};
@@ -114414,6 +107915,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_CGGraphBVAABB,
   &_swigt__p_CGGraphBVCylinder,
   &_swigt__p_CGGraphBVFactory,
+  &_swigt__p_CGGraphBVFileIO,
   &_swigt__p_CGGraphBVPoint,
   &_swigt__p_CGGraphBVSphere,
   &_swigt__p_CGGraphicInstance,
@@ -114433,9 +107935,6 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_CGMeshSphere,
   &_swigt__p_CGMipMap,
   &_swigt__p_CGMipMapWH,
-  &_swigt__p_CGNETClient,
-  &_swigt__p_CGNETServer,
-  &_swigt__p_CGNETSystem,
   &_swigt__p_CGOSFile,
   &_swigt__p_CGPSGDefFileWH,
   &_swigt__p_CGPSGGeneric,
@@ -114466,17 +107965,13 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_CGSCNVBoundVolBuilder,
   &_swigt__p_CGSCNVRenderer,
   &_swigt__p_CGSCNVVisibilityChecker,
-  &_swigt__p_CGSceneAnimCfg,
-  &_swigt__p_CGSceneAnimCfgGen,
-  &_swigt__p_CGSceneAnimCfgMgr,
+  &_swigt__p_CGSceneAnimActionSet,
   &_swigt__p_CGSceneAnimGroup,
-  &_swigt__p_CGSceneAnimInstance,
   &_swigt__p_CGSceneAnimMesh,
   &_swigt__p_CGSceneAnimNode,
   &_swigt__p_CGSceneAnimTransf,
   &_swigt__p_CGSceneBSPNode,
   &_swigt__p_CGSceneCamera,
-  &_swigt__p_CGSceneCompiledLeaf,
   &_swigt__p_CGSceneGroup,
   &_swigt__p_CGSceneInstance,
   &_swigt__p_CGSceneLeaf,
@@ -114567,8 +108062,6 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_CSLM_HFieldSect,
   &_swigt__p_CSLM_LMapSect,
   &_swigt__p_CSLM_TMapSect,
-  &_swigt__p_CSample,
-  &_swigt__p_CSampleWH,
   &_swigt__p_CSaverGEM,
   &_swigt__p_CSectElem,
   &_swigt__p_CSector,
@@ -114577,19 +108070,6 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_CShadowCaster,
   &_swigt__p_CSkyBox,
   &_swigt__p_CSkyDome,
-  &_swigt__p_CSound,
-  &_swigt__p_CSoundEmiter,
-  &_swigt__p_CSoundEmiter_DSound,
-  &_swigt__p_CSoundEmiter_OpenAL,
-  &_swigt__p_CSoundEntity,
-  &_swigt__p_CSoundLayer,
-  &_swigt__p_CSoundMixPars,
-  &_swigt__p_CSoundMixer,
-  &_swigt__p_CSoundReceiver,
-  &_swigt__p_CSoundRenderer,
-  &_swigt__p_CSoundRenderer_DSound,
-  &_swigt__p_CSoundRenderer_OpenAL,
-  &_swigt__p_CSoundWH,
   &_swigt__p_CTMSector,
   &_swigt__p_CTMSector_8_16,
   &_swigt__p_CTerrainCircuit,
@@ -114621,6 +108101,8 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_EGenerationMethod,
   &_swigt__p_EImageFormat,
   &_swigt__p_ESceneNodeType,
+  &_swigt__p_EShInsGeoOp,
+  &_swigt__p_EShInsTexOp,
   &_swigt__p_FILE,
   &_swigt__p_Q3triangle_t,
   &_swigt__p_SCNUt_AdjTri,
@@ -114687,10 +108169,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_bsp_vis_offset,
   &_swigt__p_char,
   &_swigt__p_eLightType,
-  &_swigt__p_eShInsGeoOp_TypeID,
-  &_swigt__p_eShInsTexOp_TypeID,
   &_swigt__p_ext_texinfo,
-  &_swigt__p_f_int__void,
   &_swigt__p_f_p_void__void,
   &_swigt__p_f_unsigned_int_unsigned_int_unsigned_int_r_q_const__CGString__void,
   &_swigt__p_float,
@@ -114860,6 +108339,7 @@ static swig_cast_info _swigc__p_CGGraphBV[] = {  {&_swigt__p_CGGraphBV, 0, 0, 0}
 static swig_cast_info _swigc__p_CGGraphBVAABB[] = {  {&_swigt__p_CGGraphBVAABB, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGGraphBVCylinder[] = {  {&_swigt__p_CGGraphBVCylinder, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGGraphBVFactory[] = {  {&_swigt__p_CGGraphBVFactory, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_CGGraphBVFileIO[] = {  {&_swigt__p_CGGraphBVFileIO, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGGraphBVPoint[] = {  {&_swigt__p_CGGraphBVPoint, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGGraphBVSphere[] = {  {&_swigt__p_CGGraphBVSphere, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGGraphicInstance[] = {  {&_swigt__p_CGGraphicInstance, 0, 0, 0},{0, 0, 0, 0}};
@@ -114879,9 +108359,6 @@ static swig_cast_info _swigc__p_CGMeshRect[] = {  {&_swigt__p_CGMeshRect, 0, 0, 
 static swig_cast_info _swigc__p_CGMeshSphere[] = {  {&_swigt__p_CGMeshSphere, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGMipMap[] = {  {&_swigt__p_CGMipMap, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGMipMapWH[] = {  {&_swigt__p_CGMipMapWH, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CGNETClient[] = {  {&_swigt__p_CGNETClient, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CGNETServer[] = {  {&_swigt__p_CGNETServer, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CGNETSystem[] = {  {&_swigt__p_CGNETSystem, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGOSFile[] = {  {&_swigt__p_CGOSFile, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGPSGDefFileWH[] = {  {&_swigt__p_CGPSGDefFileWH, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGPSGGeneric[] = {  {&_swigt__p_CGPSGGeneric, 0, 0, 0},  {&_swigt__p_CGPSGGenericQuad, _p_CGPSGGenericQuadTo_p_CGPSGGeneric, 0, 0},  {&_swigt__p_CGPSGGenericQuadOrbit, _p_CGPSGGenericQuadOrbitTo_p_CGPSGGeneric, 0, 0},{0, 0, 0, 0}};
@@ -114903,31 +108380,27 @@ static swig_cast_info _swigc__p_CGProgramWH[] = {  {&_swigt__p_CGProgramWH, 0, 0
 static swig_cast_info _swigc__p_CGProjector[] = {  {&_swigt__p_CGProjector, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGQuaternion[] = {  {&_swigt__p_CGQuaternion, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGRay[] = {  {&_swigt__p_CGRay, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CGReferenceCounter[] = {  {&_swigt__p_CGReferenceCounter, 0, 0, 0},  {&_swigt__p_CConsole, _p_CConsoleTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CDetailer, _p_CDetailerTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGBillboard, _p_CGBillboardTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGBillboardRenderer, _p_CGBillboardRendererTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGBillboard_AxisAlign, _p_CGBillboard_AxisAlignTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGBillboard_ScrAlign, _p_CGBillboard_ScrAlignTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGBillboard_WorldAlign, _p_CGBillboard_WorldAlignTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGCoronaGenStd, _p_CGCoronaGenStdTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGCoronaGenerator, _p_CGCoronaGeneratorTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGCoronaInstance, _p_CGCoronaInstanceTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGGraphicResource, _p_CGGraphicResourceTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGMipMap, _p_CGMipMapTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGPSGGeneric, _p_CGPSGGenericTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGPSGGenericQuad, _p_CGPSGGenericQuadTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGPSGGenericQuadOrbit, _p_CGPSGGenericQuadOrbitTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGParticleSystemGenerator, _p_CGParticleSystemGeneratorTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGParticleSystemInstance, _p_CGParticleSystemInstanceTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGPathResource, _p_CGPathResourceTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGProgram, _p_CGProgramTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGResource, _p_CGResourceTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneAnimGroup, _p_CGSceneAnimGroupTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneAnimInstance, _p_CGSceneAnimInstanceTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneAnimMesh, _p_CGSceneAnimMeshTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneAnimNode, _p_CGSceneAnimNodeTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneAnimTransf, _p_CGSceneAnimTransfTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneBSPNode, _p_CGSceneBSPNodeTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneCamera, _p_CGSceneCameraTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneGroup, _p_CGSceneGroupTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneInstance, _p_CGSceneInstanceTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneLeaf, _p_CGSceneLeafTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneMux, _p_CGSceneMuxTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneNode, _p_CGSceneNodeTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneReflector, _p_CGSceneReflectorTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneScreenRect, _p_CGSceneScreenRectTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneSwitch, _p_CGSceneSwitchTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneTransf, _p_CGSceneTransfTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGScriptResource, _p_CGScriptResourceTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGShader, _p_CGShaderTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGTextResource, _p_CGTextResourceTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGTextureObj, _p_CGTextureObjTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGTrailGenStd, _p_CGTrailGenStdTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGTrailGenerator, _p_CGTrailGeneratorTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CHUD, _p_CHUDTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CHUDFont, _p_CHUDFontTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CHUDIcon, _p_CHUDIconTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CHUDLabel, _p_CHUDLabelTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CHUDMsgBox, _p_CHUDMsgBoxTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CHUDObject, _p_CHUDObjectTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CHUDProgressBar, _p_CHUDProgressBarTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CLensFlare, _p_CLensFlareTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CSample, _p_CSampleTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CShadowCaster, _p_CShadowCasterTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CSkyBox, _p_CSkyBoxTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CSkyDome, _p_CSkyDomeTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CSound, _p_CSoundTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CTerrainCircuit, _p_CTerrainCircuitTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CTerrainSector, _p_CTerrainSectorTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CTexProjector, _p_CTexProjectorTo_p_CGReferenceCounter, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_CGReferenceCounter[] = {  {&_swigt__p_CGReferenceCounter, 0, 0, 0},  {&_swigt__p_CConsole, _p_CConsoleTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CDetailer, _p_CDetailerTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGBillboard, _p_CGBillboardTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGBillboardRenderer, _p_CGBillboardRendererTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGBillboard_AxisAlign, _p_CGBillboard_AxisAlignTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGBillboard_ScrAlign, _p_CGBillboard_ScrAlignTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGBillboard_WorldAlign, _p_CGBillboard_WorldAlignTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGCoronaGenStd, _p_CGCoronaGenStdTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGCoronaGenerator, _p_CGCoronaGeneratorTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGCoronaInstance, _p_CGCoronaInstanceTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGGraphicResource, _p_CGGraphicResourceTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGMipMap, _p_CGMipMapTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGPSGGeneric, _p_CGPSGGenericTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGPSGGenericQuad, _p_CGPSGGenericQuadTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGPSGGenericQuadOrbit, _p_CGPSGGenericQuadOrbitTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGParticleSystemGenerator, _p_CGParticleSystemGeneratorTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGParticleSystemInstance, _p_CGParticleSystemInstanceTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGPathResource, _p_CGPathResourceTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGProgram, _p_CGProgramTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGResource, _p_CGResourceTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneAnimActionSet, _p_CGSceneAnimActionSetTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneAnimGroup, _p_CGSceneAnimGroupTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneAnimMesh, _p_CGSceneAnimMeshTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneAnimNode, _p_CGSceneAnimNodeTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneAnimTransf, _p_CGSceneAnimTransfTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneBSPNode, _p_CGSceneBSPNodeTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneCamera, _p_CGSceneCameraTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneGroup, _p_CGSceneGroupTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneInstance, _p_CGSceneInstanceTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneLeaf, _p_CGSceneLeafTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneMux, _p_CGSceneMuxTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneNode, _p_CGSceneNodeTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneReflector, _p_CGSceneReflectorTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneScreenRect, _p_CGSceneScreenRectTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneSwitch, _p_CGSceneSwitchTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGSceneTransf, _p_CGSceneTransfTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGScriptResource, _p_CGScriptResourceTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGShader, _p_CGShaderTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGTextResource, _p_CGTextResourceTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGTextureObj, _p_CGTextureObjTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGTrailGenStd, _p_CGTrailGenStdTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CGTrailGenerator, _p_CGTrailGeneratorTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CHUD, _p_CHUDTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CHUDFont, _p_CHUDFontTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CHUDIcon, _p_CHUDIconTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CHUDLabel, _p_CHUDLabelTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CHUDMsgBox, _p_CHUDMsgBoxTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CHUDObject, _p_CHUDObjectTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CHUDProgressBar, _p_CHUDProgressBarTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CLensFlare, _p_CLensFlareTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CShadowCaster, _p_CShadowCasterTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CSkyBox, _p_CSkyBoxTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CSkyDome, _p_CSkyDomeTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CTerrainCircuit, _p_CTerrainCircuitTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CTerrainSector, _p_CTerrainSectorTo_p_CGReferenceCounter, 0, 0},  {&_swigt__p_CTexProjector, _p_CTexProjectorTo_p_CGReferenceCounter, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGRenderState[] = {  {&_swigt__p_CGRenderState, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGRenderStats[] = {  {&_swigt__p_CGRenderStats, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGRenderVars[] = {  {&_swigt__p_CGRenderVars, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGRenderer[] = {  {&_swigt__p_CGRenderer, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CGResource[] = {  {&_swigt__p_CGResource, 0, 0, 0},  {&_swigt__p_CGCoronaGenStd, _p_CGCoronaGenStdTo_p_CGResource, 0, 0},  {&_swigt__p_CGCoronaGenerator, _p_CGCoronaGeneratorTo_p_CGResource, 0, 0},  {&_swigt__p_CGGraphicResource, _p_CGGraphicResourceTo_p_CGResource, 0, 0},  {&_swigt__p_CGMipMap, _p_CGMipMapTo_p_CGResource, 0, 0},  {&_swigt__p_CGPSGGeneric, _p_CGPSGGenericTo_p_CGResource, 0, 0},  {&_swigt__p_CGPSGGenericQuad, _p_CGPSGGenericQuadTo_p_CGResource, 0, 0},  {&_swigt__p_CGPSGGenericQuadOrbit, _p_CGPSGGenericQuadOrbitTo_p_CGResource, 0, 0},  {&_swigt__p_CGParticleSystemGenerator, _p_CGParticleSystemGeneratorTo_p_CGResource, 0, 0},  {&_swigt__p_CGPathResource, _p_CGPathResourceTo_p_CGResource, 0, 0},  {&_swigt__p_CGProgram, _p_CGProgramTo_p_CGResource, 0, 0},  {&_swigt__p_CGScriptResource, _p_CGScriptResourceTo_p_CGResource, 0, 0},  {&_swigt__p_CGShader, _p_CGShaderTo_p_CGResource, 0, 0},  {&_swigt__p_CGTextResource, _p_CGTextResourceTo_p_CGResource, 0, 0},  {&_swigt__p_CGTextureObj, _p_CGTextureObjTo_p_CGResource, 0, 0},  {&_swigt__p_CGTrailGenStd, _p_CGTrailGenStdTo_p_CGResource, 0, 0},  {&_swigt__p_CGTrailGenerator, _p_CGTrailGeneratorTo_p_CGResource, 0, 0},  {&_swigt__p_CHUDFont, _p_CHUDFontTo_p_CGResource, 0, 0},  {&_swigt__p_CSample, _p_CSampleTo_p_CGResource, 0, 0},  {&_swigt__p_CSound, _p_CSoundTo_p_CGResource, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_CGResource[] = {  {&_swigt__p_CGResource, 0, 0, 0},  {&_swigt__p_CGCoronaGenStd, _p_CGCoronaGenStdTo_p_CGResource, 0, 0},  {&_swigt__p_CGCoronaGenerator, _p_CGCoronaGeneratorTo_p_CGResource, 0, 0},  {&_swigt__p_CGGraphicResource, _p_CGGraphicResourceTo_p_CGResource, 0, 0},  {&_swigt__p_CGMipMap, _p_CGMipMapTo_p_CGResource, 0, 0},  {&_swigt__p_CGPSGGeneric, _p_CGPSGGenericTo_p_CGResource, 0, 0},  {&_swigt__p_CGPSGGenericQuad, _p_CGPSGGenericQuadTo_p_CGResource, 0, 0},  {&_swigt__p_CGPSGGenericQuadOrbit, _p_CGPSGGenericQuadOrbitTo_p_CGResource, 0, 0},  {&_swigt__p_CGParticleSystemGenerator, _p_CGParticleSystemGeneratorTo_p_CGResource, 0, 0},  {&_swigt__p_CGPathResource, _p_CGPathResourceTo_p_CGResource, 0, 0},  {&_swigt__p_CGProgram, _p_CGProgramTo_p_CGResource, 0, 0},  {&_swigt__p_CGScriptResource, _p_CGScriptResourceTo_p_CGResource, 0, 0},  {&_swigt__p_CGShader, _p_CGShaderTo_p_CGResource, 0, 0},  {&_swigt__p_CGTextResource, _p_CGTextResourceTo_p_CGResource, 0, 0},  {&_swigt__p_CGTextureObj, _p_CGTextureObjTo_p_CGResource, 0, 0},  {&_swigt__p_CGTrailGenStd, _p_CGTrailGenStdTo_p_CGResource, 0, 0},  {&_swigt__p_CGTrailGenerator, _p_CGTrailGeneratorTo_p_CGResource, 0, 0},  {&_swigt__p_CHUDFont, _p_CHUDFontTo_p_CGResource, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGSCNVBoundVolBuilder[] = {  {&_swigt__p_CGSCNVBoundVolBuilder, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGSCNVRenderer[] = {  {&_swigt__p_CGSCNVRenderer, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGSCNVVisibilityChecker[] = {  {&_swigt__p_CGSCNVVisibilityChecker, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CGSceneAnimCfg[] = {  {&_swigt__p_CGSceneAnimCfg, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CGSceneAnimCfgGen[] = {  {&_swigt__p_CGSceneAnimCfgGen, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CGSceneAnimCfgMgr[] = {  {&_swigt__p_CGSceneAnimCfgMgr, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_CGSceneAnimActionSet[] = {  {&_swigt__p_CGSceneAnimActionSet, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGSceneAnimGroup[] = {  {&_swigt__p_CGSceneAnimGroup, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CGSceneAnimInstance[] = {  {&_swigt__p_CGSceneAnimInstance, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGSceneAnimMesh[] = {  {&_swigt__p_CGSceneAnimMesh, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGSceneAnimNode[] = {  {&_swigt__p_CGSceneAnimNode, 0, 0, 0},  {&_swigt__p_CGSceneAnimGroup, _p_CGSceneAnimGroupTo_p_CGSceneAnimNode, 0, 0},  {&_swigt__p_CGSceneAnimMesh, _p_CGSceneAnimMeshTo_p_CGSceneAnimNode, 0, 0},  {&_swigt__p_CGSceneAnimTransf, _p_CGSceneAnimTransfTo_p_CGSceneAnimNode, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGSceneAnimTransf[] = {  {&_swigt__p_CGSceneAnimTransf, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGSceneBSPNode[] = {  {&_swigt__p_CGSceneBSPNode, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGSceneCamera[] = {  {&_swigt__p_CGSceneCamera, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CGSceneCompiledLeaf[] = {  {&_swigt__p_CGSceneCompiledLeaf, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGSceneGroup[] = {  {&_swigt__p_CGSceneGroup, 0, 0, 0},  {&_swigt__p_CGBillboard, _p_CGBillboardTo_p_CGSceneGroup, 0, 0},  {&_swigt__p_CGBillboard_AxisAlign, _p_CGBillboard_AxisAlignTo_p_CGSceneGroup, 0, 0},  {&_swigt__p_CGBillboard_ScrAlign, _p_CGBillboard_ScrAlignTo_p_CGSceneGroup, 0, 0},  {&_swigt__p_CGBillboard_WorldAlign, _p_CGBillboard_WorldAlignTo_p_CGSceneGroup, 0, 0},  {&_swigt__p_CGSceneCamera, _p_CGSceneCameraTo_p_CGSceneGroup, 0, 0},  {&_swigt__p_CGSceneMux, _p_CGSceneMuxTo_p_CGSceneGroup, 0, 0},  {&_swigt__p_CGSceneReflector, _p_CGSceneReflectorTo_p_CGSceneGroup, 0, 0},  {&_swigt__p_CHUDMsgBox, _p_CHUDMsgBoxTo_p_CGSceneGroup, 0, 0},  {&_swigt__p_CTerrainCircuit, _p_CTerrainCircuitTo_p_CGSceneGroup, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGSceneInstance[] = {  {&_swigt__p_CGSceneInstance, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGSceneLeaf[] = {  {&_swigt__p_CGSceneLeaf, 0, 0, 0},  {&_swigt__p_CDetailer, _p_CDetailerTo_p_CGSceneLeaf, 0, 0},  {&_swigt__p_CGBillboardRenderer, _p_CGBillboardRendererTo_p_CGSceneLeaf, 0, 0},  {&_swigt__p_CSkyDome, _p_CSkyDomeTo_p_CGSceneLeaf, 0, 0},  {&_swigt__p_CTexProjector, _p_CTexProjectorTo_p_CGSceneLeaf, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGSceneMux[] = {  {&_swigt__p_CGSceneMux, 0, 0, 0},  {&_swigt__p_CHUDMsgBox, _p_CHUDMsgBoxTo_p_CGSceneMux, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CGSceneNode[] = {  {&_swigt__p_CGSceneNode, 0, 0, 0},  {&_swigt__p_CConsole, _p_CConsoleTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CDetailer, _p_CDetailerTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGBillboard, _p_CGBillboardTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGBillboardRenderer, _p_CGBillboardRendererTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGBillboard_AxisAlign, _p_CGBillboard_AxisAlignTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGBillboard_ScrAlign, _p_CGBillboard_ScrAlignTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGBillboard_WorldAlign, _p_CGBillboard_WorldAlignTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGCoronaInstance, _p_CGCoronaInstanceTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGParticleSystemInstance, _p_CGParticleSystemInstanceTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneAnimGroup, _p_CGSceneAnimGroupTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneAnimInstance, _p_CGSceneAnimInstanceTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneAnimMesh, _p_CGSceneAnimMeshTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneAnimNode, _p_CGSceneAnimNodeTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneAnimTransf, _p_CGSceneAnimTransfTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneBSPNode, _p_CGSceneBSPNodeTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneCamera, _p_CGSceneCameraTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneGroup, _p_CGSceneGroupTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneInstance, _p_CGSceneInstanceTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneLeaf, _p_CGSceneLeafTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneMux, _p_CGSceneMuxTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneReflector, _p_CGSceneReflectorTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneScreenRect, _p_CGSceneScreenRectTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneSwitch, _p_CGSceneSwitchTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneTransf, _p_CGSceneTransfTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CHUD, _p_CHUDTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CHUDIcon, _p_CHUDIconTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CHUDLabel, _p_CHUDLabelTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CHUDMsgBox, _p_CHUDMsgBoxTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CHUDObject, _p_CHUDObjectTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CHUDProgressBar, _p_CHUDProgressBarTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CLensFlare, _p_CLensFlareTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CShadowCaster, _p_CShadowCasterTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CSkyBox, _p_CSkyBoxTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CSkyDome, _p_CSkyDomeTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CTerrainCircuit, _p_CTerrainCircuitTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CTerrainSector, _p_CTerrainSectorTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CTexProjector, _p_CTexProjectorTo_p_CGSceneNode, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_CGSceneNode[] = {  {&_swigt__p_CGSceneNode, 0, 0, 0},  {&_swigt__p_CConsole, _p_CConsoleTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CDetailer, _p_CDetailerTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGBillboard, _p_CGBillboardTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGBillboardRenderer, _p_CGBillboardRendererTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGBillboard_AxisAlign, _p_CGBillboard_AxisAlignTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGBillboard_ScrAlign, _p_CGBillboard_ScrAlignTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGBillboard_WorldAlign, _p_CGBillboard_WorldAlignTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGCoronaInstance, _p_CGCoronaInstanceTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGParticleSystemInstance, _p_CGParticleSystemInstanceTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneAnimActionSet, _p_CGSceneAnimActionSetTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneAnimGroup, _p_CGSceneAnimGroupTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneAnimMesh, _p_CGSceneAnimMeshTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneAnimNode, _p_CGSceneAnimNodeTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneAnimTransf, _p_CGSceneAnimTransfTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneBSPNode, _p_CGSceneBSPNodeTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneCamera, _p_CGSceneCameraTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneGroup, _p_CGSceneGroupTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneInstance, _p_CGSceneInstanceTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneLeaf, _p_CGSceneLeafTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneMux, _p_CGSceneMuxTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneReflector, _p_CGSceneReflectorTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneScreenRect, _p_CGSceneScreenRectTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneSwitch, _p_CGSceneSwitchTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CGSceneTransf, _p_CGSceneTransfTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CHUD, _p_CHUDTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CHUDIcon, _p_CHUDIconTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CHUDLabel, _p_CHUDLabelTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CHUDMsgBox, _p_CHUDMsgBoxTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CHUDObject, _p_CHUDObjectTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CHUDProgressBar, _p_CHUDProgressBarTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CLensFlare, _p_CLensFlareTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CShadowCaster, _p_CShadowCasterTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CSkyBox, _p_CSkyBoxTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CSkyDome, _p_CSkyDomeTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CTerrainCircuit, _p_CTerrainCircuitTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CTerrainSector, _p_CTerrainSectorTo_p_CGSceneNode, 0, 0},  {&_swigt__p_CTexProjector, _p_CTexProjectorTo_p_CGSceneNode, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGSceneReflector[] = {  {&_swigt__p_CGSceneReflector, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGSceneScreenRect[] = {  {&_swigt__p_CGSceneScreenRect, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGSceneSwitch[] = {  {&_swigt__p_CGSceneSwitch, 0, 0, 0},  {&_swigt__p_CGParticleSystemInstance, _p_CGParticleSystemInstanceTo_p_CGSceneSwitch, 0, 0},  {&_swigt__p_CHUDIcon, _p_CHUDIconTo_p_CGSceneSwitch, 0, 0},  {&_swigt__p_CHUDLabel, _p_CHUDLabelTo_p_CGSceneSwitch, 0, 0},  {&_swigt__p_CHUDObject, _p_CHUDObjectTo_p_CGSceneSwitch, 0, 0},  {&_swigt__p_CHUDProgressBar, _p_CHUDProgressBarTo_p_CGSceneSwitch, 0, 0},{0, 0, 0, 0}};
@@ -115013,8 +108486,6 @@ static swig_cast_info _swigc__p_CSFXObjectInstance[] = {  {&_swigt__p_CSFXObject
 static swig_cast_info _swigc__p_CSLM_HFieldSect[] = {  {&_swigt__p_CSLM_HFieldSect, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CSLM_LMapSect[] = {  {&_swigt__p_CSLM_LMapSect, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CSLM_TMapSect[] = {  {&_swigt__p_CSLM_TMapSect, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CSample[] = {  {&_swigt__p_CSample, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CSampleWH[] = {  {&_swigt__p_CSampleWH, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CSaverGEM[] = {  {&_swigt__p_CSaverGEM, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CSectElem[] = {  {&_swigt__p_CSectElem, 0, 0, 0},  {&_swigt__p_CColor, _p_CColorTo_p_CSectElem, 0, 0},  {&_swigt__p_CHeight, _p_CHeightTo_p_CSectElem, 0, 0},  {&_swigt__p_CLightElem, _p_CLightElemTo_p_CSectElem, 0, 0},  {&_swigt__p_CTile, _p_CTileTo_p_CSectElem, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CSector[] = {  {&_swigt__p_CSector, 0, 0, 0},  {&_swigt__p_CHFSector, _p_CHFSectorTo_p_CSector, 0, 0},  {&_swigt__p_CHFSector_FN, _p_CHFSector_FNTo_p_CSector, 0, 0},  {&_swigt__p_CHeightField, _p_CHeightFieldTo_p_CSector, 0, 0},  {&_swigt__p_CLMSector, _p_CLMSectorTo_p_CSector, 0, 0},  {&_swigt__p_CLMSector_Gray, _p_CLMSector_GrayTo_p_CSector, 0, 0},  {&_swigt__p_CLMSector_Pal, _p_CLMSector_PalTo_p_CSector, 0, 0},  {&_swigt__p_CLMSector_RGB24, _p_CLMSector_RGB24To_p_CSector, 0, 0},  {&_swigt__p_CLightMap, _p_CLightMapTo_p_CSector, 0, 0},  {&_swigt__p_CSectorMatrix, _p_CSectorMatrixTo_p_CSector, 0, 0},  {&_swigt__p_CTMSector, _p_CTMSectorTo_p_CSector, 0, 0},  {&_swigt__p_CTMSector_8_16, _p_CTMSector_8_16To_p_CSector, 0, 0},  {&_swigt__p_CTexMap, _p_CTexMapTo_p_CSector, 0, 0},  {&_swigt__p_CTexSector, _p_CTexSectorTo_p_CSector, 0, 0},{0, 0, 0, 0}};
@@ -115023,19 +108494,6 @@ static swig_cast_info _swigc__p_CSectorMatrix[] = {  {&_swigt__p_CSectorMatrix, 
 static swig_cast_info _swigc__p_CShadowCaster[] = {  {&_swigt__p_CShadowCaster, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CSkyBox[] = {  {&_swigt__p_CSkyBox, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CSkyDome[] = {  {&_swigt__p_CSkyDome, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CSound[] = {  {&_swigt__p_CSound, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CSoundEmiter[] = {  {&_swigt__p_CSoundEmiter, 0, 0, 0},  {&_swigt__p_CSoundEmiter_DSound, _p_CSoundEmiter_DSoundTo_p_CSoundEmiter, 0, 0},  {&_swigt__p_CSoundEmiter_OpenAL, _p_CSoundEmiter_OpenALTo_p_CSoundEmiter, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CSoundEmiter_DSound[] = {  {&_swigt__p_CSoundEmiter_DSound, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CSoundEmiter_OpenAL[] = {  {&_swigt__p_CSoundEmiter_OpenAL, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CSoundEntity[] = {  {&_swigt__p_CSoundEntity, 0, 0, 0},  {&_swigt__p_CSoundEmiter, _p_CSoundEmiterTo_p_CSoundEntity, 0, 0},  {&_swigt__p_CSoundEmiter_DSound, _p_CSoundEmiter_DSoundTo_p_CSoundEntity, 0, 0},  {&_swigt__p_CSoundEmiter_OpenAL, _p_CSoundEmiter_OpenALTo_p_CSoundEntity, 0, 0},  {&_swigt__p_CSoundReceiver, _p_CSoundReceiverTo_p_CSoundEntity, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CSoundLayer[] = {  {&_swigt__p_CSoundLayer, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CSoundMixPars[] = {  {&_swigt__p_CSoundMixPars, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CSoundMixer[] = {  {&_swigt__p_CSoundMixer, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CSoundReceiver[] = {  {&_swigt__p_CSoundReceiver, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CSoundRenderer[] = {  {&_swigt__p_CSoundRenderer, 0, 0, 0},  {&_swigt__p_CSoundRenderer_DSound, _p_CSoundRenderer_DSoundTo_p_CSoundRenderer, 0, 0},  {&_swigt__p_CSoundRenderer_OpenAL, _p_CSoundRenderer_OpenALTo_p_CSoundRenderer, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CSoundRenderer_DSound[] = {  {&_swigt__p_CSoundRenderer_DSound, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CSoundRenderer_OpenAL[] = {  {&_swigt__p_CSoundRenderer_OpenAL, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CSoundWH[] = {  {&_swigt__p_CSoundWH, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CTMSector[] = {  {&_swigt__p_CTMSector, 0, 0, 0},  {&_swigt__p_CTMSector_8_16, _p_CTMSector_8_16To_p_CTMSector, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CTMSector_8_16[] = {  {&_swigt__p_CTMSector_8_16, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CTerrainCircuit[] = {  {&_swigt__p_CTerrainCircuit, 0, 0, 0},{0, 0, 0, 0}};
@@ -115067,6 +108525,8 @@ static swig_cast_info _swigc__p_EFileSeekMode[] = {  {&_swigt__p_EFileSeekMode, 
 static swig_cast_info _swigc__p_EGenerationMethod[] = {  {&_swigt__p_EGenerationMethod, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_EImageFormat[] = {  {&_swigt__p_EImageFormat, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ESceneNodeType[] = {  {&_swigt__p_ESceneNodeType, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_EShInsGeoOp[] = {  {&_swigt__p_EShInsGeoOp, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_EShInsTexOp[] = {  {&_swigt__p_EShInsTexOp, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FILE[] = {  {&_swigt__p_FILE, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Q3triangle_t[] = {  {&_swigt__p_Q3triangle_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_SCNUt_AdjTri[] = {  {&_swigt__p_SCNUt_AdjTri, 0, 0, 0},{0, 0, 0, 0}};
@@ -115133,10 +108593,7 @@ static swig_cast_info _swigc__p_bsp_vis[] = {  {&_swigt__p_bsp_vis, 0, 0, 0},{0,
 static swig_cast_info _swigc__p_bsp_vis_offset[] = {  {&_swigt__p_bsp_vis_offset, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_eLightType[] = {  {&_swigt__p_eLightType, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_eShInsGeoOp_TypeID[] = {  {&_swigt__p_eShInsGeoOp_TypeID, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_eShInsTexOp_TypeID[] = {  {&_swigt__p_eShInsTexOp_TypeID, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ext_texinfo[] = {  {&_swigt__p_ext_texinfo, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_int__void[] = {  {&_swigt__p_f_int__void, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_f_p_void__void[] = {  {&_swigt__p_f_p_void__void, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_f_unsigned_int_unsigned_int_unsigned_int_r_q_const__CGString__void[] = {  {&_swigt__p_f_unsigned_int_unsigned_int_unsigned_int_r_q_const__CGString__void, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_float[] = {  {&_swigt__p_float, 0, 0, 0},{0, 0, 0, 0}};
@@ -115306,6 +108763,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_CGGraphBVAABB,
   _swigc__p_CGGraphBVCylinder,
   _swigc__p_CGGraphBVFactory,
+  _swigc__p_CGGraphBVFileIO,
   _swigc__p_CGGraphBVPoint,
   _swigc__p_CGGraphBVSphere,
   _swigc__p_CGGraphicInstance,
@@ -115325,9 +108783,6 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_CGMeshSphere,
   _swigc__p_CGMipMap,
   _swigc__p_CGMipMapWH,
-  _swigc__p_CGNETClient,
-  _swigc__p_CGNETServer,
-  _swigc__p_CGNETSystem,
   _swigc__p_CGOSFile,
   _swigc__p_CGPSGDefFileWH,
   _swigc__p_CGPSGGeneric,
@@ -115358,17 +108813,13 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_CGSCNVBoundVolBuilder,
   _swigc__p_CGSCNVRenderer,
   _swigc__p_CGSCNVVisibilityChecker,
-  _swigc__p_CGSceneAnimCfg,
-  _swigc__p_CGSceneAnimCfgGen,
-  _swigc__p_CGSceneAnimCfgMgr,
+  _swigc__p_CGSceneAnimActionSet,
   _swigc__p_CGSceneAnimGroup,
-  _swigc__p_CGSceneAnimInstance,
   _swigc__p_CGSceneAnimMesh,
   _swigc__p_CGSceneAnimNode,
   _swigc__p_CGSceneAnimTransf,
   _swigc__p_CGSceneBSPNode,
   _swigc__p_CGSceneCamera,
-  _swigc__p_CGSceneCompiledLeaf,
   _swigc__p_CGSceneGroup,
   _swigc__p_CGSceneInstance,
   _swigc__p_CGSceneLeaf,
@@ -115459,8 +108910,6 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_CSLM_HFieldSect,
   _swigc__p_CSLM_LMapSect,
   _swigc__p_CSLM_TMapSect,
-  _swigc__p_CSample,
-  _swigc__p_CSampleWH,
   _swigc__p_CSaverGEM,
   _swigc__p_CSectElem,
   _swigc__p_CSector,
@@ -115469,19 +108918,6 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_CShadowCaster,
   _swigc__p_CSkyBox,
   _swigc__p_CSkyDome,
-  _swigc__p_CSound,
-  _swigc__p_CSoundEmiter,
-  _swigc__p_CSoundEmiter_DSound,
-  _swigc__p_CSoundEmiter_OpenAL,
-  _swigc__p_CSoundEntity,
-  _swigc__p_CSoundLayer,
-  _swigc__p_CSoundMixPars,
-  _swigc__p_CSoundMixer,
-  _swigc__p_CSoundReceiver,
-  _swigc__p_CSoundRenderer,
-  _swigc__p_CSoundRenderer_DSound,
-  _swigc__p_CSoundRenderer_OpenAL,
-  _swigc__p_CSoundWH,
   _swigc__p_CTMSector,
   _swigc__p_CTMSector_8_16,
   _swigc__p_CTerrainCircuit,
@@ -115513,6 +108949,8 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_EGenerationMethod,
   _swigc__p_EImageFormat,
   _swigc__p_ESceneNodeType,
+  _swigc__p_EShInsGeoOp,
+  _swigc__p_EShInsTexOp,
   _swigc__p_FILE,
   _swigc__p_Q3triangle_t,
   _swigc__p_SCNUt_AdjTri,
@@ -115579,10 +109017,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_bsp_vis_offset,
   _swigc__p_char,
   _swigc__p_eLightType,
-  _swigc__p_eShInsGeoOp_TypeID,
-  _swigc__p_eShInsTexOp_TypeID,
   _swigc__p_ext_texinfo,
-  _swigc__p_f_int__void,
   _swigc__p_f_p_void__void,
   _swigc__p_f_unsigned_int_unsigned_int_unsigned_int_r_q_const__CGString__void,
   _swigc__p_float,

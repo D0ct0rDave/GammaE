@@ -8,8 +8,8 @@
  *  \par GammaE License
  */
 // ----------------------------------------------------------------------------
-#ifndef CGSceneAnimCfgH
-#define CGSceneAnimCfgH
+#ifndef CGSceneActionNodeH
+#define CGSceneActionNodeH
 // --------------------------------------------------------------------------------
 // TFrameAnimation
 // CGSceneAnimGen
@@ -25,12 +25,12 @@ class CAnimAction
         bool m_bLoop;
 };
 // --------------------------------------------------------------------------------
-class CGSceneAnimCfg
+class CGSceneAnimActionSet : public CGSceneNode
 {
     public:
-        CGSceneAnimCfg();
+        CGSceneAnimActionSet();
 
-        virtual ~CGSceneAnimCfg();
+        virtual ~CGSceneAnimActionSet();
 
         // / Sets up the configuration for an specific action
         uint uiAddAction(const CGString& _sActionName,uint _uiInitialFrame, uint _uiFinalFrame, float _fFrameAnimTime, bool _bLoop)
@@ -46,11 +46,45 @@ class CGSceneAnimCfg
         }
 
         // / Retrieve the current number of actions this config object stores
-        uint uiNumActions()
+        uint uiNumActions() const
         {
             return ( m_oActions.uiNumElems() );
         }
 
+        // / Retrieve the name associated to a given action
+        const CGString& sGetActionName(uint _uiAction)
+        {
+            const CGString& s = m_oActions.sGetElemName(_uiAction);
+            return(s);
+        }
+
+        // / Retrieves the parameters associated to a given action by number
+        const CAnimAction& oGetAnimAction(uint _uiAction)
+        {
+            return (m_oActions.oGetElem(_uiAction));
+        }
+
+        // / Retrieves the parameters associated to a given action by name
+        const CAnimAction& oGetAnimAction(const CGString& _sActionName)
+        {
+            int iActionIdx = m_oActions.iGetIdx(_sActionName);
+
+            if (iActionIdx >= 0)
+                return (oGetAnimAction(iActionIdx));
+        }
+
+        // / Starts a new animation
+        void SetAction(uint _uiAction);
+
+        // / Plays / Stops the animation
+        void Enable(bool _bEnable)
+        {
+            m_bEnabled = _bEnable;
+        }
+
+        /// Updates the current animation according the Engine deltaT
+        void UpdateAnimState();
+        
         // / Retrieves the animated object associated to this config object
         CGSceneAnimNode* poGetAnimObj()
         {
@@ -58,32 +92,14 @@ class CGSceneAnimCfg
         }
 
         // / Sets the animated object associated to this config object
-        void SetAnimObj (CGSceneAnimNode* _poAnimObj)
+        void SetAnimObj(CGSceneAnimNode* _poAnimObj)
         {
             m_poAnimObj = _poAnimObj;
         }
 
-        // / Retrieves the parameters associated to a given action by number
-        const CAnimAction& oGetFrameAnim(uint _uiAction)
-        {
-            return ( m_oActions.oGetElem(_uiAction) );
-        }
-
-        // / Retrieves the parameters associated to a given action by name
-        const CAnimAction& oGetFrameAnim(const CGString& _sActionName)
-        {
-            int iActionIdx = m_oActions.iGetIdx(_sActionName);
-
-            if ( iActionIdx >= 0 )
-                return ( oGetFrameAnim(iActionIdx) );
-        }
-
-        // / Retrieve the name associated to a given action
-        const CGString& sGetActionName(uint _uiAction)
-        {
-            return( m_oActions.sGetElemName(_uiAction) );
-        }
-
+        // / Returns the node bounding volume.
+        virtual CGGraphBV* poGetBV();
+        
         // General Processing Functionalities
         virtual void Accept(CGSceneVisitor* _poVisitor)
         {
@@ -92,8 +108,25 @@ class CGSceneAnimCfg
 
     protected:
 
+        // Set of Actions
         CGLookupArray<CAnimAction> m_oActions;
+        
+        // The animation object handled
         CGSceneAnimNode* m_poAnimObj;
+    
+    private:
+        // Current action being used
+        uint m_uiAction;
+        
+        float m_fTime;
+        bool m_bEnabled;
+
+        int iNumFrameAnims;
+        int iCurrentFrameAnim;
+        int iLastFrame;
+
+        float m_fTotalAnimTime;
+        float m_fCurrentAnimTime;
 };
 // --------------------------------------------------------------------------------
 #endif

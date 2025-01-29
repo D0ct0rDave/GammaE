@@ -258,7 +258,7 @@ CTileBookmark* TERSceneLoader::poCreateTileBookmark ()
 
             // Add tile rotation shader instruction
             poTI = mNew CGShInsTexOp;
-            poTI->SetTOpType(eSITexOp_Rotate);
+            poTI->SetTexOp(ESITexOpRotate);
             poTI->SetEvaluator( mNew CGEvalConst );
             poSh->PushInstruction(poTI);
 

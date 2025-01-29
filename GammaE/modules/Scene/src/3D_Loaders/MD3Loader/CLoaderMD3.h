@@ -25,7 +25,7 @@
 // CGSceneAnimMesh
 #include "Animation\CGSceneAnimMesh.h"
 // CGSceneAnimCfg
-#include "Animation\CGSceneAnimCfg.h"
+#include "Animation\CGSceneAnimActionSet.h"
 
 class CLoaderMD3 : public C3DLoader
 {
@@ -50,11 +50,11 @@ class CLoaderMD3 : public C3DLoader
 
         virtual CGSceneNode* pLoad(char* Filename);
 
-        CGSceneAnimInstance* pLoadQ3Player(char* _Path, char* _SkinName);
+        CGSceneAnimActionSet* pLoadQ3Player(char* _Path, char* _SkinName);
 
-        CGSceneAnimInstance* pLoadAnimation(char* _Filename, CGSceneAnimGroup* _pLegs, CGSceneAnimGroup* _pTorso);
+        CGSceneAnimActionSet* pLoadAnimation(char* _Filename, CGSceneAnimGroup* _pLegs, CGSceneAnimGroup* _pTorso);
 
-        void SetupAnim(int _iAnimNum, anim_t* _MD3Anim, CGSceneAnimCfg* _poAnimCfg);
+        void SetupAnim(int _iAnimNum, anim_t* _MD3Anim, CGSceneAnimActionSet* _poAnimCfg);
 
     protected:
 

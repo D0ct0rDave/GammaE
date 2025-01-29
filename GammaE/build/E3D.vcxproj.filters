@@ -216,13 +216,13 @@
     <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\EE3D_ShaderInstructionType.h">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\eShInsBlendOp_TypeID.h">
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\EShInsBlendOp.h">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\eShInsGeoOp_TypeID.h">
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\EShInsGeoOp.h">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\eShInsTexOp_TypeID.h">
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\EShInsTexOp.h">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\E3D\src\Shaders\ShaderParser\CGShaderParser.h">
@@ -390,15 +390,6 @@
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\CGShaderInststructions.cpp">
-      <Filter>Shaders\ShaderInstructions</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\eShInsBlendOp_TypeID.cpp">
-      <Filter>Shaders\ShaderInstructions</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\eShInsGeoOp_TypeID.cpp">
-      <Filter>Shaders\ShaderInstructions</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\eShInsTexOp_TypeID.cpp">
       <Filter>Shaders\ShaderInstructions</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\E3D\src\Shaders\ShaderParser\CGShaderParser.cpp">

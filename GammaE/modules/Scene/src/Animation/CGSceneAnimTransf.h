@@ -29,7 +29,7 @@ class CGSceneAnimTransf : public CGSceneAnimNode
         virtual uint uiGetNumStates() const;
 
         // / Recompute the bounding volume of all the frames
-        virtual void ComputeStatesBVols();
+        void ComputeStatesBVols();
 
         // Return the bounding volume of the object for the given state
         virtual CGGraphBV* poGetStateBVol(int _iState);

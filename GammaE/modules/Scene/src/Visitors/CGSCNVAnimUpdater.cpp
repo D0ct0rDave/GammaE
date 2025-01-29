@@ -22,20 +22,19 @@
 #include "CGSceneScreenRect.h"
 
 #include "Animation/CGSceneAnimNode.h"
-#include "Animation/CGSceneAnimCfg.h"
+#include "Animation/CGSceneAnimActionSet.h"
 #include "Animation/CGSceneAnimMesh.h"
-#include "Animation/CGSceneAnimInstance.h"
 #include "Animation/CGSceneAnimGroup.h"
 #include "Animation/CGSceneAnimTransf.h"
 
 // ----------------------------------------------------------------------------
-void CGSCNVAnimUpdater::SetAnimState(CGSceneAnimInstance* _poInst,uint _uiIFrame,uint _uiEFrame,float _fFact)
+void CGSCNVAnimUpdater::SetAnimState(CGSceneAnimActionSet* _poInst,uint _uiIFrame,uint _uiEFrame,float _fFact)
 {
     m_uiIFrame = _uiIFrame;
     m_uiEFrame = _uiEFrame;
     m_fFact = _fFact;
 
-    _poInst->poGetAnimatedObject()->Accept(this);
+    _poInst->poGetAnimObj()->Accept(this);
 }
 // ----------------------------------------------------------------------------
 void CGSCNVAnimUpdater::Visit(CGSceneAnimNode* _poNode)

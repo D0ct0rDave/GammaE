@@ -84,13 +84,10 @@
     <ClInclude Include="..\modules\Scene\src\3D_Savers\GEMSaver\CSaverGEM.h">
       <Filter>3D_Savers\GEMSaver</Filter>
     </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimCfg.h">
+    <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimActionSet.h">
       <Filter>Animation</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimGroup.h">
-      <Filter>Animation</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimInstance.h">
       <Filter>Animation</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimMesh.h">
@@ -114,7 +111,7 @@
     <ClInclude Include="..\modules\Scene\src\CGSceneTransf.h" />
     <ClInclude Include="..\modules\Scene\src\GScene.h" />
     <ClInclude Include="..\modules\Scene\src\GSceneEnums.h" />
-    <ClInclude Include="..\modules\Scene\src\GraphBVUtils\CGraphBV_FileIO.h">
+    <ClInclude Include="..\modules\Scene\src\GraphBVUtils\CGGraphBVFileIO.h">
       <Filter>GraphBVUtils</Filter>
     </ClInclude>
     <ClInclude Include="..\modules\Scene\src\Visitors\CGSCNVAnimUpdater.h">
@@ -164,13 +161,10 @@
     <ClCompile Include="..\modules\Scene\src\3D_Savers\GEMSaver\CSaverGEM.cpp">
       <Filter>3D_Savers\GEMSaver</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimCfg.cpp">
+    <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimActionSet.cpp">
       <Filter>Animation</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimGroup.cpp">
-      <Filter>Animation</Filter>
-    </ClCompile>
-    <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimInstance.cpp">
       <Filter>Animation</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimMesh.cpp">
@@ -191,7 +185,7 @@
     <ClCompile Include="..\modules\Scene\src\CGSceneScreenRect.cpp" />
     <ClCompile Include="..\modules\Scene\src\CGSceneSwitch.cpp" />
     <ClCompile Include="..\modules\Scene\src\CGSceneTransf.cpp" />
-    <ClCompile Include="..\modules\Scene\src\GraphBVUtils\CGraphBV_FileIO.cpp">
+    <ClCompile Include="..\modules\Scene\src\GraphBVUtils\CGGraphBVFileIO.cpp">
       <Filter>GraphBVUtils</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\Scene\src\Visitors\CGSCNVAnimUpdater.cpp">

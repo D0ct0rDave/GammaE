@@ -10,62 +10,60 @@
 // ----------------------------------------------------------------------------
 #include "GammaE_Mem.h"
 #include "NormalGen.h"
+#include <assert.h>
 // ----------------------------------------------------------------------------
-
 namespace MeshUtils {
 // ----------------------------------------------------------------------------
-CGVect3 ComputeVertexNormal(CGMesh &Mesh,CGVect3* pPNs,int iVX)
+const CGVect3& ComputeVertexNormal(const CGMesh& _oMesh,CGVect3* _poPNs, uint _uiVX)
 {
-    CGVect3 Accum;
+    CGVect3 oAccum;
     uint uiNumFaces;
     uint uiNumVXPerFace;
 
-    Accum.Set(0,0,0);
+    oAccum.Set(0,0,0);
     uiNumFaces = 0;
 
-    if ( Mesh.eGetPrimitiveType() == E3D_PT_TRIS ) uiNumVXPerFace = 3;
+    if ( _oMesh.eGetPrimitiveType() == E3D_PT_TRIS ) uiNumVXPerFace = 3;
     else uiNumVXPerFace = 4;
 
     // Get the average of the normals of the faces from the vertex belongs
-    for ( uint p = 0; p < Mesh.uiGetNumPrims(); p++ )
+    for ( uint p = 0; p < _oMesh.uiGetNumPrims(); p++ )
     {
         for ( uint v = 0; v < uiNumVXPerFace; v++ )
         {
-            if ( Mesh.m_pusIdx[p * uiNumVXPerFace + v] == iVX )
+            if ( _oMesh.m_pusIdx[p * uiNumVXPerFace + v] == _uiVX )
             {
-                Accum.Add(pPNs[p]);
+                oAccum.Add(_poPNs[p]);
                 uiNumFaces++;
             }
         }
     }
 
-    if ( uiNumFaces ) Accum.Scale(1.0f / (float)uiNumFaces);
-    return (Accum);
+    if ( uiNumFaces ) oAccum.Scale(1.0f / (float)uiNumFaces);
+    return (oAccum);
 }
 // ----------------------------------------------------------------------------
-void ComputePrimitiveNormals(CGMesh &Mesh)
+void ComputePrimitiveNormals(CGMesh &_oMesh)
 {
-    uint cPri;
-    CGVect3 ab,cb,db,na,nb;
-    CGVect3 VSum;
+    if (_oMesh.m_poTN != NULL)
+    {
+        mDel _oMesh.m_poTN;
+    }
 
-    CGVect3* pPNs;
-
-    pPNs = mNew CGVect3[Mesh.uiGetNumPrims()];
-
-    switch ( Mesh.eGetPrimitiveType() )
+    CGVect3* pPNs = mNew CGVect3[_oMesh.uiGetNumPrims()];
+    switch ( _oMesh.eGetPrimitiveType() )
     {
         // --------------------------------
         // Compute triangle normal
         // --------------------------------
         case E3D_PT_TRIS:
         {
-            for ( cPri = 0; cPri < Mesh.uiGetNumPrims(); cPri++ )
+            for (uint cPri = 0; cPri < _oMesh.uiGetNumPrims(); cPri++ )
             {
                 // Compute triangle normal
-                pPNs[cPri].Normal(Mesh.m_poVX[ Mesh.m_pusIdx[cPri * 3 + 0] ],
-                                  Mesh.m_poVX[ Mesh.m_pusIdx[cPri * 3 + 1] ],
-                                  Mesh.m_poVX[ Mesh.m_pusIdx[cPri * 3 + 2] ]);
+                pPNs[cPri].Normal(_oMesh.m_poVX[ _oMesh.m_pusIdx[cPri * 3 + 0] ],
+                                  _oMesh.m_poVX[ _oMesh.m_pusIdx[cPri * 3 + 1] ],
+                                  _oMesh.m_poVX[ _oMesh.m_pusIdx[cPri * 3 + 2] ]);
                 pPNs[cPri].Normalize();
             }
         }
@@ -76,15 +74,17 @@ void ComputePrimitiveNormals(CGMesh &Mesh)
         // --------------------------------
         case E3D_PT_QUADS:
         {
-            for ( cPri = 0; cPri < Mesh.uiGetNumPrims(); cPri++ )
+            CGVect3 ab, cb, db, na, nb;
+
+            for (uint cPri = 0; cPri < _oMesh.uiGetNumPrims(); cPri++ )
             {
                 // Get triagle segments
-                ab.Assign(Mesh.m_poVX[ Mesh.m_pusIdx[cPri * 4 + 0] ]);
-                ab.Sub   (Mesh.m_poVX[ Mesh.m_pusIdx[cPri * 4 + 1] ]);
-                cb.Assign(Mesh.m_poVX[ Mesh.m_pusIdx[cPri * 4 + 2] ]);
-                cb.Sub   (Mesh.m_poVX[ Mesh.m_pusIdx[cPri * 4 + 1] ]);
-                db.Assign(Mesh.m_poVX[ Mesh.m_pusIdx[cPri * 4 + 3] ]);
-                db.Sub   (Mesh.m_poVX[ Mesh.m_pusIdx[cPri * 4 + 1] ]);
+                ab.Assign(_oMesh.m_poVX[ _oMesh.m_pusIdx[cPri * 4 + 0] ]);
+                ab.Sub   (_oMesh.m_poVX[ _oMesh.m_pusIdx[cPri * 4 + 1] ]);
+                cb.Assign(_oMesh.m_poVX[ _oMesh.m_pusIdx[cPri * 4 + 2] ]);
+                cb.Sub   (_oMesh.m_poVX[ _oMesh.m_pusIdx[cPri * 4 + 1] ]);
+                db.Assign(_oMesh.m_poVX[ _oMesh.m_pusIdx[cPri * 4 + 3] ]);
+                db.Sub   (_oMesh.m_poVX[ _oMesh.m_pusIdx[cPri * 4 + 1] ]);
 
                 // Compute quad normal
                 na.CrossProd(ab,cb);
@@ -96,28 +96,32 @@ void ComputePrimitiveNormals(CGMesh &Mesh)
             }
         }
         break;
+
+        default:
+        assert(false && "Warning Not Implemented");
+        break;
     }
 
-    Mesh.m_poTN = pPNs;
+    _oMesh.m_poTN = pPNs;
 }
 // ----------------------------------------------------------------------------
-void ComputeNormals(CGMesh &Mesh)
+void ComputeVertexNormals(CGMesh &_oMesh)
 {
-    bool bErasePNs = (Mesh.m_poTN == NULL);
+    bool bDeletePNs = (_oMesh.m_poTN == NULL);
 
     // Compute primitive normals
-    ComputePrimitiveNormals(Mesh);
+    ComputePrimitiveNormals(_oMesh);
 
     // --------------------------------
     // Compute vertexs normal
     // --------------------------------
-    for ( uint cVert = 0; cVert < Mesh.uiGetNumVXs(); cVert++ )
-        Mesh.m_poVN[cVert] = ComputeVertexNormal(Mesh,Mesh.m_poTN,cVert);
+    for ( uint cVert = 0; cVert < _oMesh.uiGetNumVXs(); cVert++ )
+        _oMesh.m_poVN[cVert] = ComputeVertexNormal(_oMesh,_oMesh.m_poTN,cVert);
 
-    if ( bErasePNs )
+    if (bDeletePNs)
     {
-        mDel [] Mesh.m_poTN;
-        Mesh.m_poTN = NULL;
+        mDel [] _oMesh.m_poTN;
+        _oMesh.m_poTN = NULL;
     }
 }
 // ----------------------------------------------------------------------------

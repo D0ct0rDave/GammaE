@@ -20,7 +20,6 @@ class CHUDLabel : public CHUDObject
     public:     
         CHUDLabel();
         CHUDLabel(uint _uiMaxChars);
-        virtual ~CHUDLabel();
 
         void SetFont(CHUDFont* _poFont);
         void SetText(const CGString& _sText);

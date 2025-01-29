@@ -17,7 +17,7 @@
 DECLARE_INHERITANT_SINGLETON(CGSCNVAnimUpdater,public,CGSceneVisitor)
 {
     public:
-        void SetAnimState(CGSceneAnimInstance * _poInst,uint _uiIFrame,uint _uiEFrame,float _fFact);
+        void SetAnimState(CGSceneAnimActionSet * _poInst, uint _uiIFrame, uint _uiEFrame, float _fFact);
 
         virtual void Visit(CGSceneAnimNode * _poNode);
 

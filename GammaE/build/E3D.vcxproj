@@ -145,9 +145,9 @@
     <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\CGShaderInstruction.h" />
     <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\CGShaderInstructions.h" />
     <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\EE3D_ShaderInstructionType.h" />
-    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\eShInsBlendOp_TypeID.h" />
-    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\eShInsGeoOp_TypeID.h" />
-    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\eShInsTexOp_TypeID.h" />
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\EShInsBlendOp.h" />
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\EShInsGeoOp.h" />
+    <ClInclude Include="..\modules\E3D\src\Shaders\ShaderInstructions\EShInsTexOp.h" />
     <ClInclude Include="..\modules\E3D\src\Shaders\ShaderParser\CGShaderParser.h" />
     <ClInclude Include="..\modules\E3D\src\Shaders\ShaderUtils\CGShaderUtils.h" />
     <ClInclude Include="..\modules\E3D\src\Shaders\ShaderWarehouse\CGShaderWH.h" />
@@ -207,9 +207,6 @@
     <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\CGShInsZOp.cpp" />
     <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\CGShaderInstruction.cpp" />
     <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\CGShaderInststructions.cpp" />
-    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\eShInsBlendOp_TypeID.cpp" />
-    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\eShInsGeoOp_TypeID.cpp" />
-    <ClCompile Include="..\modules\E3D\src\Shaders\ShaderInstructions\eShInsTexOp_TypeID.cpp" />
     <ClCompile Include="..\modules\E3D\src\Shaders\ShaderParser\CGShaderParser.cpp" />
     <ClCompile Include="..\modules\E3D\src\Shaders\ShaderUtils\CGShaderUtils.cpp" />
     <ClCompile Include="..\modules\E3D\src\Shaders\ShaderWarehouse\CGShaderWH.cpp" />

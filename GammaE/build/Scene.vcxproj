@@ -105,9 +105,8 @@
     <ClInclude Include="..\modules\Scene\src\3D_Loaders\MD3Loader\MD3Model.h" />
     <ClInclude Include="..\modules\Scene\src\3D_Savers\C3DSaver.h" />
     <ClInclude Include="..\modules\Scene\src\3D_Savers\GEMSaver\CSaverGEM.h" />
-    <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimCfg.h" />
+    <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimActionSet.h" />
     <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimGroup.h" />
-    <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimInstance.h" />
     <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimMesh.h" />
     <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimNode.h" />
     <ClInclude Include="..\modules\Scene\src\Animation\CGSceneAnimTransf.h" />
@@ -123,7 +122,7 @@
     <ClInclude Include="..\modules\Scene\src\CGSceneTransf.h" />
     <ClInclude Include="..\modules\Scene\src\GScene.h" />
     <ClInclude Include="..\modules\Scene\src\GSceneEnums.h" />
-    <ClInclude Include="..\modules\Scene\src\GraphBVUtils\CGraphBV_FileIO.h" />
+    <ClInclude Include="..\modules\Scene\src\GraphBVUtils\CGGraphBVFileIO.h" />
     <ClInclude Include="..\modules\Scene\src\Visitors\CGSCNVAnimUpdater.h" />
     <ClInclude Include="..\modules\Scene\src\Visitors\CGSCNVBoundVolBuilder.h" />
     <ClInclude Include="..\modules\Scene\src\Visitors\CGSCNVRenderer.h" />
@@ -141,9 +140,8 @@
     <ClCompile Include="..\modules\Scene\src\3D_Loaders\MD3Loader\CLoaderMD3.cpp" />
     <ClCompile Include="..\modules\Scene\src\3D_Savers\C3DSaver.cpp" />
     <ClCompile Include="..\modules\Scene\src\3D_Savers\GEMSaver\CSaverGEM.cpp" />
-    <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimCfg.cpp" />
+    <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimActionSet.cpp" />
     <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimGroup.cpp" />
-    <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimInstance.cpp" />
     <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimMesh.cpp" />
     <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimNode.cpp" />
     <ClCompile Include="..\modules\Scene\src\Animation\CGSceneAnimTransf.cpp" />
@@ -156,7 +154,7 @@
     <ClCompile Include="..\modules\Scene\src\CGSceneScreenRect.cpp" />
     <ClCompile Include="..\modules\Scene\src\CGSceneSwitch.cpp" />
     <ClCompile Include="..\modules\Scene\src\CGSceneTransf.cpp" />
-    <ClCompile Include="..\modules\Scene\src\GraphBVUtils\CGraphBV_FileIO.cpp" />
+    <ClCompile Include="..\modules\Scene\src\GraphBVUtils\CGGraphBVFileIO.cpp" />
     <ClCompile Include="..\modules\Scene\src\Visitors\CGSCNVAnimUpdater.cpp" />
     <ClCompile Include="..\modules\Scene\src\Visitors\CGSCNVBoundVolBuilder.cpp" />
     <ClCompile Include="..\modules\Scene\src\Visitors\CGSCNVRenderer.cpp" />

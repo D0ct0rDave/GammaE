@@ -308,7 +308,7 @@ CGSceneAnimTransf* CLoaderGEM::poLoad3DObj_AnimTransf ()
     return(NULL);
 }
 // ----------------------------------------------------------------------------
-CGSceneAnimCfg* CLoaderGEM::poLoad3DObj_AnimCfg()
+CGSceneAnimActionSet* CLoaderGEM::poLoad3DObj_AnimActionSet()
 {
     /*
        TODO: Implement poLoad3DObj_AnimCfg

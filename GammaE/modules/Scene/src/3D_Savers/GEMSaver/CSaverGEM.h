@@ -23,16 +23,11 @@ class CSaverGEM : public C3DSaver
     public:
         CSaverGEM();
         ~CSaverGEM();
-
-        virtual void Visit(CGSceneNode* _poNode);
+        
+        // fallback to any unknown node
+        virtual void Visit(CGSceneNode* _poObj);
 
         virtual void Visit(CGSceneBSPNode* _poNode);
-
-        virtual void Visit(CGSceneCamera* _poNode);
-
-        virtual void Visit(CGSceneCompiledLeaf* _poNode);
-
-        virtual void Visit(CGSceneInstance* _poNode);
 
         virtual void Visit(CGSceneLeaf* _poNode);
 
@@ -40,19 +35,11 @@ class CSaverGEM : public C3DSaver
 
         virtual void Visit(CGSceneGroup* _poNode);
 
-        virtual void Visit(CGSceneScreenRect* _poNode);
-
-        virtual void Visit(CGSceneSwitch* _poNode);
-
         virtual void Visit(CGSceneTransf* _poNode);
 
-        virtual void Visit(CGSceneAnimCfg* _poNode);
-
-        virtual void Visit(CGSceneAnimNode* _poNode);
+        virtual void Visit(CGSceneAnimActionSet* _poNode);
 
         virtual void Visit(CGSceneAnimMesh* _poNode);
-
-        virtual void Visit(CGSceneAnimInstance* _poNode);
 
         virtual void Visit(CGSceneAnimGroup* _poNode);
 
@@ -66,7 +53,7 @@ class CSaverGEM : public C3DSaver
 
     protected:
 
-        bool bSaveMesh(CGMesh* Mesh);
+        bool bSaveMesh(CGBaseMesh* Mesh);
 
         /*
            int iSave(CFile& _oFile, CGSceneNode* _pObj);
@@ -105,6 +92,9 @@ class CSaverGEM : public C3DSaver
 
         // Svaes a mesh
         void SaveMesh(CGBaseMesh* _poMesh);
+        
+        // Save a group or a mux
+        void SaveGroup(CGSceneGroup* _poObj, uint _uiID);
 
         // Saves a bounding volume
         void SaveBoundingVolume(CGGraphBV* _poBV);

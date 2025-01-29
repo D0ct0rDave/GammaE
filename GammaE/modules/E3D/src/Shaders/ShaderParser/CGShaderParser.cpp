@@ -759,47 +759,47 @@ CGShaderInstruction* CGShaderParser::poParse_ShIns_TextureOperation (char*&_szDe
     Utils::Parse::NextToken(szToken,_szDesc);
 
     CGShInsTexOp* poSh = mNew CGShInsTexOp();
-    poSh->SetTOpType(eSITexOp_NULL);
+    poSh->SetTexOp(ESITexOpNULL);
 
     if ( !stricmp(szToken,"Rotate") )
     {
-        poSh->SetTOpType(eSITexOp_Rotate);
+        poSh->SetTexOp(ESITexOpRotate);
         poSh->SetEvaluator( poParseEvaluator(_szDesc) );
     }
     if ( !stricmp(szToken,"ScaleUV") )
     {
-        poSh->SetTOpType(eSITexOp_Scale);
+        poSh->SetTexOp(ESITexOpScale);
         poSh->SetEvaluator( poParseEvaluator(_szDesc) );
     }
     if ( !stricmp(szToken,"ScaleU") )
     {
-        poSh->SetTOpType(eSITexOp_ScaleU);
+        poSh->SetTexOp(ESITexOpScaleU);
         poSh->SetEvaluator( poParseEvaluator(_szDesc) );
     }
     if ( !stricmp(szToken,"ScaleV") )
     {
-        poSh->SetTOpType(eSITexOp_ScaleV);
+        poSh->SetTexOp(ESITexOpScaleV);
         poSh->SetEvaluator( poParseEvaluator(_szDesc) );
     }
     if ( !stricmp(szToken,"TransU") )
     {
-        poSh->SetTOpType(eSITexOp_TransU);
+        poSh->SetTexOp(ESITexOpTransU);
         poSh->SetEvaluator( poParseEvaluator(_szDesc) );
     }
     if ( !stricmp(szToken,"TransV") )
     {
-        poSh->SetTOpType(eSITexOp_TransV);
+        poSh->SetTexOp(ESITexOpTransV);
         poSh->SetEvaluator( poParseEvaluator(_szDesc) );
     }
     if ( !stricmp(szToken,"ReflectMap") )
-        poSh->SetTOpType(eSITexOp_ReflectMap);
+        poSh->SetTexOp(ESITexOpReflectMap);
     if ( !stricmp(szToken,"EnvMap") )
-        poSh->SetTOpType(eSITexOp_EnvMap);
+        poSh->SetTexOp(ESITexOpEnvMap);
     if ( !stricmp(szToken,"Matrix") )
-        poSh->SetTOpType(eSITexOp_Matrix);
+        poSh->SetTexOp(ESITexOpMatrix);
     if ( !stricmp(szToken,"FrameSet") )
     {
-        poSh->SetTOpType(eSITexOp_FrameSet);
+        poSh->SetTexOp(ESITexOpFrameSet);
         Utils::Parse::NextToken(szToken,_szDesc);
         sscanf(szToken,"%d",&poSh->m_uiImgCols);
         Utils::Parse::NextToken(szToken,_szDesc);
@@ -817,28 +817,28 @@ CGShaderInstruction* CGShaderParser::poParse_ShIns_GeometricOperation (char*&_sz
     Utils::Parse::NextToken(szToken,_szDesc);
 
     CGShInsGeoOp* poSh = mNew CGShInsGeoOp();
-    poSh->SetGOpType(eSIGeoOp_NULL);
+    poSh->SetGOpType(ESIGeoOpNULL);
 
     if ( !stricmp(szToken,"RotateX") )
-        poSh->SetGOpType(eSIGeoOp_RotateX);
+        poSh->SetGOpType(ESIGeoOpRotateX);
     if ( !stricmp(szToken,"RotateY") )
-        poSh->SetGOpType(eSIGeoOp_RotateY);
+        poSh->SetGOpType(ESIGeoOpRotateY);
     if ( !stricmp(szToken,"RotateZ") )
-        poSh->SetGOpType(eSIGeoOp_RotateZ);
+        poSh->SetGOpType(ESIGeoOpRotateZ);
     if ( !stricmp(szToken,"Scale") )
-        poSh->SetGOpType(eSIGeoOp_Scale);
+        poSh->SetGOpType(ESIGeoOpScale);
     if ( !stricmp(szToken,"ScaleX") )
-        poSh->SetGOpType(eSIGeoOp_ScaleX);
+        poSh->SetGOpType(ESIGeoOpScaleX);
     if ( !stricmp(szToken,"ScaleY") )
-        poSh->SetGOpType(eSIGeoOp_ScaleY);
+        poSh->SetGOpType(ESIGeoOpScaleY);
     if ( !stricmp(szToken,"ScaleZ") )
-        poSh->SetGOpType(eSIGeoOp_ScaleZ);
+        poSh->SetGOpType(ESIGeoOpScaleZ);
     if ( !stricmp(szToken,"TransX") )
-        poSh->SetGOpType(eSIGeoOp_TransX);
+        poSh->SetGOpType(ESIGeoOpTransX);
     if ( !stricmp(szToken,"TransY") )
-        poSh->SetGOpType(eSIGeoOp_TransY);
+        poSh->SetGOpType(ESIGeoOpTransY);
     if ( !stricmp(szToken,"TransZ") )
-        poSh->SetGOpType(eSIGeoOp_TransZ);
+        poSh->SetGOpType(ESIGeoOpTransZ);
 
     poSh->SetEvaluator( poParseEvaluator(_szDesc) );
 

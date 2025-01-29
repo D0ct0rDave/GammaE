@@ -110,15 +110,6 @@ CGGraphBV* CGameMap::poGetBV()
     return(NULL);
 }
 
-CGGraphBV *CGameMap::poCreateBoundVol()
-{
-	return(NULL);
-}
-
-void CGameMap::ComputeBoundVol()
-{
-}
-
 static CGSceneTransf oTransf;
 void CGameMap::Load(const CGString& _sFilename)
 {
