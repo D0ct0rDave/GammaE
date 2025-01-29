@@ -1,4 +1,4 @@
 @echo off
-premake5  vs2022
+..\Tools\premake5.exe vs2022
 pause
 
