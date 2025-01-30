@@ -8,3 +8,7 @@
 	path = SDKS/External/wxWidgets2.8
 	url = https://github.com/wxWidgets/wxWidgets.git
 	branch = WX_2_8_BRANCH
+[submodule "SDKS/Externals/wxWidgets2.8"]
+	path = SDKS/Externals/wxWidgets2.8
+	url = https://github.com/wxWidgets/wxWidgets.git
+	branch = WX_2_8_BRANCH
