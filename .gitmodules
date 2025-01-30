@@ -4,3 +4,7 @@
 [submodule "SDKS/Externals/FreeImage"]
 	path = SDKS/Externals/FreeImage
 	url = https://github.com/D0ct0rDave/FreeImage.git
+[submodule "SDKS/External/wxWidgets2.8"]
+	path = SDKS/External/wxWidgets2.8
+	url = https://github.com/wxWidgets/wxWidgets.git
+	branch = WX_2_8_BRANCH
