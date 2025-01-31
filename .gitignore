@@ -408,7 +408,6 @@ FodyWeavers.xsd
 CMakeFiles/*
 CMakeCache.txt
 
-# This allows some people who don't have or know how to use premake to build the process with visual studio files
 [Bb]uild/ 
 
 #old visual studio project files
