@@ -45,6 +45,12 @@ class CSaverGEM : public C3DSaver
 
         virtual void Visit(CGSceneAnimTransf* _poNode);
 
+        virtual void Visit(CGSceneAnimNode*);
+        virtual void Visit(CGSceneSwitch*);
+        virtual void Visit(CGSceneScreenRect*);
+        virtual void Visit(CGSceneInstance*);
+        virtual void Visit(CGSceneCamera*);
+        
         // / Override main saving function.
         virtual bool bSave(const CGString& _sFilename, CGSceneNode* _poObj);
 

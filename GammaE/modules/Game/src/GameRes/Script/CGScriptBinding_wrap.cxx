@@ -58294,6 +58294,23 @@ static swig_lua_class *swig_C3DSaver_bases[] = {0,0};
 static const char *swig_C3DSaver_base_names[] = {"CGSceneVisitor *",0};
 static swig_lua_class _wrap_class_C3DSaver = { "C3DSaver", "C3DSaver", &SWIGTYPE_p_C3DSaver,0, swig_delete_C3DSaver, swig_C3DSaver_methods, swig_C3DSaver_attributes, &swig_C3DSaver_Sf_SwigStatic, swig_C3DSaver_meta, swig_C3DSaver_bases, swig_C3DSaver_base_names };
 
+static int _wrap_new_CSaverGEM(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CSaverGEM *result = 0 ;
+    
+    SWIG_check_num_args("CSaverGEM::CSaverGEM",0,0)
+    result = (CSaverGEM *)new CSaverGEM();
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CSaverGEM,1); SWIG_arg++; 
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
 static int _wrap_CSaverGEM_Visit__SWIG_0(lua_State* L) {
   {
     int SWIG_arg = 0;
@@ -58594,6 +58611,156 @@ static int _wrap_CSaverGEM_Visit__SWIG_9(lua_State* L) {
 }
 
 
+static int _wrap_CSaverGEM_Visit__SWIG_10(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CSaverGEM *arg1 = 0 ;
+    CGSceneAnimNode *arg2 = 0 ;
+    
+    SWIG_check_num_args("CSaverGEM::Visit",2,2)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSaverGEM::Visit",1,"CSaverGEM *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSaverGEM::Visit",2,"CGSceneAnimNode *");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSaverGEM,0))){
+      SWIG_fail_ptr("CSaverGEM_Visit",1,SWIGTYPE_p_CSaverGEM);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneAnimNode,0))){
+      SWIG_fail_ptr("CSaverGEM_Visit",2,SWIGTYPE_p_CGSceneAnimNode);
+    }
+    
+    (arg1)->Visit(arg2);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CSaverGEM_Visit__SWIG_11(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CSaverGEM *arg1 = 0 ;
+    CGSceneSwitch *arg2 = 0 ;
+    
+    SWIG_check_num_args("CSaverGEM::Visit",2,2)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSaverGEM::Visit",1,"CSaverGEM *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSaverGEM::Visit",2,"CGSceneSwitch *");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSaverGEM,0))){
+      SWIG_fail_ptr("CSaverGEM_Visit",1,SWIGTYPE_p_CSaverGEM);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneSwitch,0))){
+      SWIG_fail_ptr("CSaverGEM_Visit",2,SWIGTYPE_p_CGSceneSwitch);
+    }
+    
+    (arg1)->Visit(arg2);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CSaverGEM_Visit__SWIG_12(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CSaverGEM *arg1 = 0 ;
+    CGSceneScreenRect *arg2 = 0 ;
+    
+    SWIG_check_num_args("CSaverGEM::Visit",2,2)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSaverGEM::Visit",1,"CSaverGEM *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSaverGEM::Visit",2,"CGSceneScreenRect *");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSaverGEM,0))){
+      SWIG_fail_ptr("CSaverGEM_Visit",1,SWIGTYPE_p_CSaverGEM);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneScreenRect,0))){
+      SWIG_fail_ptr("CSaverGEM_Visit",2,SWIGTYPE_p_CGSceneScreenRect);
+    }
+    
+    (arg1)->Visit(arg2);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CSaverGEM_Visit__SWIG_13(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CSaverGEM *arg1 = 0 ;
+    CGSceneInstance *arg2 = 0 ;
+    
+    SWIG_check_num_args("CSaverGEM::Visit",2,2)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSaverGEM::Visit",1,"CSaverGEM *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSaverGEM::Visit",2,"CGSceneInstance *");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSaverGEM,0))){
+      SWIG_fail_ptr("CSaverGEM_Visit",1,SWIGTYPE_p_CSaverGEM);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneInstance,0))){
+      SWIG_fail_ptr("CSaverGEM_Visit",2,SWIGTYPE_p_CGSceneInstance);
+    }
+    
+    (arg1)->Visit(arg2);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CSaverGEM_Visit__SWIG_14(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CSaverGEM *arg1 = 0 ;
+    CGSceneCamera *arg2 = 0 ;
+    
+    SWIG_check_num_args("CSaverGEM::Visit",2,2)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CSaverGEM::Visit",1,"CSaverGEM *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CSaverGEM::Visit",2,"CGSceneCamera *");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CSaverGEM,0))){
+      SWIG_fail_ptr("CSaverGEM_Visit",1,SWIGTYPE_p_CSaverGEM);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneCamera,0))){
+      SWIG_fail_ptr("CSaverGEM_Visit",2,SWIGTYPE_p_CGSceneCamera);
+    }
+    
+    (arg1)->Visit(arg2);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
 static int _wrap_CSaverGEM_Visit(lua_State* L) {
   int argc;
   int argv[3]={
@@ -58686,14 +58853,14 @@ static int _wrap_CSaverGEM_Visit(lua_State* L) {
     if (_v) {
       {
         void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneGroup, 0)) {
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneCamera, 0)) {
           _v = 0;
         } else {
           _v = 1;
         }
       }
       if (_v) {
-        return _wrap_CSaverGEM_Visit__SWIG_4(L);
+        return _wrap_CSaverGEM_Visit__SWIG_14(L);
       }
     }
   }
@@ -58710,14 +58877,14 @@ static int _wrap_CSaverGEM_Visit(lua_State* L) {
     if (_v) {
       {
         void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneTransf, 0)) {
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneInstance, 0)) {
           _v = 0;
         } else {
           _v = 1;
         }
       }
       if (_v) {
-        return _wrap_CSaverGEM_Visit__SWIG_5(L);
+        return _wrap_CSaverGEM_Visit__SWIG_13(L);
       }
     }
   }
@@ -58830,6 +58997,126 @@ static int _wrap_CSaverGEM_Visit(lua_State* L) {
     if (_v) {
       {
         void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneAnimNode, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        return _wrap_CSaverGEM_Visit__SWIG_10(L);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    {
+      void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CSaverGEM, 0)) {
+        _v = 0;
+      } else {
+        _v = 1;
+      }
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneSwitch, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        return _wrap_CSaverGEM_Visit__SWIG_11(L);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    {
+      void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CSaverGEM, 0)) {
+        _v = 0;
+      } else {
+        _v = 1;
+      }
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneScreenRect, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        return _wrap_CSaverGEM_Visit__SWIG_12(L);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    {
+      void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CSaverGEM, 0)) {
+        _v = 0;
+      } else {
+        _v = 1;
+      }
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneTransf, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        return _wrap_CSaverGEM_Visit__SWIG_5(L);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    {
+      void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CSaverGEM, 0)) {
+        _v = 0;
+      } else {
+        _v = 1;
+      }
+    }
+    if (_v) {
+      {
+        void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneGroup, 0)) {
+          _v = 0;
+        } else {
+          _v = 1;
+        }
+      }
+      if (_v) {
+        return _wrap_CSaverGEM_Visit__SWIG_4(L);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    {
+      void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CSaverGEM, 0)) {
+        _v = 0;
+      } else {
+        _v = 1;
+      }
+    }
+    if (_v) {
+      {
+        void *ptr;
         if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_CGSceneNode, 0)) {
           _v = 0;
         } else {
@@ -58853,7 +59140,12 @@ static int _wrap_CSaverGEM_Visit(lua_State* L) {
     "    CSaverGEM::Visit(CGSceneAnimActionSet *)\n"
     "    CSaverGEM::Visit(CGSceneAnimMesh *)\n"
     "    CSaverGEM::Visit(CGSceneAnimGroup *)\n"
-    "    CSaverGEM::Visit(CGSceneAnimTransf *)\n");
+    "    CSaverGEM::Visit(CGSceneAnimTransf *)\n"
+    "    CSaverGEM::Visit(CGSceneAnimNode *)\n"
+    "    CSaverGEM::Visit(CGSceneSwitch *)\n"
+    "    CSaverGEM::Visit(CGSceneScreenRect *)\n"
+    "    CSaverGEM::Visit(CGSceneInstance *)\n"
+    "    CSaverGEM::Visit(CGSceneCamera *)\n");
   lua_error(L);return 0;
 }
 
@@ -59022,6 +59314,14 @@ static void swig_delete_CSaverGEM(void *obj) {
 CSaverGEM *arg1 = (CSaverGEM *) obj;
 delete arg1;
 }
+static int _proxy__wrap_new_CSaverGEM(lua_State *L) {
+    assert(lua_istable(L,1));
+    lua_pushcfunction(L,_wrap_new_CSaverGEM);
+    assert(!lua_isnil(L,-1));
+    lua_replace(L,1); /* replace our table with real constructor */
+    lua_call(L,lua_gettop(L)-1,1);
+    return 1;
+}
 static swig_lua_attribute swig_CSaverGEM_attributes[] = {
     {0,0,0}
 };
@@ -59057,7 +59357,7 @@ static swig_lua_namespace swig_CSaverGEM_Sf_SwigStatic = {
 };
 static swig_lua_class *swig_CSaverGEM_bases[] = {0,0};
 static const char *swig_CSaverGEM_base_names[] = {"C3DSaver *",0};
-static swig_lua_class _wrap_class_CSaverGEM = { "CSaverGEM", "CSaverGEM", &SWIGTYPE_p_CSaverGEM,0, swig_delete_CSaverGEM, swig_CSaverGEM_methods, swig_CSaverGEM_attributes, &swig_CSaverGEM_Sf_SwigStatic, swig_CSaverGEM_meta, swig_CSaverGEM_bases, swig_CSaverGEM_base_names };
+static swig_lua_class _wrap_class_CSaverGEM = { "CSaverGEM", "CSaverGEM", &SWIGTYPE_p_CSaverGEM,_proxy__wrap_new_CSaverGEM, swig_delete_CSaverGEM, swig_CSaverGEM_methods, swig_CSaverGEM_attributes, &swig_CSaverGEM_Sf_SwigStatic, swig_CSaverGEM_meta, swig_CSaverGEM_bases, swig_CSaverGEM_base_names };
 
 static int _wrap_CGSCNVBoundVolBuilder_Visit__SWIG_0(lua_State* L) {
   {

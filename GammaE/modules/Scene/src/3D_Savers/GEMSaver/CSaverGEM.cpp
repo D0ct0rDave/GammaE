@@ -333,3 +333,27 @@ bool CSaverGEM::bSave(const CGString& _sFilename, CGSceneNode* _poObj)
     return(m_bResult);
 }
 // ----------------------------------------------------------------------------
+void CSaverGEM::Visit(CGSceneAnimNode*)
+{
+    assert(false && "Warning Not Implemented");
+}
+// ----------------------------------------------------------------------------
+void CSaverGEM::Visit(CGSceneSwitch*)
+{
+    assert(false && "Warning Not Implemented");
+}// ----------------------------------------------------------------------------
+void CSaverGEM::Visit(CGSceneScreenRect*)
+{
+    assert(false && "Warning Not Implemented");
+}
+// ----------------------------------------------------------------------------
+void CSaverGEM::Visit(CGSceneInstance*)
+{
+    assert(false && "Warning Not Implemented");
+}
+// ----------------------------------------------------------------------------
+void CSaverGEM::Visit(CGSceneCamera*)
+{
+    assert(false && "Warning Not Implemented");
+}
+// ----------------------------------------------------------------------------

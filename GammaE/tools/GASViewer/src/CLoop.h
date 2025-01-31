@@ -25,7 +25,7 @@ class CLoop
 		static void SaveGEM(char* _szFilename);
 
 	public:
-		static CObject3D*		m_poScene;
+		static CGSceneNode*		m_poScene;
 };
 //---------------------------------------------------------------------------
 #endif

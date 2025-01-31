@@ -117,10 +117,10 @@ void CGASViewerGUI::CreateGUIControls()
 	
 	// Build shader list	
 	cb_MaterialList->Clear();
-	for (uint i=0;i<CE3D_ShaderDefWH::I()->uiNumElems();i++)
+	for (uint i=0;i<CGShaderDefWH::I()->uiNumElems();i++)
 	{
-		CGTextResource* poShader = CE3D_ShaderDefWH::I()->poGet(i);
-		CGString sName = CE3D_ShaderDefWH::I()->sGetName(poShader);
+		CGTextResource* poShader = CGShaderDefWH::I()->poGet(i);
+		CGString sName = CGShaderDefWH::I()->sGetName(poShader);
 	
 		cb_MaterialList->Insert( wxString( sName.szString(), wxConvUTF8 ),i );
 	}
@@ -267,17 +267,17 @@ void CGASViewerGUI::OnIdle(wxIdleEvent& event)
 
 void CGASViewerGUI::ShowInfo()
 {
-	if ((CLoop::m_poScene== NULL) || CLoop::m_poScene->eGetTypeID() != e3DObj_AnimCfg) return;
+	if ((CLoop::m_poScene== NULL) || CLoop::m_poScene->eGetNodeType() != ESceneNodeType::SNT_AnimActionSet) return;
 
-	CObject3D_AnimMesh* poAM = (CObject3D_AnimMesh*)((CObject3D_AnimCfg*) CLoop::m_poScene)->AnimObj;
+	CGSceneAnimMesh* poAM = (CGSceneAnimMesh*) ((CGSceneAnimActionSet*)CLoop::m_poScene)->poGetAnimObj();
 	// CObject3D_Leaf* poLeaf = ((CObject3D_AnimMesh*) poAM)->GetLeaf();
 
 	// Fill info panel
-	CGraphBV* poBV = poAM->poGetBoundVol();
-	CVect3 oMaxs = poBV->oGetMax();
-	CVect3 oMins = poBV->oGetMin();
-	CVect3 oExtents = poBV->GetExtents();
-	CVect3 oCenter = poBV->GetCenter();
+	CGGraphBV* poBV = poAM->poGetBV();
+	CGVect3 oMaxs = poBV->oGetMax();
+	CGVect3 oMins = poBV->oGetMin();
+	CGVect3 oExtents = poBV->GetExtents();
+	CGVect3 oCenter = poBV->oGetCenter();
 
 	char szStr[1024];
 	sprintf(szStr,"Number of animaton frames: \n"
@@ -290,8 +290,8 @@ void CGASViewerGUI::ShowInfo()
 				  "(%.3f,%.3f,%.3f)\n"
 				  "Bounding Volume Extents: \n"
 				  "(%.3f,%.3f,%.3f)\n",
-				  poAM->iGetNumStates(),
-				  poAM->iGetNumStateVXs(),
+				  poAM->uiGetNumStates(),
+				  poAM->uiGetNumFrameVXs(),
 				  oMins.x,oMins.y,oMins.z,
 				  oMaxs.x,oMaxs.y,oMaxs.z,
 				  oCenter.x,oCenter.y,oCenter.z,
@@ -310,7 +310,7 @@ void CGASViewerGUI::ShowInfo()
 void CGASViewerGUI::cb_MaterialListSelected(wxCommandEvent& event )
 {
 	// insert your code here
-	CE3D_Shader* poShader = CE3D_ShaderWH::I()->poCreateShader( cb_MaterialList->GetValue().char_str() );
+	CGShader* poShader = CGShaderWH::I()->poCreateShader( cb_MaterialList->GetValue().char_str() );
 
 	if (poShader)
 	{
@@ -340,7 +340,7 @@ void CGASViewerGUI::WxButton1Click(wxCommandEvent& event)
 		wxString wxsDirectory = dlgLoadTexture.GetDirectory();
 		wxString wxsFullFilename = wxsDirectory + wxT("\\") + wxsFilename;
 
-		CE3D_Shader* poShader = CE3D_ShaderWH::I()->poCreateShader( wxsFullFilename.char_str() );
+		CGShader* poShader = CGShaderWH::I()->poCreateShader( wxsFullFilename.char_str() );
 
 		if (poShader)
 		{
