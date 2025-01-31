@@ -14,3 +14,6 @@
 	branch = WX_2_8_BRANCH
 [submodule "SDKS/Externals/wxWidget2.8"]
 	url = https://github.com/D0ct0rDave/wxWidgets.git
+[submodule "SDKS/Externals/swig4.3"]
+	path = SDKS/Externals/swig4.3
+	url = https://github.com/swig/swig.git
