@@ -18,7 +18,8 @@ class CLoop
 		static void Update(float _fDeltaT);
 		static void Render();
 		static void Loop();
-		
+		static void Register();
+
 		static void LoadGAS(char* _szFilename,char* _szDirectory);
 		static void LoadGTS(char* _szFilename,char* _szDirectory);
 		static void LoadGEM(char* _szFilename);

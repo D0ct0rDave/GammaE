@@ -2,6 +2,7 @@
 #include <windows.h>
 #include "CLoop.h"
 #include "GammaE.h"
+#include "CLoopCB.h"
 // ----------------------------------------------------------------------------
 typedef struct TLoopGlobals
 {
@@ -25,10 +26,9 @@ static char s_szCurDir[1024];
 const CGString& sPushFileDirectory(char* _szFilename)
 {
 #ifdef WIN32
-	char szCurDir[1024];
-	GetCurrentDirectory(1024, szCurDir);
+	GetCurrentDirectory(1024, s_szCurDir);
 	CGString sDir = Utils::ExtractFileDir(CGString(_szFilename));
-	CGString sFile = Utils::ExtractFileName(CGString(_szFilename));
+	static CGString sFile = Utils::ExtractFileName(CGString(_szFilename));
 	SetCurrentDirectory(sDir.szString());
 	return sFile;
 #else
@@ -94,6 +94,8 @@ void CLoop::Init(void* _hWnd)
 	gCamera.SetCamera   (&PerspCam);
 	gCamera.SetProjector(&PerspPrj);
 	gCamera.SetViewport (&Viewport);
+	Register();
+	CLoopCB::Init();
 
     globals.m_fTime = 0.0f;
 }
@@ -130,14 +132,15 @@ void CLoop::Update(float _fDeltaT)
 			PerspCam.LookAt(oCenter);
 		}
 
-		float fAmplitude = oRange.fModule();
+		float fAmplitude = oRange.fModule() * 2.0f;
 
 		oPos.x = oCenter.x + fAmplitude * Math::fSin(fAngle);
 		oPos.y = oCenter.y + fAmplitude * Math::fCos(fAngle);
 		oPos.z = oCenter.z;
 
-		PerspCam.SetPos(oPos.x, oPos.y, oPos.z);
-	}		
+		PerspCam.SetPos(oPos.x,oPos.y,oPos.z);
+		PerspCam.LookAt(oCenter);
+	}	
 }
 // ----------------------------------------------------------------------------
 void CLoop::Render()
@@ -148,7 +151,6 @@ void CLoop::Render()
  	CGColor oColor(0.2f,0,0,1);
     CGRenderer::I()->BeginRender();
     CGRenderer::I()->SetFogPars(E3D_FM_Linear,0.1f,1000.0f,0.01f,&oColor);
-    CGRenderer::I()->EnableBVRender();
 
 		// Render camera scene
         if (m_poScene)
@@ -248,4 +250,81 @@ void CLoop::LoadMD2(char* _szFilename)
 
 	PopFileDirectory();
 }
+
+
+// ----------------------------------------------------------------------------
+void CLoop::Register()
+{
+	// ---------------------------------------------------
+	// Register Input Names: The application registers the inputs it recognizes
+	// ---------------------------------------------------
+	CGInputRegistry::I()->Register("UP",		38);
+	CGInputRegistry::I()->Register("DOWN",		40);
+	CGInputRegistry::I()->Register("LEFT",		37);
+	CGInputRegistry::I()->Register("RIGHT",		39);
+	CGInputRegistry::I()->Register("TAB",		9);
+	CGInputRegistry::I()->Register("ENTER" ,	13);
+	CGInputRegistry::I()->Register("ESCAPE",	27);
+	CGInputRegistry::I()->Register("SPACE",		32);
+	CGInputRegistry::I()->Register("BACKSPACE",	8);
+	CGInputRegistry::I()->Register("CTRL",		17);
+	CGInputRegistry::I()->Register("F1",		112);
+	CGInputRegistry::I()->Register("F2",		113);
+	CGInputRegistry::I()->Register("F3",		114);
+	CGInputRegistry::I()->Register("F4",		115);
+	CGInputRegistry::I()->Register("F5",		116);
+	CGInputRegistry::I()->Register("F6",		117);
+	CGInputRegistry::I()->Register("F7",		118);
+	CGInputRegistry::I()->Register("F8",		119);
+	CGInputRegistry::I()->Register("F9",		120);
+	CGInputRegistry::I()->Register("F10",		121);	// no chuta!!!!
+	CGInputRegistry::I()->Register("F11",		122);
+	CGInputRegistry::I()->Register("F12",		123);	
+	CGInputRegistry::I()->Register("º",  		220);
+	CGInputRegistry::I()->Register("~",  		220);	// tecla º,ª y contrabarra
+	CGInputRegistry::I()->Register(".",  		190);
+	CGInputRegistry::I()->Register("/",  		111);
+	CGInputRegistry::I()->Register("A",			'A');
+	CGInputRegistry::I()->Register("B",			'B');
+	CGInputRegistry::I()->Register("C",			'C');
+	CGInputRegistry::I()->Register("D",			'D');
+	CGInputRegistry::I()->Register("E",			'E');
+	CGInputRegistry::I()->Register("F",			'F');
+	CGInputRegistry::I()->Register("G",			'G');
+	CGInputRegistry::I()->Register("H",			'H');
+	CGInputRegistry::I()->Register("I",			'I');
+	CGInputRegistry::I()->Register("J",			'J');
+	CGInputRegistry::I()->Register("K",			'K');
+	CGInputRegistry::I()->Register("L",			'L');
+	CGInputRegistry::I()->Register("M",			'M');
+	CGInputRegistry::I()->Register("N",			'N');
+	CGInputRegistry::I()->Register("O",			'O');
+	CGInputRegistry::I()->Register("P",			'P');
+	CGInputRegistry::I()->Register("Q",			'Q');
+	CGInputRegistry::I()->Register("R",			'R');
+	CGInputRegistry::I()->Register("S",			'S');
+	CGInputRegistry::I()->Register("T",			'T');
+	CGInputRegistry::I()->Register("U",			'U');
+	CGInputRegistry::I()->Register("V",			'V');
+	CGInputRegistry::I()->Register("W",			'W');
+	CGInputRegistry::I()->Register("X",			'X');
+	CGInputRegistry::I()->Register("Y",			'Y');
+	CGInputRegistry::I()->Register("Z",			'Z');
+
+	CGInputRegistry::I()->Register("0",			'0');
+	CGInputRegistry::I()->Register("1",			'1');
+	CGInputRegistry::I()->Register("2",			'2');
+	CGInputRegistry::I()->Register("3",			'3');
+	CGInputRegistry::I()->Register("4",			'4');
+	CGInputRegistry::I()->Register("5",			'5');
+	CGInputRegistry::I()->Register("6",			'6');
+	CGInputRegistry::I()->Register("7",			'7');
+	CGInputRegistry::I()->Register("8",			'8');
+	CGInputRegistry::I()->Register("9",			'9');
+
+	CGInputRegistry::I()->Register("MOUSE",	0);
+//	CGInputRegistry::I()->Register("BUTTON0",	CmdBinder_MOUSE_BUTTON0);
+//	CGInputRegistry::I()->Register("BUTTON1",	CmdBinder_MOUSE_BUTTON1);
+}
+
 // ----------------------------------------------------------------------------
