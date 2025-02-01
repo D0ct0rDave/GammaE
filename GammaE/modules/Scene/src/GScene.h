@@ -42,6 +42,7 @@
 #include "Visitors/CGSCNVBoundVolBuilder.h"
 #include "Visitors/CGSCNVRenderer.h"
 #include "Visitors/CGSCNVVisibilityChecker.h"
+#include "Visitors/CGSCNVAnimUpdater.h"
 
 #include "GraphBVUtils/CGGraphBVFileIO.h"
 

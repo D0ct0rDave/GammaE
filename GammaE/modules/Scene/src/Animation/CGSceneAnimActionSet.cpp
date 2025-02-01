@@ -30,53 +30,50 @@ void CGSceneAnimActionSet::SetAction(uint _uiAction)
 	m_fCurrentAnimTime = 0.0f;
 }
 // --------------------------------------------------------------------------------
-void CGSceneAnimActionSet::UpdateAnimState()
+void CGSceneAnimActionSet::UpdateAnimState(float _fDeltaT)
 {
-	if (CGRenderer::I()->oGetStats().m_uiCurrentFrame != iLastFrame)
+	const CAnimAction& oCurrentAnimation = oGetAnimAction(m_uiAction);
+	iLastFrame = CGRenderer::I()->oGetStats().m_uiCurrentFrame;
+
+	unsigned int		iCurrFrame;
+	unsigned int		iNextFrame;
+	unsigned int		iRealFrame;
+
+	float				fFactor;
+	float				fFrameAnimTime;
+	float				fFrame;
+
+	// Tiempo total desde la primera llamada a GetMesh
+	m_fCurrentAnimTime += _fDeltaT;
+
+	// Tiempo transcurrido dentro de la actual animación
+	fFrameAnimTime = Math::fMod(m_fCurrentAnimTime, m_fTotalAnimTime);
+
+	// Frame que toca relativo al frame inicial de la animación
+	fFrame = fFrameAnimTime / oCurrentAnimation.m_fFrameTime;
+	iCurrFrame = (int)fFrame;
+
+	// Factor de cercanía hacia el siguiente frame: (->1 muy cerca de siguiente frame)
+	fFactor = fFrame - iCurrFrame;
+
+	// Frame real dentro de la tabla de frames	
+	iRealFrame = oCurrentAnimation.m_uiIniFrame + iCurrFrame;
+
+	// Setup next frame
+	if (iRealFrame >= oCurrentAnimation.m_uiEndFrame)
 	{
-		const CAnimAction& oCurrentAnimation = oGetAnimAction(m_uiAction);
-		iLastFrame = CGRenderer::I()->oGetStats().m_uiCurrentFrame;
-
-		unsigned int		iCurrFrame;
-		unsigned int		iNextFrame;
-		unsigned int		iRealFrame;
-
-		float				fFactor;
-		float				fFrameAnimTime;
-		float				fFrame;
-
-		// Tiempo total desde la primera llamada a GetMesh
-		m_fCurrentAnimTime += CGRenderer::I()->oGetStats().m_fDelta;
-
-		// Tiempo transcurrido dentro de la actual animación
-		fFrameAnimTime = Math::fMod(m_fCurrentAnimTime, m_fTotalAnimTime);
-
-		// Frame que toca relativo al frame inicial de la animación
-		fFrame = fFrameAnimTime / oCurrentAnimation.m_fFrameTime;
-		iCurrFrame = (int)fFrame;
-
-		// Factor de cercanía hacia el siguiente frame: (->1 muy cerca de siguiente frame)
-		fFactor = fFrame - iCurrFrame;
-
-		// Frame real dentro de la tabla de frames	
-		iRealFrame = oCurrentAnimation.m_uiIniFrame + iCurrFrame;
-
-		// Setup next frame
-		if (iRealFrame >= oCurrentAnimation.m_uiEndFrame)
-		{
-			if (oCurrentAnimation.m_bLoop)
-				iNextFrame = oCurrentAnimation.m_uiIniFrame;
-			else
-			{
-				iNextFrame = oCurrentAnimation.m_uiEndFrame - 1;
-				fFactor = 0.0f;
-			}
-		}
+		if (oCurrentAnimation.m_bLoop)
+			iNextFrame = oCurrentAnimation.m_uiIniFrame;
 		else
-			iNextFrame = iRealFrame + 1;
-
-		m_poAnimObj->SetAnimState(iRealFrame, iNextFrame, fFactor);
+		{
+			iNextFrame = oCurrentAnimation.m_uiEndFrame - 1;
+			fFactor = 0.0f;
+		}
 	}
+	else
+		iNextFrame = iRealFrame + 1;
+
+	m_poAnimObj->SetAnimState(iRealFrame, iNextFrame, fFactor);
 }
 // --------------------------------------------------------------------------------
 CGGraphBV* CGSceneAnimActionSet::poGetBV()

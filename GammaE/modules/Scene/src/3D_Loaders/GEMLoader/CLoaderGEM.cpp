@@ -312,7 +312,7 @@ CGSceneAnimActionSet* CLoaderGEM::poLoad3DObj_AnimActionSet()
             CAnimAction oAction;
             m_poFile->uiReadData((pointer)&oAction, sizeof(CAnimAction));
 
-            poObj->uiAddAction(CGString(szActionName), oAction.m_uiIniFrame, oAction.m_uiEndFrame, oAction.m_fFrameTime, oAction.m_bLoop);
+            poObj->uiAddAction(CGString(szActionName), oAction.m_uiIniFrame, oAction.m_uiEndFrame, (oAction.m_uiEndFrame - oAction.m_uiIniFrame + 1 ) * oAction.m_fFrameTime, oAction.m_bLoop);
        }
 
        // Load attached object
