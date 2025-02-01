@@ -46,7 +46,7 @@ uint CGFileSysMgrDirect::uiWriteFile (handler _hHandler, pointer _pData, uint _u
 {
     assert(_hHandler);
     assert(_pData);
-    return ( ( (OSFILE*)_hHandler )->uiWrite(_pData,_uiSize) );
+    return ( ( (OSFILE*)_hHandler )->uiWriteData(_pData,_uiSize) );
 }
 // ----------------------------------------------------------------------------
 int CGFileSysMgrDirect::iSeekFile (handler _hHandler, int _iOffset,EFileSeekMode _eSeekMode) const

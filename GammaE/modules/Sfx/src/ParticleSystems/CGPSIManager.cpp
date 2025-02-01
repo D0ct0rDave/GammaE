@@ -16,13 +16,16 @@
 class CGPSIManagerNode : public CGSceneGroup
 {
     public:
-        virtual void Render()
+        // General Processing Functionalities.
+        virtual void Accept(CGSceneVisitor* _poVisitor)
         {
-            // Update the PSIManager
-            CGPSIManager::I()->Update( CGRenderer::I()->oGetStats().m_fDelta );
+            if (_poVisitor == CGSCNVRenderer::I())
+            {
+                // Update the PSIManager
+                CGPSIManager::I()->Update(CGRenderer::I()->oGetStats().m_fDelta);
+            }
 
-            // Render all the objects of the PSI
-            CGSCNVRenderer::I()->Render(this);
+            _poVisitor->Visit(this);
         }
 };
 // ----------------------------------------------------------------------------

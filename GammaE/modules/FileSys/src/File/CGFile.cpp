@@ -40,7 +40,7 @@ uint CGFile::uiReadData (pointer _pData, uint _uiSize) const
     return( gpoFILESYSMGR->uiReadFile(m_hHandler,_pData,_uiSize) );
 }
 // ----------------------------------------------------------------------------
-uint CGFile::uiWrite (pointer _pData, uint _uiSize) const
+uint CGFile::uiWriteData (pointer _pData, uint _uiSize) const
 {
     assert(gpoFILESYSMGR);
     return( gpoFILESYSMGR->uiWriteFile(m_hHandler,_pData,_uiSize) );
@@ -80,7 +80,7 @@ int CGFile::iRead () const
     return(iValue);
 }
 // ----------------------------------------------------------------------------
-uint CGFile::uiReadData () const
+uint CGFile::uiRead() const
 {
     assert(gpoFILESYSMGR);
     uint uiValue;

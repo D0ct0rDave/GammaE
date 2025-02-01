@@ -50,15 +50,19 @@ local scriptRoot = os.getcwd()
 frameworkRoot = scriptRoot .. "/.."
 
 ------------------------------------------------------------------------------
+local function addToolProject(_projectName, windowedApplication)
 
-local function addToolProject(_projectName)
-	
 	local ProjectRelativeFinalDataRoot = "$(ProjectDir)../" .. _projectName .. "/data"
 	local ProjectRelativeSDKSRoot = "$(ProjectDir)../../../SDKS"
 	local ProjectRelativeGammaERoot = "$(ProjectDir)../.."
 
 	project(_projectName)
-		kind "WindowedApp" -- Change to "SharedLib" for a shared library
+		if windowedApplication then
+			kind "WindowedApp" -- Change to "SharedLib" for a shared library
+		else
+			kind "ConsoleApp" -- Change to "SharedLib" for a shared library
+		end
+		
 		language "C++"
 		cppdialect "C++17"
 		targetdir "$(ProjectDir)/exe/%{cfg.buildcfg}" -- Output directory for binaries
@@ -102,14 +106,19 @@ local function addToolProject(_projectName)
 			sourceRoot,
 			ProjectRelativeGammaERoot .. "/inc",
 			ProjectRelativeSDKSRoot .. "/Externals/FreeImage/Dist;",
-			ProjectRelativeSDKSRoot .. "/Externals/wxWidgets2.8/include",
-			ProjectRelativeSDKSRoot .. "/Externals/wxWidgets2.8/include/msvc",
 		}
+
+		if windowedApplication then
+			includedirs 
+			{
+				ProjectRelativeSDKSRoot .. "/Externals/wxWidgets2.8/include",
+				ProjectRelativeSDKSRoot .. "/Externals/wxWidgets2.8/include/msvc",
+			}			
+		end
 
 		-- Library directories common for all configurations
 		libdirs
 		{
-			ProjectRelativeSDKSRoot .. "/Externals/wxWidgets2.8/lib/vc_lib/x64",
 			ProjectRelativeSDKSRoot .. "/Externals/FreeImage/Dist/x64",
 			ProjectRelativeSDKSRoot .. "/OpenAL 1.1 SDK/libs",
 			ProjectRelativeSDKSRoot .. "/OpenAL 1.1 SDK/libs/Win64",
@@ -117,8 +126,15 @@ local function addToolProject(_projectName)
 			ProjectRelativeSDKSRoot .. "/libsndfile/lib/x64/%{cfg.buildcfg}",
 			ProjectRelativeSDKSRoot .. "/libconfig/lib/x64/%{cfg.buildcfg}",
 			ProjectRelativeGammaERoot .. "/build/lib/%{cfg.buildcfg}",
-		}
-		
+		}		
+
+		if windowedApplication then
+			libdirs
+			{
+				ProjectRelativeSDKSRoot .. "/Externals/wxWidgets2.8/lib/vc_lib/x64",
+			}
+		end		
+
 		links 
 		{
 			"ddraw.lib",
@@ -146,29 +162,31 @@ local function addToolProject(_projectName)
 			}
 			symbols "On" -- Generate debug symbols
 
-			links 
-			{
-				"wxbase28d.lib",
-				"wxbase28d_net.lib",
-				"wxbase28d_odbc.lib",
-				"wxbase28d_xml.lib",
-				"wxmsw28d_adv.lib",
-				"wxmsw28d_aui.lib",
-				"wxmsw28d_core.lib",
-				"wxmsw28d_dbgrid.lib",
-				"wxmsw28d_gl.lib",
-				"wxmsw28d_html.lib",
-				"wxmsw28d_media.lib",
-				"wxmsw28d_qa.lib",
-				"wxmsw28d_richtext.lib",
-				"wxmsw28d_xrc.lib",
-				"wxexpatd.lib",
-				"wxjpegd.lib",
-				"wxpngd.lib",
-				"wxregexd.lib",
-				"wxtiffd.lib",
-				"wxzlibd.lib",
-			}
+			if windowedApplication then
+				links 
+				{
+					"wxbase28d.lib",
+					"wxbase28d_net.lib",
+					"wxbase28d_odbc.lib",
+					"wxbase28d_xml.lib",
+					"wxmsw28d_adv.lib",
+					"wxmsw28d_aui.lib",
+					"wxmsw28d_core.lib",
+					"wxmsw28d_dbgrid.lib",
+					"wxmsw28d_gl.lib",
+					"wxmsw28d_html.lib",
+					"wxmsw28d_media.lib",
+					"wxmsw28d_qa.lib",
+					"wxmsw28d_richtext.lib",
+					"wxmsw28d_xrc.lib",
+					"wxexpatd.lib",
+					"wxjpegd.lib",
+					"wxpngd.lib",
+					"wxregexd.lib",
+					"wxtiffd.lib",
+					"wxzlibd.lib",
+				}
+			end
 
 		filter "configurations:Release"
 			defines
@@ -178,29 +196,31 @@ local function addToolProject(_projectName)
 
 			optimize "On" -- Enable optimizations
 
-			links 
-			{
-				"wxmsw28_xrc.lib",
-				"wxmsw28_dbgrid.lib",
-				"wxmsw28_core.lib",
-				"wxbase28.lib",
-				"wxbase28_net.lib",
-				"wxmsw28_adv.lib",
-				"wxmsw28_html.lib",
-				"wxbase28_odbc.lib",
-				"wxmsw28_richtext.lib",
-				"wxbase28_xml.lib",
-				"wxmsw28_aui.lib",
-				"wxmsw28_media.lib",
-				"wxmsw28_qa.lib",
-				"wxmsw28_gl.lib",
-				"wxtiff.lib",
-				"wxjpeg.lib",
-				"wxregex.lib",
-				"wxpng.lib",
-				"wxzlib.lib",
-				"wxexpat.lib",
-			}
+			if windowedApplication then
+				links 
+				{
+					"wxmsw28_xrc.lib",
+					"wxmsw28_dbgrid.lib",
+					"wxmsw28_core.lib",
+					"wxbase28.lib",
+					"wxbase28_net.lib",
+					"wxmsw28_adv.lib",
+					"wxmsw28_html.lib",
+					"wxbase28_odbc.lib",
+					"wxmsw28_richtext.lib",
+					"wxbase28_xml.lib",
+					"wxmsw28_aui.lib",
+					"wxmsw28_media.lib",
+					"wxmsw28_qa.lib",
+					"wxmsw28_gl.lib",
+					"wxtiff.lib",
+					"wxjpeg.lib",
+					"wxregex.lib",
+					"wxpng.lib",
+					"wxzlib.lib",
+					"wxexpat.lib",
+				}
+			end
 			
 		filter {} -- Clear filter for general settings
 
@@ -228,12 +248,10 @@ workspace "GammaE_Tools"
 
 		group("Tools")
 
-			addToolProject("GASViewer")
-			addToolProject("GEMViewer")
-			addToolProject("GTS2GEM")
-			addToolProject("GTSViwer")
-			addToolProject("ParticleEditor")
-			addToolProject("wxSampleApplication")
+			addToolProject("GASViewer", true)
+			addToolProject("GTS2GEM", false)
+			addToolProject("ParticleEditor", true)
+			addToolProject("wxSampleApplication", true)
 	
 		group("GammaE")
 

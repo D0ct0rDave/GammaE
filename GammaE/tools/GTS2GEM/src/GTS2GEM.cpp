@@ -16,9 +16,9 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	// extraer el directorio y establecerlo como actual
 	CGString asFullFilename  = (CGString)argv[1];
-	CGString asDirectory = ExtractFileDir(asFullFilename);
-	CGString asFilename  = ExtractFileName(asFullFilename);
-	CGString asShortFilename = ExtractShortFileName(asFullFilename);
+	CGString asDirectory = Utils::ExtractFileDir(asFullFilename);
+	CGString asFilename  = Utils::ExtractFileName(asFullFilename);
+	CGString asShortFilename = Utils::ExtractShortFileName(asFullFilename);
 
 	SetCurrentDirectory(asDirectory.szString());
 	
@@ -40,8 +40,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	// Restore old initial directory
 	SetCurrentDirectory(szOldDir);
 
-	CMatrix4x4 oVMat;
-	CMatrix4x4 oNMat;
+	CGMatrix4x4 oVMat;
+	CGMatrix4x4 oNMat;
 	const float fScale = 0.01f;	// ok for umbrella
 	// const float fScale = 0.03f;	// ok for marvinpig
 	// const float fScale = 0.02f; // ok for brainslug
@@ -63,12 +63,12 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	// Build scene
 	SCNUt_SceneBuilder oSB;
-	CObject3D* poObj2 = oSB.poBuildScene(*poScn,oMT);
+	CGSceneNode* poObj2 = oSB.poBuildScene(*poScn,oMT);
 
 	// Save the files...
 	CSaverGEM oSaver;
 	CGString asGEMFile = asShortFilename + ".gem";
- 	oSaver.iSave((char*)asGEMFile.szString(),poObj2);
+ 	oSaver.bSave(asGEMFile,poObj2);
 
 	return 0;
 }

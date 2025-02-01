@@ -151,7 +151,7 @@ SCNUt_TriScene* CLoaderMD2::ParseModel ()
                 (float)TexCoords[uiTPos].s / (float)MD2Header->skinWidth,
                 (float)TexCoords[uiTPos].t / (float)MD2Header->skinHeight);
 
-            MD2Mesh->Tris[cTri].VCs[cVert].Set(1,1,1,0);
+            MD2Mesh->Tris[cTri].VCs[cVert].Set(1,1,1,1);
         }
     }
 
@@ -211,9 +211,6 @@ void CLoaderMD2::ParseFrameSet (CGSceneAnimMesh &AnimMesh, CGMesh &Mesh)
 
     CGVect3 NewVX;
     CGVect3* pVX = AnimMesh.poGetVertices();
-    CGMatrix4x4 oCMat;                    // Correction matrix
-    oCMat.LoadIdentity();
-    oCMat.Rotate('z',_PI2_);
 
     // Parse every frame
     for ( cFrame = 0; cFrame < MD2Header->numFrames; cFrame++ )
@@ -225,13 +222,10 @@ void CLoaderMD2::ParseFrameSet (CGSceneAnimMesh &AnimMesh, CGMesh &Mesh)
         for ( cVert = 0; cVert < Mesh.uiGetNumVXs(); cVert++ )
         {
             NewVX.Set(
-                Vertexs[ NewIdxs[cVert] ].vertex[0] * Frame->scale[0] + Frame->translate[0],
-                Vertexs[ NewIdxs[cVert] ].vertex[1] * Frame->scale[1] + Frame->translate[1],
-                Vertexs[ NewIdxs[cVert] ].vertex[2] * Frame->scale[2] + Frame->translate[2]
-                );
-
-            // Correct point
-            oCMat.TransformPoint(&NewVX);
+                (float)(Vertexs[ NewIdxs[cVert] ].vertex[0]) * Frame->scale[0] + Frame->translate[0],
+                (float)(Vertexs[ NewIdxs[cVert] ].vertex[1]) * Frame->scale[1] + Frame->translate[1],
+                (float)(Vertexs[ NewIdxs[cVert] ].vertex[2]) * Frame->scale[2] + Frame->translate[2]
+            );
 
             pVX->Assign(NewVX);
             pVX++;
@@ -271,8 +265,8 @@ int CLoaderMD2::GetNumFrames ()
 // ----------------------------------------------------------------------------
 CGSceneAnimActionSet* CLoaderMD2::pLoadQ2Player(const CGString& _sFilename)
 {
-    CGSceneAnimActionSet* pQ2Player;
-    CGSceneAnimMesh* pQ2Model;
+    CGSceneAnimActionSet* pQ2Player = NULL;
+    CGSceneAnimMesh* pQ2Model = NULL;
 
     pQ2Model = (CGSceneAnimMesh*)poLoad(_sFilename);
 

@@ -15,29 +15,31 @@
 #include "Shaders\ShaderDefinitions\CGShaderDefWH.h"
 #include "Shaders\ShaderParser\CGShaderParser.h"
 // ----------------------------------------------------------------------------
-CGShader* CGShaderWH::poCreateShader(const char* _szShaderName)
+CGShader* CGShaderWH::poCreateShader(const CGString& _sShaderName)
 {
     // Look if the material already exists in the warehouse
-    CGShader* poShader = poFind(_szShaderName);
+    CGShader* poShader = poFind(_sShaderName);
     if ( poShader ) return(poShader);
 
     // If it doesn't exist in the shader warehouse,
     // look if it's in the shader definition warehouse
-    CGTextResource* poSR = CGShaderDefWH::I()->poFind(_szShaderName);
+    CGTextResource* poSR = CGShaderDefWH::I()->poFind(_sShaderName);
     if ( poSR )
     {
         // Try loading shader from definition
         const char* szShaderDef = poSR->sGetData().szString();
-        poShader = CGShaderParser::poParseShader(szShaderDef,_szShaderName);
+        poShader = CGShaderParser::poParseShader(szShaderDef, _sShaderName);
     }
     else
+    {
         // Try loading shader as a texture
-        poShader = CGShaderParser::poCreateShaderFromTexture(_szShaderName);
+        poShader = CGShaderParser::poCreateShaderFromTexture(_sShaderName);
+    }
 
     if ( !poShader ) return(NULL);
 
     // Add shader to warehouse
-    uiAdd(poShader,_szShaderName);
+    uiAdd(poShader, _sShaderName);
 
     return (poShader);
 }

@@ -339,7 +339,7 @@ void CGASViewerGUI::ShowInfo()
 void CGASViewerGUI::cb_MaterialListSelected(wxCommandEvent& event )
 {
 	// insert your code here
-	CGShader* poShader = CGShaderWH::I()->poCreateShader( cb_MaterialList->GetValue().char_str() );
+	CGShader* poShader = CGShaderWH::I()->poCreateShader( CGString(cb_MaterialList->GetValue().char_str()) );
 
 	if (poShader)
 	{
@@ -369,7 +369,7 @@ void CGASViewerGUI::WxButton1Click(wxCommandEvent& event)
 		wxString wxsDirectory = dlgLoadTexture.GetDirectory();
 		wxString wxsFullFilename = wxsDirectory + wxT("\\") + wxsFilename;
 
-		CGShader* poShader = CGShaderWH::I()->poCreateShader( wxsFullFilename.char_str() );
+		CGShader* poShader = CGShaderWH::I()->poCreateShader( CGString(wxsFullFilename.char_str()) );
 
 		if (poShader)
 		{

@@ -30,7 +30,7 @@ class CGOSFileW32 : public CGOSFile
         virtual uint uiReadData(pointer _pData, uint _uiSize) const;
 
         // / Writes a stream of data to the OS dependant file.
-        virtual uint uiWrite(pointer _pData, uint _uiSize) const;
+        virtual uint uiWriteData(pointer _pData, uint _uiSize) const;
 
         // / Places the OS dependant file into the given position.
         virtual int iSeek(int _iOffset, EFileSeekMode _eSeekMode) const;

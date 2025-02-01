@@ -4,12 +4,13 @@
 #include "CGlobals.h"
 #include "GammaE.h"
 // ----------------------------------------------------------------------------
-CE3D_Viewport		    Viewport;
-CE3D_Camera			    PerspCam;
-CE3D_Projector		    PerspPrj;
-CObject3D_Camera        gCamera;
-CObject3D*				gpoScene = NULL;
-uint					guiPSGIdx = -1;
+CGViewport		    Viewport;
+CGCamera			PerspCam;
+CGProjector		    PerspPrj;
+CGSceneCamera       gCamera;
+
+CGSceneNode*		gpoScene = NULL;
+uint				guiPSGIdx = -1;
 // ----------------------------------------------------------------------------
 void CLoop::Init(void* _hWnd)
 {
@@ -21,7 +22,9 @@ void CLoop::Init(void* _hWnd)
 	globals.m_uiScrWidth  = Rect.right - Rect.left;
 	globals.m_uiScrHeight = Rect.bottom - Rect.top;
 
-    CGRenderer::I()->Init(globals.m_hWnd,E3D_RENDERER_OP_DBUFFER,globals.m_uiScrWidth,globals.m_uiScrHeight,32);
+    CGRenderer::I()->bInit(globals.m_hWnd,E3D_RENDERER_OP_DBUFFER, globals.m_uiScrWidth, globals.m_uiScrHeight, 32);
+	CGShaderDefFileWH::I()->iLoad("data/Shaders.txt");
+	CGShaderDefFileWH::I()->iLoad("data/particleshaders.txt");
 
 	Viewport.ScrCX = 0.0f;
     Viewport.ScrCY = 0.0f;
@@ -31,12 +34,11 @@ void CLoop::Init(void* _hWnd)
     // La orientacion de la cámara se determina utilizando 3 vectores
     // que son los ejes locales de la cámara
 	// PerspCam.Pos.V3 ( 4, 10,270);
-	PerspCam.Pos.V3 ( 0.0f,-10.0f,0.0f);
-
-    PerspCam.Up.V3  ( 0, 0,   1);
-	PerspCam.Dir.V3 ( 0, 1,   0);	PerspCam.Dir.Normalize();
-	PerspCam.Side.CrossProd(PerspCam.Dir,PerspCam.Up);
-
+	PerspCam.SetPos( 0.0f,-500.0f,0.0f);
+	CGVect3 oDir(0, 1, 0);
+	CGVect3 oUp(0, 0, 1);
+	CGVect3 oSide(1,0,0);
+	PerspCam.SetVectors(oDir, oUp, oSide);
 
 	PerspPrj.ePrjType = E3D_PT_Perspective;
 	PerspPrj.fFOV     = 45.0f;
@@ -52,24 +54,15 @@ void CLoop::Init(void* _hWnd)
 
     CGRenderer::I()->DisableFrustumCulling();
 	CGRenderer::I()->SetZPars(E3D_ZTF_LEqual,E3D_ZW_Enable);
+ 	CGColor oColor(0,0,0,1);
+	CGRenderer::I()->SetFogPars(E3D_FM_Linear,0.1f,1000.0f,0.01f,&oColor);
 
   	gCamera.Init	    (100);
 	gCamera.SetCamera   (&PerspCam);
 	gCamera.SetProjector(&PerspPrj);
 	gCamera.SetViewport (&Viewport);
 
-	CE3D_ShaderDefFileWH::I()->iLoad("data/Shaders.txt");
-	CE3D_ShaderDefFileWH::I()->iLoad("data/particleshaders.txt");
-
 	CGPSGDefFileWH::I()->iLoad("data/particles.def");
-
-    // gCamera.iAddObject(NULL);
-
-//	AppLoop_SetupKeyBindings();
-//	AppLoop_SetupCallbackFuncs();
-
-//   RTimer->Enabled = true;
-//   tb_SizeChange(NULL);
 
 	// Color
 	CGColor oIColor(0,0,0,1);
@@ -104,11 +97,11 @@ void CLoop::Init(void* _hWnd)
 	globals.m_poPSGQ->SetSizePars(fISize,fFSize,fIRSize,fFRSize);
 	globals.m_poPSGQ->SetAnglePars(fIAngle,fFAngle,fIRAngle,fFRAngle);
 	globals.m_poPSGQ->SetRadiusPars(fIRadius,fFRadius,fIRRadius,fFRRadius);
-	globals.m_poPSGQ->SetShader( CE3D_ShaderWH::I()->poCreateShader("particletex0") );
+	globals.m_poPSGQ->SetShader( CGShaderWH::I()->poCreateShader("particletex0") );
 
-    CVect3 oPos(0,0,0);
+    CGVect3 oPos(0,0,0);
     CGPSIManager::I()->uiCreatePool("test",1);
-	CGPSIManager::I()->poGet("test",1e6,oPos);
+	CGPSIManager::I()->poGet("test", 1e6, oPos);
 
 	gpoScene = CGPSIManager::I()->poGetNode();
 
@@ -129,22 +122,28 @@ void CLoop::Loop()
 void CLoop::Update(float _fDeltaT)
 {
 	globals.m_fTime += _fDeltaT;
-
 	if (gpoScene != NULL)
 	{
 		/*
 		const float FREQ = 1.0f/4.0f;
 		float fAngle = globals.m_fTime*FREQ;
 		
-		CVect3 oCenter= gpoScene->poGetBoundVol()->GetCenter();
-		CVect3 oRange = gpoScene->poGetBoundVol()->GetExtents();
-		CVect3 oPos;
+		CGVect3 oCenter = CGVect3::oZero();
+		CGVect3 oRange(1.0f,1.0f,1.0f);
+		CGVect3 oPos;
 		
+		if (gpoScene->poGetBV() != NULL)
+		{
+			oCenter = gpoScene->poGetBV()->oGetCenter();
+			oRange = gpoScene->poGetBV()->GetExtents();
+			PerspCam.LookAt(oCenter);
+		}
+
 		float fAmplitude = oRange.fModule() * 2.0f;
-		
-		oPos.x = oCenter.x + fAmplitude*MATH_Common::fSin(fAngle);
-		oPos.y = oCenter.y + fAmplitude*MATH_Common::fCos(fAngle);
-		oPos.y = oCenter.z ;
+
+		oPos.x = oCenter.x + fAmplitude * Math::fSin(fAngle);
+		oPos.y = oCenter.y + fAmplitude * Math::fCos(fAngle);
+		oPos.z = oCenter.z;
 
 		PerspCam.SetPos(oPos.x,oPos.y,oPos.z);
 		PerspCam.LookAt(oCenter);
@@ -155,43 +154,17 @@ void CLoop::Update(float _fDeltaT)
 void CLoop::Render()
 {
 	if (CGRenderer::I() == NULL) return;
-    // AppLoop_ControlCommands();
-
 	// World think entities
- 	CGColor oColor(0,0,0,1);
     CGRenderer::I()->BeginRender();
-    CGRenderer::I()->SetFogPars(E3D_FM_Linear,0.1f,1000.0f,0.01f,&oColor);
-    // CGRenderer::I()->EnableBBoxRender();
 	
 		// Render camera scene
-		gCamera.PreRender();
-
-            if (gpoScene)
-                gpoScene->Render();
-
-        gCamera.PostRender();
+        if (gpoScene)
+		{
+			gpoScene->Ref();
+			gCamera.SetObject(gpoScene, 0);
+			CGSCNVRenderer::I()->Render(&gCamera);
+		}
 
     CGRenderer::I()->EndRender();
-}
-// ----------------------------------------------------------------------------
-void CLoop::LoadGEM(char* _szFilename)
-{
-	/*
-	#ifdef WIN32
-	char szCurDir[1024];
-	GetCurrentDirectory(1024,szCurDir);
-	CGString sDir  = ExtractFileDir ( CGString(_szFilename) );
-	CGString sFile = ExtractFileName( CGString(_szFilename) );
-	SetCurrentDirectory( sDir.szString() );
-	#endif
-
-	CLoaderGEM oLoader;
-	gpoScene = oLoader.pLoad( (char*)sFile.szString() );
-	gpoScene->ComputeBoundVol();
-
-   	#ifdef WIN32
-	SetCurrentDirectory(szCurDir);
-	#endif
-	*/
 }
 // ----------------------------------------------------------------------------

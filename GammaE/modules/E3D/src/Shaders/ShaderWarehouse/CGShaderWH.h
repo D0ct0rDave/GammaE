@@ -22,7 +22,7 @@ DECLARE_WAREHOUSE(CGShaderWH,CGResourceWH,CGShader)
 
         virtual void Invalidate(int _iIdx = -1);
         void InvalidateElem(int _iIdx);
-        CGShader* poCreateShader(const char* _szShaderName);
+        CGShader* poCreateShader(const CGString& _sShaderName);
 };
 // ----------------------------------------------------------------------------
 #endif

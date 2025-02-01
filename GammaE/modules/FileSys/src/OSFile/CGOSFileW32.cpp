@@ -67,7 +67,7 @@ uint CGOSFileW32::uiReadData(pointer _pData, uint _uiSize) const
     return( fread(_pData,_uiSize,1,m_poFD) );
 }
 // ----------------------------------------------------------------------------
-uint CGOSFileW32::uiWrite(pointer _pData, uint _uiSize) const
+uint CGOSFileW32::uiWriteData(pointer _pData, uint _uiSize) const
 {
     assert(_pData && "NULL Data buffer");
     if ( _uiSize <= 0 ) return(0);

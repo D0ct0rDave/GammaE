@@ -101,7 +101,11 @@ void CGSceneTransf::SetTransf (const CGMatrix4x4& _oTransf)
     m_oTransf = _oTransf;
 
     // Recompute Bounding Volume
-    m_poBV->Copy( *m_poObj->poGetBV() );
+    if (m_poObj->poGetBV() != NULL)
+    {
+        m_poBV->Copy(*m_poObj->poGetBV());
+    }
+
     m_poBV->Transform(m_oTransf);
 }
 // ----------------------------------------------------------------------------
@@ -132,7 +136,11 @@ void CGSceneTransf::SetupTransformation ()
     m_oTransf.SetCol(3,m_oPos.x,m_oPos.y,m_oPos.z,1.0f);
 
     // Recompute Bounding Volume
-    m_poBV->Copy( *m_poObj->poGetBV() );
+    if (m_poObj->poGetBV() != NULL)
+    {
+        m_poBV->Copy( *m_poObj->poGetBV() );
+    }
+
     m_poBV->Transform(m_oTransf);
 }
 // ----------------------------------------------------------------------------

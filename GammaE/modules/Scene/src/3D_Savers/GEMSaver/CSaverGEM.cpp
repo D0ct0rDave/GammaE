@@ -63,7 +63,7 @@ void CSaverGEM::Visit(CGSceneLeaf* _poObj)
     strcpy_s(szStr, MAX_CHARS, sMaterialName.szString() );
 
     // Write material name
-    m_poFile->uiWrite((pointer)szStr, MAX_CHARS);
+    m_poFile->uiWriteData((pointer)szStr, MAX_CHARS);
 
     // Write mesh
     bSaveMesh( _poObj->poGetMesh() );
@@ -106,7 +106,7 @@ void CSaverGEM::Visit(CGSceneBSPNode* _poObj)
     CGFileUtils::BeginRIFFBlock(GEM_BSPNODE_IDENTIFIER, *m_poFile);
 
     // Write node transformation parameters
-    m_poFile->uiWrite((pointer)&_poObj->oGetPartitionPlane(), sizeof(CGPlane));
+    m_poFile->uiWriteData((pointer)&_poObj->oGetPartitionPlane(), sizeof(CGPlane));
 
     // Save children
     _poObj->poGetBackNode()->Accept(this);
@@ -203,7 +203,7 @@ void CSaverGEM::Visit(CGSceneAnimActionSet* _poObj)
 
         // read action data
         CAnimAction oAction = _poObj->oGetAnimAction(i);
-        m_poFile->uiWrite((pointer)&oAction, sizeof(CAnimAction));
+        m_poFile->uiWriteData((pointer)&oAction, sizeof(CAnimAction));
     }
 
     // Write attached object
@@ -261,8 +261,8 @@ bool CSaverGEM::bSaveMesh(CGBaseMesh* _poMesh)
     if (poMesh->m_poTN) uiMeshMask |= MESH_FIELD_TNORMALS;
     if (poMesh->m_pusIdx) uiMeshMask |= MESH_FIELD_INDEXES;
 
-    m_poFile->Write((unsigned short)poMesh->uiGetNumVXs());
-    m_poFile->Write((unsigned short)poMesh->uiGetNumPrims());
+    m_poFile->Write(poMesh->uiGetNumVXs());
+    m_poFile->Write(poMesh->uiGetNumPrims());
     m_poFile->Write((uint)poMesh->eGetType());
 
     // mesh mask
@@ -302,8 +302,8 @@ bool CSaverGEM::bSave(const CGFile& _oFile, CGSceneNode* _poObj)
 
     CGFileUtils::BeginRIFFBlock( GEM_FILE_IDENTIFIER, _oFile);
 
-    m_poFile->uiWrite(&ucMajorVersion,1);
-    m_poFile->uiWrite(&ucMinorVersion,1);
+    m_poFile->uiWriteData(&ucMajorVersion,1);
+    m_poFile->uiWriteData(&ucMinorVersion,1);
 
     // Start serialization
     _poObj->Accept(this);

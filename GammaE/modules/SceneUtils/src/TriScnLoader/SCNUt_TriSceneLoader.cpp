@@ -27,10 +27,10 @@ SCNUt_TriSceneLoader::~SCNUt_TriSceneLoader()
 
 SCNUt_TriScene* SCNUt_TriSceneLoader::poLoad (char* _szFilename, SCNUt_MaterialTable& _oMTable)
 {
-    SCNUt_TriScene* poScene;
-    char* StrBuff;
-    char* Token;
-    char* StrPos;
+    SCNUt_TriScene* poScene = NULL;
+    char* StrBuff = NULL;
+    char* Token = NULL;
+    char* StrPos = NULL;
     int iMat,iMatNum;
     int iTris,iTri;
 
@@ -78,15 +78,25 @@ SCNUt_TriScene* SCNUt_TriSceneLoader::poLoad (char* _szFilename, SCNUt_MaterialT
                     // Get the material
                     Token = Utils::Parse::ParseToken(StrPos);
 
+                    CGString sMaterialName = Token;
+                    CGString sLowerCaseMaterialName = sMaterialName;
+                    sLowerCaseMaterialName.ToLowerCase();
+                    
+                    if ((sLowerCaseMaterialName == "<undefined>")
+                        || (sLowerCaseMaterialName == ""))
+                    {
+                        sMaterialName = CGString(iMatNum);
+                    }
+
                     // Add the material to the material table
-                    CGShader* poShader = CGShaderWH::I()->poCreateShader(Token);
+                    CGShader* poShader = CGShaderWH::I()->poCreateShader(sMaterialName);
                     if ( poShader == NULL )
                     {
                         poShader = mNew CGShader;
-                        CGShaderWH::I()->uiAdd(poShader,Token);
+                        CGShaderWH::I()->uiAdd(poShader, sMaterialName);
                     }
 
-                    _oMTable.uiAdd(poShader,Token);
+                    _oMTable.uiAdd(poShader, sMaterialName);
 
                     // const CGShader*poShader = poLeaf->poGetShader();
                     // const char* szShaderName = CGShaderWH::I()->sGetName( poShader ).szString();
@@ -194,6 +204,18 @@ SCNUt_TriScene* SCNUt_TriSceneLoader::poLoad (char* _szFilename, SCNUt_MaterialT
             }
         }
     }
+
+    for (uint i = 0;i < _oMTable.uiNumElems();i++)
+    {
+        CGShader* poShader = _oMTable.poGet(i);
+
+        if (poShader != NULL)
+        {
+            CGString sString = _oMTable.sGetName(poShader);
+            int a = 0;
+        }
+    }
+
 
     MEMFree (StrBuff);
     return (poScene);

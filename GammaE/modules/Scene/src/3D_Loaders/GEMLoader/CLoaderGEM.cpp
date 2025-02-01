@@ -134,12 +134,12 @@ CGMesh* CLoaderGEM::poLoadMesh ()
         return (NULL);
     }
 
-    uint uiNumVXs = (uint)m_poFile->usRead();
-    uint uiNumPrims = (uint)m_poFile->usRead();
-    E3D_PrimitiveType ePrimType = (E3D_PrimitiveType)m_poFile->uiReadData();
+    uint uiNumVXs = m_poFile->uiRead();
+    uint uiNumPrims = m_poFile->uiRead();
+    E3D_PrimitiveType ePrimType = (E3D_PrimitiveType)m_poFile->uiRead();
 
     // mesh mask
-    uint uiMeshMask = m_poFile->uiReadData();
+    uint uiMeshMask = m_poFile->uiRead();
 
     CGMesh* poMesh = mNew CGMesh;
     poMesh->Init(uiNumVXs,uiNumPrims,ePrimType,uiMeshMask);
@@ -181,7 +181,7 @@ CGSceneLeaf* CLoaderGEM::poLoad3DObj_Leaf ()
 CGSceneGroup* CLoaderGEM::poLoad3DObj_Node ()
 {
     // Read subobject array props
-    uint uiNumSubObjs = m_poFile->uiReadData();
+    uint uiNumSubObjs = m_poFile->uiRead();
     CGSceneGroup* poObj = mNew CGSceneGroup();
 
     poObj->Init(uiNumSubObjs);
@@ -228,8 +228,8 @@ CGSceneTransf* CLoaderGEM::poLoad3DObj_Transf ()
 CGSceneAnimGroup* CLoaderGEM::poLoad3DObj_AnimGroup()
 {
     // Read subobject array props
-    uint uiNumSubObjects = m_poFile->uiReadData();
-    uint uiNumKeyFrames = m_poFile->uiReadData();
+    uint uiNumSubObjects = m_poFile->uiRead();
+    uint uiNumKeyFrames = m_poFile->uiRead();
 
     // Initialize object
     CGSceneAnimGroup* poObj = mNew CGSceneAnimGroup;
@@ -253,7 +253,7 @@ CGSceneAnimGroup* CLoaderGEM::poLoad3DObj_AnimGroup()
 CGSceneAnimMesh* CLoaderGEM::poLoad3DObj_AnimMesh ()
 {
     // Write object fields
-    uint uiNumStates = m_poFile->uiReadData();
+    uint uiNumStates = m_poFile->uiRead();
 
     // Load the startup mesh
     CGMesh* poMesh = poLoadMesh();
@@ -280,7 +280,7 @@ CGSceneAnimMesh* CLoaderGEM::poLoad3DObj_AnimMesh ()
 // ----------------------------------------------------------------------------
 CGSceneAnimTransf* CLoaderGEM::poLoad3DObj_AnimTransf ()
 {
-    uint uiNumKeyFrames = m_poFile->uiReadData();
+    uint uiNumKeyFrames = m_poFile->uiRead();
 
     // Create and initialize object
     CGSceneAnimTransf* poObj = mNew CGSceneAnimTransf;
@@ -296,7 +296,7 @@ CGSceneAnimActionSet* CLoaderGEM::poLoad3DObj_AnimActionSet()
     CGSceneAnimActionSet* poObj;
 
        // Read object number of object actions
-       uint uiNumActions = m_poFile->uiReadData();
+       uint uiNumActions = m_poFile->uiRead();
 
        // Create and initialize object
        poObj = mNew CGSceneAnimActionSet();
@@ -325,8 +325,8 @@ CGSceneAnimActionSet* CLoaderGEM::poLoad3DObj_AnimActionSet()
 // ----------------------------------------------------------------------------
 CGSceneAnimNode* CLoaderGEM::poLoad3DObj_AnimObject()
 {
-    uint uiObjectID = m_poFile->uiReadData();
-    uint uiBlockLenght = m_poFile->uiReadData();
+    uint uiObjectID = m_poFile->uiRead();
+    uint uiBlockLenght = m_poFile->uiRead();
 
     switch (uiObjectID)
     {

@@ -28458,19 +28458,23 @@ static int _wrap_CGShaderWH_poCreateShader(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGShaderWH *arg1 = 0 ;
-    char *arg2 = 0 ;
+    CGString *arg2 = 0 ;
     CGShader *result = 0 ;
     
     SWIG_check_num_args("CGShaderWH::poCreateShader",2,2)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGShaderWH::poCreateShader",1,"CGShaderWH *");
-    if(!SWIG_lua_isnilstring(L,2)) SWIG_fail_arg("CGShaderWH::poCreateShader",2,"char const *");
+    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CGShaderWH::poCreateShader",2,"CGString const &");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGShaderWH,0))){
       SWIG_fail_ptr("CGShaderWH_poCreateShader",1,SWIGTYPE_p_CGShaderWH);
     }
     
-    arg2 = (char *)lua_tostring(L, 2);
-    result = (CGShader *)(arg1)->poCreateShader((char const *)arg2);
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGString,0))){
+      SWIG_fail_ptr("CGShaderWH_poCreateShader",2,SWIGTYPE_p_CGString);
+    }
+    
+    result = (CGShader *)(arg1)->poCreateShader((CGString const &)*arg2);
     SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGShader,0); SWIG_arg++; 
     return SWIG_arg;
     
@@ -54882,7 +54886,7 @@ static int _wrap_CGFile_Close(lua_State* L) {
 }
 
 
-static int _wrap_CGFile_uiReadData__SWIG_0(lua_State* L) {
+static int _wrap_CGFile_uiReadData(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGFile *arg1 = 0 ;
@@ -54917,7 +54921,7 @@ static int _wrap_CGFile_uiReadData__SWIG_0(lua_State* L) {
 }
 
 
-static int _wrap_CGFile_uiWrite(lua_State* L) {
+static int _wrap_CGFile_uiWriteData(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGFile *arg1 = 0 ;
@@ -54925,23 +54929,23 @@ static int _wrap_CGFile_uiWrite(lua_State* L) {
     uint arg3 ;
     uint result;
     
-    SWIG_check_num_args("CGFile::uiWrite",3,3)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGFile::uiWrite",1,"CGFile const *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGFile::uiWrite",2,"pointer");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CGFile::uiWrite",3,"uint");
+    SWIG_check_num_args("CGFile::uiWriteData",3,3)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGFile::uiWriteData",1,"CGFile const *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGFile::uiWriteData",2,"pointer");
+    if(!lua_isnumber(L,3)) SWIG_fail_arg("CGFile::uiWriteData",3,"uint");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGFile,0))){
-      SWIG_fail_ptr("CGFile_uiWrite",1,SWIGTYPE_p_CGFile);
+      SWIG_fail_ptr("CGFile_uiWriteData",1,SWIGTYPE_p_CGFile);
     }
     
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_unsigned_char,0))){
-      SWIG_fail_ptr("CGFile_uiWrite",2,SWIGTYPE_p_unsigned_char);
+      SWIG_fail_ptr("CGFile_uiWriteData",2,SWIGTYPE_p_unsigned_char);
     }
     
     SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
     arg3 = (uint)lua_tonumber(L, 3);
-    result = (uint)((CGFile const *)arg1)->uiWrite(arg2,arg3);
+    result = (uint)((CGFile const *)arg1)->uiWriteData(arg2,arg3);
     lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
     return SWIG_arg;
     
@@ -55052,20 +55056,20 @@ static int _wrap_CGFile_Write__SWIG_1(lua_State* L) {
 }
 
 
-static int _wrap_CGFile_uiReadData__SWIG_1(lua_State* L) {
+static int _wrap_CGFile_uiRead(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGFile *arg1 = 0 ;
     uint result;
     
-    SWIG_check_num_args("CGFile::uiReadData",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGFile::uiReadData",1,"CGFile const *");
+    SWIG_check_num_args("CGFile::uiRead",1,1)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGFile::uiRead",1,"CGFile const *");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGFile,0))){
-      SWIG_fail_ptr("CGFile_uiReadData",1,SWIGTYPE_p_CGFile);
+      SWIG_fail_ptr("CGFile_uiRead",1,SWIGTYPE_p_CGFile);
     }
     
-    result = (uint)((CGFile const *)arg1)->uiReadData();
+    result = (uint)((CGFile const *)arg1)->uiRead();
     lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
     return SWIG_arg;
     
@@ -55073,65 +55077,6 @@ static int _wrap_CGFile_uiReadData__SWIG_1(lua_State* L) {
   }
   lua_error(L);
   return 0;
-}
-
-
-static int _wrap_CGFile_uiReadData(lua_State* L) {
-  int argc;
-  int argv[4]={
-    1,2,3,4
-  };
-  
-  argc = lua_gettop(L);
-  if (argc == 1) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CGFile, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      return _wrap_CGFile_uiReadData__SWIG_1(L);
-    }
-  }
-  if (argc == 3) {
-    int _v = 0;
-    {
-      void *ptr;
-      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_CGFile, 0)) {
-        _v = 0;
-      } else {
-        _v = 1;
-      }
-    }
-    if (_v) {
-      {
-        void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_unsigned_char, 0)) {
-          _v = 0;
-        } else {
-          _v = 1;
-        }
-      }
-      if (_v) {
-        {
-          _v = lua_isnumber(L,argv[2]);
-        }
-        if (_v) {
-          return _wrap_CGFile_uiReadData__SWIG_0(L);
-        }
-      }
-    }
-  }
-  
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'CGFile_uiReadData'\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    CGFile::uiReadData(pointer,uint) const\n"
-    "    CGFile::uiReadData() const\n");
-  lua_error(L);return 0;
 }
 
 
@@ -56190,10 +56135,11 @@ static swig_lua_attribute swig_CGFile_attributes[] = {
 static swig_lua_method swig_CGFile_methods[]= {
     { "bOpen", _wrap_CGFile_bOpen},
     { "Close", _wrap_CGFile_Close},
-    { "uiWrite", _wrap_CGFile_uiWrite},
+    { "uiReadData", _wrap_CGFile_uiReadData},
+    { "uiWriteData", _wrap_CGFile_uiWriteData},
     { "fRead", _wrap_CGFile_fRead},
     { "iRead", _wrap_CGFile_iRead},
-    { "uiReadData", _wrap_CGFile_uiReadData},
+    { "uiRead", _wrap_CGFile_uiRead},
     { "sRead", _wrap_CGFile_sRead},
     { "usRead", _wrap_CGFile_usRead},
     { "cRead", _wrap_CGFile_cRead},
@@ -56329,7 +56275,7 @@ static int _wrap_CGOSFile_uiReadData(lua_State* L) {
 }
 
 
-static int _wrap_CGOSFile_uiWrite(lua_State* L) {
+static int _wrap_CGOSFile_uiWriteData(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGOSFile *arg1 = 0 ;
@@ -56337,23 +56283,23 @@ static int _wrap_CGOSFile_uiWrite(lua_State* L) {
     uint arg3 ;
     uint result;
     
-    SWIG_check_num_args("CGOSFile::uiWrite",3,3)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGOSFile::uiWrite",1,"CGOSFile const *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGOSFile::uiWrite",2,"pointer");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CGOSFile::uiWrite",3,"uint");
+    SWIG_check_num_args("CGOSFile::uiWriteData",3,3)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGOSFile::uiWriteData",1,"CGOSFile const *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGOSFile::uiWriteData",2,"pointer");
+    if(!lua_isnumber(L,3)) SWIG_fail_arg("CGOSFile::uiWriteData",3,"uint");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGOSFile,0))){
-      SWIG_fail_ptr("CGOSFile_uiWrite",1,SWIGTYPE_p_CGOSFile);
+      SWIG_fail_ptr("CGOSFile_uiWriteData",1,SWIGTYPE_p_CGOSFile);
     }
     
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_unsigned_char,0))){
-      SWIG_fail_ptr("CGOSFile_uiWrite",2,SWIGTYPE_p_unsigned_char);
+      SWIG_fail_ptr("CGOSFile_uiWriteData",2,SWIGTYPE_p_unsigned_char);
     }
     
     SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
     arg3 = (uint)lua_tonumber(L, 3);
-    result = (uint)((CGOSFile const *)arg1)->uiWrite(arg2,arg3);
+    result = (uint)((CGOSFile const *)arg1)->uiWriteData(arg2,arg3);
     lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
     return SWIG_arg;
     
@@ -56453,7 +56399,7 @@ static swig_lua_method swig_CGOSFile_methods[]= {
     { "bOpen", _wrap_CGOSFile_bOpen},
     { "Close", _wrap_CGOSFile_Close},
     { "uiReadData", _wrap_CGOSFile_uiReadData},
-    { "uiWrite", _wrap_CGOSFile_uiWrite},
+    { "uiWriteData", _wrap_CGOSFile_uiWriteData},
     { "iSeek", _wrap_CGOSFile_iSeek},
     { "uiPos", _wrap_CGOSFile_uiPos},
     { "uiLength", _wrap_CGOSFile_uiLength},

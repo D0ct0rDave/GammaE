@@ -29,7 +29,7 @@ class CGFile
         virtual uint uiReadData(pointer _pData, uint _uiSize) const;
 
         // / Writes a stream of data using the given buffer.
-        virtual uint uiWrite(pointer _pData, uint _uiSize) const;
+        virtual uint uiWriteData(pointer _pData, uint _uiSize) const;
 
         // / Reads a float.
         float fRead() const;
@@ -44,7 +44,7 @@ class CGFile
         void Write(int _iValue) const;
 
         // / Reads an unsigned integer.
-        uint uiReadData() const;
+        uint uiRead() const;
 
         // / Writes an unsigned integer.
         void Write(uint _uiValue) const;

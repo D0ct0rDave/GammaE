@@ -79,179 +79,179 @@ void CGUI::CreateGUIControls()
 	////GUI Items Creation Start
 
 	WxPanel1 = new wxPanel(this, ID_WXPANEL1, wxPoint(0, 0), wxSize(871, 621));
-	WxPanel1->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: WxPanel1->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false wxT("Tahoma")));
 
 	pn_Display = new wxPanel(WxPanel1, ID_PN_DISPLAY, wxPoint(26, 33), wxSize(443, 443));
-	pn_Display->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: pn_Display->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	sld_IAlpha = new wxSlider(WxPanel1, ID_SLD_IR, 0, 0, 255, wxPoint(587, 118), wxSize(195, 40), wxSL_HORIZONTAL | wxSL_LABELS | wxSL_SELRANGE , wxDefaultValidator, wxT("sld_IAlpha"));
 	sld_IAlpha->SetRange(0,255);
 	sld_IAlpha->SetValue(0);
-	sld_IAlpha->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: sld_IAlpha->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	sld_FAlpha = new wxSlider(WxPanel1, ID_SLD_FALPHA, 0, 0, 255, wxPoint(587, 163), wxSize(196, 40), wxSL_HORIZONTAL | wxSL_LABELS | wxSL_SELRANGE , wxDefaultValidator, wxT("sld_FAlpha"));
 	sld_FAlpha->SetRange(0,255);
 	sld_FAlpha->SetValue(0);
-	sld_FAlpha->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: sld_FAlpha->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	WxStaticText1 = new wxStaticText(WxPanel1, ID_WXSTATICTEXT1, wxT("RGB Color"), wxPoint(543, 102), wxDefaultSize, 0, wxT("WxStaticText1"));
-	WxStaticText1->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: WxStaticText1->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	WxStaticText2 = new wxStaticText(WxPanel1, ID_WXSTATICTEXT2, wxT("Alpha Value"), wxPoint(639, 102), wxDefaultSize, 0, wxT("WxStaticText2"));
-	WxStaticText2->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: WxStaticText2->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	Initial = new wxStaticText(WxPanel1, ID_INITIAL, wxT("Initial"), wxPoint(495, 144), wxDefaultSize, 0, wxT("Initial"));
-	Initial->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: Initial->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	WxStaticText3 = new wxStaticText(WxPanel1, ID_WXSTATICTEXT3, wxT("Final"), wxPoint(495, 186), wxDefaultSize, 0, wxT("WxStaticText3"));
-	WxStaticText3->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: WxStaticText3->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	sld_ICRand = new wxSlider(WxPanel1, ID_SLD_ICRAND, 0, 0, 100, wxPoint(789, 118), wxSize(58, 40), wxSL_HORIZONTAL | wxSL_LABELS | wxSL_SELRANGE , wxDefaultValidator, wxT("sld_ICRand"));
 	sld_ICRand->SetRange(0,100);
 	sld_ICRand->SetValue(0);
-	sld_ICRand->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: sld_ICRand->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	sld_FCRand = new wxSlider(WxPanel1, ID_SLD_FCRAND, 0, 0, 100, wxPoint(789, 163), wxSize(58, 40), wxSL_HORIZONTAL | wxSL_LABELS | wxSL_SELRANGE , wxDefaultValidator, wxT("sld_FCRand"));
 	sld_FCRand->SetRange(0,100);
 	sld_FCRand->SetValue(0);
-	sld_FCRand->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: sld_FCRand->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	WxStaticText4 = new wxStaticText(WxPanel1, ID_WXSTATICTEXT4, wxT("Randomness"), wxPoint(797, 102), wxDefaultSize, 0, wxT("WxStaticText4"));
-	WxStaticText4->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: WxStaticText4->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	sld_ISize = new wxSlider(WxPanel1, ID_SLD_ISIZE, 0, 0, 255, wxPoint(535, 251), wxSize(195, 40), wxSL_HORIZONTAL | wxSL_LABELS | wxSL_SELRANGE , wxDefaultValidator, wxT("sld_ISize"));
 	sld_ISize->SetRange(0,255);
 	sld_ISize->SetValue(0);
-	sld_ISize->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: sld_ISize->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	sld_FSize = new wxSlider(WxPanel1, ID_SLD_FSIZE, 0, 0, 255, wxPoint(535, 296), wxSize(197, 40), wxSL_HORIZONTAL | wxSL_LABELS | wxSL_SELRANGE , wxDefaultValidator, wxT("sld_FSize"));
 	sld_FSize->SetRange(0,255);
 	sld_FSize->SetValue(0);
-	sld_FSize->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: sld_FSize->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	sld_IRSize = new wxSlider(WxPanel1, ID_SLD_IRSIZE, 0, 0, 100, wxPoint(737, 251), wxSize(113, 40), wxSL_HORIZONTAL | wxSL_LABELS | wxSL_SELRANGE , wxDefaultValidator, wxT("sld_IRSize"));
 	sld_IRSize->SetRange(0,100);
 	sld_IRSize->SetValue(0);
-	sld_IRSize->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: sld_IRSize->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	sld_FRSize = new wxSlider(WxPanel1, ID_SLD_FRSIZE, 0, 0, 100, wxPoint(737, 296), wxSize(113, 40), wxSL_HORIZONTAL | wxSL_LABELS | wxSL_SELRANGE , wxDefaultValidator, wxT("sld_FRSize"));
 	sld_FRSize->SetRange(0,100);
 	sld_FRSize->SetValue(0);
-	sld_FRSize->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: sld_FRSize->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	WxStaticText5 = new wxStaticText(WxPanel1, ID_WXSTATICTEXT5, wxT("Randomness"), wxPoint(749, 233), wxDefaultSize, 0, wxT("WxStaticText5"));
-	WxStaticText5->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: WxStaticText5->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	WxStaticText6 = new wxStaticText(WxPanel1, ID_WXSTATICTEXT6, wxT("Size"), wxPoint(495, 233), wxDefaultSize, 0, wxT("WxStaticText6"));
-	WxStaticText6->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: WxStaticText6->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	WxStaticText7 = new wxStaticText(WxPanel1, ID_WXSTATICTEXT7, wxT("Final"), wxPoint(495, 313), wxDefaultSize, 0, wxT("WxStaticText7"));
-	WxStaticText7->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: WxStaticText7->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	WxStaticText8 = new wxStaticText(WxPanel1, ID_WXSTATICTEXT8, wxT("Initial"), wxPoint(495, 270), wxDefaultSize, 0, wxT("WxStaticText8"));
-	WxStaticText8->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: WxStaticText8->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	sld_FRAngle = new wxSlider(WxPanel1, ID_SLD_FRANGLE, 0, 0, 100, wxPoint(737, 552), wxSize(113, 40), wxSL_HORIZONTAL | wxSL_LABELS | wxSL_SELRANGE , wxDefaultValidator, wxT("sld_FRAngle"));
 	sld_FRAngle->SetRange(0,100);
 	sld_FRAngle->SetValue(0);
-	sld_FRAngle->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: sld_FRAngle->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	sld_IRAngle = new wxSlider(WxPanel1, ID_SLD_IRANGLE, 0, 0, 100, wxPoint(737, 507), wxSize(113, 40), wxSL_HORIZONTAL | wxSL_LABELS | wxSL_SELRANGE , wxDefaultValidator, wxT("sld_IRAngle"));
 	sld_IRAngle->SetRange(0,100);
 	sld_IRAngle->SetValue(0);
-	sld_IRAngle->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: sld_IRAngle->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	WxStaticText9 = new wxStaticText(WxPanel1, ID_WXSTATICTEXT9, wxT("Randomness"), wxPoint(749, 489), wxDefaultSize, 0, wxT("WxStaticText9"));
-	WxStaticText9->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: WxStaticText9->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	WxStaticText10 = new wxStaticText(WxPanel1, ID_WXSTATICTEXT10, wxT("Angle"), wxPoint(495, 489), wxDefaultSize, 0, wxT("WxStaticText10"));
-	WxStaticText10->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: WxStaticText10->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	sld_IAngle = new wxSlider(WxPanel1, ID_SLD_IANGLE, 0, 0, 255, wxPoint(535, 507), wxSize(195, 40), wxSL_HORIZONTAL | wxSL_LABELS | wxSL_SELRANGE , wxDefaultValidator, wxT("sld_IAngle"));
 	sld_IAngle->SetRange(0,255);
 	sld_IAngle->SetValue(0);
-	sld_IAngle->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: sld_IAngle->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	sld_FAngle = new wxSlider(WxPanel1, ID_SLD_FANGLE, 0, 0, 255, wxPoint(535, 552), wxSize(197, 40), wxSL_HORIZONTAL | wxSL_LABELS | wxSL_SELRANGE , wxDefaultValidator, wxT("sld_FAngle"));
 	sld_FAngle->SetRange(0,255);
 	sld_FAngle->SetValue(0);
-	sld_FAngle->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: sld_FAngle->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	WxStaticText11 = new wxStaticText(WxPanel1, ID_WXSTATICTEXT11, wxT("Final"), wxPoint(495, 569), wxDefaultSize, 0, wxT("WxStaticText11"));
-	WxStaticText11->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: WxStaticText11->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	WxStaticText12 = new wxStaticText(WxPanel1, ID_WXSTATICTEXT12, wxT("Initial"), wxPoint(495, 526), wxDefaultSize, 0, wxT("WxStaticText12"));
-	WxStaticText12->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: WxStaticText12->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	WxStaticText13 = new wxStaticText(WxPanel1, ID_WXSTATICTEXT13, wxT("Radius"), wxPoint(495, 361), wxDefaultSize, 0, wxT("WxStaticText13"));
-	WxStaticText13->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: WxStaticText13->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	sld_IRadius = new wxSlider(WxPanel1, ID_SLD_IRADIUS, 0, 0, 255, wxPoint(535, 379), wxSize(195, 40), wxSL_HORIZONTAL | wxSL_LABELS | wxSL_SELRANGE , wxDefaultValidator, wxT("sld_IRadius"));
 	sld_IRadius->SetRange(0,255);
 	sld_IRadius->SetValue(0);
-	sld_IRadius->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: sld_IRadius->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	sld_FRadius = new wxSlider(WxPanel1, ID_SLD_FRADIUS, 0, 0, 255, wxPoint(535, 424), wxSize(197, 40), wxSL_HORIZONTAL | wxSL_LABELS | wxSL_SELRANGE , wxDefaultValidator, wxT("sld_FRadius"));
 	sld_FRadius->SetRange(0,255);
 	sld_FRadius->SetValue(0);
-	sld_FRadius->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: sld_FRadius->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	WxStaticText14 = new wxStaticText(WxPanel1, ID_WXSTATICTEXT14, wxT("Final"), wxPoint(495, 441), wxDefaultSize, 0, wxT("WxStaticText14"));
-	WxStaticText14->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: WxStaticText14->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	WxStaticText15 = new wxStaticText(WxPanel1, ID_WXSTATICTEXT15, wxT("Initial"), wxPoint(495, 398), wxDefaultSize, 0, wxT("WxStaticText15"));
-	WxStaticText15->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: WxStaticText15->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	WxStaticText16 = new wxStaticText(WxPanel1, ID_WXSTATICTEXT16, wxT("Randomness"), wxPoint(749, 361), wxDefaultSize, 0, wxT("WxStaticText16"));
-	WxStaticText16->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: WxStaticText16->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	sld_IRRadius = new wxSlider(WxPanel1, ID_SLD_IRRADIUS, 0, 0, 100, wxPoint(737, 379), wxSize(113, 40), wxSL_HORIZONTAL | wxSL_LABELS | wxSL_SELRANGE , wxDefaultValidator, wxT("sld_IRRadius"));
 	sld_IRRadius->SetRange(0,100);
 	sld_IRRadius->SetValue(0);
-	sld_IRRadius->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: sld_IRRadius->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	sld_FRRadius = new wxSlider(WxPanel1, ID_SLD_FRRADIUS, 0, 0, 100, wxPoint(737, 424), wxSize(113, 40), wxSL_HORIZONTAL | wxSL_LABELS | wxSL_SELRANGE , wxDefaultValidator, wxT("sld_FRRadius"));
 	sld_FRRadius->SetRange(0,100);
 	sld_FRRadius->SetValue(0);
-	sld_FRRadius->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: sld_FRRadius->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	WxStaticText17 = new wxStaticText(WxPanel1, ID_WXSTATICTEXT17, wxT("Initial"), wxPoint(495, 62), wxDefaultSize, 0, wxT("WxStaticText17"));
-	WxStaticText17->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: WxStaticText17->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	sld_IEnergy = new wxSlider(WxPanel1, ID_SLD_IENERGY, 0, 0, 255, wxPoint(535, 43), wxSize(195, 40), wxSL_HORIZONTAL | wxSL_LABELS | wxSL_SELRANGE , wxDefaultValidator, wxT("sld_IEnergy"));
 	sld_IEnergy->SetRange(0,255);
 	sld_IEnergy->SetValue(0);
-	sld_IEnergy->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: sld_IEnergy->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	WxStaticText18 = new wxStaticText(WxPanel1, ID_WXSTATICTEXT18, wxT("Energy"), wxPoint(495, 25), wxDefaultSize, 0, wxT("WxStaticText18"));
-	WxStaticText18->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: WxStaticText18->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	WxStaticText19 = new wxStaticText(WxPanel1, ID_WXSTATICTEXT19, wxT("Randomness"), wxPoint(749, 25), wxDefaultSize, 0, wxT("WxStaticText19"));
-	WxStaticText19->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: WxStaticText19->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	sld_IREnergy = new wxSlider(WxPanel1, ID_SLD_IRENERGY, 0, 0, 100, wxPoint(737, 43), wxSize(113, 40), wxSL_HORIZONTAL | wxSL_LABELS | wxSL_SELRANGE , wxDefaultValidator, wxT("sld_IREnergy"));
 	sld_IREnergy->SetRange(0,100);
 	sld_IREnergy->SetValue(0);
-	sld_IREnergy->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: sld_IREnergy->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	cp_IColor = new wxColourPickerCtrl(WxPanel1, ID_CP_ICOLOR, wxColour(255,0,255), wxPoint(544, 136), wxSize(24, 24), wxCLRP_DEFAULT_STYLE, wxDefaultValidator, wxT("cp_IColor"));
-	cp_IColor->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: cp_IColor->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	cp_FColor = new wxColourPickerCtrl(WxPanel1, ID_CP_FCOLOR, wxColour(255,255,0), wxPoint(544, 176), wxSize(24, 24), wxCLRP_DEFAULT_STYLE, wxDefaultValidator, wxT("cp_FColor"));
 	cp_FColor->SetBackgroundColour(wxColour(192,192,192));
-	cp_FColor->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: cp_FColor->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	WxStaticLine1 = new wxStaticLine(WxPanel1, ID_WXSTATICLINE1, wxPoint(480, 352), wxSize(390, -1), wxLI_HORIZONTAL);
-	WxStaticLine1->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: WxStaticLine1->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	WxStaticLine2 = new wxStaticLine(WxPanel1, ID_WXSTATICLINE2, wxPoint(480, 480), wxSize(390, -1), wxLI_HORIZONTAL);
-	WxStaticLine2->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: WxStaticLine2->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	WxStaticLine3 = new wxStaticLine(WxPanel1, ID_WXSTATICLINE3, wxPoint(480, 224), wxSize(390, -1), wxLI_HORIZONTAL);
-	WxStaticLine3->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: WxStaticLine3->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	WxStaticLine4 = new wxStaticLine(WxPanel1, ID_WXSTATICLINE4, wxPoint(480, 88), wxSize(390, -1), wxLI_HORIZONTAL);
-	WxStaticLine4->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: WxStaticLine4->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	dlg_Open =  new wxFileDialog(this, wxT("Choose a file"), wxT(""), wxT(""), wxT("*.PAK"), wxOPEN);
 
@@ -269,7 +269,7 @@ void CGUI::CreateGUIControls()
 
 	wxArrayString arrayStringFor_cb_PSGList;
 	cb_PSGList = new wxComboBox(WxPanel1, ID_CB_PSGLIST, wxT(""), wxPoint(24, 488), wxSize(345, 22), arrayStringFor_cb_PSGList, 0, wxDefaultValidator, wxT("cb_PSGList"));
-	cb_PSGList->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
+	// DMC: cb_PSGList->SetFont(wxFont(9, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("Tahoma")));
 
 	SetTitle(wxT("PAKZ File Mgr"));
 	SetIcon(wxNullIcon);

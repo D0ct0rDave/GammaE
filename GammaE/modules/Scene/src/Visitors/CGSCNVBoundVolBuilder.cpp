@@ -32,11 +32,15 @@
 // ----------------------------------------------------------------------------
 void CGSCNVBoundVolBuilder::Visit(CGSceneNode* _poNode)
 {
+    if (_poNode == NULL) return;
+
     _poNode->Accept(this);
 }
 // ----------------------------------------------------------------------------
 void CGSCNVBoundVolBuilder::Visit(CGSceneBSPNode* _poNode)
 {
+    if (_poNode == NULL) return;
+
 //       TODO: Implement CGSCNVBoundVolBuilder::Visit(CGSceneBSPNode* _poNode)
 
        // Las bounding boxes de los objetos deben tener en cuenta
@@ -92,6 +96,8 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneBSPNode* _poNode)
 // ----------------------------------------------------------------------------
 void CGSCNVBoundVolBuilder::Visit(CGSceneCamera* _poNode)
 {
+    if (_poNode == NULL) return;
+
     Visit( (CGSceneGroup*)_poNode );
 }
 // ----------------------------------------------------------------------------
@@ -101,6 +107,8 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneInstance* _poNode)
 // ----------------------------------------------------------------------------
 void CGSCNVBoundVolBuilder::Visit(CGSceneLeaf* _poNode)
 {
+    if (_poNode == NULL) return;
+
     if ( _poNode->poGetMesh()->eGetType() == E3D_MT_Mesh )
     {
         CGMesh* poMesh = (CGMesh*)_poNode->poGetMesh();
@@ -119,6 +127,8 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneMux* _poNode)
 // ----------------------------------------------------------------------------
 void CGSCNVBoundVolBuilder::Visit(CGSceneGroup* _poNode)
 {
+    if (_poNode == NULL) return;
+
     // Las bounding boxes de los objetos deben tener en cuenta
     // las transformaciones que se deben realizar en los nodos
     // hijos. Probar a transformar la BoundingBox mediante la
@@ -165,6 +175,8 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneGroup* _poNode)
 // ----------------------------------------------------------------------------
 void CGSCNVBoundVolBuilder::Visit(CGSceneScreenRect* _poNode)
 {
+    if (_poNode == NULL) return;
+
     if ( _poNode->poGetMesh()->eGetType() == E3D_MT_Mesh )
     {
         CGMesh* poMesh = (CGMesh*)_poNode->poGetMesh(); 
@@ -179,12 +191,16 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneScreenRect* _poNode)
 // ----------------------------------------------------------------------------
 void CGSCNVBoundVolBuilder::Visit(CGSceneSwitch* _poNode)
 {
+    if (_poNode == NULL) return;
+
     if ( _poNode->poGetObject() != NULL )
         _poNode->poGetObject()->Accept(this);
 }
 // ----------------------------------------------------------------------------
 void CGSCNVBoundVolBuilder::Visit(CGSceneTransf* _poNode)
 {
+    if (_poNode == NULL) return;
+
     _poNode->poGetObject()->Accept(this);
     CGGraphBV* poBV = (_poNode->poGetBV() != NULL) ? _poNode->poGetBV() : CGGraphBVFactory::poCreate();
     
@@ -200,6 +216,8 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneAnimNode* _poNode)
 // ----------------------------------------------------------------------------
 void CGSCNVBoundVolBuilder::Visit(CGSceneAnimActionSet* _poNode)
 {
+    if (_poNode == NULL) return;
+    
     if (_poNode->poGetAnimObject() != NULL)
     {
        _poNode->poGetAnimObject()->Accept(this);
@@ -208,6 +226,8 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneAnimActionSet* _poNode)
 // ----------------------------------------------------------------------------
 void CGSCNVBoundVolBuilder::Visit(CGSceneAnimMesh* _poNode)
 {
+    if (_poNode == NULL) return;
+
     // Recompute the bounding volume of the startup mesh
     if (_poNode->poGetMesh()->poGetBV() == NULL)
     {
@@ -219,6 +239,8 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneAnimMesh* _poNode)
 // ----------------------------------------------------------------------------
 void CGSCNVBoundVolBuilder::Visit(CGSceneAnimGroup* _poNode)
 {
+    if (_poNode == NULL) return;
+
     for ( uint i = 0; i < _poNode->uiNumAnimObjects(); i++ )
         _poNode->poGetAnimObject(i)->Accept(this);
 
@@ -227,6 +249,8 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneAnimGroup* _poNode)
 // ----------------------------------------------------------------------------
 void CGSCNVBoundVolBuilder::Visit(CGSceneAnimTransf* _poNode)
 {    
+    if (_poNode == NULL) return;
+
     // Recompute the bounding volume of the startup mesh
     _poNode->ComputeStatesBVols();
 }
