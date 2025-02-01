@@ -2,7 +2,6 @@
 #include <windows.h>
 #include "CLoop.h"
 #include "GammaE.h"
-#include "CLoopCB.h"
 // ----------------------------------------------------------------------------
 typedef struct TLoopGlobals
 {
@@ -69,8 +68,8 @@ void CLoop::Init(void* _hWnd)
     // que son los ejes locales de la cámara
 	// PerspCam.Pos.V3 ( 4, 10,270);
 	PerspCam.SetPos( 0.0f,-500.0f,0.0f);
-	CGVect3 oDir(0, 1, 0);
-	CGVect3 oUp(0, 0, 1);
+	CGVect3 oDir(0, 0, 1);
+	CGVect3 oUp(0, 1, 0);
 	CGVect3 oSide;
 	oSide.CrossProd(oDir, oUp);
 	PerspCam.SetVectors(oDir, oUp, oSide);
@@ -95,7 +94,6 @@ void CLoop::Init(void* _hWnd)
 	gCamera.SetProjector(&PerspPrj);
 	gCamera.SetViewport (&Viewport);
 	Register();
-	CLoopCB::Init();
 
     globals.m_fTime = 0.0f;
 }
@@ -135,12 +133,14 @@ void CLoop::Update(float _fDeltaT)
 		float fAmplitude = oRange.fModule() * 2.0f;
 
 		oPos.x = oCenter.x + fAmplitude * Math::fSin(fAngle);
-		oPos.y = oCenter.y + fAmplitude * Math::fCos(fAngle);
-		oPos.z = oCenter.z;
+		oPos.y = oCenter.y;
+		oPos.z = oCenter.z + fAmplitude * Math::fCos(fAngle);
 
 		PerspCam.SetPos(oPos.x,oPos.y,oPos.z);
 		PerspCam.LookAt(oCenter);
-	}	
+	}
+
+	CGSCNVAnimUpdater::I()->Update(&gCamera, _fDeltaT);
 }
 // ----------------------------------------------------------------------------
 void CLoop::Render()
@@ -245,8 +245,11 @@ void CLoop::LoadMD2(char* _szFilename)
 	CGString sFile = sPushFileDirectory(_szFilename);
 
 		CLoaderMD2 oLoader;
-		m_poScene = oLoader.pLoadQ2Player(sFile);
-		CGSCNVBoundVolBuilder::I()->Visit(m_poScene);
+		CGSceneAnimActionSet* poQ2Model = oLoader.pLoadQ2Player(sFile);
+		CGSCNVBoundVolBuilder::I()->Visit(poQ2Model);
+		poQ2Model->SetAction(1);
+			
+		m_poScene = poQ2Model;
 
 	PopFileDirectory();
 }

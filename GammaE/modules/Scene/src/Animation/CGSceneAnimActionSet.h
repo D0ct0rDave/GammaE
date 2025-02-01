@@ -33,13 +33,13 @@ class CGSceneAnimActionSet : public CGSceneNode
         virtual ~CGSceneAnimActionSet();
 
         // / Sets up the configuration for an specific action
-        uint uiAddAction(const CGString& _sActionName,uint _uiInitialFrame, uint _uiFinalFrame, float _fFrameAnimTime, bool _bLoop)
+        uint uiAddAction(const CGString& _sActionName,uint _uiInitialFrame, uint _uiFinalFrame, float _fTotalActionTime, bool _bLoop)
         {
             CAnimAction oAnim;
 
             oAnim.m_uiIniFrame = _uiInitialFrame;
             oAnim.m_uiEndFrame = _uiFinalFrame;
-            oAnim.m_fFrameTime = _fFrameAnimTime;
+            oAnim.m_fFrameTime = _fTotalActionTime / (_uiFinalFrame - _uiInitialFrame + 1);
             oAnim.m_bLoop = _bLoop;
 
             return ( m_oActions.uiAddVar(_sActionName, oAnim ) );
@@ -82,8 +82,8 @@ class CGSceneAnimActionSet : public CGSceneNode
             m_bEnabled = _bEnable;
         }
 
-        /// Updates the current animation according the Engine deltaT
-        void UpdateAnimState();
+        /// Updates the current animation according the deltaT
+        void UpdateAnimState(float _fDeltaT);
         
         // / Retrieves the animated object associated to this config object
         CGSceneAnimNode* poGetAnimObject()

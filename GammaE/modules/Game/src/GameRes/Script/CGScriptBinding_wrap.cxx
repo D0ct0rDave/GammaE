@@ -2905,263 +2905,264 @@ SWIG_Lua_dostring(lua_State *L, const char *str) {
 #define SWIGTYPE_p_CGRenderVars swig_types[164]
 #define SWIGTYPE_p_CGRenderer swig_types[165]
 #define SWIGTYPE_p_CGResource swig_types[166]
-#define SWIGTYPE_p_CGSCNVBoundVolBuilder swig_types[167]
-#define SWIGTYPE_p_CGSCNVRenderer swig_types[168]
-#define SWIGTYPE_p_CGSCNVVisibilityChecker swig_types[169]
-#define SWIGTYPE_p_CGSceneAnimActionSet swig_types[170]
-#define SWIGTYPE_p_CGSceneAnimGroup swig_types[171]
-#define SWIGTYPE_p_CGSceneAnimMesh swig_types[172]
-#define SWIGTYPE_p_CGSceneAnimNode swig_types[173]
-#define SWIGTYPE_p_CGSceneAnimTransf swig_types[174]
-#define SWIGTYPE_p_CGSceneBSPNode swig_types[175]
-#define SWIGTYPE_p_CGSceneCamera swig_types[176]
-#define SWIGTYPE_p_CGSceneGroup swig_types[177]
-#define SWIGTYPE_p_CGSceneInstance swig_types[178]
-#define SWIGTYPE_p_CGSceneLeaf swig_types[179]
-#define SWIGTYPE_p_CGSceneMux swig_types[180]
-#define SWIGTYPE_p_CGSceneNode swig_types[181]
-#define SWIGTYPE_p_CGSceneReflector swig_types[182]
-#define SWIGTYPE_p_CGSceneScreenRect swig_types[183]
-#define SWIGTYPE_p_CGSceneSwitch swig_types[184]
-#define SWIGTYPE_p_CGSceneTransf swig_types[185]
-#define SWIGTYPE_p_CGSceneVisitor swig_types[186]
-#define SWIGTYPE_p_CGScriptInstance swig_types[187]
-#define SWIGTYPE_p_CGScriptResource swig_types[188]
-#define SWIGTYPE_p_CGScriptResourceWH swig_types[189]
-#define SWIGTYPE_p_CGScriptingSystem swig_types[190]
-#define SWIGTYPE_p_CGSegment swig_types[191]
-#define SWIGTYPE_p_CGShInsBlendOp swig_types[192]
-#define SWIGTYPE_p_CGShInsColor swig_types[193]
-#define SWIGTYPE_p_CGShInsExtension swig_types[194]
-#define SWIGTYPE_p_CGShInsGeoOp swig_types[195]
-#define SWIGTYPE_p_CGShInsProgram swig_types[196]
-#define SWIGTYPE_p_CGShInsSetTMU swig_types[197]
-#define SWIGTYPE_p_CGShInsTexOp swig_types[198]
-#define SWIGTYPE_p_CGShInsTexture swig_types[199]
-#define SWIGTYPE_p_CGShInsWireframe swig_types[200]
-#define SWIGTYPE_p_CGShInsZOp swig_types[201]
-#define SWIGTYPE_p_CGShader swig_types[202]
-#define SWIGTYPE_p_CGShaderDefFileWH swig_types[203]
-#define SWIGTYPE_p_CGShaderDefWH swig_types[204]
-#define SWIGTYPE_p_CGShaderExtDB swig_types[205]
-#define SWIGTYPE_p_CGShaderInstruction swig_types[206]
-#define SWIGTYPE_p_CGShaderParser swig_types[207]
-#define SWIGTYPE_p_CGShaderUtils swig_types[208]
-#define SWIGTYPE_p_CGShaderWH swig_types[209]
-#define SWIGTYPE_p_CGSmoother swig_types[210]
-#define SWIGTYPE_p_CGSpiralPath swig_types[211]
-#define SWIGTYPE_p_CGStandardLC swig_types[212]
-#define SWIGTYPE_p_CGString swig_types[213]
-#define SWIGTYPE_p_CGSystemLC swig_types[214]
-#define SWIGTYPE_p_CGTexObjWH swig_types[215]
-#define SWIGTYPE_p_CGTextResource swig_types[216]
-#define SWIGTYPE_p_CGTextureObj swig_types[217]
-#define SWIGTYPE_p_CGTrail swig_types[218]
-#define SWIGTYPE_p_CGTrailGenDefFileWH swig_types[219]
-#define SWIGTYPE_p_CGTrailGenStd swig_types[220]
-#define SWIGTYPE_p_CGTrailGenWH swig_types[221]
-#define SWIGTYPE_p_CGTrailGenerator swig_types[222]
-#define SWIGTYPE_p_CGTrailInstance swig_types[223]
-#define SWIGTYPE_p_CGTrailManager swig_types[224]
-#define SWIGTYPE_p_CGTriangle swig_types[225]
-#define SWIGTYPE_p_CGUObject swig_types[226]
-#define SWIGTYPE_p_CGUnmanagedMesh swig_types[227]
-#define SWIGTYPE_p_CGVect2 swig_types[228]
-#define SWIGTYPE_p_CGVect3 swig_types[229]
-#define SWIGTYPE_p_CGVect4 swig_types[230]
-#define SWIGTYPE_p_CGViewport swig_types[231]
-#define SWIGTYPE_p_CGWarningLC swig_types[232]
-#define SWIGTYPE_p_CHFSector swig_types[233]
-#define SWIGTYPE_p_CHFSector_FN swig_types[234]
-#define SWIGTYPE_p_CHUD swig_types[235]
-#define SWIGTYPE_p_CHUDElem swig_types[236]
-#define SWIGTYPE_p_CHUDFile swig_types[237]
-#define SWIGTYPE_p_CHUDFont swig_types[238]
-#define SWIGTYPE_p_CHUDFontWH swig_types[239]
-#define SWIGTYPE_p_CHUDIcon swig_types[240]
-#define SWIGTYPE_p_CHUDLabel swig_types[241]
-#define SWIGTYPE_p_CHUDMsgBox swig_types[242]
-#define SWIGTYPE_p_CHUDObject swig_types[243]
-#define SWIGTYPE_p_CHUDProgressBar swig_types[244]
-#define SWIGTYPE_p_CHeight swig_types[245]
-#define SWIGTYPE_p_CHeightField swig_types[246]
-#define SWIGTYPE_p_CLMSector swig_types[247]
-#define SWIGTYPE_p_CLMSector_Gray swig_types[248]
-#define SWIGTYPE_p_CLMSector_Pal swig_types[249]
-#define SWIGTYPE_p_CLMSector_RGB24 swig_types[250]
-#define SWIGTYPE_p_CLODSelector swig_types[251]
-#define SWIGTYPE_p_CLODSelector_Array swig_types[252]
-#define SWIGTYPE_p_CLensFlare swig_types[253]
-#define SWIGTYPE_p_CLensFlare_Elem swig_types[254]
-#define SWIGTYPE_p_CLightElem swig_types[255]
-#define SWIGTYPE_p_CLightMap swig_types[256]
-#define SWIGTYPE_p_CLoader3DS swig_types[257]
-#define SWIGTYPE_p_CLoaderBSP2 swig_types[258]
-#define SWIGTYPE_p_CLoaderGEM swig_types[259]
-#define SWIGTYPE_p_CLoaderMD2 swig_types[260]
-#define SWIGTYPE_p_CLoaderMD3 swig_types[261]
-#define SWIGTYPE_p_CMenuTextGrid swig_types[262]
-#define SWIGTYPE_p_CSFXObjectInstance swig_types[263]
-#define SWIGTYPE_p_CSLM_HFieldSect swig_types[264]
-#define SWIGTYPE_p_CSLM_LMapSect swig_types[265]
-#define SWIGTYPE_p_CSLM_TMapSect swig_types[266]
-#define SWIGTYPE_p_CSaverGEM swig_types[267]
-#define SWIGTYPE_p_CSectElem swig_types[268]
-#define SWIGTYPE_p_CSector swig_types[269]
-#define SWIGTYPE_p_CSectorLoaderManager swig_types[270]
-#define SWIGTYPE_p_CSectorMatrix swig_types[271]
-#define SWIGTYPE_p_CShadowCaster swig_types[272]
-#define SWIGTYPE_p_CSkyBox swig_types[273]
-#define SWIGTYPE_p_CSkyDome swig_types[274]
-#define SWIGTYPE_p_CTMSector swig_types[275]
-#define SWIGTYPE_p_CTMSector_8_16 swig_types[276]
-#define SWIGTYPE_p_CTerrainCircuit swig_types[277]
-#define SWIGTYPE_p_CTerrainSector swig_types[278]
-#define SWIGTYPE_p_CTerrainTesselator swig_types[279]
-#define SWIGTYPE_p_CTerrainTesselatorGM swig_types[280]
-#define SWIGTYPE_p_CTexMap swig_types[281]
-#define SWIGTYPE_p_CTexProjector swig_types[282]
-#define SWIGTYPE_p_CTexSector swig_types[283]
-#define SWIGTYPE_p_CTile swig_types[284]
-#define SWIGTYPE_p_CTileBookmark swig_types[285]
-#define SWIGTYPE_p_E3D_BlendMode swig_types[286]
-#define SWIGTYPE_p_E3D_ChannelMask swig_types[287]
-#define SWIGTYPE_p_E3D_FogMode swig_types[288]
-#define SWIGTYPE_p_E3D_MeshType swig_types[289]
-#define SWIGTYPE_p_E3D_PrimitiveType swig_types[290]
-#define SWIGTYPE_p_E3D_ProjectorType swig_types[291]
-#define SWIGTYPE_p_E3D_RenderBuffer_Type swig_types[292]
-#define SWIGTYPE_p_E3D_ShaderInstructionType swig_types[293]
-#define SWIGTYPE_p_E3D_StencilAction swig_types[294]
-#define SWIGTYPE_p_E3D_StencilFunc swig_types[295]
-#define SWIGTYPE_p_E3D_ZTestFunc swig_types[296]
-#define SWIGTYPE_p_E3D_ZWrite swig_types[297]
-#define SWIGTYPE_p_ECOL_ColliderType swig_types[298]
-#define SWIGTYPE_p_ECOL_TestType swig_types[299]
-#define SWIGTYPE_p_EFileOpenMode swig_types[300]
-#define SWIGTYPE_p_EFileOperationResult swig_types[301]
-#define SWIGTYPE_p_EFileSeekMode swig_types[302]
-#define SWIGTYPE_p_EGenerationMethod swig_types[303]
-#define SWIGTYPE_p_EImageFormat swig_types[304]
-#define SWIGTYPE_p_ESceneNodeType swig_types[305]
-#define SWIGTYPE_p_EShInsGeoOp swig_types[306]
-#define SWIGTYPE_p_EShInsTexOp swig_types[307]
-#define SWIGTYPE_p_FILE swig_types[308]
-#define SWIGTYPE_p_Q3triangle_t swig_types[309]
-#define SWIGTYPE_p_SCNUt_AdjTri swig_types[310]
-#define SWIGTYPE_p_SCNUt_AdjTriList swig_types[311]
-#define SWIGTYPE_p_SCNUt_AdjTriListBuilder swig_types[312]
-#define SWIGTYPE_p_SCNUt_AnimMesh_NormalComputer swig_types[313]
-#define SWIGTYPE_p_SCNUt_AnimSceneLoader swig_types[314]
-#define SWIGTYPE_p_SCNUt_BSPBuilder swig_types[315]
-#define SWIGTYPE_p_SCNUt_ComputeBoundingBox swig_types[316]
-#define SWIGTYPE_p_SCNUt_CoplanarRemover swig_types[317]
-#define SWIGTYPE_p_SCNUt_Edge swig_types[318]
-#define SWIGTYPE_p_SCNUt_EdgeBuilder swig_types[319]
-#define SWIGTYPE_p_SCNUt_EdgeList swig_types[320]
-#define SWIGTYPE_p_SCNUt_MaterialTable swig_types[321]
-#define SWIGTYPE_p_SCNUt_Mesh2TriScene swig_types[322]
-#define SWIGTYPE_p_SCNUt_MeshCompacter swig_types[323]
-#define SWIGTYPE_p_SCNUt_MeshGenerator swig_types[324]
-#define SWIGTYPE_p_SCNUt_OctreeBuilder swig_types[325]
-#define SWIGTYPE_p_SCNUt_PlanarMapper swig_types[326]
-#define SWIGTYPE_p_SCNUt_SceneBuilder swig_types[327]
-#define SWIGTYPE_p_SCNUt_SceneCompiler swig_types[328]
-#define SWIGTYPE_p_SCNUt_Scn2TriScnBuilder swig_types[329]
-#define SWIGTYPE_p_SCNUt_ShaderAssigner swig_types[330]
-#define SWIGTYPE_p_SCNUt_Stripifier swig_types[331]
-#define SWIGTYPE_p_SCNUt_TransformTriScene swig_types[332]
-#define SWIGTYPE_p_SCNUt_TriScene swig_types[333]
-#define SWIGTYPE_p_SCNUt_TriSceneAccumulator swig_types[334]
-#define SWIGTYPE_p_SCNUt_TriSceneClassifier swig_types[335]
-#define SWIGTYPE_p_SCNUt_TriSceneLoader swig_types[336]
-#define SWIGTYPE_p_SCNUt_TriSceneSaver swig_types[337]
-#define SWIGTYPE_p_SCNUt_TriSceneSeparator swig_types[338]
-#define SWIGTYPE_p_SCNUt_TriSceneSplitter swig_types[339]
-#define SWIGTYPE_p_SCNUt_TriUtils swig_types[340]
-#define SWIGTYPE_p_SCNUt_Triangle swig_types[341]
-#define SWIGTYPE_p_SCNUt_VisibilityTester swig_types[342]
-#define SWIGTYPE_p_SCNUt_ePolyState swig_types[343]
-#define SWIGTYPE_p_T3DS_Chunk swig_types[344]
-#define SWIGTYPE_p_TERSceneLoader swig_types[345]
-#define SWIGTYPE_p_TEnvironmentPars swig_types[346]
-#define SWIGTYPE_p_TGMState swig_types[347]
-#define SWIGTYPE_p_THeightFieldData swig_types[348]
-#define SWIGTYPE_p_TMsgLine swig_types[349]
-#define SWIGTYPE_p_TSpiralPathParams swig_types[350]
-#define SWIGTYPE_p_TTexSet swig_types[351]
-#define SWIGTYPE_p_TTextureEntry swig_types[352]
-#define SWIGTYPE_p_TVertexRef swig_types[353]
-#define SWIGTYPE_p_a_3__float swig_types[354]
-#define SWIGTYPE_p_animNumber_t swig_types[355]
-#define SWIGTYPE_p_anim_t swig_types[356]
-#define SWIGTYPE_p_boneframe_t swig_types[357]
-#define SWIGTYPE_p_bsp_edge swig_types[358]
-#define SWIGTYPE_p_bsp_face swig_types[359]
-#define SWIGTYPE_p_bsp_face_edge swig_types[360]
-#define SWIGTYPE_p_bsp_header swig_types[361]
-#define SWIGTYPE_p_bsp_leaf swig_types[362]
-#define SWIGTYPE_p_bsp_leaf_face swig_types[363]
-#define SWIGTYPE_p_bsp_lump swig_types[364]
-#define SWIGTYPE_p_bsp_node swig_types[365]
-#define SWIGTYPE_p_bsp_plane swig_types[366]
-#define SWIGTYPE_p_bsp_point3f swig_types[367]
-#define SWIGTYPE_p_bsp_point3s swig_types[368]
-#define SWIGTYPE_p_bsp_texinfo swig_types[369]
-#define SWIGTYPE_p_bsp_vis swig_types[370]
-#define SWIGTYPE_p_bsp_vis_offset swig_types[371]
-#define SWIGTYPE_p_char swig_types[372]
-#define SWIGTYPE_p_eLightType swig_types[373]
-#define SWIGTYPE_p_ext_texinfo swig_types[374]
-#define SWIGTYPE_p_f_p_void__void swig_types[375]
-#define SWIGTYPE_p_f_unsigned_int_unsigned_int_unsigned_int_r_q_const__CGString__void swig_types[376]
-#define SWIGTYPE_p_float swig_types[377]
-#define SWIGTYPE_p_frame_t swig_types[378]
-#define SWIGTYPE_p_int swig_types[379]
-#define SWIGTYPE_p_long swig_types[380]
-#define SWIGTYPE_p_md3_header_t swig_types[381]
-#define SWIGTYPE_p_mesh_header_t swig_types[382]
-#define SWIGTYPE_p_mesh_t swig_types[383]
-#define SWIGTYPE_p_model_t swig_types[384]
-#define SWIGTYPE_p_p_CCOL_Collider swig_types[385]
-#define SWIGTYPE_p_p_CGMesh swig_types[386]
-#define SWIGTYPE_p_p_CGMeshBox swig_types[387]
-#define SWIGTYPE_p_p_CGMeshCross swig_types[388]
-#define SWIGTYPE_p_p_CGMeshRect swig_types[389]
-#define SWIGTYPE_p_p_CGMeshSphere swig_types[390]
-#define SWIGTYPE_p_p_CGShInsBlendOp swig_types[391]
-#define SWIGTYPE_p_p_CGShInsColor swig_types[392]
-#define SWIGTYPE_p_p_CGShInsExtension swig_types[393]
-#define SWIGTYPE_p_p_CGShInsGeoOp swig_types[394]
-#define SWIGTYPE_p_p_CGShInsProgram swig_types[395]
-#define SWIGTYPE_p_p_CGShInsSetTMU swig_types[396]
-#define SWIGTYPE_p_p_CGShInsTexOp swig_types[397]
-#define SWIGTYPE_p_p_CGShInsTexture swig_types[398]
-#define SWIGTYPE_p_p_CGShInsWireframe swig_types[399]
-#define SWIGTYPE_p_p_CGShInsZOp swig_types[400]
-#define SWIGTYPE_p_p_CGShader swig_types[401]
-#define SWIGTYPE_p_p_CGShaderInstruction swig_types[402]
-#define SWIGTYPE_p_p_CGUnmanagedMesh swig_types[403]
-#define SWIGTYPE_p_p_CMenuTextGrid swig_types[404]
-#define SWIGTYPE_p_p_char swig_types[405]
-#define SWIGTYPE_p_p_void swig_types[406]
-#define SWIGTYPE_p_short swig_types[407]
-#define SWIGTYPE_p_skin_file_t swig_types[408]
-#define SWIGTYPE_p_skin_mesh_entry_t swig_types[409]
-#define SWIGTYPE_p_skin_t swig_types[410]
-#define SWIGTYPE_p_skin_tag_entry_t swig_types[411]
-#define SWIGTYPE_p_tag_t swig_types[412]
-#define SWIGTYPE_p_tex_coord_t swig_types[413]
-#define SWIGTYPE_p_textureCoordinate_t swig_types[414]
-#define SWIGTYPE_p_triangleVertex_t swig_types[415]
-#define SWIGTYPE_p_triangle_t swig_types[416]
-#define SWIGTYPE_p_unsigned_char swig_types[417]
-#define SWIGTYPE_p_unsigned_int swig_types[418]
-#define SWIGTYPE_p_unsigned_short swig_types[419]
-#define SWIGTYPE_p_vertice_t swig_types[420]
-#define SWIGTYPE_p_void swig_types[421]
-static swig_type_info *swig_types[423];
-static swig_module_info swig_module = {swig_types, 422, 0, 0, 0, 0};
+#define SWIGTYPE_p_CGSCNVAnimUpdater swig_types[167]
+#define SWIGTYPE_p_CGSCNVBoundVolBuilder swig_types[168]
+#define SWIGTYPE_p_CGSCNVRenderer swig_types[169]
+#define SWIGTYPE_p_CGSCNVVisibilityChecker swig_types[170]
+#define SWIGTYPE_p_CGSceneAnimActionSet swig_types[171]
+#define SWIGTYPE_p_CGSceneAnimGroup swig_types[172]
+#define SWIGTYPE_p_CGSceneAnimMesh swig_types[173]
+#define SWIGTYPE_p_CGSceneAnimNode swig_types[174]
+#define SWIGTYPE_p_CGSceneAnimTransf swig_types[175]
+#define SWIGTYPE_p_CGSceneBSPNode swig_types[176]
+#define SWIGTYPE_p_CGSceneCamera swig_types[177]
+#define SWIGTYPE_p_CGSceneGroup swig_types[178]
+#define SWIGTYPE_p_CGSceneInstance swig_types[179]
+#define SWIGTYPE_p_CGSceneLeaf swig_types[180]
+#define SWIGTYPE_p_CGSceneMux swig_types[181]
+#define SWIGTYPE_p_CGSceneNode swig_types[182]
+#define SWIGTYPE_p_CGSceneReflector swig_types[183]
+#define SWIGTYPE_p_CGSceneScreenRect swig_types[184]
+#define SWIGTYPE_p_CGSceneSwitch swig_types[185]
+#define SWIGTYPE_p_CGSceneTransf swig_types[186]
+#define SWIGTYPE_p_CGSceneVisitor swig_types[187]
+#define SWIGTYPE_p_CGScriptInstance swig_types[188]
+#define SWIGTYPE_p_CGScriptResource swig_types[189]
+#define SWIGTYPE_p_CGScriptResourceWH swig_types[190]
+#define SWIGTYPE_p_CGScriptingSystem swig_types[191]
+#define SWIGTYPE_p_CGSegment swig_types[192]
+#define SWIGTYPE_p_CGShInsBlendOp swig_types[193]
+#define SWIGTYPE_p_CGShInsColor swig_types[194]
+#define SWIGTYPE_p_CGShInsExtension swig_types[195]
+#define SWIGTYPE_p_CGShInsGeoOp swig_types[196]
+#define SWIGTYPE_p_CGShInsProgram swig_types[197]
+#define SWIGTYPE_p_CGShInsSetTMU swig_types[198]
+#define SWIGTYPE_p_CGShInsTexOp swig_types[199]
+#define SWIGTYPE_p_CGShInsTexture swig_types[200]
+#define SWIGTYPE_p_CGShInsWireframe swig_types[201]
+#define SWIGTYPE_p_CGShInsZOp swig_types[202]
+#define SWIGTYPE_p_CGShader swig_types[203]
+#define SWIGTYPE_p_CGShaderDefFileWH swig_types[204]
+#define SWIGTYPE_p_CGShaderDefWH swig_types[205]
+#define SWIGTYPE_p_CGShaderExtDB swig_types[206]
+#define SWIGTYPE_p_CGShaderInstruction swig_types[207]
+#define SWIGTYPE_p_CGShaderParser swig_types[208]
+#define SWIGTYPE_p_CGShaderUtils swig_types[209]
+#define SWIGTYPE_p_CGShaderWH swig_types[210]
+#define SWIGTYPE_p_CGSmoother swig_types[211]
+#define SWIGTYPE_p_CGSpiralPath swig_types[212]
+#define SWIGTYPE_p_CGStandardLC swig_types[213]
+#define SWIGTYPE_p_CGString swig_types[214]
+#define SWIGTYPE_p_CGSystemLC swig_types[215]
+#define SWIGTYPE_p_CGTexObjWH swig_types[216]
+#define SWIGTYPE_p_CGTextResource swig_types[217]
+#define SWIGTYPE_p_CGTextureObj swig_types[218]
+#define SWIGTYPE_p_CGTrail swig_types[219]
+#define SWIGTYPE_p_CGTrailGenDefFileWH swig_types[220]
+#define SWIGTYPE_p_CGTrailGenStd swig_types[221]
+#define SWIGTYPE_p_CGTrailGenWH swig_types[222]
+#define SWIGTYPE_p_CGTrailGenerator swig_types[223]
+#define SWIGTYPE_p_CGTrailInstance swig_types[224]
+#define SWIGTYPE_p_CGTrailManager swig_types[225]
+#define SWIGTYPE_p_CGTriangle swig_types[226]
+#define SWIGTYPE_p_CGUObject swig_types[227]
+#define SWIGTYPE_p_CGUnmanagedMesh swig_types[228]
+#define SWIGTYPE_p_CGVect2 swig_types[229]
+#define SWIGTYPE_p_CGVect3 swig_types[230]
+#define SWIGTYPE_p_CGVect4 swig_types[231]
+#define SWIGTYPE_p_CGViewport swig_types[232]
+#define SWIGTYPE_p_CGWarningLC swig_types[233]
+#define SWIGTYPE_p_CHFSector swig_types[234]
+#define SWIGTYPE_p_CHFSector_FN swig_types[235]
+#define SWIGTYPE_p_CHUD swig_types[236]
+#define SWIGTYPE_p_CHUDElem swig_types[237]
+#define SWIGTYPE_p_CHUDFile swig_types[238]
+#define SWIGTYPE_p_CHUDFont swig_types[239]
+#define SWIGTYPE_p_CHUDFontWH swig_types[240]
+#define SWIGTYPE_p_CHUDIcon swig_types[241]
+#define SWIGTYPE_p_CHUDLabel swig_types[242]
+#define SWIGTYPE_p_CHUDMsgBox swig_types[243]
+#define SWIGTYPE_p_CHUDObject swig_types[244]
+#define SWIGTYPE_p_CHUDProgressBar swig_types[245]
+#define SWIGTYPE_p_CHeight swig_types[246]
+#define SWIGTYPE_p_CHeightField swig_types[247]
+#define SWIGTYPE_p_CLMSector swig_types[248]
+#define SWIGTYPE_p_CLMSector_Gray swig_types[249]
+#define SWIGTYPE_p_CLMSector_Pal swig_types[250]
+#define SWIGTYPE_p_CLMSector_RGB24 swig_types[251]
+#define SWIGTYPE_p_CLODSelector swig_types[252]
+#define SWIGTYPE_p_CLODSelector_Array swig_types[253]
+#define SWIGTYPE_p_CLensFlare swig_types[254]
+#define SWIGTYPE_p_CLensFlare_Elem swig_types[255]
+#define SWIGTYPE_p_CLightElem swig_types[256]
+#define SWIGTYPE_p_CLightMap swig_types[257]
+#define SWIGTYPE_p_CLoader3DS swig_types[258]
+#define SWIGTYPE_p_CLoaderBSP2 swig_types[259]
+#define SWIGTYPE_p_CLoaderGEM swig_types[260]
+#define SWIGTYPE_p_CLoaderMD2 swig_types[261]
+#define SWIGTYPE_p_CLoaderMD3 swig_types[262]
+#define SWIGTYPE_p_CMenuTextGrid swig_types[263]
+#define SWIGTYPE_p_CSFXObjectInstance swig_types[264]
+#define SWIGTYPE_p_CSLM_HFieldSect swig_types[265]
+#define SWIGTYPE_p_CSLM_LMapSect swig_types[266]
+#define SWIGTYPE_p_CSLM_TMapSect swig_types[267]
+#define SWIGTYPE_p_CSaverGEM swig_types[268]
+#define SWIGTYPE_p_CSectElem swig_types[269]
+#define SWIGTYPE_p_CSector swig_types[270]
+#define SWIGTYPE_p_CSectorLoaderManager swig_types[271]
+#define SWIGTYPE_p_CSectorMatrix swig_types[272]
+#define SWIGTYPE_p_CShadowCaster swig_types[273]
+#define SWIGTYPE_p_CSkyBox swig_types[274]
+#define SWIGTYPE_p_CSkyDome swig_types[275]
+#define SWIGTYPE_p_CTMSector swig_types[276]
+#define SWIGTYPE_p_CTMSector_8_16 swig_types[277]
+#define SWIGTYPE_p_CTerrainCircuit swig_types[278]
+#define SWIGTYPE_p_CTerrainSector swig_types[279]
+#define SWIGTYPE_p_CTerrainTesselator swig_types[280]
+#define SWIGTYPE_p_CTerrainTesselatorGM swig_types[281]
+#define SWIGTYPE_p_CTexMap swig_types[282]
+#define SWIGTYPE_p_CTexProjector swig_types[283]
+#define SWIGTYPE_p_CTexSector swig_types[284]
+#define SWIGTYPE_p_CTile swig_types[285]
+#define SWIGTYPE_p_CTileBookmark swig_types[286]
+#define SWIGTYPE_p_E3D_BlendMode swig_types[287]
+#define SWIGTYPE_p_E3D_ChannelMask swig_types[288]
+#define SWIGTYPE_p_E3D_FogMode swig_types[289]
+#define SWIGTYPE_p_E3D_MeshType swig_types[290]
+#define SWIGTYPE_p_E3D_PrimitiveType swig_types[291]
+#define SWIGTYPE_p_E3D_ProjectorType swig_types[292]
+#define SWIGTYPE_p_E3D_RenderBuffer_Type swig_types[293]
+#define SWIGTYPE_p_E3D_ShaderInstructionType swig_types[294]
+#define SWIGTYPE_p_E3D_StencilAction swig_types[295]
+#define SWIGTYPE_p_E3D_StencilFunc swig_types[296]
+#define SWIGTYPE_p_E3D_ZTestFunc swig_types[297]
+#define SWIGTYPE_p_E3D_ZWrite swig_types[298]
+#define SWIGTYPE_p_ECOL_ColliderType swig_types[299]
+#define SWIGTYPE_p_ECOL_TestType swig_types[300]
+#define SWIGTYPE_p_EFileOpenMode swig_types[301]
+#define SWIGTYPE_p_EFileOperationResult swig_types[302]
+#define SWIGTYPE_p_EFileSeekMode swig_types[303]
+#define SWIGTYPE_p_EGenerationMethod swig_types[304]
+#define SWIGTYPE_p_EImageFormat swig_types[305]
+#define SWIGTYPE_p_ESceneNodeType swig_types[306]
+#define SWIGTYPE_p_EShInsGeoOp swig_types[307]
+#define SWIGTYPE_p_EShInsTexOp swig_types[308]
+#define SWIGTYPE_p_FILE swig_types[309]
+#define SWIGTYPE_p_Q3triangle_t swig_types[310]
+#define SWIGTYPE_p_SCNUt_AdjTri swig_types[311]
+#define SWIGTYPE_p_SCNUt_AdjTriList swig_types[312]
+#define SWIGTYPE_p_SCNUt_AdjTriListBuilder swig_types[313]
+#define SWIGTYPE_p_SCNUt_AnimMesh_NormalComputer swig_types[314]
+#define SWIGTYPE_p_SCNUt_AnimSceneLoader swig_types[315]
+#define SWIGTYPE_p_SCNUt_BSPBuilder swig_types[316]
+#define SWIGTYPE_p_SCNUt_ComputeBoundingBox swig_types[317]
+#define SWIGTYPE_p_SCNUt_CoplanarRemover swig_types[318]
+#define SWIGTYPE_p_SCNUt_Edge swig_types[319]
+#define SWIGTYPE_p_SCNUt_EdgeBuilder swig_types[320]
+#define SWIGTYPE_p_SCNUt_EdgeList swig_types[321]
+#define SWIGTYPE_p_SCNUt_MaterialTable swig_types[322]
+#define SWIGTYPE_p_SCNUt_Mesh2TriScene swig_types[323]
+#define SWIGTYPE_p_SCNUt_MeshCompacter swig_types[324]
+#define SWIGTYPE_p_SCNUt_MeshGenerator swig_types[325]
+#define SWIGTYPE_p_SCNUt_OctreeBuilder swig_types[326]
+#define SWIGTYPE_p_SCNUt_PlanarMapper swig_types[327]
+#define SWIGTYPE_p_SCNUt_SceneBuilder swig_types[328]
+#define SWIGTYPE_p_SCNUt_SceneCompiler swig_types[329]
+#define SWIGTYPE_p_SCNUt_Scn2TriScnBuilder swig_types[330]
+#define SWIGTYPE_p_SCNUt_ShaderAssigner swig_types[331]
+#define SWIGTYPE_p_SCNUt_Stripifier swig_types[332]
+#define SWIGTYPE_p_SCNUt_TransformTriScene swig_types[333]
+#define SWIGTYPE_p_SCNUt_TriScene swig_types[334]
+#define SWIGTYPE_p_SCNUt_TriSceneAccumulator swig_types[335]
+#define SWIGTYPE_p_SCNUt_TriSceneClassifier swig_types[336]
+#define SWIGTYPE_p_SCNUt_TriSceneLoader swig_types[337]
+#define SWIGTYPE_p_SCNUt_TriSceneSaver swig_types[338]
+#define SWIGTYPE_p_SCNUt_TriSceneSeparator swig_types[339]
+#define SWIGTYPE_p_SCNUt_TriSceneSplitter swig_types[340]
+#define SWIGTYPE_p_SCNUt_TriUtils swig_types[341]
+#define SWIGTYPE_p_SCNUt_Triangle swig_types[342]
+#define SWIGTYPE_p_SCNUt_VisibilityTester swig_types[343]
+#define SWIGTYPE_p_SCNUt_ePolyState swig_types[344]
+#define SWIGTYPE_p_T3DS_Chunk swig_types[345]
+#define SWIGTYPE_p_TERSceneLoader swig_types[346]
+#define SWIGTYPE_p_TEnvironmentPars swig_types[347]
+#define SWIGTYPE_p_TGMState swig_types[348]
+#define SWIGTYPE_p_THeightFieldData swig_types[349]
+#define SWIGTYPE_p_TMsgLine swig_types[350]
+#define SWIGTYPE_p_TSpiralPathParams swig_types[351]
+#define SWIGTYPE_p_TTexSet swig_types[352]
+#define SWIGTYPE_p_TTextureEntry swig_types[353]
+#define SWIGTYPE_p_TVertexRef swig_types[354]
+#define SWIGTYPE_p_a_3__float swig_types[355]
+#define SWIGTYPE_p_animNumber_t swig_types[356]
+#define SWIGTYPE_p_anim_t swig_types[357]
+#define SWIGTYPE_p_boneframe_t swig_types[358]
+#define SWIGTYPE_p_bsp_edge swig_types[359]
+#define SWIGTYPE_p_bsp_face swig_types[360]
+#define SWIGTYPE_p_bsp_face_edge swig_types[361]
+#define SWIGTYPE_p_bsp_header swig_types[362]
+#define SWIGTYPE_p_bsp_leaf swig_types[363]
+#define SWIGTYPE_p_bsp_leaf_face swig_types[364]
+#define SWIGTYPE_p_bsp_lump swig_types[365]
+#define SWIGTYPE_p_bsp_node swig_types[366]
+#define SWIGTYPE_p_bsp_plane swig_types[367]
+#define SWIGTYPE_p_bsp_point3f swig_types[368]
+#define SWIGTYPE_p_bsp_point3s swig_types[369]
+#define SWIGTYPE_p_bsp_texinfo swig_types[370]
+#define SWIGTYPE_p_bsp_vis swig_types[371]
+#define SWIGTYPE_p_bsp_vis_offset swig_types[372]
+#define SWIGTYPE_p_char swig_types[373]
+#define SWIGTYPE_p_eLightType swig_types[374]
+#define SWIGTYPE_p_ext_texinfo swig_types[375]
+#define SWIGTYPE_p_f_p_void__void swig_types[376]
+#define SWIGTYPE_p_f_unsigned_int_unsigned_int_unsigned_int_r_q_const__CGString__void swig_types[377]
+#define SWIGTYPE_p_float swig_types[378]
+#define SWIGTYPE_p_frame_t swig_types[379]
+#define SWIGTYPE_p_int swig_types[380]
+#define SWIGTYPE_p_long swig_types[381]
+#define SWIGTYPE_p_md3_header_t swig_types[382]
+#define SWIGTYPE_p_mesh_header_t swig_types[383]
+#define SWIGTYPE_p_mesh_t swig_types[384]
+#define SWIGTYPE_p_model_t swig_types[385]
+#define SWIGTYPE_p_p_CCOL_Collider swig_types[386]
+#define SWIGTYPE_p_p_CGMesh swig_types[387]
+#define SWIGTYPE_p_p_CGMeshBox swig_types[388]
+#define SWIGTYPE_p_p_CGMeshCross swig_types[389]
+#define SWIGTYPE_p_p_CGMeshRect swig_types[390]
+#define SWIGTYPE_p_p_CGMeshSphere swig_types[391]
+#define SWIGTYPE_p_p_CGShInsBlendOp swig_types[392]
+#define SWIGTYPE_p_p_CGShInsColor swig_types[393]
+#define SWIGTYPE_p_p_CGShInsExtension swig_types[394]
+#define SWIGTYPE_p_p_CGShInsGeoOp swig_types[395]
+#define SWIGTYPE_p_p_CGShInsProgram swig_types[396]
+#define SWIGTYPE_p_p_CGShInsSetTMU swig_types[397]
+#define SWIGTYPE_p_p_CGShInsTexOp swig_types[398]
+#define SWIGTYPE_p_p_CGShInsTexture swig_types[399]
+#define SWIGTYPE_p_p_CGShInsWireframe swig_types[400]
+#define SWIGTYPE_p_p_CGShInsZOp swig_types[401]
+#define SWIGTYPE_p_p_CGShader swig_types[402]
+#define SWIGTYPE_p_p_CGShaderInstruction swig_types[403]
+#define SWIGTYPE_p_p_CGUnmanagedMesh swig_types[404]
+#define SWIGTYPE_p_p_CMenuTextGrid swig_types[405]
+#define SWIGTYPE_p_p_char swig_types[406]
+#define SWIGTYPE_p_p_void swig_types[407]
+#define SWIGTYPE_p_short swig_types[408]
+#define SWIGTYPE_p_skin_file_t swig_types[409]
+#define SWIGTYPE_p_skin_mesh_entry_t swig_types[410]
+#define SWIGTYPE_p_skin_t swig_types[411]
+#define SWIGTYPE_p_skin_tag_entry_t swig_types[412]
+#define SWIGTYPE_p_tag_t swig_types[413]
+#define SWIGTYPE_p_tex_coord_t swig_types[414]
+#define SWIGTYPE_p_textureCoordinate_t swig_types[415]
+#define SWIGTYPE_p_triangleVertex_t swig_types[416]
+#define SWIGTYPE_p_triangle_t swig_types[417]
+#define SWIGTYPE_p_unsigned_char swig_types[418]
+#define SWIGTYPE_p_unsigned_int swig_types[419]
+#define SWIGTYPE_p_unsigned_short swig_types[420]
+#define SWIGTYPE_p_vertice_t swig_types[421]
+#define SWIGTYPE_p_void swig_types[422]
+static swig_type_info *swig_types[424];
+static swig_module_info swig_module = {swig_types, 423, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -36125,15 +36126,18 @@ static int _wrap_CGSceneAnimActionSet_UpdateAnimState(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSceneAnimActionSet *arg1 = 0 ;
+    float arg2 ;
     
-    SWIG_check_num_args("CGSceneAnimActionSet::UpdateAnimState",1,1)
+    SWIG_check_num_args("CGSceneAnimActionSet::UpdateAnimState",2,2)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimActionSet::UpdateAnimState",1,"CGSceneAnimActionSet *");
+    if(!lua_isnumber(L,2)) SWIG_fail_arg("CGSceneAnimActionSet::UpdateAnimState",2,"float");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimActionSet,0))){
       SWIG_fail_ptr("CGSceneAnimActionSet_UpdateAnimState",1,SWIGTYPE_p_CGSceneAnimActionSet);
     }
     
-    (arg1)->UpdateAnimState();
+    arg2 = (float)lua_tonumber(L, 2);
+    (arg1)->UpdateAnimState(arg2);
     
     return SWIG_arg;
     
@@ -62302,6 +62306,104 @@ static swig_lua_namespace swig_CGSCNVVisibilityChecker_Sf_SwigStatic = {
 static swig_lua_class *swig_CGSCNVVisibilityChecker_bases[] = {0,0};
 static const char *swig_CGSCNVVisibilityChecker_base_names[] = {"CGSceneVisitor *",0};
 static swig_lua_class _wrap_class_CGSCNVVisibilityChecker = { "CGSCNVVisibilityChecker", "CGSCNVVisibilityChecker", &SWIGTYPE_p_CGSCNVVisibilityChecker,_proxy__wrap_new_CGSCNVVisibilityChecker, swig_delete_CGSCNVVisibilityChecker, swig_CGSCNVVisibilityChecker_methods, swig_CGSCNVVisibilityChecker_attributes, &swig_CGSCNVVisibilityChecker_Sf_SwigStatic, swig_CGSCNVVisibilityChecker_meta, swig_CGSCNVVisibilityChecker_bases, swig_CGSCNVVisibilityChecker_base_names };
+
+static int _wrap_CGSCNVAnimUpdater_Update(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGSCNVAnimUpdater *arg1 = 0 ;
+    CGSceneNode *arg2 = 0 ;
+    float arg3 ;
+    
+    SWIG_check_num_args("CGSCNVAnimUpdater::Update",3,3)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSCNVAnimUpdater::Update",1,"CGSCNVAnimUpdater *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSCNVAnimUpdater::Update",2,"CGSceneNode *");
+    if(!lua_isnumber(L,3)) SWIG_fail_arg("CGSCNVAnimUpdater::Update",3,"float");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSCNVAnimUpdater,0))){
+      SWIG_fail_ptr("CGSCNVAnimUpdater_Update",1,SWIGTYPE_p_CGSCNVAnimUpdater);
+    }
+    
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneNode,0))){
+      SWIG_fail_ptr("CGSCNVAnimUpdater_Update",2,SWIGTYPE_p_CGSceneNode);
+    }
+    
+    arg3 = (float)lua_tonumber(L, 3);
+    (arg1)->Update(arg2,arg3);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_new_CGSCNVAnimUpdater(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGSCNVAnimUpdater *result = 0 ;
+    
+    SWIG_check_num_args("CGSCNVAnimUpdater::CGSCNVAnimUpdater",0,0)
+    result = (CGSCNVAnimUpdater *)new CGSCNVAnimUpdater();
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGSCNVAnimUpdater,1); SWIG_arg++; 
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static void swig_delete_CGSCNVAnimUpdater(void *obj) {
+CGSCNVAnimUpdater *arg1 = (CGSCNVAnimUpdater *) obj;
+delete arg1;
+}
+static int _proxy__wrap_new_CGSCNVAnimUpdater(lua_State *L) {
+    assert(lua_istable(L,1));
+    lua_pushcfunction(L,_wrap_new_CGSCNVAnimUpdater);
+    assert(!lua_isnil(L,-1));
+    lua_replace(L,1); /* replace our table with real constructor */
+    lua_call(L,lua_gettop(L)-1,1);
+    return 1;
+}
+static swig_lua_attribute swig_CGSCNVAnimUpdater_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_method swig_CGSCNVAnimUpdater_methods[]= {
+    { "Update", _wrap_CGSCNVAnimUpdater_Update},
+    {0,0}
+};
+static swig_lua_method swig_CGSCNVAnimUpdater_meta[] = {
+    {0,0}
+};
+
+static swig_lua_attribute swig_CGSCNVAnimUpdater_Sf_SwigStatic_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_const_info swig_CGSCNVAnimUpdater_Sf_SwigStatic_constants[]= {
+    {0,0,0,0,0,0}
+};
+static swig_lua_method swig_CGSCNVAnimUpdater_Sf_SwigStatic_methods[]= {
+    {0,0}
+};
+static swig_lua_class* swig_CGSCNVAnimUpdater_Sf_SwigStatic_classes[]= {
+    0
+};
+
+static swig_lua_namespace swig_CGSCNVAnimUpdater_Sf_SwigStatic = {
+    "CGSCNVAnimUpdater",
+    swig_CGSCNVAnimUpdater_Sf_SwigStatic_methods,
+    swig_CGSCNVAnimUpdater_Sf_SwigStatic_attributes,
+    swig_CGSCNVAnimUpdater_Sf_SwigStatic_constants,
+    swig_CGSCNVAnimUpdater_Sf_SwigStatic_classes,
+    0
+};
+static swig_lua_class *swig_CGSCNVAnimUpdater_bases[] = {0,0};
+static const char *swig_CGSCNVAnimUpdater_base_names[] = {"CGSceneVisitor *",0};
+static swig_lua_class _wrap_class_CGSCNVAnimUpdater = { "CGSCNVAnimUpdater", "CGSCNVAnimUpdater", &SWIGTYPE_p_CGSCNVAnimUpdater,_proxy__wrap_new_CGSCNVAnimUpdater, swig_delete_CGSCNVAnimUpdater, swig_CGSCNVAnimUpdater_methods, swig_CGSCNVAnimUpdater_attributes, &swig_CGSCNVAnimUpdater_Sf_SwigStatic, swig_CGSCNVAnimUpdater_meta, swig_CGSCNVAnimUpdater_bases, swig_CGSCNVAnimUpdater_base_names };
 
 static int _wrap_CGGraphBVFileIO_pLoadGraphBV(lua_State* L) {
   {
@@ -106733,6 +106835,7 @@ static swig_lua_class* swig_SwigModule_classes[]= {
 &_wrap_class_CGSCNVBoundVolBuilder,
 &_wrap_class_CGSCNVRenderer,
 &_wrap_class_CGSCNVVisibilityChecker,
+&_wrap_class_CGSCNVAnimUpdater,
 &_wrap_class_CGGraphBVFileIO,
 &_wrap_class_CHUDElem,
 &_wrap_class_CHUD,
@@ -107596,6 +107699,9 @@ static void *_p_CSkyBoxTo_p_CGSceneTransf(void *x, int *SWIGUNUSEDPARM(newmemory
 static void *_p_C3DSaverTo_p_CGSceneVisitor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((CGSceneVisitor *)  ((C3DSaver *) x));
 }
+static void *_p_CGSCNVAnimUpdaterTo_p_CGSceneVisitor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((CGSceneVisitor *)  ((CGSCNVAnimUpdater *) x));
+}
 static void *_p_CGSCNVBoundVolBuilderTo_p_CGSceneVisitor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((CGSceneVisitor *)  ((CGSCNVBoundVolBuilder *) x));
 }
@@ -107964,6 +108070,7 @@ static swig_type_info _swigt__p_CGRenderStats = {"_p_CGRenderStats", "CGRenderSt
 static swig_type_info _swigt__p_CGRenderVars = {"_p_CGRenderVars", "CGRenderVars *", 0, 0, (void*)&_wrap_class_CGRenderVars, 0};
 static swig_type_info _swigt__p_CGRenderer = {"_p_CGRenderer", "CGRenderer *", 0, 0, (void*)&_wrap_class_CGRenderer, 0};
 static swig_type_info _swigt__p_CGResource = {"_p_CGResource", "CGResource *", 0, 0, (void*)&_wrap_class_CGResource, 0};
+static swig_type_info _swigt__p_CGSCNVAnimUpdater = {"_p_CGSCNVAnimUpdater", "CGSCNVAnimUpdater *", 0, 0, (void*)&_wrap_class_CGSCNVAnimUpdater, 0};
 static swig_type_info _swigt__p_CGSCNVBoundVolBuilder = {"_p_CGSCNVBoundVolBuilder", "CGSCNVBoundVolBuilder *", 0, 0, (void*)&_wrap_class_CGSCNVBoundVolBuilder, 0};
 static swig_type_info _swigt__p_CGSCNVRenderer = {"_p_CGSCNVRenderer", "CGSCNVRenderer *", 0, 0, (void*)&_wrap_class_CGSCNVRenderer, 0};
 static swig_type_info _swigt__p_CGSCNVVisibilityChecker = {"_p_CGSCNVVisibilityChecker", "CGSCNVVisibilityChecker *", 0, 0, (void*)&_wrap_class_CGSCNVVisibilityChecker, 0};
@@ -108388,6 +108495,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_CGRenderVars,
   &_swigt__p_CGRenderer,
   &_swigt__p_CGResource,
+  &_swigt__p_CGSCNVAnimUpdater,
   &_swigt__p_CGSCNVBoundVolBuilder,
   &_swigt__p_CGSCNVRenderer,
   &_swigt__p_CGSCNVVisibilityChecker,
@@ -108812,6 +108920,7 @@ static swig_cast_info _swigc__p_CGRenderStats[] = {  {&_swigt__p_CGRenderStats, 
 static swig_cast_info _swigc__p_CGRenderVars[] = {  {&_swigt__p_CGRenderVars, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGRenderer[] = {  {&_swigt__p_CGRenderer, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGResource[] = {  {&_swigt__p_CGResource, 0, 0, 0},  {&_swigt__p_CGCoronaGenStd, _p_CGCoronaGenStdTo_p_CGResource, 0, 0},  {&_swigt__p_CGCoronaGenerator, _p_CGCoronaGeneratorTo_p_CGResource, 0, 0},  {&_swigt__p_CGGraphicResource, _p_CGGraphicResourceTo_p_CGResource, 0, 0},  {&_swigt__p_CGMipMap, _p_CGMipMapTo_p_CGResource, 0, 0},  {&_swigt__p_CGPSGGeneric, _p_CGPSGGenericTo_p_CGResource, 0, 0},  {&_swigt__p_CGPSGGenericQuad, _p_CGPSGGenericQuadTo_p_CGResource, 0, 0},  {&_swigt__p_CGPSGGenericQuadOrbit, _p_CGPSGGenericQuadOrbitTo_p_CGResource, 0, 0},  {&_swigt__p_CGParticleSystemGenerator, _p_CGParticleSystemGeneratorTo_p_CGResource, 0, 0},  {&_swigt__p_CGPathResource, _p_CGPathResourceTo_p_CGResource, 0, 0},  {&_swigt__p_CGProgram, _p_CGProgramTo_p_CGResource, 0, 0},  {&_swigt__p_CGScriptResource, _p_CGScriptResourceTo_p_CGResource, 0, 0},  {&_swigt__p_CGShader, _p_CGShaderTo_p_CGResource, 0, 0},  {&_swigt__p_CGTextResource, _p_CGTextResourceTo_p_CGResource, 0, 0},  {&_swigt__p_CGTextureObj, _p_CGTextureObjTo_p_CGResource, 0, 0},  {&_swigt__p_CGTrailGenStd, _p_CGTrailGenStdTo_p_CGResource, 0, 0},  {&_swigt__p_CGTrailGenerator, _p_CGTrailGeneratorTo_p_CGResource, 0, 0},  {&_swigt__p_CHUDFont, _p_CHUDFontTo_p_CGResource, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_CGSCNVAnimUpdater[] = {  {&_swigt__p_CGSCNVAnimUpdater, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGSCNVBoundVolBuilder[] = {  {&_swigt__p_CGSCNVBoundVolBuilder, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGSCNVRenderer[] = {  {&_swigt__p_CGSCNVRenderer, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGSCNVVisibilityChecker[] = {  {&_swigt__p_CGSCNVVisibilityChecker, 0, 0, 0},{0, 0, 0, 0}};
@@ -108831,7 +108940,7 @@ static swig_cast_info _swigc__p_CGSceneReflector[] = {  {&_swigt__p_CGSceneRefle
 static swig_cast_info _swigc__p_CGSceneScreenRect[] = {  {&_swigt__p_CGSceneScreenRect, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGSceneSwitch[] = {  {&_swigt__p_CGSceneSwitch, 0, 0, 0},  {&_swigt__p_CGParticleSystemInstance, _p_CGParticleSystemInstanceTo_p_CGSceneSwitch, 0, 0},  {&_swigt__p_CHUDIcon, _p_CHUDIconTo_p_CGSceneSwitch, 0, 0},  {&_swigt__p_CHUDLabel, _p_CHUDLabelTo_p_CGSceneSwitch, 0, 0},  {&_swigt__p_CHUDObject, _p_CHUDObjectTo_p_CGSceneSwitch, 0, 0},  {&_swigt__p_CHUDProgressBar, _p_CHUDProgressBarTo_p_CGSceneSwitch, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGSceneTransf[] = {  {&_swigt__p_CGSceneTransf, 0, 0, 0},  {&_swigt__p_CGCoronaInstance, _p_CGCoronaInstanceTo_p_CGSceneTransf, 0, 0},  {&_swigt__p_CGSceneInstance, _p_CGSceneInstanceTo_p_CGSceneTransf, 0, 0},  {&_swigt__p_CSkyBox, _p_CSkyBoxTo_p_CGSceneTransf, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CGSceneVisitor[] = {  {&_swigt__p_CGSceneVisitor, 0, 0, 0},  {&_swigt__p_C3DSaver, _p_C3DSaverTo_p_CGSceneVisitor, 0, 0},  {&_swigt__p_CGSCNVBoundVolBuilder, _p_CGSCNVBoundVolBuilderTo_p_CGSceneVisitor, 0, 0},  {&_swigt__p_CGSCNVRenderer, _p_CGSCNVRendererTo_p_CGSceneVisitor, 0, 0},  {&_swigt__p_CGSCNVVisibilityChecker, _p_CGSCNVVisibilityCheckerTo_p_CGSceneVisitor, 0, 0},  {&_swigt__p_CSaverGEM, _p_CSaverGEMTo_p_CGSceneVisitor, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_CGSceneVisitor[] = {  {&_swigt__p_CGSceneVisitor, 0, 0, 0},  {&_swigt__p_C3DSaver, _p_C3DSaverTo_p_CGSceneVisitor, 0, 0},  {&_swigt__p_CGSCNVAnimUpdater, _p_CGSCNVAnimUpdaterTo_p_CGSceneVisitor, 0, 0},  {&_swigt__p_CGSCNVBoundVolBuilder, _p_CGSCNVBoundVolBuilderTo_p_CGSceneVisitor, 0, 0},  {&_swigt__p_CGSCNVRenderer, _p_CGSCNVRendererTo_p_CGSceneVisitor, 0, 0},  {&_swigt__p_CGSCNVVisibilityChecker, _p_CGSCNVVisibilityCheckerTo_p_CGSceneVisitor, 0, 0},  {&_swigt__p_CSaverGEM, _p_CSaverGEMTo_p_CGSceneVisitor, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGScriptInstance[] = {  {&_swigt__p_CGScriptInstance, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGScriptResource[] = {  {&_swigt__p_CGScriptResource, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CGScriptResourceWH[] = {  {&_swigt__p_CGScriptResourceWH, 0, 0, 0},{0, 0, 0, 0}};
@@ -109236,6 +109345,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_CGRenderVars,
   _swigc__p_CGRenderer,
   _swigc__p_CGResource,
+  _swigc__p_CGSCNVAnimUpdater,
   _swigc__p_CGSCNVBoundVolBuilder,
   _swigc__p_CGSCNVRenderer,
   _swigc__p_CGSCNVVisibilityChecker,

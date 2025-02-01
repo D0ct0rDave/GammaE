@@ -17,7 +17,29 @@
 DECLARE_INHERITANT_SINGLETON(CGSCNVAnimUpdater,public,CGSceneVisitor)
 {
     public:
-        void SetAnimState(CGSceneAnimActionSet * _poInst, uint _uiIFrame, uint _uiEFrame, float _fFact);
+        void Update(CGSceneNode * _poNode, float _fDeltaT);
+
+    protected:
+
+        virtual void Visit(CGSceneNode * _poNode);
+
+        virtual void Visit(CGSceneBSPNode * _poNode);
+
+        virtual void Visit(CGSceneCamera * _poNode);
+
+        virtual void Visit(CGSceneInstance * _poNode);
+
+        virtual void Visit(CGSceneLeaf * _poNode);
+
+        virtual void Visit(CGSceneMux * _poNode);
+
+        virtual void Visit(CGSceneGroup * _poNode);
+
+        virtual void Visit(CGSceneScreenRect * _poNode);
+
+        virtual void Visit(CGSceneSwitch * _poNode);
+
+        virtual void Visit(CGSceneTransf * _poNode);
 
         virtual void Visit(CGSceneAnimNode * _poNode);
 
@@ -27,11 +49,10 @@ DECLARE_INHERITANT_SINGLETON(CGSCNVAnimUpdater,public,CGSceneVisitor)
 
         virtual void Visit(CGSceneAnimTransf * _poNode);
 
+        virtual void Visit(CGSceneAnimActionSet * _poNode);
+    
     protected:
-
-        uint m_uiIFrame;
-        uint m_uiEFrame;
-        float m_fFact;
+        float m_fDeltaT;
 };
 // ---------------------------------------------------------------------
 #endif

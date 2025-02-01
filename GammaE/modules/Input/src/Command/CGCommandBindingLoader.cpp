@@ -29,8 +29,7 @@ bool CGCommandBindingLoader::Init (char* _szFilename)
     if ( !StrBuff ) return (false);
 
     CGCommandBinder::I()->UnBindAll();
-
-    while ( StrPos )
+    while ( *StrPos )
     {
         Token = Utils::Parse::ParseToken(StrPos);
 
