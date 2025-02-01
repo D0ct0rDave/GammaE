@@ -54,7 +54,7 @@ class CLoaderGEM : public C3DLoader
 
         CGSceneTransf* poLoad3DObj_Transf();
 
-        CGSceneAnimGroup* poLoad3DObj_AnimNode();
+        CGSceneAnimGroup* poLoad3DObj_AnimGroup();
 
         CGSceneAnimMesh* poLoad3DObj_AnimMesh();
 

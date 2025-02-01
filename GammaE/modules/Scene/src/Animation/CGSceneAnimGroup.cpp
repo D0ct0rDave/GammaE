@@ -13,7 +13,7 @@
 // ----------------------------------------------------------------------------
 CGSceneAnimGroup::CGSceneAnimGroup()
 	: m_uiNumStates(0)
-	, m_poBV(NULL)
+	, m_uiCurrentState(0)
 {
     m_eNodeType = SNT_AnimGroup;
 }
@@ -28,7 +28,10 @@ CGSceneAnimGroup::~CGSceneAnimGroup()
 
     for (uint uiState = 0; uiState < m_poStateBVs.uiNumElems(); uiState++)
     {
-        mDel m_poStateBVs[uiState];
+		if (m_poStateBVs[uiState] != NULL)
+		{
+			mDel m_poStateBVs[uiState];
+		}
     }
     m_poStateBVs.Clear();
 }
@@ -38,7 +41,7 @@ void CGSceneAnimGroup::Setup(uint _uiNumStates)
     m_poStateBVs.Init(_uiNumStates);
 	for (uint uiState = 0; uiState < _uiNumStates; uiState++)
 	{
-		m_poStateBVs[uiState] = CGGraphBVFactory::poCreate();
+		m_poStateBVs.iAdd(CGGraphBVFactory::poCreate());
 	}
 
     m_uiNumStates = _uiNumStates;
@@ -53,7 +56,7 @@ void CGSceneAnimGroup::SetAnimState(uint _uiSrc, uint _uiDst, float _fFactor)
 			((CGSceneAnimNode*)m_poObjs[i])->SetAnimState(_uiSrc, _uiDst, _fFactor);
     }
 
-	m_poBV = m_poStateBVs[_uiSrc];
+	m_uiCurrentState = _uiSrc;
 }
 // ----------------------------------------------------------------------------
 uint CGSceneAnimGroup::uiGetNumStates() const
@@ -100,16 +103,26 @@ void CGSceneAnimGroup::ComputeStatesBVols()
 	}
 
 	mDel[]poBVVXs;
-	m_poBV = m_poStateBVs[0];
+	m_uiCurrentState = 0;
 }
 // ----------------------------------------------------------------------------
 CGGraphBV* CGSceneAnimGroup::poGetStateBVol(int _iState)
 {
-	return m_poStateBVs[0];
+	return m_poStateBVs[_iState];
+}
+// ----------------------------------------------------------------------------
+void CGSceneAnimGroup::SetStateBVol(int _iState, CGGraphBV* _poBV)
+{
+	if (m_poStateBVs[_iState] != NULL)
+	{
+		mDel m_poStateBVs[_iState];
+	}
+
+	m_poStateBVs[_iState] = _poBV;
 }
 // ----------------------------------------------------------------------------
 CGGraphBV* CGSceneAnimGroup::poGetBV()
 {
-	return m_poBV;
+	return m_poStateBVs[m_uiCurrentState];
 }
 // ----------------------------------------------------------------------------

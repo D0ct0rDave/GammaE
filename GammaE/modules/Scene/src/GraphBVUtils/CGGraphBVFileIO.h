@@ -8,8 +8,8 @@
  *  \par GammaE License
  */
 // -----------------------------------------------------------------------------
-#ifndef CGraphBV_FileIO_h
-#define CGraphBV_FileIO_h 1
+#ifndef CGraphBVFileIOH
+#define CGraphBVFileIOH 1
 // -----------------------------------------------------------------------------
 #include "GammaE_FileSys.h"
 #include "GammaE_Math.h"

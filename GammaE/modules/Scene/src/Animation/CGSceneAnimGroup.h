@@ -35,6 +35,9 @@ class CGSceneAnimGroup : public CGSceneAnimNode
         // Return the bounding volume of the object for the given state
         virtual CGGraphBV* poGetStateBVol(int _iState);
 
+        // Sets (overrides) the bounding volume for the given state
+        virtual void SetStateBVol(int _iState, CGGraphBV* _poBV);
+
         // / Adds a new animation object to the animation node
         uint uiAddAnimObject(CGSceneAnimNode* _poObj)
         {
@@ -72,7 +75,7 @@ class CGSceneAnimGroup : public CGSceneAnimNode
         uint m_uiNumStates;
         CGDynArray<CGSceneAnimNode*> m_poObjs;
         CGStArray<CGGraphBV*> m_poStateBVs;
-        CGGraphBV* m_poBV;
+        uint m_uiCurrentState;
 };
 
 // --------------------------------------------------------------------------------

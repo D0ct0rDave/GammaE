@@ -64,12 +64,17 @@ void CGSceneGroup::DelObject(uint _uiPos)
 // ----------------------------------------------------------------------------
 int CGSceneGroup::iAddObject(CGSceneNode* _poObj)
 {
+    if (_poObj == NULL)
+    {
+        return(-1);
+    }
+
     for ( uint i = 0; i < m_poSubObj.uiMaxElems(); i++ )
     {
         if ( m_poSubObj[i] == NULL )
         {
             m_poSubObj[i] = _poObj;
-            _poObj->Ref();
+            m_poSubObj[i]->Ref();
 
             return(i);
         }
@@ -84,6 +89,11 @@ void CGSceneGroup::SetObject(CGSceneNode* _poObj, uint _uiPos)
     assert( ( _uiPos < m_poSubObj.uiNumElems() ) && "Object out of bounds" );
     assert( _poObj && "Setting a NULL Subobject");
 
+    if (m_poSubObj[_uiPos] != NULL)
+    {
+        m_poSubObj[_uiPos]->Deref();
+    }
+
     m_poSubObj[_uiPos] = _poObj;
     _poObj->Ref();
 }
@@ -96,12 +106,7 @@ CGSceneNode* CGSceneGroup::poGetObject(uint _uiPos)
 // ----------------------------------------------------------------------------
 uint CGSceneGroup::uiNumSubObjs()
 {
-    uint uiNumSubObjects = 0;
-    for ( uint cObj = 0; cObj < m_poSubObj.uiNumElems(); cObj++ )
-        if ( m_poSubObj[cObj] )
-            uiNumSubObjects++;
-
-    return(uiNumSubObjects);
+    return(m_poSubObj.uiNumElems());
 }
 // ----------------------------------------------------------------------------
 void CGSceneGroup::SetBV(CGGraphBV* _poBV)

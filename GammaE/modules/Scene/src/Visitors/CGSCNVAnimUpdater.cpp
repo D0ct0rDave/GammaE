@@ -34,7 +34,7 @@ void CGSCNVAnimUpdater::SetAnimState(CGSceneAnimActionSet* _poInst,uint _uiIFram
     m_uiEFrame = _uiEFrame;
     m_fFact = _fFact;
 
-    _poInst->poGetAnimObj()->Accept(this);
+    _poInst->poGetAnimObject()->Accept(this);
 }
 // ----------------------------------------------------------------------------
 void CGSCNVAnimUpdater::Visit(CGSceneAnimNode* _poNode)

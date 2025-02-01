@@ -31,7 +31,7 @@ class CLoaderMD2 : public C3DLoader
 
         ~CLoaderMD2();
 
-        virtual CGSceneNode* pLoad(char* Filename);
+        virtual CGSceneNode* poLoad(const CGString& _sFilename);
 
         int GetNumSkins();
 
@@ -39,11 +39,11 @@ class CLoaderMD2 : public C3DLoader
 
         int GetNumFrames();
 
-        CGSceneAnimActionSet* pLoadQ2Player(char* Filename);
+        CGSceneAnimActionSet* pLoadQ2Player(const CGString& _sFilename);
 
     protected:
 
-        int ReadFile(char* Filename);
+        int ReadFile(const CGString& _sFilename);
 
         void SetupFrame(int iFrame);
 
@@ -61,7 +61,7 @@ class CLoaderMD2 : public C3DLoader
 
     private:
 
-        char* Stream;
+        pointer Stream;
 
         int StreamSize;
 

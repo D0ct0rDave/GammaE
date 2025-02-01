@@ -15,6 +15,5 @@ void* operator new(size_t sz)
 
 void operator delete(void* _P)
 {
-    assert ( _P && "Attempting to erase a NULL pointer");
     free(_P);
 }

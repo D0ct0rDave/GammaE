@@ -207,9 +207,9 @@ void CSaverGEM::Visit(CGSceneAnimActionSet* _poObj)
     }
 
     // Write attached object
-    if (_poObj->poGetAnimObj())
+    if (_poObj->poGetAnimObject())
     {
-        _poObj->poGetAnimObj()->Accept(this);
+        _poObj->poGetAnimObject()->Accept(this);
     }
 }
 // ----------------------------------------------------------------------------
@@ -261,8 +261,8 @@ bool CSaverGEM::bSaveMesh(CGBaseMesh* _poMesh)
     if (poMesh->m_poTN) uiMeshMask |= MESH_FIELD_TNORMALS;
     if (poMesh->m_pusIdx) uiMeshMask |= MESH_FIELD_INDEXES;
 
-    m_poFile->Write(poMesh->uiGetNumVXs());
-    m_poFile->Write(poMesh->uiGetNumPrims());
+    m_poFile->Write((unsigned short)poMesh->uiGetNumVXs());
+    m_poFile->Write((unsigned short)poMesh->uiGetNumPrims());
     m_poFile->Write((uint)poMesh->eGetType());
 
     // mesh mask

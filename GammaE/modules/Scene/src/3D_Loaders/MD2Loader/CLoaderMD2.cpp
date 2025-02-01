@@ -26,29 +26,30 @@ CLoaderMD2::~CLoaderMD2()
     if ( Stream ) MEMFree(Stream);
 }
 // ----------------------------------------------------------------------------
-int CLoaderMD2::ReadFile (char* Filename)
+int CLoaderMD2::ReadFile(const CGString& _sFilename)
 {
     // ----------------------------------------------------------------------------
     // Read file contents
     // ----------------------------------------------------------------------------
-    FILE* fd;
+    CGFile oFile;
+    if (!oFile.bOpen(_sFilename, EFileOpenMode::FOM_READ))
+    {
+        return 0;
+    }
 
-    fd = fopen(Filename,"rb");
-    if ( !fd ) return(0);
+    StreamSize = oFile.uiLength();
 
-    fseek(fd,0,SEEK_END);
-    StreamSize = ftell(fd);
-
-    fseek(fd,0,SEEK_SET);
-    Stream = (char*)MEMAlloc(StreamSize);
+    Stream = (pointer)MEMAlloc(StreamSize);
     if ( !Stream )
     {
-        fclose(fd);
+        oFile.Close();
         return(0);
-    }
-    fread(Stream,StreamSize,1,fd);
-    fclose(fd);
 
+    }
+    
+    oFile.uiReadData((pointer)Stream, StreamSize);
+    
+    oFile.Close();
     return(1);
 }
 // ----------------------------------------------------------------------------
@@ -159,7 +160,7 @@ SCNUt_TriScene* CLoaderMD2::ParseModel ()
 // ----------------------------------------------------------------------------
 CGShader* CLoaderMD2::ParseMaterial ()
 {
-    char* SkinFile = &Stream[ MD2Header->offsetSkins ];
+    char* SkinFile = (char*)&Stream[MD2Header->offsetSkins];
 
     return( CGShaderWH::I()->poCreateShader(SkinFile) );
 }
@@ -240,11 +241,11 @@ void CLoaderMD2::ParseFrameSet (CGSceneAnimMesh &AnimMesh, CGMesh &Mesh)
     MEMFree ( NewIdxs );
 }
 // ----------------------------------------------------------------------------
-CGSceneNode* CLoaderMD2::pLoad (char* Filename)
+CGSceneNode* CLoaderMD2::poLoad(const CGString& _sFilename)
 {
     CGSceneNode* Obj = NULL;
 
-    if ( !ReadFile(Filename) ) return(NULL);
+    if ( !ReadFile(_sFilename) ) return(NULL);
 
     // ----------------------------------------------------------------------------
 
@@ -260,7 +261,7 @@ int CLoaderMD2::GetNumSkins ()
 // ----------------------------------------------------------------------------
 char* CLoaderMD2::GetSkin (int iSkin)
 {
-    return (&Stream[MD2Header->offsetSkins + iSkin * 64]);
+    return ((char*)&Stream[MD2Header->offsetSkins + iSkin * 64]);
 }
 // ----------------------------------------------------------------------------
 int CLoaderMD2::GetNumFrames ()
@@ -268,12 +269,12 @@ int CLoaderMD2::GetNumFrames ()
     return (MD2Header->numFrames);
 }
 // ----------------------------------------------------------------------------
-CGSceneAnimActionSet* CLoaderMD2::pLoadQ2Player(char* Filename)
+CGSceneAnimActionSet* CLoaderMD2::pLoadQ2Player(const CGString& _sFilename)
 {
     CGSceneAnimActionSet* pQ2Player;
     CGSceneAnimMesh* pQ2Model;
 
-    pQ2Model = (CGSceneAnimMesh*)pLoad(Filename);
+    pQ2Model = (CGSceneAnimMesh*)poLoad(_sFilename);
 
     if ( pQ2Model )
     {
@@ -289,7 +290,7 @@ CGSceneAnimActionSet* CLoaderMD2::pLoadQ2Player(char* Filename)
         pQ2Player->uiAddAction("jump", 66,71, 2.0f,false);      // jump
         pQ2Player->uiAddAction("flip", 71,84, 2.0f,false);      // flip
 
-        pQ2Player->SetAnimObj(pQ2Model);
+        pQ2Player->SetAnimObject(pQ2Model);
     }
 
     return (pQ2Player);

@@ -26,6 +26,9 @@ class CGSceneAnimNode : public CGSceneNode
 
         // Return the bounding volume of the object for the given state
         virtual CGGraphBV* poGetStateBVol(int _iState) = 0;
+
+        // Sets (overrides) the bounding volume for the given state
+        virtual void SetStateBVol(int _iState, CGGraphBV* _poBV) = 0;
 };
 
 // ----------------------------------------------------------------------------

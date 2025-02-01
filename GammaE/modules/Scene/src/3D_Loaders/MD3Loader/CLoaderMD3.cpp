@@ -518,7 +518,7 @@ CGSceneAnimActionSet* CLoaderMD3::pLoadAnimation(char* _Filename, CGSceneAnimGro
     poPlayer->uiAddAnimObject(_pTorso);
     poPlayer->uiAddAnimObject(_pLegs);
 
-    poActionSet->SetAnimObj(poPlayer);
+    poActionSet->SetAnimObject(poPlayer);
 
     return (poActionSet);
 }

@@ -35490,6 +35490,39 @@ static int _wrap_CGSceneAnimNode_poGetStateBVol(lua_State* L) {
 }
 
 
+static int _wrap_CGSceneAnimNode_SetStateBVol(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGSceneAnimNode *arg1 = 0 ;
+    int arg2 ;
+    CGGraphBV *arg3 = 0 ;
+    
+    SWIG_check_num_args("CGSceneAnimNode::SetStateBVol",3,3)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimNode::SetStateBVol",1,"CGSceneAnimNode *");
+    if(!lua_isnumber(L,2)) SWIG_fail_arg("CGSceneAnimNode::SetStateBVol",2,"int");
+    if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("CGSceneAnimNode::SetStateBVol",3,"CGGraphBV *");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimNode,0))){
+      SWIG_fail_ptr("CGSceneAnimNode_SetStateBVol",1,SWIGTYPE_p_CGSceneAnimNode);
+    }
+    
+    arg2 = (int)lua_tonumber(L, 2);
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_CGGraphBV,0))){
+      SWIG_fail_ptr("CGSceneAnimNode_SetStateBVol",3,SWIGTYPE_p_CGGraphBV);
+    }
+    
+    (arg1)->SetStateBVol(arg2,arg3);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
 static void swig_delete_CGSceneAnimNode(void *obj) {
 CGSceneAnimNode *arg1 = (CGSceneAnimNode *) obj;
 delete arg1;
@@ -35501,6 +35534,7 @@ static swig_lua_method swig_CGSceneAnimNode_methods[]= {
     { "SetAnimState", _wrap_CGSceneAnimNode_SetAnimState},
     { "uiGetNumStates", _wrap_CGSceneAnimNode_uiGetNumStates},
     { "poGetStateBVol", _wrap_CGSceneAnimNode_poGetStateBVol},
+    { "SetStateBVol", _wrap_CGSceneAnimNode_SetStateBVol},
     {0,0}
 };
 static swig_lua_method swig_CGSceneAnimNode_meta[] = {
@@ -36110,20 +36144,20 @@ static int _wrap_CGSceneAnimActionSet_UpdateAnimState(lua_State* L) {
 }
 
 
-static int _wrap_CGSceneAnimActionSet_poGetAnimObj(lua_State* L) {
+static int _wrap_CGSceneAnimActionSet_poGetAnimObject(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSceneAnimActionSet *arg1 = 0 ;
     CGSceneAnimNode *result = 0 ;
     
-    SWIG_check_num_args("CGSceneAnimActionSet::poGetAnimObj",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimActionSet::poGetAnimObj",1,"CGSceneAnimActionSet *");
+    SWIG_check_num_args("CGSceneAnimActionSet::poGetAnimObject",1,1)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimActionSet::poGetAnimObject",1,"CGSceneAnimActionSet *");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimActionSet,0))){
-      SWIG_fail_ptr("CGSceneAnimActionSet_poGetAnimObj",1,SWIGTYPE_p_CGSceneAnimActionSet);
+      SWIG_fail_ptr("CGSceneAnimActionSet_poGetAnimObject",1,SWIGTYPE_p_CGSceneAnimActionSet);
     }
     
-    result = (CGSceneAnimNode *)(arg1)->poGetAnimObj();
+    result = (CGSceneAnimNode *)(arg1)->poGetAnimObject();
     SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGSceneAnimNode,0); SWIG_arg++; 
     return SWIG_arg;
     
@@ -36134,26 +36168,26 @@ static int _wrap_CGSceneAnimActionSet_poGetAnimObj(lua_State* L) {
 }
 
 
-static int _wrap_CGSceneAnimActionSet_SetAnimObj(lua_State* L) {
+static int _wrap_CGSceneAnimActionSet_SetAnimObject(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGSceneAnimActionSet *arg1 = 0 ;
     CGSceneAnimNode *arg2 = 0 ;
     
-    SWIG_check_num_args("CGSceneAnimActionSet::SetAnimObj",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimActionSet::SetAnimObj",1,"CGSceneAnimActionSet *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSceneAnimActionSet::SetAnimObj",2,"CGSceneAnimNode *");
+    SWIG_check_num_args("CGSceneAnimActionSet::SetAnimObject",2,2)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimActionSet::SetAnimObject",1,"CGSceneAnimActionSet *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGSceneAnimActionSet::SetAnimObject",2,"CGSceneAnimNode *");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimActionSet,0))){
-      SWIG_fail_ptr("CGSceneAnimActionSet_SetAnimObj",1,SWIGTYPE_p_CGSceneAnimActionSet);
+      SWIG_fail_ptr("CGSceneAnimActionSet_SetAnimObject",1,SWIGTYPE_p_CGSceneAnimActionSet);
     }
     
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGSceneAnimNode,0))){
-      SWIG_fail_ptr("CGSceneAnimActionSet_SetAnimObj",2,SWIGTYPE_p_CGSceneAnimNode);
+      SWIG_fail_ptr("CGSceneAnimActionSet_SetAnimObject",2,SWIGTYPE_p_CGSceneAnimNode);
     }
     
-    (arg1)->SetAnimObj(arg2);
+    (arg1)->SetAnimObject(arg2);
     
     return SWIG_arg;
     
@@ -36241,8 +36275,8 @@ static swig_lua_method swig_CGSceneAnimActionSet_methods[]= {
     { "SetAction", _wrap_CGSceneAnimActionSet_SetAction},
     { "Enable", _wrap_CGSceneAnimActionSet_Enable},
     { "UpdateAnimState", _wrap_CGSceneAnimActionSet_UpdateAnimState},
-    { "poGetAnimObj", _wrap_CGSceneAnimActionSet_poGetAnimObj},
-    { "SetAnimObj", _wrap_CGSceneAnimActionSet_SetAnimObj},
+    { "poGetAnimObject", _wrap_CGSceneAnimActionSet_poGetAnimObject},
+    { "SetAnimObject", _wrap_CGSceneAnimActionSet_SetAnimObject},
     { "poGetBV", _wrap_CGSceneAnimActionSet_poGetBV},
     { "Accept", _wrap_CGSceneAnimActionSet_Accept},
     {0,0}
@@ -36419,6 +36453,39 @@ static int _wrap_CGSceneAnimGroup_poGetStateBVol(lua_State* L) {
     arg2 = (int)lua_tonumber(L, 2);
     result = (CGGraphBV *)(arg1)->poGetStateBVol(arg2);
     SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGGraphBV,0); SWIG_arg++; 
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CGSceneAnimGroup_SetStateBVol(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGSceneAnimGroup *arg1 = 0 ;
+    int arg2 ;
+    CGGraphBV *arg3 = 0 ;
+    
+    SWIG_check_num_args("CGSceneAnimGroup::SetStateBVol",3,3)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimGroup::SetStateBVol",1,"CGSceneAnimGroup *");
+    if(!lua_isnumber(L,2)) SWIG_fail_arg("CGSceneAnimGroup::SetStateBVol",2,"int");
+    if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("CGSceneAnimGroup::SetStateBVol",3,"CGGraphBV *");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimGroup,0))){
+      SWIG_fail_ptr("CGSceneAnimGroup_SetStateBVol",1,SWIGTYPE_p_CGSceneAnimGroup);
+    }
+    
+    arg2 = (int)lua_tonumber(L, 2);
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_CGGraphBV,0))){
+      SWIG_fail_ptr("CGSceneAnimGroup_SetStateBVol",3,SWIGTYPE_p_CGGraphBV);
+    }
+    
+    (arg1)->SetStateBVol(arg2,arg3);
+    
     return SWIG_arg;
     
     fail: SWIGUNUSED;
@@ -36609,6 +36676,7 @@ static swig_lua_method swig_CGSceneAnimGroup_methods[]= {
     { "uiGetNumStates", _wrap_CGSceneAnimGroup_uiGetNumStates},
     { "ComputeStatesBVols", _wrap_CGSceneAnimGroup_ComputeStatesBVols},
     { "poGetStateBVol", _wrap_CGSceneAnimGroup_poGetStateBVol},
+    { "SetStateBVol", _wrap_CGSceneAnimGroup_SetStateBVol},
     { "uiAddAnimObject", _wrap_CGSceneAnimGroup_uiAddAnimObject},
     { "poGetAnimObject", _wrap_CGSceneAnimGroup_poGetAnimObject},
     { "uiNumAnimObjects", _wrap_CGSceneAnimGroup_uiNumAnimObjects},
@@ -36800,6 +36868,39 @@ static int _wrap_CGSceneAnimMesh_poGetStateBVol(lua_State* L) {
     arg2 = (int)lua_tonumber(L, 2);
     result = (CGGraphBV *)(arg1)->poGetStateBVol(arg2);
     SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGGraphBV,0); SWIG_arg++; 
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CGSceneAnimMesh_SetStateBVol(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGSceneAnimMesh *arg1 = 0 ;
+    int arg2 ;
+    CGGraphBV *arg3 = 0 ;
+    
+    SWIG_check_num_args("CGSceneAnimMesh::SetStateBVol",3,3)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimMesh::SetStateBVol",1,"CGSceneAnimMesh *");
+    if(!lua_isnumber(L,2)) SWIG_fail_arg("CGSceneAnimMesh::SetStateBVol",2,"int");
+    if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("CGSceneAnimMesh::SetStateBVol",3,"CGGraphBV *");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimMesh,0))){
+      SWIG_fail_ptr("CGSceneAnimMesh_SetStateBVol",1,SWIGTYPE_p_CGSceneAnimMesh);
+    }
+    
+    arg2 = (int)lua_tonumber(L, 2);
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_CGGraphBV,0))){
+      SWIG_fail_ptr("CGSceneAnimMesh_SetStateBVol",3,SWIGTYPE_p_CGGraphBV);
+    }
+    
+    (arg1)->SetStateBVol(arg2,arg3);
+    
     return SWIG_arg;
     
     fail: SWIGUNUSED;
@@ -37034,6 +37135,7 @@ static swig_lua_method swig_CGSceneAnimMesh_methods[]= {
     { "uiGetNumStates", _wrap_CGSceneAnimMesh_uiGetNumStates},
     { "ComputeStatesBVols", _wrap_CGSceneAnimMesh_ComputeStatesBVols},
     { "poGetStateBVol", _wrap_CGSceneAnimMesh_poGetStateBVol},
+    { "SetStateBVol", _wrap_CGSceneAnimMesh_SetStateBVol},
     { "uiGetNumFrameVXs", _wrap_CGSceneAnimMesh_uiGetNumFrameVXs},
     { "poGetMesh", _wrap_CGSceneAnimMesh_poGetMesh},
     { "poGetVertices", _wrap_CGSceneAnimMesh_poGetVertices},
@@ -37225,6 +37327,39 @@ static int _wrap_CGSceneAnimTransf_poGetStateBVol(lua_State* L) {
 }
 
 
+static int _wrap_CGSceneAnimTransf_SetStateBVol(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CGSceneAnimTransf *arg1 = 0 ;
+    int arg2 ;
+    CGGraphBV *arg3 = 0 ;
+    
+    SWIG_check_num_args("CGSceneAnimTransf::SetStateBVol",3,3)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGSceneAnimTransf::SetStateBVol",1,"CGSceneAnimTransf *");
+    if(!lua_isnumber(L,2)) SWIG_fail_arg("CGSceneAnimTransf::SetStateBVol",2,"int");
+    if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("CGSceneAnimTransf::SetStateBVol",3,"CGGraphBV *");
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGSceneAnimTransf,0))){
+      SWIG_fail_ptr("CGSceneAnimTransf_SetStateBVol",1,SWIGTYPE_p_CGSceneAnimTransf);
+    }
+    
+    arg2 = (int)lua_tonumber(L, 2);
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_CGGraphBV,0))){
+      SWIG_fail_ptr("CGSceneAnimTransf_SetStateBVol",3,SWIGTYPE_p_CGGraphBV);
+    }
+    
+    (arg1)->SetStateBVol(arg2,arg3);
+    
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
 static int _wrap_CGSceneAnimTransf_GetCurrentTranform(lua_State* L) {
   {
     int SWIG_arg = 0;
@@ -37402,6 +37537,7 @@ static swig_lua_method swig_CGSceneAnimTransf_methods[]= {
     { "uiGetNumStates", _wrap_CGSceneAnimTransf_uiGetNumStates},
     { "ComputeStatesBVols", _wrap_CGSceneAnimTransf_ComputeStatesBVols},
     { "poGetStateBVol", _wrap_CGSceneAnimTransf_poGetStateBVol},
+    { "SetStateBVol", _wrap_CGSceneAnimTransf_SetStateBVol},
     { "GetCurrentTranform", _wrap_CGSceneAnimTransf_GetCurrentTranform},
     { "SetObject", _wrap_CGSceneAnimTransf_SetObject},
     { "poGetObject", _wrap_CGSceneAnimTransf_poGetObject},
@@ -45864,23 +46000,44 @@ static swig_lua_class *swig_textureCoordinate_t_bases[] = {0};
 static const char *swig_textureCoordinate_t_base_names[] = {0};
 static swig_lua_class _wrap_class_textureCoordinate_t = { "textureCoordinate_t", "textureCoordinate_t", &SWIGTYPE_p_textureCoordinate_t,_proxy__wrap_new_textureCoordinate_t, swig_delete_textureCoordinate_t, swig_textureCoordinate_t_methods, swig_textureCoordinate_t_attributes, &swig_textureCoordinate_t_Sf_SwigStatic, swig_textureCoordinate_t_meta, swig_textureCoordinate_t_bases, swig_textureCoordinate_t_base_names };
 
-static int _wrap_CLoaderMD2_pLoad(lua_State* L) {
+static int _wrap_new_CLoaderMD2(lua_State* L) {
+  {
+    int SWIG_arg = 0;
+    CLoaderMD2 *result = 0 ;
+    
+    SWIG_check_num_args("CLoaderMD2::CLoaderMD2",0,0)
+    result = (CLoaderMD2 *)new CLoaderMD2();
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_CLoaderMD2,1); SWIG_arg++; 
+    return SWIG_arg;
+    
+    fail: SWIGUNUSED;
+  }
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_CLoaderMD2_poLoad(lua_State* L) {
   {
     int SWIG_arg = 0;
     CLoaderMD2 *arg1 = 0 ;
-    char *arg2 = 0 ;
+    CGString *arg2 = 0 ;
     CGSceneNode *result = 0 ;
     
-    SWIG_check_num_args("CLoaderMD2::pLoad",2,2)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CLoaderMD2::pLoad",1,"CLoaderMD2 *");
-    if(!SWIG_lua_isnilstring(L,2)) SWIG_fail_arg("CLoaderMD2::pLoad",2,"char *");
+    SWIG_check_num_args("CLoaderMD2::poLoad",2,2)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CLoaderMD2::poLoad",1,"CLoaderMD2 *");
+    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CLoaderMD2::poLoad",2,"CGString const &");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CLoaderMD2,0))){
-      SWIG_fail_ptr("CLoaderMD2_pLoad",1,SWIGTYPE_p_CLoaderMD2);
+      SWIG_fail_ptr("CLoaderMD2_poLoad",1,SWIGTYPE_p_CLoaderMD2);
     }
     
-    arg2 = (char *)lua_tostring(L, 2);
-    result = (CGSceneNode *)(arg1)->pLoad(arg2);
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGString,0))){
+      SWIG_fail_ptr("CLoaderMD2_poLoad",2,SWIGTYPE_p_CGString);
+    }
+    
+    result = (CGSceneNode *)(arg1)->poLoad((CGString const &)*arg2);
     SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGSceneNode,0); SWIG_arg++; 
     return SWIG_arg;
     
@@ -45970,19 +46127,23 @@ static int _wrap_CLoaderMD2_pLoadQ2Player(lua_State* L) {
   {
     int SWIG_arg = 0;
     CLoaderMD2 *arg1 = 0 ;
-    char *arg2 = 0 ;
+    CGString *arg2 = 0 ;
     CGSceneAnimActionSet *result = 0 ;
     
     SWIG_check_num_args("CLoaderMD2::pLoadQ2Player",2,2)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CLoaderMD2::pLoadQ2Player",1,"CLoaderMD2 *");
-    if(!SWIG_lua_isnilstring(L,2)) SWIG_fail_arg("CLoaderMD2::pLoadQ2Player",2,"char *");
+    if(!lua_isuserdata(L,2)) SWIG_fail_arg("CLoaderMD2::pLoadQ2Player",2,"CGString const &");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CLoaderMD2,0))){
       SWIG_fail_ptr("CLoaderMD2_pLoadQ2Player",1,SWIGTYPE_p_CLoaderMD2);
     }
     
-    arg2 = (char *)lua_tostring(L, 2);
-    result = (CGSceneAnimActionSet *)(arg1)->pLoadQ2Player(arg2);
+    
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_CGString,0))){
+      SWIG_fail_ptr("CLoaderMD2_pLoadQ2Player",2,SWIGTYPE_p_CGString);
+    }
+    
+    result = (CGSceneAnimActionSet *)(arg1)->pLoadQ2Player((CGString const &)*arg2);
     SWIG_NewPointerObj(L,result,SWIGTYPE_p_CGSceneAnimActionSet,0); SWIG_arg++; 
     return SWIG_arg;
     
@@ -45997,11 +46158,19 @@ static void swig_delete_CLoaderMD2(void *obj) {
 CLoaderMD2 *arg1 = (CLoaderMD2 *) obj;
 delete arg1;
 }
+static int _proxy__wrap_new_CLoaderMD2(lua_State *L) {
+    assert(lua_istable(L,1));
+    lua_pushcfunction(L,_wrap_new_CLoaderMD2);
+    assert(!lua_isnil(L,-1));
+    lua_replace(L,1); /* replace our table with real constructor */
+    lua_call(L,lua_gettop(L)-1,1);
+    return 1;
+}
 static swig_lua_attribute swig_CLoaderMD2_attributes[] = {
     {0,0,0}
 };
 static swig_lua_method swig_CLoaderMD2_methods[]= {
-    { "pLoad", _wrap_CLoaderMD2_pLoad},
+    { "poLoad", _wrap_CLoaderMD2_poLoad},
     { "GetNumSkins", _wrap_CLoaderMD2_GetNumSkins},
     { "GetSkin", _wrap_CLoaderMD2_GetSkin},
     { "GetNumFrames", _wrap_CLoaderMD2_GetNumFrames},
@@ -46035,7 +46204,7 @@ static swig_lua_namespace swig_CLoaderMD2_Sf_SwigStatic = {
 };
 static swig_lua_class *swig_CLoaderMD2_bases[] = {0,0};
 static const char *swig_CLoaderMD2_base_names[] = {"C3DLoader *",0};
-static swig_lua_class _wrap_class_CLoaderMD2 = { "CLoaderMD2", "CLoaderMD2", &SWIGTYPE_p_CLoaderMD2,0, swig_delete_CLoaderMD2, swig_CLoaderMD2_methods, swig_CLoaderMD2_attributes, &swig_CLoaderMD2_Sf_SwigStatic, swig_CLoaderMD2_meta, swig_CLoaderMD2_bases, swig_CLoaderMD2_base_names };
+static swig_lua_class _wrap_class_CLoaderMD2 = { "CLoaderMD2", "CLoaderMD2", &SWIGTYPE_p_CLoaderMD2,_proxy__wrap_new_CLoaderMD2, swig_delete_CLoaderMD2, swig_CLoaderMD2_methods, swig_CLoaderMD2_attributes, &swig_CLoaderMD2_Sf_SwigStatic, swig_CLoaderMD2_meta, swig_CLoaderMD2_bases, swig_CLoaderMD2_base_names };
 
 static int _wrap_md3_header_t_id_set(lua_State* L) {
   {
@@ -54709,7 +54878,7 @@ static int _wrap_CGFile_Close(lua_State* L) {
 }
 
 
-static int _wrap_CGFile_uiRead__SWIG_0(lua_State* L) {
+static int _wrap_CGFile_uiReadData__SWIG_0(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGFile *arg1 = 0 ;
@@ -54717,23 +54886,23 @@ static int _wrap_CGFile_uiRead__SWIG_0(lua_State* L) {
     uint arg3 ;
     uint result;
     
-    SWIG_check_num_args("CGFile::uiRead",3,3)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGFile::uiRead",1,"CGFile const *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGFile::uiRead",2,"pointer");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CGFile::uiRead",3,"uint");
+    SWIG_check_num_args("CGFile::uiReadData",3,3)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGFile::uiReadData",1,"CGFile const *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGFile::uiReadData",2,"pointer");
+    if(!lua_isnumber(L,3)) SWIG_fail_arg("CGFile::uiReadData",3,"uint");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGFile,0))){
-      SWIG_fail_ptr("CGFile_uiRead",1,SWIGTYPE_p_CGFile);
+      SWIG_fail_ptr("CGFile_uiReadData",1,SWIGTYPE_p_CGFile);
     }
     
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_unsigned_char,0))){
-      SWIG_fail_ptr("CGFile_uiRead",2,SWIGTYPE_p_unsigned_char);
+      SWIG_fail_ptr("CGFile_uiReadData",2,SWIGTYPE_p_unsigned_char);
     }
     
     SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
     arg3 = (uint)lua_tonumber(L, 3);
-    result = (uint)((CGFile const *)arg1)->uiRead(arg2,arg3);
+    result = (uint)((CGFile const *)arg1)->uiReadData(arg2,arg3);
     lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
     return SWIG_arg;
     
@@ -54879,20 +55048,20 @@ static int _wrap_CGFile_Write__SWIG_1(lua_State* L) {
 }
 
 
-static int _wrap_CGFile_uiRead__SWIG_1(lua_State* L) {
+static int _wrap_CGFile_uiReadData__SWIG_1(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGFile *arg1 = 0 ;
     uint result;
     
-    SWIG_check_num_args("CGFile::uiRead",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGFile::uiRead",1,"CGFile const *");
+    SWIG_check_num_args("CGFile::uiReadData",1,1)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGFile::uiReadData",1,"CGFile const *");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGFile,0))){
-      SWIG_fail_ptr("CGFile_uiRead",1,SWIGTYPE_p_CGFile);
+      SWIG_fail_ptr("CGFile_uiReadData",1,SWIGTYPE_p_CGFile);
     }
     
-    result = (uint)((CGFile const *)arg1)->uiRead();
+    result = (uint)((CGFile const *)arg1)->uiReadData();
     lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
     return SWIG_arg;
     
@@ -54903,7 +55072,7 @@ static int _wrap_CGFile_uiRead__SWIG_1(lua_State* L) {
 }
 
 
-static int _wrap_CGFile_uiRead(lua_State* L) {
+static int _wrap_CGFile_uiReadData(lua_State* L) {
   int argc;
   int argv[4]={
     1,2,3,4
@@ -54921,7 +55090,7 @@ static int _wrap_CGFile_uiRead(lua_State* L) {
       }
     }
     if (_v) {
-      return _wrap_CGFile_uiRead__SWIG_1(L);
+      return _wrap_CGFile_uiReadData__SWIG_1(L);
     }
   }
   if (argc == 3) {
@@ -54948,16 +55117,16 @@ static int _wrap_CGFile_uiRead(lua_State* L) {
           _v = lua_isnumber(L,argv[2]);
         }
         if (_v) {
-          return _wrap_CGFile_uiRead__SWIG_0(L);
+          return _wrap_CGFile_uiReadData__SWIG_0(L);
         }
       }
     }
   }
   
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'CGFile_uiRead'\n"
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'CGFile_uiReadData'\n"
     "  Possible C/C++ prototypes are:\n"
-    "    CGFile::uiRead(pointer,uint) const\n"
-    "    CGFile::uiRead() const\n");
+    "    CGFile::uiReadData(pointer,uint) const\n"
+    "    CGFile::uiReadData() const\n");
   lua_error(L);return 0;
 }
 
@@ -56020,7 +56189,7 @@ static swig_lua_method swig_CGFile_methods[]= {
     { "uiWrite", _wrap_CGFile_uiWrite},
     { "fRead", _wrap_CGFile_fRead},
     { "iRead", _wrap_CGFile_iRead},
-    { "uiRead", _wrap_CGFile_uiRead},
+    { "uiReadData", _wrap_CGFile_uiReadData},
     { "sRead", _wrap_CGFile_sRead},
     { "usRead", _wrap_CGFile_usRead},
     { "cRead", _wrap_CGFile_cRead},
@@ -56121,7 +56290,7 @@ static int _wrap_CGOSFile_Close(lua_State* L) {
 }
 
 
-static int _wrap_CGOSFile_uiRead(lua_State* L) {
+static int _wrap_CGOSFile_uiReadData(lua_State* L) {
   {
     int SWIG_arg = 0;
     CGOSFile *arg1 = 0 ;
@@ -56129,23 +56298,23 @@ static int _wrap_CGOSFile_uiRead(lua_State* L) {
     uint arg3 ;
     uint result;
     
-    SWIG_check_num_args("CGOSFile::uiRead",3,3)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGOSFile::uiRead",1,"CGOSFile const *");
-    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGOSFile::uiRead",2,"pointer");
-    if(!lua_isnumber(L,3)) SWIG_fail_arg("CGOSFile::uiRead",3,"uint");
+    SWIG_check_num_args("CGOSFile::uiReadData",3,3)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGOSFile::uiReadData",1,"CGOSFile const *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("CGOSFile::uiReadData",2,"pointer");
+    if(!lua_isnumber(L,3)) SWIG_fail_arg("CGOSFile::uiReadData",3,"uint");
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGOSFile,0))){
-      SWIG_fail_ptr("CGOSFile_uiRead",1,SWIGTYPE_p_CGOSFile);
+      SWIG_fail_ptr("CGOSFile_uiReadData",1,SWIGTYPE_p_CGOSFile);
     }
     
     
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_unsigned_char,0))){
-      SWIG_fail_ptr("CGOSFile_uiRead",2,SWIGTYPE_p_unsigned_char);
+      SWIG_fail_ptr("CGOSFile_uiReadData",2,SWIGTYPE_p_unsigned_char);
     }
     
     SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative");
     arg3 = (uint)lua_tonumber(L, 3);
-    result = (uint)((CGOSFile const *)arg1)->uiRead(arg2,arg3);
+    result = (uint)((CGOSFile const *)arg1)->uiReadData(arg2,arg3);
     lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
     return SWIG_arg;
     
@@ -56279,7 +56448,7 @@ static swig_lua_attribute swig_CGOSFile_attributes[] = {
 static swig_lua_method swig_CGOSFile_methods[]= {
     { "bOpen", _wrap_CGOSFile_bOpen},
     { "Close", _wrap_CGOSFile_Close},
-    { "uiRead", _wrap_CGOSFile_uiRead},
+    { "uiReadData", _wrap_CGOSFile_uiReadData},
     { "uiWrite", _wrap_CGOSFile_uiWrite},
     { "iSeek", _wrap_CGOSFile_iSeek},
     { "uiPos", _wrap_CGOSFile_uiPos},
@@ -106069,7 +106238,7 @@ static swig_lua_const_info swig_SwigModule_constants[]= {
     {SWIG_LUA_CONSTTAB_INT("RES_OP_WARNING", (RES_OP_WARNING))},
     {SWIG_LUA_CONSTTAB_INT("GEM_MAJOR_VERSION", (1))},
     {SWIG_LUA_CONSTTAB_INT("GEM_MINOR_VERSION", (1))},
-    {SWIG_LUA_CONSTTAB_INT("CGraphBV_FileIO_h", (1))},
+    {SWIG_LUA_CONSTTAB_INT("CGraphBVFileIOH", (1))},
     {SWIG_LUA_CONSTTAB_INT("CConsole_h", (1))},
     {SWIG_LUA_CONSTTAB_INT("CHUD_h", (1))},
     {SWIG_LUA_CONSTTAB_INT("CSkyDome_h", (1))},

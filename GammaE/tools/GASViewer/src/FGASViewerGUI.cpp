@@ -35,6 +35,8 @@ BEGIN_EVENT_TABLE(CGASViewerGUI,wxFrame)
 	EVT_MENU(ID_MNU_OPENGTSFILE_1005, CGASViewerGUI::MnuopenGTSfile1005Click)
 	EVT_MENU(ID_MNU_LOADGEMFILE_1009, CGASViewerGUI::Mnuloadgemfile1009Click)
 	EVT_MENU(ID_MNU_SAVEGEMFILE_1002, CGASViewerGUI::Mnusavegemfile1002Click)
+	EVT_MENU(ID_MNU_LOADMD2FILE_1010, CGASViewerGUI::MnuloadMD2file1010Click)
+	
 	EVT_MENU(ID_MNU_QUIT_1004, CGASViewerGUI::Mnuquit1004Click)
 END_EVENT_TABLE()
 ////Event Table End
@@ -89,11 +91,14 @@ void CGASViewerGUI::CreateGUIControls()
 	ID_MNU_FILEMENU_1001_Mnu_Obj->Append(ID_MNU_LOADGEMFILE_1009, wxT("Load GEM File"), wxT(""), wxITEM_NORMAL);
 	ID_MNU_FILEMENU_1001_Mnu_Obj->Append(ID_MNU_SAVEGEMFILE_1002, wxT("Save GEM File"), wxT(""), wxITEM_NORMAL);
 	ID_MNU_FILEMENU_1001_Mnu_Obj->AppendSeparator();
+	ID_MNU_FILEMENU_1001_Mnu_Obj->Append(ID_MNU_LOADMD2FILE_1010, wxT("Load MD2 File"), wxT(""), wxITEM_NORMAL);
+	ID_MNU_FILEMENU_1001_Mnu_Obj->AppendSeparator();
 	ID_MNU_FILEMENU_1001_Mnu_Obj->Append(ID_MNU_QUIT_1004, wxT("Quit"), wxT(""), wxITEM_NORMAL);
 	WxMenuBar1->Append(ID_MNU_FILEMENU_1001_Mnu_Obj, wxT("File"));
 	SetMenuBar(WxMenuBar1);
 
 	dlg_LoadGEM =  new wxFileDialog(this, wxT("Load GEM file"), wxT(""), wxT(""), wxT("*.gem"), wxOPEN);
+	dlg_LoadMD2 = new wxFileDialog(this, wxT("Load MD2 file"), wxT(""), wxT(""), wxT("*.md2"), wxOPEN);
 
 	WxStaticBox3 = new wxStaticBox(this, ID_WXSTATICBOX3, wxT("WxStaticBox3"), wxPoint(840, -152), wxSize(257, 145));
 
@@ -222,6 +227,22 @@ void CGASViewerGUI::Mnuloadgemfile1009Click(wxCommandEvent& event)
 	}	
 }
 
+
+void CGASViewerGUI::MnuloadMD2file1010Click(wxCommandEvent& event)
+{
+	// insert your code here
+	if (dlg_LoadMD2->ShowModal() == wxID_OK)
+	{
+		wxString wxsFilename = dlg_LoadMD2->GetFilename();
+		wxString wxsDirectory = dlg_LoadMD2->GetDirectory();
+
+		wxString wxsFullFilename = wxsDirectory + wxT("\\") + wxsFilename;
+
+		CLoop::LoadMD2((char*)wxsFullFilename.char_str());
+		ShowInfo();
+	}
+}
+
 /*
  * WxstaticClick
  */
@@ -269,33 +290,41 @@ void CGASViewerGUI::ShowInfo()
 {
 	if ((CLoop::m_poScene== NULL) || CLoop::m_poScene->eGetNodeType() != ESceneNodeType::SNT_AnimActionSet) return;
 
-	CGSceneAnimMesh* poAM = (CGSceneAnimMesh*) ((CGSceneAnimActionSet*)CLoop::m_poScene)->poGetAnimObj();
+	CGSceneAnimMesh* poAM = (CGSceneAnimMesh*) ((CGSceneAnimActionSet*)CLoop::m_poScene)->poGetAnimObject();
 	// CObject3D_Leaf* poLeaf = ((CObject3D_AnimMesh*) poAM)->GetLeaf();
+
+	CGVect3 oMaxs = CGVect3::oZero();
+	CGVect3 oMins = CGVect3::oZero();
+	CGVect3 oExtents = CGVect3::oZero();
+	CGVect3 oCenter = CGVect3::oZero();
 
 	// Fill info panel
 	CGGraphBV* poBV = poAM->poGetBV();
-	CGVect3 oMaxs = poBV->oGetMax();
-	CGVect3 oMins = poBV->oGetMin();
-	CGVect3 oExtents = poBV->GetExtents();
-	CGVect3 oCenter = poBV->oGetCenter();
+	if (poBV != NULL)
+	{
+		oMaxs = poBV->oGetMax();
+		oMins = poBV->oGetMin();
+		oExtents = poBV->GetExtents();
+		oCenter = poBV->oGetCenter();
+	}
 
 	char szStr[1024];
 	sprintf(szStr,"Number of animaton frames: \n"
-				  "%d\n"
-				  "Number of vertexs: \n"
-				  "%d\n"
-				  "Bounding Volume`max/mins: \n"
-				  "(%.3f,%.3f,%.3f) - (%.3f,%.3f,%.3f)\n"
-				  "Bounding Volume center: \n"
-				  "(%.3f,%.3f,%.3f)\n"
-				  "Bounding Volume Extents: \n"
-				  "(%.3f,%.3f,%.3f)\n",
-				  poAM->uiGetNumStates(),
-				  poAM->uiGetNumFrameVXs(),
-				  oMins.x,oMins.y,oMins.z,
-				  oMaxs.x,oMaxs.y,oMaxs.z,
-				  oCenter.x,oCenter.y,oCenter.z,
-				  oExtents.x,oExtents.y,oExtents.z);
+					"%d\n"
+					"Number of vertexs: \n"
+					"%d\n"
+					"Bounding Volume`max/mins: \n"
+					"(%.3f,%.3f,%.3f) - (%.3f,%.3f,%.3f)\n"
+					"Bounding Volume center: \n"
+					"(%.3f,%.3f,%.3f)\n"
+					"Bounding Volume Extents: \n"
+					"(%.3f,%.3f,%.3f)\n",
+					poAM->uiGetNumStates(),
+					poAM->uiGetNumFrameVXs(),
+					oMins.x,oMins.y,oMins.z,
+					oMaxs.x,oMaxs.y,oMaxs.z,
+					oCenter.x,oCenter.y,oCenter.z,
+					oExtents.x,oExtents.y,oExtents.z);
 
 	// wxChar* c = wxTRANSLATE(szStr);
 	wxString s( szStr, wxConvUTF8 );

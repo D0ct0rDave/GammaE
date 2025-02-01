@@ -131,7 +131,10 @@ local function addToolProject(_projectName)
 			"lua.lib",
 			"OpenAL32.lib",
 			"vfw32.lib",
-			"WSOCK32.LIB",
+			"wsock32.lib",
+			"comctl32.lib",
+			"rpcrt4.lib",
+			"odbc32.lib",
 		}
 
 		-- Configuration-specific settings
@@ -210,7 +213,7 @@ local function addToolProject(_projectName)
 		print("Final data:" .. ProjectRelativeFinalDataRoot)
 		postbuildcommands
 		{
-			-- "{MKDIR} %{wks.location}/dist/lib", -- Create output directory
+			"{MKDIR} " .. ProjectRelativeFinalDataRoot, -- Create output directory
 			"{COPYFILE} " .. ProjectRelativeSDKSRoot .. "/Externals/FreeImage/Dist/x64/FreeImage.dll " .. ProjectRelativeFinalDataRoot
 		}
 end

@@ -27,7 +27,7 @@ class CGOSFileW32 : public CGOSFile
         virtual void Close();
 
         // / Reads a stream of data from the OS dependant file.
-        virtual uint uiRead(pointer _pData, uint _uiSize) const;
+        virtual uint uiReadData(pointer _pData, uint _uiSize) const;
 
         // / Writes a stream of data to the OS dependant file.
         virtual uint uiWrite(pointer _pData, uint _uiSize) const;

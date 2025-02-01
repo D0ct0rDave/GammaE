@@ -37,6 +37,9 @@ class CGSceneAnimMesh : public CGSceneAnimNode
         // Return the bounding volume of the object for the given state
         virtual CGGraphBV* poGetStateBVol(int _iState);
 
+        // Sets (overrides) the bounding volume for the given state
+        virtual void SetStateBVol(int _iState, CGGraphBV* _poBV);
+
         // / Returns the number of vertices per frame
         uint uiGetNumFrameVXs();
 

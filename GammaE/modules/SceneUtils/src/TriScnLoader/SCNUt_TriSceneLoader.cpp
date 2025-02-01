@@ -46,7 +46,7 @@ SCNUt_TriScene* SCNUt_TriSceneLoader::poLoad (char* _szFilename, SCNUt_MaterialT
     _oMTable.Invalidate();
 
     StrPos = StrBuff;
-    while ( StrPos )
+    while ( *StrPos )
     {
         Token = Utils::Parse::ParseToken(StrPos);
 

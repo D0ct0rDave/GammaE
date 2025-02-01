@@ -22,8 +22,8 @@ CGGraphBV* CGGraphBVFileIO::pLoadGraphBV(CGFile& _oFile)
     unsigned int uiBlockLen;
 
     // Read object identifier
-    uiObjID = _oFile.uiRead();
-    uiBlockLen = _oFile.uiRead();
+    uiObjID = _oFile.uiReadData();
+    uiBlockLen = _oFile.uiReadData();
 
     switch ( uiObjID )
     {

@@ -26,7 +26,7 @@ class CGOSFile
         virtual void Close() = 0;
 
         // / Reads a stream of data from the OS dependant file.
-        virtual uint uiRead(pointer _pData, uint _uiSize) const = 0;
+        virtual uint uiReadData(pointer _pData, uint _uiSize) const = 0;
 
         // / Writes a stream of data to the OS dependant file.
         virtual uint uiWrite(pointer _pData, uint _uiSize) const = 0;

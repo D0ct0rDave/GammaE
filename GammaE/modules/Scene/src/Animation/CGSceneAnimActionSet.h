@@ -86,13 +86,13 @@ class CGSceneAnimActionSet : public CGSceneNode
         void UpdateAnimState();
         
         // / Retrieves the animated object associated to this config object
-        CGSceneAnimNode* poGetAnimObj()
+        CGSceneAnimNode* poGetAnimObject()
         {
             return (m_poAnimObj);
         }
 
         // / Sets the animated object associated to this config object
-        void SetAnimObj(CGSceneAnimNode* _poAnimObj)
+        void SetAnimObject(CGSceneAnimNode* _poAnimObj)
         {
             m_poAnimObj = _poAnimObj;
         }

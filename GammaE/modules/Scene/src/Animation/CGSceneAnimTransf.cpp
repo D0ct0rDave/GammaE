@@ -24,12 +24,20 @@ CGSceneAnimTransf::~CGSceneAnimTransf()
         mDel [] m_poTransforms;
     }
 
-    for (uint i = 0; i < m_poStateBVs.uiNumElems(); i++)
+    for (uint uiState = 0; uiState < m_poStateBVs.uiNumElems(); uiState++)
     {
-       mDel m_poStateBVs[i];
+        if (m_poStateBVs[uiState] != NULL)
+        {
+            mDel m_poStateBVs[uiState];
+        }
     }
     
     m_poStateBVs.Clear();
+
+    if (m_poBV != NULL)
+    {
+        mDel m_poBV;
+    }
 }
 // --------------------------------------------------------------------------------
 void CGSceneAnimTransf::Setup(uint _uiNumStates)
@@ -108,13 +116,24 @@ void CGSceneAnimTransf::SetAnimState (uint _uiSrc, uint _uiDst, float _fFactor)
         else
             m_oTrans = m_poTransforms[_uiSrc];
     }
+
+    m_poBV->Copy(*m_poStateBVs[_uiSrc]);
 }
 // --------------------------------------------------------------------------------
 CGGraphBV* CGSceneAnimTransf::poGetStateBVol(int _iState)
 {
     return m_poStateBVs[_iState];
 }
+// ----------------------------------------------------------------------------
+void CGSceneAnimTransf::SetStateBVol(int _iState, CGGraphBV* _poBV)
+{
+    if (m_poStateBVs[_iState] != NULL)
+    {
+        mDel m_poStateBVs[_iState];
+    }
 
+    m_poStateBVs[_iState] = _poBV;
+}
 // --------------------------------------------------------------------------------
 uint CGSceneAnimTransf::uiGetNumStates() const
 {

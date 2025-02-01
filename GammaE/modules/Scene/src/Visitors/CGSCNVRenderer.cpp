@@ -210,7 +210,7 @@ void CGSCNVRenderer::Visit(CGSceneTransf* _poNode)
 // ----------------------------------------------------------------------------
 void CGSCNVRenderer::Visit(CGSceneAnimActionSet* _poNode)
 {
-    _poNode->poGetAnimObj()->Accept(this);
+    _poNode->poGetAnimObject()->Accept(this);
 }
 // ----------------------------------------------------------------------------
 void CGSCNVRenderer::Visit(CGSceneAnimNode* _poNode)

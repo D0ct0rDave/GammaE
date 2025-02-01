@@ -119,36 +119,31 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneMux* _poNode)
 // ----------------------------------------------------------------------------
 void CGSCNVBoundVolBuilder::Visit(CGSceneGroup* _poNode)
 {
-    /*
-       TODO: Implement CGSCNVBoundVolBuilder::Visit(CGSceneGroup* _poNode)
+    // Las bounding boxes de los objetos deben tener en cuenta
+    // las transformaciones que se deben realizar en los nodos
+    // hijos. Probar a transformar la BoundingBox mediante la
+    // matriz asociada al nodo. Despues volver a obtener
+    // los max y los mins, para volver a tener una AABB
+    CGVect3 Maxs,Mins;
+    
+    Mins.Set( 1e10f, 1e10f, 1e10f);
+    Maxs.Set(-1e10f,-1e10f,-1e10f);
 
-       // Las bounding boxes de los objetos deben tener en cuenta
-       // las transformaciones que se deben realizar en los nodos
-       // hijos. Probar a transformar la BoundingBox mediante la
-       // matriz asociada al nodo. Despues volver a obtener
-       // los max y los mins, para volver a tener una AABB
-       float fXSide,fYSide,fZSide;
-       CGVect3 Maxs,Mins,Center;
-       CGBoundingVolume* poBV;
-
-       Mins.Set( 1e10f, 1e10f, 1e10f);
-       Maxs.Set(-1e10f,-1e10f,-1e10f);
-
-       for ( uint cObj = 0; cObj < _poNode->uiNumSubObjs(); cObj++ )
-       {
+    for ( uint cObj = 0; cObj < _poNode->uiNumSubObjs(); cObj++ )
+    {
         if ( _poNode->poGetObject(cObj) )
         {
             // Compute the AABB for the object
             _poNode->poGetObject(cObj)->Accept(this);
-            poBV = _poNode->poGetObject(cObj)->poGetBV();
+            CGGraphBV* poBV = _poNode->poGetObject(cObj)->poGetBV();
 
-            if ( poBV == NULL ) continue;
+            if (poBV == NULL) continue;
 
             // Get object properties
-            fXSide = poBV->GetRange(0) * 0.5f;
-            fYSide = poBV->GetRange(1) * 0.5f;
-            fZSide = poBV->GetRange(2) * 0.5f;
-            Center = poBV->oGetCenter();
+            float fXSide = poBV->GetRange(0) * 0.5f;
+            float fYSide = poBV->GetRange(1) * 0.5f;
+            float fZSide = poBV->GetRange(2) * 0.5f;
+            CGVect3 Center = poBV->oGetCenter();
 
             // Compute Maxs/Mins vectors
             if ( Center.x + fXSide > Maxs.x ) Maxs.x = Center.x + fXSide;
@@ -160,10 +155,12 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneGroup* _poNode)
             if ( Center.z + fZSide > Maxs.z ) Maxs.z = Center.z + fZSide;
             if ( Center.z - fZSide < Mins.z ) Mins.z = Center.z - fZSide;
         }
-       }
-
-       _poNode->poGetBV()->Init(Maxs,Mins);
-     */
+    }
+ 
+    CGGraphBVAABB oAABB;
+    oAABB.Init(Maxs, Mins);
+    
+    _poNode->poGetBV()->Copy(oAABB);
 }
 // ----------------------------------------------------------------------------
 void CGSCNVBoundVolBuilder::Visit(CGSceneScreenRect* _poNode)
@@ -203,19 +200,27 @@ void CGSCNVBoundVolBuilder::Visit(CGSceneAnimNode* _poNode)
 // ----------------------------------------------------------------------------
 void CGSCNVBoundVolBuilder::Visit(CGSceneAnimActionSet* _poNode)
 {
-    _poNode->poGetAnimObj()->Accept(this);
+    if (_poNode->poGetAnimObject() != NULL)
+    {
+       _poNode->poGetAnimObject()->Accept(this);
+    }
 }
 // ----------------------------------------------------------------------------
 void CGSCNVBoundVolBuilder::Visit(CGSceneAnimMesh* _poNode)
 {
     // Recompute the bounding volume of the startup mesh
-    _poNode->ComputeStatesBVols();
+    if (_poNode->poGetMesh()->poGetBV() == NULL)
+    {
+        _poNode->poGetMesh()->SetBV(CGGraphBVFactory::poCreate());
+    }
+
+     _poNode->ComputeStatesBVols();
 }
 // ----------------------------------------------------------------------------
 void CGSCNVBoundVolBuilder::Visit(CGSceneAnimGroup* _poNode)
 {
     for ( uint i = 0; i < _poNode->uiNumAnimObjects(); i++ )
-        _poNode->poGetAnimObject(i)->Accept(this);   
+        _poNode->poGetAnimObject(i)->Accept(this);
 
     _poNode->ComputeStatesBVols();
 }

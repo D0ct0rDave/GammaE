@@ -49,7 +49,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
     iNumFrames = 0;
 
     StrPos = StrBuff;
-    while ( StrPos )
+    while ( *StrPos)
     {
         Token = Utils::Parse::ParseToken(StrPos);
 
@@ -252,6 +252,8 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
     SCNUt_MeshCompacter oMC;
     CCompactMeshData oCD;
     oMC.CompactMesh(*poStartupFrame,&oCD);
+    oCD.m_poMesh->SetBV(CGGraphBVFactory::poCreate());
+    oCD.m_poMesh->poGetBV()->Compute(oCD.m_poMesh->m_poVN, oCD.m_poMesh->uiGetNumVXs());
 
     // Build anim mesh
     CGVect3* poVXs = mNew CGVect3[ oFrames.uiNumElems() * oCD.m_oInvTable.uiNumElems() ];
@@ -282,7 +284,7 @@ CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
     // Create configuration
     CGSceneAnimActionSet* poACfg = mNew CGSceneAnimActionSet;
     poACfg->uiAddAction("TEST",0,oFrames.uiNumElems(),30.0f,true);
-    poACfg->SetAnimObj(poAM);
+    poACfg->SetAnimObject(poAM);
 
     // Rebuild bounding volumes
     CGSCNVBoundVolBuilder::I()->Visit(poAM);

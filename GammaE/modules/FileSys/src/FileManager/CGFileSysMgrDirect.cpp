@@ -39,7 +39,7 @@ uint CGFileSysMgrDirect::uiReadFile (handler _hHandler, pointer _pData, uint _ui
 {
     assert(_hHandler);
     assert(_pData);
-    return ( ( (OSFILE*)_hHandler )->uiRead(_pData,_uiSize) );
+    return ( ( (OSFILE*)_hHandler )->uiReadData(_pData,_uiSize) );
 }
 // ----------------------------------------------------------------------------
 uint CGFileSysMgrDirect::uiWriteFile (handler _hHandler, pointer _pData, uint _uiSize) const

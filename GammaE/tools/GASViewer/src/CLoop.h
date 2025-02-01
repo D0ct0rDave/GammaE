@@ -23,6 +23,7 @@ class CLoop
 		static void LoadGTS(char* _szFilename,char* _szDirectory);
 		static void LoadGEM(char* _szFilename);
 		static void SaveGEM(char* _szFilename);
+		static void LoadMD2(char* _szFilename);
 
 	public:
 		static CGSceneNode*		m_poScene;

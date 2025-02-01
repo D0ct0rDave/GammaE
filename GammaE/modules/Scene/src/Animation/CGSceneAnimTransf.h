@@ -33,6 +33,9 @@ class CGSceneAnimTransf : public CGSceneAnimNode
 
         // Return the bounding volume of the object for the given state
         virtual CGGraphBV* poGetStateBVol(int _iState);
+        
+        // Sets (overrides) the bounding volume for the given state
+        virtual void SetStateBVol(int _iState, CGGraphBV* _poBV);
 
         // Retrieves the current computed transform
         const CGMatrix4x4& GetCurrentTranform() const;

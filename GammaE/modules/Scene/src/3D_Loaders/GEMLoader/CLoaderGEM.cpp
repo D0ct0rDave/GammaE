@@ -15,12 +15,18 @@
 #include "GammaE_Mem.h"
 #include "GammaE_Misc.h"
 #include "GEMFile.h"
+#include "GraphBVUtils/CGGraphBVFileIO.h"
+#include "Animation/CGSceneAnimActionSet.h"
+#include "Animation/CGSceneAnimMesh.h"
+#include "Animation/CGSceneAnimTransf.h"
+#include "Animation/CGSceneAnimGroup.h"
+
 // ----------------------------------------------------------------------------
 #include "3D_Loaders\GEMLoader\CLoaderGEM.h"
 // ----------------------------------------------------------------------------
 CGGraphBV* poLoadBoundingVolume(CGFile* _poFile)
 {
-    return(NULL);
+    return CGGraphBVFileIO::pLoadGraphBV(*_poFile);
 }
 // ----------------------------------------------------------------------------
 CLoaderGEM::CLoaderGEM() :
@@ -65,13 +71,13 @@ CGSceneNode* CLoaderGEM::poLoad (const CGFile& _oFile)
     unsigned char ucMajorVersion;
     unsigned char ucMinorVersion;
 
+    m_poFile = (CGFile*)&_oFile;
+    
     ucMajorVersion = m_poFile->cRead();
     ucMinorVersion = m_poFile->cRead();
 
     if ( ucMajorVersion > GEM_MAJOR_VERSION ) return (NULL);
     if ( ucMinorVersion > GEM_MINOR_VERSION ) return (NULL);
-
-    m_poFile = (CGFile*)&_oFile;
 
     return ( poLoad3DObject() );
 }
@@ -83,25 +89,34 @@ CGSceneNode* CLoaderGEM::poLoad3DObject ()
 
     switch ( uiObjectID )
     {
-        case GEM_NULL_IDENTIFIER:   return (NULL);
+        case GEM_NULL_IDENTIFIER:   
+        return (NULL);
         break;
 
-        case GEM_LEAF_IDENTIFIER:   return ( poLoad3DObj_Leaf() );
+        case GEM_LEAF_IDENTIFIER:   
+        return ( poLoad3DObj_Leaf() );
         break;
 
-        case GEM_NODE_IDENTIFIER:   return ( poLoad3DObj_Node() );
+        case GEM_NODE_IDENTIFIER:   
+        return ( poLoad3DObj_Node() );
         break;
 
-        case GEM_TRANSF_IDENTIFIER:  return ( poLoad3DObj_Transf() );
+        case GEM_TRANSF_IDENTIFIER:  
+        return ( poLoad3DObj_Transf() );
         break;
 
         case GEM_CAMERA_IDENTIFIER:
         break;
 
-        case GEM_BSPNODE_IDENTIFIER: return ( poLoad3DObj_BSPNode() );
+        case GEM_BSPNODE_IDENTIFIER: 
+        return ( poLoad3DObj_BSPNode() );
         break;
 
-        case GEM_MUX_IDENTIFIER:    return ( poLoad3DObj_Mux() );
+        case GEM_MUX_IDENTIFIER:    
+        return ( poLoad3DObj_Mux() );
+        break;
+        case GEM_ANIMACTIONSET_IDENTIFIER:
+        return ( poLoad3DObj_AnimActionSet() );
         break;
     }
 
@@ -119,12 +134,12 @@ CGMesh* CLoaderGEM::poLoadMesh ()
         return (NULL);
     }
 
-    uint uiNumVXs = m_poFile->uiRead();
-    uint uiNumPrims = m_poFile->uiRead();
-    E3D_PrimitiveType ePrimType = (E3D_PrimitiveType)m_poFile->uiRead();
+    uint uiNumVXs = (uint)m_poFile->usRead();
+    uint uiNumPrims = (uint)m_poFile->usRead();
+    E3D_PrimitiveType ePrimType = (E3D_PrimitiveType)m_poFile->uiReadData();
 
     // mesh mask
-    uint uiMeshMask = m_poFile->uiRead();
+    uint uiMeshMask = m_poFile->uiReadData();
 
     CGMesh* poMesh = mNew CGMesh;
     poMesh->Init(uiNumVXs,uiNumPrims,ePrimType,uiMeshMask);
@@ -148,7 +163,7 @@ CGSceneLeaf* CLoaderGEM::poLoad3DObj_Leaf ()
 {
     // Read material name
     char szMaterialName[MAX_CHARS];
-    m_poFile->uiRead( (pointer)szMaterialName,MAX_CHARS );
+    m_poFile->uiReadData( (pointer)szMaterialName,MAX_CHARS );
 
     // Get material object
     CGShader* poShader = CGShaderWH::I()->poCreateShader(szMaterialName);
@@ -166,7 +181,7 @@ CGSceneLeaf* CLoaderGEM::poLoad3DObj_Leaf ()
 CGSceneGroup* CLoaderGEM::poLoad3DObj_Node ()
 {
     // Read subobject array props
-    uint uiNumSubObjs = m_poFile->uiRead();
+    uint uiNumSubObjs = m_poFile->uiReadData();
     CGSceneGroup* poObj = mNew CGSceneGroup();
 
     poObj->Init(uiNumSubObjs);
@@ -181,7 +196,6 @@ CGSceneGroup* CLoaderGEM::poLoad3DObj_Node ()
     }
 
     // Load the bounding volume
-    if ( poObj->poGetBV() ) mDel poObj->poGetBV();
     poObj->SetBV( poLoadBoundingVolume(m_poFile) );
 
     return (poObj);
@@ -211,168 +225,129 @@ CGSceneTransf* CLoaderGEM::poLoad3DObj_Transf ()
     return (poObj);
 }
 // ----------------------------------------------------------------------------
-CGSceneAnimGroup* CLoaderGEM::poLoad3DObj_AnimNode ()
+CGSceneAnimGroup* CLoaderGEM::poLoad3DObj_AnimGroup()
 {
-    /*
-       TODO: Implement poLoad3DObj_AnimNode
+    // Read subobject array props
+    uint uiNumSubObjects = m_poFile->uiReadData();
+    uint uiNumKeyFrames = m_poFile->uiReadData();
 
-       uint uiNumSubObjects;
-       uint uiNumKeyFrames;
+    // Initialize object
+    CGSceneAnimGroup* poObj = mNew CGSceneAnimGroup;
+    poObj->Setup(uiNumKeyFrames);
 
-       CGSceneAnimGroup* poObj;
+    // Load the the bounding volume state array
+    for ( uint uiFrame = 0; uiFrame < uiNumKeyFrames; uiFrame++ )
+    {
+        poObj->SetStateBVol(uiFrame, poLoadBoundingVolume(m_poFile) );
+    }
 
-       // Read subobject array props
-       uiNumSubObjects = m_poFile->uiRead();
-       uiNumKeyFrames  = m_poFile->uiRead();
+    // Read subobjects
+    for (uint uiObj = 0; uiObj < uiNumSubObjects; uiObj++)
+    {
+        poObj->uiAddAnimObject(poLoad3DObj_AnimObject());
+    }
 
-       // Initialize object
-       poObj = mNew CGSceneAnimGroup;
-       poObj->Init(uiNumKeyFrames);
-
-       // Load the the bounding volume state array
-       for ( uint uiFrame = 0; uiFrame < uiNumKeyFrames; uiFrame++ )
-       {
-        mDel poObj->poGetKeyFrameBVol(uiFrame);
-        poObj->SetKeyFrameBVol( uiFrame,CGraphBV_FileIO::pLoadGraphBV(_oFile) );
-       }
-
-       // Read subobjects
-       for ( uint uiObj = 0; uiObj < uiNumSubObjects; uiObj++ )
-        poObj->uiAddObject( (CGSceneAnimNode*)poLoad3DObject( _oFile ) );
-
-       return (poObj);
-     */
-    return(NULL);
+    return (poObj);
 }
 // ----------------------------------------------------------------------------
 CGSceneAnimMesh* CLoaderGEM::poLoad3DObj_AnimMesh ()
 {
-    /*
-       TODO: Implement poLoad3DObj_AnimMesh
+    // Write object fields
+    uint uiNumStates = m_poFile->uiReadData();
 
-       uint uiNumKeyFrames;
-       CGSceneAnimMesh* poObj;
+    // Load the startup mesh
+    CGMesh* poMesh = poLoadMesh();
+       
+    CGSceneAnimMesh* poObj = mNew CGSceneAnimMesh;
+    poObj->Setup(poMesh, uiNumStates, poMesh->uiGetNumVXs());
 
-       // Write object fields
-       m_poFile->iRead(&uiNumKeyFrames,4);
+    // Load the the vertexs and normals state array
+    uint uiNumVXs = poMesh->uiGetNumVXs();
+    CGVect3* poVXs = mNew CGVect3[uiNumVXs];
+    CGVect3* poVNs = mNew CGVect3[uiNumVXs];
 
-       poObj = mNew CGSceneAnimMesh;
-       poObj->Init(uiNumKeyFrames);
+    m_poFile->uiReadData((pointer)poObj->poGetVertices(), uiNumStates * poMesh->uiGetNumVXs() * sizeof(CGVect3));
+    m_poFile->uiReadData((pointer)poObj->poGetNormals(), uiNumStates * poMesh->uiGetNumVXs() * sizeof(CGVect3));
 
-       // Load the startup mesh
-       CGMesh* poMesh = poLoadMesh(_oFile);
+    // Load the the bounding volume state array
+    for (uint uiFrame = 0; uiFrame < uiNumStates; uiFrame++ )
+    {
+        poObj->SetStateBVol(uiFrame, poLoadBoundingVolume(m_poFile));
+    }
 
-       // Load the the vertexs and normals state array
-       uint uiNumVXs = poMesh->uiGetNumVXs();
-       CGVect3* poVXs = mNew CGVect3[uiNumVXs];
-       CGVect3* poVNs = mNew CGVect3[uiNumVXs];
-       m_poFile->iRead( poVXs,uiNumKeyFrames * uiNumVXs * sizeof(CGVect3) );
-       m_poFile->iRead( poVNs,uiNumKeyFrames * uiNumVXs * sizeof(CGVect3) );
-
-       // Load the the bounding volume state array
-       for ( uint uiFrame = 0; uiFrame < uiNumKeyFrames; uiFrame++ )
-       {
-        mDel poObj->poGetKeyFrameBVol(uiFrame);
-        poObj->SetKeyFrameBVol( uiFrame,CGraphBV_FileIO::pLoadGraphBV(_oFile) );
-       }
-
-       poObj->Setup(poMesh,poVXs,poVNs);
-
-       return (poObj);
-     */
-
-    return(NULL);
+    return (poObj);
 }
 // ----------------------------------------------------------------------------
 CGSceneAnimTransf* CLoaderGEM::poLoad3DObj_AnimTransf ()
 {
-    /*
-       TODO: Implement poLoad3DObj_AnimTransf
+    uint uiNumKeyFrames = m_poFile->uiReadData();
 
-       CGSceneAnimTransf* poObj;
-       uint uiNumKeyFrames;
+    // Create and initialize object
+    CGSceneAnimTransf* poObj = mNew CGSceneAnimTransf;
+    poObj->Setup(uiNumKeyFrames);
 
-       // Read object fields
-       m_poFile->iRead(&uiNumKeyFrames,4);
+    m_poFile->uiReadData((pointer)poObj->poGetStateTransforms(), uiNumKeyFrames * sizeof(CGMatrix4x4));
 
-       // Create and initialize object
-       poObj = mNew CGSceneAnimTransf;
-       poObj->Init(uiNumKeyFrames);
-
-       CGMatrix4x4* poMatrix = mNew CGMatrix4x4[uiNumKeyFrames];
-       m_poFile->iRead( poMatrix,uiNumKeyFrames * sizeof(CGMatrix4x4) );
-
-       poObj->Setup( poMatrix );
-       return (poObj);
-     */
-    return(NULL);
+    return (poObj);
 }
 // ----------------------------------------------------------------------------
 CGSceneAnimActionSet* CLoaderGEM::poLoad3DObj_AnimActionSet()
 {
-    /*
-       TODO: Implement poLoad3DObj_AnimCfg
-       CGSceneAnimCfg* poObj;
-       uint uiNumActions;
+    CGSceneAnimActionSet* poObj;
 
        // Read object number of object actions
-       m_poFile->iRead(&uiNumActions,4);
+       uint uiNumActions = m_poFile->uiReadData();
 
        // Create and initialize object
-       poObj = mNew CGSceneAnimCfg;
+       poObj = mNew CGSceneAnimActionSet();
 
        // Read frame animations
        for ( uint i = 0; i < uiNumActions; i++ )
        {
-        // read action name
-        char szActionName[32];
-        m_poFile->iRead(&szActionName,32);
+            // read action name
+            char szActionName[32];
+            m_poFile->ReadArray(szActionName, 32);
 
-        // read action data
-        CAnimAction oAction;
-        m_poFile->iRead( &oAction,sizeof(CAnimAction) );
+            // read action data
+            CAnimAction oAction;
+            m_poFile->uiReadData((pointer)&oAction, sizeof(CAnimAction));
 
-        poObj->uiAddAction(CGString(szActionName),oAction.m_uiIniFrame,oAction.m_uiEndFrame,oAction.m_fFrameTime,oAction.m_bLoop);
+            poObj->uiAddAction(CGString(szActionName), oAction.m_uiIniFrame, oAction.m_uiEndFrame, oAction.m_fFrameTime, oAction.m_bLoop);
        }
 
        // Load attached object
-       poObj->SetAnimObj ( (CGSceneAnimNode*)poLoad3DObj_AnimObject( _oFile ) );
+       poObj->SetAnimObject(poLoad3DObj_AnimObject());
 
        return (poObj);
-     */
+
     return(NULL);
 }
 // ----------------------------------------------------------------------------
 CGSceneAnimNode* CLoaderGEM::poLoad3DObj_AnimObject()
 {
-    /*
-       // TODO: Implement poLoad3DObj_AnimObject
-       uint uiObjectID;
-       uint uiBlockLenght;
+    uint uiObjectID = m_poFile->uiReadData();
+    uint uiBlockLenght = m_poFile->uiReadData();
 
-       m_poFile->iRead(&uiObjectID,4);
-       m_poFile->iRead(&uiBlockLenght,4);
-
-       switch ( GEMFile_Translate_FileID2TypeID2(uiObjectID) )
-       {
-        case SNT_AnimNode: return ( poLoad3DObj_AnimNode(_oFile) );
+    switch (uiObjectID)
+    {
+        case GEM_ANIMMESH_IDENTIFIER:
+        return (poLoad3DObj_AnimMesh());
         break;
 
-        case SNT_AnimMesh: return ( poLoad3DObj_AnimMesh(_oFile) );
+        case GEM_ANIMGROUP_IDENTIFIER:
+        return (poLoad3DObj_AnimGroup() );
         break;
 
-        case SNT_AnimTransf: return ( poLoad3DObj_AnimTransf(_oFile) );
+        case GEM_ANIMTRANSF_IDENTIFIER: 
+        return ( poLoad3DObj_AnimTransf() );
         break;
-
-        // case SNT_AnimInstance: return (poLoad3DObj_AnimInstance(_oFile));
-        // break;
 
         default:
         m_poFile->Skip(uiBlockLenght);
         return(NULL);
         break;
-       }
-     */
+    }
+
     return(NULL);
 }
 // ----------------------------------------------------------------------------

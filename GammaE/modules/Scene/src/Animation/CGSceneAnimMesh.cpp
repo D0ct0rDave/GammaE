@@ -17,7 +17,10 @@
 CGSceneAnimMesh::CGSceneAnimMesh() :
     m_poFrameVXs(NULL),
     m_poFrameVNs(NULL),
-    m_poMesh(NULL)
+    m_poMesh(NULL),
+    m_poShader(NULL),
+    m_uiNumStates(0),
+    m_uiNumVerticesPerState(0)
 {
     m_eNodeType = SNT_AnimMesh;
 }
@@ -26,7 +29,10 @@ CGSceneAnimMesh::~CGSceneAnimMesh()
 {
     for (uint uiState = 0; uiState < m_poStateBVs.uiNumElems(); uiState++)
     {
-        delete m_poStateBVs[uiState];
+        if (m_poStateBVs[uiState] != NULL)
+        {
+            mDel m_poStateBVs[uiState];
+        }
     }
     m_poStateBVs.Clear();
 
@@ -46,7 +52,7 @@ void CGSceneAnimMesh::Setup(CGMesh* _poStartupMesh, uint _uiNumStates, uint _uiN
     m_poStateBVs.Init(_uiNumStates);
     for (uint uiState = 0; uiState < _uiNumStates; uiState++)
     {
-        m_poStateBVs[uiState] = CGGraphBVFactory::poCreate();
+        m_poStateBVs.iAdd(CGGraphBVFactory::poCreate());
     }
 }
 // --------------------------------------------------------------------------------
@@ -157,21 +163,37 @@ void CGSceneAnimMesh::SetAnimState (uint _uiSrc, uint _uiDst, float _fFactor)
 
         poBV = m_poStateBVs[_uiSrc];
     }
-
-    m_poMesh->poGetBV()->Copy(*poBV);
+    
+    if (m_poMesh->poGetBV())
+    {
+        m_poMesh->poGetBV()->Copy(*poBV);
+    }
 }
 // --------------------------------------------------------------------------------
 void CGSceneAnimMesh::ComputeStatesBVols()
 {
     for (uint uiState = 0; uiState < m_poStateBVs.uiNumElems(); uiState++)
         m_poStateBVs[uiState]->Compute(m_poFrameVXs + (uiState * m_uiNumVerticesPerState), m_uiNumVerticesPerState);
-
-    m_poMesh->poGetBV()->Copy(*m_poStateBVs[0]);
+    
+    if (m_poMesh->poGetBV())
+    {
+        m_poMesh->poGetBV()->Copy(*m_poStateBVs[0]);
+    }
 }
 // --------------------------------------------------------------------------------
 CGGraphBV* CGSceneAnimMesh::poGetStateBVol(int _iState)
 {
     return m_poStateBVs[_iState];
+}
+// --------------------------------------------------------------------------------
+void CGSceneAnimMesh::SetStateBVol(int _iState, CGGraphBV* _poBV)
+{
+    if (m_poStateBVs[_iState] != NULL)
+    {
+        mDel m_poStateBVs[_iState];
+    }
+    
+    m_poStateBVs[_iState] = _poBV;
 }
 // --------------------------------------------------------------------------------
 void CGSceneAnimMesh::SetShader(CGShader* _poShader)

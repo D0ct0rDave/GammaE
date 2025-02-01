@@ -58,6 +58,7 @@ class CGASViewerGUI : public wxFrame
 		void MnuopenGASfile1006Click(wxCommandEvent& event);
 		void WxTimer1Timer(wxTimerEvent& event);
 		void Mnuloadgemfile1009Click(wxCommandEvent& event);
+		void MnuloadMD2file1010Click(wxCommandEvent& event);
 		void cb_MaterialListSelected(wxCommandEvent& event );
 		void WxstaticClick(wxCommandEvent& event);
 		void WxButton1Click(wxCommandEvent& event);
@@ -78,6 +79,7 @@ class CGASViewerGUI : public wxFrame
 		wxFileDialog *dlg_OpenGTS;
 		wxMenuBar *WxMenuBar1;
 		wxFileDialog *dlg_LoadGEM;
+		wxFileDialog* dlg_LoadMD2;
 		wxStaticBox *WxStaticBox3;
 		wxTextCtrl *ed_Info;
 		wxStaticBox *WxStaticBox2;
@@ -107,6 +109,7 @@ class CGASViewerGUI : public wxFrame
 			ID_MNU_OPENGTSFILE_1005 = 1005,
 			ID_MNU_LOADGEMFILE_1009 = 1009,
 			ID_MNU_SAVEGEMFILE_1002 = 1002,
+			ID_MNU_LOADMD2FILE_1010 = 1010,
 			ID_MNU_QUIT_1004 = 1004,
 			
 			ID_WXSTATICBOX3 = 1028,
