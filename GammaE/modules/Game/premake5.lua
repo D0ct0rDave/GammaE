@@ -21,6 +21,11 @@ workspace("GammaE_" .. project_name)
 
 
 -- Install rules (using a post-build step for example purposes)
+prebuildcommands 
+{
+	"$(ProjectDir)../../Tools/swig/swig.exe -includeall -c++ -lua -ignoremissing -DGAMMAE_NO_SOUND -DGAMMAE_NO_NETWORK -I$(ProjectDir)../inc $(ProjectDir)../modules/Game/src/GameRes/Script/CGScriptBinding.cpp"
+}
+
 postbuildcommands 
 {
     -- "{MKDIR} %{wks.location}/dist/lib", -- Create output directory

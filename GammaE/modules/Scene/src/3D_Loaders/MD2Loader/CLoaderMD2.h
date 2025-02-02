@@ -1,82 +1,82 @@
-//	  %X% %Q% %Z% %W%
-
-#ifndef CLoaderMD2_h
-#define CLoaderMD2_h 1
-
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
+#ifndef CLoaderMD2H
+#define CLoaderMD2H
+// ----------------------------------------------------------------------------
 #include "GammaE_SceneUtils.h"
 #include "MD2Types.h"
-
-// CObject3D
-#include "CObject3D.h"
-// CObject3D_Node
-#include "CObject3D_Node.h"
+// ----------------------------------------------------------------------------
+#include "CGSceneNode.h"
+// CGSceneNode
+#include "CGSceneNode.h"
 // C3DLoader
 #include "3D_Loaders\C3DLoader.h"
-// CObject3D_AnimCfgMgr
-#include "Animation\CObject3D_AnimCfgMgr.h"
-// CObject3D_AnimMesh
-#include "Animation\CObject3D_AnimMesh.h"
-// CObject3D_AnimCfg
-#include "Animation\CObject3D_AnimCfg.h"
-
+// CGSceneAnimMesh
+#include "Animation\CGSceneAnimMesh.h"
+// CGSceneAnimCfg
+#include "Animation\CGSceneAnimActionSet.h"
+// ----------------------------------------------------------------------------
 class CLoaderMD2 : public C3DLoader
 {
+    public:
+        CLoaderMD2();
 
-public: CLoaderMD2();
+        ~CLoaderMD2();
 
-    ~CLoaderMD2();
+        virtual CGSceneNode* poLoad(const CGString& _sFilename);
 
-    virtual CObject3D *pLoad (char *Filename);
+        int GetNumSkins();
 
-    int GetNumSkins ();
+        char* GetSkin(int iSkin);
 
-    char *GetSkin (int iSkin);
+        int GetNumFrames();
 
-    int GetNumFrames ();
+        CGSceneAnimActionSet* pLoadQ2Player(const CGString& _sFilename);
 
-    CObject3D_AnimCfgGen *pLoadQ2Player (char *Filename);
+    protected:
 
-     // Additional Public Declarations
-protected:
-    int ReadFile (char *Filename);
+        int ReadFile(const CGString& _sFilename);
 
-    void SetupFrame (int iFrame);
+        void SetupFrame(int iFrame);
 
-    void ParseHeader ();
+        void ParseHeader();
 
-    CObject3D *ParseChunks ();
+        CGSceneNode* ParseChunks();
 
-    SCNUt_TriScene *ParseModel ();
+        SCNUt_TriScene* ParseModel();
 
-    CE3D_Shader *ParseMaterial ();
+        CGShader* ParseMaterial();
 
-    unsigned short *GetVertexConversionTable (CMesh &Mesh);
+        unsigned short* GetVertexConversionTable(CGMesh &Mesh);
 
-    void ParseFrameSet (CObject3D_AnimMesh &AnimMesh, CMesh &Mesh);
+        void ParseFrameSet(CGSceneAnimMesh &AnimMesh, CGMesh &Mesh);
 
-     // Additional Protected Declarations
-private:
-    // Data Members for Class Attributes
+    private:
 
-    char *Stream;
+        pointer Stream;
 
-    int StreamSize;
+        int StreamSize;
 
-    model_t *MD2Header;
+        model_t* MD2Header;
 
-    frame_t *Frame;
+        frame_t* Frame;
 
-    triangle_t *Triangles;
+        triangle_t* Triangles;
 
-    triangleVertex_t *Vertexs;
+        triangleVertex_t* Vertexs;
 
-    textureCoordinate_t *TexCoords;
+        textureCoordinate_t* TexCoords;
 
-     // Additional Private Declarations
-private:
-    // Additional Implementation Declarations
+    private:
 };
-
-// Class CLoaderMD2
-
-#endif // ifndef CLoaderMD2_h
+// ----------------------------------------------------------------------------
+#endif
+// ----------------------------------------------------------------------------

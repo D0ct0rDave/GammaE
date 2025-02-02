@@ -1,0 +1,1 @@
+for /R %%f in (*.h *.cpp) do call cater.bat %%f

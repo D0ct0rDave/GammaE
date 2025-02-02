@@ -1,64 +1,82 @@
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
 #ifndef GE3D_h
-#define GE3D_h 1
-//-----------------------------------------------------------------------------
+#define GE3D_H
+// ----------------------------------------------------------------------------
 // Rendering drivers
-//-----------------------------------------------------------------------------
-#include "CE3D_Renderer.h"
+// ----------------------------------------------------------------------------
+#include "CGRenderer.h"
 
 // OpenGL
 #ifdef _OGL_
-	#include "Drivers/OGL/CE3D_OGL_Renderer.h"
-	
-	// Windows
-	#ifdef WIN32
-		#include "Drivers/OGL/CE3D_OGL_Win_Renderer.h"
-	#endif
+    #include "Drivers/OGL/CGOGLRenderer.h"
 
-	// Borland C++ Builder
-	#ifdef __BORLANDC__
-		#include "Drivers/OGL/CE3D_OGL_Win_Renderer.h"
-	#endif
+// Windows
+    #ifdef WIN32
+        #include "Drivers/OGL/CGOGLWinRenderer.h"
+    #endif
+
+// Borland C++ Builder
+    #ifdef __BORLANDC__
+        #include "Drivers/OGL/CGOGLWinRenderer.h"
+    #endif
 #endif
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 // Other
-//-----------------------------------------------------------------------------
-#include "RenderVars/CE3D_RenderVars.h"
+// ----------------------------------------------------------------------------
+#include "RenderVars/CGRenderVars.h"
 
-#include "Viewing/Viewport/CE3D_Viewport.h"
-#include "Viewing/Camera/CE3D_Camera.h"
-#include "Viewing/Frustum/CE3D_Frustum.h"
-#include "Viewing/Projector/CE3D_Projector.h"
+#include "Viewing/Viewport/CGViewport.h"
+#include "Viewing/Camera/CGCamera.h"
+#include "Viewing/Projector/CGProjector.h"
 
-#include "BoundingVolume/CBoundingVolume.h"
-#include "BoundingVolume/GraphBoundVol/CGraphBV_Manager.h"
-#include "BoundingVolume/GraphBoundVol/GraphBVUtils/CGraphBV_FileIO.h"
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 // Geometry
-//-----------------------------------------------------------------------------
-#include "Mesh/CMesh.h"
-#include "Mesh/CMesh_Box.h"
-#include "Mesh/CMesh_Sphere.h"
-#include "Mesh/CMesh_Rect.h"
+// ----------------------------------------------------------------------------
+#include "Mesh/CGBaseMesh.h"
+#include "Mesh/CGMesh.h"
+#include "Mesh/CGMeshBox.h"
+#include "Mesh/CGMeshSphere.h"
+#include "Mesh/CGMeshRect.h"
+#include "Mesh/CGMeshCross.h"
+#include "Mesh/CGCompiledMesh.h"
+#include "Mesh/CGUnmanagedMesh.h"
 #include "Mesh/MeshUtils/NormalGen.h"
 #include "Mesh/MeshUtils/TexCoordGen.h"
 #include "Mesh/MeshUtils/TransformMesh.h"
-#include "CompiledMesh/CCompiledMesh.h"
-//-----------------------------------------------------------------------------
+#include "Mesh/MeshUtils/ComputeBV.h"
+
+// ----------------------------------------------------------------------------
 // Materials
-//-----------------------------------------------------------------------------
-#include "Shaders/CE3D_ShaderExtDB.h"
-#include "Shaders/ShaderInstructions/CE3D_ShaderInsts.h"
-#include "Shaders/ShaderDefinitions/CE3D_ShaderDefWH.h"
-#include "Shaders/ShaderDefinitions/CE3D_ShaderDefFileWH.h"
-#include "Shaders/ShaderWarehouse/CE3D_ShaderWH.h"
-#include "Shaders/ShaderParser/CE3D_ShaderParser.h"
-#include "Shaders/ShaderUtils/CE3D_ShaderUtils.h"
-#include "Materials/MipMapWH.h"
-#include "Materials/TexObjWH.h"
+// ----------------------------------------------------------------------------
+#include "Shaders/CGShaderExtDB.h"
+#include "Shaders/ShaderInstructions/CGShaderInstructions.h"
+#include "Shaders/ShaderDefinitions/CGShaderDefWH.h"
+#include "Shaders/ShaderDefinitions/CGShaderDefFileWH.h"
+#include "Shaders/ShaderWarehouse/CGShaderWH.h"
+#include "Shaders/ShaderParser/CGShaderParser.h"
+#include "Shaders/ShaderUtils/CGShaderUtils.h"
+#include "Materials/CGMipMapWH.h"
+#include "Materials/CGTexObjWH.h"
 #include "Materials/CGProgramWH.h"
+#include "Light/CGLight.h"
+
+#include "GraphBV/CGGraphBV.h"
+#include "GraphBV/CGGraphBVAABB.h"
+#include "GraphBV/CGGraphBVSphere.h"
+#include "GraphBV/CGGraphBVCylinder.h"
+#include "GraphBV/CGGraphBVPoint.h"
+#include "GraphBV/CGGraphBVFactory.h"
 
 #include "CGRenderer.h"
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 #endif
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------

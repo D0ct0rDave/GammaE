@@ -1,81 +1,67 @@
-//	  %X% %Q% %Z% %W%
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
 #include "GammaE_Mem.h"
 
 // CTerrainSector
 #include "TerrainScene\CTerrainSector.h"
 
-
-// Class CTerrainSector 
-
+// Class CTerrainSector
+// -----------------------------------------------------------------------------
 CTerrainSector::CTerrainSector() : fLODs(NULL), iLODs(NULL), HF(NULL), LM(NULL), TM(NULL), TB(NULL), Tess(NULL), fXYScale(0)
 {
-  	bFrustumTest = true;
-	BVol = CGraphBV_Manager::poCreate();	
+    m_poSectorBV = mNew CGGraphBVAABB();
 }
-
 
 CTerrainSector::~CTerrainSector()
 {
-  	mDel BVol;
+    mDel m_poSectorBV;
 }
-
-
 
 void CTerrainSector::Render ()
 {
-  	if (Tess) 
-	{
-		bool bEnableDefMode = CGRenderer::I()->UsingDefferredMode();
-		
-		// Get local camera
-		CMatrix4x4	M;
-		CVect4		Pos;
-		CVect3		CamPos;
-		CGRenderer::I()->GetWorldMatrix(&M);
-		Pos = M.GetColVector(3);
-		CamPos.V3(-Pos.x,-Pos.y,-Pos.z);
-					
-		CGRenderer::I()->DisableDefferredMode();
-		
-			iLODs = (int   *)CE3D_RenderVars.poGetVar("iLODs");
-			fLODs = (float *)CE3D_RenderVars.poGetVar("fLODs");
-			
-			Tess->SetCameraPos(CamPos);
-			Tess->SetData(HF,LM,TM,TB,fLODs,iLODs,fXYScale);
-			Tess->Render();
-		
-		if (bEnableDefMode) CGRenderer::I()->EnableDefferredMode();
-	}
-}
+    if ( Tess )
+    {
+        bool bEnableDefMode = CGRenderer::I()->bIsUsingDefferredMode();
 
-CGraphBV* CTerrainSector::poCreateBoundVol()
+        // Get local camera
+        CGMatrix4x4 M;
+        CGVect4 Pos;
+        CGVect3 CamPos;
+        CGRenderer::I()->GetWorldMatrix(&M);
+        Pos = M.oGetCol(3);
+        CamPos.Set(-Pos.x,-Pos.y,-Pos.z);
+
+        CGRenderer::I()->DisableDefferredMode();
+
+        iLODs = (int*)CGRenderVars::I()->poGetVar("iLODs");
+        fLODs = (float*)CGRenderVars::I()->poGetVar("fLODs");
+
+        Tess->SetCameraPos(CamPos);
+        Tess->SetData(HF,LM,TM,TB,fLODs,iLODs,fXYScale);
+        Tess->Render();
+
+        if ( bEnableDefMode ) CGRenderer::I()->EnableDefferredMode();
+    }
+}
+// -----------------------------------------------------------------------------
+void CTerrainSector::SetMaxsMins (CGVect3& _Maxs, CGVect3& _Mins)
 {
-  	eGraphBV_TypeID eOldType = CGraphBV_Manager::eGetBVMode();
-	CGraphBV_Manager::SetBVMode(eGraphBV_Box);
+    Maxs.Assign(_Maxs);
+    Mins.Assign(_Mins);
 
-  		CGraphBV* poBVol = CGraphBV_Manager::poCreate();
-
-	CGraphBV_Manager::SetBVMode(eOldType);	
-	return(poBVol);
+    m_poSectorBV->Init(Maxs,Mins);
 }
-
-void CTerrainSector::ComputeBoundVol ()
+// -----------------------------------------------------------------------------
+CGGraphBV* CTerrainSector::poGetBV()
 {
-  	BVol->Init(Maxs,Mins);
+    return m_poSectorBV;
 }
-
-CGraphBV* CTerrainSector::poGetBoundVol ()
-{
-  	return (BVol);
-}
-
-void CTerrainSector::SetMaxsMins (CVect3& _Maxs, CVect3& _Mins)
-{
-  	Maxs.Assign(_Maxs);
-	Mins.Assign(_Mins);
-	
-	BVol->Init(Maxs,Mins);
-}
-
-// Additional Declarations
-    
+// -----------------------------------------------------------------------------

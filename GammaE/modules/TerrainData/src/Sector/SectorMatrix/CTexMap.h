@@ -1,11 +1,17 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef CTexMap_h
 #define CTexMap_h 1
-
-
 
 // CSectorMatrix
 #include "Sector\SectorMatrix\CSectorMatrix.h"
@@ -14,42 +20,33 @@
 // CTMSector_8_16
 #include "Sector\TexMap\CTMSector_8_16.h"
 
+class CTexMap : public CSectorMatrix
+{
+    public:
+        CTexMap();
 
+        virtual ~CTexMap();
 
+        // Creates a new object of the same class as the current
+        // object
+        virtual CSector* CreateClass();
 
+        virtual void Init(int _SecsPerRow, int _SecsPerCol, int _SectorRes, int _SectorType, bool _b21);
 
-class CTexMap : public CSectorMatrix  {
-    
-  public:
-          CTexMap();
+        // The size of the data from this object
+        virtual unsigned long DataSize();
 
-          virtual ~CTexMap();
+        // Additional Public Declarations
 
+    protected:
+        // Additional Protected Declarations
 
-                //	Creates a new object of the same class as the current
-      //	object
-      virtual CSector * CreateClass ();
+    private:
+        // Additional Private Declarations
 
-            virtual void Init (int _SecsPerRow, int _SecsPerCol, int _SectorRes, int _SectorType, bool _b21);
-
-            //	The size of the data from this object
-      virtual unsigned long DataSize ();
-
-    // Additional Public Declarations
-            
-  protected:
-    // Additional Protected Declarations
-            
-  private:
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+    private:                    // Additional Implementation Declarations
 };
 
-
-// Class CTexMap 
-
-
+// Class CTexMap
 
 #endif

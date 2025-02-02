@@ -1,52 +1,60 @@
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 #ifndef CSoundRenderer_DSound_h
 #define CSoundRenderer_DSound_h 1
 
-
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 #include "SoundRender\CSoundRenderer.h"
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 #include "SoundRender\SoundMixer\CSoundMixer.h"
 #include "SoundRender\SoundDrivers\SndDrv_DirectSound\CSoundEmiter_DSound.h"
 
-class CSoundRenderer_DSound : public CSoundRenderer  
+class CSoundRenderer_DSound : public CSoundRenderer
 {
-  public:
-    
-      CSoundRenderer_DSound();
-      ~CSoundRenderer_DSound();
+    public:
 
-      virtual int Init (void *_HndDeviceContext, int _iSndBits, int _iSndSRate, int _iMaxEmiters);
+        CSoundRenderer_DSound();
+        ~CSoundRenderer_DSound();
 
-      void Finish ();
+        virtual int Init(void* _HndDeviceContext, int _iSndBits, int _iSndSRate, int _iMaxEmiters);
 
-      int iLoadDirectSound ();
+        void Finish();
 
-      int iUnloadDirectSound ();
+        int iLoadDirectSound();
 
-      int iCreateBuffers ();
+        int iUnloadDirectSound();
 
-      virtual void Render (float _fDelta);
+        int iCreateBuffers();
 
-      void TransferData ();
-      
-      bool bComputeVolumeFactors (CSoundEmiter_DSound* _poEmiter);
+        virtual void Render(float _fDelta);
 
-      virtual CSoundEmiter* poGetFreeEmiter();
+        void TransferData();
 
-  protected:
+        bool bComputeVolumeFactors(CSoundEmiter_DSound* _poEmiter);
 
-      CGCircularArray <CSoundEmiter_DSound> oEmiters;
+        virtual CSoundEmiter* poGetFreeEmiter();
 
-  private:
+    protected:
 
-      int iNumChannels;
-      
-      int iSndRate;
-      
-      int iSndBits;
-      
+        CGCircularArray <CSoundEmiter_DSound> oEmiters;
+
+    private:
+
+        int iNumChannels;
+
+        int iSndRate;
+
+        int iSndBits;
 };
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 #endif
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------

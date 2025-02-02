@@ -1,54 +1,51 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef CSkyBox_h
 #define CSkyBox_h 1
 
-
-
-// CObject3D_Transf
+// CGSceneTransf
 #include "GammaE_Scene.h"
 
+class CSkyBox : public CGSceneTransf
+{
+    public:
+        CSkyBox();
 
+        virtual ~CSkyBox();
 
+        void InitSkyBox(float fSize, CGVect3& Center, float fRoll, CGShader* * Materials);
 
+        // Additional Public Declarations
 
-class CSkyBox : public CObject3D_Transf  {
-    
-  public:
-          CSkyBox();
+    protected:
+        // Additional Protected Declarations
 
-          virtual ~CSkyBox();
+    private:
+        // Data Members for Class Attributes
 
+        CGMesh* MeshSides[6];
 
-                void InitSkyBox (float fSize, CVect3& Center, float fRoll, CE3D_Shader* *Materials);
+        CGSceneLeaf* ObjSides[6];
 
-    // Additional Public Declarations
-            
-  protected:
-    // Additional Protected Declarations
-            
-  private:
-    // Data Members for Class Attributes
+        CGShader* MatsSides[6];
 
-                  CMesh* MeshSides[6];
-      
-                  CObject3D_Leaf *ObjSides[6];
-      
-                  CE3D_Shader *MatsSides[6];
-      
-                  CObject3D_Node* poNode;
-      
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+        CGSceneGroup* poNode;
+
+        // Additional Private Declarations
+
+    private:                    // Additional Implementation Declarations
 };
 
-
-// Class CSkyBox 
-
-
+// Class CSkyBox
 
 #endif

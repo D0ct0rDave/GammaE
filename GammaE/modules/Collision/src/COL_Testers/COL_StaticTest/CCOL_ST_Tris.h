@@ -1,73 +1,69 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef CCOL_ST_Tris_h
 #define CCOL_ST_Tris_h 1
-
-
 
 // GammaE_E3D
 #include "GammaE_E3D.h"
 // GammaE_Math
 #include "GammaE_Math.h"
 
-
-
-
-
-class CCOL_ST_Tris 
+class CCOL_ST_Tris
 {
-    
-  public:
-          CCOL_ST_Tris();
+    public:
+        CCOL_ST_Tris();
 
-          ~CCOL_ST_Tris();
+        ~CCOL_ST_Tris();
 
+        static int iTestCollision(CGVect3* _pVXs, CGVect3* _pVNs, int _iNumTris, CGGraphBV* _BV, const CGVect3& _Pos);
 
-                static int iTestCollision (CVect3* _pVXs, CVect3* _pVNs, int _iNumTris, CGraphBV* _BV, CVect3& _Pos);
+        static int iTestCollisionSphere(float _fRad, const CGVect3& _Center);
 
-            static int iTestCollisionSphere (float _fRad, CVect3& _Center);
+        static int iTestCollisionBox(const CGVect3& _Maxs, const CGVect3& _Mins);
 
-            static int iTestCollisionBox (CVect3& _Maxs, CVect3& _Mins);
+        static int iTestCollisionRay(const CGRay& _ay);
 
-            static int iTestCollisionRay (CRay& _ay);
+        static int iTestTriangleSphere(CGVect3* _pVXs, float _fRad, const CGVect3& _Center);
 
-            static int iTestTriangleSphere (CVect3* _pVXs, float _fRad, CVect3& _Center);
+        static int iTestTriangleBox(CGVect3* _pVXs, const CGVect3& _Maxs, const CGVect3& _Mins);
 
-            static int iTestTriangleBox (CVect3* _pVXs, CVect3& _Maxs, CVect3& _Mins);
+        static int iTestTriangleRay(CGVect3* _pVXs, const CGRay& _ay);
 
-            static int iTestTriangleRay (CVect3* _pVXs, CRay& _ay);
+        // Data Members for Class Attributes
 
-    // Data Members for Class Attributes
+        static int Tri;
 
-                  static int Tri;
-      
-    // Additional Public Declarations
-            
-  protected:
-    // Data Members for Class Attributes
+        // Additional Public Declarations
 
-                  static CVect3 *pVX;
-      
-                  static CVect3 *pVN;
-      
-                  static int iNumTris;
-      
-                  static CVect3 Pos;
-      
-    // Additional Protected Declarations
-            
-  private:
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+    protected:
+        // Data Members for Class Attributes
+
+        static CGVect3* pVX;
+
+        static CGVect3* pVN;
+
+        static int iNumTris;
+
+        static CGVect3 Pos;
+
+        // Additional Protected Declarations
+
+    private:
+        // Additional Private Declarations
+
+    private:   // Additional Implementation Declarations
 };
 
-
-// Class CCOL_ST_Tris 
-
-
+// Class CCOL_ST_Tris
 
 #endif

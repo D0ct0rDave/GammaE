@@ -1,49 +1,47 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef CTMSector_8_16_h
 #define CTMSector_8_16_h 1
 
-
-
 // CTMSector
 #include "Sector\CTMSector.h"
 
+class CTMSector_8_16 : public CTMSector
+{
+    public:
+        CTMSector_8_16();
 
+        ~CTMSector_8_16();
 
+        virtual CSector* CreateClass();
 
-class CTMSector_8_16 : public CTMSector  {
-    
-  public:
-          CTMSector_8_16();
+        virtual unsigned long ElemArraySize(int _iResolution);
 
-          ~CTMSector_8_16();
+        virtual CSectElem & GetValue(int _X, int _Y);
 
+        virtual void SetValue(int _X, int _Y, CSectElem &_Value);
 
-                virtual CSector * CreateClass ();
+        // Additional Public Declarations
 
-            virtual unsigned long ElemArraySize (int _iResolution);
+    protected:
+        // Additional Protected Declarations
 
-            virtual CSectElem & GetValue (int _X, int _Y);
+    private:
+        // Additional Private Declarations
 
-            virtual void SetValue (int _X, int _Y, CSectElem &_Value);
-
-    // Additional Public Declarations
-            
-  protected:
-    // Additional Protected Declarations
-            
-  private:
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+    private:                    // Additional Implementation Declarations
 };
 
-
-// Class CTMSector_8_16 
-
-
+// Class CTMSector_8_16
 
 #endif

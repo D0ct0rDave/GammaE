@@ -1,123 +1,119 @@
-//	  %X% %Q% %Z% %W%
-
-
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 // CTerrainTesselatorTileGM
 #include "TerrainTesselators\CTerrainTesselatorTileGM.h"
 
-
-// Class CTerrainTesselatorTileGM 
-
-
-
-
-
-
-
+// Class CTerrainTesselatorTileGM
 
 CTerrainTesselatorTileGM::CTerrainTesselatorTileGM()
-        : Tile_iMaxSteps(0), Tile_iSteps(0), Tile_iGridStep(0), Tile_iStride(0), Tile_fTexStep(0), Tile_fMeters(0), Tile_Tile(NULL)
-      {
+    : Tile_iMaxSteps(0), Tile_iSteps(0), Tile_iGridStep(0), Tile_iStride(0), Tile_fTexStep(0), Tile_fMeters(0), Tile_Tile(NULL)
+{
 }
-
 
 CTerrainTesselatorTileGM::~CTerrainTesselatorTileGM()
 {
 }
 
-
-
 void CTerrainTesselatorTileGM::GenerateTileCoordData ()
 {
-      /*
-	int             cI,cJ,iVXPos;
-    float           fTexUCur    = 0;
-    float           fTexVCur    = 0;
+    /*
+       int             cI,cJ,iVXPos;
+       float           fTexUCur    = 0;
+       float           fTexVCur    = 0;
 
-    // Offsets to the current rotation types in the UV array
-    switch (_eRotFlag)
-    {
-        case TM_RFLAGS_NO_ROTATION:  // 0 degrees
-									iVXPos = 0;
-									for (cJ = 0; cJ <= m_uiTileSteps; cJ++)
-									{
-										fTexUCur = 0;
-										for  (cI = 0; cI <= m_uiTileSteps; cI++)
-										{
-											m_pfUVs[((m_uiTileYOfs+cJ)*m_uiSectorRes + m_uiTileXOfs + cI) * 2    ] = fTexUCur;
-											m_pfUVs[((m_uiTileYOfs+cJ)*m_uiSectorRes + m_uiTileXOfs + cI) * 2 + 1] = fTexVCur;
+       // Offsets to the current rotation types in the UV array
+       switch (_eRotFlag)
+       {
+       case TM_RFLAGS_NO_ROTATION:  // 0 degrees
+                                  iVXPos = 0;
+                                  for (cJ = 0; cJ <= m_uiTileSteps; cJ++)
+                                  {
+                                      fTexUCur = 0;
+                                      for  (cI = 0; cI <= m_uiTileSteps; cI++)
+                                      {
+                                          m_pfUVs[((m_uiTileYOfs+cJ)*m_uiSectorRes + m_uiTileXOfs + cI) * 2    ] = fTexUCur;
+                                          m_pfUVs[((m_uiTileYOfs+cJ)*m_uiSectorRes + m_uiTileXOfs + cI) * 2 + 1] = fTexVCur;
 
-											fTexUCur   += m_fTexStep;
-										}
+                                          fTexUCur   += m_fTexStep;
+                                      }
 
-										fTexVCur   += m_fTexStep;
-									}
-									break;
-        case TM_RFLAGS_ROTATION_90: // 90 degrees
-									iVXPos = 0;
-									for (cJ = 0; cJ <= m_uiTileSteps; cJ++)
-									{
-										fTexUCur = 0;
+                                      fTexVCur   += m_fTexStep;
+                                  }
+                                  break;
+       case TM_RFLAGS_ROTATION_90: // 90 degrees
+                                  iVXPos = 0;
+                                  for (cJ = 0; cJ <= m_uiTileSteps; cJ++)
+                                  {
+                                      fTexUCur = 0;
 
-										for  (cI = 0; cI <= m_uiTileSteps; cI++)
-										{           
-											m_pfUVs[((m_uiTileYOfs+cJ)*m_uiSectorRes + m_uiTileXOfs + cI) * 2    ] = fTexVCur;
-											m_pfUVs[((m_uiTileYOfs+cJ)*m_uiSectorRes + m_uiTileXOfs + cI) * 2 + 1] = 1.0f - fTexUCur;
+                                      for  (cI = 0; cI <= m_uiTileSteps; cI++)
+                                      {
+                                          m_pfUVs[((m_uiTileYOfs+cJ)*m_uiSectorRes + m_uiTileXOfs + cI) * 2    ] = fTexVCur;
+                                          m_pfUVs[((m_uiTileYOfs+cJ)*m_uiSectorRes + m_uiTileXOfs + cI) * 2 + 1] = 1.0f - fTexUCur;
 
-											fTexUCur   += m_fTexStep;
-										}
-                                       
-										fTexVCur   += m_fTexStep;
-									}
-	                                break;
-        case TM_RFLAGS_ROTATION_180:// 180 degrees 
-									iVXPos = 0;
-									for (cJ = 0; cJ <= m_uiTileSteps; cJ++)
-									{
-										fTexUCur = 0;
+                                          fTexUCur   += m_fTexStep;
+                                      }
 
-										for  (cI = 0; cI <= m_uiTileSteps; cI++)
-										{           
-											m_pfUVs[((m_uiTileYOfs+cJ)*m_uiSectorRes + m_uiTileXOfs + cI) * 2    ] = 1.0f - fTexUCur;
-											m_pfUVs[((m_uiTileYOfs+cJ)*m_uiSectorRes + m_uiTileXOfs + cI) * 2 + 1] = 1.0f - fTexVCur;
+                                      fTexVCur   += m_fTexStep;
+                                  }
+                                  break;
+       case TM_RFLAGS_ROTATION_180:// 180 degrees
+                                  iVXPos = 0;
+                                  for (cJ = 0; cJ <= m_uiTileSteps; cJ++)
+                                  {
+                                      fTexUCur = 0;
 
-											fTexUCur   += m_fTexStep;
-										}
+                                      for  (cI = 0; cI <= m_uiTileSteps; cI++)
+                                      {
+                                          m_pfUVs[((m_uiTileYOfs+cJ)*m_uiSectorRes + m_uiTileXOfs + cI) * 2    ] = 1.0f - fTexUCur;
+                                          m_pfUVs[((m_uiTileYOfs+cJ)*m_uiSectorRes + m_uiTileXOfs + cI) * 2 + 1] = 1.0f - fTexVCur;
 
-										fTexVCur   += m_fTexStep;
-									}
-									break;
-        case TM_RFLAGS_ROTATION_270:// 0 degrees
-									iVXPos = 0;
-									for (cJ = 0; cJ <= m_uiTileSteps; cJ++)
-									{
-										fTexUCur = 0;
+                                          fTexUCur   += m_fTexStep;
+                                      }
 
-										for  (cI = 0; cI <= m_uiTileSteps; cI++)
-										{           
-											m_pfUVs[((m_uiTileYOfs+cJ)*m_uiSectorRes + m_uiTileXOfs + cI) * 2    ] = 1.0f - fTexVCur;
-											m_pfUVs[((m_uiTileYOfs+cJ)*m_uiSectorRes + m_uiTileXOfs + cI) * 2 + 1] = fTexUCur;
-                                        
-											fTexUCur   += m_fTexStep;
-										}
-                                       
-										fTexVCur   += m_fTexStep;
-									}
-									break;
-}
-	*/
+                                      fTexVCur   += m_fTexStep;
+                                  }
+                                  break;
+       case TM_RFLAGS_ROTATION_270:// 0 degrees
+                                  iVXPos = 0;
+                                  for (cJ = 0; cJ <= m_uiTileSteps; cJ++)
+                                  {
+                                      fTexUCur = 0;
+
+                                      for  (cI = 0; cI <= m_uiTileSteps; cI++)
+                                      {
+                                          m_pfUVs[((m_uiTileYOfs+cJ)*m_uiSectorRes + m_uiTileXOfs + cI) * 2    ] = 1.0f - fTexVCur;
+                                          m_pfUVs[((m_uiTileYOfs+cJ)*m_uiSectorRes + m_uiTileXOfs + cI) * 2 + 1] = fTexUCur;
+
+                                          fTexUCur   += m_fTexStep;
+                                      }
+
+                                      fTexVCur   += m_fTexStep;
+                                  }
+                                  break;
+       }
+     */
 }
 
 void CTerrainTesselatorTileGM::RenderTile (int iX, int iY)
 {
-      // GRID_ETMap_RotType eRotFlag;
+    // GRID_ETMap_RotType eRotFlag;
 
     // Set current texture tile
-	// TMaterial * TileMat = GetTileMaterial(iX,iY);
-	CE3D_Shader*	poTileMat = TB->poGetTileMaterial(0,0);
-	
+    // TMaterial * TileMat = GetTileMaterial(iX,iY);
+    CGShader* poTileMat = TB->poGetTileMaterial(0,0);
+    unsigned short* Idxs = m_poUnmanagedMesh->m_pusIdx;
+
     // Get rotation flag
     // eRotFlag = Tile_Tile->GetRotationType();
     // GenerateTilingCoordData(eRotFlag);
@@ -125,115 +121,113 @@ void CTerrainTesselatorTileGM::RenderTile (int iX, int iY)
     // -----------------------------------------------
     // Compute the index list for this tile
     // -----------------------------------------------
-	int i,j,iIdx = 0;
-	
-	int iVXPos1 = iX*Tile_iMaxSteps;
-	int iVXPos2 = iVXPos1 + Tile_iStride;
-	
-	iIdx         = 0;
-	Idxs[iIdx++] =  iVXPos1;
-	for (j = 0; j < Tile_iSteps; j++)
-	{        
-		Idxs[iIdx++] =  iVXPos1;
-        for (i = 0; i <= Tile_iSteps; i++)
-		{
+    int i,j,iIdx = 0;
+
+    int iVXPos1 = iX * Tile_iMaxSteps;
+    int iVXPos2 = iVXPos1 + Tile_iStride;
+
+    iIdx = 0;
+    Idxs[iIdx++] = iVXPos1;
+    for ( j = 0; j < Tile_iSteps; j++ )
+    {
+        Idxs[iIdx++] = iVXPos1;
+        for ( i = 0; i <= Tile_iSteps; i++ )
+        {
             Idxs[iIdx++] = iVXPos1;
             Idxs[iIdx++] = iVXPos2;
 
-			iVXPos1 += Tile_iGridStep;
-			iVXPos2 += Tile_iGridStep;
-}
+            iVXPos1 += Tile_iGridStep;
+            iVXPos2 += Tile_iGridStep;
+        }
 
-		Idxs[iIdx] = Idxs[iIdx-1];
-		iIdx++;
+        Idxs[iIdx] = Idxs[iIdx - 1];
+        iIdx++;
 
-		iVXPos1 += (Tile_iStride - Tile_iGridStep*(Tile_iSteps+1));
-		iVXPos2  = iVXPos1 + Tile_iStride;
-}
-	
-	CGRenderer::I()->RenderMesh(Mesh,poTileMat);
+        iVXPos1 += ( Tile_iStride - Tile_iGridStep * (Tile_iSteps + 1) );
+        iVXPos2 = iVXPos1 + Tile_iStride;
+    }
+
+    CGRenderer::I()->RenderMesh(m_poUnmanagedMesh, poTileMat);
 }
 
 void CTerrainTesselatorTileGM::RenderTiling ()
 {
-    	int				iX,iY;
+    int iX,iY;
     // -----------------------
     // Setup variables
     // -----------------------
 
     // Height pixels per tile
-    Tile_iMaxSteps = (HF->GetResolution()-1) / TM->GetResolution();
+    Tile_iMaxSteps = (HF->GetResolution() - 1) / TM->GetResolution();
 
     // Meters per tile
-	Tile_fMeters   = fXYScale * Tile_iMaxSteps;
+    Tile_fMeters = fXYScale * Tile_iMaxSteps;
 
     // Número actual de subdivisiones por tile
-    Tile_iSteps    = Tile_iMaxSteps >> iLODs[0];
-	
-	// Texture coord step between adjacent points
-	Tile_fTexStep  = 1.0f / Tile_iSteps;
+    Tile_iSteps = Tile_iMaxSteps >> iLODs[0];
 
-	Tile_iGridStep = ( 1 << iLODs[0]);
-	
-	Tile_iStride = uiSectorRes * Tile_iGridStep;
+    // Texture coord step between adjacent points
+    Tile_fTexStep = 1.0f / Tile_iSteps;
+
+    Tile_iGridStep = (1 << iLODs[0]);
+
+    Tile_iStride = uiSectorRes * Tile_iGridStep;
     /*
-	// Compute the minimum tile size        
-    // Number of lods of the tile bookmark
-	int iNbLODs         = m_poTexSet->iGetNbLODS();
-   
-    // Size of the maximum tile LOD stored in the tile bookmark
-	int iMaxTileSize    = ((E3D_TextureDesc *)m_poTexSet->poGetTile(0,0))->iGetWidth();
-    int iMaxTileLOD     = MTH_Common::iLog2(iMaxTileSize);
+       // Compute the minimum tile size
+       // Number of lods of the tile bookmark
+       int iNbLODs         = m_poTexSet->iGetNbLODS();
 
-    // Size of the minimum tile LOD stored int the tile bookmark
-    
-	int iMinTileLODSize = 4; /// ((E3D_TextureDesc *)m_poTexSet->poGetTile(0,iNbLODs-1))->iGetWidth();
-    int iMinTileLOD     =  MTH_Common::iLog2(iMinTileLODSize);   
+       // Size of the maximum tile LOD stored in the tile bookmark
+       int iMaxTileSize    = ((E3D_TextureDesc *)m_poTexSet->poGetTile(0,0))->iGetWidth();
+       int iMaxTileLOD     = MTH_iLog2(iMaxTileSize);
 
-    m_uiTileLODRange = iMaxTileLOD - MTH_Common::iLog2(iMinTileLODSize) + 1;
+       // Size of the minimum tile LOD stored int the tile bookmark
 
-    // Get the GlobalMap distance
-    m_fGMapDistance  = m_poLODSel->pfGetLodDist(MTH_Common::iLog2(m_iMaxTileSteps) + 1);
+       int iMinTileLODSize = 4; /// ((E3D_TextureDesc *)m_poTexSet->poGetTile(0,iNbLODs-1))->iGetWidth();
+       int iMinTileLOD     =  MTH_iLog2(iMinTileLODSize);
 
-    // Get the TileLODDistanc factor    
-    m_fTileLODDistance = m_fGMapDistance / m_uiTileLODRange;
+       m_uiTileLODRange = iMaxTileLOD - MTH_iLog2(iMinTileLODSize) + 1;
 
-	// Tile texture step
- 	m_fTexStep       = 1.0f / m_uiTileSteps;
-    */
+       // Get the GlobalMap distance
+       m_fGMapDistance  = m_poLODSel->pfGetLodDist(MTH_iLog2(m_iMaxTileSteps) + 1);
 
-    //-----------------------------------------------------------------------------
+       // Get the TileLODDistanc factor
+       m_fTileLODDistance = m_fGMapDistance / m_uiTileLODRange;
+
+       // Tile texture step
+       m_fTexStep       = 1.0f / m_uiTileSteps;
+     */
+
+    // -----------------------------------------------------------------------------
     // Render the tiles
-    //-----------------------------------------------------------------------------      
-	for (iY = 0; iY<TM->GetResolution();iY++)
-        for (iX = 0; iX<TM->GetResolution();iX++)
-			RenderTile(iX,iY);
-
+    // -----------------------------------------------------------------------------
+    for ( iY = 0; iY < TM->GetResolution(); iY++ )
+        for ( iX = 0; iX < TM->GetResolution(); iX++ )
+            RenderTile(iX,iY);
 }
 
-CE3D_Shader * CTerrainTesselatorTileGM::GetTileMaterial (int iX, int iY)
+CGShader* CTerrainTesselatorTileGM::GetTileMaterial (int iX, int iY)
 {
-  	static CVect3					TileCenter;
-    static int						i,j;
-    static unsigned int				uiLOD;
-    static unsigned int				uiTexIndex;
-    static float					fDistance;
+    static CGVect3 TileCenter;
+    static int i,j;
+    static unsigned int uiLOD;
+    static unsigned int uiTexIndex;
+    static float fDistance;
 
-	// Get pixel at the center of the tile
-    i   = ( ((float)iX + 0.5f)*Tile_iSteps  );
-    j   = ( ((float)iY + 0.5f)*Tile_fMeters );
+    // Get pixel at the center of the tile
+    i = ( ( (float)iX + 0.5f ) * Tile_iSteps );
+    j = ( ( (float)iY + 0.5f ) * Tile_fMeters );
 
-	// Get center point from the tile
-	TileCenter.V3(i*fXYScale,j*fXYScale,HData[j*uiSectorRes+i]);
+    // Get center point from the tile
+    TileCenter.Set(i * fXYScale,j * fXYScale,HData[j * uiSectorRes + i]);
 
-	// Get the distance from the tile to the camera
-	fDistance  = TileCenter.fDistance(Cam);
+    // Get the distance from the tile to the camera
+    fDistance = TileCenter.fDistance(Cam);
 
     uiTexIndex = Tile_Tile->GetTileIdx();
-    uiLOD      = GetTileLOD(fDistance,TB->GetMaxLODs());
+    uiLOD = GetTileLOD( fDistance,TB->GetMaxLODs() );
 
     return ( TB->poGetTileMaterial(uiTexIndex,uiLOD) );
 }
 
 // Additional Declarations
-    

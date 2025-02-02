@@ -50,7 +50,8 @@ project(project_name)
     -- Exclude certain directories (e.g., build, CMakeFiles)
     removefiles
 	{
-        sourceRoot .. "/build/**",
+        sourceRoot .. "**doxy_g.h",
+		sourceRoot .. "/build/**",
         sourceRoot .. "/CMakeFiles/**"
     }
 

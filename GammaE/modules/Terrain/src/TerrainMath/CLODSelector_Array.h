@@ -1,55 +1,53 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef CLODSelector_Array_h
 #define CLODSelector_Array_h 1
 
-
-
 // CLODSelector
 #include "TerrainMath\CLODSelector.h"
 
+class CLODSelector_Array : public CLODSelector
+{
+    public:
+        CLODSelector_Array();
 
+        virtual ~CLODSelector_Array();
 
+        virtual float GetLOD(float fDist);
 
-class CLODSelector_Array : public CLODSelector  {
-    
-  public:
-          CLODSelector_Array();
+        void AddLOD(float fLODDist);
 
-          virtual ~CLODSelector_Array();
+        void Init(int _MaxLODs);
 
+        // Additional Public Declarations
 
-                virtual float GetLOD (float fDist);
+    protected:
+        // Additional Protected Declarations
 
-            void AddLOD (float fLODDist);
+    private:
+        // Data Members for Class Attributes
 
-            void Init (int _MaxLODs);
+        float* LODArray;
 
-    // Additional Public Declarations
-            
-  protected:
-    // Additional Protected Declarations
-            
-  private:
-    // Data Members for Class Attributes
+        int iMaxLODs;
 
-                  float *LODArray;
-      
-                  int iMaxLODs;
-      
-                  int iNumLODs;
-      
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+        int iNumLODs;
+
+        // Additional Private Declarations
+
+    private:                    // Additional Implementation Declarations
 };
 
-
-// Class CLODSelector_Array 
-
-
+// Class CLODSelector_Array
 
 #endif

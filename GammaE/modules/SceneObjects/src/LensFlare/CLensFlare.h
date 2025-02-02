@@ -1,82 +1,71 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef CLensFlare_h
 #define CLensFlare_h 1
 
-
-
 // CLensFlare_Elem
 #include "LensFlare\CLensFlare_Elem.h"
-// CObject3D
+// CGSceneNode
 #include "GammaE_Scene.h"
 
+class CLensFlare : public CGSceneNode
+{
+    public:
+        CLensFlare();
 
+        virtual ~CLensFlare();
 
+        void InitLensFlare(int _iNumElems, CGVect3 _SunPos);
 
+        void SetupFlareElem(int _iElem, float _fSize, float _fDist, CGColor _Color, CGShader* _pMat);
 
-class CLensFlare : public CObject3D  {
-    
-  public:
-          CLensFlare();
+        void UpdateMesh();
 
-          virtual ~CLensFlare();
+        virtual void Render();
 
+        virtual CGGraphBV* poGetBV();
 
-                void InitLensFlare (int _iNumElems, CVect3 _SunPos);
+        bool bVisible();
 
-            void SetupFlareElem (int _iElem, float _fSize, float _fDist, CGColor _Color, CE3D_Shader *_pMat);
+        void UpdateState();
 
-            void UpdateMesh ();
+        // / Generic function to perform processing functionalities.
+        virtual void Accept(CGSceneVisitor* _poVisitor);
 
-            virtual void Render ();
+    private:
+        // Data Members for Class Attributes
 
-            virtual CGraphBV* poGetBoundVol ();
+        CLensFlare_Elem* FlareElems;
 
-            virtual void ComputeBoundVol ();
+        int iNumElems;
 
-            bool bVisible ();
+        CGMeshRect* MeshArray;
 
-            void UpdateState ();
+        int iLensFlareState;
 
-    // Additional Public Declarations
-            
-  protected:
-    // Additional Protected Declarations
-            
-  private:
-    // Data Members for Class Attributes
+        float fVisFact;
 
-                  CLensFlare_Elem* FlareElems;
-      
-                  int iNumElems;
-      
-                  CMesh_Rect *MeshArray;
-      
-                  int iLensFlareState;
-      
-                  float fVisFact;
-      
-                  CVect3 oPrjSun;
-      
-                  CVect3 oSunPos;
-      
-                  CVect3 oScrPos;
-      
-                  CMatrix4x4 oViewMat;
-      
-                  CMatrix4x4 oPrjMat;
-      
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+        CGVect3 oPrjSun;
+
+        CGVect3 oSunPos;
+
+        CGVect3 oScrPos;
+
+        CGMatrix4x4 oViewMat;
+
+        CGMatrix4x4 oPrjMat;
 };
 
-
-// Class CLensFlare 
-
-
+// Class CLensFlare
 
 #endif

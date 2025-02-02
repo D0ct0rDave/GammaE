@@ -1,4 +1,13 @@
 // -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
 #ifndef CCOL_Collider_h
 #define CCOL_Collider_h 1
 // -----------------------------------------------------------------------------
@@ -19,103 +28,103 @@
 #include "COL_TriList\CCOL_TriList.h"
 // CCOL_MeshTester
 #include "COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MeshTester.h"
+// -----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
-class CCOL_Collider 
+class CCOL_Collider
 {
-	public:
-		CCOL_Collider();
-		~CCOL_Collider();
+    public:
+        CCOL_Collider();
+        ~CCOL_Collider();
 
-		void Init (int _iUserID, CCOL_TriListGen* _poTLGen, CCOL_MeshTester* _poMTester, ECOL_ColliderType _eCType, ECOL_TestType _eStTest, ECOL_TestType _eDynTest, CObject3D* _poGrObj, int _iMaxTris, int _iColStackSize);
+        void Init(int _iUserID, CCOL_TriListGen* _poTLGen, CCOL_MeshTester* _poMTester, ECOL_ColliderType _eCType, ECOL_TestType _eStTest, ECOL_TestType _eDynTest, CGSceneNode* _poGrObj, int _iMaxTris, int _iColStackSize);
 
-		void Reset ();
+        void Reset();
 
-		CCOL_Stack* poGetColStack();
+        CCOL_Stack* poGetColStack();
 
-		ECOL_ColliderType eGetColType();
-		ECOL_TestType eGetStTest();
-		ECOL_TestType eGetDynTest();
+        ECOL_ColliderType eGetColType();
+        ECOL_TestType eGetStTest();
+        ECOL_TestType eGetDynTest();
 
-		CCOL_MeshTester * GetMeshTester();
-		CCOL_TriList& GetTriList();
+        CCOL_MeshTester* GetMeshTester();
+        CCOL_TriList& GetTriList();
 
-		CCOL_TriListGen * GetTriListGen();
+        CCOL_TriListGen* GetTriListGen();
 
-		CVect3 OldPos;
+        CGVect3 OldPos;
 
-		CVect3 Pos;
+        CGVect3 Pos;
 
-		CVect3 Speed;
+        CGVect3 Speed;
 
-		int UserID;
+        int UserID;
 
-		int ColID;
+        int ColID;
 
-		CObject3D *GrObj;
+        CGSceneNode* GrObj;
 
-		// Data Members for Associations
+        // Data Members for Associations
 
-		CCOL_Stack ColStack;
+        CCOL_Stack ColStack;
 
-		ECOL_ColliderType ColType;
+        ECOL_ColliderType ColType;
 
-		ECOL_TestType StTest;
+        ECOL_TestType StTest;
 
-		CCOL_MeshTester *MeshTester;
+        CCOL_MeshTester* MeshTester;
 
-		ECOL_TestType DynTest;
+        ECOL_TestType DynTest;
 
-		CCOL_TriList TriList;
+        CCOL_TriList TriList;
 
-		CCOL_TriListGen *TriListGen;
+        CCOL_TriListGen* TriListGen;
 
-		uint m_uiTestFlags;
-		uint m_uiColliderType;
-		// Additional Public Declarations
+        uint m_uiTestFlags;
+        uint m_uiColliderType;
+        // Additional Public Declarations
 
-		protected:
-		// Additional Protected Declarations
+    protected:
+        // Additional Protected Declarations
 
-		private:
-		// Additional Private Declarations
+    private:
+        // Additional Private Declarations
 
-		private:     // Additional Implementation Declarations
-
+    private:         // Additional Implementation Declarations
 };
 // ----------------------------------------------------------------------------
 inline CCOL_Stack* CCOL_Collider::poGetColStack ()
 {
-    return &ColStack;
+    return(&ColStack);
 }
 // ----------------------------------------------------------------------------
 inline ECOL_ColliderType CCOL_Collider::eGetColType ()
 {
-    return ColType;
+    return(ColType);
 }
 // ----------------------------------------------------------------------------
 inline ECOL_TestType CCOL_Collider::eGetStTest ()
 {
-    return StTest;
+    return(StTest);
 }
 // ----------------------------------------------------------------------------
-inline CCOL_MeshTester * CCOL_Collider::GetMeshTester ()
+inline CCOL_MeshTester* CCOL_Collider::GetMeshTester ()
 {
-    return MeshTester;
+    return(MeshTester);
 }
 // ----------------------------------------------------------------------------
 inline ECOL_TestType CCOL_Collider::eGetDynTest ()
 {
-    return DynTest;
+    return(DynTest);
 }
 // ----------------------------------------------------------------------------
 inline CCOL_TriList& CCOL_Collider::GetTriList ()
 {
-    return TriList;
+    return(TriList);
 }
 // ----------------------------------------------------------------------------
-inline CCOL_TriListGen * CCOL_Collider::GetTriListGen ()
+inline CCOL_TriListGen* CCOL_Collider::GetTriListGen ()
 {
-    return TriListGen;
+    return(TriListGen);
 }
 // ----------------------------------------------------------------------------
 #endif

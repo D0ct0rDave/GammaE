@@ -1,92 +1,88 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef CTerrainCircuit_h
 #define CTerrainCircuit_h 1
 
-
-
 // CLODSelector
 #include "TerrainMath\CLODSelector.h"
-// CObject3D_Node
+// CGSceneNode
 #include "GammaE_Scene.h"
 
+class CTerrainCircuit : public CGSceneGroup
+{
+    public:
+        CTerrainCircuit();
 
+        virtual ~CTerrainCircuit();
 
+        void Init(int _SecsPerRow, int _SecsPerCol, float _SectorSize);
 
-class CTerrainCircuit : public CObject3D_Node  {
-    
-  public:
-          CTerrainCircuit();
+        void SetSector(int _iX, int _iY, CGSceneNode* _pSector);
 
-          virtual ~CTerrainCircuit();
+        virtual void Render();
 
+        void ComputeVISLODMatrix();
 
-                void Init (int _SecsPerRow, int _SecsPerCol, float _SectorSize);
+        void ComputeLODArrays(int iX, int iY);
 
-            void SetSector (int _iX, int _iY, CObject3D *_pSector);
+        void SetLOD(int iBlockIdx, int iX, int iY);
 
-            virtual void Render ();
+        bool BlockInRange(int iX, int iY);
 
-            void ComputeVISLODMatrix ();
+        CLODSelector* GetLODSelector();
+        void SetLODSelector(CLODSelector* value);
 
-            void ComputeLODArrays (int iX, int iY);
+        // Data Members for Associations
 
-            void SetLOD (int iBlockIdx, int iX, int iY);
+        CLODSelector* LODSelector;
 
-            bool BlockInRange (int iX, int iY);
+        // Additional Public Declarations
 
-    
-                  CLODSelector * GetLODSelector ();
-      void SetLODSelector (CLODSelector * value);
+    protected:
+        // Additional Protected Declarations
 
-    // Data Members for Associations
+    private:
+        // Data Members for Class Attributes
 
-                  CLODSelector *LODSelector;
-      
-    // Additional Public Declarations
-            
-  protected:
-    // Additional Protected Declarations
-            
-  private:
-    // Data Members for Class Attributes
+        int SecsPerRow;
 
-                  int SecsPerRow;
-      
-                  int SecsPerCol;
-      
-                  float SectorSize;
-      
-                  int iLODs[5];
-      
-                  float fLODs[5];
-      
-                  float *fLODMatrix;
-      
-                  bool *bVISMatrix;
-      
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+        int SecsPerCol;
+
+        float SectorSize;
+
+        int iLODs[5];
+
+        float fLODs[5];
+
+        float* fLODMatrix;
+
+        bool* bVISMatrix;
+
+        // Additional Private Declarations
+
+    private:                    // Additional Implementation Declarations
 };
 
+// Class CTerrainCircuit
 
-// Class CTerrainCircuit 
-
-
-inline CLODSelector * CTerrainCircuit::GetLODSelector ()
+inline CLODSelector* CTerrainCircuit::GetLODSelector ()
 {
-    return LODSelector;
+    return(LODSelector);
 }
 
-inline void CTerrainCircuit::SetLODSelector (CLODSelector * value)
+inline void CTerrainCircuit::SetLODSelector (CLODSelector* value)
 {
     LODSelector = value;
 }
-
-
 
 #endif

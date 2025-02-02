@@ -1,111 +1,46 @@
-
-//-----------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-#ifndef CGChrono_h
-#define CGChrono_h 1
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-class CGChrono 
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
+#ifndef CGChronoH
+#define CGChronoH
+// ----------------------------------------------------------------------------
+class CGChrono
 {
-  
-  
+    public:
 
-  public:
-    
-      CGChrono();
+        CGChrono();
 
-    
-      ~CGChrono();
+        ~CGChrono();
 
+        void Reset();
 
-    
-      
-      void Reset ();
+        void Start();
 
-      
-      void Start ();
+        void Stop();
 
-      
-      void Stop ();
+        double dElapsedTime();
 
-      
-      double dElapsedTime();
+    protected:
 
-    //-----------------------------------------------------------------------------
-      
-      
+        double m_dStartTime;
 
-  protected:
-    //-----------------------------------------------------------------------------
+        double m_dChronoFrequency;
 
-      
-      
-      double m_dStartTime;
-      
+        double m_dElapsedTime;
 
-      
-      
-      double m_dChronoFrequency;
-      
+        bool m_bActive;
 
-      
-      
-      double m_dElapsedTime;
-      
+    private:
 
-      
-      
-      bool m_bActive;
-      
-
-    //-----------------------------------------------------------------------------
-      
-      
-
-  private:
-    //-----------------------------------------------------------------------------
-      
-      
-
-  private: 
-    //-----------------------------------------------------------------------------
-      
-	double dLastDelta;
-      
-
+        double m_dLastDelta;
 };
-
-
-
-
-//-----------------------------------------------------------------------------
-
-
-
-
-
+// ----------------------------------------------------------------------------
 #endif
+// ----------------------------------------------------------------------------

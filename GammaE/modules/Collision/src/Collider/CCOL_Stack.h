@@ -1,43 +1,53 @@
 // -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
 #ifndef CCOL_Stack_h
 #define CCOL_Stack_h 1
 // -----------------------------------------------------------------------------
 #include "GammaE_Math.h"
 // -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 class CCOL_StackCollisionElem
 {
-	public:
-		float m_fFrameFact;
-        void* m_poCObj;      
+    public:
+        float m_fFrameFact;
+        void* m_poCObj;
 };
 // -----------------------------------------------------------------------------
-class CCOL_Stack 
+class CCOL_Stack
 {
-	public:
-		/// Initializes the collision stack
-		void Init(uint _uiMaxColisions);
-		
-		/// Resets the stack
-		void Reset();
-		
-		/// Adds a collision with a given object in a given frame factor
-		void AddCollision (void *_poCObj, float _fFrameFact);
+    public:
+        // / Initializes the collision stack
+        void Init(uint _uiMaxColisions);
 
-		/// Retrieves the number of collisions in the stack
-		uint uiGetNumCollisions ();
+        // / Resets the stack
+        void Reset();
 
-		/// Retrieves the elements of the stack
-		CCOL_StackCollisionElem* poGetCollided();
+        // / Adds a collision with a given object in a given frame factor
+        void AddCollision(void* _poCObj, float _fFrameFact);
 
-	protected:
+        // / Retrieves the number of collisions in the stack
+        uint uiGetNumCollisions();
 
-		/// The stack structure
-		CGStArray<CCOL_StackCollisionElem> m_oCollided;
+        // / Retrieves the elements of the stack
+        CCOL_StackCollisionElem* poGetCollided();
+
+    protected:
+
+        // / The stack structure
+        CGStArray <CCOL_StackCollisionElem> m_oCollided;
 };
 // -----------------------------------------------------------------------------
 inline uint CCOL_Stack::uiGetNumCollisions()
 {
-	return ( m_oCollided.uiNumElems() );
+    return ( m_oCollided.uiNumElems() );
 }
 // -----------------------------------------------------------------------------
 inline CCOL_StackCollisionElem* CCOL_Stack::poGetCollided()
@@ -47,22 +57,23 @@ inline CCOL_StackCollisionElem* CCOL_Stack::poGetCollided()
 // -----------------------------------------------------------------------------
 inline void CCOL_Stack::Init (uint _uiMaxColisions)
 {
-	m_oCollided.Init(_uiMaxColisions);
+    m_oCollided.Init(_uiMaxColisions);
 }
 // -----------------------------------------------------------------------------
 inline void CCOL_Stack::Reset ()
 {
-	m_oCollided.Clear();
+    m_oCollided.Clear();
 }
 // -----------------------------------------------------------------------------
-inline void CCOL_Stack::AddCollision (void *_poCObj, float _fFrameFact)
+inline void CCOL_Stack::AddCollision (void* _poCObj, float _fFrameFact)
 {
-	CCOL_StackCollisionElem oSCE;
-	oSCE.m_poCObj     = _poCObj;
-	oSCE.m_fFrameFact = _fFrameFact;
+    CCOL_StackCollisionElem oSCE;
+    oSCE.m_poCObj = _poCObj;
+    oSCE.m_fFrameFact = _fFrameFact;
 
-	m_oCollided.iAdd(oSCE);
+    m_oCollided.iAdd(oSCE);
 }
+
 // -----------------------------------------------------------------------------
 #endif
 // -----------------------------------------------------------------------------

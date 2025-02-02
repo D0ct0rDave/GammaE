@@ -1,73 +1,114 @@
-//	  %X% %Q% %Z% %W%
-
-#ifndef CSaverGEM_h
-#define CSaverGEM_h 1
-
-// GammaE_FileSys
-#include "GammaE_FileSys.h"
-// CMesh
-#include "GammaE_E3D.h"
-// CObject3D_Camera
-
+// ----------------------------------------------------------------------------
+/*! \class CSaverGEM
+ *  \brief Class to save a scene graphi in GEM format.
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
+#ifndef CSaverGEMH
+#define CSaverGEMH
+// ----------------------------------------------------------------------------
 #include "..\C3DSaver.h"
-#include "..\..\CObject3D.h"
-#include "..\..\CObject3D_Leaf.h"
-#include "..\..\CObject3D_Node.h"
-#include "..\..\CObject3D_Transf.h"
-#include "..\..\Animation\CObject3D_AnimNode.h"
-#include "..\..\Animation\CObject3D_AnimMesh.h"
-#include "..\..\Animation\CObject3D_AnimTransf.h"
-#include "..\..\Animation\CObject3D_AnimCfg.h"
-#include "..\..\Animation\CObject3D_AnimCfgMgr.h"
-#include "..\..\CObject3D_BSPNode.h"
-#include "..\..\CObject3D_Mux.h"
 
-// CObject3D
+class CGFile;
+class CGMesh;
+
+// ----------------------------------------------------------------------------
 
 class CSaverGEM : public C3DSaver
 {
+    public:
+        CSaverGEM();
+        ~CSaverGEM();
+        
+        // fallback to any unknown node
+        virtual void Visit(CGSceneNode* _poObj);
 
-public: CSaverGEM();
+        virtual void Visit(CGSceneBSPNode* _poNode);
 
-    ~CSaverGEM();
+        virtual void Visit(CGSceneLeaf* _poNode);
 
-    int iSave (CFile & _oFile, CObject3D *_pObj);
+        virtual void Visit(CGSceneMux* _poNode);
 
-    int iSave3DObject (CFile & _oFile, CObject3D *_pObj);
+        virtual void Visit(CGSceneGroup* _poNode);
 
-    int iSave3DObj_Leaf (CFile & _oFile, CObject3D_Leaf *_pObj);
+        virtual void Visit(CGSceneTransf* _poNode);
 
-    int iSave3DObj_Node (CFile & _oFile, CObject3D_Node *_pObj);
+        virtual void Visit(CGSceneAnimActionSet* _poNode);
 
-    int iSave3DObj_Transf (CFile & _oFile, CObject3D_Transf *_pObj);
+        virtual void Visit(CGSceneAnimMesh* _poNode);
 
-    int iSaveMesh (CFile & _oFile, CMesh *Mesh);
+        virtual void Visit(CGSceneAnimGroup* _poNode);
 
-    int iSave3DObj_AnimNode (CFile & _oFile, CObject3D_AnimNode *_pObj);
+        virtual void Visit(CGSceneAnimTransf* _poNode);
 
-    int iSave3DObj_AnimMesh (CFile & _oFile, CObject3D_AnimMesh *_pObj);
+        virtual void Visit(CGSceneAnimNode*);
+        virtual void Visit(CGSceneSwitch*);
+        virtual void Visit(CGSceneScreenRect*);
+        virtual void Visit(CGSceneInstance*);
+        virtual void Visit(CGSceneCamera*);
+        
+        // / Override main saving function.
+        virtual bool bSave(const CGString& _sFilename, CGSceneNode* _poObj);
 
-    int iSave3DObj_AnimTransf (CFile & _oFile, CObject3D_AnimTransf *_pObj);
+        // / Perform saving over an already opened file.
+        virtual bool bSave(const CGFile& _oFile, CGSceneNode* _poObj);
 
-    int iSave3DObj_AnimCfg (CFile & _oFile, CObject3D_AnimCfg *_pObj);
+    protected:
 
-    int iSave3DObj_AnimCfgMgr (CFile & _oFile, CObject3D_AnimCfgMgr *_pObj);
+        bool bSaveMesh(CGBaseMesh* Mesh);
 
-    int iSave3DObj_BSPNode (CFile & _oFile, CObject3D_BSPNode *_pObj);
+        /*
+           int iSave(CFile& _oFile, CGSceneNode* _pObj);
 
-    int iSave3DObj_Mux (CFile & _oFile, CObject3D_Mux *_pObj);
+           int iSave3DObject(CFile& _oFile, CGSceneNode* _pObj);
 
-    virtual int iSave (char *_Filename, CObject3D *_pObj);
+           int iSaveSNT_Leaf(CFile& _oFile, CGSceneLeaf* _pObj);
 
-     // Additional Public Declarations
-protected:
-     // Additional Protected Declarations
-private:
-     // Additional Private Declarations
-private:
-    // Additional Implementation Declarations
+           int iSaveSNT_Node(CFile& _oFile, CGSceneGroup* _pObj);
+
+           int iSaveSNT_Transf(CFile& _oFile, CGSceneTransf* _pObj);
+
+           int iSaveMesh(CFile& _oFile, CGMesh* Mesh);
+
+           int iSaveSNT_AnimNode(CFile& _oFile, CGSceneAnimGroup* _pObj);
+
+           int iSaveSNT_AnimMesh(CFile& _oFile, CGSceneAnimMesh* _pObj);
+
+           int iSaveSNT_AnimTransf(CFile& _oFile, CGSceneAnimTransf* _pObj);
+
+           int iSaveSNT_AnimCfg(CFile& _oFile, CGSceneAnimCfg* _pObj);
+
+           int iSaveSNT_AnimInstance(CFile& _oFile, CGSceneAnimCfgMgr* _pObj);
+
+           int iSaveSNT_BSPNode(CFile& _oFile, CGSceneBSPNode* _pObj);
+
+           int iSaveSNT_Mux(CFile& _oFile, CGSceneMux* _pObj);
+
+           virtual int iSave(char* _Filename, CGSceneNode* _pObj);
+         */
+
+    protected:
+
+        //
+        int iSaveAnimObject(CGFile& _oFile,CGSceneAnimNode* _poObj);
+
+        // Svaes a mesh
+        void SaveMesh(CGBaseMesh* _poMesh);
+        
+        // Save a group or a mux
+        void SaveGroup(CGSceneGroup* _poObj, uint _uiID);
+
+        // Saves a bounding volume
+        void SaveBoundingVolume(CGGraphBV* _poBV);
+
+        // to store the current file being saved
+        CGFile* m_poFile;
+        bool m_bResult;
 };
-
-// Class CSaverGEM
-
-#endif // ifndef CSaverGEM_h
+// ----------------------------------------------------------------------------
+#endif
+// ----------------------------------------------------------------------------

@@ -57,7 +57,7 @@ void SpawnEntity(CGGameEntity* _poEnt,float _fTime)
 }
 //-----------------------------------------------------------------------------
 uint castto_uint(TEntityState _eState) { return((uint)_eState); };
-CSmoother* castto_CSmoother(uobject _uoObj) { return((CSmoother*)_uoObj); };
+CGSmoother* castto_CSmoother(uobject _uoObj) { return((CGSmoother*)_uoObj); };
 CHUDLabel* castto_CHUDLabel(uobject _uoObj) { return((CHUDLabel*)_uoObj); };
 CGGameEntity* castto_CGGameEntity(uobject _uoObj) { return((CGGameEntity*)_uoObj); };
 
@@ -71,7 +71,7 @@ class CGUObject
 		}
 
 		//
-		CSmoother*			toSmoother()		{ return( (CSmoother*)m_uoObj );	}
+		CGSmoother*			toSmoother()		{ return( (CGSmoother*)m_uoObj );	}
 		//
 		CHUDLabel*			toCHUDLabel()		{ return( (CHUDLabel*)m_uoObj );	}
 		//

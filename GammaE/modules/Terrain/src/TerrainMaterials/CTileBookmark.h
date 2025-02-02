@@ -1,79 +1,73 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef CTileBookmark_h
 #define CTileBookmark_h 1
 
-
-
 // GammaE_E3D
 #include "GammaE_E3D.h"
 
-
-
-
-
-class CTileBookmark 
+class CTileBookmark
 {
-    
-  public:
-          CTileBookmark();
+    public:
+        CTileBookmark();
 
-          ~CTileBookmark();
+        ~CTileBookmark();
 
+        void Init(int _MaxTiles, int _MaxLODs);
 
-                void Init (int _MaxTiles, int _MaxLODs);
+        void SetTileMaterial(int _iTile, int _iLOD, CGShader* _Mat);
 
-            void SetTileMaterial (int _iTile, int _iLOD, CE3D_Shader* _Mat);
+        CGShader* poGetTileMaterial(int _iTile, int _iLOD);
 
-            CE3D_Shader* poGetTileMaterial (int _iTile, int _iLOD);
+        int GetTileLODs(int _iTile);
 
-            int GetTileLODs (int _iTile);
+        void Invalidate();
 
-            void Invalidate ();
+        int GetMaxTiles();
 
-    
-            int GetMaxTiles ();
+        int GetMaxLODs();
 
-            int GetMaxLODs ();
+        // Data Members for Class Attributes
 
-    // Data Members for Class Attributes
+        CGShader* * Tiles;
 
-                  CE3D_Shader* *Tiles;
-      
-            int MaxTiles;
-      
-            int MaxLODs;
-      
-                  int *TileLODs;
-      
-    // Additional Public Declarations
-            
-  protected:
-    // Additional Protected Declarations
-            
-  private:
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+        int MaxTiles;
+
+        int MaxLODs;
+
+        int* TileLODs;
+
+        // Additional Public Declarations
+
+    protected:
+        // Additional Protected Declarations
+
+    private:
+        // Additional Private Declarations
+
+    private:                    // Additional Implementation Declarations
 };
 
-
-// Class CTileBookmark 
-
+// Class CTileBookmark
 
 inline int CTileBookmark::GetMaxTiles ()
 {
-    return MaxTiles;
+    return(MaxTiles);
 }
 
 inline int CTileBookmark::GetMaxLODs ()
 {
-    return MaxLODs;
+    return(MaxLODs);
 }
-
-
 
 #endif

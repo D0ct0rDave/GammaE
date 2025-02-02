@@ -1,56 +1,51 @@
-
-
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
 #include "GammaE_Mem.h"
 
 // CTile
 #include "SectElem\CTile.h"
 
-
-// Class CTile 
-
-
-
-
-
-
+// Class CTile
 
 CTile::CTile()
-        : TileIdx(0), TransitionType(0), TransTileIdx(0), RotationType(0), Invisible(true), OldTransition(0)
-      {
+    : TileIdx(0), TransitionType(0), TransTileIdx(0), RotationType(0), Invisible(true), OldTransition(0)
+{
 }
-
 
 CTile::~CTile()
 {
 }
 
-
-
 unsigned long CTile::ByteSize ()
 {
-  	return(4);
+    return(4);
 }
 
-void * CTile::Get ()
+void* CTile::Get ()
 {
-  	return( &TileIdx);
+    return(&TileIdx);
 }
 
-void CTile::Set (void *_Value)
+void CTile::Set (void* _Value)
 {
 }
 
-CSectElem * CTile::CreateClass ()
+CSectElem* CTile::CreateClass ()
 {
-  	return (mNew CTile() );
+    return ( mNew CTile() );
 }
-
 
 int CTile::GetTileIdx ()
 {
-    return TileIdx;
+    return(TileIdx);
 }
 
 void CTile::SetTileIdx (int value)
@@ -60,7 +55,7 @@ void CTile::SetTileIdx (int value)
 
 int CTile::GetTransitionType ()
 {
-    return TransitionType;
+    return(TransitionType);
 }
 
 void CTile::SetTransitionType (int value)
@@ -75,7 +70,7 @@ void CTile::SetTransTileIdx (int value)
 
 int CTile::GetRotationType ()
 {
-    return RotationType;
+    return(RotationType);
 }
 
 void CTile::SetRotationType (int value)
@@ -85,7 +80,7 @@ void CTile::SetRotationType (int value)
 
 bool CTile::GetInvisible ()
 {
-    return Invisible;
+    return(Invisible);
 }
 
 void CTile::SetInvisible (bool value)
@@ -95,7 +90,7 @@ void CTile::SetInvisible (bool value)
 
 int CTile::GetOldTransition ()
 {
-    return OldTransition;
+    return(OldTransition);
 }
 
 void CTile::SetOldTransition (int value)
@@ -104,4 +99,3 @@ void CTile::SetOldTransition (int value)
 }
 
 // Additional Declarations
-    

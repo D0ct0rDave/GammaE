@@ -1,10 +1,17 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef CSectorMatrix_h
 #define CSectorMatrix_h 1
-
 
 #include <assert.h>
 
@@ -13,115 +20,106 @@
 // CSectorLoaderManager
 #include "Sector\SectorMatrix\CSectorLoaderManager\CSectorLoaderManager.h"
 
+class CSectorMatrix : public CSector
+{
+    public:
+        CSectorMatrix();
 
+        virtual ~CSectorMatrix();
 
+        const CSectorMatrix & operator=(const CSectorMatrix &right);
 
-class CSectorMatrix : public CSector  {
-    
-  public:
-          CSectorMatrix();
+        virtual int iLoadWithHandler(FILE* _FD);
 
-          virtual ~CSectorMatrix();
+        virtual int iSaveWithHandler(FILE* _FD);
 
-          const CSectorMatrix & operator=(const CSectorMatrix &right);
+        virtual void Invalidate();
 
+        virtual void Init(int _SecsPerRow, int _SecsPerCol);
 
-                virtual int iLoadWithHandler (FILE *_FD);
+        virtual void Init(int _SecsPerRow, int _SecsPerCol, int _SectorRes, int _SectorType, bool _b21);
 
-            virtual int iSaveWithHandler (FILE *_FD);
+        virtual void Init(int _iRes, bool _b21);
 
-            virtual void Invalidate ();
+        virtual CSectElem & GetValue(int _X, int _Y);
 
-            virtual void Init (int _SecsPerRow, int _SecsPerCol);
+        virtual void SetValue(int _X, int _Y, CSectElem &_Value);
 
-            virtual void Init (int _SecsPerRow, int _SecsPerCol, int _SectorRes, int _SectorType, bool _b21);
+        virtual CSectElem & GetValueFromSect(int _iSect, int _X, int _Y);
 
-            virtual void Init (int _iRes, bool _b21);
+        virtual void SetValueFromSect(int _iSect, int _X, int _Y, CSectElem &_Value);
 
-            virtual CSectElem & GetValue (int _X, int _Y);
+        virtual unsigned long ByteSize();
 
-            virtual void SetValue (int _X, int _Y, CSectElem &_Value);
+        virtual CSector* GetSector(int _iSect);
 
-            virtual CSectElem & GetValueFromSect (int _iSect, int _X, int _Y);
+        virtual CSector* GetSector(int _iSectX, int _iSectY);
 
-            virtual void SetValueFromSect (int _iSect, int _X, int _Y, CSectElem &_Value);
+        virtual int iGetSecsPerRow();
 
-            virtual unsigned long ByteSize ();
+        virtual int iGetSecsPerCol();
 
-            virtual CSector * GetSector (int _iSect);
+        virtual int iGetDataType();
 
-            virtual CSector * GetSector (int _iSectX, int _iSectY);
+        // Generates a new object with  data corresponding to a
+        // given LOD
+        virtual CSector* GenerateLOD(int _iLOD);
 
-            virtual int iGetSecsPerRow ();
+        void SetVGenMethod(EGenerationMethod value);
 
-            virtual int iGetSecsPerCol ();
+        // Data Members for Associations
 
-            virtual int iGetDataType ();
+        CSectorLoaderManager* poSectManager;
 
-            //	Generates a new object with  data corresponding to a
-      //	given LOD
-      virtual CSector * GenerateLOD (int _iLOD);
+        // Additional Public Declarations
 
-            void SetVGenMethod (EGenerationMethod value);
+    protected:
+        // Data Members for Class Attributes
 
-    // Data Members for Associations
+        int SecsPerRow;
 
-                        CSectorLoaderManager *poSectManager;
-      
-    // Additional Public Declarations
-            
-  protected:
-    // Data Members for Class Attributes
+        int SecsPerCol;
 
-                  int SecsPerRow;
-      
-                  int SecsPerCol;
-      
-                  CSector* *SectArray;
-      
-    // Additional Protected Declarations
-            
-  private:
-    // Data Members for Class Attributes
+        CSector* * SectArray;
 
-                  int iDataType;
-      
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+        // Additional Protected Declarations
+
+    private:
+        // Data Members for Class Attributes
+
+        int iDataType;
+
+        // Additional Private Declarations
+
+    private:                    // Additional Implementation Declarations
 };
 
+// Class CSectorMatrix
 
-// Class CSectorMatrix 
-
-
-inline CSector * CSectorMatrix::GetSector (int _iSect)
+inline CSector* CSectorMatrix::GetSector (int _iSect)
 {
-      assert(SectArray && "NULL Sector array in sector matrix");
-	return ( SectArray[_iSect] );
+    assert(SectArray && "NULL Sector array in sector matrix");
+    return (SectArray[_iSect]);
 }
 
-inline CSector * CSectorMatrix::GetSector (int _iSectX, int _iSectY)
+inline CSector* CSectorMatrix::GetSector (int _iSectX, int _iSectY)
 {
-  	return ( GetSector(_iSectY*SecsPerRow + _iSectX) );
+    return ( GetSector(_iSectY * SecsPerRow + _iSectX) );
 }
 
 inline int CSectorMatrix::iGetSecsPerRow ()
 {
-  	return (SecsPerRow);
+    return (SecsPerRow);
 }
 
 inline int CSectorMatrix::iGetSecsPerCol ()
 {
-  	return (SecsPerCol);
+    return (SecsPerCol);
 }
 
 inline int CSectorMatrix::iGetDataType ()
 {
-  	return ( iDataType );
+    return (iDataType);
 }
-
-
 
 #endif

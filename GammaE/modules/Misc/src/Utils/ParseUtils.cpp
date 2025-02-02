@@ -1,230 +1,277 @@
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include "ParseUtils.h"
 #include "GammaE_Mem.h"
 #include "gammae_filesys.h"
-//-----------------------------------------------------------------------------
-char *ParseUtils_CreateString(const char *String)
+// ----------------------------------------------------------------------------
+namespace Utils {
+namespace Parse {
+// ----------------------------------------------------------------------------
+char* CreateString(const char* String)
 {
-	char *NewStr = (char *)mAlloc(strlen(String)+1);
-    strcpy(NewStr,String);
+    char* NewStr = (char*)MEMAlloc(strlen(String) + 1);
+    strcpy(NewStr, String);
     return(NewStr);
 }
-//-----------------------------------------------------------------------------
-uint ParseUtils_FileSize(FILE *fd)
+// ----------------------------------------------------------------------------
+char* ReadFile(const char* Filename)
 {
-    uint FileLength;
-    uint FilePos = ftell(fd);
-
-    fseek(fd, 0L, SEEK_END);
-    FileLength = ftell(fd);
-    fseek(fd,FilePos,SEEK_SET);
-
-    return(FileLength);
-}
-
-char *ParseUtils_ReadFile(const char *Filename)
-{
-	char *String;
-    char *Stream;
+    char* String;
     uint Len;
 
-	CFile oFile;
-	
-	if (! oFile.bOpen(Filename,"rb")) 
-		return(NULL);
+    CGFile oFile;
 
-	
-	Len = oFile.uiLength();
-	String = (char *)mAlloc(Len+1);
-    if (! String)
+    if (!oFile.bOpen(CGString(Filename), FOM_READ))
+        return(NULL);
+
+    Len = oFile.uiLength();
+    String = (char*)MEMAlloc(Len + 1);
+    if (!String)
     {
-		oFile.Close();
-    	return(NULL);
-	}
-    
-	oFile.ReadCharArray(String,Len);
+        oFile.Close();
+        return(NULL);
+    }
+
+    oFile.ReadArray(String, Len);
     String[Len] = 0;
     oFile.Close();
 
     return(String);
 }
-//-----------------------------------------------------------------------------
-bool ParseUtils_EndOfLine(char a)
+// ----------------------------------------------------------------------------
+bool EndOfLine(char a)
 {
-    return ((a=='\n')||(a=='\r'));
+    return ((a == '\n') || (a == '\r'));
 }
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 static char gscCustomDelimiter = ' ';
 
-void ParseUtils_SetCustomDelimiter(char _cDelimiter)
+void SetCustomDelimiter(char _cDelimiter)
 {
-	gscCustomDelimiter = _cDelimiter;
+    gscCustomDelimiter = _cDelimiter;
 }
-//-----------------------------------------------------------------------------
-bool ParseUtils_Delimiter(char a)
+// ----------------------------------------------------------------------------
+bool Delimiter(char a)
 {
-    return ((a==gscCustomDelimiter) || (a=='\n') || (a=='\r') || (a=='\t'));
+    return ((a == gscCustomDelimiter) || (a == '\n') || (a == '\r') || (a == '\t'));
 }
-//-----------------------------------------------------------------------------
-char *ParseUtils_ParseToken(char *&String)
+// ----------------------------------------------------------------------------
+void PreprocessString(char* String)
 {
-	char	*pszToken;
-	bool	bExitLoop;
+    char* szStrPos = String;
+    do {
+        if (*szStrPos == '\t')
+        {
+            *szStrPos = ' ';
+            szStrPos++;
+        }
+        /*
+            else if (*szStrPos == '\r')
+                    szStrPos++;
 
+            else if (*szStrPos == '\n')
+                    szStrPos++;
+            */
+            // Skip line comments
+        else if ((szStrPos[0] == '/') && (szStrPos[1] == '/'))
+        {
+            char* szNextPos = SkipLine(szStrPos);
+            memset(szStrPos, ' ', szNextPos - szStrPos);
+            szStrPos = szNextPos;
+        }
+        // Skip multiline comments
+        else if ((szStrPos[0] == '/') && (szStrPos[1] == '*'))
+        {
+            char* szNextPos = szStrPos;
 
-	do{
-		pszToken  = String;
-		bExitLoop = true;
+            // Search for corresponding closing multiline comments
+            while ((*szNextPos) && !((szNextPos[0] == '*') && (szNextPos[1] == '/')))
+            {
+                *szNextPos = ' ';
+                szNextPos++;
+            }
 
-		// Skip non white space '\t' '\r' '\n' chars
-		while (
-    			(! ParseUtils_Delimiter(*String))
-				&&
-				(*String)
-    		)
-			String++;
+            if (*szNextPos != 0)
+            {
+                // we've found an ending multiline comment token
+                szStrPos = szNextPos + 2;
+            }
+        }
+        // Skip char
+        else
+            szStrPos++;
+    } while (*szStrPos != 0);
+}
+// ----------------------------------------------------------------------------
+char* ParseToken(char*& String)
+{
+    // if string is empty return no token
+    if (!String) return(NULL);
 
-		// if string is empty return no token
-		if (! String) return(NULL);
+    char* pszToken;
+    bool bExitLoop;
 
-		// Delimit token
-		if (ParseUtils_Delimiter(*String)) *String++ = 0;
+    do {
+        pszToken = String;
+        bExitLoop = true;
 
-		//-----------------------------------------------------------------------------
-		// Skip line comments
-		if (! strcmp("//",pszToken))
-		{
-			String = ParseUtils_SkipLine(String);	
-			bExitLoop = false;
-		}
-		// Skip multiline comments
-	else if (! strcmp("/*",pszToken))
-		{
-			// Search for corresponding closing multiline comments
-			while ( (*String) && !((String[0]=='*') && (String[1]=='/')) )
-				String++;
+        // Skip non white space '\t' '\r' '\n' chars
+        while (
+            (!Delimiter(*String))
+            &&
+            (*String)
+            )
+            String++;
 
-			// We haven't found any token
-			if (! String) return(NULL);						
-		}
-		//-----------------------------------------------------------------------------
+        // if string is empty return no token
+        if (*String == 0) return(pszToken);
 
-	}while (! bExitLoop);
-	
-	//-----------------------------------------------------------------------------
+        // Delimit token
+        if (Delimiter(*String)) *String++ = 0;
+
+        // ----------------------------------------------------------------------------
+        // Skip line comments
+        if (!strcmp("//", pszToken))
+        {
+            String = SkipLine(String);
+            bExitLoop = false;
+        }
+        // Skip multiline comments
+        else if (!strcmp("/*", pszToken))
+        {
+            // Search for corresponding closing multiline comments
+            while ((*String) && !((String[0] == '*') && (String[1] == '/')))
+                String++;
+
+            // We haven't found any token
+            if (!String) return(NULL);
+        }
+        // ----------------------------------------------------------------------------
+    } while (!bExitLoop);
+
     // Skip possible white spaces & '\r' & '\n' & '\t' after token
     while (
-    	   ( ParseUtils_Delimiter(*String) )
-           &&
-           (*String)
-    	  )
-          String++;
+        (Delimiter(*String))
+        &&
+        (*String)
+        )
+        String++;
 
-	if (! *String) String = NULL;
-
-	return(pszToken);
+    return(pszToken);
 }
-//-----------------------------------------------------------------------------
-char *ParseUtils_SkipLine(char *String)
+// ----------------------------------------------------------------------------
+char* SkipLine(char* String)
 {
-	if (! String) return(NULL);	
-	if (*String) String++;
-	
-	// Go to the first end of line delimiter
-	while (! ParseUtils_EndOfLine(*String) && (*String)) String++;
-	
-	// Skip possible delimiters tokens
-	while (ParseUtils_Delimiter(*String) && (*String)) String++;
+    if (!String) return(NULL);
+    if (*String) String++;
 
-	return (String);
+    // Go to the first end of line delimiter
+    while (!EndOfLine(*String) && (*String)) String++;
+
+    // Skip possible delimiters tokens
+    while (Delimiter(*String) && (*String)) String++;
+
+    return (String);
 }
-//-----------------------------------------------------------------------------
-char *ParseUtils_ParseLine(char *&String)
+// ----------------------------------------------------------------------------
+char* ParseLine(char*& String)
 {
-	if (! String) return(NULL);	
-	if (*String) String++;
-	
-	// Go to the first end of line delimiter
-	while (! ParseUtils_EndOfLine(*String) && (*String)) String++;
-	*String = 0;
-	String++;
+    if (!String) return(NULL);
+    if (*String) String++;  // ??
 
-	// Skip possible delimiters tokens
-	while (ParseUtils_Delimiter(*String) && (*String)) String++;
+    SetCustomDelimiter(0);
 
-	return (String);
+    // Go to the first end of line delimiter
+    while (!EndOfLine(*String) && (*String)) String++;
+    *String = 0;
+    String++;
+
+    // Skip possible delimiters tokens
+    while (Delimiter(*String) && (*String)) String++;
+
+    SetCustomDelimiter(' ');
+
+    return (String);
 }
-//-----------------------------------------------------------------------------
-void NextQuotedToken(char* &Token,char* &ShStr)
+// ----------------------------------------------------------------------------
+void NextQuotedToken(char*& Token, char*& ShStr)
 {
-	if (ShStr == NULL)
-	{
-		Token = NULL;
-		return;
-	}
+    if (ShStr == NULL)
+    {
+        Token = NULL;
+        return;
+    }
 
-	if (! *ShStr)
-	{
-		Token = NULL;
-		return;
-	}
+    if (!*ShStr)
+    {
+        Token = NULL;
+        return;
+    }
 
-	if (*ShStr == '"')
-	{
-		ShStr++;
-		Token = ShStr;
-		while ((*ShStr) && (*ShStr != '"')) ShStr++;
-		
-		if (*ShStr == '"')
-		{
-			*ShStr = 0;
-			ShStr++;
-		}
+    if (*ShStr == '"')
+    {
+        ShStr++;
+        Token = ShStr;
+        while ((*ShStr) && (*ShStr != '"')) ShStr++;
 
+        if (*ShStr == '"')
+        {
+            *ShStr = 0;
+            ShStr++;
+        }
 
-		//-----------------------------------------------------------------------------
-		// Skip possible white spaces & '\r' & '\n' & '\t' after token
-		while ((ParseUtils_Delimiter(*ShStr)) && (*ShStr))
-			  ShStr++;
+        // Skip possible white spaces & '\r' & '\n' & '\t' after token
+        while ((Delimiter(*ShStr)) && (*ShStr))
+            ShStr++;
 
-		if (! *ShStr)
-			ShStr = NULL;
-	}
-	else
-	{
-		Token = ParseUtils_ParseToken(ShStr);
-	}
+        if (!*ShStr)
+            ShStr = NULL;
+    }
+    else
+    {
+        Token = ParseToken(ShStr);
+    }
 }
-//-----------------------------------------------------------------------------
-uint ParseUtils_ParseParameters(const CGString& _sSentence,CGDynArray<CGString>* _poWordList,char _cSeparator)
+// ----------------------------------------------------------------------------
+uint ParseParameters(const CGString& _sSentence, CGDynArray <CGString>* _poWordList, char _cSeparator)
 {
-	if (_poWordList == NULL) return(0);
-	
-	// Create a copy of the input string
-	char* szSentence = ParseUtils_CreateString( _sSentence.szString() );
-	char* szNextWord = szSentence;
+    if (_poWordList == NULL) return(0);
 
-	ParseUtils_SetCustomDelimiter(_cSeparator);
+    // Create a copy of the input string
+    char* szSentence = CreateString(_sSentence.szString());
+    char* szNextWord = szSentence;
 
-	_poWordList->Clear();
-	while (szNextWord)
-	{
-		char* szCurrentWord = ParseUtils_ParseToken(szNextWord);
-		_poWordList->uiAdd(szCurrentWord);
-	}
+    SetCustomDelimiter(_cSeparator);
 
-	ParseUtils_SetCustomDelimiter(' ');
-	
-	// Free resources
-	if (szSentence != NULL) mFree(szSentence);
-	return( _poWordList->uiNumElems() );
+    _poWordList->Clear();
+    while (*szNextWord)
+    {
+        char* szCurrentWord = ParseToken(szNextWord);
+        _poWordList->uiAdd(szCurrentWord);
+    }
+
+    SetCustomDelimiter(' ');
+
+    // Free resources
+    if (szSentence != NULL) MEMFree(szSentence);
+    return(_poWordList->uiNumElems());
 }
-//-----------------------------------------------------------------------------
-uint ParseUtils_ParseSentence(const CGString& _sSentence,CGDynArray<CGString>* _poWordList)
+// ----------------------------------------------------------------------------
+uint ParseSentence(const CGString& _sSentence, CGDynArray <CGString>* _poWordList)
 {
-	return( ParseUtils_ParseParameters(_sSentence,_poWordList,' ') );
+    return(ParseParameters(_sSentence, _poWordList, ' '));
 }
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+}} // namespace Utils::Parse
+// ----------------------------------------------------------------------------

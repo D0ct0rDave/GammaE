@@ -1,24 +1,34 @@
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
 #ifndef GScene_h
 #define GScene_h 1
-//-----------------------------------------------------------------------------
-#include "CObject3D.h"
-#include "CObject3D_Node.h"
-#include "CObject3D_Transf.h"
-#include "CObject3D_Instance.h"
-#include "CObject3D_Camera.h"
-#include "CObject3D_Leaf.h"
-#include "CObject3D_CompiledLeaf.h"
-#include "CObject3D_ScreenRect.h"
-#include "CObject3D_Switch.h"
+// ----------------------------------------------------------------------------
+#include "GSceneEnums.h"
 
-#include "Animation/CObject3D_AnimCfgGen.h"
-#include "Animation/CObject3D_AnimCfg.h"
-#include "Animation/CObject3D_AnimCfgMgr.h"
+#include "CGSceneBSPNode.h"
+#include "CGSceneCamera.h"
+#include "CGSceneGroup.h"
+#include "CGSceneInstance.h"
+#include "CGSceneLeaf.h"
+#include "CGSceneMux.h"
+#include "CGSceneNode.h"
+#include "CGSceneScreenRect.h"
+#include "CGSceneSwitch.h"
+#include "CGSceneTransf.h"
 
-#include "Animation/CObject3D_AnimGen.h"
-#include "Animation/CObject3D_AnimTransf.h"
-#include "Animation/CObject3D_AnimMesh.h"
+#include "Animation/CGSceneAnimActionSet.h"
+#include "Animation/CGSceneAnimGroup.h"
+#include "Animation/CGSceneAnimMesh.h"
+#include "Animation/CGSceneAnimNode.h"
+#include "Animation/CGSceneAnimTransf.h"
 
 #include "3D_Loaders/3DSLoader/CLoader3DS.h"
 #include "3D_Loaders/MD2Loader/CLoaderMD2.h"
@@ -29,6 +39,13 @@
 #include "3D_Loaders/GEMLoader/CLoaderGEM.h"
 #include "3D_Savers/GEMSaver/CSaverGEM.h"
 
-//-----------------------------------------------------------------------------
+#include "Visitors/CGSCNVBoundVolBuilder.h"
+#include "Visitors/CGSCNVRenderer.h"
+#include "Visitors/CGSCNVVisibilityChecker.h"
+#include "Visitors/CGSCNVAnimUpdater.h"
+
+#include "GraphBVUtils/CGGraphBVFileIO.h"
+
+// ----------------------------------------------------------------------------
 #endif
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------

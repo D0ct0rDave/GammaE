@@ -1,18 +1,27 @@
-//	  %X% %Q% %Z% %W%
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
 
-#ifndef CLoaderBSP2_h
-#define CLoaderBSP2_h 1
+#ifndef CLoaderBSP2H
+#define CLoaderBSP2H 1
 
 #include "BSP2types.h"
 
-// CObject3D
-#include "CObject3D.h"
-// CObject3D_BSPNode
-#include "CObject3D_BSPNode.h"
-// CObject3D_Node
-#include "CObject3D_Node.h"
-// CObject3D_Leaf
-#include "CObject3D_Leaf.h"
+// CGSceneNode
+#include "CGSceneNode.h"
+// CGSceneBSPNode
+#include "CGSceneBSPNode.h"
+// CGSceneNode
+#include "CGSceneNode.h"
+// CGSceneLeaf
+#include "CGSceneLeaf.h"
 // C3DLoader
 #include "3D_Loaders\C3DLoader.h"
 // SCNUt_TriSceneAccumulator
@@ -20,93 +29,87 @@
 
 struct ext_texinfo
 {
-   int iWidth;
-   int iHeight;
-   bsp_texinfo *pBTI;
+    int iWidth;
+    int iHeight;
+    bsp_texinfo* pBTI;
 };
 
 class CLoaderBSP2 : public C3DLoader
 {
+    public:
+        CLoaderBSP2();
 
-public: CLoaderBSP2();
+        ~CLoaderBSP2();
 
-    ~CLoaderBSP2();
+        virtual CGSceneNode* pLoad(char* Filename);
 
-    virtual CObject3D *pLoad (char *Filename);
+        void SetExtendedTexInfo();
 
-    void SetExtendedTexInfo ();
+        CGSceneNode* poProcessBSP();
 
-    CObject3D *poProcessBSP ();
+        CGSceneNode* poGenerateLeaf(bsp_leaf* _pLeaf);
 
-    CObject3D *poGenerateLeaf (bsp_leaf *_pLeaf);
+        CGSceneNode* poGenerateNode(bsp_node* _pNode);
 
-    CObject3D *poGenerateNode (bsp_node *_pNode);
+        CGSceneNode* poGenerateNodeMesh(bsp_node* _pNode);
 
-    CObject3D *poGenerateNodeMesh (bsp_node *_pNode);
+        void AddFace(bsp_face* pFace, SCNUt_TriSceneAccumulator* _pTScn);
 
-    void AddFace (bsp_face *pFace, SCNUt_TriSceneAccumulator *_pTScn);
+        void SetQ2BaseDir(char* _szDirectory);
 
-    void SetQ2BaseDir (char *_szDirectory);
+    protected:
 
-     // Additional Public Declarations
-protected:
-     // Additional Protected Declarations
-private:
-    // Data Members for Class Attributes
+    private:
 
-    bsp_header oBSPhdr;
+        bsp_header oBSPhdr;
 
-    bsp_point3f *pVXs;
+        bsp_point3f* pVXs;
 
-    int iNumVXs;
+        int iNumVXs;
 
-    bsp_edge *pEdges;
+        bsp_edge* pEdges;
 
-    int iNumEdges;
+        int iNumEdges;
 
-    bsp_face *pFaces;
+        bsp_face* pFaces;
 
-    int iNumFaces;
+        int iNumFaces;
 
-    bsp_leaf_face *pLFaces;
+        bsp_leaf_face* pLFaces;
 
-    int iNumLFaces;
+        int iNumLFaces;
 
-    bsp_face_edge *pFEdges;
+        bsp_face_edge* pFEdges;
 
-    int iNumFEdges;
+        int iNumFEdges;
 
-    bsp_plane *pPlanes;
+        bsp_plane* pPlanes;
 
-    int iNumPlanes;
+        int iNumPlanes;
 
-    bsp_node *pNodes;
+        bsp_node* pNodes;
 
-    int iNumNodes;
+        int iNumNodes;
 
-    bsp_leaf *pLeaves;
+        bsp_leaf* pLeaves;
 
-    int iNumLeaves;
+        int iNumLeaves;
 
-    bsp_texinfo *pTexInfo;
+        bsp_texinfo* pTexInfo;
 
-    ext_texinfo *pExtTexInfo;
+        ext_texinfo* pExtTexInfo;
 
-    int iNumTexs;
+        int iNumTexs;
 
-    bsp_vis_offset *pVIS;
+        bsp_vis_offset* pVIS;
 
-    int iNumVis;
+        int iNumVis;
 
-    CObject3D * *poScnLeaves;
+        CGSceneNode* * poScnLeaves;
 
-    char szQ2BaseDir[256];
+        char szQ2BaseDir[256];
 
-     // Additional Private Declarations
-private:
-    // Additional Implementation Declarations
+    private:
 };
 
-// Class CLoaderBSP2
-
-#endif // ifndef CLoaderBSP2_h
+#endif

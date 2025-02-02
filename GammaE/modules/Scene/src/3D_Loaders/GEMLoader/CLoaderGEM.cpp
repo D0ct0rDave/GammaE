@@ -1,403 +1,376 @@
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "GammaE_FileSys.h"
 #include "GammaE_Mem.h"
+#include "GammaE_Misc.h"
 #include "GEMFile.h"
-//-----------------------------------------------------------------------------
-// CLoaderGEM
+#include "GraphBVUtils/CGGraphBVFileIO.h"
+#include "Animation/CGSceneAnimActionSet.h"
+#include "Animation/CGSceneAnimMesh.h"
+#include "Animation/CGSceneAnimTransf.h"
+#include "Animation/CGSceneAnimGroup.h"
+
+// ----------------------------------------------------------------------------
 #include "3D_Loaders\GEMLoader\CLoaderGEM.h"
-//-----------------------------------------------------------------------------
-// Class CLoaderGEM
-CLoaderGEM::CLoaderGEM()
+// ----------------------------------------------------------------------------
+CGGraphBV* poLoadBoundingVolume(CGFile* _poFile)
+{
+    return CGGraphBVFileIO::pLoadGraphBV(*_poFile);
+}
+// ----------------------------------------------------------------------------
+CLoaderGEM::CLoaderGEM() :
+    m_poFile(NULL)
 {
 }
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 CLoaderGEM::~CLoaderGEM()
 {
 }
-//-----------------------------------------------------------------------------
-CObject3D *CLoaderGEM::pLoad (char *Filename)
+// ----------------------------------------------------------------------------
+CGSceneNode* CLoaderGEM::poLoad(const CGString& _sFilename)
 {
-   CFile oFile;
-   CObject3D       *pObj;
+    CGFile oFile;
+    if ( !oFile.bOpen(_sFilename,FOM_READ) )
+        return(NULL);
 
-   unsigned int uiID;
-   unsigned int uiLenght;
-
-    if (!Filename) return( NULL );
-
-    if ( !oFile.bOpen(Filename,"rb") )
-        return( NULL );
-
-    oFile.iRead(&uiID,4);
-
-    if (uiID != GEM_FILE_IDENTIFIER )
+    uint uiID = oFile.iRead();
+    if ( uiID != GEM_FILE_IDENTIFIER )
     {
-         // ERROR_SetError("GEMLD0002","Bad Gamma Engine Model file");
         oFile.Close();
-        return ( NULL );
+        return (NULL);
     }
 
-    oFile.iRead(&uiLenght,4);
+    uint uiLenght = oFile.iRead();
 
-     // Stablish alternate texture path
-    CGString sDir = ExtractFileDir( CGString(Filename) );
-    CMipMapWH::I()->AlternatePath( sDir );
+    // Stablish alternate texture path
+    CGString sDir = Utils::ExtractFileDir( _sFilename );
+    CGMipMapWH::I()->AlternatePath( sDir );
 
-    pObj = pLoad(oFile);
+    CGSceneNode* poObj = poLoad(oFile);
 
-     // Restore alternate path to default
-    CMipMapWH::I()->AlternatePath( "" );
+    // Restore alternate path to default
+    CGMipMapWH::I()->AlternatePath( "" );
 
     oFile.Close();
-    return ( pObj );
+    return (poObj);
 }
-//-----------------------------------------------------------------------------
-CObject3D *CLoaderGEM::pLoad (CFile & _oFile)
+// ----------------------------------------------------------------------------
+CGSceneNode* CLoaderGEM::poLoad (const CGFile& _oFile)
 {
-   unsigned char ucMajorVersion;
-   unsigned char ucMinorVersion;
+    unsigned char ucMajorVersion;
+    unsigned char ucMinorVersion;
 
-    ucMajorVersion = _oFile.cRead();
-    ucMinorVersion = _oFile.cRead();
+    m_poFile = (CGFile*)&_oFile;
+    
+    ucMajorVersion = m_poFile->cRead();
+    ucMinorVersion = m_poFile->cRead();
 
-    if (ucMajorVersion > GEM_MAJOR_VERSION) return ( NULL );
+    if ( ucMajorVersion > GEM_MAJOR_VERSION ) return (NULL);
+    if ( ucMinorVersion > GEM_MINOR_VERSION ) return (NULL);
 
-    if (ucMinorVersion > GEM_MINOR_VERSION) return ( NULL );
-
-    return ( pLoad3DObject(_oFile) );
+    return ( poLoad3DObject() );
 }
-//-----------------------------------------------------------------------------
-CObject3D *CLoaderGEM::pLoad3DObject (CFile & _oFile)
+// ----------------------------------------------------------------------------
+CGSceneNode* CLoaderGEM::poLoad3DObject ()
 {
-   unsigned int uiObjectID;
-   unsigned int uiBlockLenght;
+    uint uiObjectID = m_poFile->iRead();
+    uint uiBlockLengh = m_poFile->iRead();
 
-   _oFile.iRead(&uiObjectID,4);
-   _oFile.iRead(&uiBlockLenght,4);
-
-    switch ( GEMFile_Translate_FileID2TypeID2(uiObjectID) )
+    switch ( uiObjectID )
     {
-        case e3DObj_NULL:       return ( NULL );
+        case GEM_NULL_IDENTIFIER:   
+        return (NULL);
+        break;
 
-            break;
-        case e3DObj_Gen:        return ( NULL );
+        case GEM_LEAF_IDENTIFIER:   
+        return ( poLoad3DObj_Leaf() );
+        break;
 
-            break;
-        case e3DObj_Leaf:       return ( pLoad3DObj_Leaf(_oFile) );
+        case GEM_NODE_IDENTIFIER:   
+        return ( poLoad3DObj_Node() );
+        break;
 
-            break;
-        case e3DObj_Node:       return ( pLoad3DObj_Node(_oFile) );
+        case GEM_TRANSF_IDENTIFIER:  
+        return ( poLoad3DObj_Transf() );
+        break;
 
-            break;
-        case e3DObj_Transf:     return ( pLoad3DObj_Transf(_oFile) );
+        case GEM_CAMERA_IDENTIFIER:
+        break;
 
-            break;
-        case e3DObj_AnimGen:    return ( NULL );
+        case GEM_BSPNODE_IDENTIFIER: 
+        return ( poLoad3DObj_BSPNode() );
+        break;
 
-            break;
-        case e3DObj_AnimNode:   return ( pLoad3DObj_AnimNode(_oFile) );
-
-            break;
-        case e3DObj_AnimMesh:   return ( pLoad3DObj_AnimMesh(_oFile) );
-
-            break;
-        case e3DObj_AnimTransf: return ( pLoad3DObj_AnimTransf(_oFile) );
-
-            break;
-        case e3DObj_AnimCfg:    return ( pLoad3DObj_AnimCfg(_oFile) );
-
-            break;
-        case e3DObj_AnimCfgMgr: return ( pLoad3DObj_AnimCfgMgr(_oFile) );
-
-            break;
-
-        case e3DObj_Camera:
-            break;
-        case e3DObj_BSPNode:    return ( pLoad3DObj_BSPNode(_oFile) );
-
-            break;
-        case e3DObj_Mux:        return ( pLoad3DObj_Mux(_oFile) );
-
-            break;
+        case GEM_MUX_IDENTIFIER:    
+        return ( poLoad3DObj_Mux() );
+        break;
+        case GEM_ANIMACTIONSET_IDENTIFIER:
+        return ( poLoad3DObj_AnimActionSet() );
+        break;
     }
 
-    return ( NULL );
-} // pLoad3DObject
-//-----------------------------------------------------------------------------
-CMesh *CLoaderGEM::pLoadMesh (CFile & _oFile)
+    return (NULL);
+}
+// ----------------------------------------------------------------------------
+CGMesh* CLoaderGEM::poLoadMesh ()
 {
-   unsigned int uiBlockSize;
-   unsigned int uiID;
+    uint uiID = m_poFile->iRead();
+    uint uiBlockSize = m_poFile->iRead();
 
-   _oFile.iRead(&uiID,4);
-   _oFile.iRead(&uiBlockSize,4);
-
-    if (uiID != GEM_MESH_IDENTIFIER)
+    if ( uiID != GEM_MESH_IDENTIFIER )
     {
-         //ERROR_SetError("GEMLD001","Mesh not found");
-        _oFile.uiSeek(-8,eFile_SM_Cur);
-        return ( NULL );
+        m_poFile->iSeek(-8,FSM_CUR);
+        return (NULL);
     }
 
-    unsigned int uiMeshMask;
-    CMesh       *Mesh = mNew CMesh;
+    uint uiNumVXs = m_poFile->uiRead();
+    uint uiNumPrims = m_poFile->uiRead();
+    E3D_PrimitiveType ePrimType = (E3D_PrimitiveType)m_poFile->uiRead();
 
-    _oFile.iRead(&Mesh->usNumVerts,2);
-    _oFile.iRead(&Mesh->usNumPrims,2);
-    _oFile.iRead(&Mesh->eMeshType,4);
+    // mesh mask
+    uint uiMeshMask = m_poFile->uiRead();
 
-     // mesh mask
-    _oFile.iRead( &uiMeshMask,4);
+    CGMesh* poMesh = mNew CGMesh;
+    poMesh->Init(uiNumVXs,uiNumPrims,ePrimType,uiMeshMask);
 
-    Mesh->Init(Mesh->usNumVerts,Mesh->usNumPrims,Mesh->eMeshType,uiMeshMask);
+    // mesh components
+    if ( poMesh->m_poVX ) m_poFile->ReadArray( (float*)poMesh->m_poVX,uiNumVXs * 3 );
+    if ( poMesh->m_poUV ) m_poFile->ReadArray( (float*)poMesh->m_poUV,uiNumVXs * 2 );
+    if ( poMesh->m_poVC ) m_poFile->ReadArray( (float*)poMesh->m_poVC,uiNumVXs * 4 );
+    if ( poMesh->m_poVN ) m_poFile->ReadArray( (float*)poMesh->m_poVN,uiNumVXs * 3 );
+    if ( poMesh->m_poUV2 ) m_poFile->ReadArray( (float*)poMesh->m_poUV2,uiNumVXs * 2 );
+    if ( poMesh->m_poTN ) m_poFile->ReadArray( (float*)poMesh->m_poTN,uiNumVXs * 3 );
+    if ( poMesh->m_pusIdx ) m_poFile->ReadArray( (short*)poMesh->m_pusIdx,poMesh->uiGetNumIndices());
 
-     // mesh components
-    if (Mesh->VXs ) _oFile.iRead( Mesh->VXs,Mesh->usNumVerts * sizeof( CVect3 ) );
+    // Save the mesh bounding volume
+    poMesh->SetBV( poLoadBoundingVolume(m_poFile) );
 
-    if (Mesh->UVs ) _oFile.iRead( Mesh->UVs,Mesh->usNumVerts * sizeof( CVect2 ) );
-
-    if (Mesh->VCs ) _oFile.iRead( Mesh->VCs,Mesh->usNumVerts * sizeof( CVect4 ) );
-
-    if (Mesh->VNs ) _oFile.iRead( Mesh->VNs,Mesh->usNumVerts * sizeof( CVect3 ) );
-
-    if (Mesh->UVs2) _oFile.iRead( Mesh->UVs2,Mesh->usNumVerts * sizeof( CVect2 ) );
-
-    if (Mesh->TNs ) _oFile.iRead( Mesh->TNs,Mesh->usNumPrims * sizeof( CVect3 ) );
-
-    if (Mesh->Idxs) _oFile.iRead( Mesh->Idxs,Mesh->usNumIdxs * sizeof( unsigned short ) );
-
-     // Save the mesh bounding volume
-    if (Mesh->BVol) mDel Mesh->BVol;
-    Mesh->BVol = CGraphBV_FileIO::pLoadGraphBV(_oFile);
-
-    return ( Mesh );
-} // pLoadMesh
-//-----------------------------------------------------------------------------
-CObject3D_Leaf *CLoaderGEM::pLoad3DObj_Leaf (CFile & _oFile)
-{
-   char MaterialName[MAX_CHARS];
-   CE3D_Shader     *poShader;
-
-   CObject3D_Leaf  *pObj = mNew CObject3D_Leaf();
-
-     // Read material name
-    _oFile.iRead(MaterialName,MAX_CHARS);
-
-     // Get material object
-    poShader = CE3D_ShaderWH::I()->poCreateShader(MaterialName);
-
-    pObj->SetShader( poShader );
-
-     // Write mesh
-    pObj->SetMesh( pLoadMesh(_oFile) );
-    pObj->SetBoundVol( pObj->poGetMesh()->GetBoundVol() );
-
-    return ( pObj );
+    return (poMesh);
 }
-//-----------------------------------------------------------------------------
-CObject3D_Node *CLoaderGEM::pLoad3DObj_Node (CFile & _oFile)
+// ----------------------------------------------------------------------------
+CGSceneLeaf* CLoaderGEM::poLoad3DObj_Leaf ()
 {
-   CObject3D_Node *pObj = mNew CObject3D_Node();
-   CObject3D      *pChild;
+    // Read material name
+    char szMaterialName[MAX_CHARS];
+    m_poFile->uiReadData( (pointer)szMaterialName,MAX_CHARS );
 
-   unsigned int uiNumSubObjs;
-   unsigned int uiObj;
+    // Get material object
+    CGShader* poShader = CGShaderWH::I()->poCreateShader(szMaterialName);
 
-     // Read subobject array props
-    _oFile.iRead(&uiNumSubObjs,4);
+    // Create the leaf object
+    CGSceneLeaf* poObj = mNew CGSceneLeaf();
+    poObj->SetShader( poShader );
 
-    pObj->Init(uiNumSubObjs);
+    // Write mesh
+    poObj->SetMesh( poLoadMesh() );
 
-     // read subobjects
-    for (uiObj = 0; uiObj < uiNumSubObjs; uiObj++)
+    return (poObj);
+}
+// ----------------------------------------------------------------------------
+CGSceneGroup* CLoaderGEM::poLoad3DObj_Node ()
+{
+    // Read subobject array props
+    uint uiNumSubObjs = m_poFile->uiRead();
+    CGSceneGroup* poObj = mNew CGSceneGroup();
+
+    poObj->Init(uiNumSubObjs);
+
+    // read subobjects
+    for ( uint uiObj = 0; uiObj < uiNumSubObjs; uiObj++ )
     {
-        pChild = pLoad3DObject(_oFile);
+        CGSceneNode* poChild = poLoad3DObject();
 
-        if (pChild->eGetTypeID() != e3DObj_NULL)
-            pObj->iAddObject(pChild );
+        if ( poChild->eGetNodeType() != SNT_NULL )
+            poObj->iAddObject(poChild);
     }
 
-     // Load the bounding volume
-    if ( pObj->poGetBoundVol() ) mDel pObj->poGetBoundVol();
-    pObj->SetBoundVol( CGraphBV_FileIO::pLoadGraphBV(_oFile) );
+    // Load the bounding volume
+    poObj->SetBV( poLoadBoundingVolume(m_poFile) );
 
-    return ( pObj );
+    return (poObj);
 }
-//-----------------------------------------------------------------------------
-CObject3D_Transf *CLoaderGEM::pLoad3DObj_Transf (CFile & _oFile)
+// ----------------------------------------------------------------------------
+CGSceneTransf* CLoaderGEM::poLoad3DObj_Transf ()
 {
-   CObject3D_Transf *pObj = mNew CObject3D_Transf();
+    CGSceneTransf* poObj = mNew CGSceneTransf();
 
-   CVect3 oDir;
-   CVect3 oSide;
-   CVect3 oUp;
-   CVect3 oPos;
+    CGVect3 oDir;
+    CGVect3 oSide;
+    CGVect3 oUp;
+    CGVect3 oPos;
 
-     // Read node transformation parameters
-    _oFile.iRead( &oPos,sizeof( CVect3 ) );
-    _oFile.iRead( &oDir,sizeof( CVect3 ) );
-    _oFile.iRead( &oSide,sizeof( CVect3 ) );
-    _oFile.iRead( &oUp,sizeof( CVect3 ) );
+    // Read node transformation parameters
+    m_poFile->ReadArray( (float*)&oPos,3 );
+    m_poFile->ReadArray( (float*)&oDir,3 );
+    m_poFile->ReadArray( (float*)&oSide,3 );
+    m_poFile->ReadArray( (float*)&oUp,3 );
 
-     // Read attached object
-    pObj->SetObject( pLoad3DObject(_oFile) );
+    // Read attached object
+    poObj->SetObject( poLoad3DObject() );
 
-     // Set node transformation parameters
-    pObj->Setup(oPos,oDir,oSide,oUp);
+    // Set node transformation parameters
+    poObj->Setup(oPos,oDir,oSide,oUp);
 
-    return ( pObj );
+    return (poObj);
 }
-//-----------------------------------------------------------------------------
-CObject3D_AnimNode *CLoaderGEM::pLoad3DObj_AnimNode (CFile & _oFile)
+// ----------------------------------------------------------------------------
+CGSceneAnimGroup* CLoaderGEM::poLoad3DObj_AnimGroup()
 {
-   int iMaxSubObjects;
-   int iNumSubObjects;
-   int iNumStates;
-   int iObj;
-   int iState;
-   CObject3D_AnimNode  *pObj;
+    // Read subobject array props
+    uint uiNumSubObjects = m_poFile->uiRead();
+    uint uiNumKeyFrames = m_poFile->uiRead();
 
-     // Read subobject array props
-    _oFile.iRead(&iNumSubObjects,4);
-    _oFile.iRead(&iMaxSubObjects,4);
-    _oFile.iRead(&iNumStates,4);
+    // Initialize object
+    CGSceneAnimGroup* poObj = mNew CGSceneAnimGroup;
+    poObj->Setup(uiNumKeyFrames);
 
-     // Initialize object
-    pObj = mNew CObject3D_AnimNode;
-    pObj->Init(iMaxSubObjects);
-    pObj->CreateStates(iNumStates);
-
-     // Load the the bounding volume state array
-    for (iState = 0; iState < iNumStates; iState++)
+    // Load the the bounding volume state array
+    for ( uint uiFrame = 0; uiFrame < uiNumKeyFrames; uiFrame++ )
     {
-   mDel pObj->poBVolStates[iState];
-        pObj->poBVolStates[iState] = CGraphBV_FileIO::pLoadGraphBV(_oFile);
+        poObj->SetStateBVol(uiFrame, poLoadBoundingVolume(m_poFile) );
     }
-    pObj->SetBoundVol(pObj->poBVolStates[0]);
 
-     // Read subobjects
-    for (iObj = 0; iObj < iNumSubObjects; iObj++)
-        pObj->AddObject( (CObject3D_AnimGen *)pLoad3DObject( _oFile ) );
-
-    return ( pObj );
-}
-//-----------------------------------------------------------------------------
-CObject3D_AnimMesh *CLoaderGEM::pLoad3DObj_AnimMesh (CFile & _oFile)
-{
-   int iNumStateVXs;
-   int iNumStates;
-   int iState;
-   CObject3D_AnimMesh  *pObj;
-
-     // Write object fields
-    _oFile.iRead(&iNumStates,4);
-    _oFile.iRead(&iNumStateVXs,4);
-
-    pObj = mNew CObject3D_AnimMesh;
-    pObj->CreateStates(iNumStates,iNumStateVXs);
-
-     // Load the the vertexs and normals state array
-    _oFile.iRead( pObj->pMeshStates,iNumStates * iNumStateVXs * sizeof( CVect3 ) );
-    _oFile.iRead( pObj->pNMeshStates,iNumStates * iNumStateVXs * sizeof( CVect3 ) );
-
-     // Load the the bounding volume state array
-    for (iState = 0; iState < iNumStates; iState++)
+    // Read subobjects
+    for (uint uiObj = 0; uiObj < uiNumSubObjects; uiObj++)
     {
-   mDel pObj->pBVolStates[iState];
-        pObj->pBVolStates[iState] = CGraphBV_FileIO::pLoadGraphBV(_oFile);
+        poObj->uiAddAnimObject(poLoad3DObj_AnimObject());
     }
-    // pObj->SetBoundVol(pObj->pBVolStates[0]);
 
-     // Load leaf node
-    pObj->SetLeaf( (CObject3D_Leaf *) pLoad3DObject( _oFile ) );
-
-    return ( pObj );
+    return (poObj);
 }
-//-----------------------------------------------------------------------------
-CObject3D_AnimTransf *CLoaderGEM::pLoad3DObj_AnimTransf (CFile & _oFile)
+// ----------------------------------------------------------------------------
+CGSceneAnimMesh* CLoaderGEM::poLoad3DObj_AnimMesh ()
 {
-   CObject3D_AnimTransf    *pObj;
+    // Write object fields
+    uint uiNumStates = m_poFile->uiRead();
 
-   int iNumStates;
+    // Load the startup mesh
+    CGMesh* poMesh = poLoadMesh();
+       
+    CGSceneAnimMesh* poObj = mNew CGSceneAnimMesh;
+    poObj->Setup(poMesh, uiNumStates, poMesh->uiGetNumVXs());
 
-     // Read object fields
-    _oFile.iRead(&iNumStates,4);
+    // Load the the vertexs and normals state array
+    uint uiNumVXs = poMesh->uiGetNumVXs();
+    CGVect3* poVXs = mNew CGVect3[uiNumVXs];
+    CGVect3* poVNs = mNew CGVect3[uiNumVXs];
 
-     // Create and initialize object
-    pObj = mNew CObject3D_AnimTransf;
-    pObj->CreateStates(iNumStates);
+    m_poFile->uiReadData((pointer)poObj->poGetVertices(), uiNumStates * poMesh->uiGetNumVXs() * sizeof(CGVect3));
+    m_poFile->uiReadData((pointer)poObj->poGetNormals(), uiNumStates * poMesh->uiGetNumVXs() * sizeof(CGVect3));
 
-    _oFile.iRead( pObj->pTransStates,iNumStates * sizeof( CMatrix4x4 ) );
-    pObj->ComputeBoundVol();
+    // Load the the bounding volume state array
+    for (uint uiFrame = 0; uiFrame < uiNumStates; uiFrame++ )
+    {
+        poObj->SetStateBVol(uiFrame, poLoadBoundingVolume(m_poFile));
+    }
 
-    return ( pObj );
+    return (poObj);
 }
-//-----------------------------------------------------------------------------
-CObject3D_AnimCfg *CLoaderGEM::pLoad3DObj_AnimCfg (CFile & _oFile)
+// ----------------------------------------------------------------------------
+CGSceneAnimTransf* CLoaderGEM::poLoad3DObj_AnimTransf ()
 {
-   CObject3D_AnimCfg *pObj;
-   int iNumFrameAnims;
+    uint uiNumKeyFrames = m_poFile->uiRead();
 
-     // Read object number of object animations
-    _oFile.iRead(&iNumFrameAnims,4);
+    // Create and initialize object
+    CGSceneAnimTransf* poObj = mNew CGSceneAnimTransf;
+    poObj->Setup(uiNumKeyFrames);
 
-     // Create and initialize object
-    pObj = mNew CObject3D_AnimCfg;
-    pObj->CreateFrameAnims(iNumFrameAnims);
+    m_poFile->uiReadData((pointer)poObj->poGetStateTransforms(), uiNumKeyFrames * sizeof(CGMatrix4x4));
 
-     // Read frame animations
-    _oFile.iRead( pObj->GetFrameAnim(),iNumFrameAnims * sizeof( TFrameAnimation ) );
-
-     // Load attached object
-    pObj->SetAnimObj ( (CObject3D_AnimGen *)pLoad3DObject( _oFile ) );
-
-    return ( pObj );
+    return (poObj);
 }
-//-----------------------------------------------------------------------------
-CObject3D_AnimCfgMgr *CLoaderGEM::pLoad3DObj_AnimCfgMgr (CFile & _oFile)
+// ----------------------------------------------------------------------------
+CGSceneAnimActionSet* CLoaderGEM::poLoad3DObj_AnimActionSet()
 {
-   CObject3D_AnimCfgMgr    *pObj;
-   int iMaxAnimObjs;
-   int iNumAnimObjs;
-   int iObj;
+    CGSceneAnimActionSet* poObj;
 
-     // Read object fields
-    _oFile.iRead(&iMaxAnimObjs,4);
-    _oFile.iRead(&iNumAnimObjs,4);
+       // Read object number of object actions
+       uint uiNumActions = m_poFile->uiRead();
 
-     // Create and initialize object
-    pObj = mNew CObject3D_AnimCfgMgr;
-    pObj->Init(iMaxAnimObjs);
+       // Create and initialize object
+       poObj = mNew CGSceneAnimActionSet();
 
-     // Load attached objects
-    for (iObj = 0; iObj < iNumAnimObjs; iObj++)
-        pObj->AddAnimObj( (CObject3D_AnimCfg *)pLoad3DObject( _oFile ) );
+       // Read frame animations
+       for ( uint i = 0; i < uiNumActions; i++ )
+       {
+            // read action name
+            char szActionName[32];
+            m_poFile->ReadArray(szActionName, 32);
 
-    return ( pObj );
+            // read action data
+            CAnimAction oAction;
+            m_poFile->uiReadData((pointer)&oAction, sizeof(CAnimAction));
+
+            poObj->uiAddAction(CGString(szActionName), oAction.m_uiIniFrame, oAction.m_uiEndFrame, (oAction.m_uiEndFrame - oAction.m_uiIniFrame + 1 ) * oAction.m_fFrameTime, oAction.m_bLoop);
+       }
+
+       // Load attached object
+       poObj->SetAnimObject(poLoad3DObj_AnimObject());
+
+       return (poObj);
+
+    return(NULL);
 }
-//-----------------------------------------------------------------------------
-CObject3D_BSPNode *CLoaderGEM::pLoad3DObj_BSPNode (CFile & _oFile)
+// ----------------------------------------------------------------------------
+CGSceneAnimNode* CLoaderGEM::poLoad3DObj_AnimObject()
 {
-   CObject3D_BSPNode *pObj = mNew CObject3D_BSPNode();
+    uint uiObjectID = m_poFile->uiRead();
+    uint uiBlockLenght = m_poFile->uiRead();
 
-     // Write node transformation parameters
-    _oFile.iRead( pObj->poGetPartitionPlane(),sizeof( CPlane ) );
+    switch (uiObjectID)
+    {
+        case GEM_ANIMMESH_IDENTIFIER:
+        return (poLoad3DObj_AnimMesh());
+        break;
 
-    pObj->SetBackNode ( pLoad3DObject(_oFile) );
-    pObj->SetFrontNode( pLoad3DObject(_oFile) );
+        case GEM_ANIMGROUP_IDENTIFIER:
+        return (poLoad3DObj_AnimGroup() );
+        break;
 
-     // Load the bounding volume
-    if ( pObj->poGetBoundVol() ) mDel pObj->poGetBoundVol();
-    pObj->SetBoundVol( CGraphBV_FileIO::pLoadGraphBV(_oFile) );
+        case GEM_ANIMTRANSF_IDENTIFIER: 
+        return ( poLoad3DObj_AnimTransf() );
+        break;
 
-    return ( pObj );
+        default:
+        m_poFile->Skip(uiBlockLenght);
+        return(NULL);
+        break;
+    }
+
+    return(NULL);
 }
-//-----------------------------------------------------------------------------
-CObject3D_Mux *CLoaderGEM::pLoad3DObj_Mux (CFile & _oFile)
+// ----------------------------------------------------------------------------
+CGSceneBSPNode* CLoaderGEM::poLoad3DObj_BSPNode ()
 {
-    return ( NULL );
+    CGSceneBSPNode* poObj = mNew CGSceneBSPNode();
+
+    // Write node transformation parameters
+    CGPlane oPlane;
+    m_poFile->ReadArray( (float*)&oPlane,sizeof(CGPlane) / sizeof(float) );
+
+    poObj->SetPartitionPlane(oPlane);
+    poObj->SetBackNode ( poLoad3DObject() );
+    poObj->SetFrontNode( poLoad3DObject() );
+
+    // Load the bounding volume
+    poObj->SetBV( poLoadBoundingVolume(m_poFile) );
+
+    return (poObj);
 }
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+CGSceneMux* CLoaderGEM::poLoad3DObj_Mux ()
+{
+    return (NULL);
+}
+// ----------------------------------------------------------------------------

@@ -1,3 +1,12 @@
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
 // ----------------------------------------------------------------------------
 #include "GammaE_Misc.h"
 #include <string.h>
@@ -8,154 +17,151 @@
 // ----------------------------------------------------------------------------
 SCNUt_AnimSceneLoader::~SCNUt_AnimSceneLoader()
 {
-
 }
 // ----------------------------------------------------------------------------
 SCNUt_AnimSceneLoader::SCNUt_AnimSceneLoader()
 {
-
 }
 // ----------------------------------------------------------------------------
-CObject3D* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
+CGSceneNode* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
 {
-	char			*StrBuff;
-	char			*Token;
-	char			*StrPos;
-	int				iMat,iMatNum;
-	int				iTris,iTri;
-	int				iNumFrames;
+    char* StrBuff;
+    char* Token;
+    char* StrPos;
+    int iMat,iMatNum;
+    int iTris,iTri;
+    int iNumFrames;
 
-	CVect3			VXa,VXb,VXc;
-	CVect3			VNa,VNb,VNc;
-	CVect4			VCa,VCb,VCc;
-	CVect2			UVa,UVb,UVc;
+    CGVect3 VXa,VXb,VXc;
+    CGVect3 VNa,VNb,VNc;
+    CGVect4 VCa,VCb,VCc;
+    CGVect2 UVa,UVb,UVc;
 
-	CGDynArray<SCNUt_TriScene*>	oFrames;
-	SCNUt_TriScene*				poStartupFrame;
+    CGDynArray <SCNUt_TriScene*> oFrames;
+    SCNUt_TriScene* poStartupFrame;
 
-	StrBuff = ParseUtils_ReadFile(_szFilename);
-	if (! StrBuff) return(NULL);
+    StrBuff = Utils::Parse::ReadFile(_szFilename);
+    if ( !StrBuff ) return(NULL);
 
-	m_oMaterials.Clear();
+    m_oMaterials.Clear();
 
-	// Animation frames
-	iNumFrames = 0;
+    // Animation frames
+    iNumFrames = 0;
 
-	StrPos = StrBuff;
-	while (StrPos)
-	{
-		Token  = ParseUtils_ParseToken(StrPos);
+    StrPos = StrBuff;
+    while ( *StrPos)
+    {
+        Token = Utils::Parse::ParseToken(StrPos);
 
-		if (! strcmp(Token,"BEGIN"))
-		{
-			Token = ParseUtils_ParseToken(StrPos);
+        if ( !strcmp(Token,"BEGIN") )
+        {
+            Token = Utils::Parse::ParseToken(StrPos);
 
-			if (! strcmp(Token,"TRISCENE"))
-			{
-				StrPos = ParseUtils_SkipLine(StrPos);
-			}
-       else if (! strcmp(Token,"MATERIALS"))
-			{
-				Token = ParseUtils_ParseToken(StrPos);
+            if ( !strcmp(Token,"TRISCENE") )
+            {
+                StrPos = Utils::Parse::SkipLine(StrPos);
+            }
+            else if ( !strcmp(Token,"MATERIALS") )
+            {
+                Token = Utils::Parse::ParseToken(StrPos);
 
-				int iNumMaterials;
-				sscanf(Token,"%d",&iNumMaterials);
+                int iNumMaterials;
+                sscanf_s(Token,"%d",&iNumMaterials);
 
                 // skip opening bracket
-                StrPos = ParseUtils_SkipLine(StrPos);
+                StrPos = Utils::Parse::SkipLine(StrPos);
 
-				// Read the materials
-				for (iMat=0;iMat<iNumMaterials;iMat++)
-				{
+                // Read the materials
+                for ( iMat = 0; iMat < iNumMaterials; iMat++ )
+                {
                     // Get the material number
-					Token  = ParseUtils_ParseToken(StrPos);
-                    sscanf(Token,"%d",&iMatNum);
-                    iMatNum--;	// Materials are 1 based
+                    Token = Utils::Parse::ParseToken(StrPos);
+                    sscanf_s(Token,"%d",&iMatNum);
+                    iMatNum--;  // Materials are 1 based
 
                     // Get the material
-					Token  = ParseUtils_ParseToken(StrPos);
-					m_oMaterials.uiAdd( Token );					
-				}
-			}
-	   else if (! strcmp(Token,"TRIS"))
-			{
-				Token = ParseUtils_ParseToken(StrPos);
+                    Token = Utils::Parse::ParseToken(StrPos);
+                    m_oMaterials.uiAdd( Token );
+                }
+            }
+            else if ( !strcmp(Token,"TRIS") )
+            {
+                Token = Utils::Parse::ParseToken(StrPos);
 
-				sscanf(Token,"%d",&iTris);
+                sscanf_s(Token,"%d",&iTris);
 
                 // skip opening bracket
-                StrPos = ParseUtils_SkipLine(StrPos);
+                StrPos = Utils::Parse::SkipLine(StrPos);
 
-				// Create and parse scene
-				poStartupFrame =  mNew SCNUt_TriScene;
-				poStartupFrame->Init(iTris);
+                // Create and parse scene
+                poStartupFrame = mNew SCNUt_TriScene;
+                poStartupFrame->Init(iTris);
 
-				for (iTri=0;iTri<iTris;iTri++)
-				{
-					// skip opening braket
-					StrPos = ParseUtils_SkipLine(StrPos);
+                for ( iTri = 0; iTri < iTris; iTri++ )
+                {
+                    // skip opening braket
+                    StrPos = Utils::Parse::SkipLine(StrPos);
 
-						// Read triangle material
-						Token  = ParseUtils_ParseToken(StrPos);
-						sscanf(Token,"<%d>",&iMat);
-						iMat--;	// Materials are 1 based
+                    // Read triangle material
+                    Token = Utils::Parse::ParseToken(StrPos);
+                    sscanf_s(Token,"<%d>",&iMat);
+                    iMat--;     // Materials are 1 based
 
-						// Read triangle coordinates
-						Token  = StrPos;
-						StrPos = ParseUtils_SkipLine(StrPos);
-                        *(char*)(StrPos-1) = 0;
+                    // Read triangle coordinates
+                    Token = StrPos;
+                    StrPos = Utils::Parse::SkipLine(StrPos);
+                    *(char*)(StrPos - 1) = 0;
 
-						sscanf(Token,"<%f %f %f><%f %f %f><%f %f %f>",
-										&VXa.v(0),&VXa.v(1),&VXa.v(2),
-										&VXb.v(0),&VXb.v(1),&VXb.v(2),
-										&VXc.v(0),&VXc.v(1),&VXc.v(2));
+                    sscanf_s( Token,"<%f %f %f><%f %f %f><%f %f %f>",
+                           &VXa.v(0),&VXa.v(1),&VXa.v(2),
+                           &VXb.v(0),&VXb.v(1),&VXb.v(2),
+                           &VXc.v(0),&VXc.v(1),&VXc.v(2) );
 
-						// Read vertex normals
-						Token  = StrPos;
-						StrPos = ParseUtils_SkipLine(StrPos);
-                        *(char*)(StrPos-1) = 0;
+                    // Read vertex normals
+                    Token = StrPos;
+                    StrPos = Utils::Parse::SkipLine(StrPos);
+                    *(char*)(StrPos - 1) = 0;
 
-						sscanf(Token,"<%f %f %f><%f %f %f><%f %f %f>",
-										&VNa.v(0),&VNa.v(1),&VNa.v(2),
-										&VNb.v(0),&VNb.v(1),&VNb.v(2),
-										&VNc.v(0),&VNc.v(1),&VNc.v(2));
+                    sscanf_s( Token,"<%f %f %f><%f %f %f><%f %f %f>",
+                           &VNa.v(0),&VNa.v(1),&VNa.v(2),
+                           &VNb.v(0),&VNb.v(1),&VNb.v(2),
+                           &VNc.v(0),&VNc.v(1),&VNc.v(2) );
 
-						// Read vertex colors
-						Token  = StrPos;
-						StrPos = ParseUtils_SkipLine(StrPos);
-                        *(char*)(StrPos-1) = 0;
+                    // Read vertex colors
+                    Token = StrPos;
+                    StrPos = Utils::Parse::SkipLine(StrPos);
+                    *(char*)(StrPos - 1) = 0;
 
-						sscanf(Token,"<%f %f %f><%f %f %f><%f %f %f>",
-										&VCa.v(0),&VCa.v(1),&VCa.v(2),
-										&VCb.v(0),&VCb.v(1),&VCb.v(2),
-										&VCc.v(0),&VCc.v(1),&VCc.v(2));
+                    sscanf_s( Token,"<%f %f %f><%f %f %f><%f %f %f>",
+                           &VCa.v(0),&VCa.v(1),&VCa.v(2),
+                           &VCb.v(0),&VCb.v(1),&VCb.v(2),
+                           &VCc.v(0),&VCc.v(1),&VCc.v(2) );
 
-                        VCa.v(0) /= 100.0f;
-                        VCa.v(1) /= 100.0f;
-                        VCa.v(2) /= 100.0f;
-                        VCa.v(3) = 1.0f;
-                        VCb.v(0) /= 100.0f;
-                        VCb.v(1) /= 100.0f;
-                        VCb.v(2) /= 100.0f;
-                        VCb.v(3) = 1.0f;
-                        VCc.v(0) /= 100.0f;
-                        VCc.v(1) /= 100.0f;
-                        VCc.v(2) /= 100.0f;
-                        VCc.v(3) = 1.0f;
+                    VCa.v(0) /= 100.0f;
+                    VCa.v(1) /= 100.0f;
+                    VCa.v(2) /= 100.0f;
+                    VCa.v(3) = 1.0f;
+                    VCb.v(0) /= 100.0f;
+                    VCb.v(1) /= 100.0f;
+                    VCb.v(2) /= 100.0f;
+                    VCb.v(3) = 1.0f;
+                    VCc.v(0) /= 100.0f;
+                    VCc.v(1) /= 100.0f;
+                    VCc.v(2) /= 100.0f;
+                    VCc.v(3) = 1.0f;
 
-						// Read texture coordinates
-						Token  = StrPos;
-						StrPos = ParseUtils_SkipLine(StrPos);
-                        *(char*)(StrPos-1) = 0;
+                    // Read texture coordinates
+                    Token = StrPos;
+                    StrPos = Utils::Parse::SkipLine(StrPos);
+                    *(char*)(StrPos - 1) = 0;
 
-						sscanf(Token,"<%f %f><%f %f><%f %f>",
-										&UVa.v(0),&UVa.v(1),
-										&UVb.v(0),&UVb.v(1),
-										&UVc.v(0),&UVc.v(1));
+                    sscanf_s( Token,"<%f %f><%f %f><%f %f>",
+                           &UVa.v(0),&UVa.v(1),
+                           &UVb.v(0),&UVb.v(1),
+                           &UVc.v(0),&UVc.v(1) );
 
-
-					// skip closing braket
-					StrPos = ParseUtils_SkipLine(StrPos);
+                    // skip closing braket
+                    StrPos = Utils::Parse::SkipLine(StrPos);
 
                     // Setup triangle
                     poStartupFrame->Tris[iTri].VXs[0] = VXa;
@@ -174,128 +180,118 @@ CObject3D* SCNUt_AnimSceneLoader::poLoad(char* _szFilename)
                     poStartupFrame->Tris[iTri].UVs[1] = UVb;
                     poStartupFrame->Tris[iTri].UVs[2] = UVc;
 
-                    poStartupFrame->Tris[iTri].Material = iMat; 
-				}
-			}
-			
-	   else if (! strcmp(Token,"ANIMFRAMES"))
-			{
-				Token = ParseUtils_ParseToken(StrPos);
+                    poStartupFrame->Tris[iTri].Material = iMat;
+                }
+            }
+            else if ( !strcmp(Token,"ANIMFRAMES") )
+            {
+                Token = Utils::Parse::ParseToken(StrPos);
 
-				sscanf(Token,"%f",&iNumFrames);
-				
-				// 
-			}
-	   else if ( ! strcmp(Token,"ANIMFRAME"))
-			{
+                sscanf_s(Token,"%i",&iNumFrames);
+
+                //
+            }
+            else if ( !strcmp(Token,"ANIMFRAME") )
+            {
                 // skip frame number
-                Token = ParseUtils_ParseToken(StrPos);
+                Token = Utils::Parse::ParseToken(StrPos);
 
-				// Skip opening braket
-                StrPos = ParseUtils_SkipLine(StrPos);
+                // Skip opening braket
+                StrPos = Utils::Parse::SkipLine(StrPos);
 
-				// Create and parse scene
-				SCNUt_TriScene* poFrame =  mNew SCNUt_TriScene;
-				poFrame->Init(iTris);
+                // Create and parse scene
+                SCNUt_TriScene* poFrame = mNew SCNUt_TriScene;
+                poFrame->Init(iTris);
 
-				for (iTri=0;iTri<iTris;iTri++)
-				{
-					// skip opening braket
-					StrPos = ParseUtils_SkipLine(StrPos);
+                for ( iTri = 0; iTri < iTris; iTri++ )
+                {
+                    // skip opening braket
+                    StrPos = Utils::Parse::SkipLine(StrPos);
 
-						// Read triangle coordinates
-						Token  = StrPos;
-						StrPos = ParseUtils_SkipLine(StrPos);
-                        *(char*)(StrPos-1) = 0;
+                    // Read triangle coordinates
+                    Token = StrPos;
+                    StrPos = Utils::Parse::SkipLine(StrPos);
+                    *(char*)(StrPos - 1) = 0;
 
-						sscanf(Token,"<%f %f %f><%f %f %f><%f %f %f>",
-										&VXa.v(0),&VXa.v(1),&VXa.v(2),
-										&VXb.v(0),&VXb.v(1),&VXb.v(2),
-										&VXc.v(0),&VXc.v(1),&VXc.v(2));
+                    sscanf_s( Token,"<%f %f %f><%f %f %f><%f %f %f>",
+                           &VXa.v(0),&VXa.v(1),&VXa.v(2),
+                           &VXb.v(0),&VXb.v(1),&VXb.v(2),
+                           &VXc.v(0),&VXc.v(1),&VXc.v(2) );
 
-						// Read vertex normals
-						Token  = StrPos;
-						StrPos = ParseUtils_SkipLine(StrPos);
-                        *(char*)(StrPos-1) = 0;
+                    // Read vertex normals
+                    Token = StrPos;
+                    StrPos = Utils::Parse::SkipLine(StrPos);
+                    *(char*)(StrPos - 1) = 0;
 
-						sscanf(Token,"<%f %f %f><%f %f %f><%f %f %f>",
-										&VNa.v(0),&VNa.v(1),&VNa.v(2),
-										&VNb.v(0),&VNb.v(1),&VNb.v(2),
-										&VNc.v(0),&VNc.v(1),&VNc.v(2));
+                    sscanf_s( Token,"<%f %f %f><%f %f %f><%f %f %f>",
+                           &VNa.v(0),&VNa.v(1),&VNa.v(2),
+                           &VNb.v(0),&VNb.v(1),&VNb.v(2),
+                           &VNc.v(0),&VNc.v(1),&VNc.v(2) );
 
-						// Setup triangle
-						poFrame->Tris[iTri].VXs[0] = VXa;
-						poFrame->Tris[iTri].VXs[1] = VXb;
-						poFrame->Tris[iTri].VXs[2] = VXc;
+                    // Setup triangle
+                    poFrame->Tris[iTri].VXs[0] = VXa;
+                    poFrame->Tris[iTri].VXs[1] = VXb;
+                    poFrame->Tris[iTri].VXs[2] = VXc;
 
-						poFrame->Tris[iTri].VNs[0] = VNa;
-						poFrame->Tris[iTri].VNs[1] = VNb;
-						poFrame->Tris[iTri].VNs[2] = VNc;
+                    poFrame->Tris[iTri].VNs[0] = VNa;
+                    poFrame->Tris[iTri].VNs[1] = VNb;
+                    poFrame->Tris[iTri].VNs[2] = VNc;
 
-						poFrame->Tris[iTri].Material = 0; 
+                    poFrame->Tris[iTri].Material = 0;
 
-					// skip closing braket
-					StrPos = ParseUtils_SkipLine(StrPos);	
-				}
+                    // skip closing braket
+                    StrPos = Utils::Parse::SkipLine(StrPos);
+                }
 
-				oFrames.uiAdd(poFrame);
-			}
-		}
-	}
-
-	// Compact the startup frame mesh
-	SCNUt_MeshCompacter oMC;
-	CCompactMeshData oCD;
-	oMC.CompactMesh(*poStartupFrame,&oCD);
-
-	// Build anim mesh
-	CObject3D_AnimMesh* poAM = mNew CObject3D_AnimMesh;
-	poAM->CreateStates(oFrames.uiNumElems(),oCD.m_poMesh->usNumVerts);
-
-	uint uiMaxVertexs = oFrames.uiNumElems() * oCD.m_oInvTable.uiNumElems();
-
-	CVect3* poVXs = poAM->pMeshStates;
-	CVect3* poVNs = poAM->pNMeshStates;
-
-	for (uint j=0;j<oFrames.uiNumElems();j++)
-	{
-	    SCNUt_TriScene* poScn = oFrames[j];
-		for (uint i=0;i<oCD.m_oInvTable.uiNumElems();i++)
-		{
-			uint uiTri = oCD.m_oInvTable[i].m_uiTri;
-			uint uiVX  = oCD.m_oInvTable[i].m_uiVX;
-
-			*poVXs = poScn->Tris[uiTri].VXs[uiVX];
-			*poVNs = poScn->Tris[uiTri].VNs[uiVX];
-
-			poVXs++;
-			poVNs++;
-		}
+                oFrames.uiAdd(poFrame);
+            }
+        }
     }
-    
-    // Create leaf node
-    CObject3D_Leaf* poLeaf = mNew CObject3D_Leaf;
-    poLeaf->SetMesh(oCD.m_poMesh);
-    poLeaf->SetShader( CE3D_ShaderWH::I()->poCreateShader( m_oMaterials[0].szString() ) );
-    poLeaf->ComputeBoundVol();
-    
-    // Setup the leaf as the leaf of the animation
-    poAM->SetLeaf( poLeaf );
-    // Free resources
-	mFree (StrBuff);
-	
-	// Create configuration
-	CObject3D_AnimCfg* poACfg = mNew CObject3D_AnimCfg;
-	poACfg->CreateFrameAnims(1);
-	poACfg->SetupFrameAnim(0,0,poAM->iGetNumStates(),30.0f,true);
-	poACfg->SetFrameAnim(0);
-	poACfg->SetAnimObj(poAM);
+
+    // Compact the startup frame mesh
+    SCNUt_MeshCompacter oMC;
+    CCompactMeshData oCD;
+    oMC.CompactMesh(*poStartupFrame,&oCD);
+    oCD.m_poMesh->SetBV(CGGraphBVFactory::poCreate());
+    oCD.m_poMesh->poGetBV()->Compute(oCD.m_poMesh->m_poVN, oCD.m_poMesh->uiGetNumVXs());
+
+    // Build anim mesh
+    CGVect3* poVXs = mNew CGVect3[ oFrames.uiNumElems() * oCD.m_oInvTable.uiNumElems() ];
+    CGVect3* poVNs = mNew CGVect3[ oFrames.uiNumElems() * oCD.m_oInvTable.uiNumElems() ];
+    CGVect3* poVX = poVXs;
+    CGVect3* poVN = poVNs;
+
+    for ( uint j = 0; j < oFrames.uiNumElems(); j++ )
+    {
+        SCNUt_TriScene* poScn = oFrames[j];
+        for ( uint i = 0; i < oCD.m_oInvTable.uiNumElems(); i++ )
+        {
+            uint uiTri = oCD.m_oInvTable[i].m_uiTri;
+            uint uiVX = oCD.m_oInvTable[i].m_uiVX;
+
+            *poVX = poScn->Tris[uiTri].VXs[uiVX];
+            *poVN = poScn->Tris[uiTri].VNs[uiVX];
+
+            poVX++;
+            poVN++;
+        }
+    }
+
+    // Create the animation mesh
+    CGSceneAnimMesh* poAM = mNew CGSceneAnimMesh;
+    poAM->Setup(oCD.m_poMesh, oFrames.uiNumElems(), oCD.m_oInvTable.uiNumElems());
+
+    // Create configuration
+    CGSceneAnimActionSet* poACfg = mNew CGSceneAnimActionSet;
+    poACfg->uiAddAction("TEST",0,oFrames.uiNumElems(),30.0f,true);
+    poACfg->SetAnimObject(poAM);
 
     // Rebuild bounding volumes
-    poACfg->ComputeBoundVol();
+    CGSCNVBoundVolBuilder::I()->Visit(poAM);
 
-	// Return animated mesh
+    // Free resources
+    MEMFree (StrBuff);
+
     return (poACfg);
 }
-
 // ----------------------------------------------------------------------------

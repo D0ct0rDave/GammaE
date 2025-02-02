@@ -1,31 +1,17 @@
-//	  %X% %Q% %Z% %W%
-
-
-
-
-
-// CCOL_MeshTester
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
 #include "COL_Testers\COL_SceneTest\COL_MeshTest\CCOL_MeshTester.h"
-
-
-// Class CCOL_MeshTester 
-
-
-CCOL_MeshTester::CCOL_MeshTester()
-        {
-}
-
-
-CCOL_MeshTester::~CCOL_MeshTester()
+// -----------------------------------------------------------------------------
+int CCOL_MeshTester::iTestCollision (CGBaseMesh* _poMesh, int _iMat, CGGraphBV* _poBVol, CCOL_TriList& _oTriList)
 {
+    return(0);
 }
-
-
-
-int CCOL_MeshTester::iTestCollision (CMesh* _poMesh, int _iMat, CGraphBV* _poBVol, CCOL_TriList& _oTriList)
-{
-  	return(0);
-}
-
-// Additional Declarations
-    
+// -----------------------------------------------------------------------------

@@ -1,0 +1,14 @@
+crear namespace GammaE
+crear fichero GammaE.h
+
+para cadacada modulo
+	concatenar el grupo "modulo" al principio del archivo GammaE.h
+
+	para cada archivo .h
+		buscar la cadena "namespace GammaE" y quitar la linea
+		buscar la cadena }; // namespace GammaE y quitar la linea
+		concatenar el contenido del nuevo fichero en fichero GammaE.h
+	fpara
+fpara
+
+Cerrar namespace GammaE

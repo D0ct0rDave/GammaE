@@ -2,7 +2,7 @@
 echo off
 
 rem git pull
-rem git submodule update --recursive --remote
+git submodule update --recursive --remote
 git pull --recurse-submodules
 
 ::Restore previous folder

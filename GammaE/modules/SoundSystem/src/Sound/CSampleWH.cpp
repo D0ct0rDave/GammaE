@@ -1,3 +1,13 @@
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
 #include <assert.h>
 #include <string.h>
@@ -5,9 +15,10 @@
 #include "SampleUtils/SampleUtils.h"
 // ----------------------------------------------------------------------------
 #ifdef _DEBUG
-typedef struct{
-	char FN[1024][256];
-	int  iNumFiles;
+typedef struct
+{
+    char FN[1024][256];
+    int iNumFiles;
 }TFileList;
 extern TFileList oFileList;
 #endif
@@ -16,43 +27,43 @@ extern TFileList oFileList;
 // ----------------------------------------------------------------------------
 CSample* CSampleWH::poLoadResourceExt(const CGString& _sFilename,bool _bStream)
 {
-	CSample *poSam = SampleUtils_LoadSample((char*)_sFilename.szString(),_bStream);
-	if (poSam == NULL) return(NULL);
+    CSample* poSam = SampleUtils_LoadSample( (char*)_sFilename.szString(),_bStream );
+    if ( poSam == NULL ) return(NULL);
 
-	// Reformat sample according to sound system specification
-	SampleUtils_ConvertSample(poSam,poSam->iChannels,m_uiForcedBits,m_uiForcedSRate);
+    // Reformat sample according to sound system specification
+    SampleUtils_ConvertSample(poSam,poSam->iChannels,m_uiForcedBits,m_uiForcedSRate);
 
-	// Return object
-	return ( poSam );
+    // Return object
+    return (poSam);
 }
 // ----------------------------------------------------------------------------
 CSample* CSampleWH::poLoadResource(const CGString& _sFilename)
 {
-	return ( poLoadResourceExt(_sFilename,false) );
+    return ( poLoadResourceExt(_sFilename,false) );
 }
 // ----------------------------------------------------------------------------
 int CSampleWH::iLoad(const CGString& _sFilename,bool _bStream)
 {
-	// Search for the file
-	CSample* poObj = m_oWH.oGetVar(_sFilename);
-	if (poObj == NULL)
-	{
-		CSample* poRes = poLoadResourceExt(_sFilename,_bStream);
+    // Search for the file
+    CSample* poObj = m_oWH.oGetVar(_sFilename);
+    if ( poObj == NULL )
+    {
+        CSample* poRes = poLoadResourceExt(_sFilename,_bStream);
 
-		if (poRes != NULL)
-			return(-1);
+        if ( poRes != NULL )
+            return(-1);
 
-		return( this->uiAdd(poRes,_sFilename) );		// http://www.parashift.com/c++-faq-lite/templates.html#faq-35.19
-	}
-	else
-	{
-		return ( m_oWH.iGetElemIdx( poObj ) );
-	}
+        return( this->uiAdd(poRes,_sFilename) );                    // http://www.parashift.com/c++-faq-lite/templates.html#faq-35.19
+    }
+    else
+    {
+        return ( m_oWH.iGetElemIdx( poObj ) );
+    }
 }
 // ----------------------------------------------------------------------------
 void CSampleWH::SetForcedParams (uint _uiForcedSRate, uint _uiForcedBits)
 {
-	m_uiForcedSRate= _uiForcedSRate;
-	m_uiForcedBits = _uiForcedBits;
+    m_uiForcedSRate = _uiForcedSRate;
+    m_uiForcedBits = _uiForcedBits;
 }
 // ----------------------------------------------------------------------------

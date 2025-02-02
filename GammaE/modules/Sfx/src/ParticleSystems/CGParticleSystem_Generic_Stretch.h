@@ -1,69 +1,65 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef CGParticleSystem_Generic_Stretch_h
 #define CGParticleSystem_Generic_Stretch_h 1
 
-
-
 // CGParticleSystem_Generic
 #include "ParticleSystems\CGParticleSystem_Generic.h"
 
-typedef struct{
-	
-	CVect3 Pos;
-	CVect3 OldPos;
+typedef struct
+{
+    CGVect3 Pos;
+    CGVect3 OldPos;
 
-	CVect3 Speed;	
-	CVect3 OldSpeed;
-	
-	CGColor Color;
+    CGVect3 Speed;
+    CGVect3 OldSpeed;
 
-	float  fSize;
-	float  fEnergy;
+    CGColor Color;
 
+    float fSize;
+    float fEnergy;
 }TParticle_Stretch;
 
+class CGParticleSystem_Generic_Stretch : public CGParticleSystem_Generic
+{
+    public:
+        CGParticleSystem_Generic_Stretch();
 
+        virtual ~CGParticleSystem_Generic_Stretch();
 
+        virtual void InitPS(int _iMaxParticles, bool _bZOrder, bool _bDisableZBuffer);
 
+        virtual void InitParticle(int iPart);
 
-class CGParticleSystem_Generic_Stretch : public CGParticleSystem_Generic  {
-    
-  public:
-          CGParticleSystem_Generic_Stretch();
+        virtual void UpdateParticle(int iPart);
 
-          virtual ~CGParticleSystem_Generic_Stretch();
+        virtual void UpdatePS(CGMatrix4x4* _ViewMatrix);
 
+        // Additional Public Declarations
 
-                virtual void InitPS (int _iMaxParticles, bool _bZOrder, bool _bDisableZBuffer);
+    protected:
+        // Additional Protected Declarations
 
-            virtual void InitParticle (int iPart);
+    private:
+        // Data Members for Class Attributes
 
-            virtual void UpdateParticle (int iPart);
+        TParticle_Stretch* pParts;
 
-            virtual void UpdatePS (CMatrix4x4* _ViewMatrix);
+        // Additional Private Declarations
 
-    // Additional Public Declarations
-            
-  protected:
-    // Additional Protected Declarations
-            
-  private:
-    // Data Members for Class Attributes
-
-                  TParticle_Stretch *pParts;
-      
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+    private:   // Additional Implementation Declarations
 };
 
-
-// Class CGParticleSystem_Generic_Stretch 
-
-
+// Class CGParticleSystem_Generic_Stretch
 
 #endif

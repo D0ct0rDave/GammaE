@@ -1,3 +1,13 @@
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
 #ifndef CGSFXObjectManagerH
 #define CGSFXObjectManagerH
@@ -6,309 +16,310 @@
 #include "GammaE_Scene.h"
 #include "Billboard/CGBillboardRenderer.h"
 // ----------------------------------------------------------------------------
-// SFX Object Instance Manager. Provides functionality to 
-// enable / disable / get / release / auto management with energy (lifetime) 
+// SFX Object Instance Manager. Provides functionality to
+// enable / disable / get / release / auto management with energy (lifetime)
 // sfx object instances
 // ----------------------------------------------------------------------------
 class CSFXObjectInstance
 {
 };
 // ----------------------------------------------------------------------------
-#define DECLARE_SFXOBJECTMANAGER(CLASSNAME,INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS)\
-class CLASSNAME : public CGSFXObjectManager<INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,CLASSNAME>
+#define DECLARE_SFXOBJECTMANAGER(CLASSNAME,INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS) \
+    class CLASSNAME : public CGSFXObjectManager < INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,CLASSNAME >
 
 template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
-class CGSFXObjectManager : public CGSingleton<BASECLASS>
+class CGSFXObjectManager : public CGSingleton <BASECLASS>
 {
-	friend class CGSingleton<BASECLASS>;
+    friend class CGSingleton <BASECLASS>;
 
-	private:
+    private:
 
-		// Special node which renders all the sfx object instances in the system
-		class CSFXObjectManagerNode : public CObject3D_Node
-		{
-			public:
-				CSFXObjectManagerNode(CGSFXObjectManager* _poSFXObjectManager)
-				{
-					m_poSFXObjectManager = _poSFXObjectManager;
-				}
+        // Special node which renders all the sfx object instances in the system
+        class CSFXObjectManagerNode : public CGSceneGroup
+        {
+            public:
+                CSFXObjectManagerNode(CGSFXObjectManager* _poSFXObjectManager)
+                {
+                    m_poSFXObjectManager = _poSFXObjectManager;
+                }
 
-			protected:
-				virtual void Render()
-				{
-					// Update the Manager
-					m_poSFXObjectManager->Update( CGRenderer::I()->REStats.DTime );
+            protected:
+                virtual void Render()
+                {
+                    // Update the Manager
+                    m_poSFXObjectManager->Update( CGRenderer::I()->oGetStats().m_fDelta );
 
-					// Render all the objects of the manager
-					if (m_poSFXObjectManager->m_poRenderer)
-						m_poSFXObjectManager->m_poRenderer->Render();
-				}
-			
-				CGSFXObjectManager*		m_poSFXObjectManager;
-		};
+                    // Render all the objects of the manager
+                    if ( m_poSFXObjectManager->m_poSceneNodeRenderer )
+                        CGSCNVRenderer::I()->Render(m_poSFXObjectManager->m_poSceneNodeRenderer);
+                }
 
-	public:
+                CGSFXObjectManager* m_poSFXObjectManager;
+        };
 
-		CGSFXObjectManager()
-		{
-			m_poRenderingNode = mNew CSFXObjectManagerNode(this);
-			Init();
-		}
+    public:
 
-	public:
+        CGSFXObjectManager()
+        {
+            m_poRenderingNode = mNew CSFXObjectManagerNode(this);
+            Init();
+        }
 
-		/// Specialized nitialization Procedure
-		virtual void Init();
+    public:
 
-		/// Creates a pool of instances for a given type of sfx object
-		virtual uint uiCreatePool(const CGString& _sType,uint _uiMaxInstances);
+        // / Specialized nitialization Procedure
+        virtual void Init();
 
-		/// Retrieve sfx object instance and allow the user to handle it.
-		handler hGet(const CGString& _sType);
+        // / Creates a pool of instances for a given type of sfx object
+        virtual uint uiCreatePool(const CGString& _sType,uint _uiMaxInstances);
 
-		/// Retrieve sfx object instance and allow the user to handle it.
-		handler hGet(uint _uiType);
+        // / Retrieve sfx object instance and allow the user to handle it.
+        handler hGet(const CGString& _sType);
 
-		/// Self handled sfx object
-		handler hGet(const CGString& _sType,float _fEnergy,const CVect3& _oPos);
+        // / Retrieve sfx object instance and allow the user to handle it.
+        handler hGet(uint _uiType);
 
-		/// Self handled sfx object
-		handler hGet(uint _uiType,float _fEnergy,const CVect3& _oPos);
+        // / Self handled sfx object
+        handler hGet(const CGString& _sType,float _fEnergy,const CGVect3& _oPos);
 
-		/// Retrieves the scene node for a specific sfx object
-		CObject3D* poGetInstanceNode(handler _hSfxObj);
+        // / Self handled sfx object
+        handler hGet(uint _uiType,float _fEnergy,const CGVect3& _oPos);
 
-		/// Releases the sfx object instance
-		void Release(handler _hSfxObj);
+        // / Retrieves the scene node for a specific sfx object
+        CGSceneNode* poGetInstanceNode(handler _hSfxObj);
 
-		/// Retrieves whether the given sfx object is enabled or not
-		bool bEnabled(handler _hSfxObj);
+        // / Releases the sfx object instance
+        void Release(handler _hSfxObj);
 
-		/// Enables or disables the instance
-		void Enable(handler _hSfxObj,bool _bEnable);
+        // / Retrieves whether the given sfx object is enabled or not
+        bool bEnabled(handler _hSfxObj);
 
-		/// Sets the position of a given sfx objecft
-		void SetPos(handler _hSfxObj,const CVect3& _oNewPos);
+        // / Enables or disables the instance
+        void Enable(handler _hSfxObj,bool _bEnable);
 
-		/// Sets the direction of a given sfx object
-		void SetDir(handler _hSfxObj,const CVect3& _oNewDir);
+        // / Sets the position of a given sfx objecft
+        void SetPos(handler _hSfxObj,const CGVect3& _oNewPos);
 
-		/// Retrieves the scene node of the SFX Object Manager
-		CObject3D*	poGetManagerNode() { return(m_poRenderingNode); };
+        // / Sets the direction of a given sfx object
+        void SetDir(handler _hSfxObj,const CGVect3& _oNewDir);
 
-		/// Specialized Updatinf process for the registered instances
-		virtual void Update(float _fDeltaT);
+        // / Retrieves the scene node of the SFX Object Manager
+        CGSceneNode* poGetManagerNode()
+        {
+            return(m_poRenderingNode);
+        }
 
-	protected:
-			
-			// --------------------------------------------------------------------			
-			typedef struct TSFXObject
-			{
-				/// The manager handles this instance or not
-				bool m_bAutoManaged;
+        // / Specialized Updatinf process for the registered instances
+        virtual void Update(float _fDeltaT);
 
-				/// The subobject index in the node of the auto managed PSIs
-				uint m_uiNodeIdx;
+    protected:
 
-				/// The switch node for this SFX Object Instance
-				CObject3D_Switch*	m_poSwitch;
+        // --------------------------------------------------------------------
+        typedef struct TSFXObject
+        {
+            // / The manager handles this instance or not
+            bool m_bAutoManaged;
 
-				/// The SFX Object Instance itself
-				INSTANCECLASS* m_poInstance;
+            // / The subobject index in the node of the auto managed PSIs
+            uint m_uiNodeIdx;
 
-				/// The current energy of this instance
-				float m_fEnergy;
+            // / The switch node for this SFX Object Instance
+            CGSceneSwitch* m_poSwitch;
 
-				/// The type of the instance
-				uint m_uiType;
+            // / The SFX Object Instance itself
+            INSTANCECLASS* m_poInstance;
 
-			}TSFXInstanceData;
+            // / The current energy of this instance
+            float m_fEnergy;
 
-			typedef struct TSFXInstancePool
-			{
-				CGCircularArray<TSFXInstanceData>	m_oInsts;
-				GENERATORCLASS*						m_poGen;
+            // / The type of the instance
+            uint m_uiType;
+        }TSFXInstanceData;
 
-			}TSFXInstancePool;
-			// --------------------------------------------------------------------
+        typedef struct TSFXInstancePool
+        {
+            CGCircularArray <TSFXInstanceData> m_oInsts;
+            GENERATORCLASS* m_poGen;
+        }TSFXInstancePool;
+        // --------------------------------------------------------------------
 
-	protected:
+    protected:
 
-		/// Lookup table for types of pools of PSIs
-		CGLookupArray<TSFXInstancePool*>	m_oPool;
+        // / Lookup table for types of pools of PSIs
+        CGLookupArray <TSFXInstancePool*> m_oPool;
 
-		/// The scene node of the SFX Object Manager
-		CObject3D*							m_poRenderingNode;
+        // / The scene node of the SFX Object Manager
+        CGSceneNode* m_poRenderingNode;
 
-		/// The object which renders all the automanaged enabled instances
-		CObject3D*							m_poRenderer;
+        // / The object which renders all the automanaged enabled instances
+        CGSceneNode* m_poSceneNodeRenderer;
 };
 // ----------------------------------------------------------------------------
 template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
-uint CGSFXObjectManager<INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::uiCreatePool(const CGString& _sType,uint _uiMaxInstances)
+uint CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::uiCreatePool(const CGString& _sType,uint _uiMaxInstances)
 {
-	void* poCG = GENWAREHOUSECLASS::I()->poFind(_sType);
-	if (poCG == NULL) return(-1);
+    void* poCG = GENWAREHOUSECLASS::I()->poFind(_sType);
+    if ( poCG == NULL ) return(-1);
 
-	TSFXInstancePool* poCIs = mNew TSFXInstancePool;
-	poCIs->m_poGen = (GENERATORCLASS*)poCG;
-	poCIs->m_poGen->SetBillboardRenderer((CGBillboardRenderer*)m_poRenderer);
+    TSFXInstancePool* poCIs = mNew TSFXInstancePool;
+    poCIs->m_poGen = (GENERATORCLASS*)poCG;
+    poCIs->m_poGen->SetBillboardRenderer( (CGBillboardRenderer*)m_poSceneNodeRenderer );
 
-	// Add this instance pool to the pool table
-	uint uiType = m_oPool.uiAddVar(_sType,poCIs);
+    // Add this instance pool to the pool table
+    uint uiType = m_oPool.uiAddVar(_sType,poCIs);
 
-	// Create instances for this specific sfx object type
-	poCIs->m_oInsts.Init( _uiMaxInstances );
+    // Create instances for this specific sfx object type
+    poCIs->m_oInsts.Init( _uiMaxInstances );
 
-	for (uint i=0;i<_uiMaxInstances;i++)
-	{
-		TSFXInstanceData* poCI = poCIs->m_oInsts.poGet();
-		poCI->m_poInstance	= mNew INSTANCECLASS((GENERATORCLASS*)poCG);
-		poCI->m_poSwitch	= mNew CObject3D_Switch;
-		poCI->m_uiType		= uiType;
+    for ( uint i = 0; i < _uiMaxInstances; i++ )
+    {
+        TSFXInstanceData* poCI = poCIs->m_oInsts.poGet();
+        poCI->m_poInstance = mNew INSTANCECLASS( (GENERATORCLASS*)poCG );
+        poCI->m_poSwitch = mNew CGSceneSwitch;
+        poCI->m_uiType = uiType;
 
-		poCI->m_poSwitch->SetObject( poCI->m_poInstance );
-	}
-	
-	// Set them ready to be used
-	poCIs->m_oInsts.FreeAll();
-	
-	// Return the index into the lookup array
-	return( uiType );
+        poCI->m_poSwitch->SetObject( poCI->m_poInstance );
+    }
+
+    // Set them ready to be used
+    poCIs->m_oInsts.FreeAll();
+
+    // Return the index into the lookup array
+    return(uiType);
 }
 // ----------------------------------------------------------------------------
 template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
-void CGSFXObjectManager<INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::Init()
+void CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::Init()
 {
-	m_poRenderer = mNew CGBillboardRenderer(128,1000);
+    m_poSceneNodeRenderer = mNew CGBillboardRenderer(128,1000);
 }
 // ----------------------------------------------------------------------------
 template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
-handler CGSFXObjectManager<INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::hGet(const CGString& _sType)
+handler CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::hGet(const CGString& _sType)
 {
-	int iIdx = m_oPool.iGetIdx(_sType);
-	if (iIdx == -1) return(NULL);
+    int iIdx = m_oPool.iGetIdx(_sType);
+    if ( iIdx == -1 ) return(NULL);
 
-	return( hGet(iIdx) );
+    return( hGet(iIdx) );
 }
 // ----------------------------------------------------------------------------
 template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
-handler CGSFXObjectManager<INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::hGet(uint _uiType)
+handler CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::hGet(uint _uiType)
 {
-	TSFXInstanceData* poInst = m_oPool.oGetElem(_uiType)->m_oInsts.poGet();
+    TSFXInstanceData* poInst = m_oPool.oGetElem(_uiType)->m_oInsts.poGet();
 
-	if (poInst == NULL)
-		return(NULL);
-	else
-	{
-		poInst->m_poInstance->Reinit();
-		poInst->m_bAutoManaged = false;
-		return( poInst );
-	}
+    if ( poInst == NULL )
+        return(NULL);
+    else
+    {
+        poInst->m_poInstance->Reinit();
+        poInst->m_bAutoManaged = false;
+        return(poInst);
+    }
 }
 // ----------------------------------------------------------------------------
 template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
-handler CGSFXObjectManager<INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::hGet(const CGString& _sType,float _fEnergy,const CVect3& _oPos)
+handler CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::hGet(const CGString& _sType,float _fEnergy,const CGVect3& _oPos)
 {
-	int iIdx = m_oPool.iGetIdx(_sType);
-	if (iIdx == -1) return(NULL);
+    int iIdx = m_oPool.iGetIdx(_sType);
+    if ( iIdx == -1 ) return(NULL);
 
-	return( hGet(iIdx,_fEnergy,_oPos) );
+    return( hGet(iIdx,_fEnergy,_oPos) );
 }
 // ----------------------------------------------------------------------------
 template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
-handler CGSFXObjectManager<INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::hGet(uint _uiType,float _fEnergy,const CVect3& _oPos)
+handler CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::hGet(uint _uiType,float _fEnergy,const CGVect3& _oPos)
 {
-	TSFXInstanceData* poInst = m_oPool.oGetElem(_uiType)->m_oInsts.poGet();
+    TSFXInstanceData* poInst = m_oPool.oGetElem(_uiType)->m_oInsts.poGet();
 
-	if (poInst == NULL)
-		return(NULL);
-	else
-	{
-		poInst->m_bAutoManaged = true;
-		poInst->m_fEnergy      = _fEnergy;
-		poInst->m_poInstance->SetPos(_oPos);
-		poInst->m_poInstance->Reinit();
-	
-		return( (handler)poInst );
-	}
-}
-// ----------------------------------------------------------------------------
-template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
-void CGSFXObjectManager<INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::Release(handler _hSfxObj)
-{
-	TSFXInstanceData* poInst = (TSFXInstanceData*)_hSfxObj;
-	m_oPool[ poInst->m_uiType ]->m_oInsts.Release( poInst );
-}
-// ----------------------------------------------------------------------------
-template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
-CObject3D* CGSFXObjectManager<INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::poGetInstanceNode(handler _hSfxObj)
-{
-	TSFXInstanceData* poInst = (TSFXInstanceData*)_hSfxObj;
-	return ( poInst->m_poSwitch );
-}
-// ----------------------------------------------------------------------------
-template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
-bool CGSFXObjectManager<INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::bEnabled(handler _hSfxObj)
-{
-	TSFXInstanceData* poInst = (TSFXInstanceData*)_hSfxObj;
-	return( poInst->m_poSwitch->bEnabled());
-}
-// ----------------------------------------------------------------------------
-template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
-void CGSFXObjectManager<INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::Enable(handler _hSfxObj,bool _bEnable)
-{
-	TSFXInstanceData* poInst = (TSFXInstanceData*)_hSfxObj;
-	poInst->m_poSwitch->Enable(_bEnable);
-}
-// ----------------------------------------------------------------------------
-template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
-void CGSFXObjectManager<INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::SetPos(handler _hSfxObj,const CVect3& _oNewPos)
-{
-	TSFXInstanceData* poInst = (TSFXInstanceData*)_hSfxObj;
-	poInst->m_poInstance->SetPos(_oNewPos);
-}
-// ----------------------------------------------------------------------------
-template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
-void CGSFXObjectManager<INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::SetDir(handler _hSfxObj,const CVect3& _oNewDir)
-{
-	TSFXInstanceData* poInst = (TSFXInstanceData*)_hSfxObj;
-	poInst->m_poInstance->SetDir(_oNewDir);
-}
-// ----------------------------------------------------------------------------
-template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
-void CGSFXObjectManager<INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::Update(float _fDeltaT)
-{
-	CGBillboardRenderer* poRenderer = (CGBillboardRenderer*)m_poRenderer;
-	
-	// Updates ALL the instances of the manager both automanaged and user managed
-	poRenderer->Reset();
+    if ( poInst == NULL )
+        return(NULL);
+    else
+    {
+        poInst->m_bAutoManaged = true;
+        poInst->m_fEnergy = _fEnergy;
+        poInst->m_poInstance->SetPos(_oPos);
+        poInst->m_poInstance->Reinit();
 
-	for (uint j=0;j<m_oPool.uiNumElems();j++)
-	{
-		TSFXInstancePool* poPool = m_oPool[j];
-		poRenderer->Begin( poPool->m_poGen->poGetShader() );
+        return( (handler)poInst );
+    }
+}
+// ----------------------------------------------------------------------------
+template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
+void CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::Release(handler _hSfxObj)
+{
+    TSFXInstanceData* poInst = (TSFXInstanceData*)_hSfxObj;
+    m_oPool[ poInst->m_uiType ]->m_oInsts.Release( poInst );
+}
+// ----------------------------------------------------------------------------
+template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
+CGSceneNode* CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::poGetInstanceNode(handler _hSfxObj)
+{
+    TSFXInstanceData* poInst = (TSFXInstanceData*)_hSfxObj;
+    return (poInst->m_poSwitch);
+}
+// ----------------------------------------------------------------------------
+template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
+bool CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::bEnabled(handler _hSfxObj)
+{
+    TSFXInstanceData* poInst = (TSFXInstanceData*)_hSfxObj;
+    return( poInst->m_poSwitch->bEnabled() );
+}
+// ----------------------------------------------------------------------------
+template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
+void CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::Enable(handler _hSfxObj,bool _bEnable)
+{
+    TSFXInstanceData* poInst = (TSFXInstanceData*)_hSfxObj;
+    poInst->m_poSwitch->Enable(_bEnable);
+}
+// ----------------------------------------------------------------------------
+template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
+void CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::SetPos(handler _hSfxObj,const CGVect3& _oNewPos)
+{
+    TSFXInstanceData* poInst = (TSFXInstanceData*)_hSfxObj;
+    poInst->m_poInstance->SetPos(_oNewPos);
+}
+// ----------------------------------------------------------------------------
+template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
+void CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::SetDir(handler _hSfxObj,const CGVect3& _oNewDir)
+{
+    TSFXInstanceData* poInst = (TSFXInstanceData*)_hSfxObj;
+    poInst->m_poInstance->SetDir(_oNewDir);
+}
+// ----------------------------------------------------------------------------
+template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
+void CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::Update(float _fDeltaT)
+{
+    CGBillboardRenderer* poRenderer = (CGBillboardRenderer*)m_poSceneNodeRenderer;
 
-			for (uint i=0;i<poPool->m_oInsts.uiMaxElems();i++)
-			{
-				TSFXInstanceData* poID = poPool->m_oInsts.poElem(i);
+    // Updates ALL the instances of the manager both automanaged and user managed
+    poRenderer->Reset();
 
-				if (poID)
-				{
-					if ( poID->m_bAutoManaged )
-					{
-						if (poID->m_fEnergy <= 0.0f)
-							Release( poID );
-						else
-							poID->m_fEnergy -= _fDeltaT;
-					}
+    for ( uint j = 0; j < m_oPool.uiNumElems(); j++ )
+    {
+        TSFXInstancePool* poPool = m_oPool[j];
+        poRenderer->Begin( poPool->m_poGen->poGetShader() );
 
-					poID->m_poSwitch->Render();
-				}
-			}
+        for ( uint i = 0; i < poPool->m_oInsts.uiMaxElems(); i++ )
+        {
+            TSFXInstanceData* poID = poPool->m_oInsts.poElem(i);
 
-		poRenderer->End();
-	}
+            if ( poID )
+            {
+                if ( poID->m_bAutoManaged )
+                {
+                    if ( poID->m_fEnergy <= 0.0f )
+                        Release( poID );
+                    else
+                        poID->m_fEnergy -= _fDeltaT;
+                }
+
+                CGSCNVRenderer::I()->Render(poID->m_poSwitch);
+            }
+        }
+
+        poRenderer->End();
+    }
 }
 // ----------------------------------------------------------------------------
 #endif

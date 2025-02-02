@@ -1,154 +1,160 @@
-//-----------------------------------------------------------------------------
-#ifndef CGDynArray_h
-#define CGDynArray_h 1
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// ----------------------------------------------------------------------------
+#ifndef CGDynArrayH
+#define CGDynArrayH
+// ----------------------------------------------------------------------------
 #include "GammaE_Mem.h"
-#include "MiscTypes.h"
+#include "GMiscTypes.h"
 #include <assert.h>
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 template <class T>
-class CGDynArray 
+class CGDynArray
 {
-	public:
+    public:
 
-		CGDynArray();
-		~CGDynArray();
+        CGDynArray();
+        ~CGDynArray();
 
-		T& operator[](const uint index) const;
+        T& operator[](const uint index) const;
 
-		uint uiAdd (const T& _oElem);
-		
-		/// Retrieves a free element of the array
-		T& oGet();
+        uint uiAdd(const T& _oElem);
 
-		void Clear ();
-		void Del (uint _uiElemIdx);
-		uint uiNumElems () const;
-		void SetReallocFactor (uint _uiRealloc);
-		T * poBuff ();
+        // / Retrieves a free element of the array
+        T& oGet();
 
-		T &operator[](const uint index);
+        void Clear();
+        void Del(uint _uiElemIdx);
+        uint uiNumElems() const;
+        void SetReallocFactor(uint _uiRealloc);
+        T* poBuff();
 
+        T &operator[](const uint index);
 
-	protected:
-		T* m_poElems;
-		uint m_uiNumElems;
-		uint m_uiMaxElems;
-		uint m_uiRealloc;
+    protected:
+        T* m_poElems;
+        uint m_uiNumElems;
+        uint m_uiMaxElems;
+        uint m_uiRealloc;
 };
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 template <class T>
-inline CGDynArray<T>::CGDynArray() : m_poElems(NULL), m_uiNumElems(0), m_uiMaxElems(0), m_uiRealloc(10)
+inline CGDynArray <T>::CGDynArray() : m_poElems(NULL), m_uiNumElems(0), m_uiMaxElems(0), m_uiRealloc(10)
 {
-  
 }
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 template <class T>
-inline CGDynArray<T>::~CGDynArray()
+inline CGDynArray <T>::~CGDynArray()
 {
-	Clear();
+    Clear();
 }
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 template <class T>
-inline T& CGDynArray<T>::operator[](const uint index) const
+inline T &CGDynArray <T>::operator[](const uint index) const
 {
-  	assert(index< m_uiNumElems);
-	return (m_poElems[index]);
+    assert(index < m_uiNumElems);
+    return (m_poElems[index]);
 }
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 template <class T>
-inline uint CGDynArray<T>::uiAdd(const T& _oElem)
+inline uint CGDynArray <T>::uiAdd(const T& _oElem)
 {
-	if (m_uiNumElems == m_uiMaxElems)
-	{
-		T*	poNewElems;
+    if ( m_uiNumElems == m_uiMaxElems )
+    {
+        T* poNewElems;
 
-		m_uiMaxElems += m_uiRealloc;
-		poNewElems   = (T*)mAlloc(sizeof(T)*m_uiMaxElems);
-		memset(poNewElems,0,sizeof(T)*m_uiMaxElems);
+        m_uiMaxElems += m_uiRealloc;
+        poNewElems = (T*)MEMAlloc(sizeof(T) * m_uiMaxElems);
+        memset(poNewElems,0,sizeof(T) * m_uiMaxElems);
 
-		if (m_poElems)
-		{
-			memcpy(poNewElems,m_poElems,m_uiNumElems*sizeof(T));
-			mFree(m_poElems);
-		}
+        if ( m_poElems )
+        {
+            memcpy( poNewElems,m_poElems,m_uiNumElems * sizeof(T) );
+            MEMFree(m_poElems);
+        }
 
-		m_poElems = poNewElems;		
-	}
-	m_poElems[m_uiNumElems] = _oElem;
-	m_uiNumElems++;
+        m_poElems = poNewElems;
+    }
+    m_poElems[m_uiNumElems] = _oElem;
+    m_uiNumElems++;
 
-	return(m_uiNumElems-1);  
+    return(m_uiNumElems - 1);
 }
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 template <class T>
-inline T& CGDynArray<T>::oGet()
+inline T& CGDynArray <T>::oGet()
 {
-	T oVar;
-	uint uiIdx = uiAdd(oVar);
-	return( m_poElems[uiIdx] );
+    T oVar;
+    uint uiIdx = uiAdd(oVar);
+    return(m_poElems[uiIdx]);
 }
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 template <class T>
-inline void CGDynArray<T>::Clear ()
+inline void CGDynArray <T>::Clear ()
 {
-	if (m_poElems)
-	{
-		mFree(m_poElems);
-		m_poElems = NULL;
-	}
+    if ( m_poElems )
+    {
+        MEMFree(m_poElems);
+        m_poElems = NULL;
+    }
 
-	m_uiNumElems = 0;
-	m_uiMaxElems = 0;
+    m_uiNumElems = 0;
+    m_uiMaxElems = 0;
 }
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 template <class T>
-inline void CGDynArray<T>::Del (uint _uiElemIdx)
+inline void CGDynArray <T>::Del (uint _uiElemIdx)
 {
-	assert(_uiElemIdx < m_uiNumElems);
+    assert(_uiElemIdx < m_uiNumElems);
 
-	if (_uiElemIdx<m_uiNumElems-1)
-	{
-		T* poNewElems;
-		poNewElems   = (T*)mAlloc(sizeof(T)*(m_uiNumElems-1));
-		
-		memcpy(poNewElems            ,m_poElems              ,_uiElemIdx*sizeof(T));
-		memcpy(poNewElems+(_uiElemIdx),m_poElems+(_uiElemIdx+1),(m_uiNumElems-_uiElemIdx-1)*sizeof(T));
-		
-		mFree(m_poElems);
-		m_poElems = poNewElems;
-		
-		m_uiMaxElems = m_uiNumElems-1;
-	}
+    if ( _uiElemIdx < m_uiNumElems - 1 )
+    {
+        T* poNewElems;
+        poNewElems = (T*)MEMAlloc( sizeof(T) * (m_uiNumElems - 1) );
 
-	m_uiNumElems--;
+        memcpy( poNewElems,m_poElems,_uiElemIdx * sizeof(T) );
+        memcpy( poNewElems + (_uiElemIdx),m_poElems + (_uiElemIdx + 1),(m_uiNumElems - _uiElemIdx - 1) * sizeof(T) );
+
+        MEMFree(m_poElems);
+        m_poElems = poNewElems;
+
+        m_uiMaxElems = m_uiNumElems - 1;
+    }
+
+    m_uiNumElems--;
 }
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 template <class T>
-inline uint CGDynArray<T>::uiNumElems() const
+inline uint CGDynArray <T>::uiNumElems() const
 {
-	return (m_uiNumElems);
+    return (m_uiNumElems);
 }
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 template <class T>
-inline void CGDynArray<T>::SetReallocFactor (uint _uiRealloc)
+inline void CGDynArray <T>::SetReallocFactor (uint _uiRealloc)
 {
-	if (_uiRealloc>0) m_uiRealloc = _uiRealloc;
+    if ( _uiRealloc > 0 ) m_uiRealloc = _uiRealloc;
 }
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 template <class T>
-inline T * CGDynArray<T>::poBuff ()
+inline T* CGDynArray <T>::poBuff ()
 {
-	return(m_poElems);
+    return(m_poElems);
 }
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 template <class T>
-inline T& CGDynArray<T>::operator[](const uint index)
+inline T &CGDynArray <T>::operator[](const uint index)
 {
-  	assert(index< m_uiNumElems);
-	return (m_poElems[index]);
+    assert(index < m_uiNumElems);
+    return (m_poElems[index]);
 }
-//-----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 #endif
-//-----------------------------------------------------------------------------
-
+// ----------------------------------------------------------------------------

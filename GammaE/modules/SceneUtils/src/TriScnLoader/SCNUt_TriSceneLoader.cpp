@@ -1,3 +1,13 @@
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
 #include "GammaE_Misc.h"
 #include <string.h>
 #include <stdlib.h>
@@ -6,8 +16,7 @@
 // SCNUt_TriSceneLoader
 #include "TriScnLoader\SCNUt_TriSceneLoader.h"
 
-
-// Class SCNUt_TriSceneLoader 
+// Class SCNUt_TriSceneLoader
 SCNUt_TriSceneLoader::SCNUt_TriSceneLoader()
 {
 }
@@ -16,153 +25,162 @@ SCNUt_TriSceneLoader::~SCNUt_TriSceneLoader()
 {
 }
 
-SCNUt_TriScene * SCNUt_TriSceneLoader::poLoad (char* _szFilename, SCNUt_MaterialTable& _oMTable)
+SCNUt_TriScene* SCNUt_TriSceneLoader::poLoad (char* _szFilename, SCNUt_MaterialTable& _oMTable)
 {
-  	SCNUt_TriScene	*poScene;
-	char			*StrBuff;
-	char			*Token;
-	char			*StrPos;
-	int				iMat,iMatNum;
-	int				iTris,iTri;
+    SCNUt_TriScene* poScene = NULL;
+    char* StrBuff = NULL;
+    char* Token = NULL;
+    char* StrPos = NULL;
+    int iMat,iMatNum;
+    int iTris,iTri;
 
-	CVect3			VXa,VXb,VXc;
-	CVect3			VNa,VNb,VNc;
-	CVect4			VCa,VCb,VCc;
-	CVect2			UVa,UVb,UVc;
+    CGVect3 VXa,VXb,VXc;
+    CGVect3 VNa,VNb,VNc;
+    CGVect4 VCa,VCb,VCc;
+    CGVect2 UVa,UVb,UVc;
 
-	StrBuff = ParseUtils_ReadFile(_szFilename);
-	if (! StrBuff) return(NULL);
-	
-	// Clean material table ... just in case
-	_oMTable.Invalidate();
+    StrBuff = Utils::Parse::ReadFile(_szFilename);
+    if ( !StrBuff ) return(NULL);
 
-	StrPos = StrBuff;
-	while (StrPos)
-	{
-		Token  = ParseUtils_ParseToken(StrPos);
+    // Clean material table ... just in case
+    _oMTable.Invalidate();
 
-		if (! strcmp(Token,"BEGIN"))
-		{
-			Token = ParseUtils_ParseToken(StrPos);
+    StrPos = StrBuff;
+    while ( *StrPos )
+    {
+        Token = Utils::Parse::ParseToken(StrPos);
 
-			if (! strcmp(Token,"TRISCENE"))
-			{
-				StrPos = ParseUtils_SkipLine(StrPos);
-			}
-       else if (! strcmp(Token,"MATERIALS"))
-			{
-				Token = ParseUtils_ParseToken(StrPos);
+        if ( !strcmp(Token,"BEGIN") )
+        {
+            Token = Utils::Parse::ParseToken(StrPos);
 
-				int iNumMaterials = 0;
-				sscanf(Token,"%d",&iNumMaterials);
+            if ( !strcmp(Token,"TRISCENE") )
+            {
+                StrPos = Utils::Parse::SkipLine(StrPos);
+            }
+            else if ( !strcmp(Token,"MATERIALS") )
+            {
+                Token = Utils::Parse::ParseToken(StrPos);
+
+                int iNumMaterials = 0;
+                sscanf(Token,"%d",&iNumMaterials);
 
                 // skip opening bracket
-                StrPos = ParseUtils_SkipLine(StrPos);
+                StrPos = Utils::Parse::SkipLine(StrPos);
 
-				for (iMat=0;iMat<iNumMaterials;iMat++)
-				{
+                for ( iMat = 0; iMat < iNumMaterials; iMat++ )
+                {
                     // Get the material number
-					Token  = ParseUtils_ParseToken(StrPos);
+                    Token = Utils::Parse::ParseToken(StrPos);
                     sscanf(Token,"%d",&iMatNum);
-                    iMatNum--;	// Materials are 1 based
+                    iMatNum--;  // Materials are 1 based
 
                     // Get the material
-					Token  = ParseUtils_ParseToken(StrPos);
+                    Token = Utils::Parse::ParseToken(StrPos);
 
-					// Add the material to the material table
-					CE3D_Shader* poShader = CE3D_ShaderWH::I()->poCreateShader(Token);
-					if (poShader == NULL)
-					{
-						poShader = mNew CE3D_Shader;
-						CE3D_ShaderWH::I()->uiAdd(poShader,Token);
-					}
+                    CGString sMaterialName = Token;
+                    CGString sLowerCaseMaterialName = sMaterialName;
+                    sLowerCaseMaterialName.ToLowerCase();
+                    
+                    if ((sLowerCaseMaterialName == "<undefined>")
+                        || (sLowerCaseMaterialName == ""))
+                    {
+                        sMaterialName = CGString(iMatNum);
+                    }
 
-					_oMTable.uiAdd(poShader,Token);
+                    // Add the material to the material table
+                    CGShader* poShader = CGShaderWH::I()->poCreateShader(sMaterialName);
+                    if ( poShader == NULL )
+                    {
+                        poShader = mNew CGShader;
+                        CGShaderWH::I()->uiAdd(poShader, sMaterialName);
+                    }
 
-					// const CE3D_Shader*poShader = poLeaf->poGetShader();
-					// const char* szShaderName = CE3D_ShaderWH::I()->sGetName( poShader ).szString();
-					// pszMaterials[iMatNum] = ParseUtils_CreateString(Token);
-				}
-			}
-	   else if (! strcmp(Token,"TRIS"))
-			{
-				Token = ParseUtils_ParseToken(StrPos);
+                    _oMTable.uiAdd(poShader, sMaterialName);
 
-				sscanf(Token,"%d",&iTris);
+                    // const CGShader*poShader = poLeaf->poGetShader();
+                    // const char* szShaderName = CGShaderWH::I()->sGetName( poShader ).szString();
+                    // pszMaterials[iMatNum] = Utils::Parse::CreateString(Token);
+                }
+            }
+            else if ( !strcmp(Token,"TRIS") )
+            {
+                Token = Utils::Parse::ParseToken(StrPos);
+
+                sscanf(Token,"%d",&iTris);
 
                 // skip opening bracket
-                StrPos = ParseUtils_SkipLine(StrPos);
+                StrPos = Utils::Parse::SkipLine(StrPos);
 
-				// Create and parse scene
-				poScene =  mNew SCNUt_TriScene;
-				poScene->Init(iTris);
+                // Create and parse scene
+                poScene = mNew SCNUt_TriScene;
+                poScene->Init(iTris);
 
-				for (iTri=0;iTri<iTris;iTri++)
-				{
-					// skip opening braket
-					StrPos = ParseUtils_SkipLine(StrPos);
+                for ( iTri = 0; iTri < iTris; iTri++ )
+                {
+                    // skip opening braket
+                    StrPos = Utils::Parse::SkipLine(StrPos);
 
-						// Read triangle material
-						Token  = ParseUtils_ParseToken(StrPos);
-						sscanf(Token,"<%d>",&iMat);
-						iMat--;	// Materials are 1 based
+                    // Read triangle material
+                    Token = Utils::Parse::ParseToken(StrPos);
+                    sscanf(Token,"<%d>",&iMat);
+                    iMat--;                    // Materials are 1 based
 
-						// Read triangle coordinates
-						Token  = StrPos;
-						StrPos = ParseUtils_SkipLine(StrPos);
-                        *(char*)(StrPos-1) = 0;
+                    // Read triangle coordinates
+                    Token = StrPos;
+                    StrPos = Utils::Parse::SkipLine(StrPos);
+                    *(char*)(StrPos - 1) = 0;
 
-						sscanf(Token,"<%f %f %f><%f %f %f><%f %f %f>",
-										&VXa.x,&VXa.y,&VXa.z,
-										&VXb.x,&VXb.y,&VXb.z,
-										&VXc.x,&VXc.y,&VXc.z);
+                    sscanf(Token,"<%f %f %f><%f %f %f><%f %f %f>",
+                           &VXa.x,&VXa.y,&VXa.z,
+                           &VXb.x,&VXb.y,&VXb.z,
+                           &VXc.x,&VXc.y,&VXc.z);
 
-						// Read vertex normals
-						Token  = StrPos;
-						StrPos = ParseUtils_SkipLine(StrPos);
-                        *(char*)(StrPos-1) = 0;
+                    // Read vertex normals
+                    Token = StrPos;
+                    StrPos = Utils::Parse::SkipLine(StrPos);
+                    *(char*)(StrPos - 1) = 0;
 
-						sscanf(Token,"<%f %f %f><%f %f %f><%f %f %f>",
-										&VNa.x,&VNa.y,&VNa.z,
-										&VNb.x,&VNb.y,&VNb.z,
-										&VNc.x,&VNc.y,&VNc.z);
+                    sscanf(Token,"<%f %f %f><%f %f %f><%f %f %f>",
+                           &VNa.x,&VNa.y,&VNa.z,
+                           &VNb.x,&VNb.y,&VNb.z,
+                           &VNc.x,&VNc.y,&VNc.z);
 
-						// Read vertex colors
-						Token  = StrPos;
-						StrPos = ParseUtils_SkipLine(StrPos);
-                        *(char*)(StrPos-1) = 0;
+                    // Read vertex colors
+                    Token = StrPos;
+                    StrPos = Utils::Parse::SkipLine(StrPos);
+                    *(char*)(StrPos - 1) = 0;
 
-						sscanf(Token,"<%f %f %f><%f %f %f><%f %f %f>",
-										&VCa.x,&VCa.y,&VCa.z,
-										&VCb.x,&VCb.y,&VCb.z,
-										&VCc.x,&VCc.y,&VCc.z);
+                    sscanf(Token,"<%f %f %f><%f %f %f><%f %f %f>",
+                           &VCa.x,&VCa.y,&VCa.z,
+                           &VCb.x,&VCb.y,&VCb.z,
+                           &VCc.x,&VCc.y,&VCc.z);
 
-                        VCa.x /= 100.0f;
-                        VCa.y /= 100.0f;
-                        VCa.z /= 100.0f;
-                        VCa.w  = 1.0f;
-                        VCb.x /= 100.0f;
-                        VCb.y /= 100.0f;
-                        VCb.z /= 100.0f;
-                        VCb.w  = 1.0f;
-                        VCc.x /= 100.0f;
-                        VCc.y /= 100.0f;
-                        VCc.z /= 100.0f;
-                        VCc.w  = 1.0f;
+                    VCa.x /= 100.0f;
+                    VCa.y /= 100.0f;
+                    VCa.z /= 100.0f;
+                    VCa.w = 1.0f;
+                    VCb.x /= 100.0f;
+                    VCb.y /= 100.0f;
+                    VCb.z /= 100.0f;
+                    VCb.w = 1.0f;
+                    VCc.x /= 100.0f;
+                    VCc.y /= 100.0f;
+                    VCc.z /= 100.0f;
+                    VCc.w = 1.0f;
 
-						// Read texture coordinates
-						Token  = StrPos;
-						StrPos = ParseUtils_SkipLine(StrPos);
-                        *(char*)(StrPos-1) = 0;
+                    // Read texture coordinates
+                    Token = StrPos;
+                    StrPos = Utils::Parse::SkipLine(StrPos);
+                    *(char*)(StrPos - 1) = 0;
 
-						sscanf(Token,"<%f %f><%f %f><%f %f>",
-										&UVa.x,&UVa.y,
-										&UVb.x,&UVb.y,
-										&UVc.x,&UVc.y);
+                    sscanf(Token,"<%f %f><%f %f><%f %f>",
+                           &UVa.x,&UVa.y,
+                           &UVb.x,&UVb.y,
+                           &UVc.x,&UVc.y);
 
-
-					// skip closing braket
-					StrPos = ParseUtils_SkipLine(StrPos);
+                    // skip closing braket
+                    StrPos = Utils::Parse::SkipLine(StrPos);
 
                     // Setup triangle
                     poScene->Tris[iTri].VXs[0] = VXa;
@@ -181,14 +199,25 @@ SCNUt_TriScene * SCNUt_TriSceneLoader::poLoad (char* _szFilename, SCNUt_Material
                     poScene->Tris[iTri].UVs[1] = UVb;
                     poScene->Tris[iTri].UVs[2] = UVc;
 
-                    poScene->Tris[iTri].Material = iMat; 
+                    poScene->Tris[iTri].Material = iMat;
+                }
+            }
+        }
+    }
 
-				}
-			}
-		}
-	}
+    for (uint i = 0;i < _oMTable.uiNumElems();i++)
+    {
+        CGShader* poShader = _oMTable.poGet(i);
 
-	mFree (StrBuff);
+        if (poShader != NULL)
+        {
+            CGString sString = _oMTable.sGetName(poShader);
+            int a = 0;
+        }
+    }
+
+
+    MEMFree (StrBuff);
     return (poScene);
 }
 

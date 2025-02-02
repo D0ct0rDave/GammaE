@@ -1,13 +1,19 @@
-//	  %X% %Q% %Z% %W%
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
+// %X% %Q% %Z% %W%
 
 #ifndef SCNUt_BSPBuilder_h
 #define SCNUt_BSPBuilder_h 1
 
-
-
-// CObject3D
+// CGSceneNode
 #include "GammaE_Scene.h"
 // SCNUt_TriScene
 #include "SCNUt_TriScene.h"
@@ -22,49 +28,39 @@
 // SCNUt_TriSceneSeparator
 #include "SeparateTriScene\SCNUt_TriSceneSeparator.h"
 
-
-
-
-
-class SCNUt_BSPBuilder 
+class SCNUt_BSPBuilder
 {
-    
-  public:
-          SCNUt_BSPBuilder();
+    public:
+        SCNUt_BSPBuilder();
 
-          ~SCNUt_BSPBuilder();
+        ~SCNUt_BSPBuilder();
 
+        CGSceneNode* poBuildBSP(SCNUt_TriScene& _oScene, SCNUt_MaterialTable& _oMatTable);
 
-                CObject3D * poBuildBSP (SCNUt_TriScene& _oScene, SCNUt_MaterialTable& _oMatTable);
+        // Data Members for Class Attributes
 
-    // Data Members for Class Attributes
+        int iMaxSubdivisions;
 
-                  int iMaxSubdivisions;
-      
-                  int iMinTrisPerNode;
-      
-    // Additional Public Declarations
-            
-  protected:
+        int iMinTrisPerNode;
 
-                CPlane GetPartitionPlane (SCNUt_TriScene& _oScene);
+        // Additional Public Declarations
 
-            int SelectPlaneCandidates (SCNUt_TriScene& _oScene, int *_piTriIdxs, int _iNumTris);
+    protected:
 
-            int iGetNumSplits (SCNUt_TriScene& _oScene, CPlane& _oPlane, int &_iBackTris, int& _iFrontTris);
+        CGPlane GetPartitionPlane(SCNUt_TriScene& _oScene);
 
-    // Additional Protected Declarations
-            
-  private:
-    // Additional Private Declarations
-            
-  private:     // Additional Implementation Declarations
-            
+        int SelectPlaneCandidates(SCNUt_TriScene& _oScene, int* _piTriIdxs, int _iNumTris);
+
+        int iGetNumSplits(SCNUt_TriScene& _oScene, CGPlane& _oPlane, int &_iBackTris, int& _iFrontTris);
+
+        // Additional Protected Declarations
+
+    private:
+        // Additional Private Declarations
+
+    private:                    // Additional Implementation Declarations
 };
 
-
-// Class SCNUt_BSPBuilder 
-
-
+// Class SCNUt_BSPBuilder
 
 #endif

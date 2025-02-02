@@ -1,7 +1,13 @@
-
-
-
-
+// -----------------------------------------------------------------------------
+/*! \class
+ *  \brief
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.5
+ *  \date 1999-2009
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
+ *  \par GammaE License
+ */
+// -----------------------------------------------------------------------------
 #include "GammaE_Mem.h"
 #include "GammaE_Scene.h"
 // SCNUt_TriSceneAccumulator
@@ -14,169 +20,166 @@
 #include "Mesh2TriScn\SCNUt_Mesh2TriScene.h"
 #define TRANSF_STACK_SIZE   64
 
-
-// Class SCNUt_Scn2TriScnBuilder 
+// Class SCNUt_Scn2TriScnBuilder
 
 SCNUt_Scn2TriScnBuilder::SCNUt_Scn2TriScnBuilder()
-        {
+{
 }
-
 
 SCNUt_Scn2TriScnBuilder::~SCNUt_Scn2TriScnBuilder()
 {
 }
 
-
-
-SCNUt_TriScene * SCNUt_Scn2TriScnBuilder::poBuild (CObject3D* _poScene, SCNUt_MaterialTable& _oMTable)
+SCNUt_TriScene* SCNUt_Scn2TriScnBuilder::poBuild (CGSceneNode* _poScene, SCNUt_MaterialTable& _oMTable)
 {
-  	CMatrix4x4			oMatStack[TRANSF_STACK_SIZE];
+    CGMatrix4x4 oMatStack[TRANSF_STACK_SIZE];
     oMatStack[0].LoadIdentity();
-    
-	return (poBuildRec(_poScene,oMatStack,0,_oMTable));
+
+    return ( poBuildRec(_poScene,oMatStack,0,_oMTable) );
 }
 
-SCNUt_TriScene* SCNUt_Scn2TriScnBuilder::poBuildRec (CObject3D* _poScene, CMatrix4x4 *_poMStack, int _iMPos, SCNUt_MaterialTable& _poMTab)
+SCNUt_TriScene* SCNUt_Scn2TriScnBuilder::poBuildRec (CGSceneNode* _poScene, CGMatrix4x4* _poMStack, int _iMPos, SCNUt_MaterialTable& _poMTab)
 {
-  	if (!_poScene) return(NULL);
+    if ( !_poScene ) return(NULL);
 
-	switch (_poScene->eGetTypeID())
-	{
-		case e3DObj_Gen:
-									break;
+    switch ( _poScene->eGetNodeType() )
+    {
+        case SNT_Node:
+        break;
 
-		case e3DObj_Leaf:
-		{
-			CObject3D_Leaf			*poLeaf;
-			CMesh					*poMesh;
-			uint					uiMatID;
+        case SNT_Leaf:
+        {
+            CGSceneLeaf* poLeaf = (CGSceneLeaf*)_poScene;
+            if (poLeaf->poGetMesh()->eGetType() == E3D_MeshType::E3D_MT_Mesh)
+            {
+                CGMesh* poMesh = (CGMesh*)poLeaf->poGetMesh();
+                const CGShader* poShader = poLeaf->poGetShader();
+                const char* szShaderName = CGShaderWH::I()->sGetName( poShader ).szString();
 
-			poLeaf = (CObject3D_Leaf*)_poScene;
-			poMesh = poLeaf->poGetMesh();
-			const CE3D_Shader*poShader = poLeaf->poGetShader();
-			const char* szShaderName = CE3D_ShaderWH::I()->sGetName( poShader ).szString();
-			
-			uiMatID = _poMTab.iGetIdx(poShader);
+                int iMatID = _poMTab.iGetIdx(poShader);
 
-			if (uiMatID == -1)
-				uiMatID = _poMTab.uiAdd(poShader, szShaderName);
+                if (iMatID == -1 )
+                    iMatID = _poMTab.uiAdd(poShader, szShaderName);
 
-			return( poBuildMesh (*poMesh,uiMatID,_poMStack[_iMPos]) );
-		}
-		break;
+                return( poBuildMesh(*poMesh, iMatID, _poMStack[_iMPos]) );
+            }
+        }
+        break;
 
-		case e3DObj_Node:
-		{           
-			CObject3D_Node				*poNode;
-			SCNUt_TriSceneAccumulator	*poTSA;
-			SCNUt_TriScene				*poTS = NULL;
+        case SNT_Group:
+        {
+            CGSceneGroup* poNode;
+            SCNUt_TriSceneAccumulator* poTSA;
+            SCNUt_TriScene* poTS = NULL;
 
-			poNode = (CObject3D_Node*)_poScene;
+            poNode = (CGSceneGroup*)_poScene;
 
-			// Create a triangle scene accumulator
-			poTSA = mNew SCNUt_TriSceneAccumulator;
+            // Create a triangle scene accumulator
+            poTSA = mNew SCNUt_TriSceneAccumulator;
 
-			for (uint uiObj=0;uiObj<poNode->uiNumSubObjs();uiObj++)
-			{
-				if (poNode->poGetObject(uiObj))
-				{
-					poTS = poBuildRec(poNode->poGetObject(uiObj),_poMStack,_iMPos,_poMTab);
-					poTSA->AddTriScene(poTS);
-					
-					// Delete retrieved scene
-					mDel poTS;
-				}
-			}
+            for ( uint uiObj = 0; uiObj < poNode->uiNumSubObjs(); uiObj++ )
+            {
+                if ( poNode->poGetObject(uiObj) )
+                {
+                    poTS = poBuildRec(poNode->poGetObject(uiObj),_poMStack,_iMPos,_poMTab);
+                    poTSA->AddTriScene(poTS);
 
-			return(poTSA);
-		}
-		break;
+                    // Delete retrieved scene
+                    mDel poTS;
+                }
+            }
 
-		case e3DObj_Transf:
-		{
-            if (_iMPos == TRANSF_STACK_SIZE) return(NULL);
+            return(poTSA);
+        }
+        break;
 
-			CObject3D_Transf			*poTransf;			
-			poTransf = (CObject3D_Transf*)_poScene;
+        case SNT_Transf:
+        {
+            if ( _iMPos == TRANSF_STACK_SIZE ) return(NULL);
 
-			// ----------------------------------
-			// Update the top of the matrix stack
-			// ----------------------------------
-			_iMPos++;
+            CGSceneTransf* poTransf;
+            poTransf = (CGSceneTransf*)_poScene;
 
-			// Multiply by the node matrix
-			_poMStack[_iMPos].Multiply( _poMStack[_iMPos-1],poTransf->oTransf());
+            // ----------------------------------
+            // Update the top of the matrix stack
+            // ----------------------------------
+            _iMPos++;
 
-			return(poBuildRec(poTransf->poGetObject(),_poMStack,_iMPos,_poMTab));
-		}
-		break;
+            // Multiply by the node matrix
+            _poMStack[_iMPos].Multiply( _poMStack[_iMPos - 1],poTransf->oTransf() );
 
-		case e3DObj_AnimGen:		
-									break;
-		case e3DObj_AnimNode:		
-									break;
-		case e3DObj_AnimMesh:		
-									break;
-		case e3DObj_AnimTransf:		
-									break;
-		case e3DObj_AnimCfg:		
-									break;
-		case e3DObj_AnimCfgMgr:		
-									break;
-		case e3DObj_BSPNode:
-		{
-			SCNUt_TriSceneAccumulator	*poTSA;
-			SCNUt_TriScene				*poTS;			
-			CObject3D_BSPNode			*poBSPNode;
+            return( poBuildRec(poTransf->poGetObject(),_poMStack,_iMPos,_poMTab) );
+        }
+        break;
 
-			poBSPNode = (CObject3D_BSPNode*)_poScene;
-			
-			// Create a triangle scene accumulator
-			poTSA = mNew SCNUt_TriSceneAccumulator;					
+        case SNT_AnimNode:
+        break;
 
-			if (poBSPNode->poGetBackNode())
-			{
-				poTS = poBuildRec(poBSPNode->poGetBackNode(),_poMStack,_iMPos,_poMTab);
-				poTSA->AddTriScene(poTS);
-				// Delete retrieved scene
-				mDel poTS;
-			}
+        case SNT_AnimGroup:
+        break;
 
-			if (poBSPNode->poGetFrontNode())
-			{
-				poTS = poBuildRec(poBSPNode->poGetFrontNode(),_poMStack,_iMPos,_poMTab);
-				poTSA->AddTriScene(poTS);
-				// Delete retrieved scene
-				mDel poTS;
-			}
-			
-			return(poTSA);
-		}
-		break;
+        case SNT_AnimMesh:
+        break;
 
-		case e3DObj_Mux:    		
-									break;
- 
-		default:					
-									break;
-	}
+        case SNT_AnimTransf:
+        break;
 
-	return(NULL);
+        case SNT_AnimActionSet:
+        break;
+
+        case SNT_BSPNode:
+        {
+            SCNUt_TriSceneAccumulator* poTSA;
+            SCNUt_TriScene* poTS;
+            CGSceneBSPNode* poBSPNode;
+
+            poBSPNode = (CGSceneBSPNode*)_poScene;
+
+            // Create a triangle scene accumulator
+            poTSA = mNew SCNUt_TriSceneAccumulator;
+
+            if ( poBSPNode->poGetBackNode() )
+            {
+                poTS = poBuildRec(poBSPNode->poGetBackNode(),_poMStack,_iMPos,_poMTab);
+                poTSA->AddTriScene(poTS);
+                // Delete retrieved scene
+                mDel poTS;
+            }
+
+            if ( poBSPNode->poGetFrontNode() )
+            {
+                poTS = poBuildRec(poBSPNode->poGetFrontNode(),_poMStack,_iMPos,_poMTab);
+                poTSA->AddTriScene(poTS);
+                // Delete retrieved scene
+                mDel poTS;
+            }
+
+            return(poTSA);
+        }
+        break;
+
+        case SNT_Mux:
+        break;
+
+        default:
+        break;
+    }
+
+    return(NULL);
 }
 
-SCNUt_TriScene* SCNUt_Scn2TriScnBuilder::poBuildMesh (CMesh& _oMesh, int _iMat, CMatrix4x4& _oMat)
+SCNUt_TriScene* SCNUt_Scn2TriScnBuilder::poBuildMesh(const CGMesh& _oMesh, int _iMat, const CGMatrix4x4& _oMat)
 {
-  	SCNUt_Mesh2TriScene		oM2TS;
-	SCNUt_TransformTriScene oTrTS;
-	SCNUt_TriScene			*poTScn;
-		
-	poTScn = oM2TS.Generate(_oMesh,_iMat);
-    if (! poTScn) return(NULL);
+    SCNUt_Mesh2TriScene oM2TS;
+    SCNUt_TransformTriScene oTrTS;
+    SCNUt_TriScene* poTScn;
 
-	oTrTS.Transform(poTScn,_oMat);
-    
-	return(poTScn);
+    poTScn = oM2TS.Generate(_oMesh,_iMat);
+    if ( !poTScn ) return(NULL);
+
+    oTrTS.Transform(poTScn,_oMat);
+
+    return(poTScn);
 }
 
 // Additional Declarations
-    
