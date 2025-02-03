@@ -16,8 +16,6 @@ class CLoop
 		static void Update(float _fDeltaT);
 		static void Render();
 		static void Loop();
-		
-		static void LoadGTS(char* _szFilename,char* _szDirectory);
 };
 //---------------------------------------------------------------------------
 #endif

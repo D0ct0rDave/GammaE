@@ -21,28 +21,6 @@ CGProjector		    PerspPrj;
 CGSceneCamera       gCamera;
 CGSceneNode*		gpoScene = NULL;
 // ----------------------------------------------------------------------------
-static char s_szCurDir[1024];
-const CGString& sPushFileDirectory(char* _szFilename)
-{
-#ifdef WIN32
-	GetCurrentDirectory(1024, s_szCurDir);
-	CGString sDir = Utils::ExtractFileDir(CGString(_szFilename));
-	static CGString sFile = Utils::ExtractFileName(CGString(_szFilename));
-	SetCurrentDirectory(sDir.szString());
-	return sFile;
-#else
-	return CGString();
-#endif
-
-}
-
-void PopFileDirectory()
-{
-#ifdef WIN32
-	SetCurrentDirectory(s_szCurDir);
-#endif
-}
-// ----------------------------------------------------------------------------
 void CLoop::Init(void* _hWnd)
 {
 	globals.m_hWnd = (HWND)_hWnd;
@@ -89,6 +67,18 @@ void CLoop::Init(void* _hWnd)
 	gCamera.SetProjector(&PerspPrj);
 	gCamera.SetViewport (&Viewport);
 
+	CGShader* poShader = new CGShader;
+	CGShInsWireframe* poInst = mNew CGShInsWireframe;
+	poInst->SetColor(CGColor(1.0f, 1.0f, 0.0f, 1.0f));
+	poShader->AddInstruction(poInst);
+		
+	CGSceneLeaf* poLeaf = mNew CGSceneLeaf();
+	poLeaf->SetMesh(mNew CGMeshSphere());
+	poLeaf->SetShader(poShader);
+
+	gCamera.iAddObject(poLeaf);
+
+	gpoScene = poLeaf;
     globals.m_fTime = 0.0f;
 }
 // ----------------------------------------------------------------------------
@@ -107,30 +97,27 @@ void CLoop::Update(float _fDeltaT)
 {
 	globals.m_fTime += _fDeltaT;
 
-	if (gpoScene != NULL)
+	const float FREQ = 1.0f/4.0f;
+	float fAngle = globals.m_fTime*FREQ;
+		
+	CGVect3 oCenter = CGVect3::oZero();
+	CGVect3 oRange(1.0f,1.0f,1.0f);
+	CGVect3 oPos;
+		
+	if (gpoScene->poGetBV() != NULL)
 	{
-		const float FREQ = 1.0f/4.0f;
-		float fAngle = globals.m_fTime*FREQ;
-		
-		CGVect3 oCenter = CGVect3::oZero();
-		CGVect3 oRange(1.0f,1.0f,1.0f);
-		CGVect3 oPos;
-		
-		if (gpoScene->poGetBV() != NULL)
-		{
-			oCenter = gpoScene->poGetBV()->oGetCenter();
-			oRange = gpoScene->poGetBV()->GetExtents();
-			PerspCam.LookAt(oCenter);
-		}
-		float fAmplitude = oRange.fModule() * 2.0f;
-		
-		oPos.x = oCenter.x + fAmplitude * Math::fSin(fAngle);
-		oPos.y = oCenter.y + fAmplitude * Math::fCos(fAngle);
-		oPos.z = oCenter.z;
-
-		PerspCam.SetPos(oPos.x,oPos.y,oPos.z);
+		oCenter = gpoScene->poGetBV()->oGetCenter();
+		oRange = gpoScene->poGetBV()->GetExtents();
 		PerspCam.LookAt(oCenter);
-	}	
+	}
+	float fAmplitude = oRange.fModule() * 2.0f;
+		
+	oPos.x = oCenter.x + fAmplitude * Math::fSin(fAngle);
+	oPos.y = oCenter.y + fAmplitude * Math::fCos(fAngle);
+	oPos.z = oCenter.z;
+
+	PerspCam.SetPos(oPos.x,oPos.y,oPos.z);
+	PerspCam.LookAt(oCenter);
 }
 // ----------------------------------------------------------------------------
 void CLoop::Render()
@@ -141,34 +128,8 @@ void CLoop::Render()
 	CGRenderer::I()->BeginRender();
 
 		// Render camera scene
-        if (gpoScene)
-		{
-			gpoScene->Ref();
-			gCamera.SetObject(gpoScene, 0);
-			CGSCNVRenderer::I()->Render(&gCamera);
-		}
+		CGSCNVRenderer::I()->Render(&gCamera);
 
     CGRenderer::I()->EndRender();
-}
-// ----------------------------------------------------------------------------
-void CLoop::LoadGTS(char* _szFilename,char* _szDirectory)
-{
-	CGString sFile = sPushFileDirectory(_szFilename);
-
-	SCNUt_MaterialTable oMatTable;
-	SCNUt_TriSceneLoader oLoader;
-	SCNUt_TriScene* poScn = oLoader.poLoad(_szFilename,oMatTable);
-
-		if (poScn)
-		{
-			// Generate the bsp: This may take a while...
-			SCNUt_SceneBuilder	oScnBuild;
-			CGGraphBVFactory::SetBVMode(EGBoundingVolumeType::BVT_AABB);
-
-			gpoScene = oScnBuild.poBuildScene(*poScn,oMatTable);
-			CGSCNVBoundVolBuilder::I()->Visit(gpoScene);
-		}
-
-	PopFileDirectory();
 }
 // ----------------------------------------------------------------------------

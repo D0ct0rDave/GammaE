@@ -152,7 +152,7 @@ end
 ------------------------------------------------------------------------------
 function addToolProject(_projectName, windowedApplication)
 
-	local ProjectRelativeFinalDataRoot = "$(ProjectDir)../" .. _projectName .. "/data"
+	local ProjectRelativeFinalDataRoot = "$(ProjectDir)../tools/" .. _projectName .. "/data"	
 	local ProjectRelativeSDKSRoot = "$(ProjectDir)../../../SDKS"
 	local ProjectRelativeGammaERoot = "$(ProjectDir)../.."
 
