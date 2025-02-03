@@ -7,20 +7,20 @@
 //
 //---------------------------------------------------------------------------
 
-#include "wxTest.h"
-#include "FGTSViewerGUI.h"
+#include "wxSampleToolGUI.h"
+#include "wxSampleToolApp.h"
 
-IMPLEMENT_APP(CGTSViewerGUIApp)
+IMPLEMENT_APP(wxSampleToolApp)
 
-bool CGTSViewerGUIApp::OnInit()
+bool wxSampleToolApp::OnInit()
 {
-    CGTSViewerGUI* frame = new CGTSViewerGUI(NULL);
+    wxSampleToolGUI* frame = new wxSampleToolGUI(NULL);
     SetTopWindow(frame);
     frame->Show();
     return true;
 }
  
-int CGTSViewerGUIApp::OnExit()
+int wxSampleToolApp::OnExit()
 {
 	return 0;
 }

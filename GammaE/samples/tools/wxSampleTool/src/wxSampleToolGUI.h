@@ -7,8 +7,8 @@
 //
 //---------------------------------------------------------------------------
 
-#ifndef __CGTSVIEWERGUI_h__
-#define __CGTSVIEWERGUI_h__
+#ifndef __wxSampleToolGUI_h__
+#define __wxSampleToolGUI_h___h__
 
 #ifdef __BORLANDC__
 	#pragma hdrstop
@@ -34,18 +34,18 @@
 ////Header Include End
 
 ////Dialog Style Start
-#undef CGTSViewerGUI_STYLE
-#define CGTSViewerGUI_STYLE wxCAPTION | wxSYSTEM_MENU | wxMINIMIZE_BOX | wxCLOSE_BOX
+#undef wxSampleToolGUI_STYLE
+#define wxSampleToolGUI_STYLE wxCAPTION | wxSYSTEM_MENU | wxMINIMIZE_BOX | wxCLOSE_BOX
 ////Dialog Style End
 
-class wxTestGUI : public wxFrame
+class wxSampleToolGUI : public wxFrame
 {
 	private:
 		DECLARE_EVENT_TABLE();
 		
 	public:
-		wxTestGUI(wxWindow *parent, wxWindowID id = 1, const wxString &title = wxT("GTSViewer"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = CGTSViewerGUI_STYLE);
-		virtual ~wxTestGUI();
+		wxSampleToolGUI(wxWindow *parent, wxWindowID id = 1, const wxString &title = wxT("GTSViewer"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxSampleToolGUI_STYLE);
+		virtual ~wxSampleToolGUI();
 	void Mnuopengtsfile1001Click(wxCommandEvent& event);
 	void Mnusavegemfile1002Click(wxCommandEvent& event);
 	void Mnuquit1004Click(wxCommandEvent& event);
@@ -60,7 +60,6 @@ class wxTestGUI : public wxFrame
 		//wxDev-C++ will remove them. Add custom code after the block.
 		////GUI Control Declaration Start
 		wxFileDialog *dlg_OpenGTS;
-		wxTimer *WxTimer1;
 		wxMenuBar *WxMenuBar1;
 		wxStaticBitmap *dsp;
 		wxButton *WxButton2;

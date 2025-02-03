@@ -7,8 +7,8 @@
 //
 //---------------------------------------------------------------------------
 
-#ifndef __CGTSVIEWERGUIApp_h__
-#define __CGTSVIEWERGUIApp_h__
+#ifndef __wxSampleToolApp_h__
+#define __wxSampleToolApp_h__
 
 #ifdef __BORLANDC__
 	#pragma hdrstop
@@ -20,7 +20,7 @@
 	#include <wx/wxprec.h>
 #endif
 
-class CGTSViewerGUIApp : public wxApp
+class wxSampleToolApp : public wxApp
 {
 	public:
 		bool OnInit();
