@@ -152,7 +152,7 @@ end
 ------------------------------------------------------------------------------
 function addToolProject(_projectName, windowedApplication)
 
-	local ProjectRelativeFinalDataRoot = "$(ProjectDir)../" .. _projectName .. "/data"
+	local ProjectRelativeFinalDataRoot = "$(ProjectDir)../tools/" .. _projectName .. "/data"	
 	local ProjectRelativeSDKSRoot = "$(ProjectDir)../../../SDKS"
 	local ProjectRelativeGammaERoot = "$(ProjectDir)../.."
 
@@ -170,8 +170,8 @@ function addToolProject(_projectName, windowedApplication)
 		characterset("ASCII")
 		debugdir(ProjectRelativeFinalDataRoot)
 
-		-- Recursively include all .cpp and .h files from the sourceRoot directory
-		sourceRoot = scriptRoot .. "/" .. _projectName
+		-- Recursively include all .cpp and .h files from the sourceRoot directory		
+		sourceRoot = scriptRoot .. "/tools/" .. _projectName
 
 		files
 		{
@@ -206,14 +206,19 @@ function addToolProject(_projectName, windowedApplication)
 			sourceRoot,
 			ProjectRelativeGammaERoot .. "/inc",
 			ProjectRelativeSDKSRoot .. "/Externals/FreeImage/Dist;",
-			ProjectRelativeSDKSRoot .. "/Externals/wxWidgets2.8/include",
-			ProjectRelativeSDKSRoot .. "/Externals/wxWidgets2.8/include/msvc",
 		}
+
+		if windowedApplication then
+			includedirs 
+			{
+				ProjectRelativeSDKSRoot .. "/Externals/wxWidgets2.8/include",
+				ProjectRelativeSDKSRoot .. "/Externals/wxWidgets2.8/include/msvc",
+			}			
+		end
 
 		-- Library directories common for all configurations
 		libdirs
 		{
-			ProjectRelativeSDKSRoot .. "/Externals/wxWidgets2.8/lib/vc_lib/x64",
 			ProjectRelativeSDKSRoot .. "/Externals/FreeImage/Dist/x64",
 			ProjectRelativeSDKSRoot .. "/OpenAL 1.1 SDK/libs",
 			ProjectRelativeSDKSRoot .. "/OpenAL 1.1 SDK/libs/Win64",
@@ -222,7 +227,14 @@ function addToolProject(_projectName, windowedApplication)
 			ProjectRelativeSDKSRoot .. "/libconfig/lib/x64/%{cfg.buildcfg}",
 			ProjectRelativeGammaERoot .. "/build/lib/%{cfg.buildcfg}",
 		}
-		
+
+		if windowedApplication then
+			libdirs
+			{
+				ProjectRelativeSDKSRoot .. "/Externals/wxWidgets2.8/lib/vc_lib/x64",
+			}
+		end		
+
 		links 
 		{
 			"ddraw.lib",
@@ -308,6 +320,7 @@ function addToolProject(_projectName, windowedApplication)
 					"wxexpat.lib",
 				}
 			end
+
 		filter {} -- Clear filter for general settings
 
 		-- Add the external project to the solution
@@ -331,8 +344,6 @@ workspace "GammaE_Samples"
     location "build" -- Where generated files (like Visual Studio solutions) will be stored
     architecture "x86_64"
 
--------------------------------------------------------------------------------	
-include("tools/toolProject.lua")
 ------------------------------------------------------------------------------
 group("Samples")
 	group("Graphics")
