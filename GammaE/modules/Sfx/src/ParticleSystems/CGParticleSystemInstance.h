@@ -26,9 +26,6 @@ class CGParticleSystemInstance : public CGSceneSwitch
 
         virtual ~CGParticleSystemInstance();
 
-        // / Renders the particle system instance
-        virtual void Render();
-
         // / Sets whether the particles in the system will regenerate when their energy expires or not
         void Regenerate(bool _bRegen)
         {
@@ -72,8 +69,11 @@ class CGParticleSystemInstance : public CGSceneSwitch
         }
 
     protected:
-        // / Update the particles in the particle system
-        virtual void Update(float _fDeltaT);
+        // General Processing Functionalities.
+        virtual void Accept(CGSceneVisitor* _poVisitor);
+    
+        void Render();
+        void Update(float _fDeltaT);
 
     protected:
 

@@ -146,7 +146,7 @@ class CGSFXObjectManager : public CGSingleton <BASECLASS>
     protected:
 
         // / Lookup table for types of pools of PSIs
-        CGLookupArray <TSFXInstancePool*> m_oPool;
+        CGLookupArray <TSFXInstancePool*> m_poInstancesPools;
 
         // / The scene node of the SFX Object Manager
         CGSceneNode* m_poRenderingNode;
@@ -166,7 +166,7 @@ uint CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLAS
     poCIs->m_poGen->SetBillboardRenderer( (CGBillboardRenderer*)m_poSceneNodeRenderer );
 
     // Add this instance pool to the pool table
-    uint uiType = m_oPool.uiAddVar(_sType,poCIs);
+    uint uiType = m_poInstancesPools.uiAddVar(_sType,poCIs);
 
     // Create instances for this specific sfx object type
     poCIs->m_oInsts.Init( _uiMaxInstances );
@@ -197,7 +197,7 @@ void CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLAS
 template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
 handler CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::hGet(const CGString& _sType)
 {
-    int iIdx = m_oPool.iGetIdx(_sType);
+    int iIdx = m_poInstancesPools.iGetIdx(_sType);
     if ( iIdx == -1 ) return(NULL);
 
     return( hGet(iIdx) );
@@ -206,7 +206,7 @@ handler CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASEC
 template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
 handler CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::hGet(uint _uiType)
 {
-    TSFXInstanceData* poInst = m_oPool.oGetElem(_uiType)->m_oInsts.poGet();
+    TSFXInstanceData* poInst = m_poInstancesPools.oGetElem(_uiType)->m_oInsts.poGet();
 
     if ( poInst == NULL )
         return(NULL);
@@ -221,7 +221,7 @@ handler CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASEC
 template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
 handler CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::hGet(const CGString& _sType,float _fEnergy,const CGVect3& _oPos)
 {
-    int iIdx = m_oPool.iGetIdx(_sType);
+    int iIdx = m_poInstancesPools.iGetIdx(_sType);
     if ( iIdx == -1 ) return(NULL);
 
     return( hGet(iIdx,_fEnergy,_oPos) );
@@ -230,7 +230,7 @@ handler CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASEC
 template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
 handler CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::hGet(uint _uiType,float _fEnergy,const CGVect3& _oPos)
 {
-    TSFXInstanceData* poInst = m_oPool.oGetElem(_uiType)->m_oInsts.poGet();
+    TSFXInstanceData* poInst = m_poInstancesPools.oGetElem(_uiType)->m_oInsts.poGet();
 
     if ( poInst == NULL )
         return(NULL);
@@ -249,7 +249,7 @@ template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSEC
 void CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLASS>::Release(handler _hSfxObj)
 {
     TSFXInstanceData* poInst = (TSFXInstanceData*)_hSfxObj;
-    m_oPool[ poInst->m_uiType ]->m_oInsts.Release( poInst );
+    m_poInstancesPools[ poInst->m_uiType ]->m_oInsts.Release( poInst );
 }
 // ----------------------------------------------------------------------------
 template <typename INSTANCECLASS, typename GENERATORCLASS,typename GENWAREHOUSECLASS, typename BASECLASS>
@@ -295,9 +295,9 @@ void CGSFXObjectManager <INSTANCECLASS,GENERATORCLASS,GENWAREHOUSECLASS,BASECLAS
     // Updates ALL the instances of the manager both automanaged and user managed
     poRenderer->Reset();
 
-    for ( uint j = 0; j < m_oPool.uiNumElems(); j++ )
+    for ( uint j = 0; j < m_poInstancesPools.uiNumElems(); j++ )
     {
-        TSFXInstancePool* poPool = m_oPool[j];
+        TSFXInstancePool* poPool = m_poInstancesPools[j];
         poRenderer->Begin( poPool->m_poGen->poGetShader() );
 
         for ( uint i = 0; i < poPool->m_oInsts.uiMaxElems(); i++ )

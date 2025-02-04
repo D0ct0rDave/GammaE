@@ -20,7 +20,7 @@
 // #include "CompiledMesh/CGCompiledMesh.h"
 
 // #include "Viewing/Camera/CGCamera.h"
-// #include "Viewing/Viewport/CGViewport.h"
+// #include "Viewing/goViewport/CGViewport.h"
 // #include "Viewing/Projector/CGProjector.h"
 
 #include "MeshDB\CGDefferredMeshDB.h"

@@ -14,10 +14,10 @@ typedef struct TLoopGlobals
 
 static TLoopGlobals globals;
 
-CGViewport		    Viewport;
-CGCamera			PerspCam;
-CGProjector		    PerspPrj;
-CGSceneCamera       gCamera;
+CGViewport		    goViewport;
+CGCamera			goPerspCam;
+CGProjector		    goPerspPrj;
+CGSceneCamera       goCamera;
 
 CGSceneNode*		CLoop::m_poScene = NULL;
 // ----------------------------------------------------------------------------
@@ -56,31 +56,31 @@ void CLoop::Init(void* _hWnd)
     CGRenderer::I()->bInit(globals.m_hWnd,E3D_RENDERER_OP_GDI | E3D_RENDERER_OP_DBUFFER,globals.m_uiScrWidth,globals.m_uiScrHeight,32);
 	CGShaderDefFileWH::I()->iLoad("Shaders.txt");
 
-	Viewport.ScrCX = 0.0f;
-    Viewport.ScrCY = 0.0f;
-    Viewport.ScrTX = 1.0f;
-    Viewport.ScrTY = 1.0f;
+	goViewport.ScrCX = 0.0f;
+    goViewport.ScrCY = 0.0f;
+    goViewport.ScrTX = 1.0f;
+    goViewport.ScrTY = 1.0f;
 
     // La orientacion de la cámara se determina utilizando 3 vectores
     // que son los ejes locales de la cámara
-	// PerspCam.Pos.V3 ( 4, 10,270);
-	PerspCam.SetPos( 0.0f,-500.0f,0.0f);
+	// goPerspCam.Pos.V3 ( 4, 10,270);
+	goPerspCam.SetPos( 0.0f,-500.0f,0.0f);
 	CGVect3 oDir(0, 1, 0);
 	CGVect3 oUp(0, 0, 1);
 	CGVect3 oSide(1,0,0);
-	PerspCam.SetVectors(oDir, oUp, oSide);
+	goPerspCam.SetVectors(oDir, oUp, oSide);
 
-	PerspPrj.ePrjType = E3D_PT_Perspective;
-	PerspPrj.fFOV     = 45.0f;
-    PerspPrj.fNear    = 1.0f;
-    PerspPrj.fFar     = 2000.0f;
+	goPerspPrj.ePrjType = E3D_PT_Perspective;
+	goPerspPrj.fFOV     = 45.0f;
+    goPerspPrj.fNear    = 1.0f;
+    goPerspPrj.fFar     = 2000.0f;
 
 	// -------------------------------
 	// Orthographic projection camnera
 	// -------------------------------
-    CGRenderer::I()->SetViewport (&Viewport);
-    CGRenderer::I()->SetCamera   (&PerspCam);
-	CGRenderer::I()->SetProjector(&PerspPrj);
+    CGRenderer::I()->SetViewport (&goViewport);
+    CGRenderer::I()->SetCamera   (&goPerspCam);
+	CGRenderer::I()->SetProjector(&goPerspPrj);
 
     CGRenderer::I()->DisableFrustumCulling();
 	CGRenderer::I()->SetZPars(E3D_ZTF_LEqual,E3D_ZW_Enable);
@@ -88,10 +88,10 @@ void CLoop::Init(void* _hWnd)
 	CGRenderer::I()->SetFogPars(E3D_FM_Linear, 0.1f, 1000.0f, 0.01f, &oColor);
 	CGRenderer::I()->EnableBVRender();
 
-  	gCamera.Init	    (100);
-	gCamera.SetCamera   (&PerspCam);
-	gCamera.SetProjector(&PerspPrj);
-	gCamera.SetViewport (&Viewport);
+  	goCamera.Init	    (100);
+	goCamera.SetCamera   (&goPerspCam);
+	goCamera.SetProjector(&goPerspPrj);
+	goCamera.SetViewport (&goViewport);
 
     globals.m_fTime = 0.0f;
 }
@@ -124,7 +124,7 @@ void CLoop::Update(float _fDeltaT)
 		{
 			oCenter = m_poScene->poGetBV()->oGetCenter();
 			oRange = m_poScene->poGetBV()->GetExtents();
-			PerspCam.LookAt(oCenter);
+			goPerspCam.LookAt(oCenter);
 		}
 
 		float fAmplitude = oRange.fModule() * 2.0f;
@@ -133,11 +133,11 @@ void CLoop::Update(float _fDeltaT)
 		oPos.y = oCenter.y + fAmplitude * Math::fCos(fAngle);
 		oPos.z = oCenter.z;
 
-		PerspCam.SetPos(oPos.x,oPos.y,oPos.z);
-		PerspCam.LookAt(oCenter);
+		goPerspCam.SetPos(oPos.x,oPos.y,oPos.z);
+		goPerspCam.LookAt(oCenter);
 	}
 
-	CGSCNVAnimUpdater::I()->Update(&gCamera, _fDeltaT);
+	CGSCNVAnimUpdater::I()->Update(&goCamera, _fDeltaT);
 }
 // ----------------------------------------------------------------------------
 void CLoop::Render()
@@ -151,8 +151,8 @@ void CLoop::Render()
         if (m_poScene)
 		{
 			m_poScene->Ref();
-			gCamera.SetObject(m_poScene, 0);
-			CGSCNVRenderer::I()->Render(&gCamera);
+			goCamera.SetObject(m_poScene, 0);
+			CGSCNVRenderer::I()->Render(&goCamera);
 		}
 
     CGRenderer::I()->EndRender();

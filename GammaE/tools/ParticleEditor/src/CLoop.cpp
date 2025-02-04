@@ -4,10 +4,10 @@
 #include "CGlobals.h"
 #include "GammaE.h"
 // ----------------------------------------------------------------------------
-CGViewport		    Viewport;
-CGCamera			PerspCam;
-CGProjector		    PerspPrj;
-CGSceneCamera       gCamera;
+CGViewport		    goViewport;
+CGCamera			goPerspCam;
+CGProjector		    goPerspPrj;
+CGSceneCamera       goCamera;
 
 CGSceneNode*		gpoScene = NULL;
 uint				guiPSGIdx = -1;
@@ -26,41 +26,41 @@ void CLoop::Init(void* _hWnd)
 	CGShaderDefFileWH::I()->iLoad("data/Shaders.txt");
 	CGShaderDefFileWH::I()->iLoad("data/particleshaders.txt");
 
-	Viewport.ScrCX = 0.0f;
-    Viewport.ScrCY = 0.0f;
-    Viewport.ScrTX = 1.0f;
-    Viewport.ScrTY = 1.0f;
+	goViewport.ScrCX = 0.0f;
+    goViewport.ScrCY = 0.0f;
+    goViewport.ScrTX = 1.0f;
+    goViewport.ScrTY = 1.0f;
 
     // La orientacion de la cámara se determina utilizando 3 vectores
     // que son los ejes locales de la cámara
-	// PerspCam.Pos.V3 ( 4, 10,270);
-	PerspCam.SetPos( 0.0f,-500.0f,0.0f);
+	// goPerspCam.Pos.V3 ( 4, 10,270);
+	goPerspCam.SetPos( 0.0f,-500.0f,0.0f);
 	CGVect3 oDir(0, 1, 0);
 	CGVect3 oUp(0, 0, 1);
 	CGVect3 oSide(1,0,0);
-	PerspCam.SetVectors(oDir, oUp, oSide);
+	goPerspCam.SetVectors(oDir, oUp, oSide);
 
-	PerspPrj.ePrjType = E3D_PT_Perspective;
-	PerspPrj.fFOV     = 45.0f;
-    PerspPrj.fNear    = 1.0f;
-    PerspPrj.fFar     = 2000.0f;
+	goPerspPrj.ePrjType = E3D_PT_Perspective;
+	goPerspPrj.fFOV     = 45.0f;
+    goPerspPrj.fNear    = 1.0f;
+    goPerspPrj.fFar     = 2000.0f;
 
 	// -------------------------------
 	// Orthographic projection camnera
 	// -------------------------------
-    CGRenderer::I()->SetViewport (&Viewport);
-    CGRenderer::I()->SetCamera   (&PerspCam);
-	CGRenderer::I()->SetProjector(&PerspPrj);
+    CGRenderer::I()->SetViewport (&goViewport);
+    CGRenderer::I()->SetCamera   (&goPerspCam);
+	CGRenderer::I()->SetProjector(&goPerspPrj);
 
     CGRenderer::I()->DisableFrustumCulling();
 	CGRenderer::I()->SetZPars(E3D_ZTF_LEqual,E3D_ZW_Enable);
  	CGColor oColor(0,0,0,1);
 	CGRenderer::I()->SetFogPars(E3D_FM_Linear,0.1f,1000.0f,0.01f,&oColor);
 
-  	gCamera.Init	    (100);
-	gCamera.SetCamera   (&PerspCam);
-	gCamera.SetProjector(&PerspPrj);
-	gCamera.SetViewport (&Viewport);
+  	goCamera.Init	    (100);
+	goCamera.SetCamera   (&goPerspCam);
+	goCamera.SetProjector(&goPerspPrj);
+	goCamera.SetViewport (&goViewport);
 
 	CGPSGDefFileWH::I()->iLoad("data/particles.def");
 
@@ -99,9 +99,8 @@ void CLoop::Init(void* _hWnd)
 	globals.m_poPSGQ->SetRadiusPars(fIRadius,fFRadius,fIRRadius,fFRRadius);
 	globals.m_poPSGQ->SetShader( CGShaderWH::I()->poCreateShader("particletex0") );
 
-    CGVect3 oPos(0,0,0);
     CGPSIManager::I()->uiCreatePool("test",1);
-	CGPSIManager::I()->poGet("test", 1e6, oPos);
+	CGPSIManager::I()->poGet("test", 1e12, CGVect3::oZero());
 
 	gpoScene = CGPSIManager::I()->poGetNode();
 
@@ -124,7 +123,7 @@ void CLoop::Update(float _fDeltaT)
 	globals.m_fTime += _fDeltaT;
 	if (gpoScene != NULL)
 	{
-		/*
+
 		const float FREQ = 1.0f/4.0f;
 		float fAngle = globals.m_fTime*FREQ;
 		
@@ -136,7 +135,7 @@ void CLoop::Update(float _fDeltaT)
 		{
 			oCenter = gpoScene->poGetBV()->oGetCenter();
 			oRange = gpoScene->poGetBV()->GetExtents();
-			PerspCam.LookAt(oCenter);
+			goPerspCam.LookAt(oCenter);
 		}
 
 		float fAmplitude = oRange.fModule() * 2.0f;
@@ -145,9 +144,9 @@ void CLoop::Update(float _fDeltaT)
 		oPos.y = oCenter.y + fAmplitude * Math::fCos(fAngle);
 		oPos.z = oCenter.z;
 
-		PerspCam.SetPos(oPos.x,oPos.y,oPos.z);
-		PerspCam.LookAt(oCenter);
-		*/
+		goPerspCam.SetPos(oPos.x,oPos.y,oPos.z);
+		goPerspCam.LookAt(oCenter);
+
 	}	
 }
 // ----------------------------------------------------------------------------
@@ -161,8 +160,8 @@ void CLoop::Render()
         if (gpoScene)
 		{
 			gpoScene->Ref();
-			gCamera.SetObject(gpoScene, 0);
-			CGSCNVRenderer::I()->Render(&gCamera);
+			goCamera.SetObject(gpoScene, 0);
+			CGSCNVRenderer::I()->Render(&goCamera);
 		}
 
     CGRenderer::I()->EndRender();

@@ -77,19 +77,25 @@ CGParticleSystemInstance::~CGParticleSystemInstance()
 }
 
 // -----------------------------------------------------------------------------
+void CGParticleSystemInstance::Accept(CGSceneVisitor* _poVisitor)
+{
+    if (_poVisitor == CGSCNVRenderer::I())
+    {
+        // Update the particles in this instance
+        Update(CGRenderer::I()->oGetStats().m_fDelta);
+        Render();
+    }
+}
+// -----------------------------------------------------------------------------
 void CGParticleSystemInstance::Update(float _fDeltaT)
 {
-    if ( !bEnabled() ) return;
-    m_poPSG->UpdateInstance(*this,_fDeltaT);
+    if (! bEnabled()) return;
+    m_poPSG->UpdateInstance(*this, _fDeltaT);
 }
 // -----------------------------------------------------------------------------
 void CGParticleSystemInstance::Render ()
 {
-    if ( !bEnabled() ) return;
-
-    // Update the particles in this instance
-    Update( CGRenderer::I()->oGetStats().m_fDelta);
-
+    if (! bEnabled() ) return;
     // Renders the geometry
     CGRenderer::I()->PushCameraMatrix();
     CGRenderer::I()->PushWorldMatrix();
@@ -97,7 +103,7 @@ void CGParticleSystemInstance::Render ()
     CGRenderer::I()->ClearCameraMatrix();
     CGRenderer::I()->ClearWorldMatrix();
 
-    CGSCNVRenderer::I()->Render(m_poObj);
+    CGSCNVRenderer::I()->Render(poGetObject());
 
     CGRenderer::I()->PopWorldMatrix();
     CGRenderer::I()->PopCameraMatrix();

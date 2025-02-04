@@ -74,7 +74,7 @@ DECLARE_SINGLETON(CGPSIManager)
             float m_fEnergy;
         }TPSIData;
 
-        typedef class CGStArray <TPSIData> TPSIPool;
+        typedef class CGStArray<TPSIData> TPSIPool;
         // --------------------------------------------------------------------
 
         // / Updates the registered instances
@@ -88,10 +88,10 @@ DECLARE_SINGLETON(CGPSIManager)
 
     protected:
         // / Lookup table for types of pools of PSIs
-        CGLookupArray <TPSIPool*> m_oPool;
+        CGLookupArray<TPSIPool*> m_poPSIPools;
 
         // / Node which has attached all the active self handled PSIs
-        CGSceneNode* m_poRenderingNode;
+        CGSceneGroup* m_poRenderingNode;
 };
 // ----------------------------------------------------------------------------
 #endif

@@ -77840,29 +77840,6 @@ static int _wrap_new_CGParticleSystemInstance(lua_State* L) {
 }
 
 
-static int _wrap_CGParticleSystemInstance_Render(lua_State* L) {
-  {
-    int SWIG_arg = 0;
-    CGParticleSystemInstance *arg1 = 0 ;
-    
-    SWIG_check_num_args("CGParticleSystemInstance::Render",1,1)
-    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CGParticleSystemInstance::Render",1,"CGParticleSystemInstance *");
-    
-    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CGParticleSystemInstance,0))){
-      SWIG_fail_ptr("CGParticleSystemInstance_Render",1,SWIGTYPE_p_CGParticleSystemInstance);
-    }
-    
-    (arg1)->Render();
-    
-    return SWIG_arg;
-    
-    fail: SWIGUNUSED;
-  }
-  lua_error(L);
-  return 0;
-}
-
-
 static int _wrap_CGParticleSystemInstance_Regenerate(lua_State* L) {
   {
     int SWIG_arg = 0;
@@ -78028,7 +78005,6 @@ static swig_lua_attribute swig_CGParticleSystemInstance_attributes[] = {
     {0,0,0}
 };
 static swig_lua_method swig_CGParticleSystemInstance_methods[]= {
-    { "Render", _wrap_CGParticleSystemInstance_Render},
     { "Regenerate", _wrap_CGParticleSystemInstance_Regenerate},
     { "bRegenerate", _wrap_CGParticleSystemInstance_bRegenerate},
     { "poGetParticlePool", _wrap_CGParticleSystemInstance_poGetParticlePool},

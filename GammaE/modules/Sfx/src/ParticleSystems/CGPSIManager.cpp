@@ -8,7 +8,6 @@
  *  \par GammaE License
  */
 // -----------------------------------------------------------------------------
-// ----------------------------------------------------------------------------
 #include "CGPSIManager.h"
 #include "CGPSysGenWH.h"
 // ----------------------------------------------------------------------------
@@ -42,14 +41,13 @@ uint CGPSIManager::uiCreatePool(const CGString& _sType,uint _uiMaxInstances)
     CGParticleSystemGenerator* poPSG = CGPSysGenWH::I()->poFind(_sType);
     if ( poPSG == NULL ) return(-1);
 
-    TPSIPool* poPSIs = mNew TPSIPool;
-    poPSIs->Init(_uiMaxInstances);
+    TPSIPool* poPSIPool = mNew TPSIPool;
+    poPSIPool->Init(_uiMaxInstances);
 
     // Create instances for this specific particle system instance
     for ( uint i = 0; i < _uiMaxInstances; i++ )
     {
         TPSIData oData;
-
         oData.m_bFree = true;
         oData.m_bAutoManaged = false;
         oData.m_poPSI = mNew CGParticleSystemInstance(poPSG);
@@ -57,17 +55,33 @@ uint CGPSIManager::uiCreatePool(const CGString& _sType,uint _uiMaxInstances)
         oData.m_poTransf->SetObject( oData.m_poPSI );
         oData.m_uiNodeIdx = INVALID_INDEX;
 
-        poPSIs->iAdd( oData );
+        poPSIPool->iAdd( oData );
     }
+    
+    // Create a group to store the instances.
+    CGSceneGroup* poGroup = mNew CGSceneGroup;
+    poGroup->Init(_uiMaxInstances);
+
+    for (uint i = 0; i < _uiMaxInstances; i++)
+    {
+        TPSIData& poPSIData = poPSIPool->poBuff()[i];
+        CGParticleSystemInstance* poPSI = poPSIData.m_poPSI;
+        
+        poPSI->Disable();
+        poGroup->iAddObject(poPSI);
+    }
+    
+    // Add the pool of instances to the rendering node.
+    m_poRenderingNode->iAddObject(poGroup);
 
     // Add the pool to the pool table
-    return( m_oPool.uiAddVar(_sType,poPSIs) );
+    return(m_poPSIPools.uiAddVar(_sType, poPSIPool) );
 }
 // ----------------------------------------------------------------------------
 CGPSIManager::TPSIData* CGPSIManager::poGetFreeInstance(uint _uiType)
 {
-    if ( _uiType > m_oPool.uiNumElems() ) return(NULL);
-    TPSIPool* poPool = m_oPool[_uiType];
+    if ( _uiType > m_poPSIPools.uiNumElems() ) return(NULL);
+    TPSIPool* poPool = m_poPSIPools[_uiType];
 
     for ( uint i = 0; i < poPool->uiNumElems(); i++ )
         if ( (*poPool)[i].m_bFree )
@@ -78,13 +92,13 @@ CGPSIManager::TPSIData* CGPSIManager::poGetFreeInstance(uint _uiType)
 // ----------------------------------------------------------------------------
 CGParticleSystemInstance* CGPSIManager::poGet(const CGString& _sType)
 {
-    int iIdx = m_oPool.iGetIdx(_sType);
+    int iIdx = m_poPSIPools.iGetIdx(_sType);
     return( poGet(iIdx) );
 }
 // ----------------------------------------------------------------------------
 CGSceneTransf* CGPSIManager::poGet(const CGString& _sType,float _fEnergy,const CGVect3& _oPos)
 {
-    int iIdx = m_oPool.iGetIdx(_sType);
+    int iIdx = m_poPSIPools.iGetIdx(_sType);
     return( poGet(iIdx,_fEnergy,_oPos) );
 }
 // ----------------------------------------------------------------------------
@@ -138,9 +152,9 @@ void CGPSIManager::Release(TPSIData* _poPSID)
 // ----------------------------------------------------------------------------
 void CGPSIManager::Release(CGParticleSystemInstance* _poPSI)
 {
-    for ( uint j = 0; j < m_oPool.uiNumElems(); j++ )
+    for ( uint j = 0; j < m_poPSIPools.uiNumElems(); j++ )
     {
-        TPSIPool* poPool = m_oPool[j];
+        TPSIPool* poPool = m_poPSIPools[j];
 
         for ( uint i = 0; i < poPool->uiNumElems(); i++ )
             if ( (*poPool)[i].m_poPSI == _poPSI )
@@ -150,27 +164,29 @@ void CGPSIManager::Release(CGParticleSystemInstance* _poPSI)
 // ----------------------------------------------------------------------------
 void CGPSIManager::Update(float _fDeltaT)
 {
-    for ( uint j = 0; j < m_oPool.uiNumElems(); j++ )
+    for ( uint j = 0; j < m_poPSIPools.uiNumElems(); j++ )
     {
-        TPSIPool* poPool = m_oPool[j];
-
-        for ( uint i = 0; i < poPool->uiNumElems(); i++ )
+        // Get the pool of instances for the 'j' object type
+        TPSIPool* poPSIPool = m_poPSIPools[j];
+        for ( uint i = 0; i < poPSIPool->uiNumElems(); i++ )
         {
-            if ( (!(*poPool)[i].m_bFree) && (*poPool)[i].m_bAutoManaged )
-            {
-                if ( (*poPool)[i].m_fEnergy <= 0.0f )
+            // For each instance in this pool
+            TPSIData& poPSIData = (*poPSIPool)[i];
+            if ((!poPSIData.m_bFree) && poPSIData.m_bAutoManaged)
+            {              
+                if ( poPSIData.m_fEnergy <= 0.0f )
                 {
-                    if ( (*poPool)[i].m_poPSI->bRegenerate() )
-                        (*poPool)[i].m_poPSI->Regenerate(false);
+                    if ( poPSIData.m_poPSI->bRegenerate() )
+                        poPSIData.m_poPSI->Regenerate(false);
                     else
                     {
                         // Wait until all the particles lose their energy
-                        if ( (*poPool)[i].m_poPSI->uiLiveParticles() == 0 )
-                            Release( &(*poPool)[i] );
+                        if ( poPSIData.m_poPSI->uiLiveParticles() == 0 )
+                            Release( &poPSIData );
                     }
                 }
                 else
-                    (*poPool)[i].m_fEnergy -= _fDeltaT;
+                    poPSIData.m_fEnergy -= _fDeltaT;
             }
         }
     }
