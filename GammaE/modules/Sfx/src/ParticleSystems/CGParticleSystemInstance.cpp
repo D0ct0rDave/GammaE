@@ -52,12 +52,7 @@ CGParticleSystemInstance::CGParticleSystemInstance(CGParticleSystemGenerator* _p
     }
     
     m_poMesh = mNew CGUnmanagedMesh();
-    m_poMesh->SetPrimitiveType(m_poMeshGeometry->eGetPrimitiveType());
-    m_poMesh->m_poVX = m_poMeshGeometry->m_poVX;
-    m_poMesh->m_poUV = m_poMeshGeometry->m_poUV;
-    m_poMesh->m_poVX = m_poMeshGeometry->m_poVX;
-    m_poMesh->m_poVC = m_poMeshGeometry->m_poVC;
-    m_poMesh->m_pusIdx = m_poMeshGeometry->m_pusIdx;
+    m_poMesh->Link(m_poMeshGeometry);
 
     // Create leaf object
     m_poLeaf = mNew CGSceneLeaf();

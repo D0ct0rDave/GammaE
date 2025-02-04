@@ -35,9 +35,9 @@ void CLoop::Init(void* _hWnd)
     // que son los ejes locales de la cámara
 	// goPerspCam.Pos.V3 ( 4, 10,270);
 	goPerspCam.SetPos( 0.0f,-500.0f,0.0f);
+	CGVect3 oSide(1,0,0);
 	CGVect3 oDir(0, 1, 0);
 	CGVect3 oUp(0, 0, 1);
-	CGVect3 oSide(1,0,0);
 	goPerspCam.SetVectors(oDir, oUp, oSide);
 
 	goPerspPrj.ePrjType = E3D_PT_Perspective;
@@ -131,22 +131,23 @@ void CLoop::Update(float _fDeltaT)
 		CGVect3 oRange(1.0f,1.0f,1.0f);
 		CGVect3 oPos;
 		
+		/*
 		if (gpoScene->poGetBV() != NULL)
 		{
 			oCenter = gpoScene->poGetBV()->oGetCenter();
 			oRange = gpoScene->poGetBV()->GetExtents();
 			goPerspCam.LookAt(oCenter);
 		}
-
-		float fAmplitude = oRange.fModule() * 2.0f;
+		*/
+		
+		float fAmplitude = oRange.fModule() * 10.0f;
 
 		oPos.x = oCenter.x + fAmplitude * Math::fSin(fAngle);
-		oPos.y = oCenter.y + fAmplitude * Math::fCos(fAngle);
 		oPos.z = oCenter.z;
+		oPos.y = oCenter.y + fAmplitude * Math::fCos(fAngle);
 
 		goPerspCam.SetPos(oPos.x,oPos.y,oPos.z);
 		goPerspCam.LookAt(oCenter);
-
 	}	
 }
 // ----------------------------------------------------------------------------

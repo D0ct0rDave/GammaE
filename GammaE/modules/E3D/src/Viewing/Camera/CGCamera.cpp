@@ -58,5 +58,9 @@ void CGCamera::LookAt (const CGVect3& _oCenter)
     m_oDir.Assign(_oCenter);
     m_oDir.Sub(m_oPos);
     m_oDir.Normalize();
+
+    m_oUp.Orthogonal(m_oDir);
+    m_oSide.CrossProd(m_oDir, m_oUp);
+    m_oUp.CrossProd(m_oSide, m_oDir);
 }
 // ----------------------------------------------------------------------------

@@ -16,7 +16,19 @@
 // -----------------------------------------------------------------------------
 #define _FRUST_STACK_SIZE_  20
 // ----------------------------------------------------------------------------
-CGE3DRenderer::CGE3DRenderer() : m_poCurrentShader(NULL), m_fAspectRatio(1.0f), m_uiScrTX(0), m_uiScrTY(0), m_eStencilFunc(E3D_SF_None), m_eStencilFuncLast(E3D_SF_None), m_eFogMode(E3D_FM_None), m_eFogModeLast(E3D_FM_None), m_eZWrite(E3D_ZW_Enable), m_eZWriteLast(E3D_ZW_Enable), m_eZTest(E3D_ZTF_LEqual), m_eZTestLast(E3D_ZTF_LEqual)
+CGE3DRenderer::CGE3DRenderer() 
+    : m_poCurrentShader(NULL)
+    , m_fAspectRatio(1.0f)
+    , m_uiScrTX(0)
+    , m_uiScrTY(0)
+    , m_eStencilFunc(E3D_SF_None)
+    , m_eStencilFuncLast(E3D_SF_None)
+    , m_eFogMode(E3D_FM_None)
+    , m_eFogModeLast(E3D_FM_None)
+    , m_eZWrite(E3D_ZW_Enable)
+    , m_eZWriteLast(E3D_ZW_Enable)
+    , m_eZTest(E3D_ZTF_LEqual)
+    , m_eZTestLast(E3D_ZTF_LEqual)
 {
     // State variables
     m_oREState.m_bDefferredMode = false;
