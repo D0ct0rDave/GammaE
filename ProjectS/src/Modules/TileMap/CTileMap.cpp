@@ -155,8 +155,8 @@ bool CTileMap::bLoadWithHandler(CGFile* _poFD)
     // Allocate memory
     Init(m_uiWidth,m_uiHeight);
 
-    _poFD->uiRead((pointer)m_pucTiles,m_uiWidth*m_uiHeight);
-    _poFD->uiRead((pointer)m_puiFlags,m_uiWidth*m_uiHeight*sizeof(uint));
+    _poFD->uiReadData((pointer)m_pucTiles,m_uiWidth*m_uiHeight);
+    _poFD->uiReadData((pointer)m_puiFlags,m_uiWidth*m_uiHeight*sizeof(uint));
 
     return (true);
 }
@@ -182,8 +182,8 @@ bool CTileMap::bSaveWithHandler(CGFile* _poFD) const
     _poFD->Write(m_uiWidth);
     _poFD->Write(m_uiHeight);
 
-    _poFD->uiWrite((pointer)m_pucTiles, m_uiWidth * m_uiHeight);
-    _poFD->uiWrite((pointer)m_puiFlags, m_uiWidth * m_uiHeight * sizeof(uint));
+    _poFD->uiWriteData((pointer)m_pucTiles, m_uiWidth * m_uiHeight);
+    _poFD->uiWriteData((pointer)m_puiFlags, m_uiWidth * m_uiHeight * sizeof(uint));
 
     return (true);
 }

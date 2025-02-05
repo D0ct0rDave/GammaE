@@ -13,7 +13,7 @@ class CVideo
 		static void Render();
 		static CGShader* poGetFrame();
 
-		static void Play() { m_bPlaying = true; };
+		static void Play();
 		static void Stop() { m_bPlaying = false; };
 		static bool bPlaying()	{ return(m_bPlaying); };
 		static float fTime()	{ return(m_fTime); };

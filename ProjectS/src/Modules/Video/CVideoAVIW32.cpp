@@ -51,7 +51,6 @@ bool CVideo::bInit(char* _szFilename,bool _bLoop)
 		CGErrorLC::I()->Write("Failed To Open The AVI Stream %s",_szFilename);
 		return(false);
 	}
-		
 
 	AVIStreamInfo(pavi, &psi, sizeof(psi));						// Reads Information About The Stream Into psi
 	width =psi.rcFrame.right-psi.rcFrame.left;					// Width Is Right Side Of Frame Minus Left
@@ -228,6 +227,14 @@ void CVideo::DecodeFrame(uint _uiFrame)
 	m_uiCurFrame = _uiFrame;
 }
 // ----------------------------------------------------------------------------
+void CVideo::Play()
+{
+	if (m_poTex != NULL)
+	{
+		m_bPlaying = true;
+	}
+}
+// ----------------------------------------------------------------------------
 void CVideo::Update(float _fDeltaT)
 {
 	if (m_poTex == NULL) return;
@@ -250,7 +257,6 @@ void CVideo::Update(float _fDeltaT)
 	{		
 		DecodeFrame(iRealFrame);
 	}
-	
 }
 // ----------------------------------------------------------------------------
 void CVideo::Render()

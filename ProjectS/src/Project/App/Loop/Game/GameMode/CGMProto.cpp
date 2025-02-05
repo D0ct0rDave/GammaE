@@ -28,7 +28,6 @@
 const int GI_TX = 4;
 const int GI_TY = 4;
 
-
 // CSmoother m_oSmoother;
 CPlayer* m_poPlayer = NULL;
 CGSceneTransf* m_poPSys = NULL;
@@ -37,7 +36,6 @@ CGTrailInstance* m_poTrailInst = NULL;
 handler m_poCoronaInst = NULL;
 bool sbGameRunning = false;
 // ----------------------------------------------------------------------
-
 #define GMPHUD_TIME_LABEL		0
 #define GMPHUD_TIMEVAL_LABEL	1
 #define GMPHUD_ENDGAME_LABEL	2
@@ -47,13 +45,11 @@ bool sbGameRunning = false;
 #define GMPHUD_POWERUP1_ICON	6
 #define GMPHUD_POWERUP2_ICON	7
 #define GMPHUD_POWERUP3_ICON	8
-
 // ----------------------------------------------------------------------
 #define GMP_TIMEOVER_TIME		7.5
 #define GMP_VICTORY_TIME		7.5
 #define GMP_POWERUP_TIME		20.0f
 #define GMP_LAST_LEVEL			2
-
 // ----------------------------------------------------------------------
 void CGMProto::SetState(TGMPState _eState)
 {

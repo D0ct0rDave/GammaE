@@ -1,4 +1,6 @@
 @echo off
-call gen_solution.bat vs2022
-pause
 
+echo --------------- Generating project files -----------------------"
+..\Tools\premake5 vs2022 %2 %3 %4 %5 --file=generate_projects.lua
+
+pause

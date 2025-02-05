@@ -14,8 +14,8 @@ project(ProjectName)
     kind "WindowedApp" -- Change to "SharedLib" for a shared library
     language "C++"
     cppdialect "C++17"
-    targetdir "$(ProjectDir)/exe/%{cfg.buildcfg}" -- Output directory for binaries
-    objdir "$(ProjectDir)/obj/%{cfg.buildcfg}" -- Output directory for intermediate files
+    targetdir "$(ProjectDir)/exe/$(Platform)/%{cfg.buildcfg}" -- Output directory for binaries
+    objdir "$(ProjectDir)/obj/$(Platform)/%{cfg.buildcfg}" -- Output directory for intermediate files
 	characterset("ASCII")
     debugdir(ProjectRelativeFinalDataRoot)
 
@@ -66,13 +66,13 @@ project(ProjectName)
 	-- Library directories common for all configurations
 	libdirs
 	{
-		ProjectRelativeSDKSRoot .. "/Externals/FreeImage/Dist/x64;",
+		ProjectRelativeSDKSRoot .. "/Externals/FreeImage/Dist/$(Platform);",
 		ProjectRelativeSDKSRoot .. "/OpenAL 1.1 SDK/libs",
 		ProjectRelativeSDKSRoot .. "/OpenAL 1.1 SDK/libs/Win64",
-		ProjectRelativeSDKSRoot .. "/lua-5.4.7/lib/x64/%{cfg.buildcfg}",	
-		ProjectRelativeSDKSRoot .. "/libsndfile/lib/x64/%{cfg.buildcfg}",
-		ProjectRelativeSDKSRoot .. "/libconfig/lib/x64/%{cfg.buildcfg}",
-		ProjectRelativeGammaERoot .. "/build/lib/%{cfg.buildcfg}",		
+		ProjectRelativeSDKSRoot .. "/lua-5.4.7/lib/$(Platform)/%{cfg.buildcfg}",	
+		ProjectRelativeSDKSRoot .. "/libsndfile/lib/$(Platform)/%{cfg.buildcfg}",
+		ProjectRelativeSDKSRoot .. "/libconfig/lib/$(Platform)/%{cfg.buildcfg}",
+		ProjectRelativeGammaERoot .. "/build/lib/$(Platform)/%{cfg.buildcfg}",
 	}
 
 	links 
@@ -161,5 +161,5 @@ project(ProjectName) -- for some reason this is reset, so we need to setup it ag
 	postbuildcommands
 	{
 		-- "{MKDIR} %{wks.location}/dist/lib", -- Create output directory
-		"{COPYFILE} " .. ProjectRelativeSDKSRoot .. "/Externals/FreeImage/Dist/x64/FreeImage.dll " .. ProjectRelativeFinalDataRoot
+		"{COPYFILE} " .. ProjectRelativeSDKSRoot .. "/Externals/FreeImage/Dist/$(Platform)/FreeImage.dll " .. ProjectRelativeFinalDataRoot
 	}

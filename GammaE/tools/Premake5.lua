@@ -65,8 +65,8 @@ local function addToolProject(_projectName, windowedApplication)
 		
 		language "C++"
 		cppdialect "C++17"
-		targetdir "$(ProjectDir)/exe/%{cfg.buildcfg}" -- Output directory for binaries
-		objdir "$(ProjectDir)/obj/%{cfg.buildcfg}" -- Output directory for intermediate files
+		targetdir "$(ProjectDir)/exe/$(Platform)/%{cfg.buildcfg}" -- Output directory for binaries
+		objdir "$(ProjectDir)/obj/$(Platform)" -- Output directory for intermediate files
 		characterset("ASCII")
 		debugdir(ProjectRelativeFinalDataRoot)
 
@@ -125,7 +125,7 @@ local function addToolProject(_projectName, windowedApplication)
 			ProjectRelativeSDKSRoot .. "/lua-5.4.7/lib/x64/%{cfg.buildcfg}",	
 			ProjectRelativeSDKSRoot .. "/libsndfile/lib/x64/%{cfg.buildcfg}",
 			ProjectRelativeSDKSRoot .. "/libconfig/lib/x64/%{cfg.buildcfg}",
-			ProjectRelativeGammaERoot .. "/build/lib/%{cfg.buildcfg}",
+			ProjectRelativeGammaERoot .. "/build/lib/$(Platform)/%{cfg.buildcfg}",
 		}		
 
 		if windowedApplication then
@@ -251,7 +251,6 @@ workspace "GammaE_Tools"
 			addToolProject("GASViewer", true)
 			addToolProject("GTS2GEM", false)
 			addToolProject("ParticleEditor", true)
-			addToolProject("wxSampleApplication", true)
 	
 		group("GammaE")
 

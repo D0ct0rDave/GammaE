@@ -7,3 +7,4 @@ git pull --recurse-submodules
 
 ::Restore previous folder
 @echo ********** END: %~n0%~x0 (%DATE% : %TIME%) ********** 
+pause

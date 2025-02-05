@@ -2,22 +2,22 @@
 project_name = "Game"
 caller_script_directory = os.getcwd();
 
-workspace("GammaE_" .. project_name)
-	dofile(caller_script_directory .. "/../common.lua")
+dofile(caller_script_directory .. "/../common.lua")
 
-	files 
-	{
-        sourceRoot .. "/**.cxx",
-	}	
-	includedirs 
-	{
-		"$(ProjectDir)../../SDKS/lua-5.4.7/include;"
-	}
-	
-	-- Exclude file
-	filter { "files:**CGScriptBinding.cpp" }
-	  flags {"ExcludeFromBuild"}
-	filter {} -- Reset filter
+files 
+{
+	sourceRoot .. "/**.cxx",
+}	
+
+includedirs 
+{
+	"$(ProjectDir)../../SDKS/lua-5.4.7/include;"
+}
+
+-- Exclude file
+filter { "files:**CGScriptBinding.cpp" }
+	flags {"ExcludeFromBuild"}
+filter {} -- Reset filter
 
 
 -- Install rules (using a post-build step for example purposes)

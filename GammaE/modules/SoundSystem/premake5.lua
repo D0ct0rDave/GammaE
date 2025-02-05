@@ -2,20 +2,19 @@
 project_name = "SoundSystem"
 caller_script_directory = os.getcwd();
 
-workspace("GammaE_" .. project_name)
-	dofile(caller_script_directory .. "/../common.lua")
+dofile(caller_script_directory .. "/../common.lua")
 
-	includedirs {
-		"$(ProjectDir)../../SDKS/FileLib/Src;",
-		"$(ProjectDir)../../SDKS/libsndfile/src",
-		"$(ProjectDir)../../SDKS/OpenAL 1.1 SDK/include"
-	}
+includedirs {
+	"$(ProjectDir)../../SDKS/FileLib/Src;",
+	"$(ProjectDir)../../SDKS/libsndfile/src",
+	"$(ProjectDir)../../SDKS/OpenAL 1.1 SDK/include"
+}
 
-	removefiles { 
-			"**/SndDrv_BASS/*", 
-			"**/SndDrv_DirectSound/*", 
-			"**/SndDrv_SDL/*",
-	}
+removefiles { 
+	"**/SndDrv_BASS/*", 
+	"**/SndDrv_DirectSound/*", 
+	"**/SndDrv_SDL/*",
+}
 
 -- Install rules (using a post-build step for example purposes)
 postbuildcommands {

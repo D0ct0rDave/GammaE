@@ -2,8 +2,7 @@
 project_name = "Collision"
 caller_script_directory = os.getcwd();
 
-workspace("GammaE_" .. project_name)
-	dofile(caller_script_directory .. "/../common.lua")
+dofile(caller_script_directory .. "/../common.lua")
 
 -- Install rules (using a post-build step for example purposes)
 postbuildcommands {

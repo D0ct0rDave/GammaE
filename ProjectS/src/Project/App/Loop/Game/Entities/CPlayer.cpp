@@ -94,7 +94,7 @@ void CPlayer::Init(const CGVect3& _oPos,int _iPlayerID)
 	m_poAnimGroup->uiAddAnimObject(m_poModels[LEGS][0]);
 
 	m_poMgr = mNew CGSceneAnimActionSet;
-	m_poMgr->SetAnimObj(m_poAnimGroup);
+	m_poMgr->SetAnimObject(m_poAnimGroup);
 
 	/*
 	// DMC: Refactor

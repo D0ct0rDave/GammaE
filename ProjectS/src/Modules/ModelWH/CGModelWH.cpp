@@ -6,15 +6,19 @@ CGSceneNode* CGModelWH::poGetInstance(const CGString& _sModelName)
     bool bExists = (CGGraphicResourceWH::I()->poFind(_sModelName) != NULL);
     CGGraphicResource* poGRes = CGGraphicResourceWH::I()->poLoad(_sModelName);
     
+    if (poGRes == NULL)    
+    {
+        return NULL;
+    }
+    
     if (! bExists)
     {
-          // Return directly the loaded model
-          return (  poInstantiate(poGRes->poGetModel()) );
+        return(poGRes->poGetModel());
+        //  return( poInstantiate(poGRes->poGetModel()) );
     }
     else
     {
         // Build a new instance and return it
-        
         return (  poGRes->poGetModel() );
     }
 }
@@ -133,7 +137,7 @@ CGSceneAnimActionSet* CGModelWH::poInstantiate(CGSceneAnimActionSet* _poObj)
     }
 
     // Instantiate anim obj
-    poObj->SetAnimObj( poInstantiate(_poObj->poGetAnimObj()) );
+    poObj->SetAnimObject( poInstantiate(_poObj->poGetAnimObject()) );
 
     return (poObj);
 }

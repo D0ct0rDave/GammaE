@@ -1,20 +1,10 @@
-
-if BUILD_LOCATION == "" then
-	BUILD_LOCATION = "build"
-end
-
--- Premake5.lua
-	configurations { "Debug", "Release" }
-    location(BUILD_LOCATION) -- Where generated files (like Visual Studio solutions) will be stored
-    architecture "x86_64"
-
 project(project_name)
 
     kind "StaticLib" -- Change to "SharedLib" for a shared library
     language "C++"
     cppdialect "C++17"
-    targetdir "$(ProjectDir)/lib/%{cfg.buildcfg}" -- Output directory for binaries
-    objdir "$(ProjectDir)/obj/%{cfg.buildcfg}" -- Output directory for intermediate files
+    targetdir "$(ProjectDir)/lib/$(Platform)/%{cfg.buildcfg}" -- Output directory for binaries
+    objdir "$(ProjectDir)/obj/$(Platform)" -- Output directory for intermediate files
 	characterset("ASCII")
 
     -- Specify the root directory of the library
