@@ -12,7 +12,7 @@ I have tried to create a first commit with the work done during the first period
 
 While I have been working on recovering this code base, I have remembered, looking at the code, that the engine has changed over time, and some projects use one version of the engine and others another. Specifically, the engine was initially implemented using Rational Rose for the design and interaction of classes and systems and this makes the code full of commented code that the application interprets during code generation. In the last iterations this code was removed and the files became much cleaner.
 
-The engine is highly influenced by the Quake2/3 engine. It can be seen one the shader system implemented to render the 3D geometry and also, the input configuarion, and also the command interpreter implemented at higher level.
+The engine is highly influenced by the Quake2/3 engine. It can be seen one the shader system implemented to render the 3D geometry and also, the input configuration, and also the command interpreter implemented at higher level.
 
 ## Repository structure
 
@@ -26,32 +26,55 @@ Each stage has a sample application depicting the main features at this point or
 - ProjectR is a 2D space shooter sidescroller prototyping new techniques like script integration, and other things.
 - ProjectS  
 
+
+## Build
+Generate the Engine project files with gen_solution_vs2022.bat. This is located under $(RepositoryRoot)/GammaE.
+
+This will generate the engine project and solution files under the build directory. You can now open the solution file and do a full rebuild.
+
+You can now generate the Tools, the samples or the Main project project files.
+- Tools: use gen_solution_vs2022.bat on $(RepositoryRoot)/GammaE/Tools
+- Samples: use gen_solution_vs2022.bat on $(RepositoryRoot)/GammaE/Samples
+- MainProject: use gen_solution_vs2022.bat on $(RepositoryRoot)/ProjectS
+	
+The main project folder may depend on the branch currently checkedout. 
+
+The current branches are: 
+- ProjectS, 
+- ProjectR, 
+- Orion, 
+- GammaE_Framework
+
 ## Branches
 
-Añadir lista de proyectos con screenshots y Branch
+### GammaE_Framework
+- Platform independent engine and framework structure.
+- Quake3 like "shaders".
+- 3D / Scene Graph / Collision multiplatform engine
+- MD2 / MD3 / Q2BSP support.
+
+![Screenshot5.png](https://raw.githubusercontent.com/D0ct0rDave/GammaE_Engine/refs/heads/GammaE_Branch/repoimgs/Screenshot5.png)
+
+![Screenshot6.png](https://raw.githubusercontent.com/D0ct0rDave/GammaE_Engine/refs/heads/GammaE_Branch/repoimgs/Screenshot6.png)
+
+
+### ProjectR
+Some remarcable features:
+- Video rendering for the scrolling background,
+- Sample HUD defined in text file
+- Script in lua to handle entities.
+
+In game screenshots. 
+
+![screenshot1.png](https://raw.githubusercontent.com/D0ct0rDave/GammaE_Engine/refs/heads/ProjectR/repoimages/screenshot0001.png)
+
+![screenshot2.png](https://raw.githubusercontent.com/D0ct0rDave/GammaE_Engine/refs/heads/ProjectR/repoimages/screenshot0002.png)
+
+The console / Command Interpreter
+
+![screenshot0.png](https://raw.githubusercontent.com/D0ct0rDave/GammaE_Engine/refs/heads/ProjectR/repoimages/screenshot0000.png)
 
 
 Añadir documentación de tools con screenshot
 - Particle editor
 - GAS / GTS / MD2 / GEM Loader / GEM Saver / 3D Viewer
-- 
-
-## Build
-Generate the Engine project files with gen_solution_vs2022.bat. This is located under $(RepositoryRoot)/GammaE.
-
-This will fenerate the engine project and solution files under the build directory. You can now open the solution file and do a full rebuild.
-
-You can now generate the Tools, the samples or the Main project project files.
-	- Tools: use gen_solution_vs2022.bat on $(RepositoryRoot)/GammaE/Tools
-	- Samples: use gen_solution_vs2022.bat on $(RepositoryRoot)/GammaE/Samples
-	- MainProject: use gen_solution_vs2022.bat on $(RepositoryRoot)/ProjectS
-	
-	The main project folder may depend on the branch currently checkedout. 
-		The current branches are:
-			ProjectS, 
-			ProjectR, 
-			Orion, 
-			GammaE_Framework
-	
-
-	
