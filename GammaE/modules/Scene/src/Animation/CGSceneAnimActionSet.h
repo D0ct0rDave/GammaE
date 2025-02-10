@@ -69,8 +69,12 @@ class CGSceneAnimActionSet : public CGSceneNode
         {
             int iActionIdx = m_oActions.iGetIdx(_sActionName);
 
+            // This method should rreturn a pointer to object because previous action may fail. 
+            assert(iActionIdx>=0 && "Unable to find action");
             if (iActionIdx >= 0)
+            {
                 return (oGetAnimAction(iActionIdx));
+            }
         }
 
         // / Starts a new animation
