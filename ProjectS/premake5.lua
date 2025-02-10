@@ -67,11 +67,11 @@ project(ProjectName)
 	libdirs
 	{
 		ProjectRelativeSDKSRoot .. "/Externals/FreeImage/Dist/$(Platform)/%{cfg.buildcfg}",
+		ProjectRelativeSDKSRoot .. "/Externals/lua/lib/$(Platform)/%{cfg.buildcfg}",	
+		ProjectRelativeSDKSRoot .. "/Externals/libconfigPortable/lib/$(Platform)/%{cfg.buildcfg}",
 		ProjectRelativeSDKSRoot .. "/OpenAL 1.1 SDK/libs",
 		ProjectRelativeSDKSRoot .. "/OpenAL 1.1 SDK/libs/Win64",
-		ProjectRelativeSDKSRoot .. "/Externals/lua/lib/$(Platform)/%{cfg.buildcfg}",	
 		ProjectRelativeSDKSRoot .. "/libsndfile/lib/$(Platform)/%{cfg.buildcfg}",
-		ProjectRelativeSDKSRoot .. "/libconfig/lib/$(Platform)/%{cfg.buildcfg}",
 		ProjectRelativeGammaERoot .. "/build/lib/$(Platform)/%{cfg.buildcfg}",
 	}
 
@@ -83,7 +83,7 @@ project(ProjectName)
 		"glu32.lib",
 		"libsndfile.lib",
 		"freeimage.lib",
-		"libconfig.lib",
+		"libconfigPortable.lib",
 		"lua.lib",
 		"OpenAL32.lib",
 		"vfw32.lib",

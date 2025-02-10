@@ -3,9 +3,10 @@ project_name = "Misc"
 caller_script_directory = os.getcwd();
 
 dofile(caller_script_directory .. "/../common.lua")
+
 includedirs {
-		"$(ProjectDir)../../sdks/libconfig;"
-	}
+	"$(ProjectDir)../../sdks/Externals/libconfigPortable/src"
+}
 
 defines {
 	"LIBCONFIG_STATIC",

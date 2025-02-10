@@ -11,3 +11,6 @@
 [submodule "SDKS/Externals/lua"]
 	path = SDKS/Externals/lua
 	url = https://github.com/D0ct0rDave/lua.git
+[submodule "SDKS/Externals/libconfigPortable"]
+	path = SDKS/Externals/libconfigPortable
+	url = https://github.com/D0ct0rDave/libconfigPortable.git
