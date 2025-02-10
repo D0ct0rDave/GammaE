@@ -60,16 +60,16 @@ project(ProjectName)
 		"$(ProjectDir)../src/Project",
 		"$(ProjectDir)../src/Modules",	
 		ProjectRelativeSDKSRoot .. "/Externals/FreeImage/Dist;",
-		ProjectRelativeSDKSRoot .. "/lua-5.4.7/include",
+		ProjectRelativeSDKSRoot .. "/Externals/lua/include",
     }
 
 	-- Library directories common for all configurations
 	libdirs
 	{
-		ProjectRelativeSDKSRoot .. "/Externals/FreeImage/Dist/$(Platform);",
+		ProjectRelativeSDKSRoot .. "/Externals/FreeImage/Dist/$(Platform)/%{cfg.buildcfg}",
 		ProjectRelativeSDKSRoot .. "/OpenAL 1.1 SDK/libs",
 		ProjectRelativeSDKSRoot .. "/OpenAL 1.1 SDK/libs/Win64",
-		ProjectRelativeSDKSRoot .. "/lua-5.4.7/lib/$(Platform)/%{cfg.buildcfg}",	
+		ProjectRelativeSDKSRoot .. "/Externals/lua/lib/$(Platform)/%{cfg.buildcfg}",	
 		ProjectRelativeSDKSRoot .. "/libsndfile/lib/$(Platform)/%{cfg.buildcfg}",
 		ProjectRelativeSDKSRoot .. "/libconfig/lib/$(Platform)/%{cfg.buildcfg}",
 		ProjectRelativeGammaERoot .. "/build/lib/$(Platform)/%{cfg.buildcfg}",
@@ -161,5 +161,5 @@ project(ProjectName) -- for some reason this is reset, so we need to setup it ag
 	postbuildcommands
 	{
 		-- "{MKDIR} %{wks.location}/dist/lib", -- Create output directory
-		"{COPYFILE} " .. ProjectRelativeSDKSRoot .. "/Externals/FreeImage/Dist/$(Platform)/FreeImage.dll " .. ProjectRelativeFinalDataRoot
+		"{COPYFILE} " .. ProjectRelativeSDKSRoot .. "/Externals/FreeImage/Dist/$(Platform)/%{cfg.buildcfg}/FreeImage.dll " .. ProjectRelativeFinalDataRoot
 	}

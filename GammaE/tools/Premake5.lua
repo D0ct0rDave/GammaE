@@ -119,19 +119,19 @@ local function addToolProject(_projectName, windowedApplication)
 		-- Library directories common for all configurations
 		libdirs
 		{
-			ProjectRelativeSDKSRoot .. "/Externals/FreeImage/Dist/x64",
+			ProjectRelativeSDKSRoot .. "/Externals/FreeImage/Dist/$(Platform)/%{cfg.buildcfg}",
 			ProjectRelativeSDKSRoot .. "/OpenAL 1.1 SDK/libs",
 			ProjectRelativeSDKSRoot .. "/OpenAL 1.1 SDK/libs/Win64",
-			ProjectRelativeSDKSRoot .. "/lua-5.4.7/lib/x64/%{cfg.buildcfg}",	
-			ProjectRelativeSDKSRoot .. "/libsndfile/lib/x64/%{cfg.buildcfg}",
-			ProjectRelativeSDKSRoot .. "/libconfig/lib/x64/%{cfg.buildcfg}",
+			ProjectRelativeSDKSRoot .. "/Externals/lua/lib/$(Platform)/%{cfg.buildcfg}",	
+			ProjectRelativeSDKSRoot .. "/libsndfile/lib/$(Platform)/%{cfg.buildcfg}",
+			ProjectRelativeSDKSRoot .. "/libconfig/lib/$(Platform)/%{cfg.buildcfg}",
 			ProjectRelativeGammaERoot .. "/build/lib/$(Platform)/%{cfg.buildcfg}",
 		}		
 
 		if windowedApplication then
 			libdirs
 			{
-				ProjectRelativeSDKSRoot .. "/Externals/wxWidgets2.8/lib/vc_lib/x64",
+				ProjectRelativeSDKSRoot .. "/Externals/wxWidgets2.8/lib/vc_lib/$(Platform)",
 			}
 		end		
 
@@ -234,7 +234,7 @@ local function addToolProject(_projectName, windowedApplication)
 		postbuildcommands
 		{
 			"{MKDIR} " .. ProjectRelativeFinalDataRoot, -- Create output directory
-			"{COPYFILE} " .. ProjectRelativeSDKSRoot .. "/Externals/FreeImage/Dist/x64/FreeImage.dll " .. ProjectRelativeFinalDataRoot
+			"{COPYFILE} " .. ProjectRelativeSDKSRoot .. "/Externals/FreeImage/Dist/$(Platform)/%{cfg.buildcfg}/FreeImage.dll " .. ProjectRelativeFinalDataRoot
 		}
 end
 

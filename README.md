@@ -28,6 +28,16 @@ Each stage has a sample application depicting the main features at this point or
 
 
 ## Build
+First you will need to build the dependencies of the engine. Depending on the branch selected we'll have to build some dependencies or another.
+
+For the main / master branch you will need to build.
+FreeImage (SDKS/Externals/FreeImage)
+lua (SDKS/Externals/lua)
+
+If you need to build tools:
+wxWidgets (SDKS/Externals/wxWidgets2.8)
+
+
 Generate the Engine project files with gen_solution_vs2022.bat. This is located under $(RepositoryRoot)/GammaE.
 
 This will generate the engine project and solution files under the build directory. You can now open the solution file and do a full rebuild.
@@ -56,7 +66,6 @@ The current branches are:
 ![Screenshot5.png](https://raw.githubusercontent.com/D0ct0rDave/GammaE_Engine/refs/heads/GammaE_Branch/repoimgs/Screenshot5.png)
 
 ![Screenshot6.png](https://raw.githubusercontent.com/D0ct0rDave/GammaE_Engine/refs/heads/GammaE_Branch/repoimgs/Screenshot6.png)
-
 
 ### ProjectR
 Some remarcable features:

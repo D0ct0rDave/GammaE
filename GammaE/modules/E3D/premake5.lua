@@ -5,7 +5,7 @@ caller_script_directory = os.getcwd();
 dofile(caller_script_directory .. "/../common.lua")
 
 includedirs {
-	"$(ProjectDir)../../sdks/OpenGL;",
+	"$(ProjectDir)../../sdks/Externals/OpenGL;",
 	"$(ProjectDir)../../sdks/Externals/FreeImage/Dist;"
 }
 
