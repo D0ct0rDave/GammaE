@@ -8,3 +8,6 @@
 [submodule "SDKS/Externals/OpenGL"]
 	path = SDKS/Externals/OpenGL
 	url = https://github.com/D0ct0rDave/OpenGL
+[submodule "SDKS/Externals/lua"]
+	path = SDKS/Externals/lua
+	url = https://github.com/D0ct0rDave/lua.git
