@@ -11,7 +11,7 @@ files
 
 includedirs 
 {
-	"$(ProjectDir)../../SDKS/lua-5.4.7/include;"
+	"$(ProjectDir)../../SDKS/Externals/lua/include;"
 }
 
 -- Exclude file
