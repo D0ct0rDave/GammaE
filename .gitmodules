@@ -5,3 +5,6 @@
 	path = SDKS/Externals/wxWidgets2.8
 	url = https://github.com/D0ct0rDave/wxWidgets.git
 	branch = WX_2_8_BRANCH
+[submodule "SDKS/Externals/OpenGL"]
+	path = SDKS/Externals/OpenGL
+	url = https://github.com/D0ct0rDave/OpenGL
